@@ -10,20 +10,34 @@
 
 @interface ViewController ()
 
+@property (weak) IBOutlet UIButton *cameraButton;
+
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+- (IBAction)swapCamera:(UIButton*)sender
+{
+    sender.selected = !sender.selected;
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)cycleFlash:(UIButton*)sender
+{
+    if(sender.selected) {
+        
+        sender.enabled = NO;
+        sender.selected = NO;
+    }
+    else {
+        
+        sender.selected = YES;
+    }
 }
 
+- (IBAction)setAutoFlash:(id)sender
+{
+    self.cameraButton.enabled = YES;
+    self.cameraButton.selected = NO;
+}
 
 @end

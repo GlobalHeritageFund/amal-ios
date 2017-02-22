@@ -13,6 +13,11 @@
 		580A55481E5CFC1000A70AB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580A55461E5CFC1000A70AB1 /* Main.storyboard */; };
 		580A554A1E5CFC1000A70AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580A55491E5CFC1000A70AB1 /* Assets.xcassets */; };
 		580A554D1E5CFC1000A70AB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */; };
+		580A55571E5D0B9800A70AB1 /* CaptureNotesPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55561E5D0B9800A70AB1 /* CaptureNotesPage.m */; };
+		580A555B1E5D136200A70AB1 /* CALayer+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A555A1E5D136200A70AB1 /* CALayer+Additions.m */; };
+		580A555F1E5D1C5A00A70AB1 /* UIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A555E1E5D1C5A00A70AB1 /* UIViewController+Additions.m */; };
+		580A55621E5D1E7400A70AB1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55611E5D1E7400A70AB1 /* MapKit.framework */; };
+		580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55651E5D255600A70AB1 /* UIButton+Additions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,15 @@
 		580A55491E5CFC1000A70AB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		580A554C1E5CFC1000A70AB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		580A554E1E5CFC1000A70AB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		580A55551E5D0B9800A70AB1 /* CaptureNotesPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureNotesPage.h; sourceTree = "<group>"; };
+		580A55561E5D0B9800A70AB1 /* CaptureNotesPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureNotesPage.m; sourceTree = "<group>"; };
+		580A55591E5D136200A70AB1 /* CALayer+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Additions.h"; sourceTree = "<group>"; };
+		580A555A1E5D136200A70AB1 /* CALayer+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Additions.m"; sourceTree = "<group>"; };
+		580A555D1E5D1C5A00A70AB1 /* UIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Additions.h"; sourceTree = "<group>"; };
+		580A555E1E5D1C5A00A70AB1 /* UIViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Additions.m"; sourceTree = "<group>"; };
+		580A55611E5D1E7400A70AB1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		580A55641E5D255600A70AB1 /* UIButton+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Additions.h"; sourceTree = "<group>"; };
+		580A55651E5D255600A70AB1 /* UIButton+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Additions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				580A55621E5D1E7400A70AB1 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +59,7 @@
 			children = (
 				580A553C1E5CFC1000A70AB1 /* Aml */,
 				580A553B1E5CFC1000A70AB1 /* Products */,
+				580A55601E5D1E7300A70AB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +74,10 @@
 		580A553C1E5CFC1000A70AB1 /* Aml */ = {
 			isa = PBXGroup;
 			children = (
+				580A55631E5D254600A70AB1 /* UIButton+Additions */,
+				580A555C1E5D1C2500A70AB1 /* UIViewController+Additions */,
+				580A55581E5D133B00A70AB1 /* CALayer+Additions */,
+				580A55541E5D0B8700A70AB1 /* CaptureNotesPage */,
 				580A55401E5CFC1000A70AB1 /* AppDelegate.h */,
 				580A55411E5CFC1000A70AB1 /* AppDelegate.m */,
 				580A55431E5CFC1000A70AB1 /* ViewController.h */,
@@ -77,6 +97,50 @@
 				580A553E1E5CFC1000A70AB1 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		580A55541E5D0B8700A70AB1 /* CaptureNotesPage */ = {
+			isa = PBXGroup;
+			children = (
+				580A55551E5D0B9800A70AB1 /* CaptureNotesPage.h */,
+				580A55561E5D0B9800A70AB1 /* CaptureNotesPage.m */,
+			);
+			name = CaptureNotesPage;
+			sourceTree = "<group>";
+		};
+		580A55581E5D133B00A70AB1 /* CALayer+Additions */ = {
+			isa = PBXGroup;
+			children = (
+				580A55591E5D136200A70AB1 /* CALayer+Additions.h */,
+				580A555A1E5D136200A70AB1 /* CALayer+Additions.m */,
+			);
+			name = "CALayer+Additions";
+			sourceTree = "<group>";
+		};
+		580A555C1E5D1C2500A70AB1 /* UIViewController+Additions */ = {
+			isa = PBXGroup;
+			children = (
+				580A555D1E5D1C5A00A70AB1 /* UIViewController+Additions.h */,
+				580A555E1E5D1C5A00A70AB1 /* UIViewController+Additions.m */,
+			);
+			name = "UIViewController+Additions";
+			sourceTree = "<group>";
+		};
+		580A55601E5D1E7300A70AB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				580A55611E5D1E7400A70AB1 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		580A55631E5D254600A70AB1 /* UIButton+Additions */ = {
+			isa = PBXGroup;
+			children = (
+				580A55641E5D255600A70AB1 /* UIButton+Additions.h */,
+				580A55651E5D255600A70AB1 /* UIButton+Additions.m */,
+			);
+			name = "UIButton+Additions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +214,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				580A555F1E5D1C5A00A70AB1 /* UIViewController+Additions.m in Sources */,
+				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* ViewController.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
 				580A553F1E5CFC1000A70AB1 /* main.m in Sources */,
+				580A55571E5D0B9800A70AB1 /* CaptureNotesPage.m in Sources */,
+				580A555B1E5D136200A70AB1 /* CALayer+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +339,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Aml/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Dustin.Aml;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -282,6 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Aml/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Dustin.Aml;
 				PRODUCT_NAME = "$(TARGET_NAME)";
