@@ -18,6 +18,8 @@
 		580A555F1E5D1C5A00A70AB1 /* UIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A555E1E5D1C5A00A70AB1 /* UIViewController+Additions.m */; };
 		580A55621E5D1E7400A70AB1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55611E5D1E7400A70AB1 /* MapKit.framework */; };
 		580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55651E5D255600A70AB1 /* UIButton+Additions.m */; };
+		580A556A1E5E4E4800A70AB1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55681E5E4E4800A70AB1 /* Fabric.framework */; };
+		580A556B1E5E4E4800A70AB1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55691E5E4E4800A70AB1 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		580A55611E5D1E7400A70AB1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		580A55641E5D255600A70AB1 /* UIButton+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Additions.h"; sourceTree = "<group>"; };
 		580A55651E5D255600A70AB1 /* UIButton+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Additions.m"; sourceTree = "<group>"; };
+		580A55681E5E4E4800A70AB1 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		580A55691E5E4E4800A70AB1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				580A55621E5D1E7400A70AB1 /* MapKit.framework in Frameworks */,
+				580A556B1E5E4E4800A70AB1 /* Crashlytics.framework in Frameworks */,
+				580A556A1E5E4E4800A70AB1 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +135,8 @@
 		580A55601E5D1E7300A70AB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				580A55681E5E4E4800A70AB1 /* Fabric.framework */,
+				580A55691E5E4E4800A70AB1 /* Crashlytics.framework */,
 				580A55611E5D1E7400A70AB1 /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -153,6 +161,7 @@
 				580A55361E5CFC1000A70AB1 /* Sources */,
 				580A55371E5CFC1000A70AB1 /* Frameworks */,
 				580A55381E5CFC1000A70AB1 /* Resources */,
+				580A55671E5E4E3000A70AB1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -174,6 +183,7 @@
 				TargetAttributes = {
 					580A55391E5CFC1000A70AB1 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 874LE5SV49;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -208,6 +218,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		580A55671E5E4E3000A70AB1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 5f4984b189bff02f040342a6413f026255a2f6f9 b4d3916a471b017d1abe939eda7c560f3b1cea14a9e21277d10a4b520fecb652";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		580A55361E5CFC1000A70AB1 /* Sources */ = {
@@ -286,7 +312,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -327,7 +353,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -338,6 +364,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 874LE5SV49;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Aml/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -350,6 +381,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 874LE5SV49;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Aml/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -377,6 +413,7 @@
 				580A55531E5CFC1000A70AB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

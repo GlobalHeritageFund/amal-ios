@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -324,8 +323,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a condition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zU-0i-05F">
-                                            <rect key="frame" x="22" y="8" width="109" height="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level of damage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zU-0i-05F">
+                                            <rect key="frame" x="22" y="8" width="100" height="16"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -367,7 +366,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hlh-Dc-Rgb">
-                                            <rect key="frame" x="8" y="32" width="359" height="30"/>
+                                            <rect key="frame" x="22" y="32" width="345" height="30"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -375,7 +374,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="hlh-Dc-Rgb" firstAttribute="top" secondItem="m7F-eS-tDq" secondAttribute="bottom" constant="8" id="HwZ-4A-eS0"/>
-                                        <constraint firstItem="hlh-Dc-Rgb" firstAttribute="leading" secondItem="USf-qL-q13" secondAttribute="leading" constant="8" id="ToD-3a-PdE"/>
+                                        <constraint firstItem="hlh-Dc-Rgb" firstAttribute="leading" secondItem="USf-qL-q13" secondAttribute="leading" constant="22" id="ToD-3a-PdE"/>
                                         <constraint firstItem="m7F-eS-tDq" firstAttribute="leading" secondItem="USf-qL-q13" secondAttribute="leading" constant="22" id="dqJ-G7-Bsa"/>
                                         <constraint firstItem="m7F-eS-tDq" firstAttribute="top" secondItem="USf-qL-q13" secondAttribute="top" constant="8" id="mwK-RY-cOo"/>
                                         <constraint firstAttribute="trailing" secondItem="hlh-Dc-Rgb" secondAttribute="trailing" constant="8" id="nJb-lR-MIO"/>
@@ -398,19 +397,19 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1o-9K-6VP">
-                                            <rect key="frame" x="236" y="24" width="131" height="30"/>
-                                            <state key="normal" title="Yes | Supporting  &gt;">
-                                                <color key="titleColor" red="0.5607843137254902" green="0.55686274509803924" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                        </button>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="by1-2y-yrd">
+                                            <rect key="frame" x="8" y="32" width="359" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Yes"/>
+                                                <segment title="No"/>
+                                            </segments>
+                                            <color key="tintColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </segmentedControl>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="R1o-9K-6VP" secondAttribute="trailing" constant="8" id="Opi-fI-G4P"/>
                                         <constraint firstItem="oPD-F2-I4I" firstAttribute="top" secondItem="o1T-52-O38" secondAttribute="top" constant="8" id="PGH-eY-NpX"/>
-                                        <constraint firstItem="R1o-9K-6VP" firstAttribute="top" secondItem="oPD-F2-I4I" secondAttribute="bottom" id="hFZ-Bo-ED8"/>
                                         <constraint firstItem="oPD-F2-I4I" firstAttribute="leading" secondItem="o1T-52-O38" secondAttribute="leading" constant="22" id="uNX-VJ-Quk"/>
-                                        <constraint firstAttribute="bottom" secondItem="R1o-9K-6VP" secondAttribute="bottom" constant="25" id="xHP-k1-aNE"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>

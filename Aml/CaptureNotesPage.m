@@ -37,7 +37,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    return 6;
 }
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -71,7 +71,6 @@
         @"DamageCell",
         @"NotesCell",
         @"InterventionCell",
-        @"MapCell",
         NULL
     };
     
