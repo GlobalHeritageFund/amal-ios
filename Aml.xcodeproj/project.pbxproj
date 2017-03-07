@@ -20,6 +20,7 @@
 		580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55651E5D255600A70AB1 /* UIButton+Additions.m */; };
 		580A556A1E5E4E4800A70AB1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55681E5E4E4800A70AB1 /* Fabric.framework */; };
 		580A556B1E5E4E4800A70AB1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55691E5E4E4800A70AB1 /* Crashlytics.framework */; };
+		58DA10701E6F2E8C00B982BE /* ConditionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DA106F1E6F2E8C00B982BE /* ConditionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		580A55651E5D255600A70AB1 /* UIButton+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Additions.m"; sourceTree = "<group>"; };
 		580A55681E5E4E4800A70AB1 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		580A55691E5E4E4800A70AB1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		58DA106E1E6F2E8C00B982BE /* ConditionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionCell.h; sourceTree = "<group>"; };
+		58DA106F1E6F2E8C00B982BE /* ConditionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,18 +83,15 @@
 		580A553C1E5CFC1000A70AB1 /* Aml */ = {
 			isa = PBXGroup;
 			children = (
+				58DA106D1E6F2E7900B982BE /* ConditionCell */,
 				580A55631E5D254600A70AB1 /* UIButton+Additions */,
 				580A555C1E5D1C2500A70AB1 /* UIViewController+Additions */,
 				580A55581E5D133B00A70AB1 /* CALayer+Additions */,
 				580A55541E5D0B8700A70AB1 /* CaptureNotesPage */,
-				580A55401E5CFC1000A70AB1 /* AppDelegate.h */,
-				580A55411E5CFC1000A70AB1 /* AppDelegate.m */,
-				580A55431E5CFC1000A70AB1 /* ViewController.h */,
-				580A55441E5CFC1000A70AB1 /* ViewController.m */,
-				580A55461E5CFC1000A70AB1 /* Main.storyboard */,
-				580A55491E5CFC1000A70AB1 /* Assets.xcassets */,
-				580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */,
-				580A554E1E5CFC1000A70AB1 /* Info.plist */,
+				58BE517F1E6639C3001B9575 /* AppDelegate */,
+				58BE51801E6639C8001B9575 /* ViewController */,
+				58BE51811E6639D1001B9575 /* Storyboards */,
+				58BE51821E6639D7001B9575 /* Assets */,
 				580A553D1E5CFC1000A70AB1 /* Supporting Files */,
 			);
 			path = Aml;
@@ -100,6 +100,7 @@
 		580A553D1E5CFC1000A70AB1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				580A554E1E5CFC1000A70AB1 /* Info.plist */,
 				580A553E1E5CFC1000A70AB1 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -151,6 +152,50 @@
 			name = "UIButton+Additions";
 			sourceTree = "<group>";
 		};
+		58BE517F1E6639C3001B9575 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				580A55401E5CFC1000A70AB1 /* AppDelegate.h */,
+				580A55411E5CFC1000A70AB1 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		58BE51801E6639C8001B9575 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				580A55431E5CFC1000A70AB1 /* ViewController.h */,
+				580A55441E5CFC1000A70AB1 /* ViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		58BE51811E6639D1001B9575 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				580A55461E5CFC1000A70AB1 /* Main.storyboard */,
+				580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		58BE51821E6639D7001B9575 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				580A55491E5CFC1000A70AB1 /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		58DA106D1E6F2E7900B982BE /* ConditionCell */ = {
+			isa = PBXGroup;
+			children = (
+				58DA106E1E6F2E8C00B982BE /* ConditionCell.h */,
+				58DA106F1E6F2E8C00B982BE /* ConditionCell.m */,
+			);
+			name = ConditionCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -183,8 +228,8 @@
 				TargetAttributes = {
 					580A55391E5CFC1000A70AB1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 874LE5SV49;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = SG3NZ84FK5;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -241,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				580A555F1E5D1C5A00A70AB1 /* UIViewController+Additions.m in Sources */,
+				58DA10701E6F2E8C00B982BE /* ConditionCell.m in Sources */,
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* ViewController.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
@@ -364,7 +410,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 874LE5SV49;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = M9UQJU6B67;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -374,6 +421,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.amalglobal.amalinheritage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3bee2164-598c-45b2-ac5e-2ebb381fa6bf";
+				PROVISIONING_PROFILE_SPECIFIER = "Generic Development";
 			};
 			name = Debug;
 		};
@@ -381,7 +430,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 874LE5SV49;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = SG3NZ84FK5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -391,6 +441,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.amalglobal.amalinheritage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d1b979ba-afb6-484b-9ab4-7494dee98e13";
+				PROVISIONING_PROFILE_SPECIFIER = "Distribution Profile";
 			};
 			name = Release;
 		};

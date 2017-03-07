@@ -35,9 +35,29 @@
     return 1;
 }
 
+- (NSArray*)cellIdentifiers
+{
+    return
+    @[
+      @"TitleCell",
+      @"CategoryCell",
+      @"TitleCell",
+      @"OverallCell",
+      @"TitleCell",
+      @"ConditionCell",
+      @"SubtitleCell",
+      @"TitleCell",
+      @"HazardsCell",
+      @"SafetyHazardsCell",
+      @"InterventionCell",
+      @"TitleNoSeperatorCell",
+      @"DescriptionCell",
+      ];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return self.cellIdentifiers.count;
 }
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -63,26 +83,25 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifiers[] =
-    {
-        @"ImageCell",
-        @"CategoryCell",
-        @"ConditionCell",
-        @"DamageCell",
-        @"NotesCell",
-        @"InterventionCell",
-        NULL
-    };
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifiers[indexPath.row]];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifiers[indexPath.row]];
+    if(indexPath.row == 0)
+        [(id)[cell viewWithTag:1] setText:@"CATEGORY"];
     
-    if(indexPath.row == 6) {
-        
-        MKMapView *view = (id)[cell viewWithTag:1];
-        
-        view.showsUserLocation = YES;
-        view.userTrackingMode = MKUserTrackingModeFollow;
-    }
+    if(indexPath.row == 2)
+        [(id)[cell viewWithTag:1] setText:@"OVERALL CONDITION"];
+    
+    if(indexPath.row == 4)
+        [(id)[cell viewWithTag:1] setText:@"LEVEL OF DAMAGE"];
+    
+    if(indexPath.row == 6)
+        [(id)[cell viewWithTag:1] setText:@"Level 3 - Moderate damage, poor condition"];
+    
+    if(indexPath.row == 7)
+        [(id)[cell viewWithTag:1] setText:@"ASSESS"];
+    
+    if(indexPath.row == 11)
+        [(id)[cell viewWithTag:1] setText:@"NOTES"];
     
     return cell;
 }
