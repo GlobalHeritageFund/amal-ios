@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
+@property (weak) IBOutlet UIImageView *previewImageView;
 
 @end
 
