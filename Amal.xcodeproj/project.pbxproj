@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		580A553A1E5CFC1000A70AB1 /* Aml.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aml.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580A553E1E5CFC1000A70AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		580A55401E5CFC1000A70AB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		580A55411E5CFC1000A70AB1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		580A553B1E5CFC1000A70AB1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				580A553A1E5CFC1000A70AB1 /* Aml.app */,
+				580A553A1E5CFC1000A70AB1 /* Amal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,9 +199,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		580A55391E5CFC1000A70AB1 /* Aml */ = {
+		580A55391E5CFC1000A70AB1 /* Amal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 580A55511E5CFC1000A70AB1 /* Build configuration list for PBXNativeTarget "Aml" */;
+			buildConfigurationList = 580A55511E5CFC1000A70AB1 /* Build configuration list for PBXNativeTarget "Amal" */;
 			buildPhases = (
 				580A55361E5CFC1000A70AB1 /* Sources */,
 				580A55371E5CFC1000A70AB1 /* Frameworks */,
@@ -212,9 +212,9 @@
 			);
 			dependencies = (
 			);
-			name = Aml;
+			name = Amal;
 			productName = Aml;
-			productReference = 580A553A1E5CFC1000A70AB1 /* Aml.app */;
+			productReference = 580A553A1E5CFC1000A70AB1 /* Amal.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -233,7 +233,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 580A55351E5CFC1000A70AB1 /* Build configuration list for PBXProject "Aml" */;
+			buildConfigurationList = 580A55351E5CFC1000A70AB1 /* Build configuration list for PBXProject "Amal" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -246,7 +246,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				580A55391E5CFC1000A70AB1 /* Aml */,
+				580A55391E5CFC1000A70AB1 /* Amal */,
 			);
 		};
 /* End PBXProject section */
@@ -441,15 +441,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.amalglobal.amalinheritage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d1b979ba-afb6-484b-9ab4-7494dee98e13";
-				PROVISIONING_PROFILE_SPECIFIER = "Distribution Profile";
+				PROVISIONING_PROFILE = "518f62f4-2ab8-4f26-8081-b852ef4d3bad";
+				PROVISIONING_PROFILE_SPECIFIER = "Ad Hoc Distribution";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		580A55351E5CFC1000A70AB1 /* Build configuration list for PBXProject "Aml" */ = {
+		580A55351E5CFC1000A70AB1 /* Build configuration list for PBXProject "Amal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				580A554F1E5CFC1000A70AB1 /* Debug */,
@@ -458,7 +458,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		580A55511E5CFC1000A70AB1 /* Build configuration list for PBXNativeTarget "Aml" */ = {
+		580A55511E5CFC1000A70AB1 /* Build configuration list for PBXNativeTarget "Amal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				580A55521E5CFC1000A70AB1 /* Debug */,
