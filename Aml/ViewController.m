@@ -76,6 +76,13 @@
     [self.previewImageView.layer addSublayer:previewLayer];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    previewLayer.frame = self.previewImageView.bounds;
+}
+
 - (IBAction)swapCamera:(UIButton*)sender
 {
     sender.selected = !sender.selected;
