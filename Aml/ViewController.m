@@ -48,32 +48,36 @@
 {
     [super viewDidLoad];
     
-    captureSession = [AVCaptureSession new];
-    
-    [captureSession startRunning];
-    
-    captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
-    
     [self loadDevices];
     
-    self.torchMode = AVCaptureTorchModeAuto;
-    
-    capturingInputBack = [AVCaptureDeviceInput deviceInputWithDevice:inputDeviceBack error:nil];
-    capturingInputFront = [AVCaptureDeviceInput deviceInputWithDevice:inputDeviceFront error:nil];
-    
-    [captureSession beginConfiguration];
-    
-    [captureSession addInput:capturingInputBack];
-    
-    [captureSession commitConfiguration];
-    
-    previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
-    
-    previewLayer.frame = self.previewImageView.bounds;
-    
-    previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    
-    [self.previewImageView.layer addSublayer:previewLayer];
+    if(capturingInputBack) {
+        
+        captureSession = [AVCaptureSession new];
+        
+        [captureSession startRunning];
+        
+        if([captureSession canSetSessionPreset:AVCaptureSessionPresetPhoto])
+            captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
+        
+        self.torchMode = AVCaptureTorchModeAuto;
+        
+        capturingInputBack = [AVCaptureDeviceInput deviceInputWithDevice:inputDeviceBack error:nil];
+        capturingInputFront = [AVCaptureDeviceInput deviceInputWithDevice:inputDeviceFront error:nil];
+        
+        [captureSession beginConfiguration];
+        
+        [captureSession addInput:capturingInputBack];
+        
+        [captureSession commitConfiguration];
+        
+        previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
+        
+        previewLayer.frame = self.previewImageView.bounds;
+        
+        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        
+        [self.previewImageView.layer addSublayer:previewLayer];
+    }
 }
 
 - (void)viewDidLayoutSubviews
