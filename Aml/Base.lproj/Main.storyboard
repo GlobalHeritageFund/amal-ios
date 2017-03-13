@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Page-->
         <scene sceneID="WTU-kR-3uF">
             <objects>
-                <tabBarController id="Dj3-gB-zij" sceneMemberID="viewController">
+                <tabBarController id="Dj3-gB-zij" customClass="TabBarPage" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Uhf-xC-caH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-2671" y="-217"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Nav Page-->
         <scene sceneID="V0c-z8-YAJ">
             <objects>
-                <navigationController navigationBarHidden="YES" id="6j5-Uj-lZC" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="6j5-Uj-lZC" customClass="NavPage" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="ic_camera_white" id="4z1-iQ-0BL">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
@@ -152,7 +152,9 @@
                     <connections>
                         <outlet property="flashButton" destination="FeK-rm-ORf" id="vP4-bs-Jb9"/>
                         <outlet property="imagePreviewOverlay" destination="Xrq-UL-7SC" id="P5W-Tx-uAg"/>
+                        <outlet property="photoButton" destination="2vv-Fy-LSU" id="KvY-Dt-L6l"/>
                         <outlet property="previewImageView" destination="boV-Ur-A1X" id="hvm-qm-Nxa"/>
+                        <outlet property="rapidButton" destination="XuH-ai-VbQ" id="m43-kk-tHY"/>
                         <outlet property="swapButton" destination="vBn-yl-Wvg" id="k90-87-Z1z"/>
                     </connections>
                 </viewController>
@@ -819,7 +821,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSq-1I-nsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2994" y="666"/>
+            <point key="canvasLocation" x="3394" y="73"/>
         </scene>
     </scenes>
     <resources>

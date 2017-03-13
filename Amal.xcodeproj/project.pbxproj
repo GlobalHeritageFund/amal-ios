@@ -20,6 +20,8 @@
 		580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55651E5D255600A70AB1 /* UIButton+Additions.m */; };
 		580A556A1E5E4E4800A70AB1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55681E5E4E4800A70AB1 /* Fabric.framework */; };
 		580A556B1E5E4E4800A70AB1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55691E5E4E4800A70AB1 /* Crashlytics.framework */; };
+		5846B2011E773315008E48BC /* NavPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2001E773315008E48BC /* NavPage.m */; };
+		5846B2051E773354008E48BC /* TabBarPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2041E773354008E48BC /* TabBarPage.m */; };
 		58DA10701E6F2E8C00B982BE /* ConditionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DA106F1E6F2E8C00B982BE /* ConditionCell.m */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,10 @@
 		580A55651E5D255600A70AB1 /* UIButton+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Additions.m"; sourceTree = "<group>"; };
 		580A55681E5E4E4800A70AB1 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		580A55691E5E4E4800A70AB1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		5846B1FF1E773315008E48BC /* NavPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavPage.h; sourceTree = "<group>"; };
+		5846B2001E773315008E48BC /* NavPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavPage.m; sourceTree = "<group>"; };
+		5846B2031E773354008E48BC /* TabBarPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarPage.h; sourceTree = "<group>"; };
+		5846B2041E773354008E48BC /* TabBarPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarPage.m; sourceTree = "<group>"; };
 		58DA106E1E6F2E8C00B982BE /* ConditionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionCell.h; sourceTree = "<group>"; };
 		58DA106F1E6F2E8C00B982BE /* ConditionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +89,8 @@
 		580A553C1E5CFC1000A70AB1 /* Aml */ = {
 			isa = PBXGroup;
 			children = (
+				5846B2021E773340008E48BC /* TabBarPage */,
+				5846B1FE1E7732FB008E48BC /* NavPage */,
 				58DA106D1E6F2E7900B982BE /* ConditionCell */,
 				580A55631E5D254600A70AB1 /* UIButton+Additions */,
 				580A555C1E5D1C2500A70AB1 /* UIViewController+Additions */,
@@ -150,6 +158,24 @@
 				580A55651E5D255600A70AB1 /* UIButton+Additions.m */,
 			);
 			name = "UIButton+Additions";
+			sourceTree = "<group>";
+		};
+		5846B1FE1E7732FB008E48BC /* NavPage */ = {
+			isa = PBXGroup;
+			children = (
+				5846B1FF1E773315008E48BC /* NavPage.h */,
+				5846B2001E773315008E48BC /* NavPage.m */,
+			);
+			name = NavPage;
+			sourceTree = "<group>";
+		};
+		5846B2021E773340008E48BC /* TabBarPage */ = {
+			isa = PBXGroup;
+			children = (
+				5846B2031E773354008E48BC /* TabBarPage.h */,
+				5846B2041E773354008E48BC /* TabBarPage.m */,
+			);
+			name = TabBarPage;
 			sourceTree = "<group>";
 		};
 		58BE517F1E6639C3001B9575 /* AppDelegate */ = {
@@ -290,8 +316,10 @@
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* ViewController.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
+				5846B2011E773315008E48BC /* NavPage.m in Sources */,
 				580A553F1E5CFC1000A70AB1 /* main.m in Sources */,
 				580A55571E5D0B9800A70AB1 /* CaptureNotesPage.m in Sources */,
+				5846B2051E773354008E48BC /* TabBarPage.m in Sources */,
 				580A555B1E5D136200A70AB1 /* CALayer+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

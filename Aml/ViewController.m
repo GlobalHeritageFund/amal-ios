@@ -14,6 +14,9 @@
 @property (weak) IBOutlet UIButton *swapButton;
 @property (weak) IBOutlet UIButton *flashButton;
 
+@property (weak) IBOutlet UIButton *rapidButton;
+@property (weak) IBOutlet UIButton *photoButton;
+
 @property (weak) IBOutlet UIView *imagePreviewOverlay;
 
 @end
@@ -78,6 +81,43 @@
         
         [self.previewImageView.layer addSublayer:previewLayer];
     }
+    
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(orientationChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
+- (void)orientationChange:(NSNotification*)note
+{
+    UIDeviceOrientation orientation = UIDevice.currentDevice.orientation;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        
+        if(orientation == UIDeviceOrientationLandscapeLeft) {
+            
+            self.swapButton.transform = CGAffineTransformMakeRotation(M_PI_2);
+            self.flashButton.transform = CGAffineTransformMakeRotation(M_PI_2);
+            self.rapidButton.transform = CGAffineTransformMakeRotation(M_PI_2);
+            self.photoButton.transform = CGAffineTransformMakeRotation(M_PI_2);
+        }
+        else if(orientation == UIDeviceOrientationLandscapeRight) {
+            
+            self.swapButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
+            self.flashButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
+            self.rapidButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
+            self.photoButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
+        }
+        else {
+            
+            self.swapButton.transform = CGAffineTransformIdentity;
+            self.flashButton.transform = CGAffineTransformIdentity;
+            self.rapidButton.transform = CGAffineTransformIdentity;
+            self.photoButton.transform = CGAffineTransformIdentity;
+        }
+    }];
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)viewDidLayoutSubviews
