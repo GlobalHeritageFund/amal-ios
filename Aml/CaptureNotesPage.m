@@ -9,6 +9,7 @@
 #import "CaptureNotesPage.h"
 #import "UIViewController+Additions.h"
 #import <MapKit/MapKit.h>
+#import "PhotoSettings.h"
 
 @interface CaptureNotesPage ()
 
@@ -51,6 +52,26 @@
       ];
 }
 
+- (NSArray*)settingsKeys
+{
+    return
+    @[
+      [NSNull null],
+      @"category",
+      [NSNull null],
+      @"condition",
+      [NSNull null],
+      @"levelOfDamage",
+      [NSNull null],
+      [NSNull null],
+      @"hazards",
+      @"safetyHazards",
+      @"intervention",
+      [NSNull null],
+      @"notes",
+      ];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.cellIdentifiers.count;
@@ -72,9 +93,16 @@
     
     UIButton *backBtn = (id)[header viewWithTag:1];
     
-    [backBtn addTarget:self action:@selector(popNavigationController) forControlEvents:UIControlEventTouchUpInside];
+    [backBtn addTarget:self action:@selector(clearSettings:) forControlEvents:UIControlEventTouchUpInside];
     
     return header;
+}
+
+- (void)clearSettings:(id)sender
+{
+    [PhotoSettings.shared clearSettings];
+    
+    [self.tableView reloadData];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,7 +127,33 @@
     if(indexPath.row == 11)
         [(id)[cell viewWithTag:1] setText:@"NOTES"];
     
+    if([cell isKindOfClass:[GenericSettingsCell class]]) {
+        
+        GenericSettingsCell *settingCell = (id)cell;
+        
+        id settingsKey = self.settingsKeys[indexPath.row];
+        
+        if([settingsKey isKindOfClass:[NSString class]]) {
+            
+            settingCell.settingsKey = settingsKey;
+            settingCell.value = [PhotoSettings.shared valueForKey:settingsKey];
+            
+            settingCell.delegate = self;
+        }
+        else {
+            
+            settingCell.delegate = nil;
+            
+            [settingCell setValue:[NSNull null]];
+        }
+    }
+    
     return cell;
+}
+
+- (void)reportValueChange:(id)value forCell:(GenericSettingsCell *)cell
+{
+    [PhotoSettings.shared setValue:value forKey:cell.settingsKey];
 }
 
 @end

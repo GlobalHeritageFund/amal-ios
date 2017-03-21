@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "PhotoSettings.h"
 
 @interface ViewController ()
 
@@ -187,6 +188,8 @@
 
 - (IBAction)capturePhoto:(id)sender
 {
+    [PhotoSettings.shared savePhoto:self.previewImageView.image];
+    
     [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         
         self.imagePreviewOverlay.alpha = 1;

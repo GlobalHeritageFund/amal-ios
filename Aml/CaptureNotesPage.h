@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GenericSettingsCell.h"
 
-@interface CaptureNotesPage : UITableViewController
+@interface CaptureNotesPage : UITableViewController<GenericSettingsCellDelegate>
 
 @end

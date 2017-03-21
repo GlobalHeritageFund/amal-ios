@@ -22,7 +22,20 @@
 		580A556B1E5E4E4800A70AB1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55691E5E4E4800A70AB1 /* Crashlytics.framework */; };
 		5846B2011E773315008E48BC /* NavPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2001E773315008E48BC /* NavPage.m */; };
 		5846B2051E773354008E48BC /* TabBarPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2041E773354008E48BC /* TabBarPage.m */; };
-		58DA10701E6F2E8C00B982BE /* ConditionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58DA106F1E6F2E8C00B982BE /* ConditionCell.m */; };
+		5846B20A1E809BA9008E48BC /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B2061E809BA9008E48BC /* FirebaseAnalytics.framework */; };
+		5846B20B1E809BA9008E48BC /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B2071E809BA9008E48BC /* FirebaseCore.framework */; };
+		5846B20C1E809BA9008E48BC /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B2081E809BA9008E48BC /* FirebaseInstanceID.framework */; };
+		5846B20D1E809BA9008E48BC /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B2091E809BA9008E48BC /* GoogleToolboxForMac.framework */; };
+		5846B2111E809BCB008E48BC /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B20E1E809BCB008E48BC /* FirebaseAuth.framework */; };
+		5846B2121E809BCB008E48BC /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B20F1E809BCB008E48BC /* GTMSessionFetcher.framework */; };
+		5846B2131E809BCB008E48BC /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B2101E809BCB008E48BC /* FirebaseDatabase.framework */; };
+		5846B2161E809C95008E48BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5846B2151E809C95008E48BC /* GoogleService-Info.plist */; };
+		5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2191E809DB7008E48BC /* PhotoSettings.m */; };
+		5846B2291E80A4C7008E48BC /* SegmentSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2281E80A4C7008E48BC /* SegmentSettingCell.m */; };
+		5846B22D1E80A65B008E48BC /* GenericSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B22C1E80A65B008E48BC /* GenericSettingsCell.m */; };
+		5846B2301E80A6E0008E48BC /* SliderSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B22F1E80A6E0008E48BC /* SliderSettingCell.m */; };
+		5846B2331E80A7B6008E48BC /* SwitchSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */; };
+		5846B2361E80A7F9008E48BC /* TextSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2351E80A7F9008E48BC /* TextSettingCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +64,27 @@
 		5846B2001E773315008E48BC /* NavPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavPage.m; sourceTree = "<group>"; };
 		5846B2031E773354008E48BC /* TabBarPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarPage.h; sourceTree = "<group>"; };
 		5846B2041E773354008E48BC /* TabBarPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarPage.m; sourceTree = "<group>"; };
-		58DA106E1E6F2E8C00B982BE /* ConditionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionCell.h; sourceTree = "<group>"; };
-		58DA106F1E6F2E8C00B982BE /* ConditionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionCell.m; sourceTree = "<group>"; };
+		5846B2061E809BA9008E48BC /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		5846B2071E809BA9008E48BC /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		5846B2081E809BA9008E48BC /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		5846B2091E809BA9008E48BC /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		5846B20E1E809BCB008E48BC /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = "<group>"; };
+		5846B20F1E809BCB008E48BC /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
+		5846B2101E809BCB008E48BC /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
+		5846B2141E809BF4008E48BC /* Firebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		5846B2151E809C95008E48BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5846B2181E809DB7008E48BC /* PhotoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSettings.h; sourceTree = "<group>"; };
+		5846B2191E809DB7008E48BC /* PhotoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSettings.m; sourceTree = "<group>"; };
+		5846B2271E80A4C7008E48BC /* SegmentSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentSettingCell.h; sourceTree = "<group>"; };
+		5846B2281E80A4C7008E48BC /* SegmentSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentSettingCell.m; sourceTree = "<group>"; };
+		5846B22B1E80A65B008E48BC /* GenericSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericSettingsCell.h; sourceTree = "<group>"; };
+		5846B22C1E80A65B008E48BC /* GenericSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericSettingsCell.m; sourceTree = "<group>"; };
+		5846B22E1E80A6E0008E48BC /* SliderSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderSettingCell.h; sourceTree = "<group>"; };
+		5846B22F1E80A6E0008E48BC /* SliderSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderSettingCell.m; sourceTree = "<group>"; };
+		5846B2311E80A7B6008E48BC /* SwitchSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchSettingCell.h; sourceTree = "<group>"; };
+		5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchSettingCell.m; sourceTree = "<group>"; };
+		5846B2341E80A7F9008E48BC /* TextSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextSettingCell.h; sourceTree = "<group>"; };
+		5846B2351E80A7F9008E48BC /* TextSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextSettingCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +92,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5846B20D1E809BA9008E48BC /* GoogleToolboxForMac.framework in Frameworks */,
+				5846B2121E809BCB008E48BC /* GTMSessionFetcher.framework in Frameworks */,
+				5846B20A1E809BA9008E48BC /* FirebaseAnalytics.framework in Frameworks */,
+				5846B20C1E809BA9008E48BC /* FirebaseInstanceID.framework in Frameworks */,
+				5846B2131E809BCB008E48BC /* FirebaseDatabase.framework in Frameworks */,
+				5846B20B1E809BA9008E48BC /* FirebaseCore.framework in Frameworks */,
 				580A55621E5D1E7400A70AB1 /* MapKit.framework in Frameworks */,
+				5846B2111E809BCB008E48BC /* FirebaseAuth.framework in Frameworks */,
 				580A556B1E5E4E4800A70AB1 /* Crashlytics.framework in Frameworks */,
 				580A556A1E5E4E4800A70AB1 /* Fabric.framework in Frameworks */,
 			);
@@ -89,9 +128,10 @@
 		580A553C1E5CFC1000A70AB1 /* Aml */ = {
 			isa = PBXGroup;
 			children = (
+				5846B21B1E80A3E8008E48BC /* Cells */,
+				5846B2171E809D87008E48BC /* PhotoSettings */,
 				5846B2021E773340008E48BC /* TabBarPage */,
 				5846B1FE1E7732FB008E48BC /* NavPage */,
-				58DA106D1E6F2E7900B982BE /* ConditionCell */,
 				580A55631E5D254600A70AB1 /* UIButton+Additions */,
 				580A555C1E5D1C2500A70AB1 /* UIViewController+Additions */,
 				580A55581E5D133B00A70AB1 /* CALayer+Additions */,
@@ -108,6 +148,7 @@
 		580A553D1E5CFC1000A70AB1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5846B2151E809C95008E48BC /* GoogleService-Info.plist */,
 				580A554E1E5CFC1000A70AB1 /* Info.plist */,
 				580A553E1E5CFC1000A70AB1 /* main.m */,
 			);
@@ -144,6 +185,14 @@
 		580A55601E5D1E7300A70AB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5846B2141E809BF4008E48BC /* Firebase.h */,
+				5846B20E1E809BCB008E48BC /* FirebaseAuth.framework */,
+				5846B20F1E809BCB008E48BC /* GTMSessionFetcher.framework */,
+				5846B2101E809BCB008E48BC /* FirebaseDatabase.framework */,
+				5846B2061E809BA9008E48BC /* FirebaseAnalytics.framework */,
+				5846B2071E809BA9008E48BC /* FirebaseCore.framework */,
+				5846B2081E809BA9008E48BC /* FirebaseInstanceID.framework */,
+				5846B2091E809BA9008E48BC /* GoogleToolboxForMac.framework */,
 				580A55681E5E4E4800A70AB1 /* Fabric.framework */,
 				580A55691E5E4E4800A70AB1 /* Crashlytics.framework */,
 				580A55611E5D1E7400A70AB1 /* MapKit.framework */,
@@ -176,6 +225,72 @@
 				5846B2041E773354008E48BC /* TabBarPage.m */,
 			);
 			name = TabBarPage;
+			sourceTree = "<group>";
+		};
+		5846B2171E809D87008E48BC /* PhotoSettings */ = {
+			isa = PBXGroup;
+			children = (
+				5846B2181E809DB7008E48BC /* PhotoSettings.h */,
+				5846B2191E809DB7008E48BC /* PhotoSettings.m */,
+			);
+			name = PhotoSettings;
+			sourceTree = "<group>";
+		};
+		5846B21B1E80A3E8008E48BC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5846B22A1E80A640008E48BC /* GenericSettingsCell */,
+				5846B2261E80A4B1008E48BC /* TextSettingCell */,
+				5846B2251E80A4AA008E48BC /* SwitchSettingCell */,
+				5846B2241E80A4A2008E48BC /* SliderSettingCell */,
+				5846B2231E80A47E008E48BC /* SegmentSettingCell */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		5846B2231E80A47E008E48BC /* SegmentSettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				5846B2271E80A4C7008E48BC /* SegmentSettingCell.h */,
+				5846B2281E80A4C7008E48BC /* SegmentSettingCell.m */,
+			);
+			name = SegmentSettingCell;
+			sourceTree = "<group>";
+		};
+		5846B2241E80A4A2008E48BC /* SliderSettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				5846B22E1E80A6E0008E48BC /* SliderSettingCell.h */,
+				5846B22F1E80A6E0008E48BC /* SliderSettingCell.m */,
+			);
+			name = SliderSettingCell;
+			sourceTree = "<group>";
+		};
+		5846B2251E80A4AA008E48BC /* SwitchSettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				5846B2311E80A7B6008E48BC /* SwitchSettingCell.h */,
+				5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */,
+			);
+			name = SwitchSettingCell;
+			sourceTree = "<group>";
+		};
+		5846B2261E80A4B1008E48BC /* TextSettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				5846B2341E80A7F9008E48BC /* TextSettingCell.h */,
+				5846B2351E80A7F9008E48BC /* TextSettingCell.m */,
+			);
+			name = TextSettingCell;
+			sourceTree = "<group>";
+		};
+		5846B22A1E80A640008E48BC /* GenericSettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				5846B22B1E80A65B008E48BC /* GenericSettingsCell.h */,
+				5846B22C1E80A65B008E48BC /* GenericSettingsCell.m */,
+			);
+			name = GenericSettingsCell;
 			sourceTree = "<group>";
 		};
 		58BE517F1E6639C3001B9575 /* AppDelegate */ = {
@@ -211,15 +326,6 @@
 				580A55491E5CFC1000A70AB1 /* Assets.xcassets */,
 			);
 			name = Assets;
-			sourceTree = "<group>";
-		};
-		58DA106D1E6F2E7900B982BE /* ConditionCell */ = {
-			isa = PBXGroup;
-			children = (
-				58DA106E1E6F2E8C00B982BE /* ConditionCell.h */,
-				58DA106F1E6F2E8C00B982BE /* ConditionCell.m */,
-			);
-			name = ConditionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +391,7 @@
 				580A554D1E5CFC1000A70AB1 /* LaunchScreen.storyboard in Resources */,
 				580A554A1E5CFC1000A70AB1 /* Assets.xcassets in Resources */,
 				580A55481E5CFC1000A70AB1 /* Main.storyboard in Resources */,
+				5846B2161E809C95008E48BC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,10 +419,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				580A555F1E5D1C5A00A70AB1 /* UIViewController+Additions.m in Sources */,
-				58DA10701E6F2E8C00B982BE /* ConditionCell.m in Sources */,
+				5846B2301E80A6E0008E48BC /* SliderSettingCell.m in Sources */,
+				5846B2331E80A7B6008E48BC /* SwitchSettingCell.m in Sources */,
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
+				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
+				5846B2361E80A7F9008E48BC /* TextSettingCell.m in Sources */,
+				5846B2291E80A4C7008E48BC /* SegmentSettingCell.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* ViewController.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
+				5846B22D1E80A65B008E48BC /* GenericSettingsCell.m in Sources */,
 				5846B2011E773315008E48BC /* NavPage.m in Sources */,
 				580A553F1E5CFC1000A70AB1 /* main.m in Sources */,
 				580A55571E5D0B9800A70AB1 /* CaptureNotesPage.m in Sources */,
@@ -447,6 +559,7 @@
 				INFOPLIST_FILE = Aml/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = org.amalglobal.amalinheritage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3bee2164-598c-45b2-ac5e-2ebb381fa6bf";
@@ -467,6 +580,7 @@
 				INFOPLIST_FILE = Aml/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = org.amalglobal.amalinheritage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "518f62f4-2ab8-4f26-8081-b852ef4d3bad";

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "Firebase.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,8 @@
     application.statusBarHidden = YES;
     
     [Fabric with:@[[Crashlytics class]]];
+    
+    [FIRApp configure];
     
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     
