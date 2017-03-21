@@ -29,6 +29,8 @@
     AVCaptureInput *capturingInputFront;
     AVCaptureInput *capturingInputBack;
     
+    AVCaptureStillImageOutput *stillImageOutput;
+    
     AVCaptureSession *captureSession;
     
     AVCaptureVideoPreviewLayer *previewLayer;
@@ -54,7 +56,7 @@
     
     [self loadDevices];
     
-    if(capturingInputBack) {
+    if(inputDeviceBack) {
         
         captureSession = [AVCaptureSession new];
         
@@ -81,6 +83,13 @@
         previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
         
         [self.previewImageView.layer addSublayer:previewLayer];
+        
+        stillImageOutput = [AVCaptureStillImageOutput new];
+        
+        stillImageOutput.outputSettings = @{ AVVideoCodecKey:AVVideoCodecJPEG };
+        
+        if([captureSession canAddOutput:stillImageOutput])
+            [captureSession addOutput:stillImageOutput];
     }
     
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(orientationChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
@@ -188,7 +197,18 @@
 
 - (IBAction)capturePhoto:(id)sender
 {
-    [PhotoSettings.shared savePhoto:self.previewImageView.image];
+    AVCaptureConnection *conn = [stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
+    
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    
+    [stillImageOutput captureStillImageAsynchronouslyFromConnection:conn completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+        
+        NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+        
+        [PhotoSettings.shared savePhotoData:data];
+        
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+    }];
     
     [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         

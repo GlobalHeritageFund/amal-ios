@@ -55,15 +55,20 @@
 
 - (void)savePhoto:(UIImage *)image
 {
+    [self savePhotoData:UIImageJPEGRepresentation(image, 0.9)];
+}
+
+- (void)savePhotoData:(NSData *)imageData
+{
     FIRDatabaseReference *ref = [[FIRDatabase database] reference];
     
     ref = [[ref child:@"images"] childByAutoId];
     
-    NSString *imageData = [UIImagePNGRepresentation(image) base64EncodedStringWithOptions:0];
-    
     [[ref child:@"settings"] setValue:self.settingsDictionary];
     
-    [[ref child:@"imageData"] setValue:imageData withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+    NSString *imageDataStr = [imageData base64EncodedStringWithOptions:0];
+    
+    [[ref child:@"imageData"] setValue:imageDataStr withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         
         NSLog(@"ref is: %@", ref);
         NSLog(@"error is: %@", error);

@@ -13,6 +13,7 @@
 + (instancetype)shared;
 
 - (void)savePhoto:(UIImage*)image;
+- (void)savePhotoData:(NSData*)image;
 
 @property (strong) NSNumber *category; // int
 @property (strong) NSNumber *condition; // int
