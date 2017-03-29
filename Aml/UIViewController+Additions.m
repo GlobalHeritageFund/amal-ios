@@ -15,4 +15,9 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)dismissSelf
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

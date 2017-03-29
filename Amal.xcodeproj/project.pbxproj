@@ -36,6 +36,7 @@
 		5846B2301E80A6E0008E48BC /* SliderSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B22F1E80A6E0008E48BC /* SliderSettingCell.m */; };
 		5846B2331E80A7B6008E48BC /* SwitchSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */; };
 		5846B2361E80A7F9008E48BC /* TextSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2351E80A7F9008E48BC /* TextSettingCell.m */; };
+		5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5892D0D31E8616FD0051C60E /* Intro.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchSettingCell.m; sourceTree = "<group>"; };
 		5846B2341E80A7F9008E48BC /* TextSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextSettingCell.h; sourceTree = "<group>"; };
 		5846B2351E80A7F9008E48BC /* TextSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextSettingCell.m; sourceTree = "<group>"; };
+		5892D0D31E8616FD0051C60E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +318,7 @@
 			children = (
 				580A55461E5CFC1000A70AB1 /* Main.storyboard */,
 				580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */,
+				5892D0D31E8616FD0051C60E /* Intro.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				580A554A1E5CFC1000A70AB1 /* Assets.xcassets in Resources */,
 				580A55481E5CFC1000A70AB1 /* Main.storyboard in Resources */,
 				5846B2161E809C95008E48BC /* GoogleService-Info.plist in Resources */,
+				5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
