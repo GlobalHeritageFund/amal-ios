@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zyO-dE-fdw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zyO-dE-fdw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="Ugc-ir-ORv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nlG-Eg-nGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="zyO-dE-fdw" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dAX-Jr-ev2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -24,6 +23,7 @@
                         <segue destination="0BO-0c-Nf2" kind="relationship" relationship="rootViewController" id="bW9-KG-8H6"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nlG-Eg-nGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-263" y="99"/>
         </scene>
@@ -39,8 +39,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg-intro-2" translatesAutoresizingMaskIntoConstraints="NO" id="eH8-uN-Ql8">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg-intro-2" translatesAutoresizingMaskIntoConstraints="NO" id="eH8-uN-Ql8">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="TlN-Yc-ic3" appends="YES" id="5zr-Ei-pZ0"/>
+                                    <outletCollection property="gestureRecognizers" destination="aS7-QE-pES" appends="YES" id="ekW-pY-Olg"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A damage assessment tool for cultural heritrage" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3a-bk-6HR">
                                 <rect key="frame" x="69" y="465.5" width="237" height="50.5"/>
@@ -106,6 +111,16 @@
                     <navigationItem key="navigationItem" id="LUH-S7-Uaw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCH-r6-8MJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="TlN-Yc-ic3">
+                    <connections>
+                        <segue destination="Waq-Yc-eWd" kind="show" id="Cfj-Nu-Mg5"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="aS7-QE-pES">
+                    <connections>
+                        <action selector="popNavigationController" destination="0BO-0c-Nf2" id="q52-pQ-9AS"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1047" y="99"/>
         </scene>
@@ -121,8 +136,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg-intro-2" translatesAutoresizingMaskIntoConstraints="NO" id="h0A-CK-IeE">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg-intro-2" translatesAutoresizingMaskIntoConstraints="NO" id="h0A-CK-IeE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="u6H-qu-kfp" appends="YES" id="GRk-HU-MlJ"/>
+                                    <outletCollection property="gestureRecognizers" destination="dh8-m0-9hX" appends="YES" id="XYT-OB-DG1"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support emergency management efforts by sharing photos and notes." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUq-q9-CNe">
                                 <rect key="frame" x="62.5" y="440.5" width="250" height="75.5"/>
@@ -188,6 +208,16 @@
                     <navigationItem key="navigationItem" id="IpF-f9-jvz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5B3-EU-Ikx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="u6H-qu-kfp">
+                    <connections>
+                        <segue destination="kB0-sa-3Ii" kind="show" id="zPB-B9-eNt"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="dh8-m0-9hX">
+                    <connections>
+                        <action selector="popNavigationController" destination="Waq-Yc-eWd" id="Nyc-xo-K5i"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1865" y="99"/>
         </scene>
@@ -203,11 +233,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg-intro-2" translatesAutoresizingMaskIntoConstraints="NO" id="Z3f-6J-nnS">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg-intro-2" translatesAutoresizingMaskIntoConstraints="NO" id="Z3f-6J-nnS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8QO-Sm-fbM" appends="YES" id="6SK-WA-fly"/>
+                                    <outletCollection property="gestureRecognizers" destination="C1Y-Mm-YFi" appends="YES" id="1a5-jY-0P1"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With the support of Avec le soutien de                    بدعم من" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RtJ-hu-D29">
-                                <rect key="frame" x="84.5" y="265" width="206" height="75.5"/>
+                                <rect key="frame" x="84.5" y="221" width="206" height="75.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="206" id="MQw-LP-6OQ"/>
                                 </constraints>
@@ -246,7 +281,7 @@
                                 <rect key="frame" x="168" y="599" width="39" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-logo-ghf" translatesAutoresizingMaskIntoConstraints="NO" id="RBe-WB-gAt">
-                                <rect key="frame" x="72" y="190" width="230" height="31"/>
+                                <rect key="frame" x="72" y="146" width="230" height="31"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-logo-arc-wh" translatesAutoresizingMaskIntoConstraints="NO" id="mKt-oM-ydb">
                                 <rect key="frame" x="127" y="511" width="121" height="70"/>
@@ -290,6 +325,16 @@
                     <navigationItem key="navigationItem" id="8pl-ur-G9T"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1PV-cB-MT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="8QO-Sm-fbM">
+                    <connections>
+                        <action selector="dismissSelf" destination="kB0-sa-3Ii" id="iRm-Gz-voS"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="C1Y-Mm-YFi">
+                    <connections>
+                        <action selector="popNavigationController" destination="kB0-sa-3Ii" id="zAi-l5-JnB"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2885.5999999999999" y="98.50074962518741"/>
         </scene>
@@ -304,4 +349,8 @@
         <image name="img-logo-icomos" width="99" height="58"/>
         <image name="img_logo" width="138" height="158"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mgr-Ci-YgQ"/>
+        <segue reference="zPB-B9-eNt"/>
+    </inferredMetricsTieBreakers>
 </document>
