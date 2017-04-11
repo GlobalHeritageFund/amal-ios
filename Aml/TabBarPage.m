@@ -19,4 +19,14 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    for (UITabBarItem *tbi in self.tabBar.items) {
+        
+        tbi.selectedImage = [tbi.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+}
+
 @end
