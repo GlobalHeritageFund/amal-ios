@@ -12,4 +12,6 @@
 
 - (IBAction)popNavigationController;
 
+- (IBAction)popNavigationControllerUnanimated;
+
 @end

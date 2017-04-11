@@ -93,10 +93,22 @@
     }
     
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(orientationChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
-    id page = [[UIStoryboard storyboardWithName:@"Intro" bundle:nil] instantiateInitialViewController];
+    static BOOL once = YES;
     
-    [self presentViewController:page animated:NO completion:nil];
+    if(once) {
+        
+        id page = [[UIStoryboard storyboardWithName:@"Intro" bundle:nil] instantiateInitialViewController];
+        
+        [self presentViewController:page animated:YES completion:nil];
+    }
+    
+    once = NO;
 }
 
 - (void)orientationChange:(NSNotification*)note

@@ -70,7 +70,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBn-yl-Wvg">
-                                        <rect key="frame" x="328" y="35" width="24" height="26"/>
+                                        <rect key="frame" x="328" y="39" width="24" height="26"/>
                                         <state key="normal" image="ic_camera_flip"/>
                                         <state key="focused" image="ic_camera_rear_white_36pt"/>
                                         <connections>
@@ -102,14 +102,13 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="vqT-Ai-4XE" kind="show" id="sCf-q2-EAI"/>
+                                            <segue destination="vqT-Ai-4XE" kind="show" animates="NO" id="sCf-q2-EAI"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="2pV-Zt-z1U" firstAttribute="centerX" secondItem="FeK-rm-ORf" secondAttribute="centerX" id="0a0-Ek-4p7"/>
-                                    <constraint firstItem="vBn-yl-Wvg" firstAttribute="top" secondItem="0D1-4d-lAp" secondAttribute="top" constant="35" id="3Vz-NK-gV8"/>
                                     <constraint firstItem="FeK-rm-ORf" firstAttribute="top" secondItem="0D1-4d-lAp" secondAttribute="top" constant="34" id="60w-Pu-c9i"/>
                                     <constraint firstItem="2pV-Zt-z1U" firstAttribute="width" secondItem="FeK-rm-ORf" secondAttribute="width" id="7Zb-Dr-LPw"/>
                                     <constraint firstItem="XuH-ai-VbQ" firstAttribute="centerX" secondItem="0D1-4d-lAp" secondAttribute="centerX" id="Akd-WW-Z8u"/>
@@ -119,6 +118,7 @@
                                     <constraint firstAttribute="trailing" secondItem="vBn-yl-Wvg" secondAttribute="trailing" constant="23" id="JZZ-Vf-q3E"/>
                                     <constraint firstItem="XuH-ai-VbQ" firstAttribute="centerY" secondItem="FeK-rm-ORf" secondAttribute="centerY" id="qaL-U5-Omb"/>
                                     <constraint firstItem="2pV-Zt-z1U" firstAttribute="height" secondItem="FeK-rm-ORf" secondAttribute="height" id="yJc-Fr-cD1"/>
+                                    <constraint firstItem="vBn-yl-Wvg" firstAttribute="centerY" secondItem="FeK-rm-ORf" secondAttribute="centerY" id="zov-6n-K5D"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vv-Fy-LSU">
@@ -312,8 +312,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JB8-8o-OLb">
-                                            <rect key="frame" x="164.5" y="11.5" width="46" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assess" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JB8-8o-OLb">
+                                            <rect key="frame" x="160.5" y="11.5" width="54" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -331,7 +331,7 @@
                                                 <color key="titleColor" red="0.062745098040000002" green="0.58823529409999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="popNavigationController" destination="vqT-Ai-4XE" eventType="touchUpInside" id="lrY-sG-ibE"/>
+                                                <action selector="popNavigationControllerUnanimated" destination="vqT-Ai-4XE" eventType="touchUpInside" id="0ca-FK-E7v"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -545,6 +545,7 @@
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ajb-vU-w39">
                                             <rect key="frame" x="14" y="5" width="347" height="31"/>
                                             <color key="tintColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="minimumTrackTintColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </slider>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="FQq-d7-rlw">
                                             <rect key="frame" x="20" y="45" width="335" height="17.5"/>
@@ -602,8 +603,9 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tqw-YC-VR2">
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tqw-YC-VR2">
                                             <rect key="frame" x="310" y="-15.5" width="51" height="31"/>
+                                            <color key="onTintColor" red="0.0" green="0.74901960784313726" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
                                         </switch>
                                     </subviews>
                                     <constraints>
@@ -638,6 +640,7 @@
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NCC-MM-CRF">
                                             <rect key="frame" x="310" y="-15.5" width="51" height="31"/>
+                                            <color key="onTintColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </switch>
                                     </subviews>
                                     <constraints>
@@ -672,6 +675,7 @@
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Pgw-bK-lBI">
                                             <rect key="frame" x="310" y="-15.5" width="51" height="31"/>
+                                            <color key="onTintColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </switch>
                                     </subviews>
                                     <constraints>
