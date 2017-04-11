@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zyO-dE-fdw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zyO-dE-fdw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -39,7 +39,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg-intro-2" translatesAutoresizingMaskIntoConstraints="NO" id="eH8-uN-Ql8">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg-intro-1" translatesAutoresizingMaskIntoConstraints="NO" id="eH8-uN-Ql8">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -47,7 +47,7 @@
                                     <outletCollection property="gestureRecognizers" destination="aS7-QE-pES" appends="YES" id="ekW-pY-Olg"/>
                                 </connections>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A damage assessment tool for cultural heritrage" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3a-bk-6HR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A damage assessment tool for cultural heritage." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3a-bk-6HR">
                                 <rect key="frame" x="69" y="465.5" width="237" height="50.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="Kpu-PV-1Qq"/>
@@ -233,7 +233,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg-intro-2" translatesAutoresizingMaskIntoConstraints="NO" id="Z3f-6J-nnS">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg-intro-3" translatesAutoresizingMaskIntoConstraints="NO" id="Z3f-6J-nnS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -340,7 +340,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="img-bg-intro-1" width="375" height="667"/>
         <image name="img-bg-intro-2" width="375" height="667"/>
+        <image name="img-bg-intro-3" width="375" height="667"/>
         <image name="img-feature-intro" width="231" height="156"/>
         <image name="img-logo-arc-wh" width="121" height="70"/>
         <image name="img-logo-fonds" width="77" height="60"/>
