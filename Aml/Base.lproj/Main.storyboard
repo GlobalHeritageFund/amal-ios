@@ -31,7 +31,7 @@
         <scene sceneID="V0c-z8-YAJ">
             <objects>
                 <navigationController navigationBarHidden="YES" id="6j5-Uj-lZC" customClass="NavPage" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ic_camera_white" id="4z1-iQ-0BL">
+                    <tabBarItem key="tabBarItem" title="" image="ic_camera_white" selectedImage="ic_camera_active" id="4z1-iQ-0BL">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -59,7 +59,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Picture" translatesAutoresizingMaskIntoConstraints="NO" id="boV-Ur-A1X">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_alert" translatesAutoresizingMaskIntoConstraints="NO" id="boV-Ur-A1X">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                             </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xrq-UL-7SC">
@@ -262,7 +262,7 @@
         <scene sceneID="o4x-ik-ycj">
             <objects>
                 <navigationController id="iYu-Le-dZV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ic_folder_shared_outline" id="i8g-Rk-Qpb">
+                    <tabBarItem key="tabBarItem" title="" image="ic_folder_shared_outline" selectedImage="ic_sync_active" id="i8g-Rk-Qpb">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cBD-Y6-kHB">
@@ -281,7 +281,7 @@
         <scene sceneID="V0w-Go-nd9">
             <objects>
                 <navigationController id="qsh-pe-spC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ic_photo_library_outline" id="aWX-6c-FKT">
+                    <tabBarItem key="tabBarItem" title="" image="ic_assess_outline" selectedImage="ic_assess_active" id="aWX-6c-FKT">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GBc-Hx-aoX">
@@ -846,7 +846,11 @@
     </scenes>
     <resources>
         <image name="Picture" width="748" height="840"/>
+        <image name="bg_alert" width="16" height="16"/>
         <image name="btn-take-photo" width="66" height="66"/>
+        <image name="ic_assess_active" width="20" height="26"/>
+        <image name="ic_assess_outline" width="16" height="16"/>
+        <image name="ic_camera_active" width="26" height="23"/>
         <image name="ic_camera_flip" width="24" height="26"/>
         <image name="ic_camera_rear_white_36pt" width="36" height="36"/>
         <image name="ic_camera_white" width="26" height="23"/>
@@ -860,7 +864,7 @@
         <image name="ic_flash_on_white_36pt" width="36" height="36"/>
         <image name="ic_folder_shared_outline" width="26" height="22"/>
         <image name="ic_navigate_before_white_36pt" width="36" height="36"/>
-        <image name="ic_photo_library_outline" width="26" height="26"/>
         <image name="ic_rapid_assess" width="30" height="15"/>
+        <image name="ic_sync_active" width="26" height="20"/>
     </resources>
 </document>
