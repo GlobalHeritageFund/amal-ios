@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zyO-dE-fdw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zyO-dE-fdw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Nav Page-->
         <scene sceneID="Ugc-ir-ORv">
             <objects>
-                <navigationController id="zyO-dE-fdw" sceneMemberID="viewController">
+                <navigationController id="zyO-dE-fdw" customClass="NavPage" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dAX-Jr-ev2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -83,11 +83,15 @@
                                     <segue destination="Waq-Yc-eWd" kind="show" id="mgr-Ci-YgQ"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-Ws-gNy">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-Ws-gNy">
                                 <rect key="frame" x="168" y="599" width="39" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="QUn-HK-KbU">
-                                <rect key="frame" x="118" y="204" width="138" height="158"/>
+                                <rect key="frame" x="118" y="181" width="138" height="158"/>
+                                <accessibility key="accessibilityConfiguration" label="Amal in Heritage"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -102,7 +106,7 @@
                             <constraint firstItem="WPo-Ws-gNy" firstAttribute="centerY" secondItem="aNq-ii-q6j" secondAttribute="centerY" id="dQA-SU-iXc"/>
                             <constraint firstAttribute="trailing" secondItem="LsL-NH-DFg" secondAttribute="trailing" constant="21" id="h3k-RO-pYe"/>
                             <constraint firstItem="5aP-Z5-7D6" firstAttribute="top" secondItem="H3a-bk-6HR" secondAttribute="bottom" constant="151" id="qUJ-45-0Dd"/>
-                            <constraint firstItem="QUn-HK-KbU" firstAttribute="top" secondItem="Qsx-u6-cjf" secondAttribute="bottom" constant="140" id="sIS-TN-aG1"/>
+                            <constraint firstItem="QUn-HK-KbU" firstAttribute="top" secondItem="Qsx-u6-cjf" secondAttribute="bottom" constant="117" id="sIS-TN-aG1"/>
                             <constraint firstItem="eH8-uN-Ql8" firstAttribute="leading" secondItem="SGr-2B-bVe" secondAttribute="leading" id="wfV-eP-bsT"/>
                             <constraint firstItem="QUn-HK-KbU" firstAttribute="centerX" secondItem="SGr-2B-bVe" secondAttribute="centerX" id="xQC-He-lOQ"/>
                             <constraint firstAttribute="trailing" secondItem="eH8-uN-Ql8" secondAttribute="trailing" id="zsM-hf-Pa8"/>
@@ -180,7 +184,7 @@
                                     <segue destination="kB0-sa-3Ii" kind="show" id="1PL-rN-xdh"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="51h-sm-glM">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="51h-sm-glM">
                                 <rect key="frame" x="168" y="599" width="39" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-feature-intro" translatesAutoresizingMaskIntoConstraints="NO" id="6Im-8k-998">
@@ -277,23 +281,53 @@
                                     <action selector="dismissSelf" destination="kB0-sa-3Ii" eventType="touchUpInside" id="ury-8B-qJ7"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="l88-Gt-ZXf">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="l88-Gt-ZXf">
                                 <rect key="frame" x="168" y="599" width="39" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-logo-ghf" translatesAutoresizingMaskIntoConstraints="NO" id="RBe-WB-gAt">
                                 <rect key="frame" x="72" y="146" width="230" height="31"/>
+                                <accessibility key="accessibilityConfiguration" label="Global Heritage Fund">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-logo-arc-wh" translatesAutoresizingMaskIntoConstraints="NO" id="mKt-oM-ydb">
                                 <rect key="frame" x="127" y="511" width="121" height="70"/>
+                                <accessibility key="accessibilityConfiguration" label="ARC WH">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-logo-iccrom" translatesAutoresizingMaskIntoConstraints="NO" id="AmS-I6-y13">
                                 <rect key="frame" x="30" y="477" width="88" height="60"/>
+                                <accessibility key="accessibilityConfiguration" label="ICCROM">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-logo-fonds" translatesAutoresizingMaskIntoConstraints="NO" id="xlg-bD-rTp">
                                 <rect key="frame" x="268" y="477" width="77" height="60"/>
+                                <accessibility key="accessibilityConfiguration" label="Fonds">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-logo-icomos" translatesAutoresizingMaskIntoConstraints="NO" id="iSM-ga-8Cd">
                                 <rect key="frame" x="138" y="427" width="99" height="58"/>
+                                <accessibility key="accessibilityConfiguration" label="ICOMOS">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="accessibilityElement" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

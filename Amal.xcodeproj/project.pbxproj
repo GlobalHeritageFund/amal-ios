@@ -363,8 +363,8 @@
 				TargetAttributes = {
 					580A55391E5CFC1000A70AB1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SG3NZ84FK5;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = M9UQJU6B67;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -566,8 +566,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = org.amalglobal.amalinheritage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3bee2164-598c-45b2-ac5e-2ebb381fa6bf";
-				PROVISIONING_PROFILE_SPECIFIER = "Generic Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -575,8 +575,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = SG3NZ84FK5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = M9UQJU6B67;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -587,8 +587,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = org.amalglobal.amalinheritage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "518f62f4-2ab8-4f26-8081-b852ef4d3bad";
-				PROVISIONING_PROFILE_SPECIFIER = "Ad Hoc Distribution";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
