@@ -64,15 +64,19 @@
     
     ref = [[ref child:@"images"] childByAutoId];
     
-    [[ref child:@"settings"] setValue:self.settingsDictionary];
-    
-    NSString *imageDataStr = [imageData base64EncodedStringWithOptions:0];
-    
-    [[ref child:@"imageData"] setValue:imageDataStr withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+    [[ref child:@"settings"] setValue:self.settingsDictionary withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         
-        NSLog(@"ref is: %@", ref);
-        NSLog(@"error is: %@", error);
-        NSLog(@"FIN");
+        NSLog(@"Finished setting image settings, any error: %@", error);
+    }];
+    
+    FIRStorageReference *imageRef = [[[[FIRStorage storage] reference] child:@"images"] child:ref.key];
+    
+    [[ref child:@"imageRef"] setValue:imageRef.fullPath];
+    
+    [imageRef putData:imageData metadata:nil completion:^(FIRStorageMetadata * _Nullable metadata, NSError * _Nullable error) {
+        
+        NSLog(@"Image upload task complete: %@", metadata);
+        NSLog(@"Any error was: %@", error);
     }];
 }
 
