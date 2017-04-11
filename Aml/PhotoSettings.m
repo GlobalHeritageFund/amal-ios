@@ -66,17 +66,26 @@
     
     [[ref child:@"settings"] setValue:self.settingsDictionary withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         
-        NSLog(@"Finished setting image settings, any error: %@", error);
+        if(error)
+        NSLog(@"Saving image settings error: %@", error);
     }];
     
     FIRStorageReference *imageRef = [[[[FIRStorage storage] reference] child:@"images"] child:ref.key];
     
-    [[ref child:@"imageRef"] setValue:imageRef.fullPath];
-    
-    [imageRef putData:imageData metadata:nil completion:^(FIRStorageMetadata * _Nullable metadata, NSError * _Nullable error) {
+    [[ref child:@"imageRef"] setValue:imageRef.fullPath withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         
-        NSLog(@"Image upload task complete: %@", metadata);
-        NSLog(@"Any error was: %@", error);
+        if(error)
+            NSLog(@"Setting imageRef error: %@", error);
+    }];
+    
+    FIRStorageMetadata *metadata = [FIRStorageMetadata new];
+    
+    metadata.contentType = @"image/jpeg";
+    
+    [imageRef putData:imageData metadata:metadata completion:^(FIRStorageMetadata * _Nullable metadata, NSError * _Nullable error) {
+        
+        if(error)
+            NSLog(@"Image upload error was: %@", error);
     }];
 }
 
