@@ -26,6 +26,8 @@
     
     [FIRApp configure];
     
+    [FIRDatabase database].persistenceEnabled = YES;
+    
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     
     return YES;

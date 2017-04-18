@@ -38,6 +38,8 @@
 		5846B2331E80A7B6008E48BC /* SwitchSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */; };
 		5846B2361E80A7F9008E48BC /* TextSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2351E80A7F9008E48BC /* TextSettingCell.m */; };
 		5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5892D0D31E8616FD0051C60E /* Intro.storyboard */; };
+		589612581EA6B9DA003C25C2 /* SyncPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 589612571EA6B9DA003C25C2 /* SyncPage.m */; };
+		5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,10 @@
 		5846B2341E80A7F9008E48BC /* TextSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextSettingCell.h; sourceTree = "<group>"; };
 		5846B2351E80A7F9008E48BC /* TextSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextSettingCell.m; sourceTree = "<group>"; };
 		5892D0D31E8616FD0051C60E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		589612561EA6B9DA003C25C2 /* SyncPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncPage.h; sourceTree = "<group>"; };
+		589612571EA6B9DA003C25C2 /* SyncPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncPage.m; sourceTree = "<group>"; };
+		5896125A1EA6BAB4003C25C2 /* SyncPhotosCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncPhotosCell.h; sourceTree = "<group>"; };
+		5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncPhotosCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,7 @@
 		580A553C1E5CFC1000A70AB1 /* Aml */ = {
 			isa = PBXGroup;
 			children = (
+				589612551EA6B9B7003C25C2 /* SyncPage */,
 				5846B21B1E80A3E8008E48BC /* Cells */,
 				5846B2171E809D87008E48BC /* PhotoSettings */,
 				5846B2021E773340008E48BC /* TabBarPage */,
@@ -245,6 +252,7 @@
 		5846B21B1E80A3E8008E48BC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				589612591EA6BA98003C25C2 /* SyncPhotosCell */,
 				5846B22A1E80A640008E48BC /* GenericSettingsCell */,
 				5846B2261E80A4B1008E48BC /* TextSettingCell */,
 				5846B2251E80A4AA008E48BC /* SwitchSettingCell */,
@@ -297,6 +305,24 @@
 				5846B22C1E80A65B008E48BC /* GenericSettingsCell.m */,
 			);
 			name = GenericSettingsCell;
+			sourceTree = "<group>";
+		};
+		589612551EA6B9B7003C25C2 /* SyncPage */ = {
+			isa = PBXGroup;
+			children = (
+				589612561EA6B9DA003C25C2 /* SyncPage.h */,
+				589612571EA6B9DA003C25C2 /* SyncPage.m */,
+			);
+			name = SyncPage;
+			sourceTree = "<group>";
+		};
+		589612591EA6BA98003C25C2 /* SyncPhotosCell */ = {
+			isa = PBXGroup;
+			children = (
+				5896125A1EA6BAB4003C25C2 /* SyncPhotosCell.h */,
+				5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */,
+			);
+			name = SyncPhotosCell;
 			sourceTree = "<group>";
 		};
 		58BE517F1E6639C3001B9575 /* AppDelegate */ = {
@@ -430,6 +456,7 @@
 				5846B2301E80A6E0008E48BC /* SliderSettingCell.m in Sources */,
 				5846B2331E80A7B6008E48BC /* SwitchSettingCell.m in Sources */,
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
+				5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */,
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				5846B2361E80A7F9008E48BC /* TextSettingCell.m in Sources */,
 				5846B2291E80A4C7008E48BC /* SegmentSettingCell.m in Sources */,
@@ -441,6 +468,7 @@
 				580A55571E5D0B9800A70AB1 /* CaptureNotesPage.m in Sources */,
 				5846B2051E773354008E48BC /* TabBarPage.m in Sources */,
 				580A555B1E5D136200A70AB1 /* CALayer+Additions.m in Sources */,
+				589612581EA6B9DA003C25C2 /* SyncPage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
