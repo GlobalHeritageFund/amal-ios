@@ -213,18 +213,25 @@
 
 - (IBAction)capturePhoto:(id)sender
 {
-    AVCaptureConnection *conn = [stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
-    
-    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
-    
-    [stillImageOutput captureStillImageAsynchronouslyFromConnection:conn completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+    if(stillImageOutput) {
         
-        NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+        AVCaptureConnection *conn = [stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
         
-        [PhotoSettings.shared savePhotoData:data];
+        [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
         
-        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-    }];
+        [stillImageOutput captureStillImageAsynchronouslyFromConnection:conn completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+            
+            NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+            
+            [PhotoSettings.shared savePhotoData:data];
+            
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+        }];
+    }
+    else {
+        
+        [PhotoSettings.shared savePhoto:self.previewImageView.image];
+    }
     
     [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         

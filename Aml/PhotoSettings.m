@@ -58,8 +58,45 @@
     [self savePhotoData:UIImageJPEGRepresentation(image, 0.9)];
 }
 
+- (NSURL*)imagesDirectory
+{
+    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    
+    url = [url URLByAppendingPathComponent:@"images"];
+    
+    [NSFileManager.defaultManager createDirectoryAtURL:url withIntermediateDirectories:NO attributes:nil error:nil];
+    
+    return url;
+}
+
+- (void)saveJpegLocally:(NSData*)jpegData settings:(NSDictionary*)settings
+{
+    int i = -1;
+    
+    NSString *filename;
+    NSString *settingsFilename;
+    
+    do {
+        
+        i++;
+        
+        filename = [NSString stringWithFormat:@"%s/%d.jpeg", self.imagesDirectory.fileSystemRepresentation, i];
+    }
+    while ([NSFileManager.defaultManager fileExistsAtPath:filename]);
+    
+    settingsFilename = [NSString stringWithFormat:@"%s/%d.json", self.imagesDirectory.fileSystemRepresentation, i];
+    
+    [jpegData writeToFile:filename atomically:NO];
+    
+    NSData *settingsData = [NSJSONSerialization dataWithJSONObject:settings options:0 error:nil];
+    
+    [settingsData writeToFile:settingsFilename atomically:NO];
+}
+
 - (void)savePhotoData:(NSData *)imageData
 {
+    [self saveJpegLocally:imageData settings:self.settingsDictionary];
+    
     FIRDatabaseReference *ref = [[FIRDatabase database] reference];
     
     ref = [[ref child:@"images"] childByAutoId];
