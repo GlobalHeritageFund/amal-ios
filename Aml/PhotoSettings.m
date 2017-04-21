@@ -69,6 +69,28 @@
     return url;
 }
 
+- (NSArray *)localPhotos
+{
+    NSMutableArray *array = [NSMutableArray new];
+    
+    for(int i = 0;; i++) {
+        
+        NSString *filename = [NSString stringWithFormat:@"%s/%d.jpeg", self.imagesDirectory.fileSystemRepresentation, i];
+    
+        if(![NSFileManager.defaultManager fileExistsAtPath:filename])
+            break;
+        
+        LocalPhoto *localPhoto = [LocalPhoto new];
+        
+        localPhoto.imagePath = filename;
+        localPhoto.setingsPath = [NSString stringWithFormat:@"%s/%d.json", self.imagesDirectory.fileSystemRepresentation, i];
+        
+        [array addObject:localPhoto];
+    }
+    
+    return array;
+}
+
 - (void)saveJpegLocally:(NSData*)jpegData settings:(NSDictionary*)settings
 {
     int i = -1;
@@ -130,6 +152,32 @@
 {
     for(NSString *key in self.relevantKeys)
         [self setValue:nil forKey:key];
+}
+
+@end
+
+@implementation LocalPhoto
+
+- (void)load:(void (^)(LocalPhoto *))callback
+{
+    [[NSOperationQueue new] addOperationWithBlock:^{
+        
+        NSData *data = [NSData dataWithContentsOfFile:self.setingsPath];
+        UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
+        
+        [NSOperationQueue.mainQueue addOperationWithBlock:^{
+            
+            self.image = image;
+            
+            if(data)
+                self.settings = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            else
+                self.settings = nil;
+            
+            if(callback)
+                callback(self);
+        }];
+    }];
 }
 
 @end
