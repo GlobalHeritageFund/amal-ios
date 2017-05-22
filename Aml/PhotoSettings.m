@@ -53,11 +53,6 @@
     return dict;
 }
 
-- (void)savePhoto:(UIImage *)image
-{
-    [self savePhotoData:UIImageJPEGRepresentation(image, 0.9)];
-}
-
 - (NSURL*)imagesDirectory
 {
     NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
@@ -83,7 +78,7 @@
         LocalPhoto *localPhoto = [LocalPhoto new];
         
         localPhoto.imagePath = filename;
-        localPhoto.setingsPath = [NSString stringWithFormat:@"%s/%d.json", self.imagesDirectory.fileSystemRepresentation, i];
+        localPhoto.settingsPath = [NSString stringWithFormat:@"%s/%d.json", self.imagesDirectory.fileSystemRepresentation, i];
         
         [array addObject:localPhoto];
     }
@@ -91,7 +86,7 @@
     return array;
 }
 
-- (void)saveJpegLocally:(NSData*)jpegData settings:(NSDictionary*)settings
+- (LocalPhoto*)saveJpegLocally:(NSData*)jpegData
 {
     int i = -1;
     
@@ -106,6 +101,8 @@
     }
     while ([NSFileManager.defaultManager fileExistsAtPath:filename]);
     
+    NSDictionary *settings = [self.settingsDictionary copy];
+    
     settingsFilename = [NSString stringWithFormat:@"%s/%d.json", self.imagesDirectory.fileSystemRepresentation, i];
     
     [jpegData writeToFile:filename atomically:NO];
@@ -113,39 +110,15 @@
     NSData *settingsData = [NSJSONSerialization dataWithJSONObject:settings options:0 error:nil];
     
     [settingsData writeToFile:settingsFilename atomically:NO];
-}
-
-- (void)savePhotoData:(NSData *)imageData
-{
-    [self saveJpegLocally:imageData settings:self.settingsDictionary];
     
-    FIRDatabaseReference *ref = [[FIRDatabase database] reference];
+    LocalPhoto *localPhoto = [LocalPhoto new];
     
-    ref = [[ref child:@"images"] childByAutoId];
+    localPhoto.imagePath = filename;
+    localPhoto.settingsPath = settingsFilename;
     
-    [[ref child:@"settings"] setValue:self.settingsDictionary withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-        
-        if(error)
-        NSLog(@"Saving image settings error: %@", error);
-    }];
+    localPhoto.settings = settings;
     
-    FIRStorageReference *imageRef = [[[[FIRStorage storage] reference] child:@"images"] child:ref.key];
-    
-    [[ref child:@"imageRef"] setValue:imageRef.fullPath withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-        
-        if(error)
-            NSLog(@"Setting imageRef error: %@", error);
-    }];
-    
-    FIRStorageMetadata *metadata = [FIRStorageMetadata new];
-    
-    metadata.contentType = @"image/jpeg";
-    
-    [imageRef putData:imageData metadata:metadata completion:^(FIRStorageMetadata * _Nullable metadata, NSError * _Nullable error) {
-        
-        if(error)
-            NSLog(@"Image upload error was: %@", error);
-    }];
+    return localPhoto;
 }
 
 - (void)clearSettings
@@ -162,7 +135,7 @@
 {
     [[NSOperationQueue new] addOperationWithBlock:^{
         
-        NSData *data = [NSData dataWithContentsOfFile:self.setingsPath];
+        NSData *data = [NSData dataWithContentsOfFile:self.settingsPath];
         UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
         
         [NSOperationQueue.mainQueue addOperationWithBlock:^{
@@ -177,6 +150,87 @@
             if(callback)
                 callback(self);
         }];
+    }];
+}
+
+static NSString *FirebaseImageKey = @"FirebaseImageKey";
+
+- (NSString *)firebaseKey
+{
+    return self.settings[FirebaseImageKey];
+}
+
+- (void)unsync
+{
+    if(self.firebaseKey) {
+        
+        FIRDatabaseReference *ref = [[[FIRDatabase database] reference] child:@"images"];
+        
+        [ref setValue:nil forKey:self.firebaseKey];
+    }
+    
+    NSMutableDictionary *dict = [self.settings mutableCopy];
+    
+    [dict removeObjectForKey:FirebaseImageKey];
+    
+    self.settings = dict;
+}
+
+- (void)saveSettings
+{
+    NSData *settingsData = [NSJSONSerialization dataWithJSONObject:self.settings ?: @{} options:0 error:nil];
+    
+    [settingsData writeToFile:self.settingsPath atomically:NO];
+}
+
+- (void)upload
+{
+    NSData *imageData = UIImageJPEGRepresentation(self.image, 0.9);
+    
+    FIRDatabaseReference *ref = [[[FIRDatabase database] reference] child:@"images"];
+    
+    NSString *key = self.firebaseKey;
+    
+    if(key) {
+        
+        ref = [ref child:key];
+    }
+    else {
+        
+        ref = [ref childByAutoId];
+        
+        NSMutableDictionary *dict = [self.settings ?: @{} mutableCopy];
+        
+        dict[FirebaseImageKey] = ref.key;
+        
+        [self saveSettings];
+    }
+    
+    if(self.settings) {
+        
+        [[ref child:@"settings"] setValue:self.settings withCompletionBlock:^(NSError *error, FIRDatabaseReference *ref) {
+            
+            if(error)
+                NSLog(@"Saving image settings error: %@", error);
+        }];
+    }
+    
+    FIRStorageReference *imageRef = [[[[FIRStorage storage] reference] child:@"images"] child:ref.key];
+    
+    [[ref child:@"imageRef"] setValue:imageRef.fullPath withCompletionBlock:^(NSError *error, FIRDatabaseReference *ref) {
+        
+        if(error)
+            NSLog(@"Setting imageRef error: %@", error);
+    }];
+    
+    FIRStorageMetadata *metadata = [FIRStorageMetadata new];
+    
+    metadata.contentType = @"image/jpeg";
+    
+    [imageRef putData:imageData metadata:metadata completion:^(FIRStorageMetadata *metadata, NSError *error) {
+        
+        if(error)
+            NSLog(@"Image upload error was: %@", error);
     }];
 }
 

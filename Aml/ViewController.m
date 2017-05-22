@@ -223,14 +223,16 @@
             
             NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
             
-            [PhotoSettings.shared savePhotoData:data];
+            [PhotoSettings.shared saveJpegLocally:data];
             
             [[UIApplication sharedApplication] endIgnoringInteractionEvents];
         }];
     }
     else {
         
-        [PhotoSettings.shared savePhoto:self.previewImageView.image];
+        NSData *jpegData = UIImageJPEGRepresentation(self.previewImageView.image, 0.9f);
+        
+        [PhotoSettings.shared saveJpegLocally:jpegData];
     }
     
     [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
