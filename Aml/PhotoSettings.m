@@ -164,9 +164,9 @@ static NSString *FirebaseImageKey = @"FirebaseImageKey";
 {
     if(self.firebaseKey) {
         
-        FIRDatabaseReference *ref = [[[FIRDatabase database] reference] child:@"images"];
+        FIRDatabaseReference *ref = [[[[FIRDatabase database] reference] child:@"images"] child:self.firebaseKey];
         
-        [ref setValue:nil forKey:self.firebaseKey];
+        [ref removeValue];
     }
     
     NSMutableDictionary *dict = [self.settings mutableCopy];
