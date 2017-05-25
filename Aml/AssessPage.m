@@ -8,6 +8,7 @@
 
 #import "AssessPage.h"
 #import "PhotoSettings.h"
+#import "LocalPhoto.h"
 #import <objc/runtime.h>
 
 static const void *localPhotoKey = &localPhotoKey;
@@ -75,7 +76,7 @@ static const void *localPhotoKey = &localPhotoKey;
 {
     if([identifier isEqual:@"imageTap"]) {
         
-        return [objc_getAssociatedObject(sender, localPhotoKey) image];
+        return [objc_getAssociatedObject(sender, localPhotoKey) image] != nil;
     }
     
     return NO;

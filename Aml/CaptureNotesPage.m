@@ -105,6 +105,38 @@
     [self.tableView reloadData];
 }
 
+- (id)valueForKey:(NSString *)key
+{
+    if(self.localPhoto)
+        return self.localPhoto.settings[key];
+    
+    return [PhotoSettings.shared valueForKey:key];
+}
+
+- (void)setValue:(id)value forKey:(NSString *)key
+{
+    if(self.localPhoto)
+        [self.localPhoto setSettingsValue:value forKey:key];
+    else
+        [PhotoSettings.shared setValue:value forKey:key];
+}
+
+- (NSString*)levelOfDamageText
+{
+    NSArray *texts =
+    @[
+      @"Level 1 - No damage, good condition",
+      @"Level 2 - Minor damage, fair condition",
+      @"Level 3 - Moderate damage, poor condition",
+      @"Level 4 - Severe damage, very bad condition",
+      @"Level 5 - Collapsed, destroyed",
+      ];
+    
+    int index = round([[self valueForKey:@"levelOfDamage"] floatValue]);
+    
+    return texts[index % texts.count];
+}
+
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifiers[indexPath.row]];
@@ -119,7 +151,7 @@
         [(id)[cell viewWithTag:1] setText:@"LEVEL OF DAMAGE"];
     
     if(indexPath.row == 6)
-        [(id)[cell viewWithTag:1] setText:@"Level 3 - Moderate damage, poor condition"];
+        [(id)[cell viewWithTag:1] setText:self.levelOfDamageText];
     
     if(indexPath.row == 7)
         [(id)[cell viewWithTag:1] setText:@"ASSESS"];
@@ -136,7 +168,7 @@
         if([settingsKey isKindOfClass:[NSString class]]) {
             
             settingCell.settingsKey = settingsKey;
-            settingCell.value = [PhotoSettings.shared valueForKey:settingsKey];
+            settingCell.value = [self valueForKey:settingsKey];
             
             settingCell.delegate = self;
         }
@@ -153,7 +185,14 @@
 
 - (void)reportValueChange:(id)value forCell:(GenericSettingsCell *)cell
 {
-    [PhotoSettings.shared setValue:value forKey:cell.settingsKey];
+    [self setValue:value forKey:cell.settingsKey];
+    
+    if([cell.settingsKey isEqual:@"levelOfDamage"]) {
+        
+        NSArray *paths = @[[NSIndexPath indexPathForRow:6 inSection:0]];
+        
+        [self.tableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
 
 @end
