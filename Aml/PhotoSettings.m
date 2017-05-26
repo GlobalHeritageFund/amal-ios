@@ -8,6 +8,7 @@
 
 #import "PhotoSettings.h"
 #import "Firebase.h"
+#import "LocalPhoto.h"
 
 @implementation PhotoSettings
 
@@ -125,113 +126,6 @@
 {
     for(NSString *key in self.relevantKeys)
         [self setValue:nil forKey:key];
-}
-
-@end
-
-@implementation LocalPhoto
-
-- (void)load:(void (^)(LocalPhoto *))callback
-{
-    [[NSOperationQueue new] addOperationWithBlock:^{
-        
-        NSData *data = [NSData dataWithContentsOfFile:self.settingsPath];
-        UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
-        
-        [NSOperationQueue.mainQueue addOperationWithBlock:^{
-            
-            self.image = image;
-            
-            if(data)
-                self.settings = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            else
-                self.settings = nil;
-            
-            if(callback)
-                callback(self);
-        }];
-    }];
-}
-
-static NSString *FirebaseImageKey = @"FirebaseImageKey";
-
-- (NSString *)firebaseKey
-{
-    return self.settings[FirebaseImageKey];
-}
-
-- (void)unsync
-{
-    if(self.firebaseKey) {
-        
-        FIRDatabaseReference *ref = [[[[FIRDatabase database] reference] child:@"images"] child:self.firebaseKey];
-        
-        [ref removeValue];
-    }
-    
-    NSMutableDictionary *dict = [self.settings mutableCopy];
-    
-    [dict removeObjectForKey:FirebaseImageKey];
-    
-    self.settings = dict;
-}
-
-- (void)saveSettings
-{
-    NSData *settingsData = [NSJSONSerialization dataWithJSONObject:self.settings ?: @{} options:0 error:nil];
-    
-    [settingsData writeToFile:self.settingsPath atomically:NO];
-}
-
-- (void)upload
-{
-    NSData *imageData = UIImageJPEGRepresentation(self.image, 0.9);
-    
-    FIRDatabaseReference *ref = [[[FIRDatabase database] reference] child:@"images"];
-    
-    NSString *key = self.firebaseKey;
-    
-    if(key) {
-        
-        ref = [ref child:key];
-    }
-    else {
-        
-        ref = [ref childByAutoId];
-        
-        NSMutableDictionary *dict = [self.settings ?: @{} mutableCopy];
-        
-        dict[FirebaseImageKey] = ref.key;
-        
-        [self saveSettings];
-    }
-    
-    if(self.settings) {
-        
-        [[ref child:@"settings"] setValue:self.settings withCompletionBlock:^(NSError *error, FIRDatabaseReference *ref) {
-            
-            if(error)
-                NSLog(@"Saving image settings error: %@", error);
-        }];
-    }
-    
-    FIRStorageReference *imageRef = [[[[FIRStorage storage] reference] child:@"images"] child:ref.key];
-    
-    [[ref child:@"imageRef"] setValue:imageRef.fullPath withCompletionBlock:^(NSError *error, FIRDatabaseReference *ref) {
-        
-        if(error)
-            NSLog(@"Setting imageRef error: %@", error);
-    }];
-    
-    FIRStorageMetadata *metadata = [FIRStorageMetadata new];
-    
-    metadata.contentType = @"image/jpeg";
-    
-    [imageRef putData:imageData metadata:metadata completion:^(FIRStorageMetadata *metadata, NSError *error) {
-        
-        if(error)
-            NSLog(@"Image upload error was: %@", error);
-    }];
 }
 
 @end

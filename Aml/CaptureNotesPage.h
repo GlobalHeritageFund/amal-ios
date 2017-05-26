@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "GenericSettingsCell.h"
+#import "LocalPhoto.h"
 
 @interface CaptureNotesPage : UITableViewController<GenericSettingsCellDelegate>
+
+@property (strong) LocalPhoto *localPhoto;
 
 @end

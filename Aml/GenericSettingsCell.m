@@ -10,4 +10,9 @@
 
 @implementation GenericSettingsCell
 
+- (void)setValue:(id)value
+{
+    NSAssert(NO, @"Must implement setValue in GenericSettingsCell subclass");
+}
+
 @end

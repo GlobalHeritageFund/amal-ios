@@ -41,6 +41,7 @@
 		5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5892D0D31E8616FD0051C60E /* Intro.storyboard */; };
 		589612581EA6B9DA003C25C2 /* SyncPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 589612571EA6B9DA003C25C2 /* SyncPage.m */; };
 		5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */; };
+		58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A1123C1ED65E50006689DC /* LocalPhoto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,8 @@
 		589612571EA6B9DA003C25C2 /* SyncPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncPage.m; sourceTree = "<group>"; };
 		5896125A1EA6BAB4003C25C2 /* SyncPhotosCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncPhotosCell.h; sourceTree = "<group>"; };
 		5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncPhotosCell.m; sourceTree = "<group>"; };
+		58A1123B1ED65E50006689DC /* LocalPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPhoto.h; sourceTree = "<group>"; };
+		58A1123C1ED65E50006689DC /* LocalPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPhoto.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,7 @@
 			children = (
 				585333251EA9BA900011F390 /* Pages */,
 				5846B21B1E80A3E8008E48BC /* Cells */,
+				58A1123A1ED65E45006689DC /* LocalPhoto */,
 				5846B2171E809D87008E48BC /* PhotoSettings */,
 				580A55631E5D254600A70AB1 /* UIButton+Additions */,
 				580A555C1E5D1C2500A70AB1 /* UIViewController+Additions */,
@@ -312,6 +316,7 @@
 				580A55541E5D0B8700A70AB1 /* CaptureNotesPage */,
 				5846B1FE1E7732FB008E48BC /* NavPage */,
 				585333261EA9BAA50011F390 /* AssessPage */,
+				580A55541E5D0B8700A70AB1 /* CaptureNotesPage */,
 				589612551EA6B9B7003C25C2 /* SyncPage */,
 				5846B2021E773340008E48BC /* TabBarPage */,
 				58BE51801E6639C8001B9575 /* ViewController */,
@@ -344,6 +349,15 @@
 				5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */,
 			);
 			name = SyncPhotosCell;
+			sourceTree = "<group>";
+		};
+		58A1123A1ED65E45006689DC /* LocalPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				58A1123B1ED65E50006689DC /* LocalPhoto.h */,
+				58A1123C1ED65E50006689DC /* LocalPhoto.m */,
+			);
+			name = LocalPhoto;
 			sourceTree = "<group>";
 		};
 		58BE517F1E6639C3001B9575 /* AppDelegate */ = {
@@ -475,6 +489,7 @@
 			files = (
 				580A555F1E5D1C5A00A70AB1 /* UIViewController+Additions.m in Sources */,
 				5846B2301E80A6E0008E48BC /* SliderSettingCell.m in Sources */,
+				58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */,
 				5846B2331E80A7B6008E48BC /* SwitchSettingCell.m in Sources */,
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
 				585333291EA9BAB60011F390 /* AssessPage.m in Sources */,

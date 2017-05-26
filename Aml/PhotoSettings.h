@@ -31,29 +31,3 @@
 - (void)clearSettings;
 
 @end
-
-@interface LocalPhoto : NSObject
-
-@property (strong) NSString *imagePath;
-@property (strong) NSString *settingsPath;
-
-@property (strong) UIImage *image;
-@property (strong) NSDictionary *settings;
-
-// Reads the firebase key from 'settings' dictionary.
-@property (readonly) NSString *firebaseKey;
-
-// Removes the firebaseKey from the settings dictionary and deletes the
-// image from the server.
-- (void)unsync;
-
-// Write settings out to file
-- (void)saveSettings;
-
-- (void)load:(void (^)(LocalPhoto *localPhoto))callback;
-
-// If 'firebaseKey' is nil, one will be generated and added to 'settings'.
-// This will trigger a 'saveSettings' event.
-- (void)upload;
-
-@end
