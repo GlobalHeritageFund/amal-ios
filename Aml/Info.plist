@@ -38,6 +38,8 @@
 	<string>To take and save photographs</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>To record the location of photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To import photos from your photo library</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

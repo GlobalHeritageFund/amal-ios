@@ -28,6 +28,9 @@
 @property (strong) NSNumber *intervention; // bool
 @property (strong) NSString *notes;
 
+@property (strong) NSNumber *lat;
+@property (strong) NSNumber *lon;
+
 - (void)clearSettings;
 
 @end

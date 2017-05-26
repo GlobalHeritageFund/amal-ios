@@ -36,6 +36,8 @@
       @"safetyHazards",
       @"intervention",
       @"notes",
+      @"lat",
+      @"lon",
       ];
 }
 

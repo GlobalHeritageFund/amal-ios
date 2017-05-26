@@ -205,7 +205,21 @@
                             <outlet property="delegate" destination="Er4-Ws-BKT" id="obR-cp-YqH"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Assess" id="6zF-Ug-Mjh"/>
+                    <navigationItem key="navigationItem" title="Assess" id="6zF-Ug-Mjh">
+                        <barButtonItem key="rightBarButtonItem" title="Import" style="plain" id="Cef-zY-VEk">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3k2-Fx-44o">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Import">
+                                    <color key="titleColor" red="0.062745098040000002" green="0.58823529409999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="importImage:" destination="Er4-Ws-BKT" eventType="touchUpInside" id="16a-Zf-D9y"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="0.062745098040000002" green="0.58823529409999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyG-bK-QLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -327,30 +341,13 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2AR-mx-SgL">
-                                            <rect key="frame" x="13" y="5.5" width="41" height="33"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <state key="normal" title="Clear">
-                                                <color key="titleColor" red="0.062745098039215685" green="0.58823529411764708" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgA-uP-NxX">
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgA-uP-NxX">
                                             <rect key="frame" x="13" y="6.5" width="34" height="30"/>
                                             <state key="normal" title="Back">
                                                 <color key="titleColor" red="0.062745098040000002" green="0.58823529409999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="popNavigationController" destination="vqT-Ai-4XE" eventType="touchUpInside" id="n53-ij-p0P"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCA-TU-epJ">
-                                            <rect key="frame" x="323" y="5" width="39" height="33"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <state key="normal" title="Next">
-                                                <color key="titleColor" red="0.062745098040000002" green="0.58823529409999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="popNavigationControllerUnanimated" destination="vqT-Ai-4XE" eventType="touchUpInside" id="0ca-FK-E7v"/>
+                                                <action selector="popNavigationControllerUnanimated" destination="vqT-Ai-4XE" eventType="touchUpInside" id="TXy-HS-jix"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -358,11 +355,6 @@
                                         <constraint firstItem="JB8-8o-OLb" firstAttribute="centerY" secondItem="Jc0-Gt-Un3" secondAttribute="centerY" id="4rx-LE-cai"/>
                                         <constraint firstItem="AgA-uP-NxX" firstAttribute="leading" secondItem="Jc0-Gt-Un3" secondAttribute="leading" constant="13" id="FnO-sT-k4x"/>
                                         <constraint firstItem="JB8-8o-OLb" firstAttribute="centerX" secondItem="Jc0-Gt-Un3" secondAttribute="centerX" id="Icb-rR-xRt"/>
-                                        <constraint firstItem="2AR-mx-SgL" firstAttribute="centerY" secondItem="JB8-8o-OLb" secondAttribute="centerY" id="dGH-EP-QKJ"/>
-                                        <constraint firstItem="2AR-mx-SgL" firstAttribute="leading" secondItem="Jc0-Gt-Un3" secondAttribute="leading" constant="13" id="gi8-BJ-xQB"/>
-                                        <constraint firstItem="pCA-TU-epJ" firstAttribute="centerY" secondItem="JB8-8o-OLb" secondAttribute="centerY" id="p9P-u1-MWE"/>
-                                        <constraint firstItem="AgA-uP-NxX" firstAttribute="centerY" secondItem="pCA-TU-epJ" secondAttribute="centerY" id="tEa-z0-Lwz"/>
-                                        <constraint firstAttribute="trailing" secondItem="pCA-TU-epJ" secondAttribute="trailing" constant="13" id="zZI-rt-BlC"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
@@ -924,6 +916,6 @@
         <image name="ic_sync_active" width="26" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sCf-q2-EAI"/>
+        <segue reference="0KW-bo-qho"/>
     </inferredMetricsTieBreakers>
 </document>

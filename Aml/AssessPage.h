@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AssessPage : UICollectionViewController
+@interface AssessPage : UICollectionViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end

@@ -34,6 +34,8 @@
     AVCaptureSession *captureSession;
     
     AVCaptureVideoPreviewLayer *previewLayer;
+    
+    CLLocationManager *locationManager;
 }
 
 - (void)loadDevices
@@ -50,9 +52,26 @@
     }
 }
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation *location = [locations lastObject];
+    
+    PhotoSettings.shared.lat = @(location.coordinate.latitude);
+    PhotoSettings.shared.lon = @(location.coordinate.longitude);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    locationManager = [CLLocationManager new];
+    
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    
+    [locationManager requestWhenInUseAuthorization];
+    [locationManager startUpdatingLocation];
     
     [self loadDevices];
     

@@ -42,6 +42,9 @@
 		589612581EA6B9DA003C25C2 /* SyncPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 589612571EA6B9DA003C25C2 /* SyncPage.m */; };
 		5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */; };
 		58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A1123C1ED65E50006689DC /* LocalPhoto.m */; };
+		58A174AE1ED7BEAE003CACA0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */; };
+		58A174B01ED7BEB6003CACA0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */; };
+		58A174B21ED7BF4F003CACA0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174B11ED7BF4F003CACA0 /* Photos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +104,9 @@
 		5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncPhotosCell.m; sourceTree = "<group>"; };
 		58A1123B1ED65E50006689DC /* LocalPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPhoto.h; sourceTree = "<group>"; };
 		58A1123C1ED65E50006689DC /* LocalPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPhoto.m; sourceTree = "<group>"; };
+		58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		58A174B11ED7BF4F003CACA0 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58A174B21ED7BF4F003CACA0 /* Photos.framework in Frameworks */,
+				58A174B01ED7BEB6003CACA0 /* AssetsLibrary.framework in Frameworks */,
+				58A174AE1ED7BEAE003CACA0 /* ImageIO.framework in Frameworks */,
 				5846B20D1E809BA9008E48BC /* GoogleToolboxForMac.framework in Frameworks */,
 				581AA20B1E9D8A6000D6387B /* GTMSessionFetcher.framework in Frameworks */,
 				5846B20A1E809BA9008E48BC /* FirebaseAnalytics.framework in Frameworks */,
@@ -200,6 +209,9 @@
 		580A55601E5D1E7300A70AB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58A174B11ED7BF4F003CACA0 /* Photos.framework */,
+				58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */,
+				58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */,
 				5846B2141E809BF4008E48BC /* Firebase.h */,
 				581AA2081E9D8A6000D6387B /* FirebaseStorage.framework */,
 				581AA2091E9D8A6000D6387B /* GTMSessionFetcher.framework */,
@@ -313,7 +325,6 @@
 		585333251EA9BA900011F390 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				580A55541E5D0B8700A70AB1 /* CaptureNotesPage */,
 				5846B1FE1E7732FB008E48BC /* NavPage */,
 				585333261EA9BAA50011F390 /* AssessPage */,
 				580A55541E5D0B8700A70AB1 /* CaptureNotesPage */,
