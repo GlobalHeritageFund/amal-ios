@@ -30,8 +30,11 @@
 
 - (void)load:(void (^)(LocalPhoto *localPhoto))callback;
 
+// Called automatically when calling setSettingsValue.
+- (void)uploadSettingsIfHasKey;
+
 // If 'firebaseKey' is nil, one will be generated and added to 'settings'.
 // This will trigger a 'saveSettings' event.
-- (void)upload;
+- (void)uploadEverything;
 
 @end

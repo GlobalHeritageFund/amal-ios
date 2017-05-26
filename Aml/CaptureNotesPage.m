@@ -27,6 +27,28 @@
     self.tableView.estimatedRowHeight = 100;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *estimatedHeights =
+    @{
+      @"ImageCell": @248,
+      @"TitleCell": @55,
+      @"TitleNoSeperatorCell": @55,
+      @"CategoryCell": @49,
+      @"OverallCell": @49,
+      @"ConditionCell": @71,
+      @"SubtitleCell": @44,
+      @"HazardsCell": @43,
+      @"SafetyHazardsCell": @43,
+      @"InterventionCell": @43,
+      @"DescriptionCell": @45,
+      @"SyncCell": @43,
+      @"MapCell": @250,
+      };
+    
+    return [estimatedHeights[self.cellIdentifiers[indexPath.row]] floatValue];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -34,12 +56,29 @@
 
 - (NSArray*)cellIdentifiers
 {
+    if(self.localPhoto)
+        return
+        @[
+          @"ImageCell",
+          @"TitleCell",
+          @"CategoryCell",
+          @"DescriptionCell",
+          @"TitleCell",
+          @"ConditionCell",
+          @"SubtitleCell",
+          @"TitleCell",
+          @"HazardsCell",
+          @"SafetyHazardsCell",
+          @"InterventionCell",
+          @"SyncCell",
+          @"TitleNoSeperatorCell",
+          @"DescriptionCell",
+          ];
+    
     return
     @[
       @"TitleCell",
       @"CategoryCell",
-      @"TitleCell",
-      @"OverallCell",
       @"TitleCell",
       @"ConditionCell",
       @"SubtitleCell",
@@ -54,12 +93,29 @@
 
 - (NSArray*)settingsKeys
 {
+    if(self.localPhoto)
+        return
+        @[
+          [NSNull null],
+          [NSNull null],
+          @"category",
+          @"name",
+          [NSNull null],
+          @"levelOfDamage",
+          [NSNull null],
+          [NSNull null],
+          @"hazards",
+          @"safetyHazards",
+          @"intervention",
+          @"sync",
+          [NSNull null],
+          @"notes",
+          ];
+    
     return
     @[
       [NSNull null],
       @"category",
-      [NSNull null],
-      @"condition",
       [NSNull null],
       @"levelOfDamage",
       [NSNull null],
@@ -84,6 +140,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    if(self.localPhoto)
+        return 0;
+    
     return 44;
 }
 
@@ -105,7 +164,7 @@
     [self.tableView reloadData];
 }
 
-- (id)valueForKey:(NSString *)key
+- (id)settingsValueForKey:(NSString *)key
 {
     if(self.localPhoto)
         return self.localPhoto.settings[key];
@@ -113,10 +172,12 @@
     return [PhotoSettings.shared valueForKey:key];
 }
 
-- (void)setValue:(id)value forKey:(NSString *)key
+- (void)setSettingsValue:(id)value forKey:(NSString *)key
 {
-    if(self.localPhoto)
+    if(self.localPhoto) {
+        
         [self.localPhoto setSettingsValue:value forKey:key];
+    }
     else
         [PhotoSettings.shared setValue:value forKey:key];
 }
@@ -132,7 +193,7 @@
       @"Level 5 - Collapsed, destroyed",
       ];
     
-    int index = round([[self valueForKey:@"levelOfDamage"] floatValue]);
+    int index = round([[self settingsValueForKey:@"levelOfDamage"] floatValue]) - 1;
     
     return texts[index % texts.count];
 }
@@ -141,22 +202,48 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifiers[indexPath.row]];
     
-    if(indexPath.row == 0)
+    int i = 0;
+    
+    if(self.localPhoto) {
+        
+        if(indexPath.row == i) {
+            
+            if(self.localPhoto.image)
+                [(UIImageView*)[cell viewWithTag:1] setImage:self.localPhoto.image];
+            else
+                [self.localPhoto load:^(LocalPhoto *localPhoto) {
+                    
+                    [(UIImageView*)[cell viewWithTag:1] setImage:localPhoto.image];
+                }];
+        }
+        
+        i++;
+    }
+    
+    if(indexPath.row == i)
         [(id)[cell viewWithTag:1] setText:@"CATEGORY"];
     
-    if(indexPath.row == 2)
-        [(id)[cell viewWithTag:1] setText:@"OVERALL CONDITION"];
+    i += 2;
     
-    if(indexPath.row == 4)
+    if(indexPath.row == i)
         [(id)[cell viewWithTag:1] setText:@"LEVEL OF DAMAGE"];
     
-    if(indexPath.row == 6)
+    i += 2;
+    
+    if(indexPath.row == i)
+        [(id)[cell viewWithTag:1] setText:@"NAME"];
+    
+    if(indexPath.row == i)
         [(id)[cell viewWithTag:1] setText:self.levelOfDamageText];
     
-    if(indexPath.row == 7)
+    i += 1;
+    
+    if(indexPath.row == i)
         [(id)[cell viewWithTag:1] setText:@"ASSESS"];
     
-    if(indexPath.row == 11)
+    i += 4;
+    
+    if(indexPath.row == i)
         [(id)[cell viewWithTag:1] setText:@"NOTES"];
     
     if([cell isKindOfClass:[GenericSettingsCell class]]) {
@@ -168,7 +255,7 @@
         if([settingsKey isKindOfClass:[NSString class]]) {
             
             settingCell.settingsKey = settingsKey;
-            settingCell.value = [self valueForKey:settingsKey];
+            settingCell.value = [self settingsValueForKey:settingsKey];
             
             settingCell.delegate = self;
         }
@@ -185,13 +272,21 @@
 
 - (void)reportValueChange:(id)value forCell:(GenericSettingsCell *)cell
 {
-    [self setValue:value forKey:cell.settingsKey];
+    [self setSettingsValue:value forKey:cell.settingsKey];
     
     if([cell.settingsKey isEqual:@"levelOfDamage"]) {
         
         NSArray *paths = @[[NSIndexPath indexPathForRow:6 inSection:0]];
         
-        [self.tableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
+    }
+    
+    if([cell.settingsKey isEqual:@"sync"]) {
+        
+        if([[self settingsValueForKey:@"sync"] boolValue])
+            [self.localPhoto uploadEverything];
+        else
+            [self .localPhoto unsync];
     }
 }
 

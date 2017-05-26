@@ -9,6 +9,7 @@
 #import "AssessPage.h"
 #import "PhotoSettings.h"
 #import "LocalPhoto.h"
+#import "CaptureNotesPage.h"
 #import <objc/runtime.h>
 
 static const void *localPhotoKey = &localPhotoKey;
@@ -86,13 +87,9 @@ static const void *localPhotoKey = &localPhotoKey;
 {
     if([segue.identifier isEqual:@"imageTap"]) {
         
-        UIViewController *page = segue.destinationViewController;
+        CaptureNotesPage *page = segue.destinationViewController;
         
-        UIImageView *imageView = (id)[page.view viewWithTag:1];
-        
-        LocalPhoto *localPhoto = objc_getAssociatedObject(sender, localPhotoKey);
-        
-        imageView.image = localPhoto.image;
+        page.localPhoto = objc_getAssociatedObject(sender, localPhotoKey);
     }
 }
 

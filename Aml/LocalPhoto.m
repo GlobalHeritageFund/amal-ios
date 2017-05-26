@@ -18,6 +18,10 @@
     dict[key] = value;
     
     self.settings = dict;
+    
+    [self saveSettings];
+    
+    [self uploadSettingsIfHasKey];
 }
 
 - (void)load:(void (^)(LocalPhoto *))callback
@@ -72,10 +76,8 @@ static NSString *FirebaseImageKey = @"FirebaseImageKey";
     [settingsData writeToFile:self.settingsPath atomically:NO];
 }
 
-- (void)upload
+- (FIRDatabaseReference*)getOrMakeFirebaseRef
 {
-    NSData *imageData = UIImageJPEGRepresentation(self.image, 0.9);
-    
     FIRDatabaseReference *ref = [[[FIRDatabase database] reference] child:@"images"];
     
     NSString *key = self.firebaseKey;
@@ -92,17 +94,32 @@ static NSString *FirebaseImageKey = @"FirebaseImageKey";
         
         dict[FirebaseImageKey] = ref.key;
         
+        self.settings = dict;
+        
         [self saveSettings];
     }
     
-    if(self.settings) {
-        
-        [[ref child:@"settings"] setValue:self.settings withCompletionBlock:^(NSError *error, FIRDatabaseReference *ref) {
-            
-            if(error)
-                NSLog(@"Saving image settings error: %@", error);
-        }];
-    }
+    return ref;
+}
+
+- (void)uploadSettingsIfHasKey
+{
+    if(!self.firebaseKey)
+        return;
+    
+    FIRDatabaseReference *ref = [self getOrMakeFirebaseRef];
+    
+    if(self.settings)
+        [[ref child:@"settings"] setValue:self.settings];
+}
+
+- (void)uploadEverything
+{
+    NSData *imageData = UIImageJPEGRepresentation(self.image, 0.9);
+    
+    FIRDatabaseReference *ref = [self getOrMakeFirebaseRef];
+    
+    [self uploadSettingsIfHasKey];
     
     FIRStorageReference *imageRef = [[[[FIRStorage storage] reference] child:@"images"] child:ref.key];
     
