@@ -19,9 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    application.statusBarHidden = YES;
-    
+{    
     [Fabric with:@[[Crashlytics class]]];
     
     [FIRApp configure];
