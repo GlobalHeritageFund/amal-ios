@@ -26,7 +26,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WC0-Ay-cZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2671" y="-217"/>
+            <point key="canvasLocation" x="-1642" y="591"/>
         </scene>
         <!--Nav Page-->
         <scene sceneID="V0c-z8-YAJ">
@@ -831,7 +831,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1796" y="-1079"/>
+            <point key="canvasLocation" x="1903" y="180"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Kcs-sF-8gs">
@@ -890,7 +890,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSq-1I-nsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3394" y="73"/>
+            <point key="canvasLocation" x="2897" y="180"/>
         </scene>
     </scenes>
     <resources>
