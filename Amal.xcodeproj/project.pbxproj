@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
 		580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55411E5CFC1000A70AB1 /* AppDelegate.m */; };
 		580A55451E5CFC1000A70AB1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55441E5CFC1000A70AB1 /* ViewController.m */; };
@@ -48,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A8897281EEE3C0E00B38D24 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580A553E1E5CFC1000A70AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		580A55401E5CFC1000A70AB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 				580A555E1E5D1C5A00A70AB1 /* UIViewController+Additions.m */,
 				580A55591E5D136200A70AB1 /* CALayer+Additions.h */,
 				580A555A1E5D136200A70AB1 /* CALayer+Additions.m */,
+				1A8897281EEE3C0E00B38D24 /* UIImage+Resize.h */,
+				1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -495,6 +500,7 @@
 				580A55451E5CFC1000A70AB1 /* ViewController.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
 				5846B22D1E80A65B008E48BC /* GenericSettingsCell.m in Sources */,
+				1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */,
 				5846B2011E773315008E48BC /* NavPage.m in Sources */,
 				580A553F1E5CFC1000A70AB1 /* main.m in Sources */,
 				580A55571E5D0B9800A70AB1 /* CaptureNotesPage.m in Sources */,

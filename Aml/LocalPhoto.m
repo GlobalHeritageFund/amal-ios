@@ -8,6 +8,7 @@
 
 #import "LocalPhoto.h"
 #import "Firebase.h"
+#import "UIImage+Resize.h"
 
 @implementation LocalPhoto
 
@@ -30,10 +31,12 @@
         
         NSData *data = [NSData dataWithContentsOfFile:self.settingsPath];
         UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
+
+        UIImage *scaledImage = [image resizedImage:CGSizeMake(400, 400) interpolationQuality:kCGInterpolationMedium];
         
         [NSOperationQueue.mainQueue addOperationWithBlock:^{
             
-            self.image = image;
+            self.image = scaledImage;
             
             if(data)
                 self.settings = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
