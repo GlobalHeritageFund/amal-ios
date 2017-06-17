@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */; };
+		1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */; };
 		1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
 		580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55411E5CFC1000A70AB1 /* AppDelegate.m */; };
@@ -52,6 +53,8 @@
 /* Begin PBXFileReference section */
 		1A7432571EF592AF00CE9D17 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
+		1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCoordinator.h; sourceTree = "<group>"; };
+		1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCoordinator.m; sourceTree = "<group>"; };
 		1A8897281EEE3C0E00B38D24 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +165,8 @@
 			children = (
 				580A55401E5CFC1000A70AB1 /* AppDelegate.h */,
 				580A55411E5CFC1000A70AB1 /* AppDelegate.m */,
+				1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */,
+				1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */,
 				58BE51811E6639D1001B9575 /* Storyboards */,
 				585333251EA9BA900011F390 /* Pages */,
 				5846B21B1E80A3E8008E48BC /* Cells */,
@@ -392,6 +397,7 @@
 				5846B2291E80A4C7008E48BC /* SegmentSettingCell.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
+				1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */,
 				5846B22D1E80A65B008E48BC /* GenericSettingsCell.m in Sources */,
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
 				1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */,
