@@ -10,6 +10,7 @@
 		1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */; };
 		1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */; };
 		1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */; };
+		1A7432621EF5CCFA00CE9D17 /* NSArray+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */; };
 		1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
 		580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55411E5CFC1000A70AB1 /* AppDelegate.m */; };
@@ -58,6 +59,8 @@
 		1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCoordinator.m; sourceTree = "<group>"; };
 		1A74325D1EF5A0F200CE9D17 /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
 		1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
+		1A7432601EF5CCFA00CE9D17 /* NSArray+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Additions.h"; sourceTree = "<group>"; };
+		1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Additions.m"; sourceTree = "<group>"; };
 		1A8897281EEE3C0E00B38D24 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +229,8 @@
 				1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */,
 				1A7432571EF592AF00CE9D17 /* UIColor+Additions.h */,
 				1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */,
+				1A7432601EF5CCFA00CE9D17 /* NSArray+Additions.h */,
+				1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 				5846B22D1E80A65B008E48BC /* GenericSettingsCell.m in Sources */,
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
 				1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */,
+				1A7432621EF5CCFA00CE9D17 /* NSArray+Additions.m in Sources */,
 				5846B2011E773315008E48BC /* NavPage.m in Sources */,
 				580A553F1E5CFC1000A70AB1 /* main.m in Sources */,
 				580A55571E5D0B9800A70AB1 /* CaptureNotesPage.m in Sources */,
