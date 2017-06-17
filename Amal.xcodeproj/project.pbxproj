@@ -248,14 +248,14 @@
 				5846B2041E773354008E48BC /* TabBarPage.m */,
 				5846B1FF1E773315008E48BC /* NavPage.h */,
 				5846B2001E773315008E48BC /* NavPage.m */,
+				580A55431E5CFC1000A70AB1 /* CameraViewController.h */,
+				580A55441E5CFC1000A70AB1 /* CameraViewController.m */,
 				585333271EA9BAB60011F390 /* AssessPage.h */,
 				585333281EA9BAB60011F390 /* AssessPage.m */,
 				580A55551E5D0B9800A70AB1 /* CaptureNotesPage.h */,
 				580A55561E5D0B9800A70AB1 /* CaptureNotesPage.m */,
 				589612561EA6B9DA003C25C2 /* SyncPage.h */,
 				589612571EA6B9DA003C25C2 /* SyncPage.m */,
-				580A55431E5CFC1000A70AB1 /* CameraViewController.h */,
-				580A55441E5CFC1000A70AB1 /* CameraViewController.m */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
