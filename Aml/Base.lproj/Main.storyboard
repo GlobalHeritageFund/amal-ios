@@ -32,9 +32,7 @@
         <scene sceneID="V0c-z8-YAJ">
             <objects>
                 <navigationController navigationBarHidden="YES" id="6j5-Uj-lZC" customClass="NavPage" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Camera" image="ic_camera_white" selectedImage="ic_camera_active" id="4z1-iQ-0BL">
-                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Camera" image="ic_camera_white" selectedImage="ic_camera_active" id="4z1-iQ-0BL"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="u7X-vb-xYL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -287,9 +285,7 @@
         <scene sceneID="o4x-ik-ycj">
             <objects>
                 <navigationController id="iYu-Le-dZV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sync" image="ic_folder_shared_outline" selectedImage="ic_sync_active" id="i8g-Rk-Qpb">
-                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Sync" image="ic_folder_shared_outline" selectedImage="ic_sync_active" id="i8g-Rk-Qpb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cBD-Y6-kHB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -306,9 +302,7 @@
         <scene sceneID="V0w-Go-nd9">
             <objects>
                 <navigationController id="qsh-pe-spC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Gallery" image="ic_assess_outline" selectedImage="ic_assess_active" id="aWX-6c-FKT">
-                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Gallery" image="ic_assess_outline" selectedImage="ic_assess_active" id="aWX-6c-FKT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GBc-Hx-aoX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
