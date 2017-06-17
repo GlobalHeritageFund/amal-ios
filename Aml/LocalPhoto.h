@@ -37,4 +37,6 @@
 // This will trigger a 'saveSettings' event.
 - (void)uploadEverything;
 
+- (void)removeLocalData;
+
 @end

@@ -31,7 +31,10 @@
 }
 
 - (void)deleteTapped:(id)sender {
-    NSLog(@"delete tapped");
+    //double check that the user actually wants to do this
+    [self.localPhoto unsync];
+    [self.localPhoto removeLocalData];
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath

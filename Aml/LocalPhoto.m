@@ -158,4 +158,10 @@ static NSString *FirebaseImageKey = @"FirebaseImageKey";
     }];
 }
 
+- (void)removeLocalData {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    [fileManager removeItemAtPath:self.settingsPath error:nil];
+    [fileManager removeItemAtPath:self.imagePath error:nil];
+}
+
 @end
