@@ -9,6 +9,7 @@
 #import "PhotoSettings.h"
 #import "Firebase.h"
 #import "LocalPhoto.h"
+#import "NSArray+Additions.h"
 
 @implementation PhotoSettings
 
@@ -69,45 +70,50 @@
 
 - (NSArray *)localPhotos
 {
-    NSMutableArray *array = [NSMutableArray new];
-    
-    for(int i = 0;; i++) {
-        
-        NSString *filename = [NSString stringWithFormat:@"%s/%d.jpeg", self.imagesDirectory.fileSystemRepresentation, i];
-    
-        if(![NSFileManager.defaultManager fileExistsAtPath:filename])
-            break;
-        
+
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *root = [NSString stringWithFormat:@"%s", self.imagesDirectory.fileSystemRepresentation];
+    NSArray<NSString *> *values = [fileManager contentsOfDirectoryAtPath:root error:nil];
+
+    NSArray<NSString *> *imageFilenames = [values arrayBySelectingObjectsPassingTest:^BOOL(id object) {
+        return [[object pathExtension] isEqualToString:@"jpeg"] || [[object pathExtension] isEqualToString:@"jpg"];
+    }];
+
+    return [imageFilenames arrayByTransformingObjectsUsingBlock:^id(NSString *imageFilename) {
         LocalPhoto *localPhoto = [LocalPhoto new];
-        
-        localPhoto.imagePath = filename;
-        localPhoto.settingsPath = [NSString stringWithFormat:@"%s/%d.json", self.imagesDirectory.fileSystemRepresentation, i];
-        
-        [array addObject:localPhoto];
-    }
-    
-    return array;
+
+        NSString *settingsFilename = [imageFilename stringByReplacingOccurrencesOfString:imageFilename.pathExtension withString:@"json" options:0 range:NSMakeRange(0, imageFilename.length)];
+
+        localPhoto.imagePath = [root stringByAppendingPathComponent:imageFilename];
+        localPhoto.settingsPath = [root stringByAppendingPathComponent:settingsFilename];
+
+        return localPhoto;
+    }];
 }
 
 - (LocalPhoto*)saveJpegLocally:(NSData*)jpegData
 {
-    int i = -1;
-    
-    NSString *filename;
-    NSString *settingsFilename;
-    
-    do {
-        
-        i++;
-        
-        filename = [NSString stringWithFormat:@"%s/%d.jpeg", self.imagesDirectory.fileSystemRepresentation, i];
-    }
-    while ([NSFileManager.defaultManager fileExistsAtPath:filename]);
-    
+
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *root = [NSString stringWithFormat:@"%s", self.imagesDirectory.fileSystemRepresentation];
+    NSArray<NSString *> *values = [fileManager contentsOfDirectoryAtPath:root error:nil];
+
+    NSArray<NSString *> *imageFilenames = [values arrayBySelectingObjectsPassingTest:^BOOL(id object) {
+        return [[object pathExtension] isEqualToString:@"jpeg"] || [[object pathExtension] isEqualToString:@"jpg"];
+    }];
+
+    NSArray<NSNumber *> *imageIDs = [imageFilenames arrayByTransformingObjectsUsingBlock:^id(id object) {
+        return @([[object stringByDeletingPathExtension] intValue]);
+    }];
+
+    NSNumber *maxNumber = [imageIDs valueForKeyPath:@"@max.intValue"];
+    NSNumber *newNumber = @(maxNumber.intValue+1);
+
     NSDictionary *settings = [self.settingsDictionary copy];
     
-    settingsFilename = [NSString stringWithFormat:@"%s/%d.json", self.imagesDirectory.fileSystemRepresentation, i];
-    
+    NSString *settingsFilename = [NSString stringWithFormat:@"%s/%@.json", self.imagesDirectory.fileSystemRepresentation, newNumber];
+    NSString *filename = [NSString stringWithFormat:@"%s/%@.jpeg", self.imagesDirectory.fileSystemRepresentation, newNumber];
+
     [jpegData writeToFile:filename atomically:NO];
     
     NSData *settingsData = [NSJSONSerialization dataWithJSONObject:settings options:0 error:nil];
