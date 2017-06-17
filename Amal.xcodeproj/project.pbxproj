@@ -157,13 +157,13 @@
 		580A553C1E5CFC1000A70AB1 /* Aml */ = {
 			isa = PBXGroup;
 			children = (
+				580A55401E5CFC1000A70AB1 /* AppDelegate.h */,
+				580A55411E5CFC1000A70AB1 /* AppDelegate.m */,
+				58BE51811E6639D1001B9575 /* Storyboards */,
 				585333251EA9BA900011F390 /* Pages */,
 				5846B21B1E80A3E8008E48BC /* Cells */,
-				58A1123A1ED65E45006689DC /* LocalPhoto */,
-				5846B2171E809D87008E48BC /* PhotoSettings */,
+				58A1123A1ED65E45006689DC /* Model */,
 				580A55631E5D254600A70AB1 /* Extensions */,
-				58BE517F1E6639C3001B9575 /* AppDelegate */,
-				58BE51811E6639D1001B9575 /* Storyboards */,
 				58BE51821E6639D7001B9575 /* Assets */,
 				580A553D1E5CFC1000A70AB1 /* Supporting Files */,
 			);
@@ -178,15 +178,6 @@
 				580A553E1E5CFC1000A70AB1 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		580A55541E5D0B8700A70AB1 /* CaptureNotesPage */ = {
-			isa = PBXGroup;
-			children = (
-				580A55551E5D0B9800A70AB1 /* CaptureNotesPage.h */,
-				580A55561E5D0B9800A70AB1 /* CaptureNotesPage.m */,
-			);
-			name = CaptureNotesPage;
 			sourceTree = "<group>";
 		};
 		580A55601E5D1E7300A70AB1 /* Frameworks */ = {
@@ -226,156 +217,53 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		5846B1FE1E7732FB008E48BC /* NavPage */ = {
-			isa = PBXGroup;
-			children = (
-				5846B1FF1E773315008E48BC /* NavPage.h */,
-				5846B2001E773315008E48BC /* NavPage.m */,
-			);
-			name = NavPage;
-			sourceTree = "<group>";
-		};
-		5846B2021E773340008E48BC /* TabBarPage */ = {
-			isa = PBXGroup;
-			children = (
-				5846B2031E773354008E48BC /* TabBarPage.h */,
-				5846B2041E773354008E48BC /* TabBarPage.m */,
-			);
-			name = TabBarPage;
-			sourceTree = "<group>";
-		};
-		5846B2171E809D87008E48BC /* PhotoSettings */ = {
-			isa = PBXGroup;
-			children = (
-				5846B2181E809DB7008E48BC /* PhotoSettings.h */,
-				5846B2191E809DB7008E48BC /* PhotoSettings.m */,
-			);
-			name = PhotoSettings;
-			sourceTree = "<group>";
-		};
 		5846B21B1E80A3E8008E48BC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				589612591EA6BA98003C25C2 /* SyncPhotosCell */,
-				5846B22A1E80A640008E48BC /* GenericSettingsCell */,
-				5846B2261E80A4B1008E48BC /* TextSettingCell */,
-				5846B2251E80A4AA008E48BC /* SwitchSettingCell */,
-				5846B2241E80A4A2008E48BC /* SliderSettingCell */,
-				5846B2231E80A47E008E48BC /* SegmentSettingCell */,
-			);
-			name = Cells;
-			sourceTree = "<group>";
-		};
-		5846B2231E80A47E008E48BC /* SegmentSettingCell */ = {
-			isa = PBXGroup;
-			children = (
+				5896125A1EA6BAB4003C25C2 /* SyncPhotosCell.h */,
+				5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */,
+				5846B22B1E80A65B008E48BC /* GenericSettingsCell.h */,
+				5846B22C1E80A65B008E48BC /* GenericSettingsCell.m */,
+				5846B2341E80A7F9008E48BC /* TextSettingCell.h */,
+				5846B2351E80A7F9008E48BC /* TextSettingCell.m */,
+				5846B2311E80A7B6008E48BC /* SwitchSettingCell.h */,
+				5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */,
+				5846B22E1E80A6E0008E48BC /* SliderSettingCell.h */,
+				5846B22F1E80A6E0008E48BC /* SliderSettingCell.m */,
 				5846B2271E80A4C7008E48BC /* SegmentSettingCell.h */,
 				5846B2281E80A4C7008E48BC /* SegmentSettingCell.m */,
 			);
-			name = SegmentSettingCell;
-			sourceTree = "<group>";
-		};
-		5846B2241E80A4A2008E48BC /* SliderSettingCell */ = {
-			isa = PBXGroup;
-			children = (
-				5846B22E1E80A6E0008E48BC /* SliderSettingCell.h */,
-				5846B22F1E80A6E0008E48BC /* SliderSettingCell.m */,
-			);
-			name = SliderSettingCell;
-			sourceTree = "<group>";
-		};
-		5846B2251E80A4AA008E48BC /* SwitchSettingCell */ = {
-			isa = PBXGroup;
-			children = (
-				5846B2311E80A7B6008E48BC /* SwitchSettingCell.h */,
-				5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */,
-			);
-			name = SwitchSettingCell;
-			sourceTree = "<group>";
-		};
-		5846B2261E80A4B1008E48BC /* TextSettingCell */ = {
-			isa = PBXGroup;
-			children = (
-				5846B2341E80A7F9008E48BC /* TextSettingCell.h */,
-				5846B2351E80A7F9008E48BC /* TextSettingCell.m */,
-			);
-			name = TextSettingCell;
-			sourceTree = "<group>";
-		};
-		5846B22A1E80A640008E48BC /* GenericSettingsCell */ = {
-			isa = PBXGroup;
-			children = (
-				5846B22B1E80A65B008E48BC /* GenericSettingsCell.h */,
-				5846B22C1E80A65B008E48BC /* GenericSettingsCell.m */,
-			);
-			name = GenericSettingsCell;
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		585333251EA9BA900011F390 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				5846B1FE1E7732FB008E48BC /* NavPage */,
-				585333261EA9BAA50011F390 /* AssessPage */,
-				580A55541E5D0B8700A70AB1 /* CaptureNotesPage */,
-				589612551EA6B9B7003C25C2 /* SyncPage */,
-				5846B2021E773340008E48BC /* TabBarPage */,
-				58BE51801E6639C8001B9575 /* ViewController */,
+				5846B1FF1E773315008E48BC /* NavPage.h */,
+				5846B2001E773315008E48BC /* NavPage.m */,
+				585333271EA9BAB60011F390 /* AssessPage.h */,
+				585333281EA9BAB60011F390 /* AssessPage.m */,
+				580A55551E5D0B9800A70AB1 /* CaptureNotesPage.h */,
+				580A55561E5D0B9800A70AB1 /* CaptureNotesPage.m */,
+				589612561EA6B9DA003C25C2 /* SyncPage.h */,
+				589612571EA6B9DA003C25C2 /* SyncPage.m */,
+				5846B2031E773354008E48BC /* TabBarPage.h */,
+				5846B2041E773354008E48BC /* TabBarPage.m */,
+				580A55431E5CFC1000A70AB1 /* ViewController.h */,
+				580A55441E5CFC1000A70AB1 /* ViewController.m */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
 		};
-		585333261EA9BAA50011F390 /* AssessPage */ = {
-			isa = PBXGroup;
-			children = (
-				585333271EA9BAB60011F390 /* AssessPage.h */,
-				585333281EA9BAB60011F390 /* AssessPage.m */,
-			);
-			name = AssessPage;
-			sourceTree = "<group>";
-		};
-		589612551EA6B9B7003C25C2 /* SyncPage */ = {
-			isa = PBXGroup;
-			children = (
-				589612561EA6B9DA003C25C2 /* SyncPage.h */,
-				589612571EA6B9DA003C25C2 /* SyncPage.m */,
-			);
-			name = SyncPage;
-			sourceTree = "<group>";
-		};
-		589612591EA6BA98003C25C2 /* SyncPhotosCell */ = {
-			isa = PBXGroup;
-			children = (
-				5896125A1EA6BAB4003C25C2 /* SyncPhotosCell.h */,
-				5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */,
-			);
-			name = SyncPhotosCell;
-			sourceTree = "<group>";
-		};
-		58A1123A1ED65E45006689DC /* LocalPhoto */ = {
+		58A1123A1ED65E45006689DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				58A1123B1ED65E50006689DC /* LocalPhoto.h */,
 				58A1123C1ED65E50006689DC /* LocalPhoto.m */,
+				5846B2181E809DB7008E48BC /* PhotoSettings.h */,
+				5846B2191E809DB7008E48BC /* PhotoSettings.m */,
 			);
-			name = LocalPhoto;
-			sourceTree = "<group>";
-		};
-		58BE517F1E6639C3001B9575 /* AppDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				580A55401E5CFC1000A70AB1 /* AppDelegate.h */,
-				580A55411E5CFC1000A70AB1 /* AppDelegate.m */,
-			);
-			name = AppDelegate;
-			sourceTree = "<group>";
-		};
-		58BE51801E6639C8001B9575 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				580A55431E5CFC1000A70AB1 /* ViewController.h */,
-				580A55441E5CFC1000A70AB1 /* ViewController.m */,
-			);
-			name = ViewController;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		58BE51811E6639D1001B9575 /* Storyboards */ = {
