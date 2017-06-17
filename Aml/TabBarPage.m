@@ -7,6 +7,7 @@
 //
 
 #import "TabBarPage.h"
+#import "UIColor+Additions.h"
 
 @interface TabBarPage ()
 
@@ -22,6 +23,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.tabBar.tintColor = [UIColor amalTeal];
     
     for (UITabBarItem *tbi in self.tabBar.items) {
         
