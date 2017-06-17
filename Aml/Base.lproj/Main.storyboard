@@ -36,7 +36,7 @@
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="u7X-vb-xYL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="u7X-vb-xYL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -166,7 +166,7 @@
         <scene sceneID="WV0-fe-43b">
             <objects>
                 <collectionViewController id="Er4-Ws-BKT" customClass="AssessPage" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="9kB-fE-Cbk">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="9kB-fE-Cbk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -290,7 +290,7 @@
                     <tabBarItem key="tabBarItem" title="Sync" image="ic_folder_shared_outline" selectedImage="ic_sync_active" id="i8g-Rk-Qpb">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cBD-Y6-kHB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cBD-Y6-kHB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -309,7 +309,7 @@
                     <tabBarItem key="tabBarItem" title="Gallery" image="ic_assess_outline" selectedImage="ic_assess_active" id="aWX-6c-FKT">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GBc-Hx-aoX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GBc-Hx-aoX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -827,16 +827,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v2U-ke-1zK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="YYF-7s-1aj">
                     <connections>
-                        <segue destination="GKn-8w-bY5" kind="show" id="dej-9f-Mkk"/>
+                        <segue destination="GKn-8w-bY5" kind="show" identifier="showImageDetail" id="dej-9f-Mkk"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1426" y="100"/>
         </scene>
-        <!--View Controller-->
+        <!--Image Detail View Controller-->
         <scene sceneID="Kcs-sF-8gs">
             <objects>
-                <viewController id="GKn-8w-bY5" sceneMemberID="viewController">
+                <viewController id="GKn-8w-bY5" customClass="ImageDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8XO-I7-QSS"/>
                         <viewControllerLayoutGuide type="bottom" id="jgL-jM-R98"/>
@@ -845,48 +845,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lb9-iY-uSR">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isd-CT-KgR">
-                                        <rect key="frame" x="146" y="31" width="83" height="29"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kq0-HI-ny4">
-                                        <rect key="frame" x="13" y="27" width="36" height="36"/>
-                                        <state key="normal" image="ic_navigate_before_white_36pt"/>
-                                        <connections>
-                                            <action selector="popNavigationController" destination="GKn-8w-bY5" eventType="touchUpInside" id="FR4-Id-vMu"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.53725490200000003" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="Isd-CT-KgR" firstAttribute="centerX" secondItem="Lb9-iY-uSR" secondAttribute="centerX" id="3IO-h1-zyU"/>
-                                    <constraint firstItem="kq0-HI-ny4" firstAttribute="centerY" secondItem="Isd-CT-KgR" secondAttribute="centerY" id="YTd-BP-tkZ"/>
-                                    <constraint firstItem="Isd-CT-KgR" firstAttribute="top" secondItem="Lb9-iY-uSR" secondAttribute="top" constant="31" id="Ywz-vB-g5V"/>
-                                    <constraint firstItem="kq0-HI-ny4" firstAttribute="leading" secondItem="Lb9-iY-uSR" secondAttribute="leading" constant="13" id="bvO-bF-14d"/>
-                                    <constraint firstAttribute="height" constant="85" id="xBB-1s-UyH"/>
-                                </constraints>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Picture" translatesAutoresizingMaskIntoConstraints="NO" id="eeG-At-NHG">
-                                <rect key="frame" x="0.0" y="85" width="375" height="582"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Picture" translatesAutoresizingMaskIntoConstraints="NO" id="eeG-At-NHG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Lb9-iY-uSR" secondAttribute="trailing" id="3p9-Cr-rod"/>
-                            <constraint firstItem="Lb9-iY-uSR" firstAttribute="top" secondItem="8XO-I7-QSS" secondAttribute="bottom" id="Aic-oZ-FoF"/>
-                            <constraint firstItem="eeG-At-NHG" firstAttribute="top" secondItem="Lb9-iY-uSR" secondAttribute="bottom" id="FbU-WG-mCR"/>
-                            <constraint firstItem="Lb9-iY-uSR" firstAttribute="leading" secondItem="pLf-V8-N71" secondAttribute="leading" id="Iae-vz-owb"/>
-                            <constraint firstItem="eeG-At-NHG" firstAttribute="leading" secondItem="pLf-V8-N71" secondAttribute="leading" id="Qmb-Hl-ciQ"/>
-                            <constraint firstAttribute="trailing" secondItem="eeG-At-NHG" secondAttribute="trailing" id="Umw-A0-rAV"/>
-                            <constraint firstItem="jgL-jM-R98" firstAttribute="top" secondItem="eeG-At-NHG" secondAttribute="bottom" id="ihB-6w-oWr"/>
+                            <constraint firstItem="eeG-At-NHG" firstAttribute="centerY" secondItem="pLf-V8-N71" secondAttribute="centerY" id="Khl-gh-oph"/>
+                            <constraint firstItem="eeG-At-NHG" firstAttribute="height" secondItem="pLf-V8-N71" secondAttribute="height" id="fiL-N4-0Zz"/>
+                            <constraint firstItem="eeG-At-NHG" firstAttribute="width" secondItem="pLf-V8-N71" secondAttribute="width" id="jxk-tZ-lrU"/>
+                            <constraint firstItem="eeG-At-NHG" firstAttribute="centerX" secondItem="pLf-V8-N71" secondAttribute="centerX" id="k0H-kf-zBc"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="imageView" destination="eeG-At-NHG" id="rSB-9V-6fe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSq-1I-nsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -912,11 +887,10 @@
         <image name="ic_flash_off_white_36pt" width="36" height="36"/>
         <image name="ic_flash_on_white_36pt" width="36" height="36"/>
         <image name="ic_folder_shared_outline" width="26" height="22"/>
-        <image name="ic_navigate_before_white_36pt" width="36" height="36"/>
         <image name="ic_rapid_assess" width="30" height="15"/>
         <image name="ic_sync_active" width="26" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sCf-q2-EAI"/>
+        <segue reference="0KW-bo-qho"/>
     </inferredMetricsTieBreakers>
 </document>

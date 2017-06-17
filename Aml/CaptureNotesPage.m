@@ -10,6 +10,7 @@
 #import "UIViewController+Additions.h"
 #import <MapKit/MapKit.h>
 #import "PhotoSettings.h"
+#import "ImageDetailViewController.h"
 
 @interface CaptureNotesPage ()
 
@@ -286,7 +287,15 @@
         if([[self settingsValueForKey:@"sync"] boolValue])
             [self.localPhoto uploadEverything];
         else
-            [self .localPhoto unsync];
+            [self.localPhoto unsync];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showImageDetail"]) {
+        ImageDetailViewController *imageDetail = segue.destinationViewController;
+        [imageDetail loadView];
+        imageDetail.imageView.image = self.localPhoto.image;
     }
 }
 
