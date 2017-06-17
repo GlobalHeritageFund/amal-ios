@@ -10,6 +10,20 @@
 #import "Firebase.h"
 #import "UIImage+Resize.h"
 
+
+CGSize CGSizeFitting(CGSize original, CGSize maximum) {
+    CGSize final = CGSizeZero;
+
+    CGFloat aspectWidth = maximum.width / original.width;
+    CGFloat aspectHeight = maximum.height / original.height;
+    CGFloat aspectRatio = MIN (aspectWidth, aspectHeight);
+
+    final.width = original.width * aspectRatio;
+    final.height = original.height * aspectRatio;
+    return final;
+}
+
+
 @implementation LocalPhoto
 
 - (void)setSettingsValue:(id)value forKey:(NSString *)key
@@ -32,7 +46,8 @@
         NSData *data = [NSData dataWithContentsOfFile:self.settingsPath];
         UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
 
-        UIImage *scaledImage = [image resizedImage:CGSizeMake(400, 400) interpolationQuality:kCGInterpolationMedium];
+
+        UIImage *scaledImage = [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
         
         [NSOperationQueue.mainQueue addOperationWithBlock:^{
             
