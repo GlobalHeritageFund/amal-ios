@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="-439" y="-251"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="qZc-VI-AAt">
             <objects>
-                <viewController id="pLV-uX-gjF" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="pLV-uX-gjF" customClass="CameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lff-0l-6Co"/>
                         <viewControllerLayoutGuide type="bottom" id="PCk-La-t9L"/>
@@ -917,6 +917,6 @@
         <image name="ic_sync_active" width="26" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0KW-bo-qho"/>
+        <segue reference="sCf-q2-EAI"/>
     </inferredMetricsTieBreakers>
 </document>

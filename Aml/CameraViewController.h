@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface ViewController : UIViewController<CLLocationManagerDelegate>
+@interface CameraViewController : UIViewController<CLLocationManagerDelegate>
 
 @property (weak) IBOutlet UIImageView *previewImageView;
 

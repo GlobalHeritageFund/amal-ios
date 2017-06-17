@@ -6,11 +6,11 @@
 //  Copyright © 2017 Dustin. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CameraViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "PhotoSettings.h"
 
-@interface ViewController ()
+@interface CameraViewController ()
 
 @property (weak) IBOutlet UIButton *swapButton;
 @property (weak) IBOutlet UIButton *flashButton;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation ViewController {
+@implementation CameraViewController {
     AVCaptureDevice *inputDeviceFront;
     AVCaptureDevice *inputDeviceBack;
     

@@ -11,7 +11,7 @@
 		1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
 		580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55411E5CFC1000A70AB1 /* AppDelegate.m */; };
-		580A55451E5CFC1000A70AB1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55441E5CFC1000A70AB1 /* ViewController.m */; };
+		580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55441E5CFC1000A70AB1 /* CameraViewController.m */; };
 		580A55481E5CFC1000A70AB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580A55461E5CFC1000A70AB1 /* Main.storyboard */; };
 		580A554A1E5CFC1000A70AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580A55491E5CFC1000A70AB1 /* Assets.xcassets */; };
 		580A554D1E5CFC1000A70AB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */; };
@@ -58,8 +58,8 @@
 		580A553E1E5CFC1000A70AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		580A55401E5CFC1000A70AB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		580A55411E5CFC1000A70AB1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		580A55431E5CFC1000A70AB1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		580A55441E5CFC1000A70AB1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		580A55431E5CFC1000A70AB1 /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		580A55441E5CFC1000A70AB1 /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		580A55471E5CFC1000A70AB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		580A55491E5CFC1000A70AB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		580A554C1E5CFC1000A70AB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -254,8 +254,8 @@
 				580A55561E5D0B9800A70AB1 /* CaptureNotesPage.m */,
 				589612561EA6B9DA003C25C2 /* SyncPage.h */,
 				589612571EA6B9DA003C25C2 /* SyncPage.m */,
-				580A55431E5CFC1000A70AB1 /* ViewController.h */,
-				580A55441E5CFC1000A70AB1 /* ViewController.m */,
+				580A55431E5CFC1000A70AB1 /* CameraViewController.h */,
+				580A55441E5CFC1000A70AB1 /* CameraViewController.m */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -390,7 +390,7 @@
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				5846B2361E80A7F9008E48BC /* TextSettingCell.m in Sources */,
 				5846B2291E80A4C7008E48BC /* SegmentSettingCell.m in Sources */,
-				580A55451E5CFC1000A70AB1 /* ViewController.m in Sources */,
+				580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
 				5846B22D1E80A65B008E48BC /* GenericSettingsCell.m in Sources */,
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
