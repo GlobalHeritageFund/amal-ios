@@ -207,7 +207,7 @@
                     <navigationItem key="navigationItem" title="Assess" id="6zF-Ug-Mjh">
                         <barButtonItem key="rightBarButtonItem" title="Import" style="plain" id="Cef-zY-VEk">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3k2-Fx-44o">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <rect key="frame" x="276" y="7" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Import">
                                     <color key="titleColor" red="0.062745098040000002" green="0.58823529409999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>

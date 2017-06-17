@@ -7,6 +7,7 @@
 //
 
 #import "AppCoordinator.h"
+#import "UIColor+Additions.h"
 
 @implementation FirstLaunch
 
@@ -55,6 +56,7 @@
 
 - (void)start {
     UIViewController *tabBarController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
+    self.window.tintColor = [UIColor amalTeal];
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
 

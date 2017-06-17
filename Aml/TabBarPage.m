@@ -24,8 +24,6 @@
 {
     [super viewDidLoad];
 
-    self.tabBar.tintColor = [UIColor amalTeal];
-    
     for (UITabBarItem *tbi in self.tabBar.items) {
         tbi.selectedImage = [tbi.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
