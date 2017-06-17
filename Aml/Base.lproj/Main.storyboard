@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dj3-gB-zij">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dj3-gB-zij">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,11 +28,11 @@
             </objects>
             <point key="canvasLocation" x="-1642" y="591"/>
         </scene>
-        <!--Nav Page-->
+        <!--Camera-->
         <scene sceneID="V0c-z8-YAJ">
             <objects>
                 <navigationController navigationBarHidden="YES" id="6j5-Uj-lZC" customClass="NavPage" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ic_camera_white" selectedImage="ic_camera_active" id="4z1-iQ-0BL">
+                    <tabBarItem key="tabBarItem" title="Camera" image="ic_camera_white" selectedImage="ic_camera_active" id="4z1-iQ-0BL">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -46,7 +46,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJd-EK-jNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-299" y="-217"/>
+            <point key="canvasLocation" x="-439" y="-251"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qZc-VI-AAt">
@@ -160,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNF-zs-Oqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="-217"/>
+            <point key="canvasLocation" x="446" y="-251"/>
         </scene>
         <!--Assess-->
         <scene sceneID="WV0-fe-43b">
@@ -224,7 +224,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyG-bK-QLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645.60000000000002" y="590.55472263868069"/>
+            <point key="canvasLocation" x="446" y="438"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="RTZ-Rf-o1e">
@@ -281,13 +281,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGu-zJ-2aC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645.60000000000002" y="1393.8530734632684"/>
+            <point key="canvasLocation" x="446" y="1143"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Sync-->
         <scene sceneID="o4x-ik-ycj">
             <objects>
                 <navigationController id="iYu-Le-dZV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ic_folder_shared_outline" selectedImage="ic_sync_active" id="i8g-Rk-Qpb">
+                    <tabBarItem key="tabBarItem" title="Sync" image="ic_folder_shared_outline" selectedImage="ic_sync_active" id="i8g-Rk-Qpb">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cBD-Y6-kHB">
@@ -300,13 +300,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ABq-6S-T2A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-300" y="1394"/>
+            <point key="canvasLocation" x="-439" y="1143"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Gallery-->
         <scene sceneID="V0w-Go-nd9">
             <objects>
                 <navigationController id="qsh-pe-spC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="ic_assess_outline" selectedImage="ic_assess_active" id="aWX-6c-FKT">
+                    <tabBarItem key="tabBarItem" title="Gallery" image="ic_assess_outline" selectedImage="ic_assess_active" id="aWX-6c-FKT">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GBc-Hx-aoX">
@@ -319,7 +319,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88z-4Y-yZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-300" y="592"/>
+            <point key="canvasLocation" x="-439" y="438"/>
         </scene>
         <!--Capture Notes Page-->
         <scene sceneID="abO-mk-S4d">
@@ -831,7 +831,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1903" y="180"/>
+            <point key="canvasLocation" x="1426" y="100"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Kcs-sF-8gs">
@@ -890,7 +890,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSq-1I-nsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2897" y="180"/>
+            <point key="canvasLocation" x="2354" y="100"/>
         </scene>
     </scenes>
     <resources>
@@ -917,6 +917,6 @@
         <image name="ic_sync_active" width="26" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sCf-q2-EAI"/>
+        <segue reference="0KW-bo-qho"/>
     </inferredMetricsTieBreakers>
 </document>
