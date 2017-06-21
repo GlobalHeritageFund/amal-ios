@@ -31,10 +31,14 @@
 }
 
 - (void)deleteTapped:(id)sender {
-    //double check that the user actually wants to do this
-    [self.localPhoto unsync];
-    [self.localPhoto removeLocalData];
-    [self.navigationController popViewControllerAnimated:true];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to delete this photo? This can not be undone." preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
+        [self.localPhoto unsync];
+        [self.localPhoto removeLocalData];
+        [self.navigationController popViewControllerAnimated:true];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alertController animated:true completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
