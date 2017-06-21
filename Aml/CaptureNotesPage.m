@@ -143,19 +143,6 @@
     return self.cellIdentifiers.count;
 }
 
-- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return @"Test";
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if(self.localPhoto)
-        return 0;
-    
-    return 44;
-}
-
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *header = [tableView dequeueReusableCellWithIdentifier:@"Header"];
