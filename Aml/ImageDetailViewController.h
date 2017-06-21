@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageDetailViewController : UIViewController
+@interface ImageDetailViewController : UIViewController<UIScrollViewDelegate>
 
-@property (nonatomic) IBOutlet UIImageView *imageView;
+@property (nonatomic) UIImageView *imageView;
+@property (nonatomic) UIScrollView *scrollView;
 
 @end

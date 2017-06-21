@@ -793,45 +793,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v2U-ke-1zK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="YYF-7s-1aj">
                     <connections>
-                        <segue destination="GKn-8w-bY5" kind="show" identifier="showImageDetail" id="dej-9f-Mkk"/>
+                        <action selector="imageTapped:" destination="vqT-Ai-4XE" id="yWa-4e-fnJ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1426" y="100"/>
-        </scene>
-        <!--Image Detail View Controller-->
-        <scene sceneID="Kcs-sF-8gs">
-            <objects>
-                <viewController id="GKn-8w-bY5" customClass="ImageDetailViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8XO-I7-QSS"/>
-                        <viewControllerLayoutGuide type="bottom" id="jgL-jM-R98"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pLf-V8-N71">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Picture" translatesAutoresizingMaskIntoConstraints="NO" id="eeG-At-NHG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="eeG-At-NHG" firstAttribute="centerY" secondItem="pLf-V8-N71" secondAttribute="centerY" id="Khl-gh-oph"/>
-                            <constraint firstItem="eeG-At-NHG" firstAttribute="height" secondItem="pLf-V8-N71" secondAttribute="height" id="fiL-N4-0Zz"/>
-                            <constraint firstItem="eeG-At-NHG" firstAttribute="width" secondItem="pLf-V8-N71" secondAttribute="width" id="jxk-tZ-lrU"/>
-                            <constraint firstItem="eeG-At-NHG" firstAttribute="centerX" secondItem="pLf-V8-N71" secondAttribute="centerX" id="k0H-kf-zBc"/>
-                        </constraints>
-                    </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="imageView" destination="eeG-At-NHG" id="rSB-9V-6fe"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BSq-1I-nsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2354" y="100"/>
         </scene>
     </scenes>
     <resources>

@@ -291,12 +291,11 @@
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showImageDetail"]) {
-        ImageDetailViewController *imageDetail = segue.destinationViewController;
-        [imageDetail loadView];
-        imageDetail.imageView.image = self.localPhoto.image;
-    }
+- (IBAction)imageTapped:(id)sender {
+    ImageDetailViewController *imageDetail = [[ImageDetailViewController alloc] init];
+    [imageDetail loadViewIfNeeded];
+    imageDetail.imageView.image = self.localPhoto.image;
+    [self.navigationController pushViewController:imageDetail animated:YES];
 }
 
 @end
