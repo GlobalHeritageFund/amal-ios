@@ -12,6 +12,8 @@
 
 @property (strong) NSString *imagePath;
 @property (strong) NSString *settingsPath;
+@property (readonly) NSDate *date;
+
 
 @property (strong) UIImage *image;
 @property (strong) NSDictionary *settings;

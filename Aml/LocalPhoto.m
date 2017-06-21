@@ -26,6 +26,11 @@ CGSize CGSizeFitting(CGSize original, CGSize maximum) {
 
 @implementation LocalPhoto
 
+- (NSDate *)date {
+    NSDictionary* fileAttribs = [[NSFileManager defaultManager] attributesOfItemAtPath:self.imagePath error:nil];
+    return [fileAttribs objectForKey:NSFileCreationDate];
+}
+
 - (void)setSettingsValue:(id)value forKey:(NSString *)key
 {
     NSMutableDictionary *dict = [self.settings mutableCopy];
@@ -45,7 +50,6 @@ CGSize CGSizeFitting(CGSize original, CGSize maximum) {
         
         NSData *data = [NSData dataWithContentsOfFile:self.settingsPath];
         UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
-
 
         UIImage *scaledImage = [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
         

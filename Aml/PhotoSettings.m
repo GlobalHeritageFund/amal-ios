@@ -79,7 +79,7 @@
         return [[object pathExtension] isEqualToString:@"jpeg"] || [[object pathExtension] isEqualToString:@"jpg"];
     }];
 
-    return [imageFilenames arrayByTransformingObjectsUsingBlock:^id(NSString *imageFilename) {
+    NSArray<LocalPhoto *> *localPhotos = [imageFilenames arrayByTransformingObjectsUsingBlock:^id(NSString *imageFilename) {
         LocalPhoto *localPhoto = [LocalPhoto new];
 
         NSString *settingsFilename = [imageFilename stringByReplacingOccurrencesOfString:imageFilename.pathExtension withString:@"json" options:0 range:NSMakeRange(0, imageFilename.length)];
@@ -89,6 +89,8 @@
 
         return localPhoto;
     }];
+
+    return [localPhotos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]]];
 }
 
 - (LocalPhoto*)saveJpegLocally:(NSData*)jpegData
