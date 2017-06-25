@@ -111,6 +111,7 @@ static const void *localPhotoKey = &localPhotoKey;
 
         CGFloat width = (self.view.bounds.size.width - 8 * 2) / 4 - 5;
         layout.itemSize = CGSizeMake(width, width);
+        layout.headerReferenceSize = CGSizeMake(self.view.bounds.size.width, 44);
 
         self.flowLayout = layout;
     }
@@ -243,19 +244,6 @@ static const void *localPhotoKey = &localPhotoKey;
     LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
     CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:localPhoto];
     [self.navigationController pushViewController:captureNotes animated:YES];
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(self.view.bounds.size.width, 44);
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGFloat v = (self.view.bounds.size.width - 8 * 2) / 4 - 5;
-    
-    return CGSizeMake(v, v);
 }
 
 @end
