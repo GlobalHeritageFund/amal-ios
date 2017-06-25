@@ -17,3 +17,4 @@
 - (instancetype)initWithPhoto:(LocalPhoto *)localPhoto;
 
 @end
+

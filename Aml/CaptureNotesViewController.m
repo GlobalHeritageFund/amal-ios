@@ -8,24 +8,34 @@
 
 #import "CaptureNotesViewController.h"
 #import "LocalPhoto.h"
+#import "NotesForm.h"
 
 @interface CaptureNotesViewController ()
 
-@property (nonatomic) UIStackView *stackView;
 @property (nonatomic) UIScrollView *scrollView;
 @property (nonatomic, strong) LocalPhoto *photo;
+@property (nonatomic) NSMutableArray *formGroups;
+
 @end
 
 @implementation CaptureNotesViewController
 
-- (UIStackView *)stackView {
-    if (!_stackView) {
-        UIStackView *stackView = [[UIStackView alloc] init];
-        [self.scrollView addSubview:stackView];
-        self.stackView = stackView;
+- (instancetype)initWithPhoto:(LocalPhoto *)photo {
+    self = [super init];
+    if (!self) {
+        return nil;
     }
-    return _stackView;
+    _photo = photo;
+    return self;
 }
+
+- (NSMutableArray *)formGroups {
+    if (!_formGroups) {
+        _formGroups = [@[] mutableCopy];
+    }
+    return _formGroups;
+}
+
 
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
@@ -38,27 +48,33 @@
     return _scrollView;
 }
 
-- (instancetype)initWithPhoto:(LocalPhoto *)photo {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    _photo = photo;
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.title = @"Capture Notes";
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic-delete"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteTapped:)];
+
+    PhotoFormElement *photo = [[PhotoFormElement alloc] init];
+    photo.imageView.image = self.photo.image;
+    FormGroup *group = [[FormGroup alloc] init];
+    [group updateHeaderText: @"Photo"];
+    [group addFormElement:photo];
+    [self.scrollView addSubview:group];
+    [self.formGroups addObject:group];
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.scrollView.frame = self.view.bounds;
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.stackView.intrinsicContentSize.height);
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, [[self.formGroups valueForKeyPath:@"@sum.expectedHeight"] floatValue]);
+    CGRect workingRect = self.view.bounds;
+    workingRect.size.height = self.scrollView.contentSize.height;
+    for (FormGroup *group in self.formGroups) {
+        CGRect groupRect = CGRectZero;
+        CGRectDivide(workingRect, &groupRect, &workingRect, group.expectedHeight, CGRectMinYEdge);
+        group.frame = groupRect;
+    }
 }
 
 - (void)deleteTapped:(id)sender {
@@ -71,6 +87,5 @@
     [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:true completion:nil];
 }
-
 
 @end
