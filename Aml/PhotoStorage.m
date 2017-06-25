@@ -17,6 +17,15 @@
 
 @implementation PhotoStorage
 
+- (NSDateFormatter *)dateFormatter {
+    static NSDateFormatter *dateFormatter;
+    if (dateFormatter == nil) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"EEEE, MMMM d, h a";
+    }
+    return dateFormatter;
+}
+
 - (NSURL*)imagesDirectory {
     NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 
@@ -65,7 +74,7 @@
 
         if ([photo.date timeIntervalSinceDate:photosForCurrentSection.lastObject.date] > 60*60) {
             PhotoSection *section = [[PhotoSection alloc] init];
-            section.header = photosForCurrentSection.firstObject.date.description;
+            section.header = [self.dateFormatter stringFromDate:photosForCurrentSection.firstObject.date];
             section.photos = photosForCurrentSection;
             [sections addObject:section];
             photosForCurrentSection = [NSMutableArray new];
@@ -75,7 +84,7 @@
     }
     if (photosForCurrentSection.count != 0) {
         PhotoSection *section = [[PhotoSection alloc] init];
-        section.header = photosForCurrentSection.firstObject.date.description;
+        section.header = [self.dateFormatter stringFromDate:photosForCurrentSection.firstObject.date];
         section.photos = photosForCurrentSection;
         [sections addObject:section];
     }

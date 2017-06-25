@@ -86,7 +86,6 @@ static const void *localPhotoKey = &localPhotoKey;
 
     [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"PhotoCell"];
     [self.collectionView registerClass:[GalleryHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
-
 }
 
 - (void)viewDidLayoutSubviews {
