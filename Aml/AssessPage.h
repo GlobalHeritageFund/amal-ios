@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AssessPage : UICollectionViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface PhotoCell : UICollectionViewCell
+
+@property (nonatomic) UIImageView *imageView;
+
+
+@end
+
+@interface AssessPage : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (nonatomic) UICollectionView *collectionView;
+
 
 @end

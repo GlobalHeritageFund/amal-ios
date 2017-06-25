@@ -14,15 +14,61 @@
 #import <Photos/Photos.h>
 #import "PhotoStorage.h"
 
+@implementation PhotoCell
+
+- (UIImageView *)imageView {
+    if (!_imageView) {
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self addSubview:imageView];
+        self.imageView = imageView;
+    }
+    return _imageView;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
+    self.imageView.frame = self.bounds;
+}
+
+@end
+
 static const void *localPhotoKey = &localPhotoKey;
 
 @interface AssessPage ()
 
 @property (strong) NSArray<PhotoSection*> *photoSections;
+@property (nonatomic) UICollectionViewFlowLayout *flowLayout;
+
 
 @end
 
 @implementation AssessPage
+
+- (UICollectionView *)collectionView {
+    if (!_collectionView) {
+        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
+        collectionView.backgroundColor = [UIColor whiteColor];
+        collectionView.delegate = self;
+        collectionView.dataSource = self;
+        [self.view addSubview:collectionView];
+        self.collectionView = collectionView;
+    }
+    return _collectionView;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"PhotoCell"];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+
+    self.collectionView.frame = self.view.bounds;
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -31,6 +77,19 @@ static const void *localPhotoKey = &localPhotoKey;
     self.photoSections = [[PhotoStorage new] fetchGroupedPhotos];
     
     [self.collectionView reloadData];
+}
+
+- (UICollectionViewLayout *)flowLayout {
+    if (!_flowLayout) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+
+        CGFloat width = (self.view.bounds.size.width - 8 * 2) / 4 - 5;
+        layout.itemSize = CGSizeMake(width, width);
+
+        self.flowLayout = layout;
+    }
+    return _flowLayout;
 }
 
 - (void)reloadData
@@ -119,28 +178,23 @@ static const void *localPhotoKey = &localPhotoKey;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    UIImageView *imageView = (id)[cell viewWithTag:1];
-    
+    PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
+
     LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
     
     objc_setAssociatedObject(cell, localPhotoKey, localPhoto, OBJC_ASSOCIATION_ASSIGN);
     
     if(localPhoto.image)
-        imageView.image = localPhoto.image;
+        cell.imageView.image = localPhoto.image;
     else {
-        
-        imageView.image = nil;
+        cell.imageView.image = nil;
         
         [localPhoto load:^(LocalPhoto *localPhoto) {
             
             if(objc_getAssociatedObject(cell, localPhotoKey) != localPhoto)
                 return;
-            
-            UIImageView *imageView = (id)[cell viewWithTag:1];
-            
-            imageView.image = localPhoto.image;
+
+            cell.imageView.image = localPhoto.image;
         }];
     }
     
