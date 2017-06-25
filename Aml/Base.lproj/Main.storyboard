@@ -160,30 +160,6 @@
             </objects>
             <point key="canvasLocation" x="446" y="-251"/>
         </scene>
-        <!--Assess-->
-        <scene sceneID="WV0-fe-43b">
-            <objects>
-                <collectionViewController id="Er4-Ws-BKT" customClass="AssessPage" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Assess" id="6zF-Ug-Mjh">
-                        <barButtonItem key="rightBarButtonItem" title="Import" style="plain" id="Cef-zY-VEk">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3k2-Fx-44o">
-                                <rect key="frame" x="299" y="7" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Import">
-                                    <color key="titleColor" red="0.062745098040000002" green="0.58823529409999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="importImage:" destination="Er4-Ws-BKT" eventType="touchUpInside" id="16a-Zf-D9y"/>
-                                </connections>
-                            </button>
-                            <color key="tintColor" red="0.062745098040000002" green="0.58823529409999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jyG-bK-QLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="446" y="438"/>
-        </scene>
         <!--Table View Controller-->
         <scene sceneID="RTZ-Rf-o1e">
             <objects>
@@ -268,12 +244,31 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Er4-Ws-BKT" kind="relationship" relationship="rootViewController" id="2Sm-GC-Sm7"/>
+                        <segue destination="OaU-lY-g0c" kind="relationship" relationship="rootViewController" id="DG6-VT-Lv0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88z-4Y-yZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-439" y="438"/>
+        </scene>
+        <!--Gallery View Controller-->
+        <scene sceneID="CgG-la-FKN">
+            <objects>
+                <viewController id="OaU-lY-g0c" customClass="GalleryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rA7-c5-bRd"/>
+                        <viewControllerLayoutGuide type="bottom" id="37j-9R-CZ4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TxQ-Ze-xmL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Krs-ld-tJX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="luk-x5-9fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446" y="438"/>
         </scene>
         <!--Capture Notes Page-->
         <scene sceneID="abO-mk-S4d">

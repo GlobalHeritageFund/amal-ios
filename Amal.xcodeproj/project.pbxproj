@@ -43,7 +43,7 @@
 		5846B2301E80A6E0008E48BC /* SliderSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B22F1E80A6E0008E48BC /* SliderSettingCell.m */; };
 		5846B2331E80A7B6008E48BC /* SwitchSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */; };
 		5846B2361E80A7F9008E48BC /* TextSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2351E80A7F9008E48BC /* TextSettingCell.m */; };
-		585333291EA9BAB60011F390 /* AssessPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 585333281EA9BAB60011F390 /* AssessPage.m */; };
+		585333291EA9BAB60011F390 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 585333281EA9BAB60011F390 /* GalleryViewController.m */; };
 		5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5892D0D31E8616FD0051C60E /* Intro.storyboard */; };
 		589612581EA6B9DA003C25C2 /* SyncPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 589612571EA6B9DA003C25C2 /* SyncPage.m */; };
 		5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */; };
@@ -113,8 +113,8 @@
 		5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchSettingCell.m; sourceTree = "<group>"; };
 		5846B2341E80A7F9008E48BC /* TextSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextSettingCell.h; sourceTree = "<group>"; };
 		5846B2351E80A7F9008E48BC /* TextSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextSettingCell.m; sourceTree = "<group>"; };
-		585333271EA9BAB60011F390 /* AssessPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssessPage.h; sourceTree = "<group>"; };
-		585333281EA9BAB60011F390 /* AssessPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssessPage.m; sourceTree = "<group>"; };
+		585333271EA9BAB60011F390 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		585333281EA9BAB60011F390 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		5892D0D31E8616FD0051C60E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		589612561EA6B9DA003C25C2 /* SyncPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncPage.h; sourceTree = "<group>"; };
 		589612571EA6B9DA003C25C2 /* SyncPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncPage.m; sourceTree = "<group>"; };
@@ -266,8 +266,8 @@
 				5846B2001E773315008E48BC /* NavPage.m */,
 				580A55431E5CFC1000A70AB1 /* CameraViewController.h */,
 				580A55441E5CFC1000A70AB1 /* CameraViewController.m */,
-				585333271EA9BAB60011F390 /* AssessPage.h */,
-				585333281EA9BAB60011F390 /* AssessPage.m */,
+				585333271EA9BAB60011F390 /* GalleryViewController.h */,
+				585333281EA9BAB60011F390 /* GalleryViewController.m */,
 				580A55551E5D0B9800A70AB1 /* CaptureNotesPage.h */,
 				580A55561E5D0B9800A70AB1 /* CaptureNotesPage.m */,
 				589612561EA6B9DA003C25C2 /* SyncPage.h */,
@@ -405,7 +405,7 @@
 				58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */,
 				5846B2331E80A7B6008E48BC /* SwitchSettingCell.m in Sources */,
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
-				585333291EA9BAB60011F390 /* AssessPage.m in Sources */,
+				585333291EA9BAB60011F390 /* GalleryViewController.m in Sources */,
 				5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */,
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,

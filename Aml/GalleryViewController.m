@@ -1,12 +1,12 @@
 //
-//  AssessPage.m
+//  GalleryViewController.m
 //  Amal
 //
 //  Created by Dustin Dettmer on 4/20/17.
 //  Copyright © 2017 Dustin. All rights reserved.
 //
 
-#import "AssessPage.h"
+#import "GalleryViewController.h"
 #import "PhotoSettings.h"
 #import "LocalPhoto.h"
 #import "CaptureNotesPage.h"
@@ -36,7 +36,7 @@
 
 static const void *localPhotoKey = &localPhotoKey;
 
-@interface AssessPage ()
+@interface GalleryViewController ()
 
 @property (strong) NSArray<PhotoSection*> *photoSections;
 @property (nonatomic) UICollectionViewFlowLayout *flowLayout;
@@ -44,7 +44,7 @@ static const void *localPhotoKey = &localPhotoKey;
 
 @end
 
-@implementation AssessPage
+@implementation GalleryViewController
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
@@ -60,6 +60,10 @@ static const void *localPhotoKey = &localPhotoKey;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.title = @"Assess";
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Import" style:UIBarButtonItemStylePlain target:self action:@selector(importImage:)];
 
     [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"PhotoCell"];
 }
@@ -131,7 +135,7 @@ static const void *localPhotoKey = &localPhotoKey;
 {
     PHAsset *asset = [[PHAsset fetchAssetsWithALAssetURLs:@[info[UIImagePickerControllerReferenceURL]] options:nil] firstObject];
     
-    __weak AssessPage *weakSelf = self;
+    __weak GalleryViewController *weakSelf = self;
     
     [PHImageManager.defaultManager requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
         
@@ -149,7 +153,7 @@ static const void *localPhotoKey = &localPhotoKey;
         PhotoSettings.shared.lat = oldLat;
         PhotoSettings.shared.lon = oldLon;
         
-        AssessPage *strongSelf = weakSelf;
+        GalleryViewController *strongSelf = weakSelf;
         
         [strongSelf reloadData];
     }];

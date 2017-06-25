@@ -1,5 +1,5 @@
 //
-//  AssessPage.h
+//  GalleryViewController.h
 //  Amal
 //
 //  Created by Dustin Dettmer on 4/20/17.
@@ -15,7 +15,7 @@
 
 @end
 
-@interface AssessPage : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface GalleryViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic) UICollectionView *collectionView;
 
