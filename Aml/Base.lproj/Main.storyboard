@@ -194,9 +194,6 @@
                                     <constraint firstItem="7Pr-Ly-Xyi" firstAttribute="top" secondItem="95E-hy-6rj" secondAttribute="top" id="sGS-Kn-m0a"/>
                                 </constraints>
                                 <size key="customSize" width="84" height="84"/>
-                                <connections>
-                                    <segue destination="vqT-Ai-4XE" kind="show" identifier="imageTap" id="0KW-bo-qho"/>
-                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -797,7 +794,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1426" y="100"/>
+            <point key="canvasLocation" x="1414" y="-252"/>
         </scene>
     </scenes>
     <resources>
@@ -822,7 +819,4 @@
         <image name="ic_rapid_assess" width="30" height="15"/>
         <image name="ic_sync_active" width="26" height="20"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="0KW-bo-qho"/>
-    </inferredMetricsTieBreakers>
 </document>

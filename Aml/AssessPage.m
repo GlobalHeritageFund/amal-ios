@@ -12,6 +12,7 @@
 #import "CaptureNotesPage.h"
 #import <objc/runtime.h>
 #import <Photos/Photos.h>
+#import "CaptureNotesViewController.h"
 
 static const void *localPhotoKey = &localPhotoKey;
 
@@ -142,6 +143,12 @@ static const void *localPhotoKey = &localPhotoKey;
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    LocalPhoto *localPhoto = self.localImages[indexPath.row];
+    CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:localPhoto];
+    [self.navigationController pushViewController:captureNotes animated:YES];
+}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -149,26 +156,6 @@ static const void *localPhotoKey = &localPhotoKey;
     CGFloat v = (self.view.bounds.size.width - 8 * 2) / 4 - 5;
     
     return CGSizeMake(v, v);
-}
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    if([identifier isEqual:@"imageTap"]) {
-        
-        return [objc_getAssociatedObject(sender, localPhotoKey) image] != nil;
-    }
-    
-    return NO;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqual:@"imageTap"]) {
-        
-        CaptureNotesPage *page = segue.destinationViewController;
-        
-        page.localPhoto = objc_getAssociatedObject(sender, localPhotoKey);
-    }
 }
 
 @end
