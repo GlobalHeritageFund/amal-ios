@@ -10,6 +10,7 @@
 #import "LocalPhoto.h"
 #import "NotesForm.h"
 #import "UIColor+Additions.h"
+#import "ImageDetailViewController.h"
 
 @interface CaptureNotesView ()
 
@@ -93,11 +94,14 @@
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic-delete"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteTapped:)];
 
+    PhotoFormElement *photoElement = [[PhotoFormElement alloc] initWithImage:self.photo.image];
+    photoElement.imageView.userInteractionEnabled = YES;
+    [photoElement.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTapped:)]];
     [self.view addFormGroup:
      [[FormGroup alloc]
       initWithHeaderText:@"Photo"
       formElements:@[
-                     [[PhotoFormElement alloc] initWithImage:self.photo.image],
+                     photoElement,
                      ]]
      ];
 
@@ -171,6 +175,14 @@
     }]];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:true completion:nil];
+}
+
+- (void)photoTapped:(UITapGestureRecognizer *)sender {
+    ImageDetailViewController *imageDetail = [[ImageDetailViewController alloc] init];
+    [imageDetail loadViewIfNeeded];
+    imageDetail.imageView.image = self.photo.image;
+    [self.navigationController pushViewController:imageDetail animated:YES];
+
 }
 
 @end
