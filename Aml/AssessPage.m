@@ -18,7 +18,7 @@ static const void *localPhotoKey = &localPhotoKey;
 
 @interface AssessPage ()
 
-@property (strong) NSArray<LocalPhoto*> *localImages;
+@property (strong) NSArray<PhotoSection*> *photoSections;
 
 @end
 
@@ -28,14 +28,14 @@ static const void *localPhotoKey = &localPhotoKey;
 {
     [super viewWillAppear:animated];
     
-    self.localImages = [[PhotoStorage new] fetchPhotos];
+    self.photoSections = [[PhotoStorage new] fetchGroupedPhotos];
     
     [self.collectionView reloadData];
 }
 
 - (void)reloadData
 {
-    self.localImages = [[PhotoStorage new] fetchPhotos];
+    self.photoSections = [[PhotoStorage new] fetchGroupedPhotos];
 
     [self.collectionView reloadData];
 }
@@ -108,9 +108,13 @@ static const void *localPhotoKey = &localPhotoKey;
     [self startMediaBrowserFromViewController:self.tabBarController usingDelegate:self];
 }
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return self.photoSections.count;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.localImages.count;
+    return self.photoSections[section].photos.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -119,7 +123,7 @@ static const void *localPhotoKey = &localPhotoKey;
     
     UIImageView *imageView = (id)[cell viewWithTag:1];
     
-    LocalPhoto *localPhoto = self.localImages[indexPath.row];
+    LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
     
     objc_setAssociatedObject(cell, localPhotoKey, localPhoto, OBJC_ASSOCIATION_ASSIGN);
     

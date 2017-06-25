@@ -10,6 +10,11 @@
 #import "NSArray+Additions.h"
 #import "LocalPhoto.h"
 
+@implementation PhotoSection
+
+
+@end
+
 @implementation PhotoStorage
 
 - (NSURL*)imagesDirectory {
@@ -22,7 +27,7 @@
     return url;
 }
 
-- (NSArray*)fetchPhotos {
+- (NSArray<LocalPhoto *> *)fetchPhotos {
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *root = [NSString stringWithFormat:@"%s", self.imagesDirectory.fileSystemRepresentation];
@@ -45,6 +50,38 @@
 
     return [localPhotos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]]];
 }
+
+- (NSArray<PhotoSection *> *)fetchGroupedPhotos {
+    NSArray<LocalPhoto *> *photos = [self fetchPhotos];
+
+    NSMutableArray<PhotoSection *> *sections = [NSMutableArray new];
+
+    NSMutableArray<LocalPhoto *> *photosForCurrentSection = [NSMutableArray new];
+    for (LocalPhoto *photo in photos) {
+        if (photosForCurrentSection.count == 0) {
+            [photosForCurrentSection addObject:photo];
+            continue;
+        }
+
+        if ([photo.date timeIntervalSinceDate:photosForCurrentSection.lastObject.date] > 60*60) {
+            PhotoSection *section = [[PhotoSection alloc] init];
+            section.header = photosForCurrentSection.firstObject.date.description;
+            section.photos = photosForCurrentSection;
+            [sections addObject:section];
+            photosForCurrentSection = [NSMutableArray new];
+        } else {
+            [photosForCurrentSection addObject:photo];
+        }
+    }
+    if (photosForCurrentSection.count != 0) {
+        PhotoSection *section = [[PhotoSection alloc] init];
+        section.header = photosForCurrentSection.firstObject.date.description;
+        section.photos = photosForCurrentSection;
+        [sections addObject:section];
+    }
+    return sections;
+}
+
 
 - (LocalPhoto*)saveJpegLocally:(NSData*)jpegData withSettings:(NSDictionary *)settings {
 
