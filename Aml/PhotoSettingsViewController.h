@@ -1,5 +1,5 @@
 //
-//  CaptureNotesViewController.h
+//  PhotoSettingsViewController.h
 //  Amal
 //
 //  Created by Soroush Khanlou on 6/25/17.
@@ -11,13 +11,9 @@
 
 @class LocalPhoto;
 
-@interface CaptureNotesViewController : UIViewController
+@interface PhotoSettingsViewController : UIViewController
 
 @property (nonatomic) CaptureNotesView *view;
-
-@property (nonatomic, readonly) LocalPhoto *photo;
-
-- (instancetype)initWithPhoto:(LocalPhoto *)localPhoto;
 
 @end
 

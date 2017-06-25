@@ -10,7 +10,6 @@
 #import "UIColor+Additions.h"
 #import "NotesForm.h"
 
-
 @interface CaptureNotesView ()
 
 @property (nonatomic) UIScrollView *scrollView;

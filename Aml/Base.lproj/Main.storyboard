@@ -101,7 +101,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="vqT-Ai-4XE" kind="show" animates="NO" id="sCf-q2-EAI"/>
+                                            <action selector="rapidButtonTapped:" destination="pLV-uX-gjF" eventType="touchUpInside" id="wHm-dx-20O"/>
                                         </connections>
                                     </button>
                                 </subviews>
