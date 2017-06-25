@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class LocalPhoto;
-
-@interface CaptureNotesView : UIView
-
-@end
+@class LocalPhoto, CaptureNotesView;
 
 @interface CaptureNotesViewController : UIViewController
 
