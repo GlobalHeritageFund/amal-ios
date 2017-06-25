@@ -14,6 +14,25 @@
 #import "PhotoStorage.h"
 #import "CaptureNotesViewController.h"
 
+@implementation GalleryHeader
+
+- (UILabel *)label {
+    if (!_label) {
+        UILabel *label = [[UILabel alloc] init];
+        [self addSubview:label];
+        self.label = label;
+    }
+    return _label;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
+    self.label.frame = CGRectInset(self.bounds, 10, 0);
+}
+
+@end
+
 @implementation PhotoCell
 
 - (UIImageView *)imageView {
@@ -66,6 +85,8 @@ static const void *localPhotoKey = &localPhotoKey;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Import" style:UIBarButtonItemStylePlain target:self action:@selector(importImage:)];
 
     [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"PhotoCell"];
+    [self.collectionView registerClass:[GalleryHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
+
 }
 
 - (void)viewDidLayoutSubviews {
@@ -205,10 +226,27 @@ static const void *localPhotoKey = &localPhotoKey;
     return cell;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+
+        PhotoSection *section = self.photoSections[indexPath.section];
+
+        GalleryHeader *reusableview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+
+        reusableview.label.text = section.header;
+        return reusableview;
+    }
+    return nil;
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
     CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:localPhoto];
     [self.navigationController pushViewController:captureNotes animated:YES];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(self.view.bounds.size.width, 44);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView

@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@interface GalleryHeader : UICollectionReusableView
+
+@property (nonatomic) UILabel *label;
+
+
+@end
+
 @interface PhotoCell : UICollectionViewCell
 
 @property (nonatomic) UIImageView *imageView;
