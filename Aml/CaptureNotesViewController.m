@@ -9,6 +9,7 @@
 #import "CaptureNotesViewController.h"
 #import "LocalPhoto.h"
 #import "NotesForm.h"
+#import "UIColor+Additions.h"
 
 @interface CaptureNotesViewController ()
 
@@ -41,7 +42,7 @@
     if (!_scrollView) {
         UIScrollView *scrollView = [[UIScrollView alloc] init];
         scrollView.alwaysBounceVertical = true;
-        scrollView.backgroundColor = [UIColor whiteColor];
+        scrollView.backgroundColor = [UIColor colorWithHex:0xEFEFF4];
         [self.view addSubview:scrollView];
         self.scrollView = scrollView;
     }
@@ -55,13 +56,52 @@
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic-delete"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteTapped:)];
 
-    PhotoFormElement *photo = [[PhotoFormElement alloc] init];
-    photo.imageView.image = self.photo.image;
-    FormGroup *group = [[FormGroup alloc] init];
-    [group updateHeaderText: @"Photo"];
-    [group addFormElement:photo];
-    [self.scrollView addSubview:group];
-    [self.formGroups addObject:group];
+    [self addFormGroup:
+     [[FormGroup alloc]
+      initWithHeaderText:@"Photo"
+      formElements:@[
+                     [[PhotoFormElement alloc] initWithImage:self.photo.image],
+                     ]]
+     ];
+
+    [self addFormGroup:
+     [[FormGroup alloc]
+      initWithHeaderText:@"Category"
+      formElements:@[
+                     [[SegmentedControlFormElement alloc] initWithTitles:@[@"Overall Area", @"Site / Building", @"Object"]],
+                     ]]
+     ];
+
+    [self addFormGroup:
+     [[FormGroup alloc]
+      initWithHeaderText:@"Level of Damage"
+      formElements:@[
+                     [[MultiButtonFormElement alloc] init],
+                     ]
+      ]];
+
+    [self addFormGroup:
+     [[FormGroup alloc]
+      initWithHeaderText:@"Assess"
+      formElements:@[
+                     [[SwitchFormElement alloc] initWithTitle:@"Hazards"],
+                     [[SwitchFormElement alloc] initWithTitle:@"Safety Hazards"],
+                     [[SwitchFormElement alloc] initWithTitle:@"Intervention"],
+                     ]]
+     ];
+
+    [self addFormGroup:
+     [[FormGroup alloc]
+      initWithHeaderText:@"Notes"
+      formElements:@[
+                     [[NotesFormElement alloc] init],
+                     ]]
+     ];
+}
+
+- (void)addFormGroup:(FormGroup *)formGroup {
+    [self.scrollView addSubview:formGroup];
+    [self.formGroups addObject:formGroup];
 }
 
 - (void)viewDidLayoutSubviews {

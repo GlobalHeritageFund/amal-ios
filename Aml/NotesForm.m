@@ -7,8 +7,19 @@
 //
 
 #import "NotesForm.h"
+#import "CGGeometry.h"
 
 @implementation PhotoFormElement
+
+- (instancetype)initWithImage:(UIImage *)image {
+    self = [super init];
+    if (!self) return nil;
+
+    self.imageView.image = image;
+
+    return self;
+}
+
 
 - (UIImageView *)imageView {
     if (!_imageView) {
@@ -32,11 +43,41 @@
 
 @end
 
-
 @implementation SegmentedControlFormElement
+
+- (instancetype)initWithTitles:(NSArray<NSString *> *)titles {
+    self = [super init];
+    if (!self) return nil;
+
+    [self updateTitles:titles];
+
+    return self;
+}
+
 
 - (CGFloat)expectedHeight {
     return 44;
+}
+
+- (UISegmentedControl *)segmentedControl {
+    if (!_segmentedControl) {
+        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] init];
+        [self addSubview:segmentedControl];
+        self.segmentedControl = segmentedControl;
+    }
+    return _segmentedControl;
+}
+
+- (void)updateTitles:(NSArray<NSString *> *)titles {
+    for (NSString *title in titles.reverseObjectEnumerator) {
+        [self.segmentedControl insertSegmentWithTitle:title atIndex:0 animated:false];
+    }
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
+    self.segmentedControl.frame = CGRectInset(self.bounds, 12, 8);
 }
 
 @end
@@ -52,6 +93,16 @@
 
 
 @implementation SwitchFormElement
+
+- (instancetype)initWithTitle:(NSString *)title {
+    self = [super init];
+    if (!self) return nil;
+
+    self.label.text = title;
+
+    return self;
+
+}
 
 - (CGFloat)expectedHeight {
     return 44;
@@ -78,6 +129,18 @@
 
 @implementation FormGroup
 
+- (instancetype)initWithHeaderText:(NSString *)headerText formElements:(NSArray<UIView<FormElement> *> *)formElements {
+    self = [super init];
+    if (!self) return nil;
+
+    [self updateHeaderText:headerText];
+    for (UIView<FormElement> *element in formElements) {
+        [self addFormElement:element];
+    }
+
+    return self;
+}
+
 - (NSMutableArray *)formElements {
     if (!_formElements) {
         _formElements = [@[] mutableCopy];
@@ -88,14 +151,24 @@
 - (UILabel *)headerLabel {
     if (!_headerLabel) {
         UILabel *headerLabel = [[UILabel alloc] init];
+        headerLabel.font = [UIFont systemFontOfSize:13];
+        headerLabel.textColor = [UIColor grayColor];
         [self addSubview:headerLabel];
         self.headerLabel = headerLabel;
     }
     return _headerLabel;
 }
 
+- (CGFloat)labelTopPadding {
+    return 20;
+}
+
+- (CGFloat)labelHeight {
+    return 25;
+}
+
 - (CGFloat)expectedHeight {
-    return 25 + [[self.formElements valueForKeyPath:@"@max.expectedHeight"] floatValue];
+    return self.labelTopPadding + self.labelHeight + [[self.formElements valueForKeyPath:@"@max.expectedHeight"] floatValue];
 }
 
 - (void)updateHeaderText:(NSString *)headerText {
@@ -109,13 +182,16 @@
 
     CGRect headerRect = CGRectZero;
 
-    CGRectDivide(workingRect, &headerRect, &workingRect, 25, CGRectMinYEdge);
+    CGRectTrim(workingRect, [self labelTopPadding], CGRectMinYEdge);
 
-    self.headerLabel.frame = CGRectInset(headerRect, 10, 2);
+    CGRectDivide(workingRect, &headerRect, &workingRect, [self labelHeight], CGRectMinYEdge);
+
+    self.headerLabel.frame = CGRectInset(headerRect, 16, 2);
 
     for (UIView<FormElement> *element in self.formElements) {
         CGRect elementRect = CGRectZero;
         CGRectDivide(workingRect, &elementRect, &workingRect, element.expectedHeight, CGRectMinYEdge);
+        element.backgroundColor = [UIColor whiteColor];
         element.frame = elementRect;
     }
 }
