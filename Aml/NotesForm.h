@@ -52,7 +52,6 @@
 
 @interface NotesFormElement : UIView <FormElement>
 
-@property (nonatomic) UILabel *label;
 @property (nonatomic) UITextField *textField;
 
 @end

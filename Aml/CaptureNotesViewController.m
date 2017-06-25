@@ -86,7 +86,7 @@
       formElements:@[
                      [[SwitchFormElement alloc] initWithTitle:@"Hazards"],
                      [[SwitchFormElement alloc] initWithTitle:@"Safety Hazards"],
-                     [[SwitchFormElement alloc] initWithTitle:@"Intervention"],
+                     [[SwitchFormElement alloc] initWithTitle:@"Intervention Recommended"],
                      ]]
      ];
 

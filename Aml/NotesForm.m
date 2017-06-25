@@ -196,6 +196,24 @@
     return 44;
 }
 
+- (UITextField *)textField {
+    if (!_textField) {
+        UITextField *textField = [[UITextField alloc] init];
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textField.placeholder = @"Notes"
+        [self addSubview:textField];
+        self.textField = textField;
+    }
+    return _textField;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGRect workingRect = self.bounds;
+    workingRect = CGRectInset(workingRect, 15, 0);
+    self.textField.frame = workingRect;
+}
+
 @end
 
 
