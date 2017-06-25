@@ -88,6 +88,9 @@
 
     self.title = @"Capture Notes";
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic-delete"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteTapped:)];
 
     [self.view addFormGroup:
@@ -132,6 +135,32 @@
                      ]]
      ];
 }
+
+- (void)keyboardWillShow:(NSNotification*)notification {
+    [self moveTextViewForKeyboard:notification up:YES];
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification {
+    [self moveTextViewForKeyboard:notification up:NO];
+}
+
+- (void)moveTextViewForKeyboard:(NSNotification*)notification up:(BOOL)up {
+    NSDictionary *userInfo = [notification userInfo];
+    CGRect keyboardRect;
+
+    keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+
+    UIEdgeInsets textViewInset = self.view.scrollView.contentInset;
+    if (up == YES) {
+        textViewInset.bottom = keyboardRect.size.height;
+    } else {
+        textViewInset.bottom = [self.bottomLayoutGuide length];
+    }
+    self.view.scrollView.contentInset = textViewInset;
+    self.view.scrollView.scrollIndicatorInsets = textViewInset;
+}
+
 
 - (void)deleteTapped:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to delete this photo? This can not be undone." preferredStyle:UIAlertControllerStyleAlert];
