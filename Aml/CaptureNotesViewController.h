@@ -10,7 +10,13 @@
 
 @class LocalPhoto;
 
+@interface CaptureNotesView : UIView
+
+@end
+
 @interface CaptureNotesViewController : UIViewController
+
+@property (nonatomic) CaptureNotesView *view;
 
 @property (nonatomic, readonly) LocalPhoto *photo;
 

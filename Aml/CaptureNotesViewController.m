@@ -11,15 +11,64 @@
 #import "NotesForm.h"
 #import "UIColor+Additions.h"
 
-@interface CaptureNotesViewController ()
+@interface CaptureNotesView ()
 
 @property (nonatomic) UIScrollView *scrollView;
-@property (nonatomic, strong) LocalPhoto *photo;
 @property (nonatomic) NSMutableArray *formGroups;
 
 @end
 
+@implementation CaptureNotesView
+
+- (NSMutableArray *)formGroups {
+    if (!_formGroups) {
+        _formGroups = [@[] mutableCopy];
+    }
+    return _formGroups;
+}
+
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
+        UIScrollView *scrollView = [[UIScrollView alloc] init];
+        scrollView.alwaysBounceVertical = true;
+        scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+        scrollView.backgroundColor = [UIColor colorWithHex:0xEFEFF4];
+        [self addSubview:scrollView];
+        self.scrollView = scrollView;
+    }
+    return _scrollView;
+}
+
+- (void)addFormGroup:(FormGroup *)formGroup {
+    [self.scrollView addSubview:formGroup];
+    [self.formGroups addObject:formGroup];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.scrollView.frame = self.bounds;
+    self.scrollView.contentSize = CGSizeMake(self.frame.size.width, [[self.formGroups valueForKeyPath:@"@sum.expectedHeight"] floatValue]);
+    CGRect workingRect = self.bounds;
+    workingRect.size.height = self.scrollView.contentSize.height;
+    for (FormGroup *group in self.formGroups) {
+        CGRect groupRect = CGRectZero;
+        CGRectDivide(workingRect, &groupRect, &workingRect, group.expectedHeight, CGRectMinYEdge);
+        group.frame = groupRect;
+    }
+}
+
+@end
+
+
+@interface CaptureNotesViewController ()
+
+@property (nonatomic, strong) LocalPhoto *photo;
+
+@end
+
 @implementation CaptureNotesViewController
+
+@dynamic view;
 
 - (instancetype)initWithPhoto:(LocalPhoto *)photo {
     self = [super init];
@@ -30,23 +79,8 @@
     return self;
 }
 
-- (NSMutableArray *)formGroups {
-    if (!_formGroups) {
-        _formGroups = [@[] mutableCopy];
-    }
-    return _formGroups;
-}
-
-
-- (UIScrollView *)scrollView {
-    if (!_scrollView) {
-        UIScrollView *scrollView = [[UIScrollView alloc] init];
-        scrollView.alwaysBounceVertical = true;
-        scrollView.backgroundColor = [UIColor colorWithHex:0xEFEFF4];
-        [self.view addSubview:scrollView];
-        self.scrollView = scrollView;
-    }
-    return _scrollView;
+- (void)loadView {
+    self.view = [[CaptureNotesView alloc] init];
 }
 
 - (void)viewDidLoad {
@@ -56,7 +90,7 @@
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic-delete"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteTapped:)];
 
-    [self addFormGroup:
+    [self.view addFormGroup:
      [[FormGroup alloc]
       initWithHeaderText:@"Photo"
       formElements:@[
@@ -64,7 +98,7 @@
                      ]]
      ];
 
-    [self addFormGroup:
+    [self.view addFormGroup:
      [[FormGroup alloc]
       initWithHeaderText:@"Category"
       formElements:@[
@@ -72,7 +106,7 @@
                      ]]
      ];
 
-    [self addFormGroup:
+    [self.view addFormGroup:
      [[FormGroup alloc]
       initWithHeaderText:@"Level of Damage"
       formElements:@[
@@ -80,7 +114,7 @@
                      ]
       ]];
 
-    [self addFormGroup:
+    [self.view addFormGroup:
      [[FormGroup alloc]
       initWithHeaderText:@"Assess"
       formElements:@[
@@ -90,31 +124,13 @@
                      ]]
      ];
 
-    [self addFormGroup:
+    [self.view addFormGroup:
      [[FormGroup alloc]
       initWithHeaderText:@"Notes"
       formElements:@[
                      [[NotesFormElement alloc] init],
                      ]]
      ];
-}
-
-- (void)addFormGroup:(FormGroup *)formGroup {
-    [self.scrollView addSubview:formGroup];
-    [self.formGroups addObject:formGroup];
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    self.scrollView.frame = self.view.bounds;
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, [[self.formGroups valueForKeyPath:@"@sum.expectedHeight"] floatValue]);
-    CGRect workingRect = self.view.bounds;
-    workingRect.size.height = self.scrollView.contentSize.height;
-    for (FormGroup *group in self.formGroups) {
-        CGRect groupRect = CGRectZero;
-        CGRectDivide(workingRect, &groupRect, &workingRect, group.expectedHeight, CGRectMinYEdge);
-        group.frame = groupRect;
-    }
 }
 
 - (void)deleteTapped:(id)sender {

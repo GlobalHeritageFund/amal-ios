@@ -200,7 +200,7 @@
     if (!_textField) {
         UITextField *textField = [[UITextField alloc] init];
         textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        textField.placeholder = @"Notes"
+        textField.placeholder = @"Notes";
         [self addSubview:textField];
         self.textField = textField;
     }
