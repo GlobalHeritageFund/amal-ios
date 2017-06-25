@@ -58,7 +58,7 @@ static const void *localPhotoKey = &localPhotoKey;
     [UIImagePickerController availableMediaTypesForSourceType:
      UIImagePickerControllerSourceTypeSavedPhotosAlbum];
     
-    mediaUI.allowsEditing = YES;
+    mediaUI.allowsEditing = NO;
     
     mediaUI.delegate = delegate;
     
