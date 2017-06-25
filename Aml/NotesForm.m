@@ -82,11 +82,57 @@
 
 @end
 
-
-@implementation MultiButtonFormElement
+@implementation DamageButtonFormElement
 
 - (CGFloat)expectedHeight {
-    return 44;
+    return 64;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (!self) return nil;
+
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i = 1; i <= 5; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        NSString *buttonName = [NSString stringWithFormat:@"btn_damage_%d", i];
+        NSString *buttonNameOn = [buttonName stringByAppendingString:@"_on"];
+        [button setImage:[UIImage imageNamed:buttonName] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:buttonNameOn] forState:UIControlStateSelected];
+        button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:button];
+        [array addObject:button];
+    }
+    self.buttons = array;
+
+    return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
+    CGRect workingRect = self.bounds;
+
+    workingRect = CGRectInset(workingRect, 15, 15);
+
+    CGFloat buttonWidth = self.buttons.firstObject.imageView.image.size.width;
+
+    CGFloat paddingWidth = (workingRect.size.width - buttonWidth * self.buttons.count) / (self.buttons.count - 1);
+
+    for (UIButton *button in self.buttons) {
+        CGRect buttonRect = CGRectZero;
+        CGRectDivide(workingRect, &buttonRect, &workingRect, buttonWidth, CGRectMinXEdge);
+        button.frame = buttonRect;
+        workingRect = CGRectTrim(workingRect, paddingWidth, CGRectMinXEdge);
+    }
+}
+
+- (void)buttonTapped:(UIButton *)sender {
+    for (UIButton *button in self.buttons) {
+        button.selected = NO;
+    }
+    sender.selected = YES;
 }
 
 @end

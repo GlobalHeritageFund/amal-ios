@@ -76,7 +76,7 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Level of Damage"
       formElements:@[
-                     [[MultiButtonFormElement alloc] init],
+                     [[DamageButtonFormElement alloc] init],
                      ]
       ]];
 

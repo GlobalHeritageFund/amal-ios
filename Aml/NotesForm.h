@@ -33,9 +33,9 @@
 @end
 
 
-@interface MultiButtonFormElement : UIView <FormElement>
+@interface DamageButtonFormElement : UIView <FormElement>
 
-@property (nonatomic) UIStackView *stackView;
+@property (nonatomic) NSArray<UIButton *> *buttons;
 
 @end
 
