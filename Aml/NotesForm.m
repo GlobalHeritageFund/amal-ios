@@ -220,6 +220,7 @@
 @interface FormGroup ()
 
 @property (nonatomic) NSMutableArray *formElements;
+@property (nonatomic) NSMutableArray *separators;
 @property (nonatomic) UILabel *headerLabel;
 
 @end
@@ -243,6 +244,13 @@
         _formElements = [@[] mutableCopy];
     }
     return _formElements;
+}
+
+- (NSMutableArray *)separators {
+    if (!_separators) {
+        _separators = [@[] mutableCopy];
+    }
+    return _separators;
 }
 
 - (UILabel *)headerLabel {
@@ -285,17 +293,30 @@
 
     self.headerLabel.frame = CGRectInset(headerRect, 16, 2);
 
-    for (UIView<FormElement> *element in self.formElements) {
+    for (int i = 0; i < self.formElements.count; i++) {
+        UIView<FormElement> *element = self.formElements[i];
+        UIView *separator = nil;
+        if (i != 0) {
+            separator = self.separators[i];
+        }
         CGRect elementRect = CGRectZero;
         CGRectDivide(workingRect, &elementRect, &workingRect, element.expectedHeight, CGRectMinYEdge);
         element.backgroundColor = [UIColor whiteColor];
         element.frame = elementRect;
+        CGRect separatorRect = elementRect;
+        separatorRect.size.height = 1;
+        separatorRect = CGRectTrim(separatorRect, 10, CGRectMinXEdge);
+        separator.frame = separatorRect;
     }
 }
 
--(void)addFormElement:(UIView<FormElement> *)formElement {
+- (void)addFormElement:(UIView<FormElement> *)formElement {
     [self.formElements addObject:formElement];
     [self addSubview:formElement];
+    UIView *separator = [[UIView alloc] init];
+    separator.backgroundColor = [UIColor lightGrayColor];
+    [self addSubview:separator];
+    [self.separators addObject:separator];
 }
 
 @end
