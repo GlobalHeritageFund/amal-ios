@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559691F006E4900FFFBCA /* PhotoStorage.m */; };
 		1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */; };
 		1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */; };
 		1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */; };
@@ -53,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A3559681F006E4900FFFBCA /* PhotoStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoStorage.h; sourceTree = "<group>"; };
+		1A3559691F006E4900FFFBCA /* PhotoStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoStorage.m; sourceTree = "<group>"; };
 		1A7432571EF592AF00CE9D17 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCoordinator.h; sourceTree = "<group>"; };
@@ -282,6 +285,8 @@
 				58A1123C1ED65E50006689DC /* LocalPhoto.m */,
 				5846B2181E809DB7008E48BC /* PhotoSettings.h */,
 				5846B2191E809DB7008E48BC /* PhotoSettings.m */,
+				1A3559681F006E4900FFFBCA /* PhotoStorage.h */,
+				1A3559691F006E4900FFFBCA /* PhotoStorage.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				585333291EA9BAB60011F390 /* AssessPage.m in Sources */,
 				5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */,
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
+				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
 				5846B2361E80A7F9008E48BC /* TextSettingCell.m in Sources */,
 				5846B2291E80A4C7008E48BC /* SegmentSettingCell.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */,

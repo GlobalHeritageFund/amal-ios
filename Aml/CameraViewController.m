@@ -9,6 +9,7 @@
 #import "CameraViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "PhotoSettings.h"
+#import "PhotoStorage.h"
 
 @interface CameraViewController ()
 
@@ -229,8 +230,8 @@
         [stillImageOutput captureStillImageAsynchronouslyFromConnection:conn completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
             
             NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-            
-            [PhotoSettings.shared saveJpegLocally:data];
+
+            [[PhotoStorage new] saveJpegLocally:data withSettings:PhotoSettings.shared.settingsDictionary];
             
             [[UIApplication sharedApplication] endIgnoringInteractionEvents];
         }];
@@ -239,7 +240,7 @@
         
         NSData *jpegData = UIImageJPEGRepresentation(self.previewImageView.image, 0.9f);
         
-        [PhotoSettings.shared saveJpegLocally:jpegData];
+        [[PhotoStorage new] saveJpegLocally:jpegData withSettings:PhotoSettings.shared.settingsDictionary];
     }
     
     [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{

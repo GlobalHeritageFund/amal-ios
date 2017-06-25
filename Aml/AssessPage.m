@@ -12,6 +12,7 @@
 #import "CaptureNotesPage.h"
 #import <objc/runtime.h>
 #import <Photos/Photos.h>
+#import "PhotoStorage.h"
 
 static const void *localPhotoKey = &localPhotoKey;
 
@@ -27,15 +28,15 @@ static const void *localPhotoKey = &localPhotoKey;
 {
     [super viewWillAppear:animated];
     
-    self.localImages = PhotoSettings.shared.localPhotos;
+    self.localImages = [[PhotoStorage new] fetchPhotos];
     
     [self.collectionView reloadData];
 }
 
 - (void)reloadData
 {
-    self.localImages = PhotoSettings.shared.localPhotos;
-    
+    self.localImages = [[PhotoStorage new] fetchPhotos];
+
     [self.collectionView reloadData];
 }
 
@@ -84,8 +85,8 @@ static const void *localPhotoKey = &localPhotoKey;
         PhotoSettings.shared.lat = @(asset.location.coordinate.latitude);
         PhotoSettings.shared.lon = @(asset.location.coordinate.longitude);
         
-        [PhotoSettings.shared saveJpegLocally:imageData];
-        
+        [[PhotoStorage new] saveJpegLocally:imageData withSettings:PhotoSettings.shared.settingsDictionary];
+
         PhotoSettings.shared.lat = oldLat;
         PhotoSettings.shared.lon = oldLon;
         
