@@ -101,11 +101,44 @@
     self.label.text = title;
 
     return self;
+}
 
+- (UILabel *)label {
+    if (!_label) {
+        UILabel *label = [[UILabel alloc] init];
+        [self addSubview:label];
+        self.label = label;
+    }
+    return _label;
+}
+
+- (UISwitch *)toggle {
+    if (!_toggle) {
+        UISwitch *toggle = [[UISwitch alloc] init];
+        [self addSubview:toggle];
+        self.toggle = toggle;
+    }
+    return _toggle;
 }
 
 - (CGFloat)expectedHeight {
-    return 44;
+    return 60;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
+    CGRect workingRect = self.bounds;
+
+    workingRect = CGRectInset(workingRect, 15, 14);
+
+    CGRect labelRect = CGRectZero, toggleRect = CGRectZero;
+
+    CGRectTrim(workingRect, 0, CGRectMaxXEdge);
+    CGRectDivide(workingRect, &toggleRect, &labelRect, self.toggle.frame.size.width, CGRectMaxXEdge);
+    
+    self.label.frame = labelRect;
+    self.toggle.frame = toggleRect;
 }
 
 @end
@@ -168,7 +201,7 @@
 }
 
 - (CGFloat)expectedHeight {
-    return self.labelTopPadding + self.labelHeight + [[self.formElements valueForKeyPath:@"@max.expectedHeight"] floatValue];
+    return self.labelTopPadding + self.labelHeight + [[self.formElements valueForKeyPath:@"@sum.expectedHeight"] floatValue];
 }
 
 - (void)updateHeaderText:(NSString *)headerText {
