@@ -124,7 +124,7 @@ static const void *localPhotoKey = &localPhotoKey;
     [self.collectionView reloadData];
 }
 
-- (BOOL) startMediaBrowserFromViewController: (UIViewController*) controller
+- (BOOL)startMediaBrowserFromViewController: (UIViewController*) controller
                                usingDelegate: (id <UIImagePickerControllerDelegate,
                                                UINavigationControllerDelegate>) delegate {
     
@@ -187,7 +187,7 @@ static const void *localPhotoKey = &localPhotoKey;
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)importImage:(id)sender
+- (void)importImage:(id)sender
 {
     [self startMediaBrowserFromViewController:self.tabBarController usingDelegate:self];
 }
@@ -196,13 +196,11 @@ static const void *localPhotoKey = &localPhotoKey;
     return self.photoSections.count;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.photoSections[section].photos.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
 
     LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
