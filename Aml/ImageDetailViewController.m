@@ -8,12 +8,6 @@
 
 #import "ImageDetailViewController.h"
 
-CGRect CGRectTrim(CGRect rect, CGFloat amount, CGRectEdge edge) {
-    CGRect trimmedRect;
-    CGRectDivide(rect, &(CGRect){}, &trimmedRect, amount, edge);
-    return trimmedRect;
-}
-
 @interface ImageDetailViewController ()
 
 @end

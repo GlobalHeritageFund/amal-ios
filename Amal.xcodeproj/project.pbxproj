@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A35595A1F001DF000FFFBCA /* CaptureNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559591F001DF000FFFBCA /* CaptureNotesViewController.m */; };
+		1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35595D1F0023DF00FFFBCA /* NotesForm.m */; };
+		1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559601F00418000FFFBCA /* CGGeometry.m */; };
+		1A3559641F0062CB00FFFBCA /* CaptureNotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559631F0062CB00FFFBCA /* CaptureNotesView.m */; };
+		1A3559671F00638300FFFBCA /* PhotoSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559661F00638300FFFBCA /* PhotoSettingsViewController.m */; };
 		1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559691F006E4900FFFBCA /* PhotoStorage.m */; };
+		1A35596C1F007E9200FFFBCA /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35596B1F007E9200FFFBCA /* GalleryViewController.m */; };
 		1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */; };
 		1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */; };
 		1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */; };
@@ -19,7 +25,6 @@
 		580A55481E5CFC1000A70AB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580A55461E5CFC1000A70AB1 /* Main.storyboard */; };
 		580A554A1E5CFC1000A70AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580A55491E5CFC1000A70AB1 /* Assets.xcassets */; };
 		580A554D1E5CFC1000A70AB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */; };
-		580A55571E5D0B9800A70AB1 /* CaptureNotesPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55561E5D0B9800A70AB1 /* CaptureNotesPage.m */; };
 		580A555B1E5D136200A70AB1 /* CALayer+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A555A1E5D136200A70AB1 /* CALayer+Additions.m */; };
 		580A555F1E5D1C5A00A70AB1 /* UIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A555E1E5D1C5A00A70AB1 /* UIViewController+Additions.m */; };
 		580A55621E5D1E7400A70AB1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55611E5D1E7400A70AB1 /* MapKit.framework */; };
@@ -38,12 +43,6 @@
 		5846B2131E809BCB008E48BC /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B2101E809BCB008E48BC /* FirebaseDatabase.framework */; };
 		5846B2161E809C95008E48BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5846B2151E809C95008E48BC /* GoogleService-Info.plist */; };
 		5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2191E809DB7008E48BC /* PhotoSettings.m */; };
-		5846B2291E80A4C7008E48BC /* SegmentSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2281E80A4C7008E48BC /* SegmentSettingCell.m */; };
-		5846B22D1E80A65B008E48BC /* GenericSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B22C1E80A65B008E48BC /* GenericSettingsCell.m */; };
-		5846B2301E80A6E0008E48BC /* SliderSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B22F1E80A6E0008E48BC /* SliderSettingCell.m */; };
-		5846B2331E80A7B6008E48BC /* SwitchSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */; };
-		5846B2361E80A7F9008E48BC /* TextSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2351E80A7F9008E48BC /* TextSettingCell.m */; };
-		585333291EA9BAB60011F390 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 585333281EA9BAB60011F390 /* GalleryViewController.m */; };
 		5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5892D0D31E8616FD0051C60E /* Intro.storyboard */; };
 		589612581EA6B9DA003C25C2 /* SyncPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 589612571EA6B9DA003C25C2 /* SyncPage.m */; };
 		5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */; };
@@ -54,8 +53,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A3559581F001DF000FFFBCA /* CaptureNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureNotesViewController.h; sourceTree = "<group>"; };
+		1A3559591F001DF000FFFBCA /* CaptureNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureNotesViewController.m; sourceTree = "<group>"; };
+		1A35595C1F0023DF00FFFBCA /* NotesForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesForm.h; sourceTree = "<group>"; };
+		1A35595D1F0023DF00FFFBCA /* NotesForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesForm.m; sourceTree = "<group>"; };
+		1A35595F1F00418000FFFBCA /* CGGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGGeometry.h; sourceTree = "<group>"; };
+		1A3559601F00418000FFFBCA /* CGGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGGeometry.m; sourceTree = "<group>"; };
+		1A3559621F0062CB00FFFBCA /* CaptureNotesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureNotesView.h; sourceTree = "<group>"; };
+		1A3559631F0062CB00FFFBCA /* CaptureNotesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureNotesView.m; sourceTree = "<group>"; };
+		1A3559651F00638300FFFBCA /* PhotoSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSettingsViewController.h; sourceTree = "<group>"; };
+		1A3559661F00638300FFFBCA /* PhotoSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSettingsViewController.m; sourceTree = "<group>"; };
 		1A3559681F006E4900FFFBCA /* PhotoStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoStorage.h; sourceTree = "<group>"; };
 		1A3559691F006E4900FFFBCA /* PhotoStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoStorage.m; sourceTree = "<group>"; };
+		1A35596B1F007E9200FFFBCA /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
+		1A35596D1F007E9C00FFFBCA /* GalleryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
 		1A7432571EF592AF00CE9D17 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCoordinator.h; sourceTree = "<group>"; };
@@ -76,8 +87,6 @@
 		580A55491E5CFC1000A70AB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		580A554C1E5CFC1000A70AB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		580A554E1E5CFC1000A70AB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		580A55551E5D0B9800A70AB1 /* CaptureNotesPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureNotesPage.h; sourceTree = "<group>"; };
-		580A55561E5D0B9800A70AB1 /* CaptureNotesPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureNotesPage.m; sourceTree = "<group>"; };
 		580A55591E5D136200A70AB1 /* CALayer+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Additions.h"; sourceTree = "<group>"; };
 		580A555A1E5D136200A70AB1 /* CALayer+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Additions.m"; sourceTree = "<group>"; };
 		580A555D1E5D1C5A00A70AB1 /* UIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Additions.h"; sourceTree = "<group>"; };
@@ -103,18 +112,6 @@
 		5846B2151E809C95008E48BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5846B2181E809DB7008E48BC /* PhotoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSettings.h; sourceTree = "<group>"; };
 		5846B2191E809DB7008E48BC /* PhotoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSettings.m; sourceTree = "<group>"; };
-		5846B2271E80A4C7008E48BC /* SegmentSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentSettingCell.h; sourceTree = "<group>"; };
-		5846B2281E80A4C7008E48BC /* SegmentSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentSettingCell.m; sourceTree = "<group>"; };
-		5846B22B1E80A65B008E48BC /* GenericSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericSettingsCell.h; sourceTree = "<group>"; };
-		5846B22C1E80A65B008E48BC /* GenericSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericSettingsCell.m; sourceTree = "<group>"; };
-		5846B22E1E80A6E0008E48BC /* SliderSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderSettingCell.h; sourceTree = "<group>"; };
-		5846B22F1E80A6E0008E48BC /* SliderSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderSettingCell.m; sourceTree = "<group>"; };
-		5846B2311E80A7B6008E48BC /* SwitchSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchSettingCell.h; sourceTree = "<group>"; };
-		5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchSettingCell.m; sourceTree = "<group>"; };
-		5846B2341E80A7F9008E48BC /* TextSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextSettingCell.h; sourceTree = "<group>"; };
-		5846B2351E80A7F9008E48BC /* TextSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextSettingCell.m; sourceTree = "<group>"; };
-		585333271EA9BAB60011F390 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
-		585333281EA9BAB60011F390 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		5892D0D31E8616FD0051C60E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		589612561EA6B9DA003C25C2 /* SyncPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncPage.h; sourceTree = "<group>"; };
 		589612571EA6B9DA003C25C2 /* SyncPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncPage.m; sourceTree = "<group>"; };
@@ -152,6 +149,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A35595B1F0023CA00FFFBCA /* Capture Notes */ = {
+			isa = PBXGroup;
+			children = (
+				1A3559651F00638300FFFBCA /* PhotoSettingsViewController.h */,
+				1A3559661F00638300FFFBCA /* PhotoSettingsViewController.m */,
+				1A3559581F001DF000FFFBCA /* CaptureNotesViewController.h */,
+				1A3559591F001DF000FFFBCA /* CaptureNotesViewController.m */,
+				1A3559621F0062CB00FFFBCA /* CaptureNotesView.h */,
+				1A3559631F0062CB00FFFBCA /* CaptureNotesView.m */,
+				1A35595C1F0023DF00FFFBCA /* NotesForm.h */,
+				1A35595D1F0023DF00FFFBCA /* NotesForm.m */,
+			);
+			name = "Capture Notes";
+			sourceTree = "<group>";
+		};
 		580A55311E5CFC1000A70AB1 = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +246,8 @@
 				1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */,
 				1A7432601EF5CCFA00CE9D17 /* NSArray+Additions.h */,
 				1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */,
+				1A35595F1F00418000FFFBCA /* CGGeometry.h */,
+				1A3559601F00418000FFFBCA /* CGGeometry.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -243,16 +257,6 @@
 			children = (
 				5896125A1EA6BAB4003C25C2 /* SyncPhotosCell.h */,
 				5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */,
-				5846B22B1E80A65B008E48BC /* GenericSettingsCell.h */,
-				5846B22C1E80A65B008E48BC /* GenericSettingsCell.m */,
-				5846B2341E80A7F9008E48BC /* TextSettingCell.h */,
-				5846B2351E80A7F9008E48BC /* TextSettingCell.m */,
-				5846B2311E80A7B6008E48BC /* SwitchSettingCell.h */,
-				5846B2321E80A7B6008E48BC /* SwitchSettingCell.m */,
-				5846B22E1E80A6E0008E48BC /* SliderSettingCell.h */,
-				5846B22F1E80A6E0008E48BC /* SliderSettingCell.m */,
-				5846B2271E80A4C7008E48BC /* SegmentSettingCell.h */,
-				5846B2281E80A4C7008E48BC /* SegmentSettingCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -266,14 +270,13 @@
 				5846B2001E773315008E48BC /* NavPage.m */,
 				580A55431E5CFC1000A70AB1 /* CameraViewController.h */,
 				580A55441E5CFC1000A70AB1 /* CameraViewController.m */,
-				585333271EA9BAB60011F390 /* GalleryViewController.h */,
-				585333281EA9BAB60011F390 /* GalleryViewController.m */,
-				580A55551E5D0B9800A70AB1 /* CaptureNotesPage.h */,
-				580A55561E5D0B9800A70AB1 /* CaptureNotesPage.m */,
 				589612561EA6B9DA003C25C2 /* SyncPage.h */,
 				589612571EA6B9DA003C25C2 /* SyncPage.m */,
+				1A35596D1F007E9C00FFFBCA /* GalleryViewController.h */,
+				1A35596B1F007E9200FFFBCA /* GalleryViewController.m */,
 				1A74325D1EF5A0F200CE9D17 /* ImageDetailViewController.h */,
 				1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */,
+				1A35595B1F0023CA00FFFBCA /* Capture Notes */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -401,28 +404,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				580A555F1E5D1C5A00A70AB1 /* UIViewController+Additions.m in Sources */,
-				5846B2301E80A6E0008E48BC /* SliderSettingCell.m in Sources */,
 				58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */,
-				5846B2331E80A7B6008E48BC /* SwitchSettingCell.m in Sources */,
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
-				585333291EA9BAB60011F390 /* GalleryViewController.m in Sources */,
 				5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */,
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
-				5846B2361E80A7F9008E48BC /* TextSettingCell.m in Sources */,
-				5846B2291E80A4C7008E48BC /* SegmentSettingCell.m in Sources */,
+				1A35595A1F001DF000FFFBCA /* CaptureNotesViewController.m in Sources */,
+				1A3559671F00638300FFFBCA /* PhotoSettingsViewController.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
 				1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */,
-				5846B22D1E80A65B008E48BC /* GenericSettingsCell.m in Sources */,
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
+				1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */,
+				1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */,
 				1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */,
 				1A7432621EF5CCFA00CE9D17 /* NSArray+Additions.m in Sources */,
 				5846B2011E773315008E48BC /* NavPage.m in Sources */,
+				1A35596C1F007E9200FFFBCA /* GalleryViewController.m in Sources */,
 				580A553F1E5CFC1000A70AB1 /* main.m in Sources */,
-				580A55571E5D0B9800A70AB1 /* CaptureNotesPage.m in Sources */,
 				5846B2051E773354008E48BC /* TabBarPage.m in Sources */,
 				580A555B1E5D136200A70AB1 /* CALayer+Additions.m in Sources */,
+				1A3559641F0062CB00FFFBCA /* CaptureNotesView.m in Sources */,
 				1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */,
 				589612581EA6B9DA003C25C2 /* SyncPage.m in Sources */,
 			);
