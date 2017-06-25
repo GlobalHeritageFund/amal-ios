@@ -9,7 +9,6 @@
 #import "AssessPage.h"
 #import "PhotoSettings.h"
 #import "LocalPhoto.h"
-#import "CaptureNotesPage.h"
 #import <objc/runtime.h>
 #import <Photos/Photos.h>
 #import "CaptureNotesViewController.h"
