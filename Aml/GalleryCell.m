@@ -29,20 +29,50 @@
 
 @implementation PhotoCell
 
+- (void)setMode:(GalleryMode)mode {
+    _mode = mode;
+    if (mode == GalleryModeSelect) {
+        [self updateOverlay];
+    } else {
+        self.overlayView.image = nil;
+    }
+}
+
+- (void)updateOverlay {
+    self.overlayView.image = self.selected ? [UIImage imageNamed:@"ic_img_select_active"] : [UIImage imageNamed:@"ic_img_select"];
+}
+
 - (UIImageView *)imageView {
     if (!_imageView) {
         UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:imageView];
         self.imageView = imageView;
     }
     return _imageView;
 }
 
+- (UIImageView *)overlayView {
+    if (!_overlayView) {
+        UIImageView *overlayView = [[UIImageView alloc] init];
+        [self addSubview:overlayView];
+        self.overlayView = overlayView;
+    }
+    return _overlayView;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    self.imageView.frame = self.bounds;
+    self.clipsToBounds = YES;
+
+    [self bringSubviewToFront:self.overlayView];
+
+    CGRect workingRect = self.bounds;
+    self.imageView.frame = workingRect;
+    workingRect.size.height = 30;
+    workingRect.size.width = 30;
+    self.overlayView.frame = workingRect;
 }
 
 @end

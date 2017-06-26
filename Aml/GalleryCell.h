@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, GalleryMode) {
+    GalleryModeSelect,
+    GalleryModeNormal,
+};
+
 @interface GalleryHeader : UICollectionReusableView
 
 @property (nonatomic) UILabel *label;
@@ -17,6 +22,10 @@
 
 @interface PhotoCell : UICollectionViewCell
 
+@property (nonatomic) GalleryMode mode;
 @property (nonatomic) UIImageView *imageView;
+@property (nonatomic) UIImageView *overlayView;
+
+- (void)updateOverlay;
 
 @end

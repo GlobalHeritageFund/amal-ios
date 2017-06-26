@@ -18,10 +18,48 @@
 
 @property (strong) NSArray<PhotoSection*> *photoSections;
 @property (nonatomic) UICollectionViewFlowLayout *flowLayout;
+@property (nonatomic) GalleryMode mode;
 
 @end
 
 @implementation GalleryViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    self.title = @"Assess";
+
+    self.mode = GalleryModeNormal;
+
+    [self updateBarButtons];
+
+    [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"PhotoCell"];
+    [self.collectionView registerClass:[GalleryHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
+}
+
+- (void)updateBarButtons {
+    if (self.mode == GalleryModeNormal) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Import" style:UIBarButtonItemStylePlain target:self action:@selector(importImage:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStylePlain target:self action:@selector(enterSelectMode:)];
+    } else {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Act!" style:UIBarButtonItemStylePlain target:self action:@selector(act:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(exitSelectMode:)];
+    }
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+
+    self.collectionView.frame = self.view.bounds;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.photoSections = [[PhotoStorage new] fetchGroupedPhotos];
+    
+    [self.collectionView reloadData];
+}
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
@@ -33,32 +71,6 @@
         self.collectionView = collectionView;
     }
     return _collectionView;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    self.title = @"Assess";
-
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Import" style:UIBarButtonItemStylePlain target:self action:@selector(importImage:)];
-
-    [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"PhotoCell"];
-    [self.collectionView registerClass:[GalleryHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-
-    self.collectionView.frame = self.view.bounds;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    self.photoSections = [[PhotoStorage new] fetchGroupedPhotos];
-    
-    [self.collectionView reloadData];
 }
 
 - (UICollectionViewLayout *)flowLayout {
@@ -75,8 +87,14 @@
     return _flowLayout;
 }
 
-- (void)reloadData
-{
+- (void)setMode:(GalleryMode)mode {
+    _mode = mode;
+    self.collectionView.allowsMultipleSelection = (mode == GalleryModeSelect);
+    [self.collectionView reloadData];
+    [self updateBarButtons];
+}
+
+- (void)reloadData {
     self.photoSections = [[PhotoStorage new] fetchGroupedPhotos];
 
     [self.collectionView reloadData];
@@ -110,8 +128,7 @@
     return YES;
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
-{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     PHAsset *asset = [[PHAsset fetchAssetsWithALAssetURLs:@[info[UIImagePickerControllerReferenceURL]] options:nil] firstObject];
     
     __weak GalleryViewController *weakSelf = self;
@@ -140,14 +157,24 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)importImage:(id)sender
-{
+- (void)importImage:(id)sender {
     [self startMediaBrowserFromViewController:self.tabBarController usingDelegate:self];
+}
+
+- (void)enterSelectMode:(id)sender {
+    self.mode = GalleryModeSelect;
+}
+
+- (void)exitSelectMode:(id)sender {
+    self.mode = GalleryModeNormal;
+}
+
+- (void)act:(id)sender {
+    NSLog(@"act on: %@", self.collectionView.indexPathsForSelectedItems);
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -162,7 +189,7 @@
     PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
 
     LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
-    
+    cell.mode = self.mode;
 
     if(localPhoto.image)
         cell.imageView.image = localPhoto.image;
@@ -196,9 +223,14 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
-    CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:localPhoto];
-    [self.navigationController pushViewController:captureNotes animated:YES];
+    if (self.mode == GalleryModeNormal) {
+        LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
+        CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:localPhoto];
+        [self.navigationController pushViewController:captureNotes animated:YES];
+    } else if (self.mode == GalleryModeSelect) {
+        PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        [cell updateOverlay];
+    }
 }
 
 @end
