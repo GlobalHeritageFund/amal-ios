@@ -53,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05C28DCB1F018D480067736E /* Amal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Amal.entitlements; sourceTree = "<group>"; };
 		1A3559581F001DF000FFFBCA /* CaptureNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureNotesViewController.h; sourceTree = "<group>"; };
 		1A3559591F001DF000FFFBCA /* CaptureNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureNotesViewController.m; sourceTree = "<group>"; };
 		1A35595C1F0023DF00FFFBCA /* NotesForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesForm.h; sourceTree = "<group>"; };
@@ -167,6 +168,7 @@
 		580A55311E5CFC1000A70AB1 = {
 			isa = PBXGroup;
 			children = (
+				05C28DCB1F018D480067736E /* Amal.entitlements */,
 				580A553C1E5CFC1000A70AB1 /* Aml */,
 				580A553B1E5CFC1000A70AB1 /* Products */,
 				580A55601E5D1E7300A70AB1 /* Frameworks */,
@@ -340,12 +342,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = Dustin;
+				ORGANIZATIONNAME = "Global Heritage Fund";
 				TargetAttributes = {
 					580A55391E5CFC1000A70AB1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = UM6AU3T2A2;
+						DevelopmentTeam = SG3NZ84FK5;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -545,7 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = UM6AU3T2A2;
+				DEVELOPMENT_TEAM = SG3NZ84FK5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -569,7 +576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = UM6AU3T2A2;
+				DEVELOPMENT_TEAM = SG3NZ84FK5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
