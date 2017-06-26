@@ -9,19 +9,15 @@
 #import "GalleryViewController.h"
 #import "PhotoSettings.h"
 #import "LocalPhoto.h"
-#import <objc/runtime.h>
 #import <Photos/Photos.h>
 #import "PhotoStorage.h"
 #import "CaptureNotesViewController.h"
 #import "GalleryCell.h"
 
-static const void *localPhotoKey = &localPhotoKey;
-
 @interface GalleryViewController ()
 
 @property (strong) NSArray<PhotoSection*> *photoSections;
 @property (nonatomic) UICollectionViewFlowLayout *flowLayout;
-
 
 @end
 
@@ -167,17 +163,17 @@ static const void *localPhotoKey = &localPhotoKey;
 
     LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
     
-    objc_setAssociatedObject(cell, localPhotoKey, localPhoto, OBJC_ASSOCIATION_ASSIGN);
-    
+
     if(localPhoto.image)
         cell.imageView.image = localPhoto.image;
     else {
         cell.imageView.image = nil;
         
         [localPhoto load:^(LocalPhoto *localPhoto) {
-            
-            if(objc_getAssociatedObject(cell, localPhotoKey) != localPhoto)
+
+            if ([collectionView cellForItemAtIndexPath:indexPath] != cell) {
                 return;
+            }
 
             cell.imageView.image = localPhoto.image;
         }];
