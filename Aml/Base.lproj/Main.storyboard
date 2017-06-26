@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +20,6 @@
                     <connections>
                         <segue destination="6j5-Uj-lZC" kind="relationship" relationship="viewControllers" id="Mn2-JC-cMF"/>
                         <segue destination="qsh-pe-spC" kind="relationship" relationship="viewControllers" id="MJH-Jy-F7P"/>
-                        <segue destination="iYu-Le-dZV" kind="relationship" relationship="viewControllers" id="hSg-SG-iJL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WC0-Ay-cZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -44,7 +42,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJd-EK-jNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439" y="-251"/>
+            <point key="canvasLocation" x="-535" y="221"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="qZc-VI-AAt">
@@ -158,81 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNF-zs-Oqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="446" y="-251"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="RTZ-Rf-o1e">
-            <objects>
-                <tableViewController id="Vzt-GF-P0Q" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="54L-uI-hj3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="Nuf-Vm-9ac">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="78" id="EQr-6T-30k" customClass="SyncPhotosCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EQr-6T-30k" id="46X-YJ-a9x">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LDY-Vr-mWu">
-                                                    <rect key="frame" x="318" y="23" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="toggleSync:" destination="EQr-6T-30k" eventType="valueChanged" id="KcK-BW-2hv"/>
-                                                    </connections>
-                                                </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sync Photos Online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="170-yX-aow">
-                                                    <rect key="frame" x="8" y="28" width="150" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="LDY-Vr-mWu" firstAttribute="top" secondItem="46X-YJ-a9x" secondAttribute="topMargin" constant="15" id="3cA-gt-HZy"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="LDY-Vr-mWu" secondAttribute="bottom" constant="15" id="4vJ-6W-lUP"/>
-                                                <constraint firstItem="170-yX-aow" firstAttribute="leading" secondItem="46X-YJ-a9x" secondAttribute="leadingMargin" id="5ha-zo-yLi"/>
-                                                <constraint firstItem="LDY-Vr-mWu" firstAttribute="trailing" secondItem="46X-YJ-a9x" secondAttribute="trailingMargin" id="XMP-YD-yeX"/>
-                                                <constraint firstItem="170-yX-aow" firstAttribute="centerY" secondItem="46X-YJ-a9x" secondAttribute="centerY" id="cft-ee-g99"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="switchView" destination="LDY-Vr-mWu" id="zWc-Sd-tan"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="Vzt-GF-P0Q" id="S4R-JM-Ado"/>
-                            <outlet property="delegate" destination="Vzt-GF-P0Q" id="kr4-do-nlI"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="b2I-Np-Lhn"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rGu-zJ-2aC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="446" y="1143"/>
-        </scene>
-        <!--Sync-->
-        <scene sceneID="o4x-ik-ycj">
-            <objects>
-                <navigationController id="iYu-Le-dZV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sync" image="ic_folder_shared_outline" selectedImage="ic_sync_active" id="i8g-Rk-Qpb"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cBD-Y6-kHB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Vzt-GF-P0Q" kind="relationship" relationship="rootViewController" id="Myg-YS-kRz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ABq-6S-T2A" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-439" y="1143"/>
+            <point key="canvasLocation" x="442" y="221"/>
         </scene>
         <!--Gallery-->
         <scene sceneID="V0w-Go-nd9">
@@ -249,7 +173,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88z-4Y-yZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439" y="438"/>
+            <point key="canvasLocation" x="-535" y="913"/>
         </scene>
         <!--Gallery View Controller-->
         <scene sceneID="CgG-la-FKN">
@@ -268,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="luk-x5-9fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="446" y="438"/>
+            <point key="canvasLocation" x="362" y="913"/>
         </scene>
     </scenes>
     <resources>
@@ -283,8 +207,6 @@
         <image name="ic_flash_auto_white_36pt" width="36" height="36"/>
         <image name="ic_flash_off_white_36pt" width="36" height="36"/>
         <image name="ic_flash_on_white_36pt" width="36" height="36"/>
-        <image name="ic_folder_shared_outline" width="26" height="22"/>
         <image name="ic_rapid_assess" width="30" height="15"/>
-        <image name="ic_sync_active" width="26" height="20"/>
     </resources>
 </document>
