@@ -78,10 +78,15 @@
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
 
-        CGFloat width = (self.view.bounds.size.width - 8 * 2) / 4 - 5;
-        layout.itemSize = CGSizeMake(width, width);
+        layout.sectionInset = UIEdgeInsetsMake(6, 8, 6, 8);
+
+        layout.minimumInteritemSpacing = 5;
+        layout.minimumLineSpacing = 5;
         layout.headerReferenceSize = CGSizeMake(self.view.bounds.size.width, 44);
 
+        NSInteger numberOfColumns = 4;
+        CGFloat width = (self.view.bounds.size.width - layout.sectionInset.left - layout.sectionInset.right) / numberOfColumns - layout.minimumInteritemSpacing;
+        layout.itemSize = CGSizeMake(width, width);
         self.flowLayout = layout;
     }
     return _flowLayout;
