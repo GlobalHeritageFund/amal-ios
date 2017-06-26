@@ -77,7 +77,7 @@
       initWithHeaderText:@"Assess"
       formElements:@[
                      [[SwitchFormElement alloc] initWithTitle:@"Hazards"],
-                     [[SwitchFormElement alloc] initWithTitle:@"Safety Hazards"],
+                     [[SwitchFormElement alloc] initWithTitle:@"Safety/Personal Hazard"],
                      [[SwitchFormElement alloc] initWithTitle:@"Intervention Recommended"],
                      ]]
      ];
