@@ -57,7 +57,7 @@
         return localPhoto;
     }];
 
-    return [localPhotos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]]];
+    return [localPhotos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
 }
 
 - (NSArray<PhotoSection *> *)fetchGroupedPhotos {
@@ -72,7 +72,7 @@
             continue;
         }
 
-        if ([photo.date timeIntervalSinceDate:photosForCurrentSection.lastObject.date] > 60*60) {
+        if ([photosForCurrentSection.lastObject.date timeIntervalSinceDate:photo.date] > 60*60) {
             PhotoSection *section = [[PhotoSection alloc] init];
             section.header = [self.dateFormatter stringFromDate:photosForCurrentSection.firstObject.date];
             section.photos = photosForCurrentSection;
