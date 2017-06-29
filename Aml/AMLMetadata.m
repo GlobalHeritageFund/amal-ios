@@ -22,9 +22,10 @@
     _levelOfDamage = [dictionary[@"safetyHazards"] boolValue];
     _interventionRequired = [dictionary[@"interventionRequired"] boolValue];
     _notes = dictionary[@"notes"];
-    _latitude = [dictionary[@"latitude"] doubleValue];
-    _longitude = [dictionary[@"longitude"] doubleValue];
+    _latitude = [dictionary[@"lat"] doubleValue];
+    _longitude = [dictionary[@"lon"] doubleValue];
     _date = [NSDate dateWithTimeIntervalSince1970:[dictionary[@"date"] doubleValue]];
+    _firebaseImageKey = dictionary[@"firebaseImageKey"];
 
     return self;
 }
@@ -38,9 +39,10 @@
              @"levelOfDamage": @(self.levelOfDamage),
              @"interventionRequired": @(self.interventionRequired),
              @"notes": self.notes,
-             @"latitude": @(self.latitude),
-             @"longitude": @(self.longitude),
+             @"lat": @(self.latitude),
+             @"lon": @(self.longitude),
              @"date": @(self.date.timeIntervalSince1970),
+             @"firebaseImageKey": self.firebaseImageKey,
              };
 }
 

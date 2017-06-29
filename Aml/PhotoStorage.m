@@ -47,14 +47,14 @@
     }];
 
     NSArray<LocalPhoto *> *localPhotos = [imageFilenames arrayByTransformingObjectsUsingBlock:^id(NSString *imageFilename) {
-        LocalPhoto *localPhoto = [LocalPhoto new];
 
         NSString *settingsFilename = [imageFilename stringByReplacingOccurrencesOfString:imageFilename.pathExtension withString:@"json" options:0 range:NSMakeRange(0, imageFilename.length)];
 
-        localPhoto.imagePath = [root stringByAppendingPathComponent:imageFilename];
-        localPhoto.settingsPath = [root stringByAppendingPathComponent:settingsFilename];
+        NSString *imagePath = [root stringByAppendingPathComponent:imageFilename];
+        NSString *settingsPath = [root stringByAppendingPathComponent:settingsFilename];
 
-        return localPhoto;
+        return [[LocalPhoto alloc] initWithImagePath:imagePath settingsPath:settingsPath];
+;
     }];
 
     return [localPhotos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
@@ -118,12 +118,7 @@
 
     [settingsData writeToFile:settingsFilename atomically:NO];
 
-    LocalPhoto *localPhoto = [LocalPhoto new];
-
-    localPhoto.imagePath = filename;
-    localPhoto.settingsPath = settingsFilename;
-    
-    localPhoto.settings = settings;
+    LocalPhoto *localPhoto = [[LocalPhoto alloc] initWithImagePath:filename settingsPath:settingsFilename];
     
     return localPhoto;
 }

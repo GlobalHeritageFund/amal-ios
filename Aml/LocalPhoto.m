@@ -10,24 +10,32 @@
 #import "Firebase.h"
 #import "UIImage+Resize.h"
 #import "CGGeometry.h"
+#import "AMLMetadata.h"
 
 @implementation LocalPhoto
+
+- (instancetype)initWithImagePath:(NSString *)imagePath settingsPath:(NSString *)settingsPath {
+    self = [super init];
+    if (!self) return nil;
+
+    _imagePath = imagePath;
+    _settingsPath = settingsPath;
+
+    NSData *data = [NSData dataWithContentsOfFile:self.settingsPath];
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    _metadata = [[AMLMetadata alloc] initWithDictionary:dictionary];
+
+    return self;
+}
 
 - (NSDate *)date {
     NSDictionary* fileAttribs = [[NSFileManager defaultManager] attributesOfItemAtPath:self.imagePath error:nil];
     return [fileAttribs objectForKey:NSFileCreationDate];
 }
 
-- (void)setSettingsValue:(id)value forKey:(NSString *)key
-{
-    NSMutableDictionary *dict = [self.settings mutableCopy];
-    
-    dict[key] = value;
-    
-    self.settings = dict;
-    
+- (void)saveAndUploadSettings {
     [self saveSettings];
-    
+
     [self uploadSettingsIfHasKey];
 }
 
@@ -42,25 +50,17 @@
     });
 }
 
-- (void)load:(void (^)(LocalPhoto *))callback
-{
+- (void)load:(void (^)(LocalPhoto *))callback {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
-        NSData *data = [NSData dataWithContentsOfFile:self.settingsPath];
         UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
-
+        
         UIImage *scaledImage = [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
         
         dispatch_async(dispatch_get_main_queue(), ^{
 
             self.image = scaledImage;
-            
-            if(data) {
-                self.settings = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            } else {
-                self.settings = nil;
-            }
-            
+
             if(callback) {
                 callback(self);
             }
@@ -68,38 +68,28 @@
     });
 }
 
-static NSString *FirebaseImageKey = @"FirebaseImageKey";
-
-- (NSString *)firebaseKey
-{
-    return self.settings[FirebaseImageKey];
+- (NSString *)firebaseKey {
+    return self.metadata.firebaseImageKey;
 }
 
-- (void)unsync
-{
+- (void)unsync {
     if(self.firebaseKey) {
         
         FIRDatabaseReference *ref = [[[[FIRDatabase database] reference] child:@"images"] child:self.firebaseKey];
         
         [ref removeValue];
     }
-    
-    NSMutableDictionary *dict = [self.settings mutableCopy];
-    
-    [dict removeObjectForKey:FirebaseImageKey];
-    
-    self.settings = dict;
+
+    self.metadata.firebaseImageKey = nil;
 }
 
-- (void)saveSettings
-{
-    NSData *settingsData = [NSJSONSerialization dataWithJSONObject:self.settings ?: @{} options:0 error:nil];
+- (void)saveSettings {
+    NSData *settingsData = [NSJSONSerialization dataWithJSONObject:self.metadata.dictionaryRepresentation options:0 error:nil];
     
     [settingsData writeToFile:self.settingsPath atomically:NO];
 }
 
-- (FIRDatabaseReference*)getOrMakeFirebaseRef
-{
+- (FIRDatabaseReference*)getOrMakeFirebaseRef {
     FIRDatabaseReference *ref = [[[FIRDatabase database] reference] child:@"images"];
     
     NSString *key = self.firebaseKey;
@@ -111,13 +101,9 @@ static NSString *FirebaseImageKey = @"FirebaseImageKey";
     else {
         
         ref = [ref childByAutoId];
-        
-        NSMutableDictionary *dict = [self.settings ?: @{} mutableCopy];
-        
-        dict[FirebaseImageKey] = ref.key;
-        
-        self.settings = dict;
-        
+
+        self.metadata.firebaseImageKey = ref.key;
+
         [self saveSettings];
     }
     
@@ -130,9 +116,8 @@ static NSString *FirebaseImageKey = @"FirebaseImageKey";
         return;
     
     FIRDatabaseReference *ref = [self getOrMakeFirebaseRef];
-    
-    if(self.settings)
-        [[ref child:@"settings"] setValue:self.settings];
+
+        [[ref child:@"settings"] setValue:self.metadata.dictionaryRepresentation];
 }
 
 - (void)uploadEverything

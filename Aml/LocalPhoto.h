@@ -8,17 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class AMLMetadata;
+
 @interface LocalPhoto : NSObject
 
-@property (strong) NSString *imagePath;
-@property (strong) NSString *settingsPath;
+- (instancetype)initWithImagePath:(NSString *)imagePath settingsPath:(NSString *)settingsPath;
+
+@property (readonly) NSString *imagePath;
+@property (readonly) NSString *settingsPath;
 @property (readonly) NSDate *date;
 
+@property (readonly) AMLMetadata *metadata;
 
 @property (strong) UIImage *image;
-@property (strong) NSDictionary *settings;
-
-- (void)setSettingsValue:(id)value forKey:(NSString*)key;
 
 // Reads the firebase key from 'settings' dictionary.
 @property (readonly) NSString *firebaseKey;
