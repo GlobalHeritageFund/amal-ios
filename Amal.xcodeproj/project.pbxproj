@@ -15,6 +15,7 @@
 		1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559691F006E4900FFFBCA /* PhotoStorage.m */; };
 		1A35596C1F007E9200FFFBCA /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35596B1F007E9200FFFBCA /* GalleryViewController.m */; };
 		1A3559701F0087D800FFFBCA /* GalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35596F1F0087D800FFFBCA /* GalleryCell.m */; };
+		1A3640651F049C650070E686 /* AMLMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3640641F049C650070E686 /* AMLMetadata.m */; };
 		1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */; };
 		1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */; };
 		1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */; };
@@ -70,6 +71,8 @@
 		1A35596D1F007E9C00FFFBCA /* GalleryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
 		1A35596E1F0087D800FFFBCA /* GalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryCell.h; sourceTree = "<group>"; };
 		1A35596F1F0087D800FFFBCA /* GalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryCell.m; sourceTree = "<group>"; };
+		1A3640631F049C650070E686 /* AMLMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMLMetadata.h; sourceTree = "<group>"; };
+		1A3640641F049C650070E686 /* AMLMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMLMetadata.m; sourceTree = "<group>"; };
 		1A7432571EF592AF00CE9D17 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCoordinator.h; sourceTree = "<group>"; };
@@ -286,12 +289,14 @@
 		58A1123A1ED65E45006689DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1A3559681F006E4900FFFBCA /* PhotoStorage.h */,
+				1A3559691F006E4900FFFBCA /* PhotoStorage.m */,
 				58A1123B1ED65E50006689DC /* LocalPhoto.h */,
 				58A1123C1ED65E50006689DC /* LocalPhoto.m */,
 				5846B2181E809DB7008E48BC /* PhotoSettings.h */,
 				5846B2191E809DB7008E48BC /* PhotoSettings.m */,
-				1A3559681F006E4900FFFBCA /* PhotoStorage.h */,
-				1A3559691F006E4900FFFBCA /* PhotoStorage.m */,
+				1A3640631F049C650070E686 /* AMLMetadata.h */,
+				1A3640641F049C650070E686 /* AMLMetadata.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -346,7 +351,7 @@
 				TargetAttributes = {
 					580A55391E5CFC1000A70AB1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SG3NZ84FK5;
+						DevelopmentTeam = UM6AU3T2A2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -416,6 +421,7 @@
 				5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */,
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
+				1A3640651F049C650070E686 /* AMLMetadata.m in Sources */,
 				1A35595A1F001DF000FFFBCA /* CaptureNotesViewController.m in Sources */,
 				1A3559671F00638300FFFBCA /* PhotoSettingsViewController.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */,
@@ -552,7 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SG3NZ84FK5;
+				DEVELOPMENT_TEAM = UM6AU3T2A2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -576,7 +582,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SG3NZ84FK5;
+				DEVELOPMENT_TEAM = UM6AU3T2A2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
