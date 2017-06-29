@@ -61,7 +61,7 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Category"
       formElements:@[
-                     [[SegmentedControlFormElement alloc] initWithTitles:@[@"Overall Area", @"Site / Building", @"Object"]],
+                    [self categoryFormElement],
                      ]]
      ];
 
@@ -117,9 +117,38 @@
     return notesFormElement;
 }
 
+- (SegmentedControlFormElement *)categoryFormElement {
+    SegmentedControlFormElement *categoryFormElement = [[SegmentedControlFormElement alloc] initWithTitles:@[@"Overall Area", @"Site / Building", @"Object"]];
+    UISegmentedControl *segmentedControl = categoryFormElement.segmentedControl;
+    [segmentedControl addTarget:self action:@selector(categoryDidChange:) forControlEvents:UIControlEventValueChanged];
+    if ([self.photo.metadata.category isEqual:@"area"]) {
+        segmentedControl.selectedSegmentIndex = 0;
+    }
+    if ([self.photo.metadata.category isEqual:@"site"]) {
+        segmentedControl.selectedSegmentIndex = 1;
+    }
+    if ([self.photo.metadata.category isEqual:@"object"]) {
+        segmentedControl.selectedSegmentIndex = 2;
+    }
+    return categoryFormElement;
+}
+
 - (void)notesFieldDidChange:(NSNotification *)notification {
     UITextField *textField = notification.object;
     self.photo.metadata.notes = textField.text;
+    [self.photo saveMetadata];
+}
+
+- (void)categoryDidChange:(UISegmentedControl *)segmentedControl {
+    if (segmentedControl.selectedSegmentIndex == 0) {
+        self.photo.metadata.category = @"area";
+    }
+    if (segmentedControl.selectedSegmentIndex == 1) {
+        self.photo.metadata.category = @"site";
+    }
+    if (segmentedControl.selectedSegmentIndex == 2) {
+        self.photo.metadata.category = @"object";
+    }
     [self.photo saveMetadata];
 }
 
@@ -147,7 +176,6 @@
     self.view.scrollView.contentInset = textViewInset;
     self.view.scrollView.scrollIndicatorInsets = textViewInset;
 }
-
 
 - (void)deleteTapped:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to delete this photo? This can not be undone." preferredStyle:UIAlertControllerStyleAlert];
