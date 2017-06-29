@@ -40,7 +40,7 @@
 - (void)saveAndUploadMetadata {
     [self saveMetadata];
 
-    [self uploadSettingsIfHasKey];
+    [self uploadMetadataIfHasKey];
 }
 
 - (void)loadFullSize:(void (^)(UIImage *))callback {
@@ -114,14 +114,14 @@
     return ref;
 }
 
-- (void)uploadSettingsIfHasKey
+- (void)uploadMetadataIfHasKey
 {
-    if(!self.firebaseKey)
+    if(!self.firebaseKey) {
         return;
+    }
     
     FIRDatabaseReference *ref = [self getOrMakeFirebaseRef];
-
-        [[ref child:@"settings"] setValue:self.metadata.dictionaryRepresentation];
+    [[ref child:@"settings"] setValue:self.metadata.dictionaryRepresentation];
 }
 
 - (void)uploadEverything
@@ -130,7 +130,7 @@
     
     FIRDatabaseReference *ref = [self getOrMakeFirebaseRef];
     
-    [self uploadSettingsIfHasKey];
+    [self uploadMetadataIfHasKey];
     
     FIRStorageReference *imageRef = [[[[FIRStorage storage] reference] child:@"images"] child:ref.key];
     

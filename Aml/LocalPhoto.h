@@ -37,7 +37,7 @@
 - (void)loadFullSize:(void (^)(UIImage *))callback;
 
 // Called automatically when calling setSettingsValue.
-- (void)uploadSettingsIfHasKey;
+- (void)uploadMetadataIfHasKey;
 
 // If 'firebaseKey' is nil, one will be generated and added to 'settings'.
 // This will trigger a 'saveSettings' event.
