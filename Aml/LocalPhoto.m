@@ -37,8 +37,8 @@
     return [fileAttribs objectForKey:NSFileCreationDate];
 }
 
-- (void)saveAndUploadSettings {
-    [self saveSettings];
+- (void)saveAndUploadMetadata {
+    [self saveMetadata];
 
     [self uploadSettingsIfHasKey];
 }
@@ -87,7 +87,7 @@
     self.metadata.firebaseImageKey = nil;
 }
 
-- (void)saveSettings {
+- (void)saveMetadata {
     NSData *settingsData = [NSJSONSerialization dataWithJSONObject:self.metadata.dictionaryRepresentation options:0 error:nil];
     
     [settingsData writeToFile:self.settingsPath atomically:NO];
@@ -108,7 +108,7 @@
 
         self.metadata.firebaseImageKey = ref.key;
 
-        [self saveSettings];
+        [self saveMetadata];
     }
     
     return ref;

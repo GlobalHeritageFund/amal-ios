@@ -87,7 +87,7 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Notes"
       formElements:@[
-                     [[NotesFormElement alloc] initWithText:self.photo.metadata.notes],
+                     [self notesFormElement],
                      ]]
      ];
 
@@ -109,6 +109,18 @@
       initWithHeaderText:version
       formElements:@[]]
      ];
+}
+
+- (NotesFormElement *)notesFormElement {
+    NotesFormElement *notesFormElement = [[NotesFormElement alloc] initWithText:self.photo.metadata.notes];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notesFieldDidChange:) name:UITextFieldTextDidEndEditingNotification object:notesFormElement.textField];
+    return notesFormElement;
+}
+
+- (void)notesFieldDidChange:(NSNotification *)notification {
+    UITextField *textField = notification.object;
+    self.photo.metadata.notes = textField.text;
+    [self.photo saveMetadata];
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification {

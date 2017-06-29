@@ -30,7 +30,7 @@
 - (void)unsync;
 
 // Write settings out to file
-- (void)saveSettings;
+- (void)saveMetadata;
 
 - (void)load:(void (^)(LocalPhoto *localPhoto))callback;
 
