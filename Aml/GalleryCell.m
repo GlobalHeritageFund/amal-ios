@@ -15,7 +15,7 @@
 - (UILabel *)label {
     if (!_label) {
         UILabel *label = [[UILabel alloc] init];
-        label.textColor = [UIColor colorWithHex:0x545455];
+        label.textColor = [UIColor colorWithHex:0x4A4A4A];
         label.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:16.0];
         [self addSubview:label];
         self.label = label;
@@ -26,7 +26,7 @@
 - (UIView *)separator {
     if (!_separator) {
         UIView *separator = [[UIView alloc] init];
-        separator.backgroundColor  = [UIColor colorWithHex:0xdcdce0];
+        separator.backgroundColor  = [UIColor colorWithHex:0xC7C7CC];
         [self addSubview:separator];
         self.separator = separator;
     }
