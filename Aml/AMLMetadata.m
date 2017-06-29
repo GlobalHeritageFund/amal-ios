@@ -24,6 +24,7 @@
     _notes = dictionary[@"notes"];
     _latitude = [dictionary[@"latitude"] doubleValue];
     _longitude = [dictionary[@"longitude"] doubleValue];
+    _date = [NSDate dateWithTimeIntervalSince1970:[dictionary[@"date"] doubleValue]];
 
     return self;
 }
@@ -39,6 +40,7 @@
              @"notes": self.notes,
              @"latitude": @(self.latitude),
              @"longitude": @(self.longitude),
+             @"date": @(self.date.timeIntervalSince1970),
              };
 }
 

@@ -19,5 +19,7 @@
 @property NSString *notes;
 @property double latitude;
 @property double longitude;
+@property NSDate *date;
+
 
 @end
