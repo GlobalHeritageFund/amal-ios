@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31FA4D1F0569A6007DDD88 /* NSObject+Helpers.m */; };
 		1A35595A1F001DF000FFFBCA /* CaptureNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559591F001DF000FFFBCA /* CaptureNotesViewController.m */; };
 		1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35595D1F0023DF00FFFBCA /* NotesForm.m */; };
 		1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559601F00418000FFFBCA /* CGGeometry.m */; };
@@ -55,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		05C28DCB1F018D480067736E /* Amal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Amal.entitlements; sourceTree = "<group>"; };
+		1A31FA4C1F0569A6007DDD88 /* NSObject+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Helpers.h"; sourceTree = "<group>"; };
+		1A31FA4D1F0569A6007DDD88 /* NSObject+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Helpers.m"; sourceTree = "<group>"; };
 		1A3559581F001DF000FFFBCA /* CaptureNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureNotesViewController.h; sourceTree = "<group>"; };
 		1A3559591F001DF000FFFBCA /* CaptureNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureNotesViewController.m; sourceTree = "<group>"; };
 		1A35595C1F0023DF00FFFBCA /* NotesForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesForm.h; sourceTree = "<group>"; };
@@ -253,6 +256,8 @@
 				1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */,
 				1A35595F1F00418000FFFBCA /* CGGeometry.h */,
 				1A3559601F00418000FFFBCA /* CGGeometry.m */,
+				1A31FA4C1F0569A6007DDD88 /* NSObject+Helpers.h */,
+				1A31FA4D1F0569A6007DDD88 /* NSObject+Helpers.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -428,6 +433,7 @@
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
 				1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */,
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
+				1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */,
 				1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */,
 				1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */,
 				1A3559701F0087D800FFFBCA /* GalleryCell.m in Sources */,
