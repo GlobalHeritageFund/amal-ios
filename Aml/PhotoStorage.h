@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class LocalPhoto;
+@class LocalPhoto, AMLMetadata;
 
 @interface PhotoSection : NSObject
 
@@ -20,7 +20,7 @@
 @interface PhotoStorage : NSObject
 
 // Saves the jpeg data locally, using the default photo settings.
-- (LocalPhoto*)saveJpegLocally:(NSData*)jpegData withSettings:(NSDictionary *)settings;
+- (LocalPhoto*)saveJpegLocally:(NSData*)jpegData withMetadata:(AMLMetadata *)metadata;
 
 // This return an array of LocalPhotos that need 'load:' called individually.
 - (NSArray<LocalPhoto *>*)fetchPhotos;

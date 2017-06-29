@@ -22,8 +22,12 @@
     _settingsPath = settingsPath;
 
     NSData *data = [NSData dataWithContentsOfFile:self.settingsPath];
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    _metadata = [[AMLMetadata alloc] initWithDictionary:dictionary];
+    if (data) {
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        _metadata = [[AMLMetadata alloc] initWithDictionary:dictionary];
+    } else {
+        _metadata = [AMLMetadata new];
+    }
 
     return self;
 }

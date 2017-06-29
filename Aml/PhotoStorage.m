@@ -9,6 +9,7 @@
 #import "PhotoStorage.h"
 #import "NSArray+Additions.h"
 #import "LocalPhoto.h"
+#import "AMLMetadata.h"
 
 @implementation PhotoSection
 
@@ -92,7 +93,7 @@
 }
 
 
-- (LocalPhoto*)saveJpegLocally:(NSData*)jpegData withSettings:(NSDictionary *)settings {
+- (LocalPhoto*)saveJpegLocally:(NSData*)jpegData withMetadata:(AMLMetadata *)metadata {
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *root = [NSString stringWithFormat:@"%s", self.imagesDirectory.fileSystemRepresentation];
@@ -114,7 +115,7 @@
 
     [jpegData writeToFile:filename atomically:NO];
 
-    NSData *settingsData = [NSJSONSerialization dataWithJSONObject:settings options:0 error:nil];
+    NSData *settingsData = [NSJSONSerialization dataWithJSONObject:metadata.dictionaryRepresentation options:0 error:nil];
 
     [settingsData writeToFile:settingsFilename atomically:NO];
 

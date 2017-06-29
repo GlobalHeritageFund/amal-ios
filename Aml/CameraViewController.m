@@ -11,6 +11,7 @@
 #import "PhotoSettings.h"
 #import "PhotoStorage.h"
 #import "PhotoSettingsViewController.h"
+#import "AMLMetadata.h"
 
 @interface CameraViewController ()
 
@@ -56,8 +57,8 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     CLLocation *location = [locations lastObject];
     
-    PhotoSettings.shared.lat = @(location.coordinate.latitude);
-    PhotoSettings.shared.lon = @(location.coordinate.longitude);
+    PhotoSettings.shared.currentMetadata.latitude = location.coordinate.latitude;
+    PhotoSettings.shared.currentMetadata.longitude = location.coordinate.longitude;
 }
 
 - (void)viewDidLoad {
@@ -253,7 +254,7 @@
             
             NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
 
-            [[PhotoStorage new] saveJpegLocally:data withSettings:PhotoSettings.shared.settingsDictionary];
+            [[PhotoStorage new] saveJpegLocally:data withMetadata:PhotoSettings.shared.currentMetadata];
             
             [[UIApplication sharedApplication] endIgnoringInteractionEvents];
         }];
@@ -262,7 +263,7 @@
         
         NSData *jpegData = UIImageJPEGRepresentation(self.previewImageView.image, 0.9f);
         
-        [[PhotoStorage new] saveJpegLocally:jpegData withSettings:PhotoSettings.shared.settingsDictionary];
+        [[PhotoStorage new] saveJpegLocally:jpegData withMetadata:PhotoSettings.shared.currentMetadata];
     }
     
     [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{

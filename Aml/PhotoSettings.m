@@ -9,7 +9,7 @@
 #import "PhotoSettings.h"
 #import "Firebase.h"
 #import "LocalPhoto.h"
-#import "NSArray+Additions.h"
+#import "AMLMetadata.h"
 
 @implementation PhotoSettings
 
@@ -25,39 +25,15 @@
     return instance;
 }
 
-- (NSArray*)relevantKeys {
-    return
-    @[
-      @"category",
-      @"condition",
-      @"levelOfDamage",
-      @"hazards",
-      @"safetyHazards",
-      @"intervention",
-      @"notes",
-      @"lat",
-      @"lon",
-      ];
+- (instancetype)init {
+    self = [super init];
+    if (!self) return nil;
+
+    _currentMetadata = [AMLMetadata new];
+
+    return self;
 }
 
-- (NSDictionary*)settingsDictionary {
-    NSMutableDictionary *dict = [NSMutableDictionary new];
-    
-    for(NSString *key in self.relevantKeys) {
-        
-        id obj = [self valueForKey:key];
-        
-        if(obj)
-            dict[key] = obj;
-    }
-    
-    return dict;
-}
-
-- (void)clearSettings {
-    for(NSString *key in self.relevantKeys)
-        [self setValue:nil forKey:key];
-}
 
 @end
 

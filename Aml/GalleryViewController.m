@@ -14,6 +14,7 @@
 #import "CaptureNotesViewController.h"
 #import "GalleryCell.h"
 #import "UIColor+Additions.h"
+#import "AMLMetadata.h"
 
 @interface GalleryViewController ()
 
@@ -144,21 +145,15 @@
         
         if(!imageData)
             return;
-        
-        NSNumber *oldLat = PhotoSettings.shared.lat;
-        NSNumber *oldLon = PhotoSettings.shared.lon;
-        
-        PhotoSettings.shared.lat = @(asset.location.coordinate.latitude);
-        PhotoSettings.shared.lon = @(asset.location.coordinate.longitude);
-        
-        [[PhotoStorage new] saveJpegLocally:imageData withSettings:PhotoSettings.shared.settingsDictionary];
 
-        PhotoSettings.shared.lat = oldLat;
-        PhotoSettings.shared.lon = oldLon;
+        AMLMetadata *metadata = [AMLMetadata new];
+
+        metadata.latitude = asset.location.coordinate.latitude;
+        metadata.longitude = asset.location.coordinate.longitude;
         
-        GalleryViewController *strongSelf = weakSelf;
-        
-        [strongSelf reloadData];
+        [[PhotoStorage new] saveJpegLocally:imageData withMetadata:metadata];
+
+        [weakSelf reloadData];
     }];
     
     [picker dismissViewControllerAnimated:YES completion:nil];
