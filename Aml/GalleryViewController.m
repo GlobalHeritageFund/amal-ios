@@ -67,6 +67,7 @@
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
         collectionView.backgroundColor = [UIColor colorWithHex:0xEFEFF4];
         collectionView.delegate = self;
+        collectionView.alwaysBounceVertical = YES;
         collectionView.dataSource = self;
         [self.view addSubview:collectionView];
         self.collectionView = collectionView;
