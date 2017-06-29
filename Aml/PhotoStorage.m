@@ -21,7 +21,7 @@
     static NSDateFormatter *dateFormatter;
     if (dateFormatter == nil) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"EEEE, MMMM d, h a";
+        dateFormatter.dateFormat = @"d MMM - H:mm";
     }
     return dateFormatter;
 }

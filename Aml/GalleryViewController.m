@@ -13,6 +13,7 @@
 #import "PhotoStorage.h"
 #import "CaptureNotesViewController.h"
 #import "GalleryCell.h"
+#import "UIColor+Additions.h"
 
 @interface GalleryViewController ()
 
@@ -64,7 +65,7 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
-        collectionView.backgroundColor = [UIColor whiteColor];
+        collectionView.backgroundColor = [UIColor colorWithHex:0xEFEFF4];
         collectionView.delegate = self;
         collectionView.dataSource = self;
         [self.view addSubview:collectionView];
@@ -221,7 +222,7 @@
 
         GalleryHeader *reusableview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
 
-        reusableview.label.text = section.header;
+        reusableview.label.text = [section.header uppercaseString];
         return reusableview;
     }
     return nil;

@@ -7,22 +7,40 @@
 //
 
 #import "GalleryCell.h"
+#import "UIColor+Additions.h"
+#import "CGGeometry.h"
 
 @implementation GalleryHeader
 
 - (UILabel *)label {
     if (!_label) {
         UILabel *label = [[UILabel alloc] init];
+        label.textColor = [UIColor colorWithHex:0x545455];
+        label.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:16.0];
         [self addSubview:label];
         self.label = label;
     }
     return _label;
 }
 
+- (UIView *)separator {
+    if (!_separator) {
+        UIView *separator = [[UIView alloc] init];
+        separator.backgroundColor  = [UIColor colorWithHex:0xdcdce0];
+        [self addSubview:separator];
+        self.separator = separator;
+    }
+    return _separator;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    self.label.frame = CGRectInset(self.bounds, 10, 0);
+    self.label.frame = CGRectInset(self.bounds, 16, 0);
+
+    CGRect separatorRect = self.bounds;
+    separatorRect = CGRectTrim(separatorRect, separatorRect.size.height - 1, CGRectMinYEdge);
+    self.separator.frame = separatorRect;
 }
 
 @end

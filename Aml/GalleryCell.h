@@ -16,6 +16,7 @@ typedef NS_ENUM(NSInteger, GalleryMode) {
 @interface GalleryHeader : UICollectionReusableView
 
 @property (nonatomic) UILabel *label;
+@property (nonatomic) UIView *separator;
 
 @end
 
