@@ -9,20 +9,7 @@
 #import "LocalPhoto.h"
 #import "Firebase.h"
 #import "UIImage+Resize.h"
-
-
-CGSize CGSizeFitting(CGSize original, CGSize maximum) {
-    CGSize final = CGSizeZero;
-
-    CGFloat aspectWidth = maximum.width / original.width;
-    CGFloat aspectHeight = maximum.height / original.height;
-    CGFloat aspectRatio = MIN (aspectWidth, aspectHeight);
-
-    final.width = original.width * aspectRatio;
-    final.height = original.height * aspectRatio;
-    return final;
-}
-
+#import "CGGeometry.h"
 
 @implementation LocalPhoto
 

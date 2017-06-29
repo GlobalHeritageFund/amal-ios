@@ -9,3 +9,4 @@
 #import <UIKit/UIKit.h>
 
 CGRect CGRectTrim(CGRect rect, CGFloat amount, CGRectEdge edge);
+CGSize CGSizeFitting(CGSize original, CGSize maximum);

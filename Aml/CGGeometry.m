@@ -13,3 +13,17 @@ CGRect CGRectTrim(CGRect rect, CGFloat amount, CGRectEdge edge) {
     CGRectDivide(rect, &(CGRect){}, &trimmedRect, amount, edge);
     return trimmedRect;
 }
+
+CGSize CGSizeFitting(CGSize original, CGSize maximum) {
+    CGSize final = CGSizeZero;
+
+    CGFloat aspectWidth = maximum.width / original.width;
+    CGFloat aspectHeight = maximum.height / original.height;
+    CGFloat aspectRatio = MIN (aspectWidth, aspectHeight);
+
+    final.width = original.width * aspectRatio;
+    final.height = original.height * aspectRatio;
+    return final;
+}
+
+
