@@ -239,4 +239,12 @@
     }
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.mode == GalleryModeSelect) {
+        PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        [cell updateOverlay];
+    }
+    
+}
+
 @end
