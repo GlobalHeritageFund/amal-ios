@@ -41,7 +41,7 @@
              @"condition": self.condition,
              @"levelOfDamage": @(self.levelOfDamage),
              @"hazards": @(self.hazards),
-             @"levelOfDamage": @(self.levelOfDamage),
+             @"safetyHazards": @(self.safetyHazards),
              @"interventionRequired": @(self.interventionRequired),
              @"notes": self.notes,
              @"lat": @(self.latitude),

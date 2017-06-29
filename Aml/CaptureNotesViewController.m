@@ -16,6 +16,9 @@
 @interface CaptureNotesViewController ()
 
 @property (nonatomic, strong) LocalPhoto *photo;
+@property (nonatomic) SwitchFormElement *hazardsSwitchElement;
+@property (nonatomic) SwitchFormElement *safetySwitchElement;
+@property (nonatomic) SwitchFormElement *interventionSwitchElement;
 
 @end
 
@@ -29,6 +32,11 @@
         return nil;
     }
     _photo = photo;
+
+    self.hazardsSwitchElement = [[SwitchFormElement alloc] initWithTitle:@"Hazards"];
+    self.safetySwitchElement = [[SwitchFormElement alloc] initWithTitle:@"Safety/Personal Hazard"];
+    self.interventionSwitchElement = [[SwitchFormElement alloc] initWithTitle:@"Intervention Recommended"];
+
     return self;
 }
 
@@ -40,6 +48,14 @@
     [super viewDidLoad];
 
     self.title = @"Assess";
+
+    [self.hazardsSwitchElement.toggle addTarget:self action:@selector(hazardsSwitchChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.safetySwitchElement.toggle addTarget:self action:@selector(safetySwitchChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.interventionSwitchElement.toggle addTarget:self action:@selector(interventionSwitchChanged:) forControlEvents:UIControlEventValueChanged];
+
+    self.hazardsSwitchElement.toggle.on = self.photo.metadata.hazards;
+    self.safetySwitchElement.toggle.on = self.photo.metadata.safetyHazards;
+    self.interventionSwitchElement.toggle.on = self.photo.metadata.interventionRequired;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -77,9 +93,9 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Assess"
       formElements:@[
-                     [[SwitchFormElement alloc] initWithTitle:@"Hazards"],
-                     [[SwitchFormElement alloc] initWithTitle:@"Safety/Personal Hazard"],
-                     [[SwitchFormElement alloc] initWithTitle:@"Intervention Recommended"],
+                     self.hazardsSwitchElement,
+                     self.safetySwitchElement,
+                     self.interventionSwitchElement,
                      ]]
      ];
 
@@ -161,6 +177,21 @@
 
 - (void)levelOfDamageDidChange:(DamageButtonFormElement *)damageButtonElement {
     self.photo.metadata.levelOfDamage = damageButtonElement.selectedValue;
+    [self.photo saveMetadata];
+}
+
+- (void)hazardsSwitchChanged:(UISwitch *)sender {
+    self.photo.metadata.hazards = sender.isOn;
+    [self.photo saveMetadata];
+}
+
+- (void)safetySwitchChanged:(UISwitch *)sender {
+    self.photo.metadata.safetyHazards = sender.isOn;
+    [self.photo saveMetadata];
+}
+
+- (void)interventionSwitchChanged:(UISwitch *)sender {
+    self.photo.metadata.interventionRequired = sender.isOn;
     [self.photo saveMetadata];
 }
 
