@@ -32,6 +32,8 @@
 
 - (void)load:(void (^)(LocalPhoto *localPhoto))callback;
 
+- (void)loadFullSize:(void (^)(UIImage *))callback;
+
 // Called automatically when calling setSettingsValue.
 - (void)uploadSettingsIfHasKey;
 

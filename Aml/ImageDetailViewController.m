@@ -22,6 +22,7 @@
         scrollView.maximumZoomScale = 5;
         scrollView.backgroundColor = [UIColor whiteColor];
         scrollView.clipsToBounds = true;
+        [self.view addSubview:scrollView];
         self.scrollView = scrollView;
     }
     return _scrollView;
@@ -31,6 +32,7 @@
     if (!_imageView) {
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.scrollView addSubview:imageView];
         self.imageView = imageView;
     }
     return _imageView;
@@ -42,10 +44,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self.view addSubview:self.scrollView];
-    [self.scrollView addSubview:self.imageView];
-
     self.scrollView.delegate = self;
 }
 

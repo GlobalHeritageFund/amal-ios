@@ -31,28 +31,41 @@
     [self uploadSettingsIfHasKey];
 }
 
+- (void)loadFullSize:(void (^)(UIImage *))callback {
+    NSParameterAssert(callback != nil);
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            callback(image);
+        });
+    });
+}
+
 - (void)load:(void (^)(LocalPhoto *))callback
 {
-    [[NSOperationQueue new] addOperationWithBlock:^{
-        
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
         NSData *data = [NSData dataWithContentsOfFile:self.settingsPath];
         UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
 
         UIImage *scaledImage = [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
         
-        [NSOperationQueue.mainQueue addOperationWithBlock:^{
-            
+        dispatch_async(dispatch_get_main_queue(), ^{
+
             self.image = scaledImage;
             
-            if(data)
+            if(data) {
                 self.settings = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            else
+            } else {
                 self.settings = nil;
+            }
             
-            if(callback)
+            if(callback) {
                 callback(self);
-        }];
-    }];
+            }
+        });
+    });
 }
 
 static NSString *FirebaseImageKey = @"FirebaseImageKey";

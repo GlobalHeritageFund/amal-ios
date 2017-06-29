@@ -139,8 +139,9 @@
 
 - (void)photoTapped:(UITapGestureRecognizer *)sender {
     ImageDetailViewController *imageDetail = [[ImageDetailViewController alloc] init];
-    [imageDetail loadViewIfNeeded];
-    imageDetail.imageView.image = self.photo.image;
+    [self.photo loadFullSize:^(UIImage *fullSize) {
+        imageDetail.imageView.image = fullSize;
+    }];
     [self.navigationController pushViewController:imageDetail animated:YES];
 
 }
