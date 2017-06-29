@@ -69,7 +69,7 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Level of Damage"
       formElements:@[
-                     [[DamageButtonFormElement alloc] init],
+                     [self damageButtonElement],
                      ]
       ]];
 
@@ -149,6 +149,18 @@
     if (segmentedControl.selectedSegmentIndex == 2) {
         self.photo.metadata.category = @"object";
     }
+    [self.photo saveMetadata];
+}
+
+- (DamageButtonFormElement *)damageButtonElement {
+    DamageButtonFormElement *damageButtonElement = [[DamageButtonFormElement alloc] init];
+    [damageButtonElement addTarget:self action:@selector(levelOfDamageDidChange:) forControlEvents:UIControlEventValueChanged];
+    damageButtonElement.selectedValue = self.photo.metadata.levelOfDamage;
+    return damageButtonElement;
+}
+
+- (void)levelOfDamageDidChange:(DamageButtonFormElement *)damageButtonElement {
+    self.photo.metadata.levelOfDamage = damageButtonElement.selectedValue;
     [self.photo saveMetadata];
 }
 

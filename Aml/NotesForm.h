@@ -33,9 +33,11 @@
 @end
 
 
-@interface DamageButtonFormElement : UIView <FormElement>
+@interface DamageButtonFormElement : UIControl <FormElement>
 
 @property (nonatomic) NSArray<UIButton *> *buttons;
+
+@property (nonatomic) int selectedValue;
 
 @end
 

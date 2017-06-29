@@ -133,6 +133,26 @@
         button.selected = NO;
     }
     sender.selected = YES;
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
+}
+
+- (int)selectedValue {
+    for (int i = 0; i < self.buttons.count; i++) {
+        UIButton *button = self.buttons[i];
+        if (button.isSelected) {
+            return i + 1;
+        }
+    }
+    return 0;
+}
+
+- (void)setSelectedValue:(int)selectedValue {
+    for (UIButton *button in self.buttons) {
+        button.selected = NO;
+    }
+    if (selectedValue != 0) {
+        self.buttons[selectedValue-1].selected = YES;
+    }
 }
 
 @end

@@ -24,7 +24,7 @@
     _condition = [dictionary[@"condition"]  asClassOrNil:[NSString class]] ?: @"";
     _levelOfDamage = [dictionary[@"levelOfDamage"] intValue];
     _hazards = [dictionary[@"hazards"] boolValue];
-    _levelOfDamage = [dictionary[@"safetyHazards"] boolValue];
+    _safetyHazards = [dictionary[@"safetyHazards"] boolValue];
     _interventionRequired = [dictionary[@"interventionRequired"] boolValue];
     _notes = [dictionary[@"notes"] asClassOrNil:[NSString class]] ?: @"";
     _latitude = [dictionary[@"lat"] doubleValue];
