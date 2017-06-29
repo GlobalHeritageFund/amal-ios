@@ -11,6 +11,7 @@
 #import "NotesForm.h"
 #import "UIColor+Additions.h"
 #import "ImageDetailViewController.h"
+#import "AMLMetadata.h"
 
 @interface CaptureNotesViewController ()
 
@@ -87,6 +88,17 @@
       initWithHeaderText:@"Notes"
       formElements:@[
                      [[NotesFormElement alloc] init],
+                     ]]
+     ];
+
+    NotesFormElement *latLong = [[NotesFormElement alloc] init];
+    latLong.textField.text = [NSString stringWithFormat:@"%f, %f", self.photo.metadata.latitude, self.photo.metadata.longitude];
+    latLong.textField.enabled = NO;
+    [self.view addFormGroup:
+     [[FormGroup alloc]
+      initWithHeaderText:@"Coordinates"
+      formElements:@[
+                     latLong,
                      ]]
      ];
 
