@@ -40,30 +40,27 @@
     CLLocationManager *locationManager;
 }
 
-- (void)loadDevices
-{
+- (void)loadDevices {
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
     
     for (AVCaptureDevice *device in devices) {
         
-        if ([device position] == AVCaptureDevicePositionBack)
-            
+        if ([device position] == AVCaptureDevicePositionBack) {
             inputDeviceBack = device;
-        else
+        } else {
             inputDeviceFront = device;
+        }
     }
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
-{
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     CLLocation *location = [locations lastObject];
     
     PhotoSettings.shared.lat = @(location.coordinate.latitude);
     PhotoSettings.shared.lon = @(location.coordinate.longitude);
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     locationManager = [CLLocationManager new];
@@ -83,8 +80,9 @@
         
         [captureSession startRunning];
         
-        if([captureSession canSetSessionPreset:AVCaptureSessionPresetPhoto])
+        if([captureSession canSetSessionPreset:AVCaptureSessionPresetPhoto]) {
             captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
+        }
         
         self.torchMode = AVCaptureTorchModeAuto;
         
@@ -124,25 +122,21 @@
 - (void)orientationChange:(NSNotification*)note
 {
     UIDeviceOrientation orientation = UIDevice.currentDevice.orientation;
-    
+
+    [self updateCameraOrientation];
+
     [UIView animateWithDuration:0.2 animations:^{
-        
         if(orientation == UIDeviceOrientationLandscapeLeft) {
-            
             self.swapButton.transform = CGAffineTransformMakeRotation(M_PI_2);
             self.flashButton.transform = CGAffineTransformMakeRotation(M_PI_2);
             self.rapidButton.transform = CGAffineTransformMakeRotation(M_PI_2);
             self.photoButton.transform = CGAffineTransformMakeRotation(M_PI_2);
-        }
-        else if(orientation == UIDeviceOrientationLandscapeRight) {
-            
+        } else if(orientation == UIDeviceOrientationLandscapeRight) {
             self.swapButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
             self.flashButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
             self.rapidButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
             self.photoButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
-        }
-        else {
-            
+        } else {
             self.swapButton.transform = CGAffineTransformIdentity;
             self.flashButton.transform = CGAffineTransformIdentity;
             self.rapidButton.transform = CGAffineTransformIdentity;
@@ -165,6 +159,28 @@
     [super viewDidLayoutSubviews];
     
     previewLayer.frame = self.previewImageView.bounds;
+}
+
+- (void)updateCameraOrientation {
+    AVCaptureVideoOrientation newOrientation;
+    switch ([[UIDevice currentDevice] orientation]) {
+        case UIDeviceOrientationPortrait:
+            newOrientation = AVCaptureVideoOrientationPortrait;
+            break;
+        case UIDeviceOrientationPortraitUpsideDown:
+            newOrientation = AVCaptureVideoOrientationPortraitUpsideDown;
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+            newOrientation = AVCaptureVideoOrientationLandscapeRight;
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            newOrientation = AVCaptureVideoOrientationLandscapeLeft;
+            break;
+        default:
+            newOrientation = AVCaptureVideoOrientationPortrait;
+    }
+    AVCaptureConnection *connection = [stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
+    connection.videoOrientation = newOrientation;
 }
 
 - (IBAction)swapCamera:(UIButton*)sender
