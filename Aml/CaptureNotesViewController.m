@@ -87,7 +87,7 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Notes"
       formElements:@[
-                     [[NotesFormElement alloc] init],
+                     [[NotesFormElement alloc] initWithText:self.photo.metadata.notes],
                      ]]
      ];
 
@@ -106,9 +106,8 @@
     NSString *version = [NSString stringWithFormat:@"%@b%@", [bundleDict valueForKey:@"CFBundleShortVersionString"], [bundleDict valueForKey:(NSString*)kCFBundleVersionKey]];
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText: version
-      formElements:@[
-                     ]]
+      initWithHeaderText:version
+      formElements:@[]]
      ];
 }
 

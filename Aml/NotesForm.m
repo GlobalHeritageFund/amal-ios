@@ -192,6 +192,16 @@
 
 @implementation NotesFormElement
 
+- (instancetype)initWithText:(NSString *)text {
+    self = [super init];
+    if (!self) return nil;
+
+    self.textField.text = text;
+
+    return self;
+}
+
+
 - (CGFloat)expectedHeight {
     return 44;
 }

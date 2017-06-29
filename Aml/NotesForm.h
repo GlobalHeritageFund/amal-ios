@@ -54,6 +54,8 @@
 
 @property (nonatomic) UITextField *textField;
 
+- (instancetype)initWithText:(NSString *)text;
+
 @end
 
 
