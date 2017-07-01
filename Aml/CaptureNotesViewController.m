@@ -75,6 +75,14 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
+      initWithHeaderText:@"Name"
+      formElements:@[
+                     [self nameFormElement],
+                     ]]
+     ];
+
+    [self.view addFormGroup:
+     [[FormGroup alloc]
       initWithHeaderText:@"Category"
       formElements:@[
                     [self categoryFormElement],
@@ -127,10 +135,28 @@
      ];
 }
 
+- (NotesFormElement *)nameFormElement {
+    NotesFormElement *nameFormElement = [[NotesFormElement alloc] initWithText:self.photo.metadata.name];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nameFieldDidChange:) name:UITextFieldTextDidEndEditingNotification object:nameFormElement.textField];
+    return nameFormElement;
+}
+
+- (void)nameFieldDidChange:(NSNotification *)notification {
+    UITextField *textField = notification.object;
+    self.photo.metadata.name = textField.text;
+    [self.photo saveMetadata];
+}
+
 - (NotesFormElement *)notesFormElement {
     NotesFormElement *notesFormElement = [[NotesFormElement alloc] initWithText:self.photo.metadata.notes];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notesFieldDidChange:) name:UITextFieldTextDidEndEditingNotification object:notesFormElement.textField];
     return notesFormElement;
+}
+
+- (void)notesFieldDidChange:(NSNotification *)notification {
+    UITextField *textField = notification.object;
+    self.photo.metadata.notes = textField.text;
+    [self.photo saveMetadata];
 }
 
 - (SegmentedControlFormElement *)categoryFormElement {
@@ -149,11 +175,6 @@
     return categoryFormElement;
 }
 
-- (void)notesFieldDidChange:(NSNotification *)notification {
-    UITextField *textField = notification.object;
-    self.photo.metadata.notes = textField.text;
-    [self.photo saveMetadata];
-}
 
 - (void)categoryDidChange:(UISegmentedControl *)segmentedControl {
     if (segmentedControl.selectedSegmentIndex == 0) {

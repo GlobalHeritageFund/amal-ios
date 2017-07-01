@@ -10,6 +10,7 @@
 
 @interface AMLMetadata : NSObject
 
+@property NSString *name;
 @property NSString *category;
 @property NSString *condition;
 @property int levelOfDamage;

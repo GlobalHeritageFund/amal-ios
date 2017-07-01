@@ -20,6 +20,7 @@
     self = [super init];
     if (!self) return nil;
 
+    _name = [dictionary[@"name"] asClassOrNil:[NSString class]] ?: @"";
     _category = [dictionary[@"category"] asClassOrNil:[NSString class]] ?: @"";
     _condition = [dictionary[@"condition"]  asClassOrNil:[NSString class]] ?: @"";
     _levelOfDamage = [dictionary[@"levelOfDamage"] intValue];
@@ -37,6 +38,7 @@
 
 - (NSDictionary *)dictionaryRepresentation {
     return @{
+             @"name": self.name,
              @"category": self.category,
              @"condition": self.condition,
              @"levelOfDamage": @(self.levelOfDamage),
