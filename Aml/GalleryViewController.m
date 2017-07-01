@@ -176,7 +176,13 @@
 }
 
 - (void)deleteMultiSelect:(id)sender {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to delete these photos? This can not be undone." preferredStyle:UIAlertControllerStyleAlert];
+    NSString *message;
+    if (self.collectionView.indexPathsForSelectedItems.count == 1) {
+        message = @"Are you sure you want to delete this photo? This can not be undone.";
+    } else {
+        message = @"Are you sure you want to delete these photos? This can not be undone.";
+    }
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:message preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         for (NSIndexPath *indexPath in self.collectionView.indexPathsForSelectedItems) {
             LocalPhoto *photo = self.photoSections[indexPath.section].photos[indexPath.row];
