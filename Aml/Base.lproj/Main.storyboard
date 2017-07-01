@@ -93,27 +93,16 @@
                                             <action selector="cycleFlash:" destination="pLV-uX-gjF" eventType="touchDown" id="SBY-vK-Gj1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuH-ai-VbQ">
-                                        <rect key="frame" x="172" y="41.5" width="30" height="22"/>
-                                        <state key="normal" image="ic_rapid_assess">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="rapidButtonTapped:" destination="pLV-uX-gjF" eventType="touchUpInside" id="wHm-dx-20O"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="2pV-Zt-z1U" firstAttribute="centerX" secondItem="FeK-rm-ORf" secondAttribute="centerX" id="0a0-Ek-4p7"/>
                                     <constraint firstItem="FeK-rm-ORf" firstAttribute="top" secondItem="0D1-4d-lAp" secondAttribute="top" constant="34" id="60w-Pu-c9i"/>
                                     <constraint firstItem="2pV-Zt-z1U" firstAttribute="width" secondItem="FeK-rm-ORf" secondAttribute="width" id="7Zb-Dr-LPw"/>
-                                    <constraint firstItem="XuH-ai-VbQ" firstAttribute="centerX" secondItem="0D1-4d-lAp" secondAttribute="centerX" id="Akd-WW-Z8u"/>
                                     <constraint firstItem="2pV-Zt-z1U" firstAttribute="centerY" secondItem="FeK-rm-ORf" secondAttribute="centerY" id="Ech-xf-AWx"/>
                                     <constraint firstItem="FeK-rm-ORf" firstAttribute="leading" secondItem="0D1-4d-lAp" secondAttribute="leading" constant="23" id="G88-cc-LYd"/>
                                     <constraint firstAttribute="height" constant="85" id="Gcw-YW-s0Z"/>
                                     <constraint firstAttribute="trailing" secondItem="vBn-yl-Wvg" secondAttribute="trailing" constant="23" id="JZZ-Vf-q3E"/>
-                                    <constraint firstItem="XuH-ai-VbQ" firstAttribute="centerY" secondItem="FeK-rm-ORf" secondAttribute="centerY" id="qaL-U5-Omb"/>
                                     <constraint firstItem="2pV-Zt-z1U" firstAttribute="height" secondItem="FeK-rm-ORf" secondAttribute="height" id="yJc-Fr-cD1"/>
                                     <constraint firstItem="vBn-yl-Wvg" firstAttribute="centerY" secondItem="FeK-rm-ORf" secondAttribute="centerY" id="zov-6n-K5D"/>
                                 </constraints>
@@ -150,7 +139,6 @@
                         <outlet property="imagePreviewOverlay" destination="Xrq-UL-7SC" id="P5W-Tx-uAg"/>
                         <outlet property="photoButton" destination="2vv-Fy-LSU" id="KvY-Dt-L6l"/>
                         <outlet property="previewImageView" destination="boV-Ur-A1X" id="hvm-qm-Nxa"/>
-                        <outlet property="rapidButton" destination="XuH-ai-VbQ" id="m43-kk-tHY"/>
                         <outlet property="swapButton" destination="vBn-yl-Wvg" id="k90-87-Z1z"/>
                     </connections>
                 </viewController>
@@ -207,6 +195,5 @@
         <image name="ic_flash_auto_white_36pt" width="36" height="36"/>
         <image name="ic_flash_off_white_36pt" width="36" height="36"/>
         <image name="ic_flash_on_white_36pt" width="36" height="36"/>
-        <image name="ic_rapid_assess" width="30" height="15"/>
     </resources>
 </document>

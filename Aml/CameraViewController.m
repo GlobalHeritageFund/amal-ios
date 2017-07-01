@@ -10,7 +10,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "PhotoSettings.h"
 #import "PhotoStorage.h"
-#import "PhotoSettingsViewController.h"
 #import "AMLMetadata.h"
 
 @interface CameraViewController ()
@@ -113,11 +112,6 @@
     }
     
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(orientationChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
-}
-
-- (IBAction)rapidButtonTapped:(id)sender {
-    PhotoSettingsViewController *photoSettings = [[PhotoSettingsViewController alloc] init];
-    [self.navigationController pushViewController:photoSettings animated:YES];
 }
 
 - (void)orientationChange:(NSNotification*)note
