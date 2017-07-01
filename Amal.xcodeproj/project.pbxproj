@@ -16,6 +16,7 @@
 		1A35596C1F007E9200FFFBCA /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35596B1F007E9200FFFBCA /* GalleryViewController.m */; };
 		1A3559701F0087D800FFFBCA /* GalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35596F1F0087D800FFFBCA /* GalleryCell.m */; };
 		1A3640651F049C650070E686 /* AMLMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3640641F049C650070E686 /* AMLMetadata.m */; };
+		1A3EE1581F0748490068B596 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3EE1571F0748490068B596 /* MapViewController.m */; };
 		1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */; };
 		1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */; };
 		1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */; };
@@ -73,6 +74,8 @@
 		1A35596F1F0087D800FFFBCA /* GalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryCell.m; sourceTree = "<group>"; };
 		1A3640631F049C650070E686 /* AMLMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMLMetadata.h; sourceTree = "<group>"; };
 		1A3640641F049C650070E686 /* AMLMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMLMetadata.m; sourceTree = "<group>"; };
+		1A3EE1561F0748490068B596 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		1A3EE1571F0748490068B596 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		1A7432571EF592AF00CE9D17 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCoordinator.h; sourceTree = "<group>"; };
@@ -282,6 +285,8 @@
 				1A74325D1EF5A0F200CE9D17 /* ImageDetailViewController.h */,
 				1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */,
 				1A35595B1F0023CA00FFFBCA /* Capture Notes */,
+				1A3EE1561F0748490068B596 /* MapViewController.h */,
+				1A3EE1571F0748490068B596 /* MapViewController.m */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
 				1A3640651F049C650070E686 /* AMLMetadata.m in Sources */,
+				1A3EE1581F0748490068B596 /* MapViewController.m in Sources */,
 				1A35595A1F001DF000FFFBCA /* CaptureNotesViewController.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,

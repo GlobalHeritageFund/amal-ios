@@ -12,6 +12,7 @@
 #import "UIColor+Additions.h"
 #import "ImageDetailViewController.h"
 #import "AMLMetadata.h"
+#import "MapViewController.h"
 
 @interface CaptureNotesViewController ()
 
@@ -162,7 +163,8 @@
 }
 
 - (void)mapTapped:(id)sender {
-
+    MapViewController *mapViewController = [[MapViewController alloc] initWithCoordinate:self.photo.metadata.coordinate];
+    [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
 - (NotesFormElement *)notesFormElement {
