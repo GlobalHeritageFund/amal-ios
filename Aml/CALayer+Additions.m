@@ -3,7 +3,7 @@
 //  Aml
 //
 //  Created by Dustin Dettmer on 2/21/17.
-//  Copyright © 2017 Dustin. All rights reserved.
+//  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
 #import "CALayer+Additions.h"

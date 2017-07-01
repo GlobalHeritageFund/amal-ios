@@ -3,7 +3,7 @@
 //  Amal
 //
 //  Created by Dustin Dettmer on 5/24/17.
-//  Copyright © 2017 Dustin. All rights reserved.
+//  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
 #import "LocalPhoto.h"

@@ -3,7 +3,7 @@
 //  Amal
 //
 //  Created by Soroush Khanlou on 6/17/17.
-//  Copyright © 2017 Dustin. All rights reserved.
+//  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
 #import "AppCoordinator.h"
