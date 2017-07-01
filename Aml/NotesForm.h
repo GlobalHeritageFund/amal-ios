@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @protocol FormElement
 
@@ -57,6 +58,14 @@
 @property (nonatomic) UITextField *textField;
 
 - (instancetype)initWithText:(NSString *)text;
+
+@end
+
+@interface MapFormElement : UIView <FormElement>
+
+@property (nonatomic) MKMapView *mapView;
+
+- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate;
 
 @end
 

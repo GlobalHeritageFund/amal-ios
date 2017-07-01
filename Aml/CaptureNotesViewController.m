@@ -83,6 +83,14 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
+      initWithHeaderText:@"Map"
+      formElements:@[
+                     [self mapFormElement],
+                     ]]
+     ];
+
+    [self.view addFormGroup:
+     [[FormGroup alloc]
       initWithHeaderText:@"Category"
       formElements:@[
                     [self categoryFormElement],
@@ -145,6 +153,16 @@
     UITextField *textField = notification.object;
     self.photo.metadata.name = textField.text;
     [self.photo saveMetadata];
+}
+
+- (MapFormElement *)mapFormElement {
+    MapFormElement *mapFormElement = [[MapFormElement alloc] initWithCoordinate:self.photo.metadata.coordinate];
+    [mapFormElement addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapTapped:)]];
+    return mapFormElement;
+}
+
+- (void)mapTapped:(id)sender {
+
 }
 
 - (NotesFormElement *)notesFormElement {

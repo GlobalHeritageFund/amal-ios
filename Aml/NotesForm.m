@@ -247,6 +247,42 @@
 @end
 
 
+@implementation MapFormElement
+
+- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate {
+    self = [super init];
+    if (!self) return nil;
+
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, 500, 500);
+    [self.mapView setRegion:viewRegion animated:NO];
+
+    return self;
+}
+
+
+- (CGFloat)expectedHeight {
+    return 80;
+}
+
+- (MKMapView *)mapView {
+    if (!_mapView) {
+        MKMapView *mapView = [[MKMapView alloc] init];
+        mapView.scrollEnabled = NO;
+        mapView.zoomEnabled = NO;
+        [self addSubview:mapView];
+        self.mapView = mapView;
+    }
+    return _mapView;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGRect workingRect = self.bounds;
+    self.mapView.frame = workingRect;
+}
+
+@end
+
 @interface FormGroup ()
 
 @property (nonatomic) NSMutableArray *formElements;

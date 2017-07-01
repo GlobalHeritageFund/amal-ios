@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 @interface AMLMetadata : NSObject
 
@@ -26,5 +27,8 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 - (NSDictionary *)dictionaryRepresentation;
+
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+
 
 @end
