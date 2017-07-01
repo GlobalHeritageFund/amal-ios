@@ -70,6 +70,7 @@
         collectionView.delegate = self;
         collectionView.alwaysBounceVertical = YES;
         collectionView.dataSource = self;
+        collectionView.prefetchingEnabled = NO;
         [self.view addSubview:collectionView];
         self.collectionView = collectionView;
     }
@@ -209,17 +210,13 @@
     LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
     cell.mode = self.mode;
 
-    if(localPhoto.image)
+    if(localPhoto.image) {
         cell.imageView.image = localPhoto.image;
-    else {
-        cell.imageView.image = nil;
-        
+    } else {
         [localPhoto load:^(LocalPhoto *localPhoto) {
-
-            if ([collectionView cellForItemAtIndexPath:indexPath] != cell) {
+            if ([collectionView cellForItemAtIndexPath:indexPath] == nil) {
                 return;
             }
-
             cell.imageView.image = localPhoto.image;
         }];
     }
