@@ -53,11 +53,11 @@
 @end
 
 
-@interface NotesFormElement : UIView <FormElement>
+@interface TextFormElement : UIView <FormElement>
+
+- (instancetype)initWithPlaceholder:(NSString *)placeholder initialText:(NSString *)initialText;
 
 @property (nonatomic) UITextField *textField;
-
-- (instancetype)initWithText:(NSString *)text;
 
 @end
 

@@ -210,13 +210,14 @@
 @end
 
 
-@implementation NotesFormElement
+@implementation TextFormElement
 
-- (instancetype)initWithText:(NSString *)text {
+- (instancetype)initWithPlaceholder:(NSString *)placeholder initialText:(NSString *)initialText {
     self = [super init];
     if (!self) return nil;
 
-    self.textField.text = text;
+    self.textField.text = initialText;
+    self.textField.placeholder = placeholder;
 
     return self;
 }
@@ -230,7 +231,6 @@
     if (!_textField) {
         UITextField *textField = [[UITextField alloc] init];
         textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        textField.placeholder = @"Notes";
         [self addSubview:textField];
         self.textField = textField;
     }

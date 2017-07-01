@@ -124,7 +124,7 @@
                      ]]
      ];
 
-    NotesFormElement *latLong = [[NotesFormElement alloc] init];
+    TextFormElement *latLong = [[TextFormElement alloc] init];
     latLong.textField.text = [NSString stringWithFormat:@"%f, %f", self.photo.metadata.latitude, self.photo.metadata.longitude];
     latLong.textField.enabled = NO;
     [self.view addFormGroup:
@@ -144,8 +144,8 @@
      ];
 }
 
-- (NotesFormElement *)nameFormElement {
-    NotesFormElement *nameFormElement = [[NotesFormElement alloc] initWithText:self.photo.metadata.name];
+- (TextFormElement *)nameFormElement {
+    TextFormElement *nameFormElement = [[TextFormElement alloc] initWithPlaceholder:@"Name" initialText:self.photo.metadata.name];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nameFieldDidChange:) name:UITextFieldTextDidEndEditingNotification object:nameFormElement.textField];
     return nameFormElement;
 }
@@ -167,8 +167,8 @@
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
-- (NotesFormElement *)notesFormElement {
-    NotesFormElement *notesFormElement = [[NotesFormElement alloc] initWithText:self.photo.metadata.notes];
+- (TextFormElement *)notesFormElement {
+    TextFormElement *notesFormElement = [[TextFormElement alloc] initWithPlaceholder:@"Notes" initialText:self.photo.metadata.notes];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notesFieldDidChange:) name:UITextFieldTextDidEndEditingNotification object:notesFormElement.textField];
     return notesFormElement;
 }
