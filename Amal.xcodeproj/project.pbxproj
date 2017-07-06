@@ -22,6 +22,8 @@
 		1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */; };
 		1A7432621EF5CCFA00CE9D17 /* NSArray+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */; };
 		1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */; };
+		1ACAD1E61F0EF796001935D4 /* CreateReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */; };
+		1ACAD1EA1F0EF7A3001935D4 /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E91F0EF7A3001935D4 /* Report.m */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
 		580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55411E5CFC1000A70AB1 /* AppDelegate.m */; };
 		580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55441E5CFC1000A70AB1 /* CameraViewController.m */; };
@@ -86,6 +88,10 @@
 		1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Additions.m"; sourceTree = "<group>"; };
 		1A8897281EEE3C0E00B38D24 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		1ACAD1E41F0EF796001935D4 /* CreateReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateReportViewController.h; sourceTree = "<group>"; };
+		1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateReportViewController.m; sourceTree = "<group>"; };
+		1ACAD1E81F0EF7A3001935D4 /* Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Report.h; sourceTree = "<group>"; };
+		1ACAD1E91F0EF7A3001935D4 /* Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580A553E1E5CFC1000A70AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		580A55401E5CFC1000A70AB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -167,6 +173,17 @@
 				1A35595D1F0023DF00FFFBCA /* NotesForm.m */,
 			);
 			name = "Capture Notes";
+			sourceTree = "<group>";
+		};
+		1ACAD1E71F0EF79B001935D4 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				1ACAD1E41F0EF796001935D4 /* CreateReportViewController.h */,
+				1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */,
+				1ACAD1E81F0EF7A3001935D4 /* Report.h */,
+				1ACAD1E91F0EF7A3001935D4 /* Report.m */,
+			);
+			name = Reports;
 			sourceTree = "<group>";
 		};
 		580A55311E5CFC1000A70AB1 = {
@@ -287,6 +304,7 @@
 				1A35595B1F0023CA00FFFBCA /* Capture Notes */,
 				1A3EE1561F0748490068B596 /* MapViewController.h */,
 				1A3EE1571F0748490068B596 /* MapViewController.m */,
+				1ACAD1E71F0EF79B001935D4 /* Reports */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -423,6 +441,7 @@
 				580A555F1E5D1C5A00A70AB1 /* UIViewController+Additions.m in Sources */,
 				58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */,
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
+				1ACAD1E61F0EF796001935D4 /* CreateReportViewController.m in Sources */,
 				5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */,
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
@@ -434,6 +453,7 @@
 				1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */,
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
 				1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */,
+				1ACAD1EA1F0EF7A3001935D4 /* Report.m in Sources */,
 				1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */,
 				1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */,
 				1A3559701F0087D800FFFBCA /* GalleryCell.m in Sources */,

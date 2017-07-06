@@ -15,6 +15,7 @@
 #import "GalleryCell.h"
 #import "UIColor+Additions.h"
 #import "AMLMetadata.h"
+#import "CreateReportViewController.h"
 
 @interface GalleryViewController ()
 
@@ -44,7 +45,7 @@
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Import" style:UIBarButtonItemStylePlain target:self action:@selector(importImage:)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStylePlain target:self action:@selector(enterSelectMode:)];
     } else {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(deleteMultiSelect:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Act" style:UIBarButtonItemStylePlain target:self action:@selector(action:)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(exitSelectMode:)];
     }
 }
@@ -176,6 +177,21 @@
     self.mode = GalleryModeNormal;
 }
 
+- (void)action:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self deleteMultiSelect:alertController];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Create Report" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self createReport:alertController];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+
+    }]];
+    [self presentViewController:alertController animated:true completion:nil];
+}
+
 - (void)deleteMultiSelect:(id)sender {
     NSString *message;
     if (self.collectionView.indexPathsForSelectedItems.count == 1) {
@@ -194,6 +210,11 @@
     }]];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:true completion:nil];
+}
+
+- (void)createReport:(id)sender {
+    CreateReportViewController *createReport = [[CreateReportViewController alloc] init];
+    [self.navigationController pushViewController:createReport animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
