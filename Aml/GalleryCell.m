@@ -54,6 +54,7 @@
     } else {
         self.overlayView.image = nil;
     }
+    [self setNeedsLayout];
 }
 
 - (void)updateOverlay {
