@@ -64,7 +64,7 @@
     if (!_imageView) {
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
-        [self addSubview:imageView];
+        [self.contentView addSubview:imageView];
         self.imageView = imageView;
     }
     return _imageView;
@@ -73,7 +73,7 @@
 - (UIImageView *)overlayView {
     if (!_overlayView) {
         UIImageView *overlayView = [[UIImageView alloc] init];
-        [self addSubview:overlayView];
+        [self.contentView addSubview:overlayView];
         self.overlayView = overlayView;
     }
     return _overlayView;
@@ -84,7 +84,7 @@
 
     self.clipsToBounds = YES;
 
-    [self bringSubviewToFront:self.overlayView];
+    [self.contentView bringSubviewToFront:self.overlayView];
 
     CGRect workingRect = self.bounds;
     self.imageView.frame = workingRect;
