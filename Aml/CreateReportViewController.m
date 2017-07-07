@@ -18,6 +18,7 @@
 
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) UITextField *textField;
+@property (nonatomic) UIBarButtonItem *uploadButton;
 
 @end
 
@@ -62,7 +63,8 @@
 
     self.title = @"Create Report";
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Upload" style:UIBarButtonItemStylePlain target:self action:@selector(upload:)];
+    self.uploadButton = [[UIBarButtonItem alloc] initWithTitle:@"Upload" style:UIBarButtonItemStylePlain target:self action:@selector(upload:)];
+    self.navigationItem.rightBarButtonItem = self.uploadButton;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -95,9 +97,11 @@
 }
 
 - (void)upload:(id)sender {
+    self.title = @"Uploading...";
+    self.uploadButton.enabled = NO;
     self.report.title = self.textField.text ?: @"";
     [[ReportUploader new] upload:self.report completion:^{
-        NSLog(@"DONENNN");
+        self.title = @"Uploaded!";
     }];
 }
 
