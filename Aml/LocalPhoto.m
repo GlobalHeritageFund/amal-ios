@@ -40,7 +40,6 @@
 - (void)saveAndUploadMetadata {
     [self saveMetadata];
 
-    [self uploadMetadataIfHasKey];
 }
 
 - (void)loadFullSize:(void (^)(UIImage *))callback {
@@ -72,83 +71,10 @@
     });
 }
 
-- (NSString *)firebaseKey {
-    return self.metadata.firebaseImageKey;
-}
-
-- (void)unsync {
-    if(self.firebaseKey) {
-        
-        FIRDatabaseReference *ref = [[[[FIRDatabase database] reference] child:@"images"] child:self.firebaseKey];
-        
-        [ref removeValue];
-    }
-
-    self.metadata.firebaseImageKey = nil;
-}
-
 - (void)saveMetadata {
     NSData *settingsData = [NSJSONSerialization dataWithJSONObject:self.metadata.dictionaryRepresentation options:0 error:nil];
     
     [settingsData writeToFile:self.settingsPath atomically:NO];
-}
-
-- (FIRDatabaseReference*)getOrMakeFirebaseRef {
-    FIRDatabaseReference *ref = [[[FIRDatabase database] reference] child:@"images"];
-    
-    NSString *key = self.firebaseKey;
-    
-    if(key) {
-        
-        ref = [ref child:key];
-    }
-    else {
-        
-        ref = [ref childByAutoId];
-
-        self.metadata.firebaseImageKey = ref.key;
-
-        [self saveMetadata];
-    }
-    
-    return ref;
-}
-
-- (void)uploadMetadataIfHasKey
-{
-    if(!self.firebaseKey) {
-        return;
-    }
-    
-    FIRDatabaseReference *ref = [self getOrMakeFirebaseRef];
-    [[ref child:@"settings"] setValue:self.metadata.dictionaryRepresentation];
-}
-
-- (void)uploadEverything
-{
-    NSData *imageData = UIImageJPEGRepresentation(self.image, 0.9);
-    
-    FIRDatabaseReference *ref = [self getOrMakeFirebaseRef];
-    
-    [self uploadMetadataIfHasKey];
-    
-    FIRStorageReference *imageRef = [[[[FIRStorage storage] reference] child:@"images"] child:ref.key];
-    
-    [[ref child:@"imageRef"] setValue:imageRef.fullPath withCompletionBlock:^(NSError *error, FIRDatabaseReference *ref) {
-        
-        if(error)
-            NSLog(@"Setting imageRef error: %@", error);
-    }];
-    
-    FIRStorageMetadata *metadata = [FIRStorageMetadata new];
-    
-    metadata.contentType = @"image/jpeg";
-    
-    [imageRef putData:imageData metadata:metadata completion:^(FIRStorageMetadata *metadata, NSError *error) {
-        
-        if(error)
-            NSLog(@"Image upload error was: %@", error);
-    }];
 }
 
 - (void)removeLocalData {

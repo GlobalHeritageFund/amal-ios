@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class FIRDatabaseReference;
+
 @class AMLMetadata;
 
 @interface LocalPhoto : NSObject
@@ -22,12 +24,6 @@
 
 @property (strong) UIImage *image;
 
-// Reads the firebase key from 'settings' dictionary.
-@property (readonly) NSString *firebaseKey;
-
-// Removes the firebaseKey from the settings dictionary and deletes the
-// image from the server.
-- (void)unsync;
 
 // Write settings out to file
 - (void)saveMetadata;
@@ -35,13 +31,6 @@
 - (void)load:(void (^)(LocalPhoto *localPhoto))callback;
 
 - (void)loadFullSize:(void (^)(UIImage *))callback;
-
-// Called automatically when calling setSettingsValue.
-- (void)uploadMetadataIfHasKey;
-
-// If 'firebaseKey' is nil, one will be generated and added to 'settings'.
-// This will trigger a 'saveSettings' event.
-- (void)uploadEverything;
 
 - (void)removeLocalData;
 

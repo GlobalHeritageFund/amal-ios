@@ -205,7 +205,6 @@
     [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         for (NSIndexPath *indexPath in self.collectionView.indexPathsForSelectedItems) {
             LocalPhoto *photo = self.photoSections[indexPath.section].photos[indexPath.row];
-            [photo unsync];
             [photo removeLocalData];
         }
         [self reloadData];

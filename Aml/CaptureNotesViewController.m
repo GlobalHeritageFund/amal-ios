@@ -264,7 +264,6 @@
 - (void)deleteTapped:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to delete this photo? This can not be undone." preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        [self.photo unsync];
         [self.photo removeLocalData];
         [self.navigationController popViewControllerAnimated:true];
     }]];
