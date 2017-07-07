@@ -18,18 +18,27 @@
     return [FIRDatabase database];
 }
 
+- (FIRDatabaseReference *)reportsDirectory {
+    return [[[self database] reference] child:@"reports"];
+}
+
+- (FIRStorage *)storage {
+    return [FIRStorage storage];
+}
+
+- (FIRStorageReference *)imagesDirectory {
+    return [[[self storage] reference] child:@"images"];
+}
+
 - (void)upload:(Report *)report completion:(void (^)())completion {
     dispatch_group_t group = dispatch_group_create();
 
-    FIRDatabaseReference *ref = [[[self database] reference] child:@"reports"];
-
-    ref = [ref childByAutoId];
-
-    ref = [ref child:@"images"];
+    FIRDatabaseReference *reportRef = [self.reportsDirectory childByAutoId];
 
     for (LocalPhoto *photo in report.photos) {
         dispatch_group_enter(group);
-        [self uploadPhoto:photo atRef:[ref childByAutoId] completion:^{
+        FIRDatabaseReference *photoRef = [[reportRef child:@"images"] childByAutoId];
+        [self uploadPhoto:photo atRef:photoRef completion:^{
             dispatch_group_leave(group);
         }];
     }
@@ -53,7 +62,7 @@
     }];
 
     dispatch_group_enter(group);
-    FIRStorageReference *imageRef = [[[[FIRStorage storage] reference] child:@"images"] child:ref.key];
+    FIRStorageReference *imageRef = [[self imagesDirectory] child:ref.key];
     [[ref child:@"imageRef"] setValue:imageRef.fullPath withCompletionBlock:^(NSError *error, FIRDatabaseReference *ref) {
         if(error) {
             NSLog(@"imageRef error was: %@", error);
