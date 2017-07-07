@@ -49,7 +49,6 @@
 		5846B2161E809C95008E48BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5846B2151E809C95008E48BC /* GoogleService-Info.plist */; };
 		5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2191E809DB7008E48BC /* PhotoSettings.m */; };
 		5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5892D0D31E8616FD0051C60E /* Intro.storyboard */; };
-		5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */; };
 		58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A1123C1ED65E50006689DC /* LocalPhoto.m */; };
 		58A174AE1ED7BEAE003CACA0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */; };
 		58A174B01ED7BEB6003CACA0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */; };
@@ -128,8 +127,6 @@
 		5846B2181E809DB7008E48BC /* PhotoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSettings.h; sourceTree = "<group>"; };
 		5846B2191E809DB7008E48BC /* PhotoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSettings.m; sourceTree = "<group>"; };
 		5892D0D31E8616FD0051C60E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
-		5896125A1EA6BAB4003C25C2 /* SyncPhotosCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncPhotosCell.h; sourceTree = "<group>"; };
-		5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncPhotosCell.m; sourceTree = "<group>"; };
 		58A1123B1ED65E50006689DC /* LocalPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPhoto.h; sourceTree = "<group>"; };
 		58A1123C1ED65E50006689DC /* LocalPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPhoto.m; sourceTree = "<group>"; };
 		58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -280,8 +277,6 @@
 		5846B21B1E80A3E8008E48BC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				5896125A1EA6BAB4003C25C2 /* SyncPhotosCell.h */,
-				5896125B1EA6BAB4003C25C2 /* SyncPhotosCell.m */,
 				1A35596E1F0087D800FFFBCA /* GalleryCell.h */,
 				1A35596F1F0087D800FFFBCA /* GalleryCell.m */,
 			);
@@ -442,7 +437,6 @@
 				58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */,
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
 				1ACAD1E61F0EF796001935D4 /* CreateReportViewController.m in Sources */,
-				5896125C1EA6BAB4003C25C2 /* SyncPhotosCell.m in Sources */,
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
 				1A3640651F049C650070E686 /* AMLMetadata.m in Sources */,
