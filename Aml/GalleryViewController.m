@@ -38,6 +38,7 @@
 
     [self updateBarButtons];
 
+
     [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"PhotoCell"];
     [self.collectionView registerClass:[GalleryHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
 }
@@ -47,7 +48,7 @@
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Import" style:UIBarButtonItemStylePlain target:self action:@selector(importImage:)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStylePlain target:self action:@selector(enterSelectMode:)];
     } else {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Act" style:UIBarButtonItemStylePlain target:self action:@selector(action:)];
+        self.navigationItem.leftBarButtonItem = nil;
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(exitSelectMode:)];
     }
 }
@@ -104,6 +105,24 @@
     self.collectionView.allowsMultipleSelection = (mode == GalleryModeSelect);
     [self.collectionView reloadData];
     [self updateBarButtons];
+    self.navigationController.toolbarHidden = (mode != GalleryModeSelect);
+    [self setupToolbar];
+}
+
+- (void)setupToolbar {
+    UIBarButtonItem *createReportItem = [[UIBarButtonItem alloc] initWithTitle:@"Create Report" style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
+
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+
+    UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(deleteMultiSelect:)];
+    deleteItem.tintColor = [UIColor redColor];
+
+    self.navigationController.toolbar.items = @[
+                                                createReportItem,
+                                                flexibleSpace,
+                                                deleteItem,
+                                                ];
+    
 }
 
 - (void)reloadData {
@@ -177,21 +196,6 @@
 
 - (void)exitSelectMode:(id)sender {
     self.mode = GalleryModeNormal;
-}
-
-- (void)action:(id)sender {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self deleteMultiSelect:alertController];
-    }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Create Report" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self createReport:alertController];
-    }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-
-    }]];
-    [self presentViewController:alertController animated:true completion:nil];
 }
 
 - (void)deleteMultiSelect:(id)sender {
