@@ -22,6 +22,7 @@
 		1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */; };
 		1A7432621EF5CCFA00CE9D17 /* NSArray+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */; };
 		1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */; };
+		1ABD81CD1F10562400E2C460 /* Promise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD81CC1F10562400E2C460 /* Promise.m */; };
 		1ACAD1E61F0EF796001935D4 /* CreateReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */; };
 		1ACAD1EA1F0EF7A3001935D4 /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E91F0EF7A3001935D4 /* Report.m */; };
 		1ACAD1ED1F0F25C3001935D4 /* ReportUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1EC1F0F25C3001935D4 /* ReportUploader.m */; };
@@ -89,6 +90,8 @@
 		1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Additions.m"; sourceTree = "<group>"; };
 		1A8897281EEE3C0E00B38D24 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		1ABD81CB1F10562400E2C460 /* Promise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Promise.h; sourceTree = "<group>"; };
+		1ABD81CC1F10562400E2C460 /* Promise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Promise.m; sourceTree = "<group>"; };
 		1ACAD1E41F0EF796001935D4 /* CreateReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateReportViewController.h; sourceTree = "<group>"; };
 		1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateReportViewController.m; sourceTree = "<group>"; };
 		1ACAD1E81F0EF7A3001935D4 /* Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Report.h; sourceTree = "<group>"; };
@@ -176,6 +179,15 @@
 				1A35595D1F0023DF00FFFBCA /* NotesForm.m */,
 			);
 			name = "Capture Notes";
+			sourceTree = "<group>";
+		};
+		1ABD81CA1F10561B00E2C460 /* Promise */ = {
+			isa = PBXGroup;
+			children = (
+				1ABD81CB1F10562400E2C460 /* Promise.h */,
+				1ABD81CC1F10562400E2C460 /* Promise.m */,
+			);
+			name = Promise;
 			sourceTree = "<group>";
 		};
 		1ACAD1E71F0EF79B001935D4 /* Reports */ = {
@@ -317,6 +329,7 @@
 		58A1123A1ED65E45006689DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1ABD81CA1F10561B00E2C460 /* Promise */,
 				1A3559681F006E4900FFFBCA /* PhotoStorage.h */,
 				1A3559691F006E4900FFFBCA /* PhotoStorage.m */,
 				58A1123B1ED65E50006689DC /* LocalPhoto.h */,
@@ -452,6 +465,7 @@
 				1A3640651F049C650070E686 /* AMLMetadata.m in Sources */,
 				1A3EE1581F0748490068B596 /* MapViewController.m in Sources */,
 				1A35595A1F001DF000FFFBCA /* CaptureNotesViewController.m in Sources */,
+				1ABD81CD1F10562400E2C460 /* Promise.m in Sources */,
 				1ACAD1F41F101B25001935D4 /* TextFieldTableViewCell.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
