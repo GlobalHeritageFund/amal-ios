@@ -122,7 +122,12 @@
                                                 flexibleSpace,
                                                 deleteItem,
                                                 ];
-    
+}
+
+- (void)updateEnabledStateOnToolbarItems {
+    for (UIBarButtonItem *item in self.navigationController.toolbar.items) {
+        item.enabled = self.collectionView.indexPathsForSelectedItems.count != 0;
+    }
 }
 
 - (void)reloadData {
@@ -275,6 +280,7 @@
     } else if (self.mode == GalleryModeSelect) {
         PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
         [cell updateOverlay];
+        [self updateEnabledStateOnToolbarItems];
     }
 }
 
@@ -282,6 +288,7 @@
     if (self.mode == GalleryModeSelect) {
         PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
         [cell updateOverlay];
+        [self updateEnabledStateOnToolbarItems];
     }
     
 }
