@@ -12,6 +12,8 @@
 
 @interface CreateReportViewController : UIViewController
 
+@property (nonatomic) UITableView *view;
+
 - (instancetype)initWithReport:(Report *)report;
 
 @property (nonatomic) Report *report;
