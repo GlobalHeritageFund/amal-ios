@@ -11,6 +11,7 @@
 #import "Report.h"
 #import "LocalPhoto.h"
 #import "AMLMetadata.h"
+#import "ReportUploader.h"
 
 @interface CreateReportViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -49,6 +50,8 @@
     [super viewDidLoad];
 
     self.title = @"Create Report";
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Upload" style:UIBarButtonItemStylePlain target:self action:@selector(upload:)];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,6 +69,12 @@
     cell.textLabel.text = (photo.metadata.name.length) ? photo.metadata.name : @"Unnamed";
     cell.detailTextLabel.text = (photo.metadata.notes.length) ? photo.metadata.notes : @"No notes.";
     return cell;
+}
+
+- (void)upload:(id)sender {
+    [[ReportUploader new] upload:self.report completion:^{
+        NSLog(@"DONENNN");
+    }];
 }
 
 @end
