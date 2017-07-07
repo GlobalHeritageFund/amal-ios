@@ -10,4 +10,14 @@
 
 @implementation Report
 
+- (instancetype)initWithPhotos:(NSArray<LocalPhoto *> *)photos {
+    self = [super init];
+    if (!self) return nil;
+
+    _photos = photos;
+
+    return self;
+}
+
+
 @end

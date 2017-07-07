@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class Report;
+
 @interface CreateReportViewController : UIViewController
+
+- (instancetype)initWithReport:(Report *)report;
+
+@property (nonatomic) Report *report;
 
 @end

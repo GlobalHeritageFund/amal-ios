@@ -12,6 +12,8 @@
 
 @interface Report : NSObject
 
+- (instancetype)initWithPhotos:(NSArray<LocalPhoto *> *)photos;
+
 @property (nonatomic) NSString *title;
 
 @property (nonatomic) NSArray<LocalPhoto *> *photos;

@@ -14,6 +14,15 @@
 
 @implementation CreateReportViewController
 
+- (instancetype)initWithReport:(Report *)report {
+    self = [super init];
+    if (!self) return nil;
+
+    _report = report;
+
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
