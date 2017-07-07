@@ -12,10 +12,12 @@
 #import "LocalPhoto.h"
 #import "AMLMetadata.h"
 #import "ReportUploader.h"
+#import "TextFieldTableViewCell.h"
 
 @interface CreateReportViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) UITableView *tableView;
+@property (nonatomic) UITextField *textField;
 
 @end
 
@@ -42,6 +44,15 @@
     return _tableView;
 }
 
+- (UITextField *)textField {
+    if (!_textField) {
+        UITextField *textField = [[UITextField alloc] init];
+        textField.placeholder = @"Title";
+        self.textField = textField;
+    }
+    return _textField;
+}
+
 - (void)loadView {
     self.view = self.tableView;
 }
@@ -58,11 +69,23 @@
     return 72;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 1;
+    }
     return self.report.photos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        TextFieldTableViewCell *cell = [[TextFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+        cell.hostedTextfield = self.textField;
+        return cell;
+    }
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     LocalPhoto *photo = self.report.photos[indexPath.row];
     cell.imageView.image = photo.image;
@@ -72,6 +95,7 @@
 }
 
 - (void)upload:(id)sender {
+    self.report.title = self.textField.text ?: @"";
     [[ReportUploader new] upload:self.report completion:^{
         NSLog(@"DONENNN");
     }];

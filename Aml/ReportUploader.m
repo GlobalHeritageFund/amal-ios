@@ -35,6 +35,11 @@
 
     FIRDatabaseReference *reportRef = [self.reportsDirectory childByAutoId];
 
+    dispatch_group_enter(group);
+    [[reportRef child:@"title"] setValue:report.title withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        dispatch_group_leave(group);
+    }];
+
     for (LocalPhoto *photo in report.photos) {
         dispatch_group_enter(group);
         FIRDatabaseReference *photoRef = [[reportRef child:@"images"] childByAutoId];
