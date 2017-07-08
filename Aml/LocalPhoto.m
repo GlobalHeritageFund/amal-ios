@@ -43,29 +43,23 @@
 
 - (Promise<UIImage *> *)loadFullSize {
     return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(id _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                fulfill(image);
-            });
-        });
+        UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
+        fulfill(image);
     }];
 }
 
 - (Promise<LocalPhoto *> *)loadImage {
     return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(id _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
-            UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
+        UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
 
-            UIImage *scaledImage = [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
+        UIImage *scaledImage = [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
 
-            dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
 
-                self.image = scaledImage;
+            self.image = scaledImage;
 
-                fulfill(self);
-            });
+            fulfill(self);
         });
     }];
 }
