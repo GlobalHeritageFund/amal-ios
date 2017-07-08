@@ -16,10 +16,21 @@
 
 @property (nonatomic, copy, nullable) SuccessBlock onSuccess;
 @property (nonatomic, copy, nullable) FailureBlock onFailure;
+@property (nonatomic, strong, nonnull) dispatch_queue_t queue;
 
 @end
 
 @implementation Callback
+
+- (instancetype)init {
+    self = [super init];
+    if (!self) return nil;
+
+    _queue = dispatch_get_main_queue();
+
+    return self;
+}
+
 
 - (void)call:(id)object {
     if (object == nil) {
@@ -27,12 +38,16 @@
     }
     if ([object isKindOfClass:[NSError class]]) {
         if (self.onFailure) {
-            self.onFailure(object);
+            dispatch_async(self.queue, ^{
+                self.onFailure(object);
+            });
         }
         return;
     }
     if (self.onSuccess) {
-        self.onSuccess(object);
+        dispatch_async(self.queue, ^{
+            self.onSuccess(object);
+        });
     }
 }
 
@@ -43,6 +58,8 @@
 
 @property (nonatomic) id valueOrError;
 @property (nonatomic) NSMutableArray<Callback *> *callbacks;
+@property (nonatomic) dispatch_queue_t queue;
+
 
 @end
 
@@ -54,61 +71,87 @@
 
     self.callbacks = [NSMutableArray array];
     self.valueOrError = nil;
+    self.queue = dispatch_queue_create("promise.queue", DISPATCH_QUEUE_SERIAL);
 
     return self;
 }
 
+- (instancetype _Nonnull )initWithWork:(void (^)(void (^fulfill)(id), void (^reject)(NSError *)))work {
+    return [self initWithWorkQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) work:work];
+}
 
-- (instancetype _Nonnull )initWithWork:(void (^)(void (^fulfill)(id), void (^reject)(NSError *)))resolver {
-
+- (instancetype _Nonnull )initWithWorkQueue:(dispatch_queue_t)queue work:(void (^)(void (^fulfill)(id), void (^reject)(NSError *)))work {
     self = [self init];
     if (!self) return nil;
 
-    resolver(
-             ^(id obj) {
-                 [self fulfill:obj];
-             },
-             ^(NSError *error) {
-                 [self reject:error];
-             });
-
+    dispatch_async(queue, ^{
+        work(
+                 ^(id obj) {
+                     [self fulfill:obj];
+                 },
+                 ^(NSError *error) {
+                     [self reject:error];
+                 });
+    });
 
     return self;
 }
 
 - (void)fulfill:(id)value {
-    self.valueOrError = value;
+    [self updateWithValue:value];
 }
 
 - (void)reject:(NSError *)error {
-    self.valueOrError = error;
+    [self updateWithValue:error];
 }
 
-- (void)setValueOrError:(id)valueOrError {
-    if (self.valueOrError != nil) { return; }
-    _valueOrError = valueOrError;
-    [self callCallbacks];
+- (void)updateWithValue:(id)valueOrError {
+    dispatch_async(self.queue, ^{
+        if (self.valueOrError != nil) { return; }
+        self.valueOrError = valueOrError;
+        [self callCallbacks];
+    });
 }
 
 - (void)callCallbacks {
-    for (Callback *callback in self.callbacks) {
-        [callback call:self.valueOrError];
-    }
+    dispatch_async(self.queue, ^{
+        BOOL isPending = (self.valueOrError == nil);
+        if (isPending) { return; }
+        for (Callback *callback in self.callbacks) {
+            [callback call:self.valueOrError];
+        }
+        [self.callbacks removeAllObjects];
+    });
 }
 
-- (void)addCallbackWithSuccess:(SuccessBlock __nullable)onSuccess failure:(FailureBlock __nullable)onFailure {
+- (void)addCallbackWithSuccess:(SuccessBlock __nullable)onSuccess failure:(FailureBlock __nullable)onFailure queue:(dispatch_queue_t)queue {
     Callback *callback = [Callback new];
     callback.onSuccess = onSuccess;
     callback.onFailure = onFailure;
-    [self.callbacks addObject:callback];
+    callback.queue = queue;
+    dispatch_async(self.queue, ^{
+        [self.callbacks addObject:callback];
+    });
+}
+
+- (void)addCallbackWithSuccess:(SuccessBlock __nullable)onSuccess failure:(FailureBlock __nullable)onFailure {
+    return [self addCallbackWithSuccess:onSuccess failure:onFailure queue:dispatch_get_main_queue()];
 }
 
 - (BOOL)isPending {
-    return self.valueOrError == nil;
+    __block BOOL isPending = NO;
+    dispatch_sync(self.queue, ^{
+        isPending = (self.valueOrError == nil);
+    });
+    return isPending;
 }
 
 - (BOOL)isRejected {
-    return [self.valueOrError isKindOfClass:[NSError class]];
+    __block BOOL isRejected = NO;
+    dispatch_sync(self.queue, ^{
+        isRejected = [self.valueOrError isKindOfClass:[NSError class]];
+    });
+    return isRejected;
 }
 
 - (BOOL)isFulfilled {
@@ -116,17 +159,23 @@
 }
 
 - (id)value {
-    if (self.isFulfilled) {
-        return self.valueOrError;
-    }
-    return nil;
+    __block id value = nil;
+    dispatch_sync(self.queue, ^{
+        if (self.valueOrError == nil || ![self.valueOrError isKindOfClass:[NSError class]]) {
+            value = self.valueOrError;
+        }
+    });
+    return value;
 }
 
 - (NSError *)error {
-    if (self.isRejected) {
-        return self.valueOrError;
-    }
-    return nil;
+    __block id error = nil;
+    dispatch_sync(self.queue, ^{
+        if ([self.valueOrError isKindOfClass:[NSError class]]) {
+            error = self.valueOrError;
+        }
+    });
+    return error;
 }
 
 - (Promise * _Nonnull)then:(id (^_Nonnull)(id _Nonnull object))onSuccess {

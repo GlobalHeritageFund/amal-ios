@@ -20,6 +20,8 @@ typedef void (^FailureBlock)(NSError * _Nonnull error);
 
 - (instancetype _Nonnull )initWithWork:(void (^ __nonnull)(void (^ __nonnull fulfill)(__nonnull T), void (^ __nonnull reject)(NSError * __nonnull)))resolver;
 
+- (instancetype _Nonnull )initWithWorkQueue:(dispatch_queue_t _Nonnull )queue work:(void (^ __nonnull)(void (^ __nonnull fulfill)(__nonnull T), void (^ __nonnull reject)(NSError * __nonnull)))resolver;
+
 -(void)fulfill:(nonnull T)value;
 -(void)reject:(nonnull NSError *)error;
 
