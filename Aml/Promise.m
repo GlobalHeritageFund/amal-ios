@@ -161,7 +161,7 @@
 - (id)value {
     __block id value = nil;
     dispatch_sync(self.queue, ^{
-        if (self.valueOrError == nil || ![self.valueOrError isKindOfClass:[NSError class]]) {
+        if (self.valueOrError != nil && ![self.valueOrError isKindOfClass:[NSError class]]) {
             value = self.valueOrError;
         }
     });
