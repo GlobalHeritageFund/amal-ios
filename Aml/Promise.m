@@ -131,6 +131,7 @@
     callback.queue = queue;
     dispatch_async(self.queue, ^{
         [self.callbacks addObject:callback];
+        [self callCallbacks];
     });
 }
 
