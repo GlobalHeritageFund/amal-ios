@@ -45,9 +45,10 @@
              @[
                [[reportRef child:@"title"] promiseSetValue:report.title],
                [Promise all:photoUploadPromises],
-               ]] then:^id _Nullable(id  _Nonnull object) {
-        return report;
-    }];
+               ]]
+            then:^id _Nullable(id  _Nonnull object) {
+                return report;
+            }];
 }
 
 - (Promise *)uploadPhoto:(LocalPhoto *)photo atRef:(FIRDatabaseReference *)ref {
