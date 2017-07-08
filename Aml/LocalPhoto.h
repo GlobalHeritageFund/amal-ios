@@ -23,13 +23,9 @@
 
 @property (strong) UIImage *image;
 
-
-// Write settings out to file
 - (void)saveMetadata;
 
-- (void)load:(void (^)(LocalPhoto *localPhoto))callback;
-
-- (void)loadFullSize:(void (^)(UIImage *))callback;
+- (Promise<LocalPhoto *> *)loadImage;
 
 - (Promise<UIImage *> *)loadFullSize;
 

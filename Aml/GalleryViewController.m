@@ -18,6 +18,7 @@
 #import "CreateReportViewController.h"
 #import "Report.h"
 #import "NSArray+Additions.h"
+#import "Promise.h"
 
 @interface GalleryViewController ()
 
@@ -248,11 +249,11 @@
     if(localPhoto.image) {
         cell.imageView.image = localPhoto.image;
     } else {
-        [localPhoto load:^(LocalPhoto *localPhoto) {
-            if ([collectionView cellForItemAtIndexPath:indexPath] == nil) {
-                return;
+        [[localPhoto loadImage] then:^id _Nullable(id  _Nonnull object) {
+            if ([collectionView cellForItemAtIndexPath:indexPath] != nil) {
+                cell.imageView.image = localPhoto.image;
             }
-            cell.imageView.image = localPhoto.image;
+            return nil;
         }];
     }
     

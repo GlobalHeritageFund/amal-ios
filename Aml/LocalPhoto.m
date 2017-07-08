@@ -39,44 +39,35 @@
 
 - (void)saveAndUploadMetadata {
     [self saveMetadata];
-
-}
-
-- (void)loadFullSize:(void (^)(UIImage *))callback {
-    NSParameterAssert(callback != nil);
-
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            callback(image);
-        });
-    });
 }
 
 - (Promise<UIImage *> *)loadFullSize {
     return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(id _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
-        [self loadFullSize:^(UIImage *image) {
-            fulfill(image);
-        }];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                fulfill(image);
+            });
+        });
     }];
 }
 
-- (void)load:(void (^)(LocalPhoto *))callback {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+- (Promise<LocalPhoto *> *)loadImage {
+    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(id _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
-        UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
-        
-        UIImage *scaledImage = [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
+            UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
 
-            self.image = scaledImage;
+            UIImage *scaledImage = [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
 
-            if(callback) {
-                callback(self);
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+                self.image = scaledImage;
+
+                fulfill(self);
+            });
         });
-    });
+    }];
 }
 
 - (void)saveMetadata {
