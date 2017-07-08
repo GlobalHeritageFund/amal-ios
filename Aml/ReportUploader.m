@@ -11,6 +11,8 @@
 #import "Report.h"
 #import "LocalPhoto.h"
 #import "AMLMetadata.h"
+#import "NSArray+Additions.h"
+#import "Firebase+Promises.h"
 
 @implementation ReportUploader
 
@@ -30,72 +32,42 @@
     return [[[self storage] reference] child:@"images"];
 }
 
-- (void)upload:(Report *)report completion:(void (^)())completion {
-    dispatch_group_t group = dispatch_group_create();
+- (Promise *)upload:(Report *)report {
 
     FIRDatabaseReference *reportRef = [self.reportsDirectory childByAutoId];
 
-    dispatch_group_enter(group);
-    [[reportRef child:@"title"] setValue:report.title withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-        dispatch_group_leave(group);
+    NSArray *photoUploadPromises = [report.photos arrayByTransformingObjectsUsingBlock:^id(id photo) {
+        FIRDatabaseReference *photoRef = [[reportRef child:@"images"] childByAutoId];
+        return [self uploadPhoto:photo atRef:photoRef];
     }];
 
-    for (LocalPhoto *photo in report.photos) {
-        dispatch_group_enter(group);
-        FIRDatabaseReference *photoRef = [[reportRef child:@"images"] childByAutoId];
-        [self uploadPhoto:photo atRef:photoRef completion:^{
-            dispatch_group_leave(group);
-        }];
-    }
-
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        completion();
-    });
+    return [[Promise all:
+             @[
+               [[reportRef child:@"title"] promiseSetValue:report.title],
+               [Promise all:photoUploadPromises],
+               ]] then:^id _Nullable(id  _Nonnull object) {
+        return report;
+    }];
 }
 
-- (void)uploadPhoto:(LocalPhoto *)photo atRef:(FIRDatabaseReference *)ref completion:(void (^)())completion {
+- (Promise *)uploadPhoto:(LocalPhoto *)photo atRef:(FIRDatabaseReference *)ref {
 
-    dispatch_group_t group = dispatch_group_create();
-
-    dispatch_group_enter(group);
-    [[ref child:@"settings"] setValue:photo.metadata.dictionaryRepresentation withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-        if(error) {
-            NSLog(@"Image metadata error was: %@", error);
-        } else {
-            dispatch_group_leave(group);
-        }
-    }];
-
-    dispatch_group_enter(group);
     FIRStorageReference *imageRef = [[self imagesDirectory] child:ref.key];
-    [[ref child:@"imageRef"] setValue:imageRef.fullPath withCompletionBlock:^(NSError *error, FIRDatabaseReference *ref) {
-        if(error) {
-            NSLog(@"imageRef error was: %@", error);
-        } else {
-            dispatch_group_leave(group);
-        }
-    }];
 
     FIRStorageMetadata *metadata = [FIRStorageMetadata new];
 
     metadata.contentType = @"image/jpeg";
 
-    dispatch_group_enter(group);
-
-    [photo loadFullSize:^(UIImage *image) {
+    Promise *photoUploadPromise = [[photo loadFullSize] then:^id _Nullable(id  _Nonnull image) {
         NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
-        [imageRef putData:imageData metadata:metadata completion:^(FIRStorageMetadata *metadata, NSError *error) {
-            if(error) {
-                NSLog(@"Image upload error was: %@", error);
-            } else {
-                dispatch_group_leave(group);
-            }
-        }];
+        return [imageRef promisePutData:imageData metadata:metadata];
     }];
 
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        completion();
-    });
+    return [Promise all:@[
+                          [[ref child:@"settings"] promiseSetValue:photo.metadata.dictionaryRepresentation],
+                          [[ref child:@"imageRef"] promiseSetValue:imageRef.fullPath],
+                          photoUploadPromise,
+                          ]];
 }
 
 @end

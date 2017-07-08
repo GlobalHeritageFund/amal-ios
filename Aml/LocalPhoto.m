@@ -53,6 +53,14 @@
     });
 }
 
+- (Promise<UIImage *> *)loadFullSize {
+    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(id _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+        [self loadFullSize:^(UIImage *image) {
+            fulfill(image);
+        }];
+    }];
+}
+
 - (void)load:(void (^)(LocalPhoto *))callback {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 

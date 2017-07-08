@@ -23,6 +23,7 @@
 		1A7432621EF5CCFA00CE9D17 /* NSArray+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */; };
 		1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */; };
 		1ABD81CD1F10562400E2C460 /* Promise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD81CC1F10562400E2C460 /* Promise.m */; };
+		1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */; };
 		1ACAD1E61F0EF796001935D4 /* CreateReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */; };
 		1ACAD1EA1F0EF7A3001935D4 /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E91F0EF7A3001935D4 /* Report.m */; };
 		1ACAD1ED1F0F25C3001935D4 /* ReportUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1EC1F0F25C3001935D4 /* ReportUploader.m */; };
@@ -92,6 +93,8 @@
 		1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		1ABD81CB1F10562400E2C460 /* Promise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Promise.h; sourceTree = "<group>"; };
 		1ABD81CC1F10562400E2C460 /* Promise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Promise.m; sourceTree = "<group>"; };
+		1ABD81CE1F10565F00E2C460 /* Firebase+Promises.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Firebase+Promises.h"; sourceTree = "<group>"; };
+		1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Firebase+Promises.m"; sourceTree = "<group>"; };
 		1ACAD1E41F0EF796001935D4 /* CreateReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateReportViewController.h; sourceTree = "<group>"; };
 		1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateReportViewController.m; sourceTree = "<group>"; };
 		1ACAD1E81F0EF7A3001935D4 /* Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Report.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 			children = (
 				1ABD81CB1F10562400E2C460 /* Promise.h */,
 				1ABD81CC1F10562400E2C460 /* Promise.m */,
+				1ABD81CE1F10565F00E2C460 /* Firebase+Promises.h */,
+				1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */,
 			);
 			name = Promise;
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 				1ACAD1ED1F0F25C3001935D4 /* ReportUploader.m in Sources */,
 				1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */,
 				1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */,
+				1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */,
 				1A3559701F0087D800FFFBCA /* GalleryCell.m in Sources */,
 				1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */,
 				1A7432621EF5CCFA00CE9D17 /* NSArray+Additions.m in Sources */,

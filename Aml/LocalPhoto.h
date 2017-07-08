@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class FIRDatabaseReference;
+#import "Promise.h"
 
 @class AMLMetadata;
 
@@ -31,6 +30,8 @@
 - (void)load:(void (^)(LocalPhoto *localPhoto))callback;
 
 - (void)loadFullSize:(void (^)(UIImage *))callback;
+
+- (Promise<UIImage *> *)loadFullSize;
 
 - (void)removeLocalData;
 

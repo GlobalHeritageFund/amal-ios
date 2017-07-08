@@ -100,8 +100,9 @@
     self.title = @"Uploading...";
     self.uploadButton.enabled = NO;
     self.report.title = self.textField.text ?: @"";
-    [[ReportUploader new] upload:self.report completion:^{
+    [[[ReportUploader new] upload:self.report] then:^id _Nullable(id  _Nonnull object) {
         self.title = @"Uploaded!";
+        return nil;
     }];
 }
 

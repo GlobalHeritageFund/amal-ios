@@ -197,6 +197,7 @@
             return nil;
         }] catch:^(NSError * _Nonnull error) {
             [all reject:error];
+            dispatch_group_leave(group);
         }];
     }
 

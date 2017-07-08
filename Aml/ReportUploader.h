@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Promise.h"
 
 @class Report;
 
 @interface ReportUploader : NSObject
 
-- (void)upload:(Report *)report completion:(void (^)())completion;
+- (Promise<Report *> *)upload:(Report *)report;
 
 @end
