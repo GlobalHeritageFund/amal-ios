@@ -108,6 +108,7 @@
     [self updateBarButtons];
     self.navigationController.toolbarHidden = (mode != GalleryModeSelect);
     [self setupToolbar];
+    [self updateEnabledStateOnToolbarItems];
 }
 
 - (void)setupToolbar {
