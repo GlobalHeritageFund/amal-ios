@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dj3-gB-zij">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pLV-uX-gjF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,46 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Page-->
-        <scene sceneID="WTU-kR-3uF">
-            <objects>
-                <tabBarController id="Dj3-gB-zij" customClass="TabBarPage" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Uhf-xC-caH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="6j5-Uj-lZC" kind="relationship" relationship="viewControllers" id="Mn2-JC-cMF"/>
-                        <segue destination="qsh-pe-spC" kind="relationship" relationship="viewControllers" id="MJH-Jy-F7P"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WC0-Ay-cZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1642" y="591"/>
-        </scene>
-        <!--Camera-->
-        <scene sceneID="V0c-z8-YAJ">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="6j5-Uj-lZC" customClass="NavPage" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Camera" image="ic_camera_white" selectedImage="ic_camera_active" id="4z1-iQ-0BL"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="u7X-vb-xYL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="pLV-uX-gjF" kind="relationship" relationship="rootViewController" id="MAQ-Sq-1iB"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kJd-EK-jNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-535" y="221"/>
-        </scene>
         <!--Camera View Controller-->
         <scene sceneID="qZc-VI-AAt">
             <objects>
-                <viewController id="pLV-uX-gjF" customClass="CameraViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CameraViewController" id="pLV-uX-gjF" customClass="CameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lff-0l-6Co"/>
                         <viewControllerLayoutGuide type="bottom" id="PCk-La-t9L"/>
@@ -146,52 +110,12 @@
             </objects>
             <point key="canvasLocation" x="442" y="221"/>
         </scene>
-        <!--Gallery-->
-        <scene sceneID="V0w-Go-nd9">
-            <objects>
-                <navigationController id="qsh-pe-spC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Gallery" image="ic_assess_outline" selectedImage="ic_assess_active" id="aWX-6c-FKT"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GBc-Hx-aoX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="OaU-lY-g0c" kind="relationship" relationship="rootViewController" id="DG6-VT-Lv0"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="88z-4Y-yZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-535" y="913"/>
-        </scene>
-        <!--Gallery View Controller-->
-        <scene sceneID="CgG-la-FKN">
-            <objects>
-                <viewController id="OaU-lY-g0c" customClass="GalleryViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rA7-c5-bRd"/>
-                        <viewControllerLayoutGuide type="bottom" id="37j-9R-CZ4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TxQ-Ze-xmL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Krs-ld-tJX"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="luk-x5-9fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="362" y="913"/>
-        </scene>
     </scenes>
     <resources>
         <image name="bg_alert" width="375" height="667"/>
         <image name="btn-take-photo" width="66" height="66"/>
-        <image name="ic_assess_active" width="26" height="26"/>
-        <image name="ic_assess_outline" width="26" height="26"/>
-        <image name="ic_camera_active" width="26" height="23"/>
         <image name="ic_camera_flip" width="24" height="26"/>
         <image name="ic_camera_rear_white_36pt" width="36" height="36"/>
-        <image name="ic_camera_white" width="26" height="23"/>
         <image name="ic_flash_auto_white_36pt" width="36" height="36"/>
         <image name="ic_flash_off_white_36pt" width="36" height="36"/>
         <image name="ic_flash_on_white_36pt" width="36" height="36"/>

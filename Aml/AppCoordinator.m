@@ -8,6 +8,8 @@
 
 #import "AppCoordinator.h"
 #import "UIColor+Additions.h"
+#import "CameraViewController.h"
+#import "GalleryViewController.h"
 
 @implementation FirstLaunch
 
@@ -33,7 +35,6 @@
 
 @property (nonatomic) FirstLaunch *firstLaunch;
 
-
 @end
 
 @implementation AppCoordinator
@@ -55,7 +56,22 @@
 }
 
 - (void)start {
-    UIViewController *tabBarController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+
+    CameraViewController *cameraViewController = [CameraViewController makeFromStoryboard];
+    UINavigationController *cameraNavigationController = [[UINavigationController alloc] initWithRootViewController:cameraViewController];
+    cameraNavigationController.navigationBarHidden = true;
+    cameraNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"ic_camera_white"] selectedImage:[UIImage imageNamed:@"ic_camera_active"]];
+
+    GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
+    UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
+    galleryNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Gallery" image:[UIImage imageNamed:@"ic_assess_outline"] selectedImage:[UIImage imageNamed:@"ic_assess_active"]];
+
+
+    tabBarController.viewControllers = @[
+                                         cameraNavigationController,
+                                         galleryNavigationController,
+                                         ];
     self.window.tintColor = [UIColor amalTeal];
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];

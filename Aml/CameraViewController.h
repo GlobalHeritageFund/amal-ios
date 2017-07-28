@@ -11,6 +11,8 @@
 
 @interface CameraViewController : UIViewController<CLLocationManagerDelegate>
 
++ (instancetype)makeFromStoryboard;
+
 @property (weak) IBOutlet UIImageView *previewImageView;
 
 @end

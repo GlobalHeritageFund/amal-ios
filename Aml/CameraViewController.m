@@ -40,6 +40,12 @@
     CLLocationManager *locationManager;
 }
 
++ (instancetype)makeFromStoryboard {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    id viewController = [storyboard instantiateViewControllerWithIdentifier:@"CameraViewController"];
+    return viewController;
+}
+
 - (void)loadDevices {
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
     
