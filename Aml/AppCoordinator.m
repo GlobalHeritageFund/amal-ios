@@ -10,6 +10,7 @@
 #import "UIColor+Additions.h"
 #import "CameraViewController.h"
 #import "GalleryViewController.h"
+#import "TabBarPage.h"
 
 @implementation FirstLaunch
 
@@ -56,7 +57,7 @@
 }
 
 - (void)start {
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    UITabBarController *tabBarController = [[TabBarPage alloc] init];
 
     CameraViewController *cameraViewController = [CameraViewController makeFromStoryboard];
     UINavigationController *cameraNavigationController = [[UINavigationController alloc] initWithRootViewController:cameraViewController];
