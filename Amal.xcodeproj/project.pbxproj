@@ -31,7 +31,7 @@
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
 		580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55411E5CFC1000A70AB1 /* AppDelegate.m */; };
 		580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55441E5CFC1000A70AB1 /* CameraViewController.m */; };
-		580A55481E5CFC1000A70AB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580A55461E5CFC1000A70AB1 /* Main.storyboard */; };
+		580A55481E5CFC1000A70AB1 /* CameraViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580A55461E5CFC1000A70AB1 /* CameraViewController.storyboard */; };
 		580A554A1E5CFC1000A70AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580A55491E5CFC1000A70AB1 /* Assets.xcassets */; };
 		580A554D1E5CFC1000A70AB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */; };
 		580A555B1E5D136200A70AB1 /* CALayer+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A555A1E5D136200A70AB1 /* CALayer+Additions.m */; };
@@ -109,7 +109,7 @@
 		580A55411E5CFC1000A70AB1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		580A55431E5CFC1000A70AB1 /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		580A55441E5CFC1000A70AB1 /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
-		580A55471E5CFC1000A70AB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		580A55471E5CFC1000A70AB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CameraViewController.storyboard; sourceTree = "<group>"; };
 		580A55491E5CFC1000A70AB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		580A554C1E5CFC1000A70AB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		580A554E1E5CFC1000A70AB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 		58BE51811E6639D1001B9575 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				580A55461E5CFC1000A70AB1 /* Main.storyboard */,
+				580A55461E5CFC1000A70AB1 /* CameraViewController.storyboard */,
 				580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */,
 				5892D0D31E8616FD0051C60E /* Intro.storyboard */,
 			);
@@ -432,7 +432,7 @@
 			files = (
 				580A554D1E5CFC1000A70AB1 /* LaunchScreen.storyboard in Resources */,
 				580A554A1E5CFC1000A70AB1 /* Assets.xcassets in Resources */,
-				580A55481E5CFC1000A70AB1 /* Main.storyboard in Resources */,
+				580A55481E5CFC1000A70AB1 /* CameraViewController.storyboard in Resources */,
 				5846B2161E809C95008E48BC /* GoogleService-Info.plist in Resources */,
 				5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */,
 			);
@@ -498,12 +498,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		580A55461E5CFC1000A70AB1 /* Main.storyboard */ = {
+		580A55461E5CFC1000A70AB1 /* CameraViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				580A55471E5CFC1000A70AB1 /* Base */,
 			);
-			name = Main.storyboard;
+			name = CameraViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */ = {

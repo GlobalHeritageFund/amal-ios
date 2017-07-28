@@ -41,7 +41,7 @@
 }
 
 + (instancetype)makeFromStoryboard {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"CameraViewController" bundle:nil];
     id viewController = [storyboard instantiateViewControllerWithIdentifier:@"CameraViewController"];
     return viewController;
 }
