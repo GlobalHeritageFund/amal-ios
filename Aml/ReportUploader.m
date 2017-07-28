@@ -61,7 +61,7 @@
 
     Promise *photoUploadPromise = [[photo loadFullSize] then:^id _Nullable(id  _Nonnull image) {
         NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
-        return [imageRef promisePutData:imageData metadata:metadata];
+        return [[imageRef putData:imageData metadata:metadata] promise];
     }];
 
     return [Promise all:@[

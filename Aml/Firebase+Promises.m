@@ -24,16 +24,16 @@
 
 @end
 
-@implementation FIRStorageReference (Promises)
 
-- (Promise *)promisePutData:(NSData *)data metadata:(FIRStorageMetadata *)metadata {
+@implementation FIRStorageObservableTask (Promises)
+
+- (Promise<FIRStorageMetadata *> *)promise {
     return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(id _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
-        [self putData:data metadata:metadata completion:^(FIRStorageMetadata * _Nullable metadata, NSError * _Nullable error) {
-            if (error) {
-                reject(error);
-            } else if (metadata) {
-                fulfill(metadata);
-            }
+        [self observeStatus:FIRStorageTaskStatusSuccess handler:^(FIRStorageTaskSnapshot * _Nonnull snapshot) {
+            fulfill(snapshot.metadata);
+        }];
+        [self observeStatus:FIRStorageTaskStatusFailure handler:^(FIRStorageTaskSnapshot * _Nonnull snapshot) {
+            reject(snapshot.error);
         }];
     }];
 }

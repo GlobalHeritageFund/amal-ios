@@ -15,8 +15,9 @@
 
 @end
 
-@interface FIRStorageReference (Promises)
 
-- (Promise<FIRStorageMetadata *> *_Nonnull)promisePutData:(NSData *_Nonnull)data metadata:(FIRStorageMetadata *_Nullable)metadata;
+@interface FIRStorageObservableTask (Promises)
+
+- (Promise<FIRStorageMetadata *> *_Nonnull)promise;
 
 @end
