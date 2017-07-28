@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */; };
 		1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31FA4D1F0569A6007DDD88 /* NSObject+Helpers.m */; };
 		1A35595A1F001DF000FFFBCA /* CaptureNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559591F001DF000FFFBCA /* CaptureNotesViewController.m */; };
 		1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35595D1F0023DF00FFFBCA /* NotesForm.m */; };
@@ -61,6 +62,8 @@
 
 /* Begin PBXFileReference section */
 		05C28DCB1F018D480067736E /* Amal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Amal.entitlements; sourceTree = "<group>"; };
+		1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportPhotoTableViewCell.h; sourceTree = "<group>"; };
+		1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportPhotoTableViewCell.m; sourceTree = "<group>"; };
 		1A31FA4C1F0569A6007DDD88 /* NSObject+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Helpers.h"; sourceTree = "<group>"; };
 		1A31FA4D1F0569A6007DDD88 /* NSObject+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Helpers.m"; sourceTree = "<group>"; };
 		1A3559581F001DF000FFFBCA /* CaptureNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureNotesViewController.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				1ACAD1EC1F0F25C3001935D4 /* ReportUploader.m */,
 				1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */,
 				1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */,
+				1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */,
+				1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */,
 			);
 			name = Reports;
 			sourceTree = "<group>";
@@ -491,6 +496,7 @@
 				5846B2051E773354008E48BC /* TabBarPage.m in Sources */,
 				580A555B1E5D136200A70AB1 /* CALayer+Additions.m in Sources */,
 				1A3559641F0062CB00FFFBCA /* CaptureNotesView.m in Sources */,
+				1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */,
 				1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

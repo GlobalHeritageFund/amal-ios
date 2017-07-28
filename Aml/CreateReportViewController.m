@@ -13,6 +13,7 @@
 #import "AMLMetadata.h"
 #import "ReportUploader.h"
 #import "TextFieldTableViewCell.h"
+#import "ReportPhotoTableViewCell.h"
 
 @interface CreateReportViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -88,7 +89,7 @@
         cell.hostedTextfield = self.textField;
         return cell;
     }
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+    ReportPhotoTableViewCell *cell = [[ReportPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     LocalPhoto *photo = self.report.photos[indexPath.row];
     cell.imageView.image = photo.image;
     cell.textLabel.text = (photo.metadata.name.length) ? photo.metadata.name : @"Unnamed";
