@@ -11,7 +11,7 @@
 #import "Report.h"
 #import "LocalPhoto.h"
 #import "AMLMetadata.h"
-#import "ReportUploader.h"
+#import "ReportUpload.h"
 #import "TextFieldTableViewCell.h"
 #import "ReportPhotoTableViewCell.h"
 
@@ -20,6 +20,7 @@
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) UITextField *textField;
 @property (nonatomic) UIBarButtonItem *uploadButton;
+@property (nonatomic) ReportUpload *upload;
 
 @end
 
@@ -32,6 +33,7 @@
     if (!self) return nil;
 
     _report = report;
+    _upload = [[ReportUpload alloc] initWithReport:report];
 
     return self;
 }
@@ -94,6 +96,7 @@
     cell.imageView.image = photo.image;
     cell.textLabel.text = (photo.metadata.name.length) ? photo.metadata.name : @"Unnamed";
     cell.detailTextLabel.text = (photo.metadata.notes.length) ? photo.metadata.notes : @"No notes.";
+    cell.progressView.observedProgress = self.upload.progresses[indexPath.row];
     return cell;
 }
 
@@ -101,7 +104,8 @@
     self.title = @"Uploading...";
     self.uploadButton.enabled = NO;
     self.report.title = self.textField.text ?: @"";
-    [[[ReportUploader new] upload:self.report] then:^id _Nullable(id  _Nonnull object) {
+    [self.upload upload];
+    [self.upload.promise then:^id _Nullable(id  _Nonnull object) {
         self.title = @"Uploaded!";
         return nil;
     }];

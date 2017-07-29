@@ -27,7 +27,7 @@
 		1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */; };
 		1ACAD1E61F0EF796001935D4 /* CreateReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */; };
 		1ACAD1EA1F0EF7A3001935D4 /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E91F0EF7A3001935D4 /* Report.m */; };
-		1ACAD1ED1F0F25C3001935D4 /* ReportUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1EC1F0F25C3001935D4 /* ReportUploader.m */; };
+		1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */; };
 		1ACAD1F41F101B25001935D4 /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
 		580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55411E5CFC1000A70AB1 /* AppDelegate.m */; };
@@ -102,8 +102,8 @@
 		1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateReportViewController.m; sourceTree = "<group>"; };
 		1ACAD1E81F0EF7A3001935D4 /* Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Report.h; sourceTree = "<group>"; };
 		1ACAD1E91F0EF7A3001935D4 /* Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
-		1ACAD1EB1F0F25C3001935D4 /* ReportUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportUploader.h; sourceTree = "<group>"; };
-		1ACAD1EC1F0F25C3001935D4 /* ReportUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportUploader.m; sourceTree = "<group>"; };
+		1ACAD1EB1F0F25C3001935D4 /* ReportUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportUpload.h; sourceTree = "<group>"; };
+		1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportUpload.m; sourceTree = "<group>"; };
 		1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldTableViewCell.h; sourceTree = "<group>"; };
 		1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldTableViewCell.m; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,8 +205,8 @@
 				1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */,
 				1ACAD1E81F0EF7A3001935D4 /* Report.h */,
 				1ACAD1E91F0EF7A3001935D4 /* Report.m */,
-				1ACAD1EB1F0F25C3001935D4 /* ReportUploader.h */,
-				1ACAD1EC1F0F25C3001935D4 /* ReportUploader.m */,
+				1ACAD1EB1F0F25C3001935D4 /* ReportUpload.h */,
+				1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */,
 				1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */,
 				1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */,
 				1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */,
@@ -483,7 +483,7 @@
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
 				1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */,
 				1ACAD1EA1F0EF7A3001935D4 /* Report.m in Sources */,
-				1ACAD1ED1F0F25C3001935D4 /* ReportUploader.m in Sources */,
+				1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */,
 				1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */,
 				1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */,
 				1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */,

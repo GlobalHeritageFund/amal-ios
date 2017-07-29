@@ -11,7 +11,7 @@
 @implementation ReportPhotoTableViewCell
 
 - (UIProgressView *)progressView {
-    if (_progressView) {
+    if (!_progressView) {
         UIProgressView *progressView = [[UIProgressView alloc] init];
         [self.contentView addSubview:progressView];
         self.progressView = progressView;
@@ -35,6 +35,7 @@
     self.imageView.frame = CGRectInset(imageRect, 5, 5);
     self.textLabel.frame = CGRectInset(textRect, 5, 0);
     self.detailTextLabel.frame = CGRectInset(detailTextRect, 5, 0);
+    self.progressView.frame = CGRectInset(detailTextRect, 5, 0);
 }
 
 @end

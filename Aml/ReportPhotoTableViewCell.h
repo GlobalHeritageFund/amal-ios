@@ -12,5 +12,4 @@
 
 @property (nonatomic) UIProgressView *progressView;
 
-
 @end

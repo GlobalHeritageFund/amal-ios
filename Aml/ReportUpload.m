@@ -1,12 +1,12 @@
 //
-//  ReportUploader.m
+//  ReportUpload.m
 //  Amal
 //
 //  Created by Soroush Khanlou on 7/6/17.
 //  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
-#import "ReportUploader.h"
+#import "ReportUpload.h"
 #import "Firebase.h"
 #import "Report.h"
 #import "LocalPhoto.h"
@@ -14,7 +14,29 @@
 #import "NSArray+Additions.h"
 #import "Firebase+Promises.h"
 
-@implementation ReportUploader
+@interface ReportUpload ()
+
+@property (nonatomic) Report *report;
+
+@end
+
+@implementation ReportUpload
+
+- (instancetype)initWithReport:(Report *)report {
+    self = [super init];
+    if (!self) return nil;
+
+    _report = report;
+    _promise = [Promise new];
+    _progresses = [_report.photos arrayByTransformingObjectsUsingBlock:^id(id object) {
+        NSProgress *progress = [[NSProgress alloc] init];
+        progress.totalUnitCount = 100;
+        return progress;
+    }];
+
+    return self;
+}
+
 
 - (FIRDatabase *)database {
     return [FIRDatabase database];
@@ -32,26 +54,32 @@
     return [[[self storage] reference] child:@"images"];
 }
 
-- (Promise *)upload:(Report *)report {
-
+- (void)upload {
     FIRDatabaseReference *reportRef = [self.reportsDirectory childByAutoId];
 
-    NSArray *photoUploadPromises = [report.photos arrayByTransformingObjectsUsingBlock:^id(id photo) {
+    NSArray *photoUploadPromises = [self.report.photos arrayByTransformingObjectsUsingBlock:^id(id photo) {
         FIRDatabaseReference *photoRef = [[reportRef child:@"images"] childByAutoId];
         return [self uploadPhoto:photo atRef:photoRef];
     }];
 
-    return [[Promise all:
+    [[[Promise all:
              @[
-               [[reportRef child:@"title"] promiseSetValue:report.title],
+               [[reportRef child:@"title"] promiseSetValue:self.report.title],
                [Promise all:photoUploadPromises],
                ]]
             then:^id _Nullable(id  _Nonnull object) {
-                return report;
+                [self.promise fulfill:self.report];
+                return nil;
+            }] catch:^(NSError * _Nonnull error) {
+                [self.promise reject:error];
             }];
 }
 
 - (Promise *)uploadPhoto:(LocalPhoto *)photo atRef:(FIRDatabaseReference *)ref {
+
+    NSUInteger index = [self.report.photos indexOfObject:photo];
+
+    NSProgress *progress = self.progresses[index];
 
     FIRStorageReference *imageRef = [[self imagesDirectory] child:ref.key];
 
@@ -61,7 +89,14 @@
 
     Promise *photoUploadPromise = [[photo loadFullSize] then:^id _Nullable(id  _Nonnull image) {
         NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
-        return [[imageRef putData:imageData metadata:metadata] promise];
+        FIRStorageObservableTask *task = [imageRef putData:imageData metadata:metadata];
+        [task observeStatus:FIRStorageTaskStatusProgress handler:^(FIRStorageTaskSnapshot * _Nonnull snapshot) {
+            progress.completedUnitCount = ((double)progress.totalUnitCount) * snapshot.progress.fractionCompleted;
+        }];
+        [task observeStatus:FIRStorageTaskStatusSuccess handler:^(FIRStorageTaskSnapshot * _Nonnull snapshot) {
+            progress.completedUnitCount = progress.totalUnitCount;
+        }];
+        return [task promise];
     }];
 
     return [Promise all:@[
