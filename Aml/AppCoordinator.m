@@ -10,6 +10,7 @@
 #import "UIColor+Additions.h"
 #import "CameraViewController.h"
 #import "GalleryViewController.h"
+#import "ReportsViewController.h"
 #import "TabBarPage.h"
 #import "FirstLaunch.h"
 
@@ -49,10 +50,15 @@
     UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
     galleryNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Gallery" image:[UIImage imageNamed:@"ic_assess_outline"] selectedImage:[UIImage imageNamed:@"ic_assess_active"]];
 
+    ReportsViewController *reportsViewController = [[ReportsViewController alloc] init];
+    UINavigationController *reportsNavigationController = [[UINavigationController alloc] initWithRootViewController:reportsViewController];
+    reportsViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Reports" image:[UIImage imageNamed:@"ic_folder_shared_outline"] selectedImage:[UIImage imageNamed:@"ic_sync_active"]];
+
 
     tabBarController.viewControllers = @[
                                          cameraNavigationController,
                                          galleryNavigationController,
+                                         reportsNavigationController,
                                          ];
     self.window.tintColor = [UIColor amalTeal];
     self.window.rootViewController = tabBarController;
