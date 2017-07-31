@@ -62,7 +62,7 @@
     CameraViewController *cameraViewController = [CameraViewController makeFromStoryboard];
     UINavigationController *cameraNavigationController = [[UINavigationController alloc] initWithRootViewController:cameraViewController];
     cameraNavigationController.navigationBarHidden = true;
-    cameraNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"ic_camera_white"] selectedImage:[UIImage imageNamed:@"ic_camera_active"]];
+    cameraNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"ic_camera_outline"] selectedImage:[UIImage imageNamed:@"ic_camera_active"]];
 
     GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
     UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
