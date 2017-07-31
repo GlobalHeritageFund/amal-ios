@@ -15,6 +15,7 @@
 - (instancetype)initWithPhotos:(NSArray<LocalPhoto *> *)photos;
 
 @property (nonatomic) NSString *title;
+@property (nonatomic) NSString *deviceToken;
 
 @property (nonatomic) NSArray<LocalPhoto *> *photos;
 

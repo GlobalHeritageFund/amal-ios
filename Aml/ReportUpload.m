@@ -13,6 +13,7 @@
 #import "AMLMetadata.h"
 #import "NSArray+Additions.h"
 #import "Firebase+Promises.h"
+#import "CurrentUser.h"
 
 @interface ReportUpload ()
 
@@ -27,6 +28,7 @@
     if (!self) return nil;
 
     _report = report;
+    _report.deviceToken = [CurrentUser shared].deviceToken;
     _promise = [Promise new];
     _progresses = [_report.photos arrayByTransformingObjectsUsingBlock:^id(id object) {
         NSProgress *progress = [[NSProgress alloc] init];
@@ -65,6 +67,7 @@
     [[[Promise all:
              @[
                [[reportRef child:@"title"] promiseSetValue:self.report.title],
+               [[reportRef child:@"authorDeviceToken"] promiseSetValue:self.report.deviceToken],
                [Promise all:photoUploadPromises],
                ]]
             then:^id _Nullable(id  _Nonnull object) {
