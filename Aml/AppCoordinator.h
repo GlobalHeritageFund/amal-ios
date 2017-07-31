@@ -8,14 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstLaunch : NSObject
-
-- (BOOL)isFirstLaunch;
-
-- (void)launched;
-
-@end
-
 @interface AppCoordinator : NSObject
 
 @property (nonatomic) UIWindow *window;

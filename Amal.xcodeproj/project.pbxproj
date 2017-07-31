@@ -18,6 +18,7 @@
 		1A3559701F0087D800FFFBCA /* GalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35596F1F0087D800FFFBCA /* GalleryCell.m */; };
 		1A3640651F049C650070E686 /* AMLMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3640641F049C650070E686 /* AMLMetadata.m */; };
 		1A3EE1581F0748490068B596 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3EE1571F0748490068B596 /* MapViewController.m */; };
+		1A4E39391F2FCEA80055C7FA /* FirstLaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E39381F2FCEA80055C7FA /* FirstLaunch.m */; };
 		1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */; };
 		1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */; };
 		1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */; };
@@ -84,6 +85,8 @@
 		1A3640641F049C650070E686 /* AMLMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMLMetadata.m; sourceTree = "<group>"; };
 		1A3EE1561F0748490068B596 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		1A3EE1571F0748490068B596 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		1A4E39371F2FCEA80055C7FA /* FirstLaunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstLaunch.h; sourceTree = "<group>"; };
+		1A4E39381F2FCEA80055C7FA /* FirstLaunch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstLaunch.m; sourceTree = "<group>"; };
 		1A7432571EF592AF00CE9D17 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCoordinator.h; sourceTree = "<group>"; };
@@ -240,6 +243,8 @@
 				580A55411E5CFC1000A70AB1 /* AppDelegate.m */,
 				1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */,
 				1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */,
+				1A4E39371F2FCEA80055C7FA /* FirstLaunch.h */,
+				1A4E39381F2FCEA80055C7FA /* FirstLaunch.m */,
 				58BE51811E6639D1001B9575 /* Storyboards */,
 				585333251EA9BA900011F390 /* Pages */,
 				5846B21B1E80A3E8008E48BC /* Cells */,
@@ -484,6 +489,7 @@
 				1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */,
 				1ACAD1EA1F0EF7A3001935D4 /* Report.m in Sources */,
 				1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */,
+				1A4E39391F2FCEA80055C7FA /* FirstLaunch.m in Sources */,
 				1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */,
 				1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */,
 				1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */,
