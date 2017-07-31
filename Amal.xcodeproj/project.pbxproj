@@ -21,6 +21,7 @@
 		1A4E39391F2FCEA80055C7FA /* FirstLaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E39381F2FCEA80055C7FA /* FirstLaunch.m */; };
 		1A4E393C1F2FD2F40055C7FA /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E393B1F2FD2F40055C7FA /* CurrentUser.m */; };
 		1A4E39401F2FD7C70055C7FA /* ReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */; };
+		1A4E39441F2FF1DF0055C7FA /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E39431F2FF1DF0055C7FA /* Report.m */; };
 		1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */; };
 		1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */; };
 		1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */; };
@@ -93,6 +94,8 @@
 		1A4E393B1F2FD2F40055C7FA /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUser.m; sourceTree = "<group>"; };
 		1A4E393E1F2FD7C70055C7FA /* ReportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportsViewController.h; sourceTree = "<group>"; };
 		1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportsViewController.m; sourceTree = "<group>"; };
+		1A4E39421F2FF1DF0055C7FA /* Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Report.h; sourceTree = "<group>"; };
+		1A4E39431F2FF1DF0055C7FA /* Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
 		1A7432571EF592AF00CE9D17 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCoordinator.h; sourceTree = "<group>"; };
@@ -207,6 +210,17 @@
 				1A35596F1F0087D800FFFBCA /* GalleryCell.m */,
 			);
 			name = Gallery;
+			sourceTree = "<group>";
+		};
+		1A4E39411F2FF1D50055C7FA /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				1A4E393E1F2FD7C70055C7FA /* ReportsViewController.h */,
+				1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */,
+				1A4E39421F2FF1DF0055C7FA /* Report.h */,
+				1A4E39431F2FF1DF0055C7FA /* Report.m */,
+			);
+			name = Report;
 			sourceTree = "<group>";
 		};
 		1ABD81CA1F10561B00E2C460 /* Promise */ = {
@@ -340,8 +354,7 @@
 				5846B2001E773315008E48BC /* NavPage.m */,
 				580A55431E5CFC1000A70AB1 /* CameraViewController.h */,
 				580A55441E5CFC1000A70AB1 /* CameraViewController.m */,
-				1A4E393E1F2FD7C70055C7FA /* ReportsViewController.h */,
-				1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */,
+				1A4E39411F2FF1D50055C7FA /* Report */,
 				1A4E393D1F2FD78A0055C7FA /* Gallery */,
 				1A35595B1F0023CA00FFFBCA /* Capture Notes */,
 				1A3EE1561F0748490068B596 /* MapViewController.h */,
@@ -484,6 +497,7 @@
 				580A555F1E5D1C5A00A70AB1 /* UIViewController+Additions.m in Sources */,
 				58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */,
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
+				1A4E39441F2FF1DF0055C7FA /* Report.m in Sources */,
 				1ACAD1E61F0EF796001935D4 /* CreateReportViewController.m in Sources */,
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
