@@ -193,6 +193,19 @@
 			name = "Capture Notes";
 			sourceTree = "<group>";
 		};
+		1A4E393D1F2FD78A0055C7FA /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				1A35596D1F007E9C00FFFBCA /* GalleryViewController.h */,
+				1A35596B1F007E9200FFFBCA /* GalleryViewController.m */,
+				1A74325D1EF5A0F200CE9D17 /* ImageDetailViewController.h */,
+				1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */,
+				1A35596E1F0087D800FFFBCA /* GalleryCell.h */,
+				1A35596F1F0087D800FFFBCA /* GalleryCell.m */,
+			);
+			name = Gallery;
+			sourceTree = "<group>";
+		};
 		1ABD81CA1F10561B00E2C460 /* Promise */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,7 +265,6 @@
 				1A4E393B1F2FD2F40055C7FA /* CurrentUser.m */,
 				58BE51811E6639D1001B9575 /* Storyboards */,
 				585333251EA9BA900011F390 /* Pages */,
-				5846B21B1E80A3E8008E48BC /* Cells */,
 				58A1123A1ED65E45006689DC /* Model */,
 				580A55631E5D254600A70AB1 /* Extensions */,
 				58BE51821E6639D7001B9575 /* Assets */,
@@ -316,15 +328,6 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		5846B21B1E80A3E8008E48BC /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				1A35596E1F0087D800FFFBCA /* GalleryCell.h */,
-				1A35596F1F0087D800FFFBCA /* GalleryCell.m */,
-			);
-			name = Cells;
-			sourceTree = "<group>";
-		};
 		585333251EA9BA900011F390 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,10 +337,7 @@
 				5846B2001E773315008E48BC /* NavPage.m */,
 				580A55431E5CFC1000A70AB1 /* CameraViewController.h */,
 				580A55441E5CFC1000A70AB1 /* CameraViewController.m */,
-				1A35596D1F007E9C00FFFBCA /* GalleryViewController.h */,
-				1A35596B1F007E9200FFFBCA /* GalleryViewController.m */,
-				1A74325D1EF5A0F200CE9D17 /* ImageDetailViewController.h */,
-				1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */,
+				1A4E393D1F2FD78A0055C7FA /* Gallery */,
 				1A35595B1F0023CA00FFFBCA /* Capture Notes */,
 				1A3EE1561F0748490068B596 /* MapViewController.h */,
 				1A3EE1571F0748490068B596 /* MapViewController.m */,
