@@ -10,4 +10,9 @@
 
 @interface CurrentUser : NSObject
 
++ (instancetype)shared;
+
+@property (nonatomic) NSString *deviceToken;
+
+
 @end
