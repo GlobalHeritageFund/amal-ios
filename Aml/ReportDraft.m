@@ -6,9 +6,9 @@
 //  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
-#import "Report.h"
+#import "ReportDraft.h"
 
-@implementation Report
+@implementation ReportDraft
 
 - (instancetype)initWithPhotos:(NSArray<LocalPhoto *> *)photos {
     self = [super init];

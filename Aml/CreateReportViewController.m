@@ -8,7 +8,7 @@
 
 #import "CreateReportViewController.h"
 #import "UIColor+Additions.h"
-#import "Report.h"
+#import "ReportDraft.h"
 #import "LocalPhoto.h"
 #import "AMLMetadata.h"
 #import "ReportUpload.h"
@@ -28,12 +28,12 @@
 
 @dynamic view;
 
-- (instancetype)initWithReport:(Report *)report {
+- (instancetype)initWithReportDraft:(ReportDraft *)reportDraft {
     self = [super init];
     if (!self) return nil;
 
-    _report = report;
-    _upload = [[ReportUpload alloc] initWithReport:report];
+    _reportDraft = reportDraft;
+    _upload = [[ReportUpload alloc] initWithReportDraft:reportDraft];
 
     return self;
 }
@@ -82,7 +82,7 @@
     if (section == 0) {
         return 1;
     }
-    return self.report.photos.count;
+    return self.reportDraft.photos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -92,7 +92,7 @@
         return cell;
     }
     ReportPhotoTableViewCell *cell = [[ReportPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-    LocalPhoto *photo = self.report.photos[indexPath.row];
+    LocalPhoto *photo = self.reportDraft.photos[indexPath.row];
     cell.imageView.image = photo.image;
     cell.textLabel.text = (photo.metadata.name.length) ? photo.metadata.name : @"Unnamed";
     cell.detailTextLabel.text = (photo.metadata.notes.length) ? photo.metadata.notes : @"No notes.";
@@ -103,7 +103,7 @@
 - (void)upload:(id)sender {
     self.title = @"Uploading...";
     self.uploadButton.enabled = NO;
-    self.report.title = self.textField.text ?: @"";
+    self.reportDraft.title = self.textField.text ?: @"";
     [self.upload upload];
     [self.upload.promise then:^id _Nullable(id  _Nonnull object) {
         self.title = @"Uploaded!";

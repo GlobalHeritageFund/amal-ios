@@ -8,7 +8,7 @@
 
 #import "ReportUpload.h"
 #import "Firebase.h"
-#import "Report.h"
+#import "ReportDraft.h"
 #import "LocalPhoto.h"
 #import "AMLMetadata.h"
 #import "NSArray+Additions.h"
@@ -17,20 +17,20 @@
 
 @interface ReportUpload ()
 
-@property (nonatomic) Report *report;
+@property (nonatomic) ReportDraft *reportDraft;
 
 @end
 
 @implementation ReportUpload
 
-- (instancetype)initWithReport:(Report *)report {
+- (instancetype)initWithReportDraft:(ReportDraft *)reportDraft {
     self = [super init];
     if (!self) return nil;
 
-    _report = report;
-    _report.deviceToken = [CurrentUser shared].deviceToken;
+    _reportDraft = reportDraft;
+    _reportDraft.deviceToken = [CurrentUser shared].deviceToken;
     _promise = [Promise new];
-    _progresses = [_report.photos arrayByTransformingObjectsUsingBlock:^id(id object) {
+    _progresses = [_reportDraft.photos arrayByTransformingObjectsUsingBlock:^id(id object) {
         NSProgress *progress = [[NSProgress alloc] init];
         progress.totalUnitCount = 100;
         return progress;
@@ -59,7 +59,7 @@
 - (void)upload {
     FIRDatabaseReference *reportRef = [self.reportsDirectory childByAutoId];
 
-    NSArray *photoUploadPromises = [self.report.photos arrayByTransformingObjectsUsingBlock:^id(id photo) {
+    NSArray *photoUploadPromises = [self.reportDraft.photos arrayByTransformingObjectsUsingBlock:^id(id photo) {
         FIRDatabaseReference *photoRef = [[reportRef child:@"images"] childByAutoId];
         return [self uploadPhoto:photo atRef:photoRef];
     }];

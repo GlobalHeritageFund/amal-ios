@@ -16,7 +16,7 @@
 #import "UIColor+Additions.h"
 #import "AMLMetadata.h"
 #import "CreateReportViewController.h"
-#import "Report.h"
+#import "ReportDraft.h"
 #import "NSArray+Additions.h"
 #import "Promise.h"
 
@@ -228,8 +228,8 @@
     NSArray<LocalPhoto *> *photos = [self.collectionView.indexPathsForSelectedItems arrayByTransformingObjectsUsingBlock:^LocalPhoto *(NSIndexPath *indexPath) {
         return self.photoSections[indexPath.section].photos[indexPath.row];
     }];
-    Report *report = [[Report alloc] initWithPhotos:photos];
-    CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReport:report];
+    ReportDraft *report = [[ReportDraft alloc] initWithPhotos:photos];
+    CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:report];
     [self.navigationController pushViewController:createReport animated:YES];
 }
 

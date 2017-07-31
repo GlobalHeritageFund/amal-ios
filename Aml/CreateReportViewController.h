@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class Report;
+@class ReportDraft;
 
 @interface CreateReportViewController : UIViewController
 
 @property (nonatomic) UITableView *view;
 
-- (instancetype)initWithReport:(Report *)report;
+- (instancetype)initWithReportDraft:(ReportDraft *)reportDraft;
 
-@property (nonatomic) Report *report;
+@property (nonatomic) ReportDraft *reportDraft;
 
 @end

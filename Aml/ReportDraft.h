@@ -10,7 +10,7 @@
 
 @class LocalPhoto;
 
-@interface Report : NSObject
+@interface ReportDraft : NSObject
 
 - (instancetype)initWithPhotos:(NSArray<LocalPhoto *> *)photos;
 

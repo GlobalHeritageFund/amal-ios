@@ -29,7 +29,7 @@
 		1ABD81CD1F10562400E2C460 /* Promise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD81CC1F10562400E2C460 /* Promise.m */; };
 		1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */; };
 		1ACAD1E61F0EF796001935D4 /* CreateReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */; };
-		1ACAD1EA1F0EF7A3001935D4 /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E91F0EF7A3001935D4 /* Report.m */; };
+		1ACAD1EA1F0EF7A3001935D4 /* ReportDraft.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E91F0EF7A3001935D4 /* ReportDraft.m */; };
 		1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */; };
 		1ACAD1F41F101B25001935D4 /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
@@ -109,8 +109,8 @@
 		1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Firebase+Promises.m"; sourceTree = "<group>"; };
 		1ACAD1E41F0EF796001935D4 /* CreateReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateReportViewController.h; sourceTree = "<group>"; };
 		1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateReportViewController.m; sourceTree = "<group>"; };
-		1ACAD1E81F0EF7A3001935D4 /* Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Report.h; sourceTree = "<group>"; };
-		1ACAD1E91F0EF7A3001935D4 /* Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
+		1ACAD1E81F0EF7A3001935D4 /* ReportDraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDraft.h; sourceTree = "<group>"; };
+		1ACAD1E91F0EF7A3001935D4 /* ReportDraft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDraft.m; sourceTree = "<group>"; };
 		1ACAD1EB1F0F25C3001935D4 /* ReportUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportUpload.h; sourceTree = "<group>"; };
 		1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportUpload.m; sourceTree = "<group>"; };
 		1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldTableViewCell.h; sourceTree = "<group>"; };
@@ -225,8 +225,8 @@
 			children = (
 				1ACAD1E41F0EF796001935D4 /* CreateReportViewController.h */,
 				1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */,
-				1ACAD1E81F0EF7A3001935D4 /* Report.h */,
-				1ACAD1E91F0EF7A3001935D4 /* Report.m */,
+				1ACAD1E81F0EF7A3001935D4 /* ReportDraft.h */,
+				1ACAD1E91F0EF7A3001935D4 /* ReportDraft.m */,
 				1ACAD1EB1F0F25C3001935D4 /* ReportUpload.h */,
 				1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */,
 				1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */,
@@ -498,7 +498,7 @@
 				1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */,
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
 				1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */,
-				1ACAD1EA1F0EF7A3001935D4 /* Report.m in Sources */,
+				1ACAD1EA1F0EF7A3001935D4 /* ReportDraft.m in Sources */,
 				1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */,
 				1A4E39391F2FCEA80055C7FA /* FirstLaunch.m in Sources */,
 				1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */,

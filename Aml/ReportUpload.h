@@ -9,18 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "Promise.h"
 
-@class Report;
+@class ReportDraft;
 
 @interface ReportUpload : NSObject
 
-@property (nonatomic, readonly) Report *report;
+@property (nonatomic, readonly) ReportDraft *report;
 
-@property (nonatomic, readonly) Promise<Report *> *promise;
+@property (nonatomic, readonly) Promise<ReportDraft *> *promise;
 
 @property (nonatomic, readonly) NSArray<NSProgress *> *progresses;
 
 
-- (instancetype)initWithReport:(Report *)report;
+- (instancetype)initWithReportDraft:(ReportDraft *)reportDraft;
 
 - (void)upload;
 
