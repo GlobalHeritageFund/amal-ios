@@ -13,7 +13,7 @@
 
 @interface ReportUpload : NSObject
 
-@property (nonatomic, readonly) ReportDraft *report;
+@property (nonatomic, readonly) ReportDraft *reportDraft;
 
 @property (nonatomic, readonly) Promise<ReportDraft *> *promise;
 

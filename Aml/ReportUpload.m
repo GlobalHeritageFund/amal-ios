@@ -66,12 +66,12 @@
 
     [[[Promise all:
              @[
-               [[reportRef child:@"title"] promiseSetValue:self.report.title],
-               [[reportRef child:@"authorDeviceToken"] promiseSetValue:self.report.deviceToken],
+               [[reportRef child:@"title"] promiseSetValue:self.reportDraft.title],
+               [[reportRef child:@"authorDeviceToken"] promiseSetValue:self.reportDraft.deviceToken],
                [Promise all:photoUploadPromises],
                ]]
             then:^id _Nullable(id  _Nonnull object) {
-                [self.promise fulfill:self.report];
+                [self.promise fulfill:self.reportDraft];
                 return nil;
             }] catch:^(NSError * _Nonnull error) {
                 [self.promise reject:error];
@@ -80,7 +80,7 @@
 
 - (Promise *)uploadPhoto:(LocalPhoto *)photo atRef:(FIRDatabaseReference *)ref {
 
-    NSUInteger index = [self.report.photos indexOfObject:photo];
+    NSUInteger index = [self.reportDraft.photos indexOfObject:photo];
 
     NSProgress *progress = self.progresses[index];
 
