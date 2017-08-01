@@ -32,5 +32,7 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
+@property (nonatomic, readonly) NSString *imageCountString;
+
 @end
 

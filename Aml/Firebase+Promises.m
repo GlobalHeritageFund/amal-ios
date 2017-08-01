@@ -24,6 +24,21 @@
 
 @end
 
+@implementation FIRStorageReference (Promises)
+
+- (Promise<NSData *> *)dataWithMaxSize:(int64_t)size {
+    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSData *_Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+        [self dataWithMaxSize:INT64_MAX completion:^(NSData * _Nullable data, NSError * _Nullable error) {
+            if (error) {
+                reject(error);
+            } else {
+                fulfill(data);
+            }
+        }];
+    }];
+}
+
+@end
 
 @implementation FIRStorageObservableTask (Promises)
 

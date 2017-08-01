@@ -9,6 +9,8 @@
 #import "Report.h"
 #import "AMLMetadata.h"
 #import "NSArray+Additions.h"
+#import "Firebase.h"
+#import "Firebase+Promises.h"
 
 @implementation Image
 
@@ -23,7 +25,9 @@
 }
 
 - (Promise *)fetchFirebaseImage {
-    return [Promise rejected:[NSError errorWithDomain:@"asdf" code:123 userInfo:nil]];
+    return [[[[FIRStorage storage] referenceWithPath:self.remoteStorageLocation] dataWithMaxSize:INT64_MAX] then:^id _Nullable(id  _Nonnull data) {
+        return [UIImage imageWithData:data];
+    }];
 }
 
 @end
@@ -44,5 +48,14 @@
     return self;
 }
 
+- (NSString *)imageCountString {
+    if (self.images.count == 0) {
+        return @"No photos";
+    } else if (self.images.count == 1) {
+        return @"1 photo";
+    } else {
+        return [NSString stringWithFormat:@"%zd photos", self.images.count];
+    }
+}
 
 @end

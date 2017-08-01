@@ -15,6 +15,11 @@
 
 @end
 
+@interface FIRStorageReference (Promises)
+
+- (Promise<NSData *> *_Nonnull)dataWithMaxSize:(int64_t)size;
+
+@end
 
 @interface FIRStorageObservableTask (Promises)
 

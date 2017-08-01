@@ -34,8 +34,11 @@
             return [[Report alloc] initWithDictionary:object];
         }];
         [self.tableView reloadData];
-        NSLog(@"val: %@", snapshot.value);
     }];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 72;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -43,8 +46,21 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [UITableViewCell new];
-    cell.textLabel.text = self.reports[indexPath.row].title;
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+
+    Report *report = self.reports[indexPath.row];
+    cell.textLabel.text = report.title;
+    cell.detailTextLabel.text = report.imageCountString;
+
+    [[[report.images.firstObject fetchFirebaseImage] then:^id _Nullable(id  _Nonnull image) {
+        if ([tableView cellForRowAtIndexPath:indexPath] == cell) {
+            cell.imageView.image = image;
+            [cell setNeedsLayout];
+        }
+        return nil;
+    }] catch:^(NSError * _Nonnull error) {
+        NSLog(@"error %@", error);
+    }];
     return cell;
 }
 

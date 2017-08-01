@@ -105,9 +105,12 @@
     self.uploadButton.enabled = NO;
     self.reportDraft.title = self.textField.text ?: @"";
     [self.upload upload];
-    [self.upload.promise then:^id _Nullable(id  _Nonnull object) {
+    [[self.upload.promise then:^id _Nullable(id  _Nonnull object) {
         self.title = @"Uploaded!";
         return nil;
+    }] catch:^(NSError * _Nonnull error) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"An error occurred" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:alertController animated:YES completion:nil];
     }];
 }
 
