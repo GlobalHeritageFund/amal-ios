@@ -11,6 +11,7 @@
 #import "UIImage+Resize.h"
 #import "CGGeometry.h"
 #import "AMLMetadata.h"
+#import "UIImage+Additions.h"
 
 @implementation LocalPhoto
 
@@ -48,20 +49,14 @@
     }];
 }
 
-- (Promise<LocalPhoto *> *)loadImage {
-    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(id _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
-
-        UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
-
-        UIImage *scaledImage = [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-
-            self.image = scaledImage;
-
-            fulfill(self);
-        });
-    }];
+- (Promise *)loadImage {
+    return [[[UIImage promisedImageWithContentsOfFile:self.imagePath]
+             then:^id _Nullable(UIImage *_Nonnull image) {
+                 return [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
+             }] then:^id _Nullable(id  _Nonnull image) {
+                 self.image = image;
+                 return self;
+             }];
 }
 
 - (void)saveMetadata {

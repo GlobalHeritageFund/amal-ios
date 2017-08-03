@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */; };
+		1A2BEBF81F33618800A59E69 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2BEBF71F33618800A59E69 /* UIImage+Additions.m */; };
 		1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31FA4D1F0569A6007DDD88 /* NSObject+Helpers.m */; };
 		1A35595A1F001DF000FFFBCA /* CaptureNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559591F001DF000FFFBCA /* CaptureNotesViewController.m */; };
 		1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35595D1F0023DF00FFFBCA /* NotesForm.m */; };
@@ -68,6 +69,8 @@
 		05C28DCB1F018D480067736E /* Amal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Amal.entitlements; sourceTree = "<group>"; };
 		1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportPhotoTableViewCell.h; sourceTree = "<group>"; };
 		1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportPhotoTableViewCell.m; sourceTree = "<group>"; };
+		1A2BEBF61F33618800A59E69 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
+		1A2BEBF71F33618800A59E69 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
 		1A31FA4C1F0569A6007DDD88 /* NSObject+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Helpers.h"; sourceTree = "<group>"; };
 		1A31FA4D1F0569A6007DDD88 /* NSObject+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Helpers.m"; sourceTree = "<group>"; };
 		1A3559581F001DF000FFFBCA /* CaptureNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureNotesViewController.h; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 				1A3559601F00418000FFFBCA /* CGGeometry.m */,
 				1A31FA4C1F0569A6007DDD88 /* NSObject+Helpers.h */,
 				1A31FA4D1F0569A6007DDD88 /* NSObject+Helpers.m */,
+				1A2BEBF61F33618800A59E69 /* UIImage+Additions.h */,
+				1A2BEBF71F33618800A59E69 /* UIImage+Additions.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */,
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
 				1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */,
+				1A2BEBF81F33618800A59E69 /* UIImage+Additions.m in Sources */,
 				1ACAD1EA1F0EF7A3001935D4 /* ReportDraft.m in Sources */,
 				1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */,
 				1A4E39391F2FCEA80055C7FA /* FirstLaunch.m in Sources */,
