@@ -11,6 +11,8 @@
 #import "NSArray+Additions.h"
 #import "Firebase.h"
 #import "Firebase+Promises.h"
+#import "UIImage+Resize.h"
+#import "CGGeometry.h"
 
 @implementation Image
 
@@ -25,8 +27,10 @@
 }
 
 - (Promise *)fetchFirebaseImage {
-    return [[[[FIRStorage storage] referenceWithPath:self.remoteStorageLocation] dataWithMaxSize:INT64_MAX] then:^id _Nullable(id  _Nonnull data) {
+    return [[[[[FIRStorage storage] referenceWithPath:self.remoteStorageLocation] dataWithMaxSize:INT64_MAX] then:^id _Nullable(id  _Nonnull data) {
         return [UIImage imageWithData:data];
+    }] then:^id _Nullable(UIImage * _Nonnull image) {
+        return [image resizedImage:CGSizeFitting(image.size, CGSizeMake(100, 100)) interpolationQuality:kCGInterpolationMedium];
     }];
 }
 

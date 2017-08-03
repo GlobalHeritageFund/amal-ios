@@ -12,4 +12,5 @@
 @interface UIImage (Additions)
 
 + (Promise<UIImage *> *)promisedImageWithContentsOfFile:(NSString *)path;
+
 @end
