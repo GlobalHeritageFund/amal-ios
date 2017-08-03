@@ -27,6 +27,7 @@
 @interface Report : NSObject
 
 @property (readonly) NSString *title;
+@property (readonly) NSDate *creationDate;
 
 @property (nonatomic, readonly) NSArray<Image *> *images;
 

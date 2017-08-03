@@ -39,6 +39,7 @@
     if (!self) return nil;
 
     _title = dictionary[@"title"];
+    _creationDate = [[NSDate alloc] initWithTimeIntervalSince1970:[dictionary[@"creationDate"] doubleValue]];
 
     NSDictionary *images = dictionary[@"images"];
     _images = [images.allKeys arrayByTransformingObjectsUsingBlock:^id(id object) {

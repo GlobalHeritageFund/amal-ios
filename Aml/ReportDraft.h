@@ -16,6 +16,7 @@
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *deviceToken;
+@property (readonly) NSDate *creationDate;
 
 @property (nonatomic) NSArray<LocalPhoto *> *photos;
 

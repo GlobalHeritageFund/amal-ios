@@ -68,6 +68,7 @@
              @[
                [[reportRef child:@"title"] promiseSetValue:self.reportDraft.title],
                [[reportRef child:@"authorDeviceToken"] promiseSetValue:self.reportDraft.deviceToken],
+               [[reportRef child:@"creationDate"] promiseSetValue:@(self.reportDraft.creationDate.timeIntervalSince1970)],
                [Promise all:photoUploadPromises],
                ]]
             then:^id _Nullable(id  _Nonnull object) {

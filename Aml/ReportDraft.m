@@ -16,6 +16,8 @@
 
     _photos = photos;
 
+    _creationDate = [[NSDate alloc] init];
+
     return self;
 }
 
