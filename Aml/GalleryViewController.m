@@ -231,6 +231,7 @@
     ReportDraft *report = [[ReportDraft alloc] initWithPhotos:photos];
     CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:report];
     [self.navigationController pushViewController:createReport animated:YES];
+    self.mode = GalleryModeNormal;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
