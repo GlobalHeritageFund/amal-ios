@@ -30,6 +30,9 @@
     FIRDatabaseQuery *query = [[reportsDirectory queryOrderedByChild:@"authorDeviceToken"] queryEqualToValue:[CurrentUser shared].deviceToken];
     __weak __typeof(&*self)weakSelf = self;
     [query observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        if ([snapshot.value isKindOfClass:[NSNull class]]) {
+            return;
+        }
         weakSelf.reports = [[[snapshot.value allValues] arrayByTransformingObjectsUsingBlock:^id(id object) {
             return [[Report alloc] initWithDictionary:object];
         }] sortedArrayUsingComparator:^NSComparisonResult(Report * _Nonnull obj1, Report * _Nonnull obj2) {
