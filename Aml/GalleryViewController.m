@@ -139,10 +139,10 @@
     deleteItem.tintColor = [UIColor redColor];
 
     self.toolbar.items = @[
-                                                createReportItem,
-                                                flexibleSpace,
-                                                deleteItem,
-                                                ];
+                           createReportItem,
+                           flexibleSpace,
+                           deleteItem,
+                           ];
 }
 
 - (void)updateEnabledStateOnToolbarItems {
