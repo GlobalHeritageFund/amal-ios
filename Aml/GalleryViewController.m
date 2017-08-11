@@ -25,6 +25,7 @@
 @property (strong) NSArray<PhotoSection*> *photoSections;
 @property (nonatomic) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic) GalleryMode mode;
+@property (nonatomic) UIToolbar *toolbar;
 
 @end
 
@@ -58,6 +59,14 @@
     [super viewDidLayoutSubviews];
 
     self.collectionView.frame = self.view.bounds;
+
+    CGRect workingRect = self.view.bounds;
+
+    CGRect toolbarRect = CGRectZero, discardableRect = CGRectZero;
+
+    CGRectDivide(workingRect, &toolbarRect, &discardableRect, 44, CGRectMaxYEdge);
+    
+    self.toolbar.frame = toolbarRect;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -80,6 +89,15 @@
         self.collectionView = collectionView;
     }
     return _collectionView;
+}
+
+- (UIToolbar *)toolbar {
+    if (!_toolbar) {
+        UIToolbar *toolbar = [[UIToolbar alloc] init];
+        [self.view addSubview:toolbar];
+        self.toolbar = toolbar;
+    }
+    return _toolbar;
 }
 
 - (UICollectionViewLayout *)flowLayout {
@@ -106,7 +124,8 @@
     self.collectionView.allowsMultipleSelection = (mode == GalleryModeSelect);
     [self.collectionView reloadData];
     [self updateBarButtons];
-    self.navigationController.toolbarHidden = (mode != GalleryModeSelect);
+    self.tabBarController.tabBar.hidden = (mode == GalleryModeSelect);
+    self.toolbar.hidden = (mode != GalleryModeSelect);
     [self setupToolbar];
     [self updateEnabledStateOnToolbarItems];
 }
@@ -119,7 +138,7 @@
     UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(deleteMultiSelect:)];
     deleteItem.tintColor = [UIColor redColor];
 
-    self.navigationController.toolbar.items = @[
+    self.toolbar.items = @[
                                                 createReportItem,
                                                 flexibleSpace,
                                                 deleteItem,
@@ -127,7 +146,7 @@
 }
 
 - (void)updateEnabledStateOnToolbarItems {
-    for (UIBarButtonItem *item in self.navigationController.toolbar.items) {
+    for (UIBarButtonItem *item in self.toolbar.items) {
         item.enabled = self.collectionView.indexPathsForSelectedItems.count != 0;
     }
 }

@@ -12,5 +12,4 @@
 
 @property (nonatomic) UICollectionView *collectionView;
 
-
 @end
