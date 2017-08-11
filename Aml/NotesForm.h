@@ -61,6 +61,13 @@
 
 @end
 
+@interface TextViewFormElement : UIView <FormElement>
+
+@property (nonatomic) UITextView *textView;
+
+@end
+
+
 @interface MapFormElement : UIView <FormElement>
 
 @property (nonatomic) MKMapView *mapView;

@@ -167,15 +167,16 @@
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
-- (TextFormElement *)notesFormElement {
-    TextFormElement *notesFormElement = [[TextFormElement alloc] initWithPlaceholder:@"Notes" initialText:self.photo.metadata.notes];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notesFieldDidChange:) name:UITextFieldTextDidEndEditingNotification object:notesFormElement.textField];
+- (TextViewFormElement *)notesFormElement {
+    TextViewFormElement *notesFormElement = [[TextViewFormElement alloc] init];
+    notesFormElement.textView.text = self.photo.metadata.notes;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notesFieldDidChange:) name:UITextViewTextDidChangeNotification object:notesFormElement.textView];
     return notesFormElement;
 }
 
 - (void)notesFieldDidChange:(NSNotification *)notification {
-    UITextField *textField = notification.object;
-    self.photo.metadata.notes = textField.text;
+    UITextView *textView = notification.object;
+    self.photo.metadata.notes = textView.text;
     [self.photo saveMetadata];
 }
 

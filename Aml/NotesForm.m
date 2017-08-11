@@ -247,6 +247,33 @@
 @end
 
 
+@implementation TextViewFormElement
+
+- (CGFloat)expectedHeight {
+    return 100;
+}
+
+- (UITextView *)textView {
+    if (!_textView) {
+        UITextView *textView = [[UITextView alloc] init];
+        textView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        textView.font = [UIFont systemFontOfSize:18.0];
+        [self addSubview:textView];
+        self.textView = textView;
+    }
+    return _textView;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGRect workingRect = self.bounds;
+    self.textView.frame = workingRect;
+}
+
+@end
+
+
+
 @implementation MapFormElement
 
 - (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate {
