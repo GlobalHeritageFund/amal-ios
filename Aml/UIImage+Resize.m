@@ -40,7 +40,7 @@
 }
 
 // Resizes the image according to the given content mode, taking into account the image's orientation
-- (UIImage *)resizedImageWithContentMode:(UIViewContentMode)contentMode
+- (Promise<UIImage *> *)resizedImageWithContentMode:(UIViewContentMode)contentMode
                                   bounds:(CGSize)bounds
                     interpolationQuality:(CGInterpolationQuality)quality {
     CGFloat horizontalRatio = bounds.width / self.size.width;
