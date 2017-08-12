@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */; };
+		1A1F7DE51F3F8CBE0028DCF0 /* ReportCreationCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1F7DE41F3F8CBE0028DCF0 /* ReportCreationCoordinator.m */; };
 		1A2BEBF81F33618800A59E69 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2BEBF71F33618800A59E69 /* UIImage+Additions.m */; };
 		1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A31FA4D1F0569A6007DDD88 /* NSObject+Helpers.m */; };
 		1A35595A1F001DF000FFFBCA /* CaptureNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559591F001DF000FFFBCA /* CaptureNotesViewController.m */; };
@@ -69,6 +70,8 @@
 		05C28DCB1F018D480067736E /* Amal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Amal.entitlements; sourceTree = "<group>"; };
 		1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportPhotoTableViewCell.h; sourceTree = "<group>"; };
 		1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportPhotoTableViewCell.m; sourceTree = "<group>"; };
+		1A1F7DE31F3F8CBE0028DCF0 /* ReportCreationCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCreationCoordinator.h; sourceTree = "<group>"; };
+		1A1F7DE41F3F8CBE0028DCF0 /* ReportCreationCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportCreationCoordinator.m; sourceTree = "<group>"; };
 		1A2BEBF61F33618800A59E69 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
 		1A2BEBF71F33618800A59E69 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
 		1A31FA4C1F0569A6007DDD88 /* NSObject+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Helpers.h"; sourceTree = "<group>"; };
@@ -189,6 +192,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A1F7DE21F3F8CAD0028DCF0 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */,
+				1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */,
+				1A1F7DE31F3F8CBE0028DCF0 /* ReportCreationCoordinator.h */,
+				1A1F7DE41F3F8CBE0028DCF0 /* ReportCreationCoordinator.m */,
+			);
+			name = Coordinators;
+			sourceTree = "<group>";
+		};
 		1A35595B1F0023CA00FFFBCA /* Capture Notes */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,12 +291,11 @@
 			children = (
 				580A55401E5CFC1000A70AB1 /* AppDelegate.h */,
 				580A55411E5CFC1000A70AB1 /* AppDelegate.m */,
-				1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */,
-				1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */,
 				1A4E39371F2FCEA80055C7FA /* FirstLaunch.h */,
 				1A4E39381F2FCEA80055C7FA /* FirstLaunch.m */,
 				1A4E393A1F2FD2F40055C7FA /* CurrentUser.h */,
 				1A4E393B1F2FD2F40055C7FA /* CurrentUser.m */,
+				1A1F7DE21F3F8CAD0028DCF0 /* Coordinators */,
 				58BE51811E6639D1001B9575 /* Storyboards */,
 				585333251EA9BA900011F390 /* Pages */,
 				58A1123A1ED65E45006689DC /* Model */,
@@ -520,6 +533,7 @@
 				1A2BEBF81F33618800A59E69 /* UIImage+Additions.m in Sources */,
 				1ACAD1EA1F0EF7A3001935D4 /* ReportDraft.m in Sources */,
 				1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */,
+				1A1F7DE51F3F8CBE0028DCF0 /* ReportCreationCoordinator.m in Sources */,
 				1A4E39391F2FCEA80055C7FA /* FirstLaunch.m in Sources */,
 				1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */,
 				1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */,

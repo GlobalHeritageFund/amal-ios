@@ -17,10 +17,12 @@
 #import "LocalPhoto.h"
 #import "CreateReportViewController.h"
 #import "ReportDraft.h"
+#import "ReportCreationCoordinator.h"
 
 @interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate>
 
 @property (nonatomic) FirstLaunch *firstLaunch;
+@property (nonatomic) NSMutableArray *childCoordinators;
 
 @end
 
@@ -33,6 +35,13 @@
     }
     self.window = window;
     return self;
+}
+
+- (NSMutableArray *)childCoordinators {
+    if (!_childCoordinators) {
+        self.childCoordinators = [NSMutableArray array];
+    }
+    return _childCoordinators;
 }
 
 - (FirstLaunch *)firstLaunch {
@@ -90,9 +99,7 @@
     ReportDraft *report = [[ReportDraft alloc] initWithPhotos:photos];
     CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:report];
     [galleryViewController.navigationController pushViewController:createReport animated:YES];
-    if (galleryViewController.mode == GalleryModeSelect) {
-        galleryViewController.mode = GalleryModeNormal;
-    }
+    galleryViewController.mode = GalleryModeNormal;
 }
 
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {
@@ -100,12 +107,9 @@
 }
 
 - (void)reportsViewControllerDidTapCompose:(ReportsViewController *)reportsViewController {
-    GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
-    [galleryViewController loadViewIfNeeded];
-    UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
-    galleryViewController.mode = GalleryModeCreateReport;
-    galleryViewController.delegate = self;
-    [reportsViewController presentViewController:galleryNavigationController animated:true completion:nil];
+    ReportCreationCoordinator *reportCreation = [[ReportCreationCoordinator alloc] initWithViewController:reportsViewController];
+    [reportCreation start];
+    [self.childCoordinators addObject:reportCreation];
 }
 
 @end
