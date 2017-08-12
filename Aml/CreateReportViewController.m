@@ -19,8 +19,6 @@
 
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) UITextField *textField;
-@property (nonatomic) UIBarButtonItem *uploadButton;
-@property (nonatomic) ReportUpload *upload;
 
 @end
 
@@ -33,7 +31,6 @@
     if (!self) return nil;
 
     _reportDraft = reportDraft;
-    _upload = [[ReportUpload alloc] initWithReportDraft:reportDraft];
 
     return self;
 }
@@ -101,18 +98,8 @@
 }
 
 - (void)upload:(id)sender {
-    self.title = @"Uploading...";
-    self.uploadButton.enabled = NO;
     self.reportDraft.title = self.textField.text ?: @"";
-    [self.upload upload];
-    [[self.upload.promise then:^id _Nullable(id  _Nonnull object) {
-        self.title = @"Uploaded!";
-        return nil;
-    }] catch:^(NSError * _Nonnull error) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"An error occurred" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
-        [self presentViewController:alertController animated:YES completion:nil];
-    }];
+    [self.delegate createReportViewController:self didTapUploadWithDraft:self.reportDraft];
 }
 
 @end

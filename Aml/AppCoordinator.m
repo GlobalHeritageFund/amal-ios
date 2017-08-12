@@ -18,8 +18,9 @@
 #import "CreateReportViewController.h"
 #import "ReportDraft.h"
 #import "ReportCreationCoordinator.h"
+#import "ReportUpload.h"
 
-@interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate>
+@interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate, CreateReportViewControllerDelegate>
 
 @property (nonatomic) FirstLaunch *firstLaunch;
 @property (nonatomic) NSMutableArray *childCoordinators;
@@ -87,7 +88,6 @@
 
         [self.firstLaunch launched];
     }
-
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
@@ -98,18 +98,38 @@
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
     ReportDraft *report = [[ReportDraft alloc] initWithPhotos:photos];
     CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:report];
+    createReport.delegate = self;
     [galleryViewController.navigationController pushViewController:createReport animated:YES];
     galleryViewController.mode = GalleryModeNormal;
 }
 
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {
-    [galleryViewController dismissViewControllerAnimated:true completion:nil];
+    //not implemented
 }
 
 - (void)reportsViewControllerDidTapCompose:(ReportsViewController *)reportsViewController {
     ReportCreationCoordinator *reportCreation = [[ReportCreationCoordinator alloc] initWithViewController:reportsViewController];
     [reportCreation start];
     [self.childCoordinators addObject:reportCreation];
+}
+
+- (void)createReportViewController:(CreateReportViewController *)createReportViewController didTapUploadWithDraft:(ReportDraft *)draft {
+    createReportViewController.title = @"Uploading...";
+    createReportViewController.uploadButton.enabled = NO;
+
+    ReportUpload *upload = [[ReportUpload alloc] initWithReportDraft:draft];
+    createReportViewController.upload = upload;
+    
+    [upload upload];
+    [[upload.promise then:^id _Nullable(id  _Nonnull object) {
+        createReportViewController.title = @"Uploaded!";
+        return nil;
+    }] catch:^(NSError * _Nonnull error) {
+        //probably should reset state to not uploaded
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"An error occurred" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+        [createReportViewController presentViewController:alertController animated:YES completion:nil];
+    }];
 }
 
 @end

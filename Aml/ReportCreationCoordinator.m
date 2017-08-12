@@ -11,8 +11,9 @@
 #import "CreateReportViewController.h"
 #import "LocalPhoto.h"
 #import "ReportDraft.h"
+#import "ReportUpload.h"
 
-@interface ReportCreationCoordinator () <GalleryViewControllerDelegate>
+@interface ReportCreationCoordinator () <GalleryViewControllerDelegate, CreateReportViewControllerDelegate>
 
 @end
 
@@ -39,7 +40,7 @@
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
     ReportDraft *report = [[ReportDraft alloc] initWithPhotos:photos];
     CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:report];
-    //set up bar buttons for dismissal
+    createReport.delegate = self;
     [galleryViewController.navigationController pushViewController:createReport animated:YES];
 }
 
@@ -49,6 +50,31 @@
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
     //unimplemented
+}
+
+- (void)createReportViewController:(CreateReportViewController *)createReportViewController didTapUploadWithDraft:(ReportDraft *)draft {
+    createReportViewController.title = @"Uploading...";
+    createReportViewController.uploadButton.enabled = NO;
+
+    ReportUpload *upload = [[ReportUpload alloc] initWithReportDraft:draft];
+    createReportViewController.upload = upload;
+
+    [upload upload];
+    [[upload.promise then:^id _Nullable(id  _Nonnull object) {
+        createReportViewController.title = @"Uploaded!";
+        createReportViewController.navigationItem.hidesBackButton = YES;
+        createReportViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissReportCreation:)];
+        return nil;
+    }] catch:^(NSError * _Nonnull error) {
+        //probably should reset state to not uploaded
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"An error occurred" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+        [createReportViewController presentViewController:alertController animated:YES completion:nil];
+    }];
+}
+
+- (void)dismissReportCreation:(id)sender {
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
