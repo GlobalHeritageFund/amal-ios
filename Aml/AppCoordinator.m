@@ -13,8 +13,12 @@
 #import "ReportsViewController.h"
 #import "TabBarPage.h"
 #import "FirstLaunch.h"
+#import "CaptureNotesViewController.h"
+#import "LocalPhoto.h"
+#import "CreateReportViewController.h"
+#import "ReportDraft.h"
 
-@interface AppCoordinator ()
+@interface AppCoordinator () <GalleryViewControllerDelegate>
 
 @property (nonatomic) FirstLaunch *firstLaunch;
 
@@ -47,7 +51,9 @@
     cameraNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"ic_camera_outline"] selectedImage:[UIImage imageNamed:@"ic_camera_active"]];
 
     GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
+    galleryViewController.delegate = self;
     UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
+    galleryViewController.delegate = self;
     galleryNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Gallery" image:[UIImage imageNamed:@"ic_assess_outline"] selectedImage:[UIImage imageNamed:@"ic_assess_active"]];
 
     ReportsViewController *reportsViewController = [[ReportsViewController alloc] init];
@@ -71,6 +77,19 @@
 
         [self.firstLaunch launched];
     }
+
+}
+
+- (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
+    CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
+    [galleryViewController.navigationController pushViewController:captureNotes animated:YES];
+}
+
+- (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
+    ReportDraft *report = [[ReportDraft alloc] initWithPhotos:photos];
+    CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:report];
+    [galleryViewController.navigationController pushViewController:createReport animated:YES];
+    galleryViewController.mode = GalleryModeNormal;
 
 }
 

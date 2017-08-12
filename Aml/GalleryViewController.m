@@ -11,11 +11,9 @@
 #import "LocalPhoto.h"
 #import <Photos/Photos.h>
 #import "PhotoStorage.h"
-#import "CaptureNotesViewController.h"
 #import "GalleryCell.h"
 #import "UIColor+Additions.h"
 #import "AMLMetadata.h"
-#import "CreateReportViewController.h"
 #import "ReportDraft.h"
 #import "NSArray+Additions.h"
 #import "Promise.h"
@@ -24,7 +22,6 @@
 
 @property (strong) NSArray<PhotoSection*> *photoSections;
 @property (nonatomic) UICollectionViewFlowLayout *flowLayout;
-@property (nonatomic) GalleryMode mode;
 @property (nonatomic) UIToolbar *toolbar;
 
 @end
@@ -247,10 +244,7 @@
     NSArray<LocalPhoto *> *photos = [self.collectionView.indexPathsForSelectedItems arrayByTransformingObjectsUsingBlock:^LocalPhoto *(NSIndexPath *indexPath) {
         return self.photoSections[indexPath.section].photos[indexPath.row];
     }];
-    ReportDraft *report = [[ReportDraft alloc] initWithPhotos:photos];
-    CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:report];
-    [self.navigationController pushViewController:createReport animated:YES];
-    self.mode = GalleryModeNormal;
+    [self.delegate galleryViewController:self createReportWithPhotos:photos];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -297,8 +291,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.mode == GalleryModeNormal) {
         LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
-        CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:localPhoto];
-        [self.navigationController pushViewController:captureNotes animated:YES];
+        [self.delegate galleryViewController:self didTapPhoto:localPhoto];
     } else if (self.mode == GalleryModeSelect) {
         PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
         [cell updateOverlay];

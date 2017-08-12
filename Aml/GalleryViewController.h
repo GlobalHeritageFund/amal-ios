@@ -7,9 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GalleryCell.h"
+
+@class GalleryViewController, LocalPhoto;
+
+@protocol GalleryViewControllerDelegate <NSObject>
+
+- (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo;
+- (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos;
+
+@end
 
 @interface GalleryViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic) UICollectionView *collectionView;
+
+@property (nonatomic, weak) id<GalleryViewControllerDelegate> delegate;
+
+@property (nonatomic) GalleryMode mode;
 
 @end
