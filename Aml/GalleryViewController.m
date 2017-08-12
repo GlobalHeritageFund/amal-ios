@@ -45,9 +45,14 @@
     if (self.mode == GalleryModeNormal) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Import" style:UIBarButtonItemStylePlain target:self action:@selector(importImage:)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStylePlain target:self action:@selector(enterSelectMode:)];
-    } else {
+    } else if (self.mode == GalleryModeSelect) {
         self.navigationItem.leftBarButtonItem = nil;
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(exitSelectMode:)];
+    } else if (self.mode == GalleryModeCreateReport) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create Report" style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
+    } else {
+        @throw [NSException new];
     }
 }
 
@@ -117,11 +122,11 @@
 
 - (void)setMode:(GalleryMode)mode {
     _mode = mode;
-    self.collectionView.allowsMultipleSelection = (mode == GalleryModeSelect);
+    self.collectionView.allowsMultipleSelection = (mode == GalleryModeSelect || mode == GalleryModeCreateReport);
     [self.collectionView reloadData];
     [self updateBarButtons];
     self.tabBarController.tabBar.hidden = (mode == GalleryModeSelect);
-    self.toolbar.hidden = (mode != GalleryModeSelect);
+    self.toolbar.hidden = (mode == GalleryModeNormal || mode == GalleryModeCreateReport);
     [self setupToolbar];
     [self updateEnabledStateOnToolbarItems];
 }
@@ -135,11 +140,9 @@
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [items addObject:flexibleSpace];
 
-    if (!self.hideDeleteButton) {
-        UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(deleteMultiSelect:)];
-        deleteItem.tintColor = [UIColor redColor];
-        [items addObject:deleteItem];
-    }
+    UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(deleteMultiSelect:)];
+    deleteItem.tintColor = [UIColor redColor];
+    [items addObject:deleteItem];
 
     self.toolbar.items = items;
 }
@@ -242,6 +245,10 @@
     [self presentViewController:alertController animated:true completion:nil];
 }
 
+- (void)dismiss:(id)sender {
+    [self.delegate galleryViewControllerShouldDismiss:self];
+}
+
 - (void)createReport:(id)sender {
     NSArray<LocalPhoto *> *photos = [self.collectionView.indexPathsForSelectedItems arrayByTransformingObjectsUsingBlock:^LocalPhoto *(NSIndexPath *indexPath) {
         return self.photoSections[indexPath.section].photos[indexPath.row];
@@ -294,7 +301,7 @@
     if (self.mode == GalleryModeNormal) {
         LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
         [self.delegate galleryViewController:self didTapPhoto:localPhoto];
-    } else if (self.mode == GalleryModeSelect) {
+    } else if (self.mode == GalleryModeSelect || self.mode == GalleryModeCreateReport) {
         PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
         [cell updateOverlay];
         [self updateEnabledStateOnToolbarItems];
@@ -302,7 +309,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.mode == GalleryModeSelect) {
+    if (self.mode == GalleryModeSelect || self.mode == GalleryModeCreateReport) {
         PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
         [cell updateOverlay];
         [self updateEnabledStateOnToolbarItems];

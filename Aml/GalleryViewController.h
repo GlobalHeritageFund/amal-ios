@@ -15,6 +15,7 @@
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo;
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos;
+- (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController;
 
 @end
 
@@ -25,8 +26,6 @@
 @property (nonatomic, weak) id<GalleryViewControllerDelegate> delegate;
 
 @property (nonatomic) GalleryMode mode;
-
-@property (nonatomic) BOOL hideDeleteButton;
 
 
 @end

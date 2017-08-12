@@ -49,7 +49,7 @@
 
 - (void)setMode:(GalleryMode)mode {
     _mode = mode;
-    if (mode == GalleryModeSelect) {
+    if (mode == GalleryModeSelect || mode == GalleryModeCreateReport) {
         [self updateOverlay];
     } else {
         self.overlayView.image = nil;
@@ -86,6 +86,8 @@
     self.clipsToBounds = YES;
 
     [self.contentView bringSubviewToFront:self.overlayView];
+
+    [self.contentView sendSubviewToBack:self.imageView];
 
     CGRect workingRect = self.bounds;
     self.imageView.frame = workingRect;

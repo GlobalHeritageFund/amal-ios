@@ -90,15 +90,21 @@
     ReportDraft *report = [[ReportDraft alloc] initWithPhotos:photos];
     CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:report];
     [galleryViewController.navigationController pushViewController:createReport animated:YES];
-    galleryViewController.mode = GalleryModeNormal;
+    if (galleryViewController.mode == GalleryModeSelect) {
+        galleryViewController.mode = GalleryModeNormal;
+    }
+}
+
+- (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {
+    [galleryViewController dismissViewControllerAnimated:true completion:nil];
 }
 
 - (void)reportsViewControllerDidTapCompose:(ReportsViewController *)reportsViewController {
     GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
-    galleryViewController.hideDeleteButton = true;
     [galleryViewController loadViewIfNeeded];
     UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
-    galleryViewController.mode = GalleryModeSelect;
+    galleryViewController.mode = GalleryModeCreateReport;
+    galleryViewController.delegate = self;
     [reportsViewController presentViewController:galleryNavigationController animated:true completion:nil];
 }
 
