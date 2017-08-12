@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class ReportsViewController;
+
+@protocol ReportsViewControllerDelegate <NSObject>
+
+- (void)reportsViewControllerDidTapCompose:(ReportsViewController *)reportsViewController;
+
+@end
+
 @interface ReportsViewController : UITableViewController
+
+@property (nonatomic, weak) id<ReportsViewControllerDelegate> delegate;
 
 @end

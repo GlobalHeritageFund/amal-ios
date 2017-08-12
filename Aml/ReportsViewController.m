@@ -25,6 +25,8 @@
 
     self.title = @"Reports";
 
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(composeTapped:)];
+
     FIRDatabaseReference *reportsDirectory = [[[FIRDatabase database] reference] child:@"reports"];
 
     FIRDatabaseQuery *query = [[reportsDirectory queryOrderedByChild:@"authorDeviceToken"] queryEqualToValue:[CurrentUser shared].deviceToken];
@@ -67,6 +69,10 @@
         NSLog(@"error %@", error);
     }];
     return cell;
+}
+
+- (void)composeTapped:(id)sender {
+    [self.delegate reportsViewControllerDidTapCompose:self];
 }
 
 @end

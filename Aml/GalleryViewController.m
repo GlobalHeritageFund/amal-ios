@@ -37,7 +37,6 @@
 
     [self updateBarButtons];
 
-
     [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"PhotoCell"];
     [self.collectionView registerClass:[GalleryHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
 }
@@ -128,18 +127,21 @@
 }
 
 - (void)setupToolbar {
+    NSMutableArray *items = [NSMutableArray array];
+
     UIBarButtonItem *createReportItem = [[UIBarButtonItem alloc] initWithTitle:@"Create Report" style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
+    [items addObject:createReportItem];
 
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [items addObject:flexibleSpace];
 
-    UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(deleteMultiSelect:)];
-    deleteItem.tintColor = [UIColor redColor];
+    if (!self.hideDeleteButton) {
+        UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(deleteMultiSelect:)];
+        deleteItem.tintColor = [UIColor redColor];
+        [items addObject:deleteItem];
+    }
 
-    self.toolbar.items = @[
-                           createReportItem,
-                           flexibleSpace,
-                           deleteItem,
-                           ];
+    self.toolbar.items = items;
 }
 
 - (void)updateEnabledStateOnToolbarItems {

@@ -26,4 +26,7 @@
 
 @property (nonatomic) GalleryMode mode;
 
+@property (nonatomic) BOOL hideDeleteButton;
+
+
 @end

@@ -18,7 +18,7 @@
 #import "CreateReportViewController.h"
 #import "ReportDraft.h"
 
-@interface AppCoordinator () <GalleryViewControllerDelegate>
+@interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate>
 
 @property (nonatomic) FirstLaunch *firstLaunch;
 
@@ -57,6 +57,7 @@
     galleryNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Gallery" image:[UIImage imageNamed:@"ic_assess_outline"] selectedImage:[UIImage imageNamed:@"ic_assess_active"]];
 
     ReportsViewController *reportsViewController = [[ReportsViewController alloc] init];
+    reportsViewController.delegate = self;
     UINavigationController *reportsNavigationController = [[UINavigationController alloc] initWithRootViewController:reportsViewController];
     reportsViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Reports" image:[UIImage imageNamed:@"ic_folder_shared_outline"] selectedImage:[UIImage imageNamed:@"ic_sync_active"]];
 
@@ -90,7 +91,15 @@
     CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:report];
     [galleryViewController.navigationController pushViewController:createReport animated:YES];
     galleryViewController.mode = GalleryModeNormal;
+}
 
+- (void)reportsViewControllerDidTapCompose:(ReportsViewController *)reportsViewController {
+    GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
+    galleryViewController.hideDeleteButton = true;
+    [galleryViewController loadViewIfNeeded];
+    UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
+    galleryViewController.mode = GalleryModeSelect;
+    [reportsViewController presentViewController:galleryNavigationController animated:true completion:nil];
 }
 
 @end
