@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pLV-uX-gjF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pLV-uX-gjF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,10 +22,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_alert" translatesAutoresizingMaskIntoConstraints="NO" id="boV-Ur-A1X">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xrq-UL-7SC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0D1-4d-lAp">
@@ -72,12 +73,45 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vv-Fy-LSU">
-                                <rect key="frame" x="155" y="535" width="66" height="66"/>
+                                <rect key="frame" x="155" y="584" width="66" height="66"/>
                                 <state key="normal" image="btn-take-photo"/>
                                 <connections>
                                     <action selector="capturePhoto:" destination="pLV-uX-gjF" eventType="touchUpInside" id="OS9-hL-3mo"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rty-Y9-QjU">
+                                <rect key="frame" x="67" y="233" width="240" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBi-gu-H3G">
+                                        <rect key="frame" x="33" y="51.5" width="175" height="62.5"/>
+                                        <string key="text">Please enable
+camera access.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_camera_white" translatesAutoresizingMaskIntoConstraints="NO" id="N7g-Sq-8jW">
+                                        <rect key="frame" x="106.5" y="20" width="26" height="23"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings &gt; Privacy &gt; Camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9J4-1L-z66">
+                                        <rect key="frame" x="11.5" y="134" width="217.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="9J4-1L-z66" firstAttribute="centerX" secondItem="rty-Y9-QjU" secondAttribute="centerX" id="907-X1-NOd"/>
+                                    <constraint firstAttribute="height" constant="200" id="AIf-Jv-GgT"/>
+                                    <constraint firstItem="9J4-1L-z66" firstAttribute="top" secondItem="oBi-gu-H3G" secondAttribute="bottom" constant="20" id="AhQ-YU-Szx"/>
+                                    <constraint firstItem="N7g-Sq-8jW" firstAttribute="centerX" secondItem="rty-Y9-QjU" secondAttribute="centerX" id="TBJ-Gh-TjV"/>
+                                    <constraint firstAttribute="width" constant="240" id="VoX-73-ZAk"/>
+                                    <constraint firstItem="oBi-gu-H3G" firstAttribute="centerX" secondItem="rty-Y9-QjU" secondAttribute="centerX" id="gbF-Ze-vpM"/>
+                                    <constraint firstItem="oBi-gu-H3G" firstAttribute="top" secondItem="N7g-Sq-8jW" secondAttribute="bottom" constant="8.5" id="lTV-EW-cbr"/>
+                                    <constraint firstItem="N7g-Sq-8jW" firstAttribute="top" secondItem="rty-Y9-QjU" secondAttribute="top" constant="20" id="uwm-zG-bBX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -86,8 +120,10 @@
                             <constraint firstItem="PCk-La-t9L" firstAttribute="top" secondItem="2vv-Fy-LSU" secondAttribute="bottom" constant="17" id="Sah-el-L9Y"/>
                             <constraint firstAttribute="trailing" secondItem="0D1-4d-lAp" secondAttribute="trailing" id="Szj-6y-anu"/>
                             <constraint firstItem="Xrq-UL-7SC" firstAttribute="centerY" secondItem="boV-Ur-A1X" secondAttribute="centerY" id="UHp-mn-mfn"/>
+                            <constraint firstItem="rty-Y9-QjU" firstAttribute="centerX" secondItem="dz4-ea-ogN" secondAttribute="centerX" id="UkW-nk-hVx"/>
                             <constraint firstItem="Xrq-UL-7SC" firstAttribute="height" secondItem="boV-Ur-A1X" secondAttribute="height" id="YaO-nn-9nN"/>
                             <constraint firstItem="Xrq-UL-7SC" firstAttribute="width" secondItem="boV-Ur-A1X" secondAttribute="width" id="b3Z-X9-eY1"/>
+                            <constraint firstItem="rty-Y9-QjU" firstAttribute="centerY" secondItem="dz4-ea-ogN" secondAttribute="centerY" id="ixY-ZA-GLc"/>
                             <constraint firstItem="Xrq-UL-7SC" firstAttribute="centerX" secondItem="boV-Ur-A1X" secondAttribute="centerX" id="kvs-71-Ls3"/>
                             <constraint firstAttribute="trailing" secondItem="boV-Ur-A1X" secondAttribute="trailing" id="mbl-co-eXi"/>
                             <constraint firstItem="0D1-4d-lAp" firstAttribute="top" secondItem="dz4-ea-ogN" secondAttribute="top" id="nkr-U8-ZVy"/>
@@ -99,6 +135,7 @@
                     <navigationItem key="navigationItem" id="oLB-RR-G8o"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="cameraPermissionDialog" destination="rty-Y9-QjU" id="TKl-JW-09m"/>
                         <outlet property="flashButton" destination="FeK-rm-ORf" id="vP4-bs-Jb9"/>
                         <outlet property="imagePreviewOverlay" destination="Xrq-UL-7SC" id="P5W-Tx-uAg"/>
                         <outlet property="photoButton" destination="2vv-Fy-LSU" id="KvY-Dt-L6l"/>
@@ -108,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNF-zs-Oqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="442" y="221"/>
+            <point key="canvasLocation" x="440.80000000000001" y="220.83958020989508"/>
         </scene>
     </scenes>
     <resources>
@@ -116,6 +153,7 @@
         <image name="btn-take-photo" width="66" height="66"/>
         <image name="ic_camera_flip" width="24" height="26"/>
         <image name="ic_camera_rear_white_36pt" width="36" height="36"/>
+        <image name="ic_camera_white" width="26" height="23"/>
         <image name="ic_flash_auto_white_36pt" width="36" height="36"/>
         <image name="ic_flash_off_white_36pt" width="36" height="36"/>
         <image name="ic_flash_on_white_36pt" width="36" height="36"/>

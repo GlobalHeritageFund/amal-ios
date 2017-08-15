@@ -22,6 +22,8 @@
 
 @property (weak) IBOutlet UIView *imagePreviewOverlay;
 
+@property (weak, nonatomic) IBOutlet UIView *cameraPermissionDialog;
+
 @end
 
 @implementation CameraViewController {
@@ -167,6 +169,9 @@
     [super viewDidLayoutSubviews];
     
     previewLayer.frame = self.previewImageView.bounds;
+
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    self.cameraPermissionDialog.hidden = authStatus != AVAuthorizationStatusDenied;
 }
 
 - (void)updateCameraOrientation {
