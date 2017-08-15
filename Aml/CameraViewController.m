@@ -79,45 +79,52 @@
     [locationManager startUpdatingLocation];
     
     [self loadDevices];
-    
-    if(inputDeviceBack) {
-        
-        captureSession = [AVCaptureSession new];
-        
-        [captureSession startRunning];
-        
-        if([captureSession canSetSessionPreset:AVCaptureSessionPresetPhoto]) {
-            captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
-        }
-        
-        self.torchMode = AVCaptureTorchModeAuto;
-        
-        capturingInputBack = [AVCaptureDeviceInput deviceInputWithDevice:inputDeviceBack error:nil];
-        capturingInputFront = [AVCaptureDeviceInput deviceInputWithDevice:inputDeviceFront error:nil];
-        
-        [captureSession beginConfiguration];
-        
-        [captureSession addInput:capturingInputBack];
-        
-        [captureSession commitConfiguration];
-        
-        previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
-        
-        previewLayer.frame = self.previewImageView.bounds;
-        
-        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-        
-        [self.previewImageView.layer addSublayer:previewLayer];
-        
-        stillImageOutput = [AVCaptureStillImageOutput new];
-        
-        stillImageOutput.outputSettings = @{ AVVideoCodecKey:AVVideoCodecJPEG };
-        
-        if([captureSession canAddOutput:stillImageOutput])
-            [captureSession addOutput:stillImageOutput];
-    }
-    
+
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(orientationChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
+
+    if (inputDeviceBack == nil) {
+        return;
+    }
+
+    captureSession = [AVCaptureSession new];
+
+    [captureSession startRunning];
+
+    if ([captureSession canSetSessionPreset:AVCaptureSessionPresetPhoto]) {
+        captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
+    }
+
+    self.torchMode = AVCaptureTorchModeAuto;
+
+    capturingInputBack = [AVCaptureDeviceInput deviceInputWithDevice:inputDeviceBack error:nil];
+    capturingInputFront = [AVCaptureDeviceInput deviceInputWithDevice:inputDeviceFront error:nil];
+
+    [captureSession beginConfiguration];
+
+    if (capturingInputBack == nil) {
+        //camera access not granted
+        return;
+    }
+
+    [captureSession addInput:capturingInputBack];
+
+    [captureSession commitConfiguration];
+
+    previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
+
+    previewLayer.frame = self.previewImageView.bounds;
+
+    previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+
+    [self.previewImageView.layer addSublayer:previewLayer];
+
+    stillImageOutput = [AVCaptureStillImageOutput new];
+
+    stillImageOutput.outputSettings = @{ AVVideoCodecKey:AVVideoCodecJPEG };
+
+    if ([captureSession canAddOutput:stillImageOutput]) {
+        [captureSession addOutput:stillImageOutput];
+    }
 }
 
 - (void)orientationChange:(NSNotification*)note
