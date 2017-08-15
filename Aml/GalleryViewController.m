@@ -204,6 +204,7 @@
 
         metadata.latitude = asset.location.coordinate.latitude;
         metadata.longitude = asset.location.coordinate.longitude;
+        metadata.date = asset.creationDate;
         
         [[PhotoStorage new] saveJpegLocally:imageData withMetadata:metadata];
 

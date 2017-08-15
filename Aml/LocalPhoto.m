@@ -34,8 +34,11 @@
 }
 
 - (NSDate *)date {
-    NSDictionary* fileAttribs = [[NSFileManager defaultManager] attributesOfItemAtPath:self.imagePath error:nil];
-    return [fileAttribs objectForKey:NSFileCreationDate];
+    if (self.metadata.date.timeIntervalSince1970 < 100) {
+        NSDictionary* fileAttribs = [[NSFileManager defaultManager] attributesOfItemAtPath:self.imagePath error:nil];
+        return [fileAttribs objectForKey:NSFileCreationDate];
+    }
+    return self.metadata.date;
 }
 
 - (void)saveAndUploadMetadata {
