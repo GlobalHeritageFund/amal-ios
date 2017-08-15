@@ -83,18 +83,18 @@
                                 <rect key="frame" x="67" y="233" width="240" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBi-gu-H3G">
-                                        <rect key="frame" x="33" y="51.5" width="175" height="62.5"/>
+                                        <rect key="frame" x="33" y="68.5" width="175" height="62.5"/>
                                         <string key="text">Please enable
 camera access.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_camera_white" translatesAutoresizingMaskIntoConstraints="NO" id="N7g-Sq-8jW">
-                                        <rect key="frame" x="106.5" y="20" width="26" height="23"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-camera-off" translatesAutoresizingMaskIntoConstraints="NO" id="N7g-Sq-8jW">
+                                        <rect key="frame" x="99.5" y="20" width="40" height="40"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings &gt; Privacy &gt; Camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9J4-1L-z66">
-                                        <rect key="frame" x="11.5" y="134" width="217.5" height="21"/>
+                                        <rect key="frame" x="11.5" y="151" width="217.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -151,9 +151,9 @@ camera access.</string>
     <resources>
         <image name="bg_alert" width="375" height="667"/>
         <image name="btn-take-photo" width="66" height="66"/>
+        <image name="ic-camera-off" width="40" height="40"/>
         <image name="ic_camera_flip" width="24" height="26"/>
         <image name="ic_camera_rear_white_36pt" width="36" height="36"/>
-        <image name="ic_camera_white" width="26" height="23"/>
         <image name="ic_flash_auto_white_36pt" width="36" height="36"/>
         <image name="ic_flash_off_white_36pt" width="36" height="36"/>
         <image name="ic_flash_on_white_36pt" width="36" height="36"/>
