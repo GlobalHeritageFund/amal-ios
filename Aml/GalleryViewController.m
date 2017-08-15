@@ -59,15 +59,18 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
 
-    self.collectionView.frame = self.view.bounds;
 
     CGRect workingRect = self.view.bounds;
 
     CGRect toolbarRect = CGRectZero, discardableRect = CGRectZero;
 
-    CGRectDivide(workingRect, &toolbarRect, &discardableRect, 44, CGRectMaxYEdge);
+    if (!self.toolbar.hidden) {
+        CGRectDivide(workingRect, &toolbarRect, &discardableRect, 44, CGRectMaxYEdge);
+    }
     
     self.toolbar.frame = toolbarRect;
+
+    self.collectionView.frame = workingRect;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
