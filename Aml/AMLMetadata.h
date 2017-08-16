@@ -23,6 +23,7 @@
 @property double longitude;
 @property NSDate *date;
 @property NSString *firebaseImageKey;
+@property NSString *localIdentifier;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

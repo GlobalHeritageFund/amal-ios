@@ -32,6 +32,7 @@
     _longitude = [dictionary[@"lon"] doubleValue];
     _date = [NSDate dateWithTimeIntervalSince1970:[dictionary[@"date"] doubleValue]];
     _firebaseImageKey = [dictionary[@"firebaseImageKey"] asClassOrNil:[NSString class]] ?: @"unset";
+    _localIdentifier = [dictionary[@"localIdentifier"] asClassOrNil:[NSString class]] ?: @"";
 
     return self;
 }
@@ -50,6 +51,7 @@
              @"lon": @(self.longitude),
              @"date": @(self.date.timeIntervalSince1970),
              @"firebaseImageKey": self.firebaseImageKey,
+             @"localIdentifier": self.localIdentifier,
              };
 }
 

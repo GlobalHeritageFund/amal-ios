@@ -59,7 +59,6 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
 
-
     CGRect workingRect = self.view.bounds;
 
     CGRect toolbarRect = CGRectZero, discardableRect = CGRectZero;
@@ -150,6 +149,10 @@
     self.toolbar.items = items;
 }
 
+- (NSArray <LocalPhoto *>*)allPhotos {
+    return [self.photoSections valueForKeyPath:@"@unionOfArrays.photos"];
+}
+
 - (void)updateEnabledStateOnToolbarItems {
     for (UIBarButtonItem *item in self.toolbar.items) {
         item.enabled = self.collectionView.indexPathsForSelectedItems.count != 0;
@@ -205,7 +208,15 @@
         metadata.latitude = asset.location.coordinate.latitude;
         metadata.longitude = asset.location.coordinate.longitude;
         metadata.date = asset.creationDate;
-        
+        metadata.localIdentifier = asset.localIdentifier;
+
+        if ([self.allPhotos indexOfObjectPassingTest:^BOOL(LocalPhoto * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) { return [obj.metadata.localIdentifier isEqualToString:metadata.localIdentifier]; }]) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Duplicate found" message:@"This photo has already been imported." preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+            [self presentViewController:alertController animated:YES completion:nil];
+            return;
+        }
+
         [[PhotoStorage new] saveJpegLocally:imageData withMetadata:metadata];
 
         [weakSelf reloadData];
