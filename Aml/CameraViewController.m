@@ -11,6 +11,7 @@
 #import "PhotoSettings.h"
 #import "PhotoStorage.h"
 #import "AMLMetadata.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface CameraViewController ()
 
@@ -70,7 +71,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    [self beginDetectingVolumeClicks];
+
+    [self hideVolumeBezel];
+
     locationManager = [CLLocationManager new];
     
     locationManager.delegate = self;
@@ -127,6 +132,20 @@
     if ([captureSession canAddOutput:stillImageOutput]) {
         [captureSession addOutput:stillImageOutput];
     }
+}
+
+- (void)hideVolumeBezel {
+    MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:volumeView];
+}
+
+- (void)beginDetectingVolumeClicks {
+    [[MPMusicPlayerController new] beginGeneratingPlaybackNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeChanged:)                                                      name:MPMusicPlayerControllerVolumeDidChangeNotification object: nil];
+}
+
+- (void)volumeChanged:(NSNotification *)note {
+    [self capturePhoto:self];
 }
 
 - (void)orientationChange:(NSNotification*)note
