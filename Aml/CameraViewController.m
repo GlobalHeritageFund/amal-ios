@@ -136,6 +136,7 @@
 
 - (void)hideVolumeBezel {
     MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectZero];
+    volumeView.clipsToBounds = YES;
     [self.view addSubview:volumeView];
 }
 
