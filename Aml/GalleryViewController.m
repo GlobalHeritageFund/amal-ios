@@ -131,6 +131,7 @@
     self.toolbar.hidden = (mode == GalleryModeNormal || mode == GalleryModeCreateReport);
     [self setupToolbar];
     [self updateEnabledStateOnToolbarItems];
+    [self.view setNeedsLayout];
 }
 
 - (void)setupToolbar {
