@@ -13,7 +13,6 @@
 
 @property NSString *name;
 @property NSString *category;
-@property NSString *condition;
 @property int levelOfDamage;
 @property int conditionNumber;
 @property BOOL hazards;
