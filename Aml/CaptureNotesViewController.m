@@ -100,7 +100,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Condition"
+      initWithHeaderText:@"Overall Condition"
       formElements:@[
                      [self conditionElement],
                      ]
