@@ -141,12 +141,17 @@
 }
 
 - (void)beginDetectingVolumeClicks {
-    [[MPMusicPlayerController new] beginGeneratingPlaybackNotifications];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeChanged:)                                                      name:MPMusicPlayerControllerVolumeDidChangeNotification object: nil];
+    AVAudioSession* audioSession = [AVAudioSession sharedInstance];
+    [audioSession setActive:YES error:nil];
+    [audioSession setCategory:AVAudioSessionCategoryAmbient error:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeChanged:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
+
 }
 
 - (void)volumeChanged:(NSNotification *)note {
-    [self capturePhoto:self];
+    if ([note.userInfo[@"AVSystemController_AudioVolumeChangeReasonNotificationParameter"] isEqual: @"ExplicitVolumeChange"]) {
+        [self capturePhoto:self];
+    }
 }
 
 - (void)orientationChange:(NSNotification*)note
