@@ -15,6 +15,7 @@
 @property NSString *category;
 @property NSString *condition;
 @property int levelOfDamage;
+@property int conditionNumber;
 @property BOOL hazards;
 @property BOOL safetyHazards;
 @property BOOL interventionRequired;

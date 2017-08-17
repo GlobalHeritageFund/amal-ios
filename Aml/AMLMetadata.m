@@ -24,6 +24,7 @@
     _category = [dictionary[@"category"] asClassOrNil:[NSString class]] ?: @"";
     _condition = [dictionary[@"condition"]  asClassOrNil:[NSString class]] ?: @"";
     _levelOfDamage = [dictionary[@"levelOfDamage"] intValue];
+    _conditionNumber = [dictionary[@"conditionNumber"] intValue];
     _hazards = [dictionary[@"hazards"] boolValue];
     _safetyHazards = [dictionary[@"safetyHazards"] boolValue];
     _interventionRequired = [dictionary[@"interventionRequired"] boolValue];
@@ -43,6 +44,7 @@
              @"category": self.category,
              @"condition": self.condition,
              @"levelOfDamage": @(self.levelOfDamage),
+             @"conditionNumber": @(self.conditionNumber),
              @"hazards": @(self.hazards),
              @"safetyHazards": @(self.safetyHazards),
              @"interventionRequired": @(self.interventionRequired),

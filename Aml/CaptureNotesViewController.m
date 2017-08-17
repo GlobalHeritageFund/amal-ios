@@ -100,6 +100,14 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
+      initWithHeaderText:@"Condition"
+      formElements:@[
+                     [self conditionElement],
+                     ]
+      ]];
+
+    [self.view addFormGroup:
+     [[FormGroup alloc]
       initWithHeaderText:@"Level of Damage"
       formElements:@[
                      [self damageButtonElement],
@@ -219,6 +227,18 @@
 
 - (void)levelOfDamageDidChange:(DamageButtonFormElement *)damageButtonElement {
     self.photo.metadata.levelOfDamage = damageButtonElement.selectedValue;
+    [self.photo saveMetadata];
+}
+
+- (DamageButtonFormElement *)conditionElement {
+    DamageButtonFormElement *conditionElement = [[DamageButtonFormElement alloc] init];
+    [conditionElement addTarget:self action:@selector(conditionDidChange:) forControlEvents:UIControlEventValueChanged];
+    conditionElement.selectedValue = self.photo.metadata.conditionNumber;
+    return conditionElement;
+}
+
+- (void)conditionDidChange:(DamageButtonFormElement *)damageButtonElement {
+    self.photo.metadata.conditionNumber = damageButtonElement.selectedValue;
     [self.photo saveMetadata];
 }
 
