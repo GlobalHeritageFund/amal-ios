@@ -18,6 +18,6 @@
 @property (nonatomic) NSString *deviceToken;
 @property (readonly) NSDate *creationDate;
 
-@property (nonatomic) NSArray<LocalPhoto *> *photos;
+@property (nonatomic) NSMutableArray<LocalPhoto *> *photos;
 
 @end

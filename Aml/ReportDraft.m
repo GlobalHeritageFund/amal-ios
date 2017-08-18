@@ -14,7 +14,7 @@
     self = [super init];
     if (!self) return nil;
 
-    _photos = photos;
+    _photos = [photos mutableCopy];
 
     _creationDate = [[NSDate alloc] init];
 
