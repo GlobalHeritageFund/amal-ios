@@ -49,7 +49,7 @@
 
 - (void)setMode:(GalleryMode)mode {
     _mode = mode;
-    if (mode == GalleryModeSelect || mode == GalleryModeCreateReport) {
+    if (mode == GalleryModeMultiSelect || mode == GalleryModeCreateReport) {
         [self updateOverlay];
     } else {
         self.overlayView.image = nil;

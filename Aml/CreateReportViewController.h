@@ -15,6 +15,7 @@
 - (void)createReportViewController:(CreateReportViewController *)createReportViewController didTapUploadWithDraft:(ReportDraft *)draft;
 
 - (void)createReportViewController:(CreateReportViewController *)createReportViewController didSelectPhoto:(LocalPhoto *)photo;
+- (void)createReportViewControllerDidTapAddPhoto:(CreateReportViewController *)createReportViewController;
 
 @end
 
@@ -23,6 +24,9 @@
 @property (nonatomic, weak) id<CreateReportViewControllerDelegate> delegate;
 
 @property (nonatomic) UITableView *view;
+
+@property (nonatomic, readonly) UITableView *tableView;
+
 
 - (instancetype)initWithReportDraft:(ReportDraft *)reportDraft;
 

@@ -25,6 +25,9 @@
 @property (nonatomic) FirstLaunch *firstLaunch;
 @property (nonatomic) NSMutableArray *childCoordinators;
 
+@property (nonatomic) CreateReportViewController *createReportViewController;
+
+
 @end
 
 @implementation AppCoordinator
@@ -91,8 +94,14 @@
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
-    CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
-    [galleryViewController.navigationController pushViewController:captureNotes animated:YES];
+    if (galleryViewController.mode == GalleryModeSingleSelect) {
+        [self.createReportViewController.reportDraft.photos addObject:photo];
+        [self.createReportViewController.tableView reloadData];
+        [galleryViewController dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
+        [galleryViewController.navigationController pushViewController:captureNotes animated:YES];
+    }
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
@@ -101,10 +110,11 @@
     createReport.delegate = self;
     [galleryViewController.navigationController pushViewController:createReport animated:YES];
     galleryViewController.mode = GalleryModeNormal;
+    self.createReportViewController = createReport;
 }
 
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {
-    //not implemented
+    [galleryViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)reportsViewControllerDidTapCompose:(ReportsViewController *)reportsViewController {
@@ -135,6 +145,15 @@
 - (void)createReportViewController:(CreateReportViewController *)createReportViewController didSelectPhoto:(LocalPhoto *)photo {
     CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
     [createReportViewController.navigationController pushViewController:captureNotes animated:YES];
+}
+
+- (void)createReportViewControllerDidTapAddPhoto:(CreateReportViewController *)createReportViewController {
+    GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
+    [galleryViewController loadViewIfNeeded];
+    UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
+    galleryViewController.mode = GalleryModeSingleSelect;
+    galleryViewController.delegate = self;
+    [createReportViewController presentViewController:galleryNavigationController animated:true completion:nil];
 }
 
 @end

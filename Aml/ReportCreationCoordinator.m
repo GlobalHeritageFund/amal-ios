@@ -16,6 +16,9 @@
 
 @interface ReportCreationCoordinator () <GalleryViewControllerDelegate, CreateReportViewControllerDelegate>
 
+@property (nonatomic) ReportDraft *currentReport;
+
+
 @end
 
 @implementation ReportCreationCoordinator
@@ -39,8 +42,8 @@
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
-    ReportDraft *report = [[ReportDraft alloc] initWithPhotos:photos];
-    CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:report];
+    self.currentReport = [[ReportDraft alloc] initWithPhotos:photos];
+    CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:self.currentReport];
     createReport.delegate = self;
     [galleryViewController.navigationController pushViewController:createReport animated:YES];
 }
@@ -50,7 +53,8 @@
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
-    //unimplemented
+    [self.currentReport.photos addObject:photo];
+    [galleryViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)createReportViewController:(CreateReportViewController *)createReportViewController didTapUploadWithDraft:(ReportDraft *)draft {
@@ -77,6 +81,15 @@
 - (void)createReportViewController:(CreateReportViewController *)createReportViewController didSelectPhoto:(LocalPhoto *)photo {
     CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
     [createReportViewController.navigationController pushViewController:captureNotes animated:YES];
+}
+
+- (void)createReportViewControllerDidTapAddPhoto:(CreateReportViewController *)createReportViewController {
+    GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
+    [galleryViewController loadViewIfNeeded];
+    UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
+    galleryViewController.mode = GalleryModeSingleSelect;
+    galleryViewController.delegate = self;
+    [createReportViewController presentViewController:galleryNavigationController animated:true completion:nil];
 }
 
 - (void)dismissReportCreation:(id)sender {

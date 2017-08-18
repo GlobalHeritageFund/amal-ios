@@ -45,9 +45,12 @@
     if (self.mode == GalleryModeNormal) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Import" style:UIBarButtonItemStylePlain target:self action:@selector(importImage:)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStylePlain target:self action:@selector(enterSelectMode:)];
-    } else if (self.mode == GalleryModeSelect) {
+    } else if (self.mode == GalleryModeMultiSelect) {
         self.navigationItem.leftBarButtonItem = nil;
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(exitSelectMode:)];
+    } else if (self.mode == GalleryModeSingleSelect) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
+        self.navigationItem.rightBarButtonItem = nil;
     } else if (self.mode == GalleryModeCreateReport) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create Report" style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
@@ -124,10 +127,10 @@
 
 - (void)setMode:(GalleryMode)mode {
     _mode = mode;
-    self.collectionView.allowsMultipleSelection = (mode == GalleryModeSelect || mode == GalleryModeCreateReport);
+    self.collectionView.allowsMultipleSelection = (mode == GalleryModeMultiSelect || mode == GalleryModeCreateReport);
     [self.collectionView reloadData];
     [self updateBarButtons];
-    self.tabBarController.tabBar.hidden = (mode == GalleryModeSelect);
+    self.tabBarController.tabBar.hidden = (mode == GalleryModeMultiSelect);
     self.toolbar.hidden = (mode == GalleryModeNormal || mode == GalleryModeCreateReport);
     [self setupToolbar];
     [self updateEnabledStateOnToolbarItems];
@@ -235,7 +238,7 @@
 }
 
 - (void)enterSelectMode:(id)sender {
-    self.mode = GalleryModeSelect;
+    self.mode = GalleryModeMultiSelect;
 }
 
 - (void)exitSelectMode:(id)sender {
@@ -314,10 +317,10 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.mode == GalleryModeNormal) {
+    if (self.mode == GalleryModeNormal || self.mode == GalleryModeSingleSelect) {
         LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
         [self.delegate galleryViewController:self didTapPhoto:localPhoto];
-    } else if (self.mode == GalleryModeSelect || self.mode == GalleryModeCreateReport) {
+    } else if (self.mode == GalleryModeMultiSelect || self.mode == GalleryModeCreateReport) {
         PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
         [cell updateOverlay];
         [self updateEnabledStateOnToolbarItems];
@@ -325,7 +328,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.mode == GalleryModeSelect || self.mode == GalleryModeCreateReport) {
+    if (self.mode == GalleryModeMultiSelect || self.mode == GalleryModeCreateReport) {
         PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
         [cell updateOverlay];
         [self updateEnabledStateOnToolbarItems];

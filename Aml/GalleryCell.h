@@ -10,7 +10,8 @@
 
 typedef NS_ENUM(NSInteger, GalleryMode) {
     GalleryModeCreateReport,
-    GalleryModeSelect,
+    GalleryModeMultiSelect,
+    GalleryModeSingleSelect,
     GalleryModeNormal,
 };
 

@@ -77,11 +77,14 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
+        return 1;
+    }
+    if (section == 2) {
         return 1;
     }
     return self.reportDraft.photos.count;
@@ -105,6 +108,12 @@
         cell.hostedTextfield = self.textField;
         return cell;
     }
+    if (indexPath.section == 2) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+        cell.textLabel.text = @"Add...";
+        cell.textLabel.textColor = [UIColor blueColor];
+        return cell;
+    }
     ReportPhotoTableViewCell *cell = [[ReportPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     LocalPhoto *photo = self.reportDraft.photos[indexPath.row];
     cell.imageView.image = photo.image;
@@ -118,6 +127,9 @@
     if (indexPath.section == 1) {
         LocalPhoto *photo = self.reportDraft.photos[indexPath.row];
         [self.delegate createReportViewController:self didSelectPhoto:photo];
+    }
+    if (indexPath.section == 2) {
+        [self.delegate createReportViewControllerDidTapAddPhoto:self];
     }
 }
 
