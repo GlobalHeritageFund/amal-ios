@@ -9,6 +9,7 @@
 #import "ReportCreationCoordinator.h"
 #import "GalleryViewController.h"
 #import "CreateReportViewController.h"
+#import "CaptureNotesViewController.h"
 #import "LocalPhoto.h"
 #import "ReportDraft.h"
 #import "ReportUpload.h"
@@ -71,6 +72,11 @@
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
         [createReportViewController presentViewController:alertController animated:YES completion:nil];
     }];
+}
+
+- (void)createReportViewController:(CreateReportViewController *)createReportViewController didSelectPhoto:(LocalPhoto *)photo {
+    CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
+    [createReportViewController.navigationController pushViewController:captureNotes animated:YES];
 }
 
 - (void)dismissReportCreation:(id)sender {
