@@ -67,6 +67,11 @@
     self.navigationItem.rightBarButtonItem = self.uploadButton;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 72;
 }
@@ -107,6 +112,13 @@
     cell.detailTextLabel.text = (photo.metadata.notes.length) ? photo.metadata.notes : @"No notes.";
     cell.progressView.observedProgress = self.upload.progresses[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        LocalPhoto *photo = self.reportDraft.photos[indexPath.row];
+        [self.delegate createReportViewController:self didSelectPhoto:photo];
+    }
 }
 
 - (void)upload:(id)sender {

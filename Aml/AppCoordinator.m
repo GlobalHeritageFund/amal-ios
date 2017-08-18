@@ -132,4 +132,9 @@
     }];
 }
 
+- (void)createReportViewController:(CreateReportViewController *)createReportViewController didSelectPhoto:(LocalPhoto *)photo {
+    CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
+    [createReportViewController.navigationController pushViewController:captureNotes animated:YES];
+}
+
 @end

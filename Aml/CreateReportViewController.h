@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class ReportDraft, ReportUpload, CreateReportViewController;
+@class ReportDraft, ReportUpload, LocalPhoto, CreateReportViewController;
 
 @protocol CreateReportViewControllerDelegate <NSObject>
 
 - (void)createReportViewController:(CreateReportViewController *)createReportViewController didTapUploadWithDraft:(ReportDraft *)draft;
+
+- (void)createReportViewController:(CreateReportViewController *)createReportViewController didSelectPhoto:(LocalPhoto *)photo;
 
 @end
 
