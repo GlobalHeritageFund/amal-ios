@@ -54,6 +54,7 @@
     } else if (self.mode == GalleryModeCreateReport) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create Report" style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
+        self.navigationItem.rightBarButtonItem.enabled = false;
     } else {
         @throw [NSException new];
     }
@@ -158,9 +159,15 @@
 }
 
 - (void)updateEnabledStateOnToolbarItems {
+    BOOL hasSelectedAnyItems = self.collectionView.indexPathsForSelectedItems.count != 0;
     for (UIBarButtonItem *item in self.toolbar.items) {
-        item.enabled = self.collectionView.indexPathsForSelectedItems.count != 0;
+        item.enabled = hasSelectedAnyItems;
     }
+
+    if (self.mode == GalleryModeCreateReport) {
+        self.navigationItem.rightBarButtonItem.enabled = hasSelectedAnyItems;
+    }
+
 }
 
 - (void)reloadData {
