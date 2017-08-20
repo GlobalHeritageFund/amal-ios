@@ -196,7 +196,11 @@
     previewLayer.frame = self.previewImageView.bounds;
 
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    self.cameraPermissionDialog.hidden = authStatus != AVAuthorizationStatusDenied;
+    BOOL cameraPermissionDenied = authStatus == AVAuthorizationStatusDenied;
+    self.cameraPermissionDialog.hidden = !cameraPermissionDenied;
+    self.photoButton.hidden = cameraPermissionDenied;
+    self.flashButton.hidden = cameraPermissionDenied;
+    self.swapButton.hidden = cameraPermissionDenied;
 }
 
 - (void)updateCameraOrientation {
