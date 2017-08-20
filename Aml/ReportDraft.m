@@ -7,6 +7,7 @@
 //
 
 #import "ReportDraft.h"
+#import "LocalPhoto.h"
 
 @implementation ReportDraft
 
@@ -21,5 +22,13 @@
     return self;
 }
 
+- (void)addPhoto:(LocalPhoto *)photo {
+    NSUInteger i = [self.photos indexOfObjectPassingTest:^BOOL(LocalPhoto * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        return [obj.imagePath isEqual:photo.imagePath];
+    }];
+    if (i == NSNotFound) {
+        [self.photos addObject:photo];
+    }
+}
 
 @end

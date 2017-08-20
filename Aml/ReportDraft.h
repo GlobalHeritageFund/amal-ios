@@ -20,4 +20,6 @@
 
 @property (nonatomic) NSMutableArray<LocalPhoto *> *photos;
 
+- (void)addPhoto:(LocalPhoto *)photo;
+
 @end

@@ -95,7 +95,7 @@
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
     if (galleryViewController.mode == GalleryModeSingleSelect) {
-        [self.createReportViewController.reportDraft.photos addObject:photo];
+        [self.createReportViewController.reportDraft addPhoto:photo];
         [self.createReportViewController.tableView reloadData];
         [self.createReportViewController updateUploadButtonState];
         [galleryViewController dismissViewControllerAnimated:YES completion:nil];
