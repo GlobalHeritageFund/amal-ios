@@ -100,6 +100,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.reportDraft.photos removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    [self updateUploadButtonState];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -131,6 +132,11 @@
     if (indexPath.section == 2) {
         [self.delegate createReportViewControllerDidTapAddPhoto:self];
     }
+}
+
+- (void)updateUploadButtonState {
+    BOOL reportHasAtLeastOneItem = self.reportDraft.photos.count != 0;
+    self.navigationItem.rightBarButtonItem.enabled = reportHasAtLeastOneItem;
 }
 
 - (void)upload:(id)sender {
