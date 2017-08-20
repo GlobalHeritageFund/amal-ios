@@ -97,6 +97,7 @@
     if (galleryViewController.mode == GalleryModeSingleSelect) {
         [self.createReportViewController.reportDraft.photos addObject:photo];
         [self.createReportViewController.tableView reloadData];
+        [self.createReportViewController updateUploadButtonState];
         [galleryViewController dismissViewControllerAnimated:YES completion:nil];
     } else {
         CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];

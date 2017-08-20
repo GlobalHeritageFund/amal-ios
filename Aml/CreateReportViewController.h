@@ -36,4 +36,6 @@
 
 @property (nonatomic) UIBarButtonItem *uploadButton;
 
+- (void)updateUploadButtonState;
+
 @end

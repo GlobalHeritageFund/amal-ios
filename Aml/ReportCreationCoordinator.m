@@ -54,6 +54,8 @@
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
     [self.currentReport.photos addObject:photo];
+    //update upload button state
+    //    [self.createReportViewController updateUploadButtonState];
     [galleryViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
