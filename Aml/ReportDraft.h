@@ -22,4 +22,8 @@
 
 - (void)addPhoto:(LocalPhoto *)photo;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+@property (nonatomic, readonly) NSDictionary *dictionaryRepresentation;
+
 @end

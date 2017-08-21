@@ -8,6 +8,8 @@
 
 #import "ReportDraft.h"
 #import "LocalPhoto.h"
+#import "NSObject+Helpers.h"
+#import "NSArray+Additions.h"
 
 @implementation ReportDraft
 
@@ -30,5 +32,31 @@
         [self.photos addObject:photo];
     }
 }
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (!self) return nil;
+
+    _title = [dictionary[@"title"] asClassOrNil:[NSString class]];
+    _deviceToken = [dictionary[@"deviceToken"] asClassOrNil:[NSString class]];
+    _creationDate = [NSDate dateWithTimeIntervalSince1970:[[dictionary[@"creationDate"] asClassOrNil:[NSNumber class]] doubleValue]];
+    _photos = [[[dictionary[@"photos"] asClassOrNil:[NSArray class]] arrayByTransformingObjectsUsingBlock:^id(id object) {
+        return [[LocalPhoto alloc] initWithDictionary:object];
+    }] mutableCopy];
+
+    return self;
+}
+
+- (NSDictionary *)dictionaryRepresentation {
+    return @{
+             @"title": self.title ?: [NSNull null],
+             @"deviceToken": self.deviceToken ?: [NSNull null],
+             @"creationDate": @([self.creationDate timeIntervalSince1970]),
+             @"photos": [self.photos arrayByTransformingObjectsUsingBlock:^id(LocalPhoto *object) {
+                 return object.dictionaryRepresentation;
+             }],
+             };
+}
+
 
 @end

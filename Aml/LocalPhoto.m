@@ -12,6 +12,7 @@
 #import "CGGeometry.h"
 #import "AMLMetadata.h"
 #import "UIImage+Additions.h"
+#import "NSObject+Helpers.h"
 
 @implementation LocalPhoto
 
@@ -73,5 +74,19 @@
     [fileManager removeItemAtPath:self.settingsPath error:nil];
     [fileManager removeItemAtPath:self.imagePath error:nil];
 }
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    NSString *imagePath = [dictionary[@"imagePath"] asClassOrNil:[NSString class]] ?: @"";
+    NSString *settingsPath = [dictionary[@"settingsPath"] asClassOrNil:[NSString class]] ?: @"";
+    return [self initWithImagePath:imagePath settingsPath:settingsPath];
+}
+
+- (NSDictionary *)dictionaryRepresentation {
+    return @{
+             @"imagePath": self.imagePath,
+             @"settingsPath": self.settingsPath,
+             };
+}
+
 
 @end

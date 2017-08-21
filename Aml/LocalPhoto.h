@@ -15,6 +15,8 @@
 
 - (instancetype)initWithImagePath:(NSString *)imagePath settingsPath:(NSString *)settingsPath;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 @property (readonly) NSString *imagePath;
 @property (readonly) NSString *settingsPath;
 @property (readonly) NSDate *date;
@@ -30,5 +32,7 @@
 - (Promise<UIImage *> *)loadFullSize;
 
 - (void)removeLocalData;
+
+@property (nonatomic, readonly) NSDictionary *dictionaryRepresentation;
 
 @end
