@@ -23,9 +23,9 @@
 #import "AMLMetadata.h"
 #import "PhotoStorage.h"
 #import "NSObject+Helpers.h"
+#import "QBImagePickerController.h"
 
-@interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate, CreateReportViewControllerDelegate, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate>
+@interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate, CreateReportViewControllerDelegate, QBImagePickerControllerDelegate>
 
 @property (nonatomic) FirstLaunch *firstLaunch;
 @property (nonatomic) NSMutableArray *childCoordinators;
@@ -124,41 +124,32 @@ UINavigationControllerDelegate>
 }
 
 - (void)galleryViewControllerDidTapImport:(GalleryViewController *)galleryViewController {
-    [self startMediaBrowserFromViewController:self.window.rootViewController usingDelegate:self];
+
+    QBImagePickerController *imagePickerController = [QBImagePickerController new];
+    imagePickerController.delegate = self;
+    imagePickerController.allowsMultipleSelection = YES;
+    imagePickerController.maximumNumberOfSelection = 6;
+    imagePickerController.showsNumberOfSelectedAssets = YES;
+
+    [self.window.rootViewController presentViewController:imagePickerController animated:YES completion:NULL];
 }
 
-- (BOOL)startMediaBrowserFromViewController:(UIViewController*) controller
-                              usingDelegate:(id <UIImagePickerControllerDelegate,
-                                              UINavigationControllerDelegate>) delegate {
-
-    if (([UIImagePickerController isSourceTypeAvailable:
-          UIImagePickerControllerSourceTypeSavedPhotosAlbum] == NO)
-        || (delegate == nil)
-        || (controller == nil))
-        return NO;
-
-    UIImagePickerController *mediaUI = [[UIImagePickerController alloc] init];
-    mediaUI.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-
-    // Displays saved pictures and movies, if both are available, from the
-    // Camera Roll album.
-    mediaUI.mediaTypes =
-    [UIImagePickerController availableMediaTypesForSourceType:
-     UIImagePickerControllerSourceTypeSavedPhotosAlbum];
-
-    mediaUI.allowsEditing = NO;
-
-    mediaUI.delegate = delegate;
-
-    [controller presentViewController:mediaUI animated:YES completion:nil];
-
-    return YES;
+- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {
+    [imagePickerController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)qb_imagePickerController:(QBImagePickerController *)picker didFinishPickingAssets:(NSArray *)assets {
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    PHAsset *asset = [[PHAsset fetchAssetsWithALAssetURLs:@[info[UIImagePickerControllerReferenceURL]] options:nil] firstObject];
+    for (PHAsset *asset in assets) {
+        [self saveAsset:asset];
+    }
 
+    [[[[[[[self.window.rootViewController asClassOrNil:[UITabBarController class]] viewControllers] objectAtIndex:1] asClassOrNil:[UINavigationController class]] topViewController] asClassOrNil:[GalleryViewController class]] reloadData];
+
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)saveAsset:(PHAsset *)asset {
     [PHImageManager.defaultManager requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
 
         if(!imageData)
@@ -179,11 +170,8 @@ UINavigationControllerDelegate>
         }
 
         [[PhotoStorage new] saveJpegLocally:imageData withMetadata:metadata];
-
-        [[[[[[[self.window.rootViewController asClassOrNil:[UITabBarController class]] viewControllers] objectAtIndex:1] asClassOrNil:[UINavigationController class]] topViewController] asClassOrNil:[GalleryViewController class]] reloadData];
     }];
 
-    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
