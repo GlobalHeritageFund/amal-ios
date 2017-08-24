@@ -36,6 +36,7 @@
 		1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */; };
 		1ACAD1F41F101B25001935D4 /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */; };
 		1AEBACA41F4A6E9F002DC63F /* FirebaseReportDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */; };
+		1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
 		580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55411E5CFC1000A70AB1 /* AppDelegate.m */; };
 		580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55441E5CFC1000A70AB1 /* CameraViewController.m */; };
@@ -127,6 +128,8 @@
 		1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldTableViewCell.m; sourceTree = "<group>"; };
 		1AEBACA21F4A6E9F002DC63F /* FirebaseReportDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseReportDataSource.h; sourceTree = "<group>"; };
 		1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseReportDataSource.m; sourceTree = "<group>"; };
+		1AEBACA51F4A7289002DC63F /* LocalDraftDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalDraftDataSource.h; sourceTree = "<group>"; };
+		1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalDraftDataSource.m; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580A553E1E5CFC1000A70AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		580A55401E5CFC1000A70AB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 				1A4E39431F2FF1DF0055C7FA /* Report.m */,
 				1AEBACA21F4A6E9F002DC63F /* FirebaseReportDataSource.h */,
 				1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */,
+				1AEBACA51F4A7289002DC63F /* LocalDraftDataSource.h */,
+				1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */,
 			);
 			name = Report;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				1ACAD1F41F101B25001935D4 /* TextFieldTableViewCell.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
+				1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */,
 				1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */,
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
 				1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */,
