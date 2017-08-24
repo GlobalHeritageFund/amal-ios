@@ -13,13 +13,14 @@
 
 @protocol GalleryViewControllerDelegate <NSObject>
 
+- (void)galleryViewControllerDidTapImport:(GalleryViewController *)galleryViewController;
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo;
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos;
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController;
 
 @end
 
-@interface GalleryViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface GalleryViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic) UICollectionView *collectionView;
 

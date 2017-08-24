@@ -19,8 +19,13 @@
 #import "ReportDraft.h"
 #import "ReportCreationCoordinator.h"
 #import "ReportUpload.h"
+#import <Photos/Photos.h>
+#import "AMLMetadata.h"
+#import "PhotoStorage.h"
+#import "NSObject+Helpers.h"
 
-@interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate, CreateReportViewControllerDelegate>
+@interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate, CreateReportViewControllerDelegate, UIImagePickerControllerDelegate,
+UINavigationControllerDelegate>
 
 @property (nonatomic) FirstLaunch *firstLaunch;
 @property (nonatomic) NSMutableArray *childCoordinators;
@@ -116,6 +121,73 @@
 
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {
     [galleryViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)galleryViewControllerDidTapImport:(GalleryViewController *)galleryViewController {
+    [self startMediaBrowserFromViewController:self.window.rootViewController usingDelegate:self];
+}
+
+- (BOOL)startMediaBrowserFromViewController:(UIViewController*) controller
+                              usingDelegate:(id <UIImagePickerControllerDelegate,
+                                              UINavigationControllerDelegate>) delegate {
+
+    if (([UIImagePickerController isSourceTypeAvailable:
+          UIImagePickerControllerSourceTypeSavedPhotosAlbum] == NO)
+        || (delegate == nil)
+        || (controller == nil))
+        return NO;
+
+    UIImagePickerController *mediaUI = [[UIImagePickerController alloc] init];
+    mediaUI.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+
+    // Displays saved pictures and movies, if both are available, from the
+    // Camera Roll album.
+    mediaUI.mediaTypes =
+    [UIImagePickerController availableMediaTypesForSourceType:
+     UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+
+    mediaUI.allowsEditing = NO;
+
+    mediaUI.delegate = delegate;
+
+    [controller presentViewController:mediaUI animated:YES completion:nil];
+
+    return YES;
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    PHAsset *asset = [[PHAsset fetchAssetsWithALAssetURLs:@[info[UIImagePickerControllerReferenceURL]] options:nil] firstObject];
+
+    [PHImageManager.defaultManager requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+
+        if(!imageData)
+            return;
+
+        AMLMetadata *metadata = [AMLMetadata new];
+
+        metadata.latitude = asset.location.coordinate.latitude;
+        metadata.longitude = asset.location.coordinate.longitude;
+        metadata.date = asset.creationDate;
+        metadata.localIdentifier = asset.localIdentifier;
+
+        if ([[[PhotoStorage new] fetchPhotos] indexOfObjectPassingTest:^BOOL(LocalPhoto * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) { return [obj.metadata.localIdentifier isEqualToString:metadata.localIdentifier]; }] != NSNotFound) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Duplicate found" message:@"This photo has already been imported." preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+            [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+            return;
+        }
+
+        [[PhotoStorage new] saveJpegLocally:imageData withMetadata:metadata];
+
+        [[[[[[[self.window.rootViewController asClassOrNil:[UITabBarController class]] viewControllers] objectAtIndex:1] asClassOrNil:[UINavigationController class]] topViewController] asClassOrNil:[GalleryViewController class]] reloadData];
+    }];
+
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)reportsViewControllerDidTapCompose:(ReportsViewController *)reportsViewController {

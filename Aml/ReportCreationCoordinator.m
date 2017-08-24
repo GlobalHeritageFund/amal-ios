@@ -41,6 +41,10 @@
     [self.viewController presentViewController:galleryNavigationController animated:true completion:nil];
 }
 
+- (void)galleryViewControllerDidTapImport:(GalleryViewController *)galleryViewController {
+    //not implemented
+}
+
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
     self.currentReport = [[ReportDraft alloc] initWithPhotos:photos];
     CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:self.currentReport];
