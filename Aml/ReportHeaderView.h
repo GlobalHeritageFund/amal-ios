@@ -11,5 +11,7 @@
 
 @interface ReportHeaderView : UIView
 
+@property (readonly) UITextField *titleField;
+
 
 @end

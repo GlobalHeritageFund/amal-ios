@@ -19,7 +19,7 @@
 @interface CreateReportViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) UITableView *tableView;
-@property (nonatomic) UITextField *textField;
+@property (nonatomic) ReportHeaderView *reportHeader;
 
 @end
 
@@ -46,15 +46,6 @@
     return _tableView;
 }
 
-- (UITextField *)textField {
-    if (!_textField) {
-        UITextField *textField = [[UITextField alloc] init];
-        textField.placeholder = @"Title";
-        self.textField = textField;
-    }
-    return _textField;
-}
-
 - (void)loadView {
     self.view = self.tableView;
 }
@@ -64,7 +55,8 @@
 
     self.title = @"Create Report";
 
-    self.tableView.tableHeaderView = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
+    self.reportHeader = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
+    self.tableView.tableHeaderView = self.reportHeader;
 
     self.uploadButton = [[UIBarButtonItem alloc] initWithTitle:@"Upload" style:UIBarButtonItemStylePlain target:self action:@selector(upload:)];
     self.navigationItem.rightBarButtonItem = self.uploadButton;
@@ -81,14 +73,11 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    }
-    if (section == 2) {
+    if (section == 1) {
         return 1;
     }
     return self.reportDraft.photos.count;
@@ -108,12 +97,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        TextFieldTableViewCell *cell = [[TextFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-        cell.hostedTextfield = self.textField;
-        return cell;
-    }
-    if (indexPath.section == 2) {
+    if (indexPath.section == 1) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
         cell.textLabel.text = @"Add...";
         cell.textLabel.textColor = [UIColor blueColor];
@@ -129,11 +113,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
         LocalPhoto *photo = self.reportDraft.photos[indexPath.row];
         [self.delegate createReportViewController:self didSelectPhoto:photo];
     }
-    if (indexPath.section == 2) {
+    if (indexPath.section == 1) {
         [self.delegate createReportViewControllerDidTapAddPhoto:self];
     }
 }
@@ -144,7 +128,7 @@
 }
 
 - (void)upload:(id)sender {
-    self.reportDraft.title = self.textField.text ?: @"";
+    self.reportDraft.title = self.reportHeader.titleField.text ?: @"";
     [self.delegate createReportViewController:self didTapUploadWithDraft:self.reportDraft];
 }
 
