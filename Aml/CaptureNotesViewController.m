@@ -106,13 +106,13 @@
                      ]
       ]];
 
-    [self.view addFormGroup:
-     [[FormGroup alloc]
-      initWithHeaderText:@"Level of Damage"
-      formElements:@[
-                     [self damageButtonElement],
-                     ]
-      ]];
+//    [self.view addFormGroup:
+//     [[FormGroup alloc]
+//      initWithHeaderText:@"Level of Damage"
+//      formElements:@[
+//                     [self damageButtonElement],
+//                     ]
+//      ]];
 
     [self.view addFormGroup:
      [[FormGroup alloc]
