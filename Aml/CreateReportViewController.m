@@ -14,6 +14,7 @@
 #import "ReportUpload.h"
 #import "TextFieldTableViewCell.h"
 #import "ReportPhotoTableViewCell.h"
+#import "ReportHeaderView.h"
 
 @interface CreateReportViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -62,6 +63,8 @@
     [super viewDidLoad];
 
     self.title = @"Create Report";
+
+    self.tableView.tableHeaderView = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
 
     self.uploadButton = [[UIBarButtonItem alloc] initWithTitle:@"Upload" style:UIBarButtonItemStylePlain target:self action:@selector(upload:)];
     self.navigationItem.rightBarButtonItem = self.uploadButton;

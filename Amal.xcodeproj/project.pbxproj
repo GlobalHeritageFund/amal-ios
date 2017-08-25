@@ -24,6 +24,7 @@
 		1A4E393C1F2FD2F40055C7FA /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E393B1F2FD2F40055C7FA /* CurrentUser.m */; };
 		1A4E39401F2FD7C70055C7FA /* ReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */; };
 		1A4E39441F2FF1DF0055C7FA /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E39431F2FF1DF0055C7FA /* Report.m */; };
+		1A4E9AD11F50ABF0006856A8 /* ReportHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */; };
 		1A5AADE41F4F756A00573829 /* QBAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AADD11F4F756A00573829 /* QBAlbumCell.m */; };
 		1A5AADE51F4F756A00573829 /* QBAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AADD31F4F756A00573829 /* QBAlbumsViewController.m */; };
 		1A5AADE61F4F756A00573829 /* QBAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AADD51F4F756A00573829 /* QBAssetCell.m */; };
@@ -119,6 +120,8 @@
 		1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportsViewController.m; sourceTree = "<group>"; };
 		1A4E39421F2FF1DF0055C7FA /* Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Report.h; sourceTree = "<group>"; };
 		1A4E39431F2FF1DF0055C7FA /* Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
+		1A4E9ACF1F50ABF0006856A8 /* ReportHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportHeaderView.h; sourceTree = "<group>"; };
+		1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportHeaderView.m; sourceTree = "<group>"; };
 		1A5AADD01F4F756A00573829 /* QBAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumCell.h; sourceTree = "<group>"; };
 		1A5AADD11F4F756A00573829 /* QBAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumCell.m; sourceTree = "<group>"; };
 		1A5AADD21F4F756A00573829 /* QBAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumsViewController.h; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 				1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */,
 				1AEBACA51F4A7289002DC63F /* LocalDraftDataSource.h */,
 				1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */,
+				1A4E9ACF1F50ABF0006856A8 /* ReportHeaderView.h */,
+				1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */,
 			);
 			name = Report;
 			sourceTree = "<group>";
@@ -676,6 +681,7 @@
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
 				1A5AADE71F4F756A00573829 /* QBAssetsViewController.m in Sources */,
 				1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */,
+				1A4E9AD11F50ABF0006856A8 /* ReportHeaderView.m in Sources */,
 				1A2BEBF81F33618800A59E69 /* UIImage+Additions.m in Sources */,
 				1ACAD1EA1F0EF7A3001935D4 /* ReportDraft.m in Sources */,
 				1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */,
