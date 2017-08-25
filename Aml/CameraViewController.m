@@ -135,6 +135,8 @@
 
     [self beginDetectingFocusTaps];
 
+    [self beginDetectingZoom];
+
 }
 
 - (void)hideVolumeBezel {
@@ -178,6 +180,25 @@
         [currentDevice setFocusPointOfInterest:point];
     }];
 
+}
+
+- (void)beginDetectingZoom {
+    UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handleZoom:)];
+    [self.previewImageView addGestureRecognizer:pinch];
+    self.previewImageView.userInteractionEnabled = YES;
+}
+
+- (void)handleZoom:(UIPinchGestureRecognizer *)pinch {
+    CGFloat pinchVelocityDividerFactor = 5.0f;
+
+    if (pinch.state != UIGestureRecognizerStateChanged) {
+        return;
+    }
+
+    [self withCameraConfigurationLock:^{
+        CGFloat desiredZoomFactor = self.currentCaptureDevice.videoZoomFactor + atan2f(pinch.velocity, pinchVelocityDividerFactor);
+        self.currentCaptureDevice.videoZoomFactor = MAX(1.0, MIN(desiredZoomFactor, self.currentCaptureDevice.activeFormat.videoMaxZoomFactor));
+    }];
 }
 
 - (void)withCameraConfigurationLock:(void (^)())block {
