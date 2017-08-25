@@ -40,6 +40,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *cameraPermissionDialog;
 
+@property (nonatomic) UIImageView *focusSquare;
+
+
 @end
 
 @implementation CameraViewController
@@ -72,6 +75,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.focusSquare = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_focus"]];
+    self.focusSquare.hidden = YES;
+    [self.focusSquare sizeToFit];
+    [self.view addSubview:self.focusSquare];
 
     self.locationManager = [CLLocationManager new];
     
@@ -175,6 +183,9 @@
     CGFloat focusX = focusPoint.x / self.previewImageView.frame.size.width;
     CGFloat focusY = focusPoint.y / self.previewImageView.frame.size.height;
     CGPoint point = CGPointMake(focusX, focusY);
+
+    self.focusSquare.center = focusPoint;
+    self.focusSquare.hidden = NO;
 
     [self withCameraConfigurationLock:^{
         [currentDevice setFocusMode:AVCaptureFocusModeAutoFocus];
