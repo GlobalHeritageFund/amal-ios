@@ -72,10 +72,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self beginDetectingVolumeClicks];
-
-    [self hideVolumeBezel];
-
     locationManager = [CLLocationManager new];
     
     locationManager.delegate = self;
@@ -132,6 +128,13 @@
     if ([captureSession canAddOutput:stillImageOutput]) {
         [captureSession addOutput:stillImageOutput];
     }
+
+    [self beginDetectingVolumeClicks];
+
+    [self hideVolumeBezel];
+
+    [self beginDetectingFocusTaps];
+
 }
 
 - (void)hideVolumeBezel {
@@ -144,7 +147,44 @@
     [audioSession setActive:YES error:nil];
     [audioSession setCategory:AVAudioSessionCategoryAmbient error:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeChanged:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
+}
 
+- (void)beginDetectingFocusTaps {
+    UITapGestureRecognizer *shortTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapToFocus:)];
+    [self.previewImageView addGestureRecognizer:shortTap];
+    self.previewImageView.userInteractionEnabled = YES;
+}
+
+- (void)handleTapToFocus:(UITapGestureRecognizer *)tapGesture {
+    AVCaptureDevice *currentDevice = [self currentCaptureDevice];
+
+    if (![currentDevice isFocusModeSupported:AVCaptureFocusModeAutoFocus]
+        || ![currentDevice isFocusPointOfInterestSupported]) {
+        return;
+    }
+
+    if (tapGesture.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+
+    CGPoint focusPoint = [tapGesture locationInView:self.previewImageView];
+
+    CGFloat focusX = focusPoint.x / self.previewImageView.frame.size.width;
+    CGFloat focusY = focusPoint.y / self.previewImageView.frame.size.height;
+    CGPoint point = CGPointMake(focusX, focusY);
+
+    [self withCameraConfigurationLock:^{
+        [currentDevice setFocusMode:AVCaptureFocusModeAutoFocus];
+        [currentDevice setFocusPointOfInterest:point];
+    }];
+
+}
+
+- (void)withCameraConfigurationLock:(void (^)())block {
+    if ([[self currentCaptureDevice] lockForConfiguration:nil]) {
+        block();
+        [[self currentCaptureDevice] unlockForConfiguration];
+    }
 }
 
 - (void)volumeChanged:(NSNotification *)note {
@@ -224,14 +264,13 @@
     connection.videoOrientation = newOrientation;
 }
 
-- (IBAction)swapCamera:(UIButton*)sender
-{
+- (IBAction)swapCamera:(UIButton*)sender {
     sender.selected = !sender.selected;
     
     [captureSession beginConfiguration];
     
     if(sender.selected) {
-        
+
         [captureSession removeInput:capturingInputBack];
         [captureSession addInput:capturingInputFront];
     }
@@ -244,11 +283,19 @@
     [captureSession commitConfiguration];
 }
 
-- (void)setTorchMode:(AVCaptureTorchMode)mode
-{
-    if([inputDeviceBack hasTorch] && [inputDeviceBack isTorchModeSupported:mode]) {
+- (AVCaptureDevice *)currentCaptureDevice {
+    if (self.swapButton.isSelected) {
+        return inputDeviceFront;
+    } else {
+        return inputDeviceBack;
+    }
+}
+
+- (void)setTorchMode:(AVCaptureTorchMode)mode {
+
+    if ([inputDeviceBack hasTorch] && [inputDeviceBack isTorchModeSupported:mode]) {
         
-        if([inputDeviceBack lockForConfiguration:nil]) {
+        if ([inputDeviceBack lockForConfiguration:nil]) {
             
             inputDeviceBack.torchMode = mode;
             
