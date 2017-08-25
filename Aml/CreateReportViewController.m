@@ -65,6 +65,7 @@
 
     self.uploadButton = [[UIBarButtonItem alloc] initWithTitle:@"Upload" style:UIBarButtonItemStylePlain target:self action:@selector(upload:)];
     self.navigationItem.rightBarButtonItem = self.uploadButton;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -142,6 +143,10 @@
 - (void)upload:(id)sender {
     self.reportDraft.title = self.textField.text ?: @"";
     [self.delegate createReportViewController:self didTapUploadWithDraft:self.reportDraft];
+}
+
+- (void)cancel:(id)sender {
+    [self.delegate createReportViewControllerDidTapCancel:self];
 }
 
 @end

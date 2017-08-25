@@ -18,7 +18,6 @@
 
 @property (nonatomic) ReportDraft *currentReport;
 
-
 @end
 
 @implementation ReportCreationCoordinator
@@ -32,13 +31,30 @@
     return self;
 }
 
+- (instancetype)initWithViewController:(UIViewController *)viewController reportDraft:(ReportDraft *)reportDraft {
+    self = [super init];
+    if (!self) return nil;
+
+    _viewController = viewController;
+    _currentReport = reportDraft;
+
+    return self;
+}
+
 - (void)start {
-    GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
-    [galleryViewController loadViewIfNeeded];
-    UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
-    galleryViewController.mode = GalleryModeCreateReport;
-    galleryViewController.delegate = self;
-    [self.viewController presentViewController:galleryNavigationController animated:true completion:nil];
+    if (!self.currentReport) {
+        GalleryViewController *gallery = [[GalleryViewController alloc] init];
+        [gallery loadViewIfNeeded];
+        gallery.mode = GalleryModeCreateReport;
+        gallery.delegate = self;
+        UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:gallery];
+        [self.viewController presentViewController:galleryNavigationController animated:true completion:nil];
+    } else {
+        CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:self.currentReport];
+        createReport.delegate = self;
+        UINavigationController *createReportNavigationController = [[UINavigationController alloc] initWithRootViewController:createReport];
+        [self.viewController presentViewController:createReportNavigationController animated:true completion:nil];
+    }
 }
 
 - (void)galleryViewControllerDidTapImport:(GalleryViewController *)galleryViewController {
@@ -82,6 +98,10 @@
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
         [createReportViewController presentViewController:alertController animated:YES completion:nil];
     }];
+}
+
+- (void)createReportViewControllerDidTapCancel:(CreateReportViewController *)createReportViewController {
+    [createReportViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)createReportViewController:(CreateReportViewController *)createReportViewController didSelectPhoto:(LocalPhoto *)photo {

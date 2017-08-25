@@ -13,6 +13,7 @@
 @protocol CreateReportViewControllerDelegate <NSObject>
 
 - (void)createReportViewController:(CreateReportViewController *)createReportViewController didTapUploadWithDraft:(ReportDraft *)draft;
+- (void)createReportViewControllerDidTapCancel:(CreateReportViewController *)createReportViewController;
 
 - (void)createReportViewController:(CreateReportViewController *)createReportViewController didSelectPhoto:(LocalPhoto *)photo;
 - (void)createReportViewControllerDidTapAddPhoto:(CreateReportViewController *)createReportViewController;

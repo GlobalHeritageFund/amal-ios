@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class ReportDraft;
+
 @interface ReportCreationCoordinator : NSObject
 
 @property (nonatomic, readonly) UIViewController *viewController;
 
 - (instancetype)initWithViewController:(UIViewController *)viewController;
+- (instancetype)initWithViewController:(UIViewController *)viewController reportDraft:(ReportDraft *)reportDraft;
 
 - (void)start;
 
