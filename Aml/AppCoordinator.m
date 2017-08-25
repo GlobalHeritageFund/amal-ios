@@ -144,7 +144,6 @@
         [self saveAsset:asset];
     }
 
-    [[[[[[[self.window.rootViewController asClassOrNil:[UITabBarController class]] viewControllers] objectAtIndex:1] asClassOrNil:[UINavigationController class]] topViewController] asClassOrNil:[GalleryViewController class]] reloadData];
 
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
@@ -170,6 +169,9 @@
         }
 
         [[PhotoStorage new] saveJpegLocally:imageData withMetadata:metadata];
+
+        [[[[[[[self.window.rootViewController asClassOrNil:[UITabBarController class]] viewControllers] objectAtIndex:1] asClassOrNil:[UINavigationController class]] topViewController] asClassOrNil:[GalleryViewController class]] reloadData];
+
     }];
 
 }
