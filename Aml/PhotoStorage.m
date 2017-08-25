@@ -79,6 +79,7 @@
             section.photos = photosForCurrentSection;
             [sections addObject:section];
             photosForCurrentSection = [NSMutableArray new];
+            [photosForCurrentSection addObject:photo];
         } else {
             [photosForCurrentSection addObject:photo];
         }
