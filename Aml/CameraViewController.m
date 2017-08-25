@@ -15,6 +15,21 @@
 
 @interface CameraViewController ()
 
+@property (nonatomic) AVCaptureDevice *inputDeviceFront;
+@property (nonatomic) AVCaptureDevice *inputDeviceBack;
+
+@property (nonatomic) AVCaptureInput *capturingInputFront;
+@property (nonatomic) AVCaptureInput *capturingInputBack;
+
+@property (nonatomic) AVCaptureStillImageOutput *stillImageOutput;
+
+@property (nonatomic) AVCaptureSession *captureSession;
+
+@property (nonatomic) AVCaptureVideoPreviewLayer *previewLayer;
+
+@property (nonatomic) CLLocationManager *locationManager;
+
+
 @property (weak) IBOutlet UIButton *swapButton;
 @property (weak) IBOutlet UIButton *flashButton;
 
@@ -27,21 +42,7 @@
 
 @end
 
-@implementation CameraViewController {
-    AVCaptureDevice *inputDeviceFront;
-    AVCaptureDevice *inputDeviceBack;
-    
-    AVCaptureInput *capturingInputFront;
-    AVCaptureInput *capturingInputBack;
-    
-    AVCaptureStillImageOutput *stillImageOutput;
-    
-    AVCaptureSession *captureSession;
-    
-    AVCaptureVideoPreviewLayer *previewLayer;
-    
-    CLLocationManager *locationManager;
-}
+@implementation CameraViewController
 
 + (instancetype)makeFromStoryboard {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"CameraViewController" bundle:nil];
@@ -55,9 +56,9 @@
     for (AVCaptureDevice *device in devices) {
         
         if ([device position] == AVCaptureDevicePositionBack) {
-            inputDeviceBack = device;
+            self.inputDeviceBack = device;
         } else {
-            inputDeviceFront = device;
+            self.inputDeviceFront = device;
         }
     }
 }
@@ -72,61 +73,61 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    locationManager = [CLLocationManager new];
+    self.locationManager = [CLLocationManager new];
     
-    locationManager.delegate = self;
-    locationManager.distanceFilter = kCLDistanceFilterNone;
-    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     
-    [locationManager requestWhenInUseAuthorization];
-    [locationManager startUpdatingLocation];
+    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager startUpdatingLocation];
     
     [self loadDevices];
 
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(orientationChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
 
-    if (inputDeviceBack == nil) {
+    if (self.inputDeviceBack == nil) {
         return;
     }
 
-    captureSession = [AVCaptureSession new];
+    self.captureSession = [AVCaptureSession new];
 
-    [captureSession startRunning];
+    [self.captureSession startRunning];
 
-    if ([captureSession canSetSessionPreset:AVCaptureSessionPresetPhoto]) {
-        captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
+    if ([self.captureSession canSetSessionPreset:AVCaptureSessionPresetPhoto]) {
+        self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
     }
 
     self.torchMode = AVCaptureTorchModeAuto;
 
-    capturingInputBack = [AVCaptureDeviceInput deviceInputWithDevice:inputDeviceBack error:nil];
-    capturingInputFront = [AVCaptureDeviceInput deviceInputWithDevice:inputDeviceFront error:nil];
+    self.capturingInputBack = [AVCaptureDeviceInput deviceInputWithDevice:self.inputDeviceBack error:nil];
+    self.capturingInputFront = [AVCaptureDeviceInput deviceInputWithDevice:self.inputDeviceFront error:nil];
 
-    [captureSession beginConfiguration];
+    [self.captureSession beginConfiguration];
 
-    if (capturingInputBack == nil) {
+    if (self.capturingInputBack == nil) {
         //camera access not granted
         return;
     }
 
-    [captureSession addInput:capturingInputBack];
+    [self.captureSession addInput:self.capturingInputBack];
 
-    [captureSession commitConfiguration];
+    [self.captureSession commitConfiguration];
 
-    previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
+    self.previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.captureSession];
 
-    previewLayer.frame = self.previewImageView.bounds;
+    self.previewLayer.frame = self.previewImageView.bounds;
 
-    previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
 
-    [self.previewImageView.layer addSublayer:previewLayer];
+    [self.previewImageView.layer addSublayer:self.previewLayer];
 
-    stillImageOutput = [AVCaptureStillImageOutput new];
+    self.stillImageOutput = [AVCaptureStillImageOutput new];
 
-    stillImageOutput.outputSettings = @{ AVVideoCodecKey:AVVideoCodecJPEG };
+    self.stillImageOutput.outputSettings = @{ AVVideoCodecKey:AVVideoCodecJPEG };
 
-    if ([captureSession canAddOutput:stillImageOutput]) {
-        [captureSession addOutput:stillImageOutput];
+    if ([self.captureSession canAddOutput:self.stillImageOutput]) {
+        [self.captureSession addOutput:self.stillImageOutput];
     }
 
     [self beginDetectingVolumeClicks];
@@ -253,7 +254,7 @@
 {
     [super viewDidLayoutSubviews];
     
-    previewLayer.frame = self.previewImageView.bounds;
+    self.previewLayer.frame = self.previewImageView.bounds;
 
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     BOOL cameraPermissionDenied = authStatus == AVAuthorizationStatusDenied;
@@ -281,46 +282,46 @@
         default:
             newOrientation = AVCaptureVideoOrientationPortrait;
     }
-    AVCaptureConnection *connection = [stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
+    AVCaptureConnection *connection = [self.stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
     connection.videoOrientation = newOrientation;
 }
 
 - (IBAction)swapCamera:(UIButton*)sender {
     sender.selected = !sender.selected;
     
-    [captureSession beginConfiguration];
+    [self.captureSession beginConfiguration];
     
     if(sender.selected) {
 
-        [captureSession removeInput:capturingInputBack];
-        [captureSession addInput:capturingInputFront];
+        [self.captureSession removeInput:self.capturingInputBack];
+        [self.captureSession addInput:self.capturingInputFront];
     }
     else {
         
-        [captureSession removeInput:capturingInputFront];
-        [captureSession addInput:capturingInputBack];
+        [self.captureSession removeInput:self.capturingInputFront];
+        [self.captureSession addInput:self.capturingInputBack];
     }
     
-    [captureSession commitConfiguration];
+    [self.captureSession commitConfiguration];
 }
 
 - (AVCaptureDevice *)currentCaptureDevice {
     if (self.swapButton.isSelected) {
-        return inputDeviceFront;
+        return self.inputDeviceFront;
     } else {
-        return inputDeviceBack;
+        return self.inputDeviceBack;
     }
 }
 
 - (void)setTorchMode:(AVCaptureTorchMode)mode {
 
-    if ([inputDeviceBack hasTorch] && [inputDeviceBack isTorchModeSupported:mode]) {
+    if ([self.inputDeviceBack hasTorch] && [self.inputDeviceBack isTorchModeSupported:mode]) {
         
-        if ([inputDeviceBack lockForConfiguration:nil]) {
+        if ([self.inputDeviceBack lockForConfiguration:nil]) {
             
-            inputDeviceBack.torchMode = mode;
+            self.inputDeviceBack.torchMode = mode;
             
-            [inputDeviceBack unlockForConfiguration];
+            [self.inputDeviceBack unlockForConfiguration];
         }
     }
 }
@@ -352,13 +353,13 @@
 
 - (IBAction)capturePhoto:(id)sender
 {
-    if(stillImageOutput) {
+    if(self.stillImageOutput) {
         
-        AVCaptureConnection *conn = [stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
+        AVCaptureConnection *conn = [self.stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
         
         [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
         
-        [stillImageOutput captureStillImageAsynchronouslyFromConnection:conn completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+        [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:conn completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
             
             NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
 
