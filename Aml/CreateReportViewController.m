@@ -73,6 +73,7 @@
 }
 
 - (void)configureView {
+    self.reportHeader.titleField.enabled = self.viewModel.isEditable;
     self.reportHeader.dateLabel.text = self.viewModel.dateInterval;
     self.reportHeader.countLabel.text = self.viewModel.imageCountString;
     [self.reportHeader.uploadStateButton setTitle:self.viewModel.uploadState forState:UIControlStateNormal];
@@ -98,7 +99,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 1) {
-        return 1;
+        if (self.viewModel.isEditable) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
     return self.viewModel.report.photoCount;
 }
