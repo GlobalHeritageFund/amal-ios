@@ -14,7 +14,7 @@
 #import "UIImage+Resize.h"
 #import "CGGeometry.h"
 
-@implementation Image
+@implementation RemotePhoto
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -47,7 +47,7 @@
 
     NSDictionary *images = dictionary[@"images"];
     _images = [images.allKeys arrayByTransformingObjectsUsingBlock:^id(id object) {
-        return [[Image alloc] initWithDictionary:images[object]];
+        return [[RemotePhoto alloc] initWithDictionary:images[object]];
     }];
 
     return self;

@@ -13,7 +13,7 @@
 
 @class AMLMetadata;
 
-@interface Image : NSObject
+@interface RemotePhoto : NSObject
 
 @property (nonatomic, readonly) AMLMetadata *settings;
 @property (nonatomic) NSString *remoteStorageLocation;
@@ -30,7 +30,7 @@
 @property (readonly) NSString *title;
 @property (readonly) NSDate *creationDate;
 
-@property (nonatomic, readonly) NSArray<Image *> *images;
+@property (nonatomic, readonly) NSArray<RemotePhoto *> *images;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
