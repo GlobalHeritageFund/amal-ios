@@ -177,7 +177,7 @@
     self.titleField.frame = titleRect;
     self.dateLabel.frame = dateRect;
     self.countLabel.frame = countRect;
-    self.separator.frame = separatorRect;
+//    self.separator.frame = separatorRect;
     self.uploadStateLabel.frame = uploadStateRect;
     self.totalProgressView.frame = totalProgressRect;
     self.creationDateLabel.frame = creationDateRect;
