@@ -44,7 +44,7 @@ static NSDateFormatter *dateFormatter = nil;
     return [NSString stringWithFormat:@"Created %@", [dateFormatter stringFromDate:self.report.creationDate]];
 }
 
-- (NSString *)photoCountString {
+- (NSString *)imageCountString {
     if (self.report.photoCount == 0) {
         return @"No photos";
     } else if (self.report.photoCount == 1) {
