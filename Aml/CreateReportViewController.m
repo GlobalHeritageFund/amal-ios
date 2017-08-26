@@ -65,6 +65,13 @@
     [self configureView];
 }
 
+- (void)setViewModel:(ReportViewModel *)viewModel {
+    _viewModel = viewModel;
+
+    [self configureView];
+    [self.tableView reloadData];
+}
+
 - (void)configureView {
     self.reportHeader.dateLabel.text = self.viewModel.dateInterval;
     self.reportHeader.countLabel.text = self.viewModel.imageCountString;
@@ -124,7 +131,7 @@
     cell.imageView.image = photo.image;
     cell.textLabel.text = (photo.metadata.name.length) ? photo.metadata.name : @"Unnamed";
     cell.detailTextLabel.text = (photo.metadata.notes.length) ? photo.metadata.notes : @"No notes.";
-    cell.progressView.observedProgress = self.upload.progresses[indexPath.row];
+    cell.progressView.observedProgress = self.viewModel.upload.progresses[indexPath.row];
     return cell;
 }
 

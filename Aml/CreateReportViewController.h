@@ -33,8 +33,6 @@
 
 @property (nonatomic) ReportViewModel *viewModel;
 
-@property (nonatomic) ReportUpload *upload;
-
 @property (nonatomic) UIBarButtonItem *uploadButton;
 
 - (void)updateUploadButtonState;

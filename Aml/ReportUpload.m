@@ -18,6 +18,7 @@
 @interface ReportUpload ()
 
 @property (nonatomic) ReportDraft *reportDraft;
+@property (nonatomic) NSProgress *totalProgress;
 
 @end
 
@@ -30,6 +31,8 @@
     _reportDraft = reportDraft;
     _reportDraft.deviceToken = [CurrentUser shared].deviceToken;
     _promise = [Promise new];
+    _totalProgress = [[NSProgress alloc] init];
+
     _progresses = [_reportDraft.photos arrayByTransformingObjectsUsingBlock:^id(id object) {
         NSProgress *progress = [[NSProgress alloc] init];
         progress.totalUnitCount = 100;
@@ -72,6 +75,7 @@
                [Promise all:photoUploadPromises],
                ]]
             then:^id _Nullable(id  _Nonnull object) {
+                //would love to make a full Report here
                 [self.promise fulfill:self.reportDraft];
                 return nil;
             }] catch:^(NSError * _Nonnull error) {
@@ -108,6 +112,42 @@
                           [[ref child:@"imageRef"] promiseSetValue:imageRef.fullPath],
                           photoUploadPromise,
                           ]];
+}
+
+- (BOOL)isEditable {
+    return NO;
+}
+
+- (NSDate *)minDate {
+    return self.reportDraft.minDate;
+}
+
+- (NSDate *)maxDate {
+    return self.reportDraft.maxDate;
+}
+
+- (NSString *)title {
+    return self.reportDraft.title;
+}
+
+- (NSInteger)photoCount {
+    return self.reportDraft.photoCount;
+}
+
+- (NSDate *)creationDate {
+    return self.reportDraft.creationDate;
+}
+
+- (NSProgress *)progress {
+    return self.totalProgress;
+}
+
+- (NSString *)reportState {
+    return @"Publishing";
+}
+
+- (NSString *)uploadState {
+    return @"Uploading...";
 }
 
 @end

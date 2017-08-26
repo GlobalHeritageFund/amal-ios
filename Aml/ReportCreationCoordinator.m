@@ -80,20 +80,17 @@
 }
 
 - (void)createReportViewController:(CreateReportViewController *)createReportViewController didTapUploadWithDraft:(ReportDraft *)draft {
-    createReportViewController.title = @"Uploading...";
-    createReportViewController.uploadButton.enabled = NO;
 
     ReportUpload *upload = [[ReportUpload alloc] initWithReportDraft:draft];
-    createReportViewController.upload = upload;
+    createReportViewController.viewModel = [[ReportViewModel alloc] initWithReport:upload];
 
     [upload upload];
     [[upload.promise then:^id _Nullable(id  _Nonnull object) {
-        createReportViewController.title = @"Uploaded!";
         createReportViewController.navigationItem.hidesBackButton = YES;
         createReportViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissReportCreation:)];
         return nil;
     }] catch:^(NSError * _Nonnull error) {
-        //probably should reset state to not uploaded
+        createReportViewController.viewModel = [[ReportViewModel alloc] initWithReport:draft];
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"An error occurred" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
         [createReportViewController presentViewController:alertController animated:YES completion:nil];
