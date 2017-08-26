@@ -15,6 +15,7 @@
 #import "TextFieldTableViewCell.h"
 #import "ReportPhotoTableViewCell.h"
 #import "ReportHeaderView.h"
+#import "UIColor+Additions.h"
 
 @interface CreateReportViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -108,7 +109,7 @@
     if (indexPath.section == 1) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
         cell.textLabel.text = @"Add...";
-        cell.textLabel.textColor = [UIColor blueColor];
+        cell.textLabel.textColor = [UIColor amalTeal];
         return cell;
     }
     ReportPhotoTableViewCell *cell = [[ReportPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
