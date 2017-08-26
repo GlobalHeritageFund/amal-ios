@@ -221,13 +221,13 @@
 }
 
 - (void)volumeChanged:(NSNotification *)note {
-    if ([note.userInfo[@"AVSystemController_AudioVolumeChangeReasonNotificationParameter"] isEqual: @"ExplicitVolumeChange"]) {
+    NSString *changeReason = note.userInfo[@"AVSystemController_AudioVolumeChangeReasonNotificationParameter"];
+    if ([changeReason isEqual:@"ExplicitVolumeChange"] && self.isVisible) {
         [self capturePhoto:self];
     }
 }
 
-- (void)orientationChange:(NSNotification*)note
-{
+- (void)orientationChange:(NSNotification*)note {
     UIDeviceOrientation orientation = UIDevice.currentDevice.orientation;
 
     [self updateCameraOrientation];
@@ -273,6 +273,10 @@
     self.photoButton.hidden = cameraPermissionDenied;
     self.flashButton.hidden = cameraPermissionDenied;
     self.swapButton.hidden = cameraPermissionDenied;
+}
+
+- (BOOL)isVisible {
+    return self.isViewLoaded && self.view.window != nil;
 }
 
 - (void)updateCameraOrientation {
