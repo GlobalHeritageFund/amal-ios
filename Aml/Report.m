@@ -27,8 +27,11 @@
 }
 
 - (Promise<UIImage *> *)loadThumbnailImage {
-    return [[self loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
+    return [[[self loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
         return [image resizedImage:CGSizeFitting(image.size, CGSizeMake(100, 100)) interpolationQuality:kCGInterpolationMedium];
+    }] then:^id _Nullable(id  _Nonnull object) {
+        self.image = object;
+        return nil;
     }];
 }
 
@@ -51,7 +54,7 @@
     _creationDate = [[NSDate alloc] initWithTimeIntervalSince1970:[dictionary[@"creationDate"] doubleValue]];
 
     NSDictionary *images = dictionary[@"images"];
-    _images = [images.allKeys arrayByTransformingObjectsUsingBlock:^id(id object) {
+    _photos = [images.allKeys arrayByTransformingObjectsUsingBlock:^id(id object) {
         return [[RemotePhoto alloc] initWithDictionary:images[object]];
     }];
 
@@ -59,7 +62,7 @@
 }
 
 - (NSInteger)photoCount {
-    return self.images.count;
+    return self.photos.count;
 }
 
 - (BOOL)isEditable {
@@ -67,11 +70,11 @@
 }
 
 - (NSDate *)minDate {
-    return [self.images valueForKeyPath:@"@min.metadata.date"];
+    return [self.photos valueForKeyPath:@"@min.metadata.date"];
 }
 
 - (NSDate *)maxDate {
-    return [self.images valueForKeyPath:@"@max.metadata.date"];
+    return [self.photos valueForKeyPath:@"@max.metadata.date"];
 }
 
 - (NSProgress *)progress {

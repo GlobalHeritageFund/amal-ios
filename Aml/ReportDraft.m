@@ -17,7 +17,7 @@
     self = [super init];
     if (!self) return nil;
 
-    _photos = [photos mutableCopy];
+    _localPhotos = [photos mutableCopy];
 
     _creationDate = [[NSDate alloc] init];
 
@@ -29,7 +29,7 @@
         return [obj.imagePath isEqual:photo.imagePath];
     }];
     if (i == NSNotFound) {
-        [self.photos addObject:photo];
+        [self.localPhotos addObject:photo];
     }
 }
 
@@ -40,7 +40,7 @@
     _title = [dictionary[@"title"] asClassOrNil:[NSString class]];
     _deviceToken = [dictionary[@"deviceToken"] asClassOrNil:[NSString class]];
     _creationDate = [NSDate dateWithTimeIntervalSince1970:[[dictionary[@"creationDate"] asClassOrNil:[NSNumber class]] doubleValue]];
-    _photos = [[[dictionary[@"photos"] asClassOrNil:[NSArray class]] arrayByTransformingObjectsUsingBlock:^id(id object) {
+    _localPhotos = [[[dictionary[@"photos"] asClassOrNil:[NSArray class]] arrayByTransformingObjectsUsingBlock:^id(id object) {
         return [[LocalPhoto alloc] initWithDictionary:object];
     }] mutableCopy];
 
@@ -56,6 +56,10 @@
                  return object.dictionaryRepresentation;
              }],
              };
+}
+
+- (NSArray<LocalPhoto *> *)photos {
+    return self.localPhotos;
 }
 
 - (NSDate *)minDate {

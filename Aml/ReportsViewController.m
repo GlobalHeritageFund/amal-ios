@@ -50,7 +50,7 @@
     cell.textLabel.text = report.title;
     cell.detailTextLabel.text = report.imageCountString;
 
-    [[[report.images.firstObject loadThumbnailImage] then:^id _Nullable(id  _Nonnull image) {
+    [[[report.photos.firstObject loadThumbnailImage] then:^id _Nullable(id  _Nonnull image) {
         if ([tableView cellForRowAtIndexPath:indexPath] == cell) {
             cell.imageView.image = image;
             [cell setNeedsLayout];

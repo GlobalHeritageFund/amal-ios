@@ -21,6 +21,8 @@
 - (Promise<UIImage *> *)loadThumbnailImage;
 - (Promise<UIImage *> *)loadFullSizeImage;
 
+@property (nonatomic) UIImage *image;
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
@@ -31,7 +33,7 @@
 @property (readonly) NSString *title;
 @property (readonly) NSDate *creationDate;
 
-@property (nonatomic, readonly) NSArray<RemotePhoto *> *images;
+@property (nonatomic, readonly) NSArray<RemotePhoto *> *photos;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

@@ -131,7 +131,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.viewModel.draft.photos removeObjectAtIndex:indexPath.row];
+    [self.viewModel.draft.localPhotos removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     [self updateUploadButtonState];
 }
@@ -144,8 +144,14 @@
         return cell;
     }
     ReportPhotoTableViewCell *cell = [[ReportPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-    LocalPhoto *photo = self.viewModel.draft.photos[indexPath.row];
-    cell.imageView.image = photo.image;
+    id<PhotoProtocol> photo = self.viewModel.photos[indexPath.row];
+    [[photo loadThumbnailImage] then:^id _Nullable(id  _Nonnull object) {
+        if ([tableView cellForRowAtIndexPath:indexPath] != nil) {
+            cell.imageView.image = object;
+        }
+        return nil;
+    }];
+
     cell.textLabel.text = (photo.metadata.name.length) ? photo.metadata.name : @"Unnamed";
     cell.detailTextLabel.text = (photo.metadata.notes.length) ? photo.metadata.notes : @"No notes.";
     cell.progressView.observedProgress = self.viewModel.upload.progresses[indexPath.row];
@@ -154,7 +160,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        LocalPhoto *photo = self.viewModel.draft.photos[indexPath.row];
+        LocalPhoto *photo = self.viewModel.draft.localPhotos[indexPath.row];
         [self.delegate createReportViewController:self didSelectPhoto:photo];
     }
     if (indexPath.section == 1) {

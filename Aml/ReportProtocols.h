@@ -32,6 +32,8 @@
 
 @property (readonly) NSDate *maxDate;
 
+@property (readonly) NSArray<id<PhotoProtocol>> *photos;
+
 @property (readonly) NSInteger photoCount;
 
 @property (readonly) NSDate *creationDate;

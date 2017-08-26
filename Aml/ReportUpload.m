@@ -121,6 +121,10 @@
     return NO;
 }
 
+- (NSArray<id<PhotoProtocol>> *)photos {
+    return self.reportDraft.photos;
+}
+
 - (NSDate *)minDate {
     return self.reportDraft.minDate;
 }

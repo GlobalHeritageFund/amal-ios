@@ -27,6 +27,10 @@
     return self.report.title;
 }
 
+- (NSArray<id<PhotoProtocol>> *)photos {
+    return self.report.photos;
+}
+
 static NSDateIntervalFormatter *dateIntervalFormatter = nil;
 
 static NSDateFormatter *dateFormatter = nil;

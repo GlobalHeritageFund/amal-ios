@@ -16,6 +16,7 @@
 @property (nonatomic, readonly) id<ReportProtocol> report;
 
 @property (readonly) BOOL isEditable;
+@property (readonly) NSArray<id<PhotoProtocol>> *photos;
 @property (readonly) NSString *title;
 @property (readonly) NSString *dateInterval;
 @property (readonly) NSString *creationDateString;
