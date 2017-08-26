@@ -196,6 +196,7 @@
 
 - (void)notesFieldDidChange:(NSNotification *)notification {
     UITextView *textView = notification.object;
+    [FIRAnalytics logEventWithName:@"metadata-updated-notes" parameters:nil];
     self.photo.metadata.notes = textView.text;
     [self saveMetadata];
 }
