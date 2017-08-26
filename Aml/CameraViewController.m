@@ -12,6 +12,7 @@
 #import "PhotoStorage.h"
 #import "AMLMetadata.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "Firebase.h"
 
 @interface CameraViewController ()
 
@@ -41,6 +42,8 @@
 @property (weak, nonatomic) IBOutlet UIView *cameraPermissionDialog;
 
 @property (nonatomic) UIImageView *focusSquare;
+
+@property (nonatomic) NSString *orientation;
 
 
 @end
@@ -75,6 +78,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.orientation = @"portrait";
 
     self.focusSquare = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_focus"]];
     self.focusSquare.hidden = YES;
@@ -239,16 +244,19 @@
             self.flashButton.transform = CGAffineTransformMakeRotation(M_PI_2);
             self.rapidButton.transform = CGAffineTransformMakeRotation(M_PI_2);
             self.photoButton.transform = CGAffineTransformMakeRotation(M_PI_2);
+            self.orientation = @"landscape";
         } else if(orientation == UIDeviceOrientationLandscapeRight) {
             self.swapButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
             self.flashButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
             self.rapidButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
             self.photoButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
+            self.orientation = @"landscape";
         } else {
             self.swapButton.transform = CGAffineTransformIdentity;
             self.flashButton.transform = CGAffineTransformIdentity;
             self.rapidButton.transform = CGAffineTransformIdentity;
             self.photoButton.transform = CGAffineTransformIdentity;
+            self.orientation = @"portrait";
         }
     }];
 }
@@ -367,8 +375,9 @@
     self.torchMode = AVCaptureTorchModeAuto;
 }
 
-- (IBAction)capturePhoto:(id)sender
-{
+- (IBAction)capturePhoto:(id)sender {
+    [FIRAnalytics logEventWithName:@"capture-photo" parameters:@{ @"orientation": self.orientation }];
+
     if(self.stillImageOutput) {
         
         AVCaptureConnection *conn = [self.stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
