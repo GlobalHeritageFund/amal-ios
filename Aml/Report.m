@@ -16,6 +16,8 @@
 
 @implementation RemotePhoto
 
+static NSCache *thumbnailCache = nil;
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (!self) return nil;
@@ -26,11 +28,22 @@
     return self;
 }
 
+- (NSCache *)cache {
+    if (thumbnailCache == nil) {
+        thumbnailCache = [[NSCache alloc] init];
+    }
+    return thumbnailCache;
+}
+
 - (Promise<UIImage *> *)loadThumbnailImage {
+    UIImage *cachedValue = [self.cache objectForKey:self.remoteStorageLocation];
+    if (cachedValue) {
+        return [Promise fulfilled:cachedValue];
+    }
     return [[[self loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
         return [image resizedImage:CGSizeFitting(image.size, CGSizeMake(100, 100)) interpolationQuality:kCGInterpolationMedium];
     }] then:^id _Nullable(id  _Nonnull object) {
-        self.image = object;
+        [self.cache setObject:object forKey:self.remoteStorageLocation];
         return nil;
     }];
 }
