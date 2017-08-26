@@ -185,6 +185,8 @@
 }
 
 - (void)reportsViewController:(ReportsViewController *)reportsViewController didTapReport:(Report *)report {
+    [FIRAnalytics logEventWithName:@"report-tapped" parameters:nil];
+
     ReportViewModel *viewModel = [[ReportViewModel alloc] initWithReport:report];
     ReportDetailViewController *reportViewController = [[ReportDetailViewController alloc] initWithReportViewModel:viewModel];
     [reportsViewController.navigationController pushViewController:reportViewController animated:YES];

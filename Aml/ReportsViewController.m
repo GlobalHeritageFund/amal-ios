@@ -68,6 +68,7 @@
 }
 
 - (void)composeTapped:(id)sender {
+    [FIRAnalytics logEventWithName:@"report-compose-tapped" parameters:nil];
     [self.delegate reportsViewControllerDidTapCompose:self];
 }
 
