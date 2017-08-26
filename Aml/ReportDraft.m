@@ -58,5 +58,12 @@
              };
 }
 
+- (NSDate *)minDate {
+    return [self.photos valueForKeyPath:@"@min.date"];
+}
+
+- (NSDate *)maxDate {
+    return [self.photos valueForKeyPath:@"@max.date"];
+}
 
 @end

@@ -59,17 +59,28 @@
     self.reportHeader = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 300)];
     self.tableView.tableHeaderView = self.reportHeader;
 
-    self.reportHeader.dateLabel.text = @"22 Oct - 12 Nov, 2016";
+    self.uploadButton = [[UIBarButtonItem alloc] initWithTitle:@"Upload" style:UIBarButtonItemStylePlain target:self action:@selector(upload:)];
+    self.navigationItem.rightBarButtonItem = self.uploadButton;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
+
+    [self configureView];
+}
+
+static NSDateIntervalFormatter *formatter = nil;
+
+- (void)configureView {
+    if (formatter == nil) {
+        formatter = [[NSDateIntervalFormatter alloc] init];
+        formatter.dateStyle = NSDateFormatterMediumStyle;
+        formatter.timeStyle = NSDateFormatterNoStyle;
+    }
+    self.reportHeader.dateLabel.text = [formatter stringFromDate:self.reportDraft.minDate toDate:self.reportDraft.maxDate];
     self.reportHeader.countLabel.text = @"75 photos";
     self.reportHeader.uploadStateLabel.text = @"Published 75 of 75";
     self.reportHeader.totalProgressView.progress = 0.2;
     self.reportHeader.creationDateLabel.text = @"Created 27 June 2017";
     self.reportHeader.reportStateLabel.text = @"Published";
-    
 
-    self.uploadButton = [[UIBarButtonItem alloc] initWithTitle:@"Upload" style:UIBarButtonItemStylePlain target:self action:@selector(upload:)];
-    self.navigationItem.rightBarButtonItem = self.uploadButton;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

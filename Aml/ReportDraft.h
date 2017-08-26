@@ -26,4 +26,9 @@
 
 @property (nonatomic, readonly) NSDictionary *dictionaryRepresentation;
 
+
+@property (readonly) NSDate *minDate;
+
+@property (readonly) NSDate *maxDate;
+
 @end
