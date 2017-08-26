@@ -32,6 +32,8 @@
 - (MKMapView *)mapView {
     if (!_mapView) {
         MKMapView *mapView = [[MKMapView alloc] init];
+        mapView.zoomEnabled = NO;
+        mapView.scrollEnabled = NO;
         [self addSubview:mapView];
         self.mapView = mapView;
     }
