@@ -106,6 +106,7 @@
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
 
+    [FIRAnalytics logEventWithName:@"multi-create-report" parameters:@{ @"count": @(photos.count) }];
     galleryViewController.mode = GalleryModeNormal;
 
     ReportDraft *report = [[ReportDraft alloc] initWithPhotos:photos];
@@ -137,7 +138,7 @@
 - (void)qb_imagePickerController:(QBImagePickerController *)picker didFinishPickingAssets:(NSArray *)assets {
 
     [FIRAnalytics logEventWithName:@"imported-images" parameters:@{ @"count": @(assets.count) }];
-    
+
     for (PHAsset *asset in assets) {
         [self saveAsset:asset];
     }
