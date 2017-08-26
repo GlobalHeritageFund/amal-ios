@@ -31,4 +31,6 @@
 
 @property (readonly) NSDate *maxDate;
 
+@property (readonly) NSString *photoCountString;
+
 @end

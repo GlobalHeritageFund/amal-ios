@@ -75,7 +75,7 @@ static NSDateIntervalFormatter *formatter = nil;
         formatter.timeStyle = NSDateFormatterNoStyle;
     }
     self.reportHeader.dateLabel.text = [formatter stringFromDate:self.reportDraft.minDate toDate:self.reportDraft.maxDate];
-    self.reportHeader.countLabel.text = @"75 photos";
+    self.reportHeader.countLabel.text = self.reportDraft.photoCountString;
     self.reportHeader.uploadStateLabel.text = @"Published 75 of 75";
     self.reportHeader.totalProgressView.progress = 0.2;
     self.reportHeader.creationDateLabel.text = @"Created 27 June 2017";
