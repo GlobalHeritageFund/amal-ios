@@ -47,20 +47,20 @@
     [self saveMetadata];
 }
 
-- (Promise<UIImage *> *)loadFullSize {
+- (Promise<UIImage *> *)loadFullSizeImage {
     return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(id _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
         UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];
         fulfill(image);
     }];
 }
 
-- (Promise *)loadImage {
+- (Promise<UIImage *> *)loadThumbnailImage {
     return [[[UIImage promisedImageWithContentsOfFile:self.imagePath]
              then:^id _Nullable(UIImage *_Nonnull image) {
                  return [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
              }] then:^id _Nullable(id  _Nonnull image) {
                  self.image = image;
-                 return self;
+                 return image;
              }];
 }
 

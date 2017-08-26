@@ -294,7 +294,7 @@
 
 - (void)photoTapped:(UITapGestureRecognizer *)sender {
     ImageDetailViewController *imageDetail = [[ImageDetailViewController alloc] init];
-    [[self.photo loadFullSize] then:^id _Nullable(id  _Nonnull fullSize) {
+    [[self.photo loadFullSizeImage] then:^id _Nullable(id  _Nonnull fullSize) {
         imageDetail.imageView.image = fullSize;
         return nil;
     }];

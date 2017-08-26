@@ -21,16 +21,21 @@
     if (!self) return nil;
 
     _remoteStorageLocation = dictionary[@"imageRef"];
-    _settings = [[AMLMetadata alloc] initWithDictionary:dictionary[@"settings"]];
+    _metadata = [[AMLMetadata alloc] initWithDictionary:dictionary[@"settings"]];
 
     return self;
 }
 
-- (Promise *)fetchFirebaseImage {
-    return [[[[[FIRStorage storage] referenceWithPath:self.remoteStorageLocation] dataWithMaxSize:INT64_MAX] then:^id _Nullable(id  _Nonnull data) {
-        return [UIImage imageWithData:data];
-    }] then:^id _Nullable(UIImage * _Nonnull image) {
+- (Promise<UIImage *> *)loadThumbnailImage {
+    return [[self loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
         return [image resizedImage:CGSizeFitting(image.size, CGSizeMake(100, 100)) interpolationQuality:kCGInterpolationMedium];
+    }];
+}
+
+- (Promise<UIImage *> *)loadFullSizeImage {
+    Promise<NSData *> *promise = [[[FIRStorage storage] referenceWithPath:self.remoteStorageLocation] dataWithMaxSize:INT64_MAX];
+    return (Promise<UIImage *> *)[promise then:^id _Nullable(id  _Nonnull data) {
+        return [UIImage imageWithData:data];
     }];
 }
 
@@ -62,11 +67,11 @@
 }
 
 - (NSDate *)minDate {
-    return [self.images valueForKeyPath:@"@min.settings.date"];
+    return [self.images valueForKeyPath:@"@min.metadata.date"];
 }
 
 - (NSDate *)maxDate {
-    return [self.images valueForKeyPath:@"@max.settings.date"];
+    return [self.images valueForKeyPath:@"@max.metadata.date"];
 }
 
 - (NSProgress *)progress {

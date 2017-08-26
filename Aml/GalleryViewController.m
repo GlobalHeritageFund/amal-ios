@@ -236,7 +236,7 @@
     if(localPhoto.image) {
         cell.imageView.image = localPhoto.image;
     } else {
-        [[localPhoto loadImage] then:^id _Nullable(id  _Nonnull object) {
+        [[localPhoto loadThumbnailImage] then:^id _Nullable(id  _Nonnull object) {
             if ([collectionView cellForItemAtIndexPath:indexPath] != nil) {
                 cell.imageView.image = localPhoto.image;
             }

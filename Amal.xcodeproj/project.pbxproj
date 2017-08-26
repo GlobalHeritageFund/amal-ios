@@ -125,6 +125,7 @@
 		1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportHeaderView.m; sourceTree = "<group>"; };
 		1A4E9AD41F511396006856A8 /* ReportViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewModel.h; sourceTree = "<group>"; };
 		1A4E9AD51F511396006856A8 /* ReportViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewModel.m; sourceTree = "<group>"; };
+		1A4E9AD71F514313006856A8 /* ReportProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportProtocols.h; sourceTree = "<group>"; };
 		1A5AADD01F4F756A00573829 /* QBAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumCell.h; sourceTree = "<group>"; };
 		1A5AADD11F4F756A00573829 /* QBAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumCell.m; sourceTree = "<group>"; };
 		1A5AADD21F4F756A00573829 /* QBAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumsViewController.h; sourceTree = "<group>"; };
@@ -314,6 +315,7 @@
 				1ACAD1E91F0EF7A3001935D4 /* ReportDraft.m */,
 				1ACAD1EB1F0F25C3001935D4 /* ReportUpload.h */,
 				1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */,
+				1A4E9AD71F514313006856A8 /* ReportProtocols.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";

@@ -7,30 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class ReportDraft, Report, ReportUpload;
-
-@protocol ReportProtocol <NSObject>
-
-@property (readonly) BOOL isEditable;
-
-@property (readonly) NSString *title;
-
-@property (readonly) NSDate *minDate;
-
-@property (readonly) NSDate *maxDate;
-
-@property (readonly) NSInteger photoCount;
-
-@property (readonly) NSDate *creationDate;
-
-@property (readonly) NSProgress *progress;
-
-@property (readonly) NSString *reportState;
-
-@property (readonly) NSString *uploadState;
-
-@end
+#import "ReportProtocols.h"
 
 @interface ReportViewModel : NSObject
 
@@ -50,8 +27,5 @@
 @property (nonatomic, readonly) ReportDraft *draft;
 @property (nonatomic, readonly) ReportUpload *upload;
 @property (nonatomic, readonly) Report *finalized;
-
-
-
 
 @end

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Promise.h"
+#import "ReportProtocols.h"
 
 @class AMLMetadata;
 
-@interface LocalPhoto : NSObject
+@interface LocalPhoto : NSObject<PhotoProtocol>
 
 - (instancetype)initWithImagePath:(NSString *)imagePath settingsPath:(NSString *)settingsPath;
 
@@ -27,9 +28,9 @@
 
 - (void)saveMetadata;
 
-- (Promise<LocalPhoto *> *)loadImage;
+- (Promise<UIImage *> *)loadThumbnailImage;
 
-- (Promise<UIImage *> *)loadFullSize;
+- (Promise<UIImage *> *)loadFullSizeImage;
 
 - (void)removeLocalData;
 

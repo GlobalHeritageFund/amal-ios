@@ -13,12 +13,13 @@
 
 @class AMLMetadata;
 
-@interface RemotePhoto : NSObject
+@interface RemotePhoto : NSObject <PhotoProtocol>
 
-@property (nonatomic, readonly) AMLMetadata *settings;
+@property (nonatomic, readonly) AMLMetadata *metadata;
 @property (nonatomic) NSString *remoteStorageLocation;
 
-- (Promise<UIImage *> *)fetchFirebaseImage;
+- (Promise<UIImage *> *)loadThumbnailImage;
+- (Promise<UIImage *> *)loadFullSizeImage;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
