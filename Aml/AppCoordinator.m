@@ -24,6 +24,7 @@
 #import "PhotoStorage.h"
 #import "NSObject+Helpers.h"
 #import "QBImagePickerController.h"
+#import "Report.h"
 
 @interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate, QBImagePickerControllerDelegate>
 
@@ -175,6 +176,14 @@
     ReportCreationCoordinator *reportCreation = [[ReportCreationCoordinator alloc] initWithViewController:reportsViewController];
     [reportCreation start];
     [self.childCoordinators addObject:reportCreation];
+}
+
+- (void)reportsViewController:(ReportsViewController *)reportsViewController didTapReport:(Report *)report {
+    ReportViewModel *viewModel = [[ReportViewModel alloc] initWithReport:report];
+    CreateReportViewController *reportViewController = [[CreateReportViewController alloc] initWithReportViewModel:viewModel];
+    [reportsViewController.navigationController pushViewController:reportViewController animated:YES];
+    [reportViewController loadViewIfNeeded];
+    reportViewController.navigationItem.leftBarButtonItem = nil;
 }
 
 @end

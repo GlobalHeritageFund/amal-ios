@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class ReportsViewController;
+@class ReportsViewController, Report;
 
 @protocol ReportsViewControllerDelegate <NSObject>
 
 - (void)reportsViewControllerDidTapCompose:(ReportsViewController *)reportsViewController;
+- (void)reportsViewController:(ReportsViewController *)reportsViewController didTapReport:(Report *)report;
 
 @end
 

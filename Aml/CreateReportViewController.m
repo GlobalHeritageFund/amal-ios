@@ -29,6 +29,15 @@
 
 @dynamic view;
 
+- (instancetype)initWithReportViewModel:(ReportViewModel *)viewModel {
+    self = [super init];
+    if (!self) return nil;
+
+    _viewModel = viewModel;
+
+    return self;
+}
+
 - (instancetype)initWithReportDraft:(ReportDraft *)reportDraft {
     self = [super init];
     if (!self) return nil;
@@ -56,10 +65,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"Create Report";
+    self.title = @"Report";
 
     self.reportHeader = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 300)];
     self.tableView.tableHeaderView = self.reportHeader;
+    self.reportHeader.titleField.text = self.viewModel.title;
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
 
@@ -75,6 +85,7 @@
 
 - (void)configureView {
     self.reportHeader.titleField.enabled = self.viewModel.isEditable;
+    self.reportHeader.dateLabel.text = self.viewModel.dateInterval;
     self.reportHeader.dateLabel.text = self.viewModel.dateInterval;
     self.reportHeader.countLabel.text = self.viewModel.imageCountString;
     [self.reportHeader.uploadStateButton setTitle:self.viewModel.uploadState forState:UIControlStateNormal];
@@ -153,7 +164,7 @@
 
 - (void)updateUploadButtonState {
     BOOL reportHasAtLeastOneItem = self.viewModel.imageCountString != 0;
-    self.navigationItem.rightBarButtonItem.enabled = reportHasAtLeastOneItem;
+    self.reportHeader.uploadStateButton.enabled = reportHasAtLeastOneItem;
 }
 
 - (void)upload:(id)sender {

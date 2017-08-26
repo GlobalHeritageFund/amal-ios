@@ -23,6 +23,10 @@
     return self;
 }
 
+- (NSString *)title {
+    return self.report.title;
+}
+
 static NSDateIntervalFormatter *dateIntervalFormatter = nil;
 
 static NSDateFormatter *dateFormatter = nil;

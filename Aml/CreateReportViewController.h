@@ -30,6 +30,7 @@
 
 
 - (instancetype)initWithReportDraft:(ReportDraft *)reportDraft;
+- (instancetype)initWithReportViewModel:(ReportViewModel *)viewModel;
 
 @property (nonatomic) ReportViewModel *viewModel;
 

@@ -62,6 +62,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Report *report = self.reports[indexPath.row];
+    [self.delegate reportsViewController:self didTapReport:report];
+}
+
 - (void)composeTapped:(id)sender {
     [self.delegate reportsViewControllerDidTapCompose:self];
 }
