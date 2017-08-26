@@ -25,6 +25,7 @@
 		1A4E39401F2FD7C70055C7FA /* ReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */; };
 		1A4E39441F2FF1DF0055C7FA /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E39431F2FF1DF0055C7FA /* Report.m */; };
 		1A4E9AD11F50ABF0006856A8 /* ReportHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */; };
+		1A4E9AD61F511396006856A8 /* ReportViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9AD51F511396006856A8 /* ReportViewModel.m */; };
 		1A5AADE41F4F756A00573829 /* QBAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AADD11F4F756A00573829 /* QBAlbumCell.m */; };
 		1A5AADE51F4F756A00573829 /* QBAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AADD31F4F756A00573829 /* QBAlbumsViewController.m */; };
 		1A5AADE61F4F756A00573829 /* QBAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AADD51F4F756A00573829 /* QBAssetCell.m */; };
@@ -122,6 +123,8 @@
 		1A4E39431F2FF1DF0055C7FA /* Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
 		1A4E9ACF1F50ABF0006856A8 /* ReportHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportHeaderView.h; sourceTree = "<group>"; };
 		1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportHeaderView.m; sourceTree = "<group>"; };
+		1A4E9AD41F511396006856A8 /* ReportViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewModel.h; sourceTree = "<group>"; };
+		1A4E9AD51F511396006856A8 /* ReportViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewModel.m; sourceTree = "<group>"; };
 		1A5AADD01F4F756A00573829 /* QBAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumCell.h; sourceTree = "<group>"; };
 		1A5AADD11F4F756A00573829 /* QBAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAlbumCell.m; sourceTree = "<group>"; };
 		1A5AADD21F4F756A00573829 /* QBAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAlbumsViewController.h; sourceTree = "<group>"; };
@@ -283,16 +286,36 @@
 			children = (
 				1A4E393E1F2FD7C70055C7FA /* ReportsViewController.h */,
 				1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */,
-				1A4E39421F2FF1DF0055C7FA /* Report.h */,
-				1A4E39431F2FF1DF0055C7FA /* Report.m */,
+				1A4E9AD21F5111ED006856A8 /* Models */,
 				1AEBACA21F4A6E9F002DC63F /* FirebaseReportDataSource.h */,
 				1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */,
 				1AEBACA51F4A7289002DC63F /* LocalDraftDataSource.h */,
 				1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */,
 				1A4E9ACF1F50ABF0006856A8 /* ReportHeaderView.h */,
 				1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */,
+				1ACAD1E41F0EF796001935D4 /* CreateReportViewController.h */,
+				1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */,
+				1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */,
+				1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */,
+				1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */,
+				1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */,
 			);
 			name = Report;
+			sourceTree = "<group>";
+		};
+		1A4E9AD21F5111ED006856A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A4E9AD41F511396006856A8 /* ReportViewModel.h */,
+				1A4E9AD51F511396006856A8 /* ReportViewModel.m */,
+				1A4E39421F2FF1DF0055C7FA /* Report.h */,
+				1A4E39431F2FF1DF0055C7FA /* Report.m */,
+				1ACAD1E81F0EF7A3001935D4 /* ReportDraft.h */,
+				1ACAD1E91F0EF7A3001935D4 /* ReportDraft.m */,
+				1ACAD1EB1F0F25C3001935D4 /* ReportUpload.h */,
+				1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		1A5AADCE1F4F750C00573829 /* Vendor */ = {
@@ -384,23 +407,6 @@
 				1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */,
 			);
 			name = Promise;
-			sourceTree = "<group>";
-		};
-		1ACAD1E71F0EF79B001935D4 /* Reports */ = {
-			isa = PBXGroup;
-			children = (
-				1ACAD1E41F0EF796001935D4 /* CreateReportViewController.h */,
-				1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */,
-				1ACAD1E81F0EF7A3001935D4 /* ReportDraft.h */,
-				1ACAD1E91F0EF7A3001935D4 /* ReportDraft.m */,
-				1ACAD1EB1F0F25C3001935D4 /* ReportUpload.h */,
-				1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */,
-				1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */,
-				1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */,
-				1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */,
-				1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */,
-			);
-			name = Reports;
 			sourceTree = "<group>";
 		};
 		580A55311E5CFC1000A70AB1 = {
@@ -513,7 +519,6 @@
 				1A35595B1F0023CA00FFFBCA /* Capture Notes */,
 				1A3EE1561F0748490068B596 /* MapViewController.h */,
 				1A3EE1571F0748490068B596 /* MapViewController.m */,
-				1ACAD1E71F0EF79B001935D4 /* Reports */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -707,6 +712,7 @@
 				1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */,
 				1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */,
 				1A5AADE41F4F756A00573829 /* QBAlbumCell.m in Sources */,
+				1A4E9AD61F511396006856A8 /* ReportViewModel.m in Sources */,
 				1A5AADE61F4F756A00573829 /* QBAssetCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

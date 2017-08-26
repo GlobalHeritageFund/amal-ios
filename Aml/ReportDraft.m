@@ -66,8 +66,20 @@
     return [self.photos valueForKeyPath:@"@max.date"];
 }
 
-- (NSString *)photoCountString {
-    return self.photos.count == 1 ? @"1 photo" : [NSString stringWithFormat:@"%zd photos", self.photos.count];
+- (NSInteger)photoCount {
+    return self.photos.count;
+}
+
+- (NSProgress *)progress {
+    return [NSProgress progressWithTotalUnitCount:0];
+}
+
+- (NSString *)uploadState {
+    return @"Publish Report";
+}
+
+- (NSString *)reportState {
+    return @"Draft";
 }
 
 @end

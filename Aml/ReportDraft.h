@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ReportViewModel.h"
 
 @class LocalPhoto;
 
-@interface ReportDraft : NSObject
+@interface ReportDraft : NSObject<ReportProtocol>
 
 - (instancetype)initWithPhotos:(NSArray<LocalPhoto *> *)photos;
 
@@ -25,7 +26,6 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @property (nonatomic, readonly) NSDictionary *dictionaryRepresentation;
-
 
 @property (readonly) NSDate *minDate;
 
