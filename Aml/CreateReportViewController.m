@@ -43,6 +43,7 @@
         UITableView *tableView = [[UITableView alloc] init];
         tableView.delegate = self;
         tableView.dataSource = self;
+        tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
         self.tableView = tableView;
     }
     return _tableView;
