@@ -17,6 +17,7 @@
 #import "ReportDraft.h"
 #import "NSArray+Additions.h"
 #import "Promise.h"
+#import "Firebase.h"
 
 @interface GalleryViewController ()
 
@@ -195,6 +196,7 @@
     } else {
         message = @"Are you sure you want to delete these photos? This can not be undone.";
     }
+    [FIRAnalytics logEventWithName:@"multi-select-delete" parameters:@{ @"count": @(self.collectionView.indexPathsForSelectedItems.count) }];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:message preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         for (NSIndexPath *indexPath in self.collectionView.indexPathsForSelectedItems) {
