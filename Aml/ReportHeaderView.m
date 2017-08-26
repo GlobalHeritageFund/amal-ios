@@ -20,7 +20,7 @@
 @property (nonatomic) UILabel *dateLabel;
 @property (nonatomic) UILabel *countLabel;
 @property (nonatomic) UIView *separator;
-@property (nonatomic) UILabel *uploadStateLabel;
+@property (nonatomic) UIButton *uploadStateButton;
 @property (nonatomic) UIProgressView *totalProgressView;
 @property (nonatomic) UILabel *creationDateLabel;
 @property (nonatomic) UILabel *reportStateLabel;
@@ -96,16 +96,17 @@
     return _separator;
 }
 
-- (UILabel *)uploadStateLabel {
-    if (!_uploadStateLabel) {
-        UILabel *uploadStateLabel = [[UILabel alloc] init];
-        uploadStateLabel.textColor = [UIColor colorWithHex:0x4A4A4A];
-        uploadStateLabel.font = [UIFont fontWithName:@".SFUIDisplay-Regular" size:20.0];
-        uploadStateLabel.textAlignment = NSTextAlignmentCenter;
-        [self.containerView addSubview:uploadStateLabel];
-        self.uploadStateLabel = uploadStateLabel;
+- (UIButton *)uploadStateButton {
+    if (!_uploadStateButton) {
+        UIButton *uploadStateButton = [[UIButton alloc] init];
+        [uploadStateButton setTitleColor:[UIColor colorWithHex:0x4A4A4A] forState:UIControlStateDisabled];
+        [uploadStateButton setTitleColor:[UIColor amalTeal] forState:UIControlStateNormal];
+        uploadStateButton.titleLabel.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:22.0];
+        uploadStateButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [self.containerView addSubview:uploadStateButton];
+        self.uploadStateButton = uploadStateButton;
     }
-    return _uploadStateLabel;
+    return _uploadStateButton;
 }
 
 - (UIProgressView *)totalProgressView {
@@ -166,8 +167,8 @@
     CGRectDivide(workingRect, &countRect, &workingRect, 26, CGRectMinYEdge);
     workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
     CGRectDivide(workingRect, &separatorRect, &workingRect, 1, CGRectMinYEdge);
-    workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
     CGRectDivide(workingRect, &uploadStateRect, &workingRect, 40, CGRectMinYEdge);
+    workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
     CGRectDivide(workingRect, &totalProgressRect, &workingRect, 2, CGRectMinYEdge);
     workingRect = CGRectTrim(workingRect, 15, CGRectMinYEdge);
     CGRectDivide(workingRect, &creationDateRect, &reportStateRect, workingRect.size.width/2, CGRectMinXEdge);
@@ -178,7 +179,7 @@
     self.dateLabel.frame = dateRect;
     self.countLabel.frame = countRect;
 //    self.separator.frame = separatorRect;
-    self.uploadStateLabel.frame = uploadStateRect;
+    self.uploadStateButton.frame = uploadStateRect;
     self.totalProgressView.frame = totalProgressRect;
     self.creationDateLabel.frame = creationDateRect;
     self.reportStateLabel.frame = reportStateRect;

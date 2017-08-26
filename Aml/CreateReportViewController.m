@@ -60,8 +60,6 @@
     self.reportHeader = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 300)];
     self.tableView.tableHeaderView = self.reportHeader;
 
-    self.uploadButton = [[UIBarButtonItem alloc] initWithTitle:@"Upload" style:UIBarButtonItemStylePlain target:self action:@selector(upload:)];
-    self.navigationItem.rightBarButtonItem = self.uploadButton;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
 
     [self configureView];
@@ -70,7 +68,9 @@
 - (void)configureView {
     self.reportHeader.dateLabel.text = self.viewModel.dateInterval;
     self.reportHeader.countLabel.text = self.viewModel.imageCountString;
-    self.reportHeader.uploadStateLabel.text = self.viewModel.uploadState;
+    [self.reportHeader.uploadStateButton setTitle:self.viewModel.uploadState forState:UIControlStateNormal];
+    self.reportHeader.uploadStateButton.enabled = self.viewModel.isEditable;
+    [self.reportHeader.uploadStateButton addTarget:self action:@selector(upload:) forControlEvents:UIControlEventTouchUpInside];
     self.reportHeader.totalProgressView.observedProgress = self.viewModel.progress;
     self.reportHeader.creationDateLabel.text = self.viewModel.creationDateString;
     self.reportHeader.reportStateLabel.text = self.viewModel.reportState;
