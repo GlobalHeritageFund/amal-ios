@@ -13,6 +13,8 @@
 
 - (Promise<FIRDatabaseReference*> *_Nonnull)promiseSetValue:(nullable id)value;
 
+- (Promise<FIRDatabaseReference *> *_Nonnull)promiseGet;
+
 @end
 
 @interface FIRStorageReference (Promises)

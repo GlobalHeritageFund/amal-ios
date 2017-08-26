@@ -22,6 +22,17 @@
     }];
 }
 
+- (Promise<NSDictionary *> *)promiseGet {
+    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSDictionary *_Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+        [self observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+            if ([snapshot.value isKindOfClass:[NSNull class]]) {
+                return; //should reject instead
+            }
+            fulfill(snapshot.value);
+        }];
+    }];
+}
+
 @end
 
 @implementation FIRStorageReference (Promises)
