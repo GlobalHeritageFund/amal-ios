@@ -228,6 +228,7 @@
     if (segmentedControl.selectedSegmentIndex == 2) {
         self.photo.metadata.category = @"object";
     }
+    [FIRAnalytics logEventWithName:@"metadata-updated-category" parameters:@{ @"new-category": self.photo.metadata.category }];
     [self saveMetadata];
 }
 
