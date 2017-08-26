@@ -149,8 +149,9 @@
 }
 
 - (void)hideVolumeBezel {
-    MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectOffset(CGRectZero, -100, -100)];
+    MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectOffset(CGRectZero, 100, 100)];
     [self.view addSubview:volumeView];
+    [self.view sendSubviewToBack:volumeView];
 }
 
 - (void)beginDetectingVolumeClicks {
