@@ -55,8 +55,16 @@
 
     self.title = @"Create Report";
 
-    self.reportHeader = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
+    self.reportHeader = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 300)];
     self.tableView.tableHeaderView = self.reportHeader;
+
+    self.reportHeader.dateLabel.text = @"22 Oct - 12 Nov, 2016";
+    self.reportHeader.countLabel.text = @"75 photos";
+    self.reportHeader.uploadStateLabel.text = @"Published 75 of 75";
+    self.reportHeader.totalProgressView.progress = 0.2;
+    self.reportHeader.creationDateLabel.text = @"Created 27 June 2017";
+    self.reportHeader.reportStateLabel.text = @"Published";
+    
 
     self.uploadButton = [[UIBarButtonItem alloc] initWithTitle:@"Upload" style:UIBarButtonItemStylePlain target:self action:@selector(upload:)];
     self.navigationItem.rightBarButtonItem = self.uploadButton;

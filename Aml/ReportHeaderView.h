@@ -12,6 +12,11 @@
 @interface ReportHeaderView : UIView
 
 @property (readonly) UITextField *titleField;
-
+@property (readonly) UILabel *dateLabel;
+@property (readonly) UILabel *countLabel;
+@property (readonly) UILabel *uploadStateLabel;
+@property (readonly) UIProgressView *totalProgressView;
+@property (readonly) UILabel *creationDateLabel;
+@property (readonly) UILabel *reportStateLabel;
 
 @end
