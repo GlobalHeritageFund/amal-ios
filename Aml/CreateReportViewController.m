@@ -66,19 +66,25 @@
     [self configureView];
 }
 
-static NSDateIntervalFormatter *formatter = nil;
+static NSDateIntervalFormatter *dateIntervalFormatter = nil;
+
+static NSDateFormatter *dateFormatter = nil;
 
 - (void)configureView {
-    if (formatter == nil) {
-        formatter = [[NSDateIntervalFormatter alloc] init];
-        formatter.dateStyle = NSDateFormatterMediumStyle;
-        formatter.timeStyle = NSDateFormatterNoStyle;
+    if (dateIntervalFormatter == nil) {
+        dateIntervalFormatter = [[NSDateIntervalFormatter alloc] init];
+        dateIntervalFormatter.dateStyle = NSDateFormatterMediumStyle;
+        dateIntervalFormatter.timeStyle = NSDateFormatterNoStyle;
     }
-    self.reportHeader.dateLabel.text = [formatter stringFromDate:self.reportDraft.minDate toDate:self.reportDraft.maxDate];
+    if (dateFormatter == nil) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"d MMMM yyyy";
+    }
+    self.reportHeader.dateLabel.text = [dateIntervalFormatter stringFromDate:self.reportDraft.minDate toDate:self.reportDraft.maxDate];
     self.reportHeader.countLabel.text = self.reportDraft.photoCountString;
     self.reportHeader.uploadStateLabel.text = @"Published 75 of 75";
     self.reportHeader.totalProgressView.progress = 0.2;
-    self.reportHeader.creationDateLabel.text = @"Created 27 June 2017";
+    self.reportHeader.creationDateLabel.text = [NSString stringWithFormat:@"Created %@", [dateFormatter stringFromDate:self.reportDraft.creationDate]];
     self.reportHeader.reportStateLabel.text = @"Published";
 
 }
