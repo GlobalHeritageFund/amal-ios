@@ -166,7 +166,7 @@
 - (void)nameFieldDidChange:(NSNotification *)notification {
     UITextField *textField = notification.object;
     self.photo.metadata.name = textField.text;
-    [self.photo saveMetadata];
+    [self saveMetadata];
 }
 
 - (MapFormElement *)mapFormElement {
@@ -190,7 +190,7 @@
 - (void)notesFieldDidChange:(NSNotification *)notification {
     UITextView *textView = notification.object;
     self.photo.metadata.notes = textView.text;
-    [self.photo saveMetadata];
+    [self saveMetadata];
 }
 
 - (SegmentedControlFormElement *)categoryFormElement {
@@ -220,7 +220,7 @@
     if (segmentedControl.selectedSegmentIndex == 2) {
         self.photo.metadata.category = @"object";
     }
-    [self.photo saveMetadata];
+    [self saveMetadata];
 }
 
 - (DamageButtonFormElement *)damageButtonElement {
@@ -232,7 +232,7 @@
 
 - (void)levelOfDamageDidChange:(DamageButtonFormElement *)damageButtonElement {
     self.photo.metadata.levelOfDamage = damageButtonElement.selectedValue;
-    [self.photo saveMetadata];
+    [self saveMetadata];
 }
 
 - (DamageButtonFormElement *)conditionElement {
@@ -244,21 +244,26 @@
 
 - (void)conditionDidChange:(DamageButtonFormElement *)damageButtonElement {
     self.photo.metadata.conditionNumber = damageButtonElement.selectedValue;
-    [self.photo saveMetadata];
+    [self saveMetadata];
 }
 
 - (void)hazardsSwitchChanged:(UISwitch *)sender {
     self.photo.metadata.hazards = sender.isOn;
-    [self.photo saveMetadata];
+    [self saveMetadata];
 }
 
 - (void)safetySwitchChanged:(UISwitch *)sender {
     self.photo.metadata.safetyHazards = sender.isOn;
-    [self.photo saveMetadata];
+    [self saveMetadata];
 }
 
 - (void)interventionSwitchChanged:(UISwitch *)sender {
     self.photo.metadata.interventionRequired = sender.isOn;
+    [self saveMetadata];
+}
+
+- (void)saveMetadata {
+    [FIRAnalytics logEventWithName:@"assessed-image" parameters:nil];
     [self.photo saveMetadata];
 }
 
