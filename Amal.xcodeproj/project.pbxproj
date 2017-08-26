@@ -48,7 +48,7 @@
 		1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */; };
 		1ABD81CD1F10562400E2C460 /* Promise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD81CC1F10562400E2C460 /* Promise.m */; };
 		1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */; };
-		1ACAD1E61F0EF796001935D4 /* CreateReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */; };
+		1ACAD1E61F0EF796001935D4 /* ReportDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E51F0EF796001935D4 /* ReportDetailViewController.m */; };
 		1ACAD1EA1F0EF7A3001935D4 /* ReportDraft.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E91F0EF7A3001935D4 /* ReportDraft.m */; };
 		1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */; };
 		1ACAD1F41F101B25001935D4 /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */; };
@@ -165,8 +165,8 @@
 		1ABD81CC1F10562400E2C460 /* Promise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Promise.m; sourceTree = "<group>"; };
 		1ABD81CE1F10565F00E2C460 /* Firebase+Promises.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Firebase+Promises.h"; sourceTree = "<group>"; };
 		1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Firebase+Promises.m"; sourceTree = "<group>"; };
-		1ACAD1E41F0EF796001935D4 /* CreateReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateReportViewController.h; sourceTree = "<group>"; };
-		1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateReportViewController.m; sourceTree = "<group>"; };
+		1ACAD1E41F0EF796001935D4 /* ReportDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDetailViewController.h; sourceTree = "<group>"; };
+		1ACAD1E51F0EF796001935D4 /* ReportDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDetailViewController.m; sourceTree = "<group>"; };
 		1ACAD1E81F0EF7A3001935D4 /* ReportDraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDraft.h; sourceTree = "<group>"; };
 		1ACAD1E91F0EF7A3001935D4 /* ReportDraft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDraft.m; sourceTree = "<group>"; };
 		1ACAD1EB1F0F25C3001935D4 /* ReportUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportUpload.h; sourceTree = "<group>"; };
@@ -294,8 +294,8 @@
 				1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */,
 				1A4E9ACF1F50ABF0006856A8 /* ReportHeaderView.h */,
 				1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */,
-				1ACAD1E41F0EF796001935D4 /* CreateReportViewController.h */,
-				1ACAD1E51F0EF796001935D4 /* CreateReportViewController.m */,
+				1ACAD1E41F0EF796001935D4 /* ReportDetailViewController.h */,
+				1ACAD1E51F0EF796001935D4 /* ReportDetailViewController.m */,
 				1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */,
 				1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */,
 				1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */,
@@ -670,7 +670,7 @@
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
 				1A4E39441F2FF1DF0055C7FA /* Report.m in Sources */,
 				1AEBACA41F4A6E9F002DC63F /* FirebaseReportDataSource.m in Sources */,
-				1ACAD1E61F0EF796001935D4 /* CreateReportViewController.m in Sources */,
+				1ACAD1E61F0EF796001935D4 /* ReportDetailViewController.m in Sources */,
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
 				1A3640651F049C650070E686 /* AMLMetadata.m in Sources */,

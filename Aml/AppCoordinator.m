@@ -15,7 +15,7 @@
 #import "FirstLaunch.h"
 #import "CaptureNotesViewController.h"
 #import "LocalPhoto.h"
-#import "CreateReportViewController.h"
+#import "ReportDetailViewController.h"
 #import "ReportDraft.h"
 #import "ReportCreationCoordinator.h"
 #import "ReportUpload.h"
@@ -182,7 +182,7 @@
 
 - (void)reportsViewController:(ReportsViewController *)reportsViewController didTapReport:(Report *)report {
     ReportViewModel *viewModel = [[ReportViewModel alloc] initWithReport:report];
-    CreateReportViewController *reportViewController = [[CreateReportViewController alloc] initWithReportViewModel:viewModel];
+    ReportDetailViewController *reportViewController = [[ReportDetailViewController alloc] initWithReportViewModel:viewModel];
     [reportsViewController.navigationController pushViewController:reportViewController animated:YES];
     [reportViewController loadViewIfNeeded];
     reportViewController.navigationItem.leftBarButtonItem = nil;

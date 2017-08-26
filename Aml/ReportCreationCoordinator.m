@@ -8,13 +8,13 @@
 
 #import "ReportCreationCoordinator.h"
 #import "GalleryViewController.h"
-#import "CreateReportViewController.h"
+#import "ReportDetailViewController.h"
 #import "CaptureNotesViewController.h"
 #import "LocalPhoto.h"
 #import "ReportDraft.h"
 #import "ReportUpload.h"
 
-@interface ReportCreationCoordinator () <GalleryViewControllerDelegate, CreateReportViewControllerDelegate>
+@interface ReportCreationCoordinator () <GalleryViewControllerDelegate, ReportDetailViewControllerDelegate>
 
 @property (nonatomic) ReportDraft *currentReport;
 
@@ -50,10 +50,10 @@
         UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:gallery];
         [self.viewController presentViewController:galleryNavigationController animated:true completion:nil];
     } else {
-        CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:self.currentReport];
-        createReport.delegate = self;
-        UINavigationController *createReportNavigationController = [[UINavigationController alloc] initWithRootViewController:createReport];
-        [self.viewController presentViewController:createReportNavigationController animated:true completion:nil];
+        ReportDetailViewController *reportDetail = [[ReportDetailViewController alloc] initWithReportDraft:self.currentReport];
+        reportDetail.delegate = self;
+        UINavigationController *reportDetailNavigationController = [[UINavigationController alloc] initWithRootViewController:reportDetail];
+        [self.viewController presentViewController:reportDetailNavigationController animated:true completion:nil];
     }
 }
 
@@ -63,9 +63,9 @@
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
     self.currentReport = [[ReportDraft alloc] initWithPhotos:photos];
-    CreateReportViewController *createReport = [[CreateReportViewController alloc] initWithReportDraft:self.currentReport];
-    createReport.delegate = self;
-    [galleryViewController.navigationController pushViewController:createReport animated:YES];
+    ReportDetailViewController *reportDetail = [[ReportDetailViewController alloc] initWithReportDraft:self.currentReport];
+    reportDetail.delegate = self;
+    [galleryViewController.navigationController pushViewController:reportDetail animated:YES];
 }
 
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {
@@ -79,42 +79,42 @@
     [galleryViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)createReportViewController:(CreateReportViewController *)createReportViewController didTapUploadWithDraft:(ReportDraft *)draft {
+- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didTapUploadWithDraft:(ReportDraft *)draft {
 
     ReportUpload *upload = [[ReportUpload alloc] initWithReportDraft:draft];
-    createReportViewController.viewModel = [[ReportViewModel alloc] initWithReport:upload];
+    reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:upload];
 
     [upload upload];
     [[upload.promise then:^id _Nullable(id  _Nonnull object) {
-        createReportViewController.viewModel = [[ReportViewModel alloc] initWithReport:object];
-        createReportViewController.navigationItem.hidesBackButton = YES;
-        createReportViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissReportCreation:)];
-        createReportViewController.navigationItem.leftBarButtonItem = nil;
+        reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:object];
+        reportDetailViewController.navigationItem.hidesBackButton = YES;
+        reportDetailViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissReportCreation:)];
+        reportDetailViewController.navigationItem.leftBarButtonItem = nil;
         return nil;
     }] catch:^(NSError * _Nonnull error) {
-        createReportViewController.viewModel = [[ReportViewModel alloc] initWithReport:draft];
+        reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:draft];
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"An error occurred" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
-        [createReportViewController presentViewController:alertController animated:YES completion:nil];
+        [reportDetailViewController presentViewController:alertController animated:YES completion:nil];
     }];
 }
 
-- (void)createReportViewControllerDidTapCancel:(CreateReportViewController *)createReportViewController {
-    [createReportViewController dismissViewControllerAnimated:YES completion:nil];
+- (void)reportDetailViewControllerDidTapCancel:(ReportDetailViewController *)reportDetailViewController {
+    [reportDetailViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)createReportViewController:(CreateReportViewController *)createReportViewController didSelectPhoto:(LocalPhoto *)photo {
+- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectPhoto:(LocalPhoto *)photo {
     CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
-    [createReportViewController.navigationController pushViewController:captureNotes animated:YES];
+    [reportDetailViewController.navigationController pushViewController:captureNotes animated:YES];
 }
 
-- (void)createReportViewControllerDidTapAddPhoto:(CreateReportViewController *)createReportViewController {
+- (void)reportDetailViewControllerDidTapAddPhoto:(ReportDetailViewController *)reportDetailViewController {
     GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
     [galleryViewController loadViewIfNeeded];
     UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
     galleryViewController.mode = GalleryModeSingleSelect;
     galleryViewController.delegate = self;
-    [createReportViewController presentViewController:galleryNavigationController animated:true completion:nil];
+    [reportDetailViewController presentViewController:galleryNavigationController animated:true completion:nil];
 }
 
 - (void)dismissReportCreation:(id)sender {

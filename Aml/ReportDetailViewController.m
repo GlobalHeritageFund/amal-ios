@@ -1,12 +1,12 @@
 //
-//  CreateReportViewController.m
+//  ReportDetailViewController.m
 //  Amal
 //
 //  Created by Soroush Khanlou on 7/6/17.
 //  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
-#import "CreateReportViewController.h"
+#import "ReportDetailViewController.h"
 #import "UIColor+Additions.h"
 #import "ReportDraft.h"
 #import "LocalPhoto.h"
@@ -18,14 +18,14 @@
 #import "UIColor+Additions.h"
 #import "NSObject+Helpers.h"
 
-@interface CreateReportViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ReportDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) ReportHeaderView *reportHeader;
 
 @end
 
-@implementation CreateReportViewController
+@implementation ReportDetailViewController
 
 @dynamic view;
 
@@ -161,10 +161,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         LocalPhoto *photo = self.viewModel.draft.localPhotos[indexPath.row];
-        [self.delegate createReportViewController:self didSelectPhoto:photo];
+        [self.delegate reportDetailViewController:self didSelectPhoto:photo];
     }
     if (indexPath.section == 1) {
-        [self.delegate createReportViewControllerDidTapAddPhoto:self];
+        [self.delegate reportDetailViewControllerDidTapAddPhoto:self];
     }
 }
 
@@ -175,11 +175,11 @@
 
 - (void)upload:(id)sender {
     self.viewModel.draft.title = self.reportHeader.titleField.text ?: @"";
-    [self.delegate createReportViewController:self didTapUploadWithDraft:self.viewModel.draft];
+    [self.delegate reportDetailViewController:self didTapUploadWithDraft:self.viewModel.draft];
 }
 
 - (void)cancel:(id)sender {
-    [self.delegate createReportViewControllerDidTapCancel:self];
+    [self.delegate reportDetailViewControllerDidTapCancel:self];
 }
 
 @end
