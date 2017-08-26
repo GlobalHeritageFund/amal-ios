@@ -86,6 +86,7 @@
 
     [upload upload];
     [[upload.promise then:^id _Nullable(id  _Nonnull object) {
+        createReportViewController.viewModel = [[ReportViewModel alloc] initWithReport:object];
         createReportViewController.navigationItem.hidesBackButton = YES;
         createReportViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissReportCreation:)];
         return nil;

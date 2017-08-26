@@ -14,6 +14,7 @@
 #import "NSArray+Additions.h"
 #import "Firebase+Promises.h"
 #import "CurrentUser.h"
+#import "Report.h"
 
 @interface ReportUpload ()
 
@@ -36,12 +37,12 @@
     _progresses = [_reportDraft.photos arrayByTransformingObjectsUsingBlock:^id(id object) {
         NSProgress *progress = [[NSProgress alloc] init];
         progress.totalUnitCount = 100;
+        [_totalProgress addChild:progress withPendingUnitCount:100];
         return progress;
     }];
 
     return self;
 }
-
 
 - (FIRDatabase *)database {
     return [FIRDatabase database];
@@ -67,7 +68,7 @@
         return [self uploadPhoto:photo atRef:photoRef];
     }];
 
-    [[[Promise all:
+    [[[[Promise all:
              @[
                [[reportRef child:@"title"] promiseSetValue:self.reportDraft.title],
                [[reportRef child:@"authorDeviceToken"] promiseSetValue:self.reportDraft.deviceToken],
@@ -75,8 +76,10 @@
                [Promise all:photoUploadPromises],
                ]]
             then:^id _Nullable(id  _Nonnull object) {
-                //would love to make a full Report here
-                [self.promise fulfill:self.reportDraft];
+                return [reportRef promiseGet];
+            }] then:^id _Nullable(id  _Nonnull object) {
+                Report *report = [[Report alloc] initWithDictionary:object];
+                [self.promise fulfill:report];
                 return nil;
             }] catch:^(NSError * _Nonnull error) {
                 [self.promise reject:error];
