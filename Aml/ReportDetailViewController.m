@@ -22,6 +22,7 @@
 
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) ReportHeaderView *reportHeader;
+@property (nonatomic) UIEdgeInsets oldInsets;
 
 @end
 
@@ -74,6 +75,32 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
 
     [self configureView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardAppeared:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDisappeared:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardAppeared:(NSNotification *)note {
+    CGRect keyboardRect = [[note.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+
+    self.oldInsets = self.tableView.contentInset;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(self.oldInsets.top, 0.0f, CGRectGetHeight(keyboardRect), 0.0f);
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+}
+
+- (void)keyboardDisappeared:(NSNotification *)note {
+    self.tableView.contentInset = self.oldInsets;
+    self.tableView.scrollIndicatorInsets = self.oldInsets;
 }
 
 - (void)setViewModel:(ReportViewModel *)viewModel {
