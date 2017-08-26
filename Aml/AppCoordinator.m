@@ -61,16 +61,17 @@
 - (void)start {
     UITabBarController *tabBarController = [[TabBarPage alloc] init];
 
-    CameraViewController *cameraViewController = [CameraViewController makeFromStoryboard];
-    UINavigationController *cameraNavigationController = [[UINavigationController alloc] initWithRootViewController:cameraViewController];
-    cameraNavigationController.navigationBarHidden = true;
-    cameraNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"ic_camera_outline"] selectedImage:[UIImage imageNamed:@"ic_camera_active"]];
-
     GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
     galleryViewController.delegate = self;
     UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
     galleryViewController.delegate = self;
     galleryNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Gallery" image:[UIImage imageNamed:@"ic_assess_outline"] selectedImage:[UIImage imageNamed:@"ic_assess_active"]];
+
+    CameraViewController *cameraViewController = [CameraViewController makeFromStoryboard];
+    UINavigationController *cameraNavigationController = [[UINavigationController alloc] initWithRootViewController:cameraViewController];
+    cameraNavigationController.navigationBarHidden = true;
+    cameraNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"ic_camera_outline"] selectedImage:[UIImage imageNamed:@"ic_camera_active"]];
+
 
     ReportsViewController *reportsViewController = [[ReportsViewController alloc] init];
     reportsViewController.delegate = self;
@@ -79,10 +80,11 @@
 
 
     tabBarController.viewControllers = @[
-                                         cameraNavigationController,
                                          galleryNavigationController,
+                                         cameraNavigationController,
                                          reportsNavigationController,
                                          ];
+    tabBarController.selectedIndex = 1;
     self.window.tintColor = [UIColor amalTeal];
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
@@ -162,7 +164,7 @@
 
         [[PhotoStorage new] saveJpegLocally:imageData withMetadata:metadata];
 
-        [[[[[[[self.window.rootViewController asClassOrNil:[UITabBarController class]] viewControllers] objectAtIndex:1] asClassOrNil:[UINavigationController class]] topViewController] asClassOrNil:[GalleryViewController class]] reloadData];
+        [[[[[[[self.window.rootViewController asClassOrNil:[UITabBarController class]] viewControllers] objectAtIndex:0] asClassOrNil:[UINavigationController class]] topViewController] asClassOrNil:[GalleryViewController class]] reloadData];
 
     }];
 
