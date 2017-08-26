@@ -182,6 +182,7 @@
 }
 
 - (void)mapTapped:(id)sender {
+    [FIRAnalytics logEventWithName:@"map-detail-tapped" parameters:nil];
     MapViewController *mapViewController = [[MapViewController alloc] initWithCoordinate:self.photo.metadata.coordinate];
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
