@@ -258,16 +258,19 @@
 }
 
 - (void)hazardsSwitchChanged:(UISwitch *)sender {
+    [FIRAnalytics logEventWithName:@"metadata-updated-hazards" parameters:nil];
     self.photo.metadata.hazards = sender.isOn;
     [self saveMetadata];
 }
 
 - (void)safetySwitchChanged:(UISwitch *)sender {
+    [FIRAnalytics logEventWithName:@"metadata-updated-safety" parameters:nil];
     self.photo.metadata.safetyHazards = sender.isOn;
     [self saveMetadata];
 }
 
 - (void)interventionSwitchChanged:(UISwitch *)sender {
+    [FIRAnalytics logEventWithName:@"metadata-updated-intervention" parameters:nil];
     self.photo.metadata.interventionRequired = sender.isOn;
     [self saveMetadata];
 }
