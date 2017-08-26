@@ -25,6 +25,7 @@
 #import "NSObject+Helpers.h"
 #import "QBImagePickerController.h"
 #import "Report.h"
+#import "Firebase.h"
 
 @interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate, QBImagePickerControllerDelegate>
 
@@ -135,6 +136,8 @@
 
 - (void)qb_imagePickerController:(QBImagePickerController *)picker didFinishPickingAssets:(NSArray *)assets {
 
+    [FIRAnalytics logEventWithName:@"imported-images" parameters:@{ @"count": @(assets.count) }];
+    
     for (PHAsset *asset in assets) {
         [self saveAsset:asset];
     }
