@@ -24,8 +24,6 @@
 
 @property (readonly) AMLMetadata *metadata;
 
-@property (strong) UIImage *image;
-
 - (void)saveMetadata;
 
 - (Promise<UIImage *> *)loadThumbnailImage;

@@ -233,17 +233,13 @@
     LocalPhoto *localPhoto = self.photoSections[indexPath.section].photos[indexPath.row];
     cell.mode = self.mode;
 
-    if(localPhoto.image) {
-        cell.imageView.image = localPhoto.image;
-    } else {
-        [[localPhoto loadThumbnailImage] then:^id _Nullable(id  _Nonnull object) {
-            if ([collectionView cellForItemAtIndexPath:indexPath] != nil) {
-                cell.imageView.image = localPhoto.image;
-            }
-            return nil;
-        }];
-    }
-    
+    [[localPhoto loadThumbnailImage] then:^id _Nullable(id  _Nonnull object) {
+        if ([collectionView cellForItemAtIndexPath:indexPath] != nil) {
+            cell.imageView.image = object;
+        }
+        return nil;
+    }];
+
     return cell;
 }
 

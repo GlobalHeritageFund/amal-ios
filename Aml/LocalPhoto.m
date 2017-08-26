@@ -13,6 +13,7 @@
 #import "AMLMetadata.h"
 #import "UIImage+Additions.h"
 #import "NSObject+Helpers.h"
+#import "ImageCache.h"
 
 @implementation LocalPhoto
 
@@ -54,12 +55,20 @@
     }];
 }
 
+- (NSCache *)cache {
+    return [ImageCache cache];
+}
+
 - (Promise<UIImage *> *)loadThumbnailImage {
+    UIImage *cachedValue = [self.cache objectForKey:self.imagePath];
+    if (cachedValue) {
+        return [Promise fulfilled:cachedValue];
+    }
     return [[[UIImage promisedImageWithContentsOfFile:self.imagePath]
              then:^id _Nullable(UIImage *_Nonnull image) {
                  return [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
              }] then:^id _Nullable(id  _Nonnull image) {
-                 self.image = image;
+                 [self.cache setObject:image forKey:self.imagePath];
                  return image;
              }];
 }

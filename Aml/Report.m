@@ -13,10 +13,9 @@
 #import "Firebase+Promises.h"
 #import "UIImage+Resize.h"
 #import "CGGeometry.h"
+#import "ImageCache.h"
 
 @implementation RemotePhoto
-
-static NSCache *thumbnailCache = nil;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -29,10 +28,7 @@ static NSCache *thumbnailCache = nil;
 }
 
 - (NSCache *)cache {
-    if (thumbnailCache == nil) {
-        thumbnailCache = [[NSCache alloc] init];
-    }
-    return thumbnailCache;
+    return [ImageCache cache];
 }
 
 - (Promise<UIImage *> *)loadThumbnailImage {

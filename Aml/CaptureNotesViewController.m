@@ -63,7 +63,11 @@
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic-delete"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteTapped:)];
 
-    PhotoFormElement *photoElement = [[PhotoFormElement alloc] initWithImage:self.photo.image];
+    PhotoFormElement *photoElement = [[PhotoFormElement alloc] init];
+    [[self.photo loadThumbnailImage] then:^id _Nullable(id  _Nonnull object) {
+        photoElement.imageView.image = object;
+        return nil;
+    }];
     photoElement.imageView.userInteractionEnabled = YES;
     [photoElement.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTapped:)]];
     [self.view addFormGroup:

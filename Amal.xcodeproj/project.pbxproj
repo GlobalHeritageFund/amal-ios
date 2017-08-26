@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A04FCE91F51CE3B0010A9D8 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */; };
 		1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */; };
 		1A1F7DE51F3F8CBE0028DCF0 /* ReportCreationCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1F7DE41F3F8CBE0028DCF0 /* ReportCreationCoordinator.m */; };
 		1A2BEBF81F33618800A59E69 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2BEBF71F33618800A59E69 /* UIImage+Additions.m */; };
@@ -87,6 +88,8 @@
 
 /* Begin PBXFileReference section */
 		05C28DCB1F018D480067736E /* Amal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Amal.entitlements; sourceTree = "<group>"; };
+		1A04FCE71F51CE3B0010A9D8 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
+		1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportPhotoTableViewCell.h; sourceTree = "<group>"; };
 		1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportPhotoTableViewCell.m; sourceTree = "<group>"; };
 		1A1F7DE31F3F8CBE0028DCF0 /* ReportCreationCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCreationCoordinator.h; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 				1ACAD1EB1F0F25C3001935D4 /* ReportUpload.h */,
 				1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */,
 				1A4E9AD71F514313006856A8 /* ReportProtocols.h */,
+				1A04FCE71F51CE3B0010A9D8 /* ImageCache.h */,
+				1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -699,6 +704,7 @@
 				1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */,
 				1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */,
 				1A3559701F0087D800FFFBCA /* GalleryCell.m in Sources */,
+				1A04FCE91F51CE3B0010A9D8 /* ImageCache.m in Sources */,
 				1A4E39401F2FD7C70055C7FA /* ReportsViewController.m in Sources */,
 				1A5AADEA1F4F756A00573829 /* QBImagePickerController.m in Sources */,
 				1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */,
