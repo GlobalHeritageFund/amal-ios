@@ -82,4 +82,8 @@
     return @"Draft";
 }
 
+- (BOOL)isEditable {
+    return YES;
+}
+
 @end

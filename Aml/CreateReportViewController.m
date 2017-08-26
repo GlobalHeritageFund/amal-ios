@@ -16,6 +16,7 @@
 #import "ReportPhotoTableViewCell.h"
 #import "ReportHeaderView.h"
 #import "UIColor+Additions.h"
+#import "NSObject+Helpers.h"
 
 @interface CreateReportViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -32,7 +33,7 @@
     self = [super init];
     if (!self) return nil;
 
-    _reportDraft = reportDraft;
+    _viewModel = [[ReportViewModel alloc] initWithReport:reportDraft];
 
     return self;
 }
@@ -67,13 +68,12 @@
 }
 
 - (void)configureView {
-    ReportViewModel *reportViewModel = [[ReportViewModel alloc] initWithReport:self.reportDraft];
-    self.reportHeader.dateLabel.text = reportViewModel.dateInterval;
-    self.reportHeader.countLabel.text = reportViewModel.imageCountString;
-    self.reportHeader.uploadStateLabel.text = reportViewModel.uploadState;
-    self.reportHeader.totalProgressView.observedProgress = reportViewModel.progress;
-    self.reportHeader.creationDateLabel.text = reportViewModel.creationDateString;
-    self.reportHeader.reportStateLabel.text = reportViewModel.reportState;
+    self.reportHeader.dateLabel.text = self.viewModel.dateInterval;
+    self.reportHeader.countLabel.text = self.viewModel.imageCountString;
+    self.reportHeader.uploadStateLabel.text = self.viewModel.uploadState;
+    self.reportHeader.totalProgressView.observedProgress = self.viewModel.progress;
+    self.reportHeader.creationDateLabel.text = self.viewModel.creationDateString;
+    self.reportHeader.reportStateLabel.text = self.viewModel.reportState;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -93,10 +93,13 @@
     if (section == 1) {
         return 1;
     }
-    return self.reportDraft.photos.count;
+    return self.viewModel.report.photoCount;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!self.viewModel.isEditable) {
+        return NO;
+    }
     if (indexPath.section == 0) {
         return YES;
     }
@@ -104,7 +107,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.reportDraft.photos removeObjectAtIndex:indexPath.row];
+    [self.viewModel.draft.photos removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     [self updateUploadButtonState];
 }
@@ -117,7 +120,7 @@
         return cell;
     }
     ReportPhotoTableViewCell *cell = [[ReportPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-    LocalPhoto *photo = self.reportDraft.photos[indexPath.row];
+    LocalPhoto *photo = self.viewModel.draft.photos[indexPath.row];
     cell.imageView.image = photo.image;
     cell.textLabel.text = (photo.metadata.name.length) ? photo.metadata.name : @"Unnamed";
     cell.detailTextLabel.text = (photo.metadata.notes.length) ? photo.metadata.notes : @"No notes.";
@@ -127,7 +130,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        LocalPhoto *photo = self.reportDraft.photos[indexPath.row];
+        LocalPhoto *photo = self.viewModel.draft.photos[indexPath.row];
         [self.delegate createReportViewController:self didSelectPhoto:photo];
     }
     if (indexPath.section == 1) {
@@ -136,13 +139,13 @@
 }
 
 - (void)updateUploadButtonState {
-    BOOL reportHasAtLeastOneItem = self.reportDraft.photos.count != 0;
+    BOOL reportHasAtLeastOneItem = self.viewModel.imageCountString != 0;
     self.navigationItem.rightBarButtonItem.enabled = reportHasAtLeastOneItem;
 }
 
 - (void)upload:(id)sender {
-    self.reportDraft.title = self.reportHeader.titleField.text ?: @"";
-    [self.delegate createReportViewController:self didTapUploadWithDraft:self.reportDraft];
+    self.viewModel.draft.title = self.reportHeader.titleField.text ?: @"";
+    [self.delegate createReportViewController:self didTapUploadWithDraft:self.viewModel.draft];
 }
 
 - (void)cancel:(id)sender {

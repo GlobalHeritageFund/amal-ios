@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class ReportDraft, ReportUpload, LocalPhoto, CreateReportViewController;
+@class ReportDraft, ReportUpload, LocalPhoto, CreateReportViewController, ReportViewModel;
 
 @protocol CreateReportViewControllerDelegate <NSObject>
 
@@ -31,7 +31,7 @@
 
 - (instancetype)initWithReportDraft:(ReportDraft *)reportDraft;
 
-@property (nonatomic) ReportDraft *reportDraft;
+@property (nonatomic) ReportViewModel *viewModel;
 
 @property (nonatomic) ReportUpload *upload;
 

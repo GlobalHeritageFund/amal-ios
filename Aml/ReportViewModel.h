@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class ReportDraft, Report, ReportUpload;
+
 @protocol ReportProtocol <NSObject>
+
+@property (readonly) BOOL isEditable;
 
 @property (readonly) NSString *title;
 
@@ -34,6 +38,7 @@
 
 @property (nonatomic, readonly) id<ReportProtocol> report;
 
+@property (readonly) BOOL isEditable;
 @property (readonly) NSString *title;
 @property (readonly) NSString *dateInterval;
 @property (readonly) NSString *creationDateString;
@@ -41,5 +46,12 @@
 @property (readonly) NSString *uploadState;
 @property (readonly) NSString *reportState;
 @property (readonly) NSProgress *progress;
+
+@property (nonatomic, readonly) ReportDraft *draft;
+@property (nonatomic, readonly) ReportUpload *upload;
+@property (nonatomic, readonly) Report *finalized;
+
+
+
 
 @end

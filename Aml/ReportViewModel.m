@@ -7,6 +7,10 @@
 //
 
 #import "ReportViewModel.h"
+#import "NSObject+Helpers.h"
+#import "ReportDraft.h"
+#import "ReportUpload.h"
+#import "Report.h"
 
 @implementation ReportViewModel
 
@@ -60,6 +64,22 @@ static NSDateFormatter *dateFormatter = nil;
 
 - (NSProgress *)progress {
     return self.report.progress;
+}
+
+- (BOOL)isEditable {
+    return self.report.isEditable;
+}
+
+- (ReportDraft *)draft {
+    return [(NSObject*)self.report asClassOrNil:[ReportDraft class]];
+}
+
+- (ReportUpload *)upload {
+    return [(NSObject*)self.report asClassOrNil:[ReportUpload class]];
+}
+
+- (Report *)finalized {
+    return [(NSObject*)self.report asClassOrNil:[Report class]];
 }
 
 @end
