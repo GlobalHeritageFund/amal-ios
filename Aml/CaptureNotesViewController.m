@@ -253,6 +253,7 @@
 
 - (void)conditionDidChange:(DamageButtonFormElement *)damageButtonElement {
     self.photo.metadata.conditionNumber = damageButtonElement.selectedValue;
+    [FIRAnalytics logEventWithName:@"metadata-updated-condition" parameters:@{ @"new-condition": @(damageButtonElement.selectedValue) }];
     [self saveMetadata];
 }
 
