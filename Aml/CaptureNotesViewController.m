@@ -165,7 +165,13 @@
 
 - (void)nameFieldDidChange:(NSNotification *)notification {
     UITextField *textField = notification.object;
-    self.photo.metadata.name = textField.text;
+    NSString *newName = textField.text ?: @"";
+    if ([self.photo.metadata.name isEqualToString:@""]) {
+        [FIRAnalytics logEventWithName:@"metadata-added-name" parameters:@{ @"new-name": newName }];
+    } else {
+        [FIRAnalytics logEventWithName:@"metadata-updated-name" parameters:@{ @"new-name": newName }];
+    }
+    self.photo.metadata.name = newName;
     [self saveMetadata];
 }
 
