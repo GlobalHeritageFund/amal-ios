@@ -89,6 +89,7 @@
         createReportViewController.viewModel = [[ReportViewModel alloc] initWithReport:object];
         createReportViewController.navigationItem.hidesBackButton = YES;
         createReportViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissReportCreation:)];
+        createReportViewController.navigationItem.leftBarButtonItem = nil;
         return nil;
     }] catch:^(NSError * _Nonnull error) {
         createReportViewController.viewModel = [[ReportViewModel alloc] initWithReport:draft];
