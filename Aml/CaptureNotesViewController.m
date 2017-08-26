@@ -13,6 +13,7 @@
 #import "ImageDetailViewController.h"
 #import "AMLMetadata.h"
 #import "MapViewController.h"
+#import "Firebase.h"
 
 @interface CaptureNotesViewController ()
 
@@ -287,6 +288,7 @@
 }
 
 - (void)deleteTapped:(id)sender {
+    [FIRAnalytics logEventWithName:@"single-delete" parameters:nil];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to delete this photo? This can not be undone." preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         [self.photo removeLocalData];
@@ -297,6 +299,7 @@
 }
 
 - (void)photoTapped:(UITapGestureRecognizer *)sender {
+    [FIRAnalytics logEventWithName:@"full-screen-image" parameters:nil];
     ImageDetailViewController *imageDetail = [[ImageDetailViewController alloc] init];
     [[self.photo loadFullSizeImage] then:^id _Nullable(id  _Nonnull fullSize) {
         imageDetail.imageView.image = fullSize;
