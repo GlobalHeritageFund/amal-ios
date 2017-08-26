@@ -40,6 +40,8 @@
 
 @property (readonly) NSProgress *progress;
 
+@property (readonly) UIColor *reportStateColor;
+
 @property (readonly) NSString *reportState;
 
 @property (readonly) NSString *uploadState;

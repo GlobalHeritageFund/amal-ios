@@ -70,6 +70,10 @@ static NSDateFormatter *dateFormatter = nil;
     return self.report.reportState;
 }
 
+- (UIColor *)reportStateColor {
+    return self.report.reportStateColor;
+}
+
 - (NSProgress *)progress {
     return self.report.progress;
 }

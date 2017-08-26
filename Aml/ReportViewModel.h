@@ -23,6 +23,7 @@
 @property (readonly) NSString *imageCountString;
 @property (readonly) NSString *uploadState;
 @property (readonly) NSString *reportState;
+@property (readonly) UIColor *reportStateColor;
 @property (readonly) NSProgress *progress;
 
 @property (nonatomic, readonly) ReportDraft *draft;

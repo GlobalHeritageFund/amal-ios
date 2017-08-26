@@ -86,6 +86,12 @@
     return @"Draft";
 }
 
+- (UIColor *)reportStateColor {
+    return [UIColor redColor];
+}
+
+
+
 - (BOOL)isEditable {
     return YES;
 }

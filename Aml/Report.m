@@ -85,6 +85,10 @@
     return @"Published";
 }
 
+- (UIColor *)reportStateColor {
+    return [UIColor blackColor];
+}
+
 - (NSString *)uploadState {
     return @"Uploaded";
 }

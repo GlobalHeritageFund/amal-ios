@@ -94,6 +94,7 @@
     self.reportHeader.totalProgressView.observedProgress = self.viewModel.progress;
     self.reportHeader.creationDateLabel.text = self.viewModel.creationDateString;
     self.reportHeader.reportStateLabel.text = self.viewModel.reportState;
+    self.reportHeader.reportStateLabel.textColor = self.viewModel.reportStateColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
