@@ -100,8 +100,8 @@
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
-        CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
-        [galleryViewController.navigationController pushViewController:captureNotes animated:YES];
+    CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
+    [galleryViewController.navigationController pushViewController:captureNotes animated:YES];
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
