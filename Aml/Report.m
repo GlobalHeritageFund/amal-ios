@@ -53,14 +53,32 @@
     return self;
 }
 
-- (NSString *)imageCountString {
-    if (self.images.count == 0) {
-        return @"No photos";
-    } else if (self.images.count == 1) {
-        return @"1 photo";
-    } else {
-        return [NSString stringWithFormat:@"%zd photos", self.images.count];
-    }
+- (NSInteger)photoCount {
+    return self.images.count;
+}
+
+- (BOOL)isEditable {
+    return NO;
+}
+
+- (NSDate *)minDate {
+    return [self.images valueForKeyPath:@"@min.settings.date"];
+}
+
+- (NSDate *)maxDate {
+    return [self.images valueForKeyPath:@"@max.settings.date"];
+}
+
+- (NSProgress *)progress {
+    return [[NSProgress alloc] init];
+}
+
+- (NSString *)reportState {
+    return @"Published";
+}
+
+- (NSString *)uploadState {
+    return @"Uploaded";
 }
 
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Promise.h"
 #import <UIKit/UIKit.h>
+#import "ReportViewModel.h"
 
 @class AMLMetadata;
 
@@ -24,7 +25,7 @@
 @end
 
 
-@interface Report : NSObject
+@interface Report : NSObject<ReportProtocol>
 
 @property (readonly) NSString *title;
 @property (readonly) NSDate *creationDate;
