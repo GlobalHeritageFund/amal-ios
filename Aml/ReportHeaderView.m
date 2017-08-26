@@ -56,7 +56,7 @@
 - (UITextField *)titleField {
     if (!_titleField) {
         UITextField *titleField = [[UITextField alloc] init];
-        titleField.font = [UIFont boldSystemFontOfSize:28];
+        titleField.font = [UIFont boldSystemFontOfSize:28.0];
         titleField.placeholder = @"Title";
         [self.containerView addSubview:titleField];
         self.titleField = titleField;
@@ -67,8 +67,8 @@
 - (UILabel *)dateLabel {
     if (!_dateLabel) {
         UILabel *dateLabel = [[UILabel alloc] init];
-        dateLabel.textColor = [UIColor colorWithHex:0xcccccc];
-        dateLabel.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:18.0];
+        dateLabel.textColor = [UIColor colorWithHex:0xaaaaaa];
+        dateLabel.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:16.0];
         [self.containerView addSubview:dateLabel];
         self.dateLabel = dateLabel;
     }
@@ -78,8 +78,8 @@
 - (UILabel *)countLabel {
     if (!_countLabel) {
         UILabel *countLabel = [[UILabel alloc] init];
-        countLabel.textColor = [UIColor colorWithHex:0xcccccc];
-        countLabel.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:20.0];
+        countLabel.textColor = [UIColor colorWithHex:0xaaaaaa];
+        countLabel.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:16.0];
         [self.containerView addSubview:countLabel];
         self.countLabel = countLabel;
     }
@@ -90,7 +90,7 @@
     if (!_separator) {
         UIView *separator = [[UIView alloc] init];
         separator.backgroundColor  = [UIColor colorWithHex:0xC7C7CC];
-        [self addSubview:separator];
+        [self.containerView addSubview:separator];
         self.separator = separator;
     }
     return _separator;
@@ -162,13 +162,15 @@
     workingRect = CGRectInset(workingRect, 15, 15);
 
     CGRectDivide(workingRect, &titleRect, &workingRect, 40, CGRectMinYEdge);
-    CGRectDivide(workingRect, &dateRect, &workingRect, 30, CGRectMinYEdge);
-    CGRectDivide(workingRect, &countRect, &workingRect, 30, CGRectMinYEdge);
+    CGRectDivide(workingRect, &dateRect, &workingRect, 26, CGRectMinYEdge);
+    CGRectDivide(workingRect, &countRect, &workingRect, 26, CGRectMinYEdge);
+    workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
     CGRectDivide(workingRect, &separatorRect, &workingRect, 1, CGRectMinYEdge);
+    workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
     CGRectDivide(workingRect, &uploadStateRect, &workingRect, 40, CGRectMinYEdge);
     CGRectDivide(workingRect, &totalProgressRect, &workingRect, 2, CGRectMinYEdge);
+    workingRect = CGRectTrim(workingRect, 15, CGRectMinYEdge);
     CGRectDivide(workingRect, &creationDateRect, &reportStateRect, workingRect.size.width/2, CGRectMinXEdge);
-
 
     self.mapView.frame = mapRect;
     self.containerView.frame = containerRect;
