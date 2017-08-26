@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A04FCE91F51CE3B0010A9D8 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */; };
+		1A04FCEC1F51D07C0010A9D8 /* ReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */; };
 		1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */; };
 		1A1F7DE51F3F8CBE0028DCF0 /* ReportCreationCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1F7DE41F3F8CBE0028DCF0 /* ReportCreationCoordinator.m */; };
 		1A2BEBF81F33618800A59E69 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2BEBF71F33618800A59E69 /* UIImage+Additions.m */; };
@@ -90,6 +91,8 @@
 		05C28DCB1F018D480067736E /* Amal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Amal.entitlements; sourceTree = "<group>"; };
 		1A04FCE71F51CE3B0010A9D8 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
+		1A04FCEA1F51D07C0010A9D8 /* ReportCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCell.h; sourceTree = "<group>"; };
+		1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportCell.m; sourceTree = "<group>"; };
 		1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportPhotoTableViewCell.h; sourceTree = "<group>"; };
 		1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportPhotoTableViewCell.m; sourceTree = "<group>"; };
 		1A1F7DE31F3F8CBE0028DCF0 /* ReportCreationCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCreationCoordinator.h; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 			children = (
 				1A4E393E1F2FD7C70055C7FA /* ReportsViewController.h */,
 				1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */,
+				1A04FCEA1F51D07C0010A9D8 /* ReportCell.h */,
+				1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */,
 				1A4E9AD21F5111ED006856A8 /* Models */,
 				1AEBACA21F4A6E9F002DC63F /* FirebaseReportDataSource.h */,
 				1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */,
@@ -692,6 +697,7 @@
 				1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */,
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
 				1A5AADE71F4F756A00573829 /* QBAssetsViewController.m in Sources */,
+				1A04FCEC1F51D07C0010A9D8 /* ReportCell.m in Sources */,
 				1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */,
 				1A4E9AD11F50ABF0006856A8 /* ReportHeaderView.m in Sources */,
 				1A2BEBF81F33618800A59E69 /* UIImage+Additions.m in Sources */,

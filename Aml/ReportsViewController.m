@@ -12,6 +12,7 @@
 #import "Report.h"
 #import "NSArray+Additions.h"
 #import "FirebaseReportDataSource.h"
+#import "ReportCell.h"
 
 @interface ReportsViewController ()
 
@@ -44,7 +45,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+    UITableViewCell *cell = [[ReportCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
 
     Report *report = self.reports[indexPath.row];
     cell.textLabel.text = report.title;
@@ -53,7 +54,6 @@
     [[[report.photos.firstObject loadThumbnailImage] then:^id _Nullable(id  _Nonnull image) {
         if ([tableView cellForRowAtIndexPath:indexPath] == cell) {
             cell.imageView.image = image;
-            [cell setNeedsLayout];
         }
         return nil;
     }] catch:^(NSError * _Nonnull error) {
