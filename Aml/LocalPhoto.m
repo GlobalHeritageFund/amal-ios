@@ -37,7 +37,8 @@
 - (NSDate *)date {
     if (self.metadata.date.timeIntervalSince1970 < 100) {
         NSDictionary* fileAttribs = [[NSFileManager defaultManager] attributesOfItemAtPath:self.imagePath error:nil];
-        return [fileAttribs objectForKey:NSFileCreationDate];
+        NSDate *date = [fileAttribs objectForKey:NSFileCreationDate];
+        self.metadata.date = date;
     }
     return self.metadata.date;
 }
