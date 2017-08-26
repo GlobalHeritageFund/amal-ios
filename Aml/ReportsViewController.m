@@ -49,7 +49,7 @@
 
     Report *report = self.reports[indexPath.row];
     cell.textLabel.text = report.title;
-    cell.detailTextLabel.text = report.imageCountString;
+    cell.detailTextLabel.text = [[ReportViewModel alloc] initWithReport:report].imageCountString;
 
     [[[report.photos.firstObject loadThumbnailImage] then:^id _Nullable(id  _Nonnull image) {
         if ([tableView cellForRowAtIndexPath:indexPath] == cell) {
