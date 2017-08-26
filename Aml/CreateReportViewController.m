@@ -93,7 +93,7 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
         return YES;
     }
     return NO;
