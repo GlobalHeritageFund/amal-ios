@@ -376,7 +376,7 @@
 }
 
 - (IBAction)capturePhoto:(id)sender {
-    [FIRAnalytics logEventWithName:@"capture-photo" parameters:@{ @"orientation": self.orientation }];
+    [FIRAnalytics logEventWithName:@"capture_photo" parameters:@{ @"orientation": self.orientation }];
 
     if(self.stillImageOutput) {
         

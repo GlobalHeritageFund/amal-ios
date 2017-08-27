@@ -167,9 +167,9 @@
     UITextField *textField = notification.object;
     NSString *newName = textField.text ?: @"";
     if ([self.photo.metadata.name isEqualToString:@""]) {
-        [FIRAnalytics logEventWithName:@"metadata-added-name" parameters:@{ @"new-name": newName }];
+        [FIRAnalytics logEventWithName:@"metadata_added_name" parameters:@{ @"new_name": newName }];
     } else {
-        [FIRAnalytics logEventWithName:@"metadata-updated-name" parameters:@{ @"new-name": newName }];
+        [FIRAnalytics logEventWithName:@"metadata_updated_name" parameters:@{ @"new_name": newName }];
     }
     self.photo.metadata.name = newName;
     [self saveMetadata];
@@ -182,7 +182,7 @@
 }
 
 - (void)mapTapped:(id)sender {
-    [FIRAnalytics logEventWithName:@"map-detail-tapped" parameters:nil];
+    [FIRAnalytics logEventWithName:@"map_detail_tapped" parameters:nil];
     MapViewController *mapViewController = [[MapViewController alloc] initWithCoordinate:self.photo.metadata.coordinate];
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
@@ -196,7 +196,7 @@
 
 - (void)notesFieldDidChange:(NSNotification *)notification {
     UITextView *textView = notification.object;
-    [FIRAnalytics logEventWithName:@"metadata-updated-notes" parameters:nil];
+    [FIRAnalytics logEventWithName:@"metadata_updated_notes" parameters:nil];
     self.photo.metadata.notes = textView.text;
     [self saveMetadata];
 }
@@ -228,7 +228,7 @@
     if (segmentedControl.selectedSegmentIndex == 2) {
         self.photo.metadata.category = @"object";
     }
-    [FIRAnalytics logEventWithName:@"metadata-updated-category" parameters:@{ @"new-category": self.photo.metadata.category }];
+    [FIRAnalytics logEventWithName:@"metadata_updated_category" parameters:@{ @"new_category": self.photo.metadata.category }];
     [self saveMetadata];
 }
 
@@ -253,30 +253,30 @@
 
 - (void)conditionDidChange:(DamageButtonFormElement *)damageButtonElement {
     self.photo.metadata.conditionNumber = damageButtonElement.selectedValue;
-    [FIRAnalytics logEventWithName:@"metadata-updated-condition" parameters:@{ @"new-condition": @(damageButtonElement.selectedValue) }];
+    [FIRAnalytics logEventWithName:@"metadata_updated_condition" parameters:@{ @"new_condition": @(damageButtonElement.selectedValue) }];
     [self saveMetadata];
 }
 
 - (void)hazardsSwitchChanged:(UISwitch *)sender {
-    [FIRAnalytics logEventWithName:@"metadata-updated-hazards" parameters:nil];
+    [FIRAnalytics logEventWithName:@"metadata_updated_hazards" parameters:nil];
     self.photo.metadata.hazards = sender.isOn;
     [self saveMetadata];
 }
 
 - (void)safetySwitchChanged:(UISwitch *)sender {
-    [FIRAnalytics logEventWithName:@"metadata-updated-safety" parameters:nil];
+    [FIRAnalytics logEventWithName:@"metadata_updated_safety" parameters:nil];
     self.photo.metadata.safetyHazards = sender.isOn;
     [self saveMetadata];
 }
 
 - (void)interventionSwitchChanged:(UISwitch *)sender {
-    [FIRAnalytics logEventWithName:@"metadata-updated-intervention" parameters:nil];
+    [FIRAnalytics logEventWithName:@"metadata_updated_intervention" parameters:nil];
     self.photo.metadata.interventionRequired = sender.isOn;
     [self saveMetadata];
 }
 
 - (void)saveMetadata {
-    [FIRAnalytics logEventWithName:@"assessed-image" parameters:nil];
+    [FIRAnalytics logEventWithName:@"assessed_image" parameters:nil];
     [self.photo saveMetadata];
 }
 
@@ -306,7 +306,7 @@
 }
 
 - (void)deleteTapped:(id)sender {
-    [FIRAnalytics logEventWithName:@"single-delete" parameters:nil];
+    [FIRAnalytics logEventWithName:@"single_delete" parameters:nil];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to delete this photo? This can not be undone." preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         [self.photo removeLocalData];
@@ -317,7 +317,7 @@
 }
 
 - (void)photoTapped:(UITapGestureRecognizer *)sender {
-    [FIRAnalytics logEventWithName:@"full-screen-image" parameters:nil];
+    [FIRAnalytics logEventWithName:@"full_screen_image" parameters:nil];
     ImageDetailViewController *imageDetail = [[ImageDetailViewController alloc] init];
     [[self.photo loadFullSizeImage] then:^id _Nullable(id  _Nonnull fullSize) {
         imageDetail.imageView.image = fullSize;

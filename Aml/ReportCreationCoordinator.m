@@ -63,7 +63,7 @@
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
-    [FIRAnalytics logEventWithName:@"report-images-selected" parameters:nil];
+    [FIRAnalytics logEventWithName:@"report_images_selected" parameters:nil];
     self.currentReport = [[ReportDraft alloc] initWithPhotos:photos];
     ReportDetailViewController *reportDetail = [[ReportDetailViewController alloc] initWithReportDraft:self.currentReport];
     reportDetail.delegate = self;
@@ -83,14 +83,14 @@
 
 - (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didTapUploadWithDraft:(ReportDraft *)draft {
 
-    [FIRAnalytics logEventWithName:@"report-upload-tapped" parameters:nil];
+    [FIRAnalytics logEventWithName:@"report_upload_tapped" parameters:nil];
 
     ReportUpload *upload = [[ReportUpload alloc] initWithReportDraft:draft];
     reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:upload];
 
     [upload upload];
     [[upload.promise then:^id _Nullable(id  _Nonnull object) {
-        [FIRAnalytics logEventWithName:@"report-upload-completed" parameters:nil];
+        [FIRAnalytics logEventWithName:@"report_upload_completed" parameters:nil];
 
         reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:object];
         reportDetailViewController.navigationItem.hidesBackButton = YES;
@@ -98,7 +98,7 @@
         reportDetailViewController.navigationItem.leftBarButtonItem = nil;
         return nil;
     }] catch:^(NSError * _Nonnull error) {
-        [FIRAnalytics logEventWithName:@"report-upload-failed" parameters:nil];
+        [FIRAnalytics logEventWithName:@"report_upload_failed" parameters:nil];
 
         reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:draft];
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"An error occurred" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
