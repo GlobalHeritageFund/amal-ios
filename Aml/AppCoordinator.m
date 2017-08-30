@@ -127,6 +127,7 @@
     imagePickerController.allowsMultipleSelection = YES;
     imagePickerController.maximumNumberOfSelection = 50;
     imagePickerController.showsNumberOfSelectedAssets = YES;
+    imagePickerController.mediaType = QBImagePickerMediaTypeImage;
 
     [self.window.rootViewController presentViewController:imagePickerController animated:YES completion:NULL];
 }
