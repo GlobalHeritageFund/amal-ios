@@ -27,7 +27,7 @@
 
     self.title = @"Reports";
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(composeTapped:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(composeTapped:)];
 
     __weak __typeof(&*self)weakSelf = self;
     [[[FirebaseReportDataSource alloc] init] observeDataSource:^(NSArray<Report *> *reports) {
