@@ -204,7 +204,7 @@
             [photo removeLocalData];
         }
         [self reloadData];
-        [self updateEnabledStateOnToolbarItems];
+        self.mode = GalleryModeNormal;
     }]];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:true completion:nil];
