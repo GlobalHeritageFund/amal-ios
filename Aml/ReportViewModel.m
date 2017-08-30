@@ -54,11 +54,11 @@ static NSDateFormatter *dateFormatter = nil;
 
 - (NSString *)imageCountString {
     if (self.report.photoCount == 0) {
-        return @"No photos";
+        return @"No items";
     } else if (self.report.photoCount == 1) {
-        return @"1 photo";
+        return @"1 item";
     } else {
-        return [NSString stringWithFormat:@"%zd photos", self.report.photoCount];
+        return [NSString stringWithFormat:@"%zd items", self.report.photoCount];
     }
 }
 
