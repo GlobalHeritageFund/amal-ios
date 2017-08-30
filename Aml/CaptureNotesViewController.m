@@ -73,7 +73,7 @@
     [photoElement.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTapped:)]];
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Photo"
+      initWithHeaderText:nil
       formElements:@[
                      photoElement,
                      ]]
