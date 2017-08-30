@@ -140,13 +140,13 @@
     [FIRAnalytics logEventWithName:@"imported_images" parameters:@{ @"count": @(assets.count) }];
 
     for (PHAsset *asset in assets) {
-        [self saveAsset:asset];
+        [self importAsset:asset];
     }
 
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)saveAsset:(PHAsset *)asset {
+- (void)importAsset:(PHAsset *)asset {
     [PHImageManager.defaultManager requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
 
         if(!imageData)
