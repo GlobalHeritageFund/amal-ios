@@ -38,8 +38,10 @@
         if ([snapshot.value isKindOfClass:[NSNull class]]) {
             return;
         }
-        NSArray *reports = [[[snapshot.value allValues] arrayByTransformingObjectsUsingBlock:^id(id object) {
+        NSArray *reports = [[[[snapshot.value allValues] arrayByTransformingObjectsUsingBlock:^id(id object) {
             return [[Report alloc] initWithDictionary:object];
+        }] arrayBySelectingObjectsPassingTest:^BOOL(Report *report) {
+            return report.uploadComplete;
         }] sortedArrayUsingComparator:^NSComparisonResult(Report * _Nonnull obj1, Report * _Nonnull obj2) {
             return [obj2.creationDate compare:obj1.creationDate];
         }];

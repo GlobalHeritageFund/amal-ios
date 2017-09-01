@@ -32,6 +32,8 @@
 
 @property (readonly) NSString *title;
 @property (readonly) NSDate *creationDate;
+@property (nonatomic) BOOL uploadComplete;
+
 
 @property (nonatomic, readonly) NSArray<RemotePhoto *> *photos;
 
