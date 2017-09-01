@@ -13,7 +13,7 @@
 @implementation LocalDraftDataSource
 
 - (NSString *)cacheFilename {
-    return @"reports/localDrafts.userData";
+    return @"reports/localDrafts.v1.userData";
 }
 
 - (NSString *)documentsDirectory {
