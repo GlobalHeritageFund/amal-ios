@@ -15,6 +15,7 @@
 - (void)reportsViewControllerDidTapCompose:(ReportsViewController *)reportsViewController;
 - (void)reportsViewController:(ReportsViewController *)reportsViewController didTapReport:(Report *)report;
 - (void)reportsViewController:(ReportsViewController *)reportsViewController didTapDraft:(ReportDraft *)reportDraft;
+- (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteDraft:(ReportDraft *)reportDraft atIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

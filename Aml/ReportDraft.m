@@ -39,7 +39,7 @@
     self = [super init];
     if (!self) return nil;
 
-    _localIdentifier = [dictionary[@"localIdentifer"] asClassOrNil:[NSString class]];
+    _localIdentifier = [dictionary[@"localIdentifier"] asClassOrNil:[NSString class]];
     _title = [dictionary[@"title"] asClassOrNil:[NSString class]];
     _deviceToken = [dictionary[@"deviceToken"] asClassOrNil:[NSString class]];
     _creationDate = [NSDate dateWithTimeIntervalSince1970:[[dictionary[@"creationDate"] asClassOrNil:[NSNumber class]] doubleValue]];
@@ -52,7 +52,7 @@
 
 - (NSDictionary *)dictionaryRepresentation {
     return @{
-             @"localIdentifier": self.localIdentifier ?: @"",
+             @"localIdentifier": self.localIdentifier ?: [[NSUUID UUID] UUIDString],
              @"title": self.title ?: [NSNull null],
              @"deviceToken": self.deviceToken ?: [NSNull null],
              @"creationDate": @([self.creationDate timeIntervalSince1970]),

@@ -26,6 +26,7 @@
 #import "QBImagePickerController.h"
 #import "Report.h"
 #import "Firebase.h"
+#import "LocalDraftDataSource.h"
 
 @interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate, QBImagePickerControllerDelegate>
 
@@ -240,6 +241,10 @@
     [reportsViewController.navigationController pushViewController:reportViewController animated:YES];
     [reportViewController loadViewIfNeeded];
     reportViewController.navigationItem.leftBarButtonItem = nil;
+}
+
+- (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteDraft:(ReportDraft *)reportDraft atIndexPath:(NSIndexPath *)indexPath {
+    [[LocalDraftDataSource new] removeReportDraft:reportDraft];
 }
 
 @end

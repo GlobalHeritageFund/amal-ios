@@ -37,6 +37,7 @@
     self.publishedReports.delegate = self;
 
     self.localDrafts = [[LocalDraftDataSource alloc] init];
+    self.localDrafts.delegate = self;
 }
 
 - (void)dataSourceUpdated:(id)dataSource {
@@ -105,6 +106,22 @@
         Report *report = self.publishedReports.reports[indexPath.row];
         [self.delegate reportsViewController:self didTapReport:report];
     }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.section == 0;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle != UITableViewCellEditingStyleDelete) {
+        return;
+    }
+    if (indexPath.section != 0) {
+        return;
+    }
+    ReportDraft *reportDraft = self.localDrafts.reports[indexPath.row];
+
+    [self.delegate reportsViewController:self shouldDeleteDraft:reportDraft atIndexPath:indexPath];
 }
 
 - (void)composeTapped:(id)sender {
