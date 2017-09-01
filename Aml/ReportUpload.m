@@ -33,6 +33,7 @@
     _reportDraft.deviceToken = [CurrentUser shared].deviceToken;
     _promise = [Promise new];
     _totalProgress = [[NSProgress alloc] init];
+    _totalProgress.totalUnitCount = 100 * _reportDraft.photos.count;
 
     _progresses = [_reportDraft.photos arrayByTransformingObjectsUsingBlock:^id(id object) {
         NSProgress *progress = [[NSProgress alloc] init];
