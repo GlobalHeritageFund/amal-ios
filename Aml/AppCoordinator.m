@@ -151,7 +151,6 @@
     }]];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [galleryViewController presentViewController:alertController animated:true completion:nil];
-
 }
 
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {

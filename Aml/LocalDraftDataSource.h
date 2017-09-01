@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FirebaseReportDataSource.h"
 
 @class ReportDraft;
 
@@ -14,12 +15,17 @@
 
 @property (nonatomic, readonly) NSArray<ReportDraft *> *reports;
 
+@property (nonatomic, weak) id<DataSourceDelegate> delegate;
+
+- (void)addReportDraft:(ReportDraft *)draft;
+- (void)removeReportDraft:(ReportDraft *)draft;
+
 @end
 
 @interface LocalDraftStorage : NSObject
 
 - (NSArray<ReportDraft *> *)read;
+
 - (void)write:(NSArray <ReportDraft *> *)reports;
-- (void)addReportDraft:(ReportDraft *)draft;
 
 @end

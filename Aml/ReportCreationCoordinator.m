@@ -14,6 +14,7 @@
 #import "ReportDraft.h"
 #import "ReportUpload.h"
 #import "Firebase.h"
+#import "LocalDraftDataSource.h"
 
 @interface ReportCreationCoordinator () <GalleryViewControllerDelegate, ReportDetailViewControllerDelegate>
 
@@ -104,6 +105,9 @@
         reportDetailViewController.navigationItem.hidesBackButton = YES;
         reportDetailViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissReportCreation:)];
         reportDetailViewController.navigationItem.leftBarButtonItem = nil;
+
+        [[LocalDraftDataSource new] removeReportDraft:draft];
+        
         return nil;
     }] catch:^(NSError * _Nonnull error) {
         [FIRAnalytics logEventWithName:@"report_upload_failed" parameters:nil];
@@ -116,7 +120,13 @@
 }
 
 - (void)reportDetailViewControllerDidTapCancel:(ReportDetailViewController *)reportDetailViewController {
-    [reportDetailViewController dismissViewControllerAnimated:YES completion:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Save?" message:@"Would you like to save this as a draft?" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Save Draft" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [[LocalDraftDataSource new] addReportDraft:reportDetailViewController.viewModel.draft];
+        [reportDetailViewController dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Discard" style:UIAlertActionStyleCancel handler:nil]];
+    [reportDetailViewController presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectPhoto:(LocalPhoto *)photo {
