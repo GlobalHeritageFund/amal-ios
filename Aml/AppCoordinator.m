@@ -117,6 +117,8 @@
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController savePhotos:(NSArray<LocalPhoto *> *)photos {
+    [FIRAnalytics logEventWithName:@"multi_save_images" parameters:@{ @"count": @(photos.count) }];
+
     for (LocalPhoto *photo in photos) {
         [[photo loadFullSizeImage] then:^id _Nullable(id  _Nonnull image) {
             [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
