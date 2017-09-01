@@ -14,9 +14,9 @@
 #import "FirebaseReportDataSource.h"
 #import "ReportCell.h"
 
-@interface ReportsViewController ()
+@interface ReportsViewController () <DataSourceDelegate>
 
-@property (nonatomic) NSArray<Report *> *reports;
+@property (nonatomic) FirebaseReportDataSource *publishedReports;
 
 @end
 
@@ -29,11 +29,13 @@
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(composeTapped:)];
 
-    __weak __typeof(&*self)weakSelf = self;
-    [[[FirebaseReportDataSource alloc] init] observeDataSource:^(NSArray<Report *> *reports) {
-        weakSelf.reports = reports;
-        [weakSelf.tableView reloadData];
-    }];
+    self.publishedReports = [[FirebaseReportDataSource alloc] init];
+    [self.publishedReports beginObserving];
+    self.publishedReports.delegate = self;
+}
+
+- (void)dataSourceUpdated:(id)dataSource {
+    [self.tableView reloadData];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -41,13 +43,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.reports.count;
+    return self.publishedReports.reports.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[ReportCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
 
-    Report *report = self.reports[indexPath.row];
+    Report *report = self.publishedReports.reports[indexPath.row];
     cell.textLabel.text = report.title;
     cell.detailTextLabel.text = [[ReportViewModel alloc] initWithReport:report].imageCountString;
 
@@ -63,7 +65,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Report *report = self.reports[indexPath.row];
+    Report *report = self.publishedReports.reports[indexPath.row];
     [self.delegate reportsViewController:self didTapReport:report];
 }
 

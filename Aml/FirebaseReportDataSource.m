@@ -12,7 +12,22 @@
 #import "NSArray+Additions.h"
 #import "CurrentUser.h"
 
+@interface FirebaseReportDataSource ()
+
+@property (nonatomic) NSArray *reports;
+
+@end
+
 @implementation FirebaseReportDataSource
+
+- (void)beginObserving {
+    __weak __typeof(&*self)weakSelf = self;
+
+    [self observeDataSource:^(NSArray<Report *> *reports) {
+        weakSelf.reports = reports;
+        [self.delegate dataSourceUpdated:self];
+    }];
+}
 
 - (void)observeDataSource:(void ((^)(NSArray<Report *> *)))block {
     FIRDatabaseReference *reportsDirectory = [[[FIRDatabase database] reference] child:@"reports"];

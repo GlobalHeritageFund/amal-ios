@@ -7,10 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @class Report;
+
+@protocol DataSourceDelegate <NSObject>
+
+- (void)dataSourceUpdated:(id)dataSource;
+
+@end
 
 @interface FirebaseReportDataSource : NSObject
 
-- (void)observeDataSource:(void ((^)(NSArray<Report *> *)))block;
+@property (nonatomic, weak) id<DataSourceDelegate> delegate;
+
+@property (nonatomic, readonly) NSArray<Report *> *reports;
+
+
+- (void)beginObserving;
 
 @end
