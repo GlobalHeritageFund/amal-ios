@@ -196,24 +196,10 @@
 }
 
 - (void)deleteMultiSelect:(id)sender {
-    NSString *message;
-    if (self.collectionView.indexPathsForSelectedItems.count == 1) {
-        message = @"Are you sure you want to delete this photo? This can not be undone.";
-    } else {
-        message = @"Are you sure you want to delete these photos? This can not be undone.";
-    }
-    [FIRAnalytics logEventWithName:@"multi_select_delete" parameters:@{ @"count": @(self.collectionView.indexPathsForSelectedItems.count) }];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        for (NSIndexPath *indexPath in self.collectionView.indexPathsForSelectedItems) {
-            LocalPhoto *photo = self.photoSections[indexPath.section].photos[indexPath.row];
-            [photo removeLocalData];
-        }
-        [self reloadData];
-        self.mode = GalleryModeNormal;
-    }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
-    [self presentViewController:alertController animated:true completion:nil];
+    NSArray<LocalPhoto *> *photos = [self.collectionView.indexPathsForSelectedItems arrayByTransformingObjectsUsingBlock:^LocalPhoto *(NSIndexPath *indexPath) {
+        return self.photoSections[indexPath.section].photos[indexPath.row];
+    }];
+    [self.delegate galleryViewController:self deletePhotos:photos];
 }
 
 - (void)saveSelectedItems:(id)sender {

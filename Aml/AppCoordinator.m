@@ -133,6 +133,27 @@
     galleryViewController.mode = GalleryModeNormal;
 }
 
+- (void)galleryViewController:(GalleryViewController *)galleryViewController deletePhotos:(NSArray<LocalPhoto *> *)photos {
+    NSString *message;
+    if (photos.count == 1) {
+        message = @"Are you sure you want to delete this photo? This can not be undone.";
+    } else {
+        message = @"Are you sure you want to delete these photos? This can not be undone.";
+    }
+    [FIRAnalytics logEventWithName:@"multi_select_delete" parameters:@{ @"count": @(photos.count) }];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        for (LocalPhoto *photo in photos) {
+            [photo removeLocalData];
+        }
+        [galleryViewController reloadData];
+        galleryViewController.mode = GalleryModeNormal;
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [galleryViewController presentViewController:alertController animated:true completion:nil];
+
+}
+
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {
     [galleryViewController dismissViewControllerAnimated:YES completion:nil];
 }
