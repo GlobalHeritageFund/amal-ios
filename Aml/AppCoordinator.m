@@ -232,4 +232,14 @@
     reportViewController.navigationItem.leftBarButtonItem = nil;
 }
 
+- (void)reportsViewController:(ReportsViewController *)reportsViewController didTapDraft:(ReportDraft *)reportDraft {
+    [FIRAnalytics logEventWithName:@"draft_tapped" parameters:nil];
+
+    ReportViewModel *viewModel = [[ReportViewModel alloc] initWithReport:reportDraft];
+    ReportDetailViewController *reportViewController = [[ReportDetailViewController alloc] initWithReportViewModel:viewModel];
+    [reportsViewController.navigationController pushViewController:reportViewController animated:YES];
+    [reportViewController loadViewIfNeeded];
+    reportViewController.navigationItem.leftBarButtonItem = nil;
+}
+
 @end

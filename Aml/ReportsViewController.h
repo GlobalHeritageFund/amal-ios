@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class ReportsViewController, Report;
+@class ReportsViewController, Report, ReportDraft;
 
 @protocol ReportsViewControllerDelegate <NSObject>
 
 - (void)reportsViewControllerDidTapCompose:(ReportsViewController *)reportsViewController;
 - (void)reportsViewController:(ReportsViewController *)reportsViewController didTapReport:(Report *)report;
+- (void)reportsViewController:(ReportsViewController *)reportsViewController didTapDraft:(ReportDraft *)reportDraft;
 
 @end
 

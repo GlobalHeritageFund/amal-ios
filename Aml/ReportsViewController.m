@@ -88,8 +88,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Report *report = self.publishedReports.reports[indexPath.row];
-    [self.delegate reportsViewController:self didTapReport:report];
+    if (indexPath.section == 0) {
+        ReportDraft *reportDraft = self.localDrafts.reports[indexPath.row];
+        [self.delegate reportsViewController:self didTapDraft:reportDraft];
+    } else if (indexPath.section == 1) {
+        Report *report = self.publishedReports.reports[indexPath.row];
+        [self.delegate reportsViewController:self didTapReport:report];
+    }
 }
 
 - (void)composeTapped:(id)sender {
