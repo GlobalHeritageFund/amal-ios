@@ -12,6 +12,19 @@
 
 @implementation LocalDraftDataSource
 
+- (instancetype)init {
+    self = [super init];
+    if (!self) return nil;
+
+    _reports = [[LocalDraftStorage new] read];
+
+    return self;
+}
+
+@end
+
+@implementation LocalDraftStorage
+
 - (NSString *)cacheFilename {
     return @"reports/localDrafts.v1.userData";
 }
@@ -27,6 +40,9 @@
 
 - (NSArray<ReportDraft *> *)read {
     NSData *data = [NSData dataWithContentsOfFile:self.dataLocation];
+    if (!data) {
+        return @[];
+    }
     NSArray *dictionaries = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     return [dictionaries arrayByTransformingObjectsUsingBlock:^id(id object) {
         return [[ReportDraft alloc] initWithDictionary:object];
@@ -44,6 +60,18 @@
 - (void)addReportDraft:(ReportDraft *)draft {
     NSMutableArray *array = [[self read] mutableCopy];
     [array addObject:draft];
+    [self write:array];
+}
+
+- (void)removeReportDraft:(ReportDraft *)draft {
+    NSMutableArray *array = [[self read] mutableCopy];
+    NSInteger index = [array indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        return [[obj localIdentifier] isEqualToString:draft.localIdentifier];
+    }];
+    if (index == NSNotFound) {
+        return;
+    }
+    [array removeObjectAtIndex:index];
     [self write:array];
 }
 

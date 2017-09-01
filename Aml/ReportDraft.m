@@ -17,6 +17,8 @@
     self = [super init];
     if (!self) return nil;
 
+    _localIdentifier = [[NSUUID UUID] UUIDString];
+
     _localPhotos = [photos mutableCopy];
 
     _creationDate = [[NSDate alloc] init];
@@ -37,6 +39,7 @@
     self = [super init];
     if (!self) return nil;
 
+    _localIdentifier = [dictionary[@"localIdentifer"] asClassOrNil:[NSString class]];
     _title = [dictionary[@"title"] asClassOrNil:[NSString class]];
     _deviceToken = [dictionary[@"deviceToken"] asClassOrNil:[NSString class]];
     _creationDate = [NSDate dateWithTimeIntervalSince1970:[[dictionary[@"creationDate"] asClassOrNil:[NSNumber class]] doubleValue]];
@@ -49,6 +52,7 @@
 
 - (NSDictionary *)dictionaryRepresentation {
     return @{
+             @"localIdentifier": self.localIdentifier,
              @"title": self.title ?: [NSNull null],
              @"deviceToken": self.deviceToken ?: [NSNull null],
              @"creationDate": @([self.creationDate timeIntervalSince1970]),
@@ -89,8 +93,6 @@
 - (UIColor *)reportStateColor {
     return [UIColor redColor];
 }
-
-
 
 - (BOOL)isEditable {
     return YES;

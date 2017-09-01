@@ -10,7 +10,13 @@
 
 @class ReportDraft;
 
-@interface LocalDraftDataSource : NSObject
+@interface LocalDraftDataSource: NSObject
+
+@property (nonatomic, readonly) NSArray<ReportDraft *> *reports;
+
+@end
+
+@interface LocalDraftStorage : NSObject
 
 - (NSArray<ReportDraft *> *)read;
 - (void)write:(NSArray <ReportDraft *> *)reports;
