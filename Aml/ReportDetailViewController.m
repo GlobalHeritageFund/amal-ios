@@ -122,6 +122,7 @@
     self.reportHeader.creationDateLabel.text = self.viewModel.creationDateString;
     self.reportHeader.reportStateLabel.text = self.viewModel.reportState;
     self.reportHeader.reportStateLabel.textColor = self.viewModel.reportStateColor;
+    self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -183,6 +184,7 @@
     cell.textLabel.text = (photo.metadata.name.length) ? photo.metadata.name : @"Unnamed";
     cell.detailTextLabel.text = (photo.metadata.notes.length) ? photo.metadata.notes : @"No notes.";
     cell.progressView.observedProgress = self.viewModel.upload.progresses[indexPath.row];
+    cell.progressView.hidden = !self.viewModel.showProgressBars;
     return cell;
 }
 

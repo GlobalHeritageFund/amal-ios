@@ -29,5 +29,6 @@
 @property (nonatomic, readonly) ReportDraft *draft;
 @property (nonatomic, readonly) ReportUpload *upload;
 @property (nonatomic, readonly) Report *finalized;
+@property (nonatomic) BOOL showProgressBars;
 
 @end

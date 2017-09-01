@@ -103,4 +103,8 @@
     return @"Uploaded";
 }
 
+- (BOOL)showProgressBars {
+    return NO;
+}
+
 @end

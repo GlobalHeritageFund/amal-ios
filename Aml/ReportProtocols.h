@@ -46,4 +46,6 @@
 
 @property (readonly) NSString *uploadState;
 
+@property (readonly) BOOL showProgressBars;
+
 @end

@@ -167,4 +167,8 @@
     return @"Uploading...";
 }
 
+- (BOOL)showProgressBars {
+    return YES;
+}
+
 @end

@@ -98,4 +98,8 @@
     return YES;
 }
 
+- (BOOL)showProgressBars {
+    return NO;
+}
+
 @end

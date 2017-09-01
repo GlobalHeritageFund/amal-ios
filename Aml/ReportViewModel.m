@@ -97,4 +97,8 @@ static NSDateFormatter *dateFormatter = nil;
     return [(NSObject*)self.report asClassOrNil:[Report class]];
 }
 
+- (BOOL)showProgressBars {
+    return self.report.showProgressBars;
+}
+
 @end
