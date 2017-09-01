@@ -41,6 +41,9 @@ static NSDateFormatter *dateFormatter = nil;
         dateIntervalFormatter.dateStyle = NSDateFormatterMediumStyle;
         dateIntervalFormatter.timeStyle = NSDateFormatterNoStyle;
     }
+    if (self.report.photos.count == 0) {
+        return @"";
+    }
     return [dateIntervalFormatter stringFromDate:self.report.minDate toDate:self.report.maxDate];
 }
 
