@@ -87,6 +87,16 @@
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"Drafts";
+    }
+    if (section == 1) {
+        return @"Published";
+    }
+    return nil;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         ReportDraft *reportDraft = self.localDrafts.reports[indexPath.row];
