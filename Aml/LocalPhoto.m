@@ -40,6 +40,7 @@
         NSDictionary* fileAttribs = [[NSFileManager defaultManager] attributesOfItemAtPath:self.imagePath error:nil];
         NSDate *date = [fileAttribs objectForKey:NSFileCreationDate];
         self.metadata.date = date;
+        [self saveMetadata];
     }
     return self.metadata.date;
 }
