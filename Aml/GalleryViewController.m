@@ -148,6 +148,12 @@
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [items addObject:flexibleSpace];
 
+    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(saveSelectedItems:)];
+    [items addObject:saveItem];
+
+    UIBarButtonItem *flexibleSpace2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [items addObject:flexibleSpace2];
+
     UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(deleteMultiSelect:)];
     deleteItem.tintColor = [UIColor redColor];
     [items addObject:deleteItem];
@@ -208,6 +214,13 @@
     }]];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:true completion:nil];
+}
+
+- (void)saveSelectedItems:(id)sender {
+    NSArray<LocalPhoto *> *photos = [self.collectionView.indexPathsForSelectedItems arrayByTransformingObjectsUsingBlock:^LocalPhoto *(NSIndexPath *indexPath) {
+        return self.photoSections[indexPath.section].photos[indexPath.row];
+    }];
+    [self.delegate galleryViewController:self savePhotos:photos];
 }
 
 - (void)dismiss:(id)sender {

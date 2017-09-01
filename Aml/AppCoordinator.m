@@ -116,6 +116,21 @@
     [self.childCoordinators addObject:reportCreation];
 }
 
+- (void)galleryViewController:(GalleryViewController *)galleryViewController savePhotos:(NSArray<LocalPhoto *> *)photos {
+    for (LocalPhoto *photo in photos) {
+        [[photo loadFullSizeImage] then:^id _Nullable(id  _Nonnull image) {
+            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                PHAssetChangeRequest *changeRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+                changeRequest.location = [[CLLocation alloc] initWithLatitude:photo.metadata.latitude longitude:photo.metadata.longitude];
+            } completionHandler:^(BOOL success, NSError * _Nullable error) {
+
+            }];
+            return nil;
+        }];
+    }
+    galleryViewController.mode = GalleryModeNormal;
+}
+
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {
     [galleryViewController dismissViewControllerAnimated:YES completion:nil];
 }

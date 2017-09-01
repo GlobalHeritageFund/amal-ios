@@ -16,6 +16,7 @@
 - (void)galleryViewControllerDidTapImport:(GalleryViewController *)galleryViewController;
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo;
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos;
+- (void)galleryViewController:(GalleryViewController *)galleryViewController savePhotos:(NSArray<LocalPhoto *> *)photos;
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController;
 
 @end
