@@ -52,7 +52,7 @@
 
 - (NSDictionary *)dictionaryRepresentation {
     return @{
-             @"localIdentifier": self.localIdentifier,
+             @"localIdentifier": self.localIdentifier ?: @"",
              @"title": self.title ?: [NSNull null],
              @"deviceToken": self.deviceToken ?: [NSNull null],
              @"creationDate": @([self.creationDate timeIntervalSince1970]),
