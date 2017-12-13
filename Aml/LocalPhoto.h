@@ -26,6 +26,8 @@
 
 - (void)saveMetadata;
 
+- (void)refreshMetadata;
+
 - (Promise<UIImage *> *)loadThumbnailImage;
 
 - (Promise<UIImage *> *)loadFullSizeImage;

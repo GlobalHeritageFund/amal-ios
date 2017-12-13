@@ -24,13 +24,7 @@
     _imagePath = imagePath;
     _settingsPath = settingsPath;
 
-    NSData *data = [NSData dataWithContentsOfFile:self.settingsPath];
-    if (data) {
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        _metadata = [[AMLMetadata alloc] initWithDictionary:dictionary];
-    } else {
-        _metadata = [AMLMetadata new];
-    }
+    [self refreshMetadata];
 
     return self;
 }
@@ -74,6 +68,16 @@
     NSData *settingsData = [NSJSONSerialization dataWithJSONObject:self.metadata.dictionaryRepresentation options:0 error:nil];
     
     [settingsData writeToFile:self.settingsPath atomically:NO];
+}
+
+- (void)refreshMetadata {
+    NSData *data = [NSData dataWithContentsOfFile:self.settingsPath];
+    if (data) {
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        _metadata = [[AMLMetadata alloc] initWithDictionary:dictionary];
+    } else {
+        _metadata = [AMLMetadata new];
+    }
 }
 
 - (void)removeLocalData {
