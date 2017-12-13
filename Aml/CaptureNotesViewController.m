@@ -39,6 +39,8 @@
     self.safetySwitchElement = [[SwitchFormElement alloc] initWithTitle:@"Safety/Personal Hazard"];
     self.interventionSwitchElement = [[SwitchFormElement alloc] initWithTitle:@"Intervention Recommended"];
 
+    [self.photo refreshMetadata];
+
     return self;
 }
 
