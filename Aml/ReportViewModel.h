@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ReportProtocols.h"
+#import <MapKit/MapKit.h>
 
 @interface ReportViewModel : NSObject
 
@@ -21,6 +22,7 @@
 @property (readonly) NSString *dateInterval;
 @property (readonly) NSString *creationDateString;
 @property (readonly) NSString *imageCountString;
+@property (readonly) CLLocationCoordinate2D coordinateMidpoint;
 @property (readonly) NSString *uploadState;
 @property (readonly) NSString *reportState;
 @property (readonly) UIColor *reportStateColor;

@@ -11,6 +11,7 @@
 
 @interface ReportHeaderView : UIView
 
+@property (readonly) MKMapView *mapView;
 @property (readonly) UITextField *titleField;
 @property (readonly) UILabel *dateLabel;
 @property (readonly) UILabel *countLabel;

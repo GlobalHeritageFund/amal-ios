@@ -11,6 +11,7 @@
 #import "ReportDraft.h"
 #import "ReportUpload.h"
 #import "Report.h"
+#import <MapKit/MapKit.h>
 
 @implementation ReportViewModel
 
@@ -53,6 +54,12 @@ static NSDateFormatter *dateFormatter = nil;
         dateFormatter.dateFormat = @"d MMMM yyyy";
     }
     return [NSString stringWithFormat:@"Created %@", [dateFormatter stringFromDate:self.report.creationDate]];
+}
+
+- (CLLocationCoordinate2D)coordinateMidpoint {
+    NSNumber *averageLatitude = [[[self.photos valueForKeyPath:@"metadata.latitude"] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self != 0"]] valueForKeyPath:@"@avg.self"];
+    NSNumber *averageLongitude = [[[self.photos valueForKeyPath:@"metadata.longitude"] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self != 0"]] valueForKeyPath:@"@avg.self"];
+    return CLLocationCoordinate2DMake(averageLatitude.doubleValue, averageLongitude.doubleValue);
 }
 
 - (NSString *)imageCountString {
