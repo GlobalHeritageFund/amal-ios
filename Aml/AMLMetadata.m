@@ -63,7 +63,7 @@
 }
 
 - (BOOL)hasLocationCoordinates {
-    return abs(self.latitude) > 0.1 || abs(self.longitude) > 0.1;
+    return fabs(self.latitude) > 0.1 || fabs(self.longitude) > 0.1;
 }
 
 - (CLLocationCoordinate2D)coordinate {
