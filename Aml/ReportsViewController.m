@@ -89,7 +89,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
+    if (section == 0 && self.localDrafts.hasDrafts) {
         return @"Drafts";
     }
     if (section == 1) {

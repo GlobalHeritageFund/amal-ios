@@ -69,6 +69,10 @@ static NSString *LocalDraftDataSourceDidChange = @"LocalDraftDataSourceDidChange
     [self postNotification];
 }
 
+- (BOOL)hasDrafts {
+    return self.reports.count != 0;
+}
+
 @end
 
 @implementation LocalDraftStorage

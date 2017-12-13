@@ -20,6 +20,8 @@
 - (void)addReportDraft:(ReportDraft *)draft;
 - (void)removeReportDraft:(ReportDraft *)draft;
 
+@property (readonly) BOOL hasDrafts;
+
 @end
 
 @interface LocalDraftStorage : NSObject
