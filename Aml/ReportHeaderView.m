@@ -173,7 +173,9 @@
     workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
     CGRectDivide(workingRect, &totalProgressRect, &workingRect, 2, CGRectMinYEdge);
     workingRect = CGRectTrim(workingRect, 15, CGRectMinYEdge);
-    CGRectDivide(workingRect, &creationDateRect, &reportStateRect, workingRect.size.width/2, CGRectMinXEdge);
+
+    CGSize dateSize = [self.creationDateLabel sizeThatFits:workingRect.size];
+    CGRectDivide(workingRect, &creationDateRect, &reportStateRect, dateSize.width, CGRectMinXEdge);
 
     self.mapView.frame = mapRect;
     self.containerView.frame = containerRect;
