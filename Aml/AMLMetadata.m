@@ -55,6 +55,17 @@
              };
 }
 
+- (NSString *)locationString {
+    if (self.hasLocationCoordinates) {
+        return [NSString stringWithFormat:@"%f, %f", self.latitude, self.longitude];
+    }
+    return @"No coordinates.";
+}
+
+- (BOOL)hasLocationCoordinates {
+    return abs(self.latitude) > 0.1 || abs(self.longitude) > 0.1;
+}
+
 - (CLLocationCoordinate2D)coordinate {
     return CLLocationCoordinate2DMake(self.latitude, self.longitude);
 }

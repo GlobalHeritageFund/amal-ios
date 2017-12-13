@@ -31,5 +31,8 @@
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
+@property (readonly) BOOL hasLocationCoordinates;
+@property (readonly) NSString *locationString;
+;
 
 @end

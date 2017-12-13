@@ -87,13 +87,15 @@
                      ]]
      ];
 
-    [self.view addFormGroup:
-     [[FormGroup alloc]
-      initWithHeaderText:@"Map"
-      formElements:@[
-                     [self mapFormElement],
-                     ]]
-     ];
+    if (self.photo.metadata.hasLocationCoordinates) {
+        [self.view addFormGroup:
+         [[FormGroup alloc]
+          initWithHeaderText:@"Map"
+          formElements:@[
+                         [self mapFormElement],
+                         ]]
+         ];
+    }
 
     [self.view addFormGroup:
      [[FormGroup alloc]
@@ -138,7 +140,7 @@
      ];
 
     TextFormElement *latLong = [[TextFormElement alloc] init];
-    latLong.textField.text = [NSString stringWithFormat:@"%f, %f", self.photo.metadata.latitude, self.photo.metadata.longitude];
+    latLong.textField.text = self.photo.metadata.locationString;
     latLong.textField.enabled = NO;
     [self.view addFormGroup:
      [[FormGroup alloc]
