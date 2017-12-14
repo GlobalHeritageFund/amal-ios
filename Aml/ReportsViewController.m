@@ -92,7 +92,7 @@
     if (section == 0 && self.localDrafts.hasDrafts) {
         return @"Drafts";
     }
-    if (section == 1) {
+    if (section == 1 && self.publishedReports.hasItems) {
         return @"Published";
     }
     return nil;

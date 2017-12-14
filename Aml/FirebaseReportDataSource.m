@@ -51,4 +51,8 @@
     }];
 
 }
+
+- (BOOL)hasItems {
+    return self.reports.count != 0;
+}
 @end

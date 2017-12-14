@@ -22,6 +22,7 @@
 
 @property (nonatomic, readonly) NSArray<Report *> *reports;
 
+@property (readonly) BOOL hasItems;
 
 - (void)beginObserving;
 
