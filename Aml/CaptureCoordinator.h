@@ -10,4 +10,8 @@
 
 @interface CaptureCoordinator : NSObject
 
+@property (readonly) UINavigationController *navigationController;
+
+- (void)start;
+
 @end

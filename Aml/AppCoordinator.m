@@ -31,8 +31,10 @@
 #import "FirebaseReportDataSource.h"
 #import "LocalDraftDataSource.h"
 #import "AssessCoordinator.h"
+#import "CaptureCoordinator.h"
+#import "ReportCoordinator.h"
 
-@interface AppCoordinator () <ReportsViewControllerDelegate, ReportDetailViewControllerDelegate>
+@interface AppCoordinator () 
 
 @property (nonatomic) FirstLaunch *firstLaunch;
 @property (nonatomic) NSMutableArray *childCoordinators;
@@ -69,28 +71,25 @@
 
     AssessCoordinator *assessCoordinator = [[AssessCoordinator alloc] init];
     [assessCoordinator start];
-
-
     [self.childCoordinators addObject:assessCoordinator];
 
 
-    CameraViewController *cameraViewController = [CameraViewController makeFromStoryboard];
-    UINavigationController *cameraNavigationController = [[UINavigationController alloc] initWithRootViewController:cameraViewController];
-    cameraNavigationController.navigationBarHidden = true;
-    cameraNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"ic_camera_outline"] selectedImage:[UIImage imageNamed:@"ic_camera_active"]];
+    CaptureCoordinator *captureCoordinator = [[CaptureCoordinator alloc] init];
+    [captureCoordinator start];
+    [self.childCoordinators addObject:captureCoordinator];
 
 
-    ReportsViewController *reportsViewController = [[ReportsViewController alloc] init];
-    reportsViewController.delegate = self;
-    UINavigationController *reportsNavigationController = [[UINavigationController alloc] initWithRootViewController:reportsViewController];
-    reportsViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Reports" image:[UIImage imageNamed:@"ic_folder_shared_outline"] selectedImage:[UIImage imageNamed:@"ic_sync_active"]];
+    ReportCoordinator *reportCoordinator = [[ReportCoordinator alloc] init];
+    [reportCoordinator start];
+    [self.childCoordinators addObject:reportCoordinator];
 
 
     tabBarController.viewControllers = @[
                                          assessCoordinator.navigationController,
-                                         cameraNavigationController,
-                                         reportsNavigationController,
+                                         captureCoordinator.navigationController,
+                                         reportCoordinator.navigationController,
                                          ];
+
     tabBarController.selectedIndex = 1;
     self.window.tintColor = [UIColor amalTeal];
     self.window.rootViewController = tabBarController;
@@ -105,65 +104,6 @@
     }
 }
 
-- (void)reportsViewControllerDidTapCompose:(ReportsViewController *)reportsViewController {
-    ReportCreationCoordinator *reportCreation = [[ReportCreationCoordinator alloc] initWithViewController:reportsViewController];
-    [reportCreation start];
-    [self.childCoordinators addObject:reportCreation];
-}
-
-- (void)reportsViewController:(ReportsViewController *)reportsViewController didTapReport:(Report *)report {
-    [FIRAnalytics logEventWithName:@"report_tapped" parameters:nil];
-
-    ReportViewModel *viewModel = [[ReportViewModel alloc] initWithReport:report];
-    ReportDetailViewController *reportViewController = [[ReportDetailViewController alloc] initWithReportViewModel:viewModel];
-    reportViewController.delegate = self;
-    [reportsViewController.navigationController pushViewController:reportViewController animated:YES];
-    [reportViewController loadViewIfNeeded];
-    reportViewController.navigationItem.leftBarButtonItem = nil;
-}
-
-- (void)reportsViewController:(ReportsViewController *)reportsViewController didTapDraft:(ReportDraft *)reportDraft {
-    [FIRAnalytics logEventWithName:@"draft_tapped" parameters:nil];
-
-    ReportViewModel *viewModel = [[ReportViewModel alloc] initWithReport:reportDraft];
-    ReportDetailViewController *reportViewController = [[ReportDetailViewController alloc] initWithReportViewModel:viewModel];
-    [reportsViewController.navigationController pushViewController:reportViewController animated:YES];
-    [reportViewController loadViewIfNeeded];
-    reportViewController.navigationItem.leftBarButtonItem = nil;
-}
-
-- (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteDraft:(ReportDraft *)reportDraft atIndexPath:(NSIndexPath *)indexPath {
-    [[LocalDraftDataSource new] removeReportDraft:reportDraft];
-}
-
-- (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteReport:(Report *)report atIndexPath:(NSIndexPath *)indexPath {
-    [reportsViewController.publishedReports deleteReport:report];
-}
-
-- (void)reportDetailViewControllerDidTapCancel:(ReportDetailViewController *)reportDetailViewController {
-    //not needed
-}
-
-- (void)reportDetailViewControllerDidTapAddPhoto:(ReportDetailViewController *)reportDetailViewController {
-    //not needed
-}
-
-- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectLocalPhoto:(LocalPhoto *)photo {
-    //not needed
-}
-
-- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didTapUploadWithDraft:(ReportDraft *)draft {
-    // not needed
-}
-
-- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectRemotePhoto:(RemotePhoto *)photo {
-    ImageDetailViewController *imageDetail = [[ImageDetailViewController alloc] init];
-    [[photo loadFullSizeImage] then:^id _Nullable(id  _Nonnull object) {
-        imageDetail.imageView.image = object;
-        return nil;
-    }];
-    [reportDetailViewController.navigationController pushViewController:imageDetail animated:YES];
-}
 
 
 @end

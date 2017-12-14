@@ -10,4 +10,8 @@
 
 @interface ReportCoordinator : NSObject
 
+@property (readonly) UINavigationController *navigationController;
+
+- (void)start;
+
 @end
