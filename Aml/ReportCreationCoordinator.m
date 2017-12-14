@@ -15,6 +15,8 @@
 #import "ReportUpload.h"
 #import "Firebase.h"
 #import "LocalDraftDataSource.h"
+#import "Report.h"
+#import "ImageDetailViewController.h"
 
 @interface ReportCreationCoordinator () <GalleryViewControllerDelegate, ReportDetailViewControllerDelegate>
 
@@ -131,7 +133,7 @@
     [reportDetailViewController presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectPhoto:(LocalPhoto *)photo {
+- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectLocalPhoto:(LocalPhoto *)photo {
     CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
     [reportDetailViewController.navigationController pushViewController:captureNotes animated:YES];
 }
@@ -144,6 +146,16 @@
     galleryViewController.delegate = self;
     [reportDetailViewController presentViewController:galleryNavigationController animated:true completion:nil];
 }
+
+- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectRemotePhoto:(RemotePhoto *)photo {
+    ImageDetailViewController *imageDetail = [[ImageDetailViewController alloc] init];
+    [[photo loadFullSizeImage] then:^id _Nullable(id  _Nonnull object) {
+        imageDetail.imageView.image = object;
+        return nil;
+    }];
+    [reportDetailViewController.navigationController pushViewController:imageDetail animated:YES];
+}
+
 
 - (void)dismissReportCreation:(id)sender {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];

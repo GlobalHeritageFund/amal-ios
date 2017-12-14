@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class ReportDraft, ReportUpload, LocalPhoto, ReportDetailViewController, ReportViewModel;
+@class ReportDraft, ReportUpload, LocalPhoto, ReportDetailViewController, ReportViewModel, RemotePhoto;
 
 @protocol ReportDetailViewControllerDelegate <NSObject>
 
 - (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didTapUploadWithDraft:(ReportDraft *)draft;
 - (void)reportDetailViewControllerDidTapCancel:(ReportDetailViewController *)reportDetailViewController;
 
-- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectPhoto:(LocalPhoto *)photo;
+- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectLocalPhoto:(LocalPhoto *)photo;
+- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectRemotePhoto:(RemotePhoto *)photo;
 - (void)reportDetailViewControllerDidTapAddPhoto:(ReportDetailViewController *)reportDetailViewController;
 
 @end

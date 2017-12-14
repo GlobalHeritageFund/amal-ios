@@ -17,6 +17,7 @@
 #import "ReportHeaderView.h"
 #import "UIColor+Additions.h"
 #import "NSObject+Helpers.h"
+#import "Report.h"
 
 @interface ReportDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -192,8 +193,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        LocalPhoto *photo = self.viewModel.draft.localPhotos[indexPath.row];
-        [self.delegate reportDetailViewController:self didSelectPhoto:photo];
+        LocalPhoto *localPhoto = self.viewModel.draft.localPhotos[indexPath.row];
+        RemotePhoto *remotePhoto = self.viewModel.finalized.photos[indexPath.row];
+        if (localPhoto) {
+            [self.delegate reportDetailViewController:self didSelectLocalPhoto:localPhoto];
+        } else if (remotePhoto) {
+            [self.delegate reportDetailViewController:self didSelectRemotePhoto:remotePhoto];
+        }
     }
     if (indexPath.section == 1) {
         [self.delegate reportDetailViewControllerDidTapAddPhoto:self];

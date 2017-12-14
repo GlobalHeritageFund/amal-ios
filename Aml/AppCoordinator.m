@@ -27,8 +27,9 @@
 #import "Report.h"
 #import "Firebase.h"
 #import "LocalDraftDataSource.h"
+#import "ImageDetailViewController.h"
 
-@interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate, QBImagePickerControllerDelegate>
+@interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate, QBImagePickerControllerDelegate, ReportDetailViewControllerDelegate>
 
 @property (nonatomic) FirstLaunch *firstLaunch;
 @property (nonatomic) NSMutableArray *childCoordinators;
@@ -228,6 +229,7 @@
 
     ReportViewModel *viewModel = [[ReportViewModel alloc] initWithReport:report];
     ReportDetailViewController *reportViewController = [[ReportDetailViewController alloc] initWithReportViewModel:viewModel];
+    reportViewController.delegate = self;
     [reportsViewController.navigationController pushViewController:reportViewController animated:YES];
     [reportViewController loadViewIfNeeded];
     reportViewController.navigationItem.leftBarButtonItem = nil;
@@ -246,5 +248,31 @@
 - (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteDraft:(ReportDraft *)reportDraft atIndexPath:(NSIndexPath *)indexPath {
     [[LocalDraftDataSource new] removeReportDraft:reportDraft];
 }
+
+- (void)reportDetailViewControllerDidTapCancel:(ReportDetailViewController *)reportDetailViewController {
+    //not needed
+}
+
+- (void)reportDetailViewControllerDidTapAddPhoto:(ReportDetailViewController *)reportDetailViewController {
+    //not needed
+}
+
+- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectLocalPhoto:(LocalPhoto *)photo {
+    //not needed
+}
+
+- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didTapUploadWithDraft:(ReportDraft *)draft {
+    // not needed
+}
+
+- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectRemotePhoto:(RemotePhoto *)photo {
+    ImageDetailViewController *imageDetail = [[ImageDetailViewController alloc] init];
+    [[photo loadFullSizeImage] then:^id _Nullable(id  _Nonnull object) {
+        imageDetail.imageView.image = object;
+        return nil;
+    }];
+    [reportDetailViewController.navigationController pushViewController:imageDetail animated:YES];
+}
+
 
 @end
