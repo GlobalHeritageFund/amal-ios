@@ -25,6 +25,8 @@
     [Fabric with:@[[Crashlytics class]]];
     
     [FIRApp configure];
+
+    [[FIRConfiguration sharedInstance] setLoggerLevel:FIRLoggerLevelMin];
     
     [FIRDatabase database].persistenceEnabled = YES;
     
