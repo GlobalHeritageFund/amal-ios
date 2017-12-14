@@ -8,10 +8,8 @@
 
 #import "AppCoordinator.h"
 #import "UIColor+Additions.h"
-#import "CameraViewController.h"
 #import "TabBarPage.h"
 #import "FirstLaunch.h"
-#import "LocalPhoto.h"
 #import "AssessCoordinator.h"
 #import "CaptureCoordinator.h"
 #import "ReportCoordinator.h"
