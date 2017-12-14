@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1A04FCE91F51CE3B0010A9D8 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */; };
 		1A04FCEC1F51D07C0010A9D8 /* ReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */; };
+		1A16EE0C1FE2C88700DF2E79 /* AssessCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A16EE0B1FE2C88700DF2E79 /* AssessCoordinator.m */; };
+		1A16EE0F1FE2C89000DF2E79 /* CaptureCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A16EE0E1FE2C89000DF2E79 /* CaptureCoordinator.m */; };
+		1A16EE121FE2C89C00DF2E79 /* ReportCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A16EE111FE2C89C00DF2E79 /* ReportCoordinator.m */; };
 		1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */; };
 		1A1F7DE51F3F8CBE0028DCF0 /* ReportCreationCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1F7DE41F3F8CBE0028DCF0 /* ReportCreationCoordinator.m */; };
 		1A2BEBF81F33618800A59E69 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2BEBF71F33618800A59E69 /* UIImage+Additions.m */; };
@@ -93,6 +96,12 @@
 		1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		1A04FCEA1F51D07C0010A9D8 /* ReportCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCell.h; sourceTree = "<group>"; };
 		1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportCell.m; sourceTree = "<group>"; };
+		1A16EE0A1FE2C88700DF2E79 /* AssessCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssessCoordinator.h; sourceTree = "<group>"; };
+		1A16EE0B1FE2C88700DF2E79 /* AssessCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssessCoordinator.m; sourceTree = "<group>"; };
+		1A16EE0D1FE2C89000DF2E79 /* CaptureCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaptureCoordinator.h; sourceTree = "<group>"; };
+		1A16EE0E1FE2C89000DF2E79 /* CaptureCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaptureCoordinator.m; sourceTree = "<group>"; };
+		1A16EE101FE2C89C00DF2E79 /* ReportCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportCoordinator.h; sourceTree = "<group>"; };
+		1A16EE111FE2C89C00DF2E79 /* ReportCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportCoordinator.m; sourceTree = "<group>"; };
 		1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportPhotoTableViewCell.h; sourceTree = "<group>"; };
 		1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportPhotoTableViewCell.m; sourceTree = "<group>"; };
 		1A1F7DE31F3F8CBE0028DCF0 /* ReportCreationCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCreationCoordinator.h; sourceTree = "<group>"; };
@@ -258,6 +267,12 @@
 				1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */,
 				1A1F7DE31F3F8CBE0028DCF0 /* ReportCreationCoordinator.h */,
 				1A1F7DE41F3F8CBE0028DCF0 /* ReportCreationCoordinator.m */,
+				1A16EE0A1FE2C88700DF2E79 /* AssessCoordinator.h */,
+				1A16EE0B1FE2C88700DF2E79 /* AssessCoordinator.m */,
+				1A16EE0D1FE2C89000DF2E79 /* CaptureCoordinator.h */,
+				1A16EE0E1FE2C89000DF2E79 /* CaptureCoordinator.m */,
+				1A16EE101FE2C89C00DF2E79 /* ReportCoordinator.h */,
+				1A16EE111FE2C89C00DF2E79 /* ReportCoordinator.m */,
 			);
 			name = Coordinators;
 			sourceTree = "<group>";
@@ -689,8 +704,11 @@
 				1A5AADEB1F4F756A00573829 /* QBSlomoIconView.m in Sources */,
 				1ABD81CD1F10562400E2C460 /* Promise.m in Sources */,
 				1A4E393C1F2FD2F40055C7FA /* CurrentUser.m in Sources */,
+				1A16EE121FE2C89C00DF2E79 /* ReportCoordinator.m in Sources */,
 				1A5AADE51F4F756A00573829 /* QBAlbumsViewController.m in Sources */,
 				1ACAD1F41F101B25001935D4 /* TextFieldTableViewCell.m in Sources */,
+				1A16EE0C1FE2C88700DF2E79 /* AssessCoordinator.m in Sources */,
+				1A16EE0F1FE2C89000DF2E79 /* CaptureCoordinator.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
 				1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */,

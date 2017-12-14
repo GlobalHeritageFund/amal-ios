@@ -30,8 +30,9 @@
 #import "ImageDetailViewController.h"
 #import "FirebaseReportDataSource.h"
 #import "LocalDraftDataSource.h"
+#import "AssessCoordinator.h"
 
-@interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate, QBImagePickerControllerDelegate, ReportDetailViewControllerDelegate>
+@interface AppCoordinator () <ReportsViewControllerDelegate, ReportDetailViewControllerDelegate>
 
 @property (nonatomic) FirstLaunch *firstLaunch;
 @property (nonatomic) NSMutableArray *childCoordinators;
@@ -64,13 +65,14 @@
 }
 
 - (void)start {
-    UITabBarController *tabBarController = [[TabBarPage alloc] init];
+    TabBarPage *tabBarController = [TabBarPage new];
 
-    GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
-    galleryViewController.delegate = self;
-    UINavigationController *galleryNavigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
-    galleryViewController.delegate = self;
-    galleryNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Gallery" image:[UIImage imageNamed:@"ic_assess_outline"] selectedImage:[UIImage imageNamed:@"ic_assess_active"]];
+    AssessCoordinator *assessCoordinator = [[AssessCoordinator alloc] init];
+    [assessCoordinator start];
+
+
+    [self.childCoordinators addObject:assessCoordinator];
+
 
     CameraViewController *cameraViewController = [CameraViewController makeFromStoryboard];
     UINavigationController *cameraNavigationController = [[UINavigationController alloc] initWithRootViewController:cameraViewController];
@@ -85,7 +87,7 @@
 
 
     tabBarController.viewControllers = @[
-                                         galleryNavigationController,
+                                         assessCoordinator.navigationController,
                                          cameraNavigationController,
                                          reportsNavigationController,
                                          ];
@@ -101,123 +103,6 @@
 
         [self.firstLaunch launched];
     }
-}
-
-- (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
-    CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
-    [galleryViewController.navigationController pushViewController:captureNotes animated:YES];
-}
-
-- (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
-
-    [FIRAnalytics logEventWithName:@"multi_create_report" parameters:@{ @"count": @(photos.count) }];
-    galleryViewController.mode = GalleryModeNormal;
-
-    ReportDraft *report = [[ReportDraft alloc] initWithPhotos:photos];
-
-    ReportCreationCoordinator *reportCreation = [[ReportCreationCoordinator alloc] initWithViewController:galleryViewController reportDraft:report];
-    [reportCreation start];
-    [self.childCoordinators addObject:reportCreation];
-}
-
-- (void)galleryViewController:(GalleryViewController *)galleryViewController savePhotos:(NSArray<LocalPhoto *> *)photos {
-    [FIRAnalytics logEventWithName:@"multi_save_images" parameters:@{ @"count": @(photos.count) }];
-
-    for (LocalPhoto *photo in photos) {
-        [[photo loadFullSizeImage] then:^id _Nullable(id  _Nonnull image) {
-            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                PHAssetChangeRequest *changeRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
-                changeRequest.location = [[CLLocation alloc] initWithLatitude:photo.metadata.latitude longitude:photo.metadata.longitude];
-            } completionHandler:^(BOOL success, NSError * _Nullable error) {
-
-            }];
-            return nil;
-        }];
-    }
-    galleryViewController.mode = GalleryModeNormal;
-}
-
-- (void)galleryViewController:(GalleryViewController *)galleryViewController deletePhotos:(NSArray<LocalPhoto *> *)photos {
-    NSString *message;
-    if (photos.count == 1) {
-        message = @"Are you sure you want to delete this photo? This can not be undone.";
-    } else {
-        message = @"Are you sure you want to delete these photos? This can not be undone.";
-    }
-    [FIRAnalytics logEventWithName:@"multi_select_delete" parameters:@{ @"count": @(photos.count) }];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        for (LocalPhoto *photo in photos) {
-            [photo removeLocalData];
-        }
-        [galleryViewController reloadData];
-        galleryViewController.mode = GalleryModeNormal;
-    }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
-    [galleryViewController presentViewController:alertController animated:true completion:nil];
-}
-
-- (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {
-    [galleryViewController dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)galleryViewControllerDidTapImport:(GalleryViewController *)galleryViewController {
-
-    QBImagePickerController *imagePickerController = [QBImagePickerController new];
-    imagePickerController.delegate = self;
-    imagePickerController.allowsMultipleSelection = YES;
-    imagePickerController.maximumNumberOfSelection = 50;
-    imagePickerController.showsNumberOfSelectedAssets = YES;
-    imagePickerController.mediaType = QBImagePickerMediaTypeImage;
-
-    [self.window.rootViewController presentViewController:imagePickerController animated:YES completion:NULL];
-}
-
-- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {
-    [imagePickerController dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)qb_imagePickerController:(QBImagePickerController *)picker didFinishPickingAssets:(NSArray *)assets {
-
-    [FIRAnalytics logEventWithName:@"imported_images" parameters:@{ @"count": @(assets.count) }];
-
-    for (PHAsset *asset in assets) {
-        [self importAsset:asset];
-    }
-
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)importAsset:(PHAsset *)asset {
-    [PHImageManager.defaultManager requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-
-        if(!imageData)
-            return;
-
-        AMLMetadata *metadata = [AMLMetadata new];
-
-        metadata.latitude = asset.location.coordinate.latitude;
-        metadata.longitude = asset.location.coordinate.longitude;
-        metadata.date = asset.creationDate;
-        metadata.localIdentifier = asset.localIdentifier;
-
-        if ([[[PhotoStorage new] fetchPhotos] indexOfObjectPassingTest:^BOOL(LocalPhoto * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) { return [obj.metadata.localIdentifier isEqualToString:metadata.localIdentifier]; }] != NSNotFound) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Duplicate found" message:@"This photo has already been imported. This won't other photos you're importing." preferredStyle:UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-            [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
-            return;
-        }
-
-        [[PhotoStorage new] saveJpegLocally:imageData withMetadata:metadata];
-
-        [[[[[[[self.window.rootViewController asClassOrNil:[UITabBarController class]] viewControllers] objectAtIndex:0] asClassOrNil:[UINavigationController class]] topViewController] asClassOrNil:[GalleryViewController class]] reloadData];
-
-    }];
-
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)reportsViewControllerDidTapCompose:(ReportsViewController *)reportsViewController {
