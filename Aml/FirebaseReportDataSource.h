@@ -26,4 +26,6 @@
 
 - (void)beginObserving;
 
+- (void)deleteReport:(Report *)report;
+
 @end

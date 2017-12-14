@@ -55,10 +55,11 @@
 
 @implementation Report
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+- (instancetype)initWithKey:(NSString *)key dictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (!self) return nil;
 
+    _firebaseID = [key copy];
     _title = dictionary[@"title"];
     _creationDate = [[NSDate alloc] initWithTimeIntervalSince1970:[dictionary[@"creationDate"] doubleValue]];
     _uploadComplete = [dictionary[@"uploadComplete"] boolValue];

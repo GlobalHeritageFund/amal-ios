@@ -30,6 +30,7 @@
 
 @interface Report : NSObject<ReportProtocol>
 
+@property (readonly) NSString *firebaseID;
 @property (readonly) NSString *title;
 @property (readonly) NSDate *creationDate;
 @property (nonatomic) BOOL uploadComplete;
@@ -37,7 +38,6 @@
 
 @property (nonatomic, readonly) NSArray<RemotePhoto *> *photos;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-
+- (instancetype)initWithKey:(NSString *)key dictionary:(NSDictionary *)dictionary;
 @end
 

@@ -109,19 +109,21 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.section == 0;
+    return indexPath.section == 0 || indexPath.section == 1;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle != UITableViewCellEditingStyleDelete) {
         return;
     }
-    if (indexPath.section != 0) {
-        return;
-    }
-    ReportDraft *reportDraft = self.localDrafts.reports[indexPath.row];
+    if (indexPath.section == 0) {
+        ReportDraft *reportDraft = self.localDrafts.reports[indexPath.row];
 
-    [self.delegate reportsViewController:self shouldDeleteDraft:reportDraft atIndexPath:indexPath];
+        [self.delegate reportsViewController:self shouldDeleteDraft:reportDraft atIndexPath:indexPath];
+    } else if (indexPath.section == 1) {
+        Report *report = self.publishedReports.reports[indexPath.row];
+        [self.delegate reportsViewController:self shouldDeleteReport:report atIndexPath:indexPath];
+    }
 }
 
 - (void)composeTapped:(id)sender {

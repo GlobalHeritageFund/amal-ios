@@ -83,7 +83,7 @@
            return [reportRef promiseGet];
        }]
       then:^id _Nullable(id  _Nonnull object) {
-          Report *report = [[Report alloc] initWithDictionary:object];
+          Report *report = [[Report alloc] initWithKey:reportRef.key dictionary:object];
           [self.promise fulfill:report];
           return nil;
       }]

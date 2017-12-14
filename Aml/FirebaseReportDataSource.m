@@ -36,10 +36,12 @@
     
     [query observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         if ([snapshot.value isKindOfClass:[NSNull class]]) {
+            block(@[]);
             return;
         }
-        NSArray *reports = [[[[snapshot.value allValues] arrayByTransformingObjectsUsingBlock:^id(id object) {
-            return [[Report alloc] initWithDictionary:object];
+        NSDictionary *reportDicts = snapshot.value;
+        NSArray *reports = [[[[reportDicts allKeys] arrayByTransformingObjectsUsingBlock:^id(id key) {
+            return [[Report alloc] initWithKey:key dictionary:reportDicts[key]];
         }] arrayBySelectingObjectsPassingTest:^BOOL(Report *report) {
             return report.uploadComplete;
         }] sortedArrayUsingComparator:^NSComparisonResult(Report * _Nonnull obj1, Report * _Nonnull obj2) {
@@ -50,6 +52,10 @@
         }
     }];
 
+}
+
+- (void)deleteReport:(Report *)report {
+    [[[[[FIRDatabase database] reference] child:@"reports"] child:report.firebaseID] removeValue];
 }
 
 - (BOOL)hasItems {

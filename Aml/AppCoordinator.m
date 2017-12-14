@@ -28,6 +28,8 @@
 #import "Firebase.h"
 #import "LocalDraftDataSource.h"
 #import "ImageDetailViewController.h"
+#import "FirebaseReportDataSource.h"
+#import "LocalDraftDataSource.h"
 
 @interface AppCoordinator () <GalleryViewControllerDelegate, ReportsViewControllerDelegate, QBImagePickerControllerDelegate, ReportDetailViewControllerDelegate>
 
@@ -247,6 +249,10 @@
 
 - (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteDraft:(ReportDraft *)reportDraft atIndexPath:(NSIndexPath *)indexPath {
     [[LocalDraftDataSource new] removeReportDraft:reportDraft];
+}
+
+- (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteReport:(Report *)report atIndexPath:(NSIndexPath *)indexPath {
+    [reportsViewController.publishedReports deleteReport:report];
 }
 
 - (void)reportDetailViewControllerDidTapCancel:(ReportDetailViewController *)reportDetailViewController {

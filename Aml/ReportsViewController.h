@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class ReportsViewController, Report, ReportDraft;
+@class ReportsViewController, Report, ReportDraft, FirebaseReportDataSource, LocalDraftDataSource;
 
 @protocol ReportsViewControllerDelegate <NSObject>
 
@@ -16,11 +16,16 @@
 - (void)reportsViewController:(ReportsViewController *)reportsViewController didTapReport:(Report *)report;
 - (void)reportsViewController:(ReportsViewController *)reportsViewController didTapDraft:(ReportDraft *)reportDraft;
 - (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteDraft:(ReportDraft *)reportDraft atIndexPath:(NSIndexPath *)indexPath;
+- (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteReport:(Report *)report atIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
 @interface ReportsViewController : UITableViewController
 
 @property (nonatomic, weak) id<ReportsViewControllerDelegate> delegate;
+
+@property (readonly) FirebaseReportDataSource *publishedReports;
+@property (readonly) LocalDraftDataSource *localDrafts;
+
 
 @end
