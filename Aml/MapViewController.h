@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "ReportProtocols.h"
 
 @interface MapViewController : UIViewController
 
-- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate;
+- (instancetype)initWithPhotos:(NSArray<id<PhotoProtocol>> *)photos;
 
 @property (nonatomic) MKMapView *mapView;
 
