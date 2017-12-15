@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"Gallery";
+    self.title = @"Assess";
 
     self.mode = GalleryModeNormal;
 
