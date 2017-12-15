@@ -71,7 +71,6 @@
 
     self.reportHeader = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 300)];
     self.tableView.tableHeaderView = self.reportHeader;
-    self.reportHeader.titleField.text = self.viewModel.title;
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
 
@@ -114,6 +113,7 @@
 - (void)configureView {
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.viewModel.coordinateMidpoint, 1500, 1500);
     [self.reportHeader.mapView setRegion:viewRegion animated:NO];
+    self.reportHeader.titleField.text = self.viewModel.title;
     self.reportHeader.titleField.enabled = self.viewModel.isEditable;
     self.reportHeader.dateLabel.text = self.viewModel.dateInterval;
     self.reportHeader.dateLabel.text = self.viewModel.dateInterval;
