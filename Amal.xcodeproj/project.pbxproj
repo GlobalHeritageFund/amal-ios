@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0572B2CA1FE34AEB00989615 /* Amal.app in Resources */ = {isa = PBXBuildFile; fileRef = 580A553A1E5CFC1000A70AB1 /* Amal.app */; };
 		1A04FCE91F51CE3B0010A9D8 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */; };
 		1A04FCEC1F51D07C0010A9D8 /* ReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */; };
 		1A16EE0C1FE2C88700DF2E79 /* AssessCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A16EE0B1FE2C88700DF2E79 /* AssessCoordinator.m */; };
@@ -656,7 +655,6 @@
 			files = (
 				580A554D1E5CFC1000A70AB1 /* LaunchScreen.storyboard in Resources */,
 				1A5AADFE1F4F78FE00573829 /* QBImagePicker.strings in Resources */,
-				0572B2CA1FE34AEB00989615 /* Amal.app in Resources */,
 				580A554A1E5CFC1000A70AB1 /* Assets.xcassets in Resources */,
 				1A5AADFD1F4F78FE00573829 /* QBImagePicker.strings in Resources */,
 				580A55481E5CFC1000A70AB1 /* CameraViewController.storyboard in Resources */,
