@@ -30,7 +30,7 @@
 
     self.title = @"Reports";
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(composeTapped:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(composeTapped:)];
 
     self.publishedReports = [[FirebaseReportDataSource alloc] init];
     [self.publishedReports beginObserving];
