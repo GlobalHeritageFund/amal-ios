@@ -18,6 +18,8 @@
 #import "UIColor+Additions.h"
 #import "NSObject+Helpers.h"
 #import "Report.h"
+#import "MapViewController.h"
+#import "NSArray+Additions.h"
 
 @interface ReportDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -74,6 +76,7 @@
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
 
+    [self.reportHeader.mapView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapViewTapped:)]];
     [self configureView];
 }
 
@@ -131,6 +134,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+}
+
+- (void)mapViewTapped:(UITapGestureRecognizer *)sender {
+    if (self.viewModel.photos.count == 0) {
+        return;
+    }
+    MapViewController *mapViewController = [[MapViewController alloc] initWithPhotos:self.viewModel.photos];
+    [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "AMLMetadata.h"
 
 @interface MapViewController ()
 
@@ -14,17 +15,19 @@
 
 @implementation MapViewController
 
-- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate {
+- (instancetype)initWithPhotos:(NSArray<id<PhotoProtocol>> *)photos {
     self = [super init];
     if (!self) return nil;
 
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, 1500, 1500);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(photos.firstObject.metadata.coordinate, 1500, 1500);
     [self.mapView setRegion:viewRegion animated:NO];
 
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-    [annotation setCoordinate:coordinate];
-    [annotation setTitle:@"Photo"];
-    [self.mapView addAnnotation:annotation];
+    for (id<PhotoProtocol> photo in photos) {
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        [annotation setCoordinate:photo.metadata.coordinate];
+        [annotation setTitle:photo.metadata.name];
+        [self.mapView addAnnotation:annotation];
+    }
 
     return self;
 }
