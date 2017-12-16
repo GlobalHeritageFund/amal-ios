@@ -85,7 +85,7 @@
 @implementation DamageButtonFormElement
 
 - (CGFloat)expectedHeight {
-    return 64;
+    return 84;
 }
 
 - (instancetype)init {
@@ -109,10 +109,24 @@
     return self;
 }
 
+- (UILabel *)conditionLabel {
+    if (!_conditionLabel) {
+        UILabel *conditionLabel = [UILabel new];
+        conditionLabel.textColor = [UIColor lightGrayColor];
+        conditionLabel.font = [UIFont systemFontOfSize:14.0f];
+        [self addSubview:conditionLabel];
+        self.conditionLabel = conditionLabel;
+    }
+    return _conditionLabel;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    CGRect workingRect = self.bounds;
+    CGRect workingRect = self.bounds, labelRect = CGRectZero;
+
+    CGRectDivide(workingRect, &labelRect, &workingRect, 20, CGRectMaxYEdge);
+    labelRect = CGRectInset(labelRect, 10, 0);
 
     workingRect = CGRectInset(workingRect, 15, 15);
 
@@ -126,6 +140,8 @@
         button.frame = buttonRect;
         workingRect = CGRectTrim(workingRect, paddingWidth, CGRectMinXEdge);
     }
+
+    self.conditionLabel.frame = labelRect;
 }
 
 - (void)buttonTapped:(UIButton *)sender {
@@ -133,6 +149,7 @@
         button.selected = NO;
     }
     sender.selected = YES;
+    [self updateConditionLabel];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
@@ -146,6 +163,18 @@
     return 0;
 }
 
+- (void)updateConditionLabel {
+    NSArray<NSString *> *labels = @[
+                                    @"No damage, good condition",
+                                    @"Minor damage, fair condition",
+                                    @"Moderate damage, poor condition",
+                                    @"Severe damage, very bad condition",
+                                    @"Collapsed, destroyed",
+                                    ];
+
+    self.conditionLabel.text = labels[self.selectedValue - 1];
+}
+
 - (void)setSelectedValue:(int)selectedValue {
     for (UIButton *button in self.buttons) {
         button.selected = NO;
@@ -153,6 +182,7 @@
     if (selectedValue != 0) {
         self.buttons[selectedValue-1].selected = YES;
     }
+    [self updateConditionLabel];
 }
 
 @end

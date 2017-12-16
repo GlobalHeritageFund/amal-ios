@@ -40,6 +40,8 @@
 
 @property (nonatomic) int selectedValue;
 
+@property (nonatomic) UILabel *conditionLabel;
+
 @end
 
 
