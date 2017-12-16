@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pLV-uX-gjF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pLV-uX-gjF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,14 +31,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0D1-4d-lAp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBn-yl-Wvg">
-                                        <rect key="frame" x="328" y="39" width="24" height="26"/>
-                                        <state key="normal" image="ic_camera_flip"/>
-                                        <state key="focused" image="ic_camera_rear_white_36pt"/>
-                                        <connections>
-                                            <action selector="swapCamera:" destination="pLV-uX-gjF" eventType="touchUpInside" id="HOF-Uw-yF2"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pV-Zt-z1U">
                                         <rect key="frame" x="23" y="34" width="36" height="36"/>
                                         <state key="disabled" image="ic_flash_off_white_36pt"/>
@@ -67,9 +59,7 @@
                                     <constraint firstItem="2pV-Zt-z1U" firstAttribute="centerY" secondItem="FeK-rm-ORf" secondAttribute="centerY" id="Ech-xf-AWx"/>
                                     <constraint firstItem="FeK-rm-ORf" firstAttribute="leading" secondItem="0D1-4d-lAp" secondAttribute="leading" constant="23" id="G88-cc-LYd"/>
                                     <constraint firstAttribute="height" constant="85" id="Gcw-YW-s0Z"/>
-                                    <constraint firstAttribute="trailing" secondItem="vBn-yl-Wvg" secondAttribute="trailing" constant="23" id="JZZ-Vf-q3E"/>
                                     <constraint firstItem="2pV-Zt-z1U" firstAttribute="height" secondItem="FeK-rm-ORf" secondAttribute="height" id="yJc-Fr-cD1"/>
-                                    <constraint firstItem="vBn-yl-Wvg" firstAttribute="centerY" secondItem="FeK-rm-ORf" secondAttribute="centerY" id="zov-6n-K5D"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vv-Fy-LSU">
@@ -79,7 +69,7 @@
                                     <action selector="capturePhoto:" destination="pLV-uX-gjF" eventType="touchUpInside" id="OS9-hL-3mo"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rty-Y9-QjU">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rty-Y9-QjU">
                                 <rect key="frame" x="67" y="233" width="240" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBi-gu-H3G">
@@ -140,7 +130,6 @@ camera access.</string>
                         <outlet property="imagePreviewOverlay" destination="Xrq-UL-7SC" id="P5W-Tx-uAg"/>
                         <outlet property="photoButton" destination="2vv-Fy-LSU" id="KvY-Dt-L6l"/>
                         <outlet property="previewImageView" destination="boV-Ur-A1X" id="hvm-qm-Nxa"/>
-                        <outlet property="swapButton" destination="vBn-yl-Wvg" id="k90-87-Z1z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNF-zs-Oqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,8 +141,6 @@ camera access.</string>
         <image name="bg_alert" width="375" height="667"/>
         <image name="btn-take-photo" width="66" height="66"/>
         <image name="ic-camera-off" width="40" height="40"/>
-        <image name="ic_camera_flip" width="24" height="26"/>
-        <image name="ic_camera_rear_white_36pt" width="36" height="36"/>
         <image name="ic_flash_auto_white_36pt" width="36" height="36"/>
         <image name="ic_flash_off_white_36pt" width="36" height="36"/>
         <image name="ic_flash_on_white_36pt" width="36" height="36"/>

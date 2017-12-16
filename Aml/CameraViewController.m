@@ -16,7 +16,6 @@
 
 @interface CameraViewController ()
 
-@property (nonatomic) AVCaptureDevice *inputDeviceFront;
 @property (nonatomic) AVCaptureDevice *inputDeviceBack;
 
 @property (nonatomic) AVCaptureInput *capturingInputFront;
@@ -30,8 +29,6 @@
 
 @property (nonatomic) CLLocationManager *locationManager;
 
-
-@property (weak) IBOutlet UIButton *swapButton;
 @property (weak) IBOutlet UIButton *flashButton;
 
 @property (weak) IBOutlet UIButton *rapidButton;
@@ -63,8 +60,6 @@
         
         if ([device position] == AVCaptureDevicePositionBack) {
             self.inputDeviceBack = device;
-        } else {
-            self.inputDeviceFront = device;
         }
     }
 }
@@ -114,7 +109,6 @@
     self.torchMode = AVCaptureTorchModeAuto;
 
     self.capturingInputBack = [AVCaptureDeviceInput deviceInputWithDevice:self.inputDeviceBack error:nil];
-    self.capturingInputFront = [AVCaptureDeviceInput deviceInputWithDevice:self.inputDeviceFront error:nil];
 
     [self.captureSession beginConfiguration];
 
@@ -240,19 +234,16 @@
 
     [UIView animateWithDuration:0.2 animations:^{
         if(orientation == UIDeviceOrientationLandscapeLeft) {
-            self.swapButton.transform = CGAffineTransformMakeRotation(M_PI_2);
             self.flashButton.transform = CGAffineTransformMakeRotation(M_PI_2);
             self.rapidButton.transform = CGAffineTransformMakeRotation(M_PI_2);
             self.photoButton.transform = CGAffineTransformMakeRotation(M_PI_2);
             self.orientation = @"landscape";
         } else if(orientation == UIDeviceOrientationLandscapeRight) {
-            self.swapButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
             self.flashButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
             self.rapidButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
             self.photoButton.transform = CGAffineTransformMakeRotation(-M_PI_2);
             self.orientation = @"landscape";
         } else {
-            self.swapButton.transform = CGAffineTransformIdentity;
             self.flashButton.transform = CGAffineTransformIdentity;
             self.rapidButton.transform = CGAffineTransformIdentity;
             self.photoButton.transform = CGAffineTransformIdentity;
@@ -281,7 +272,6 @@
     self.cameraPermissionDialog.hidden = !cameraPermissionDenied;
     self.photoButton.hidden = cameraPermissionDenied;
     self.flashButton.hidden = cameraPermissionDenied;
-    self.swapButton.hidden = cameraPermissionDenied;
 }
 
 - (BOOL)isVisible {
@@ -310,31 +300,8 @@
     connection.videoOrientation = newOrientation;
 }
 
-- (IBAction)swapCamera:(UIButton*)sender {
-    sender.selected = !sender.selected;
-    
-    [self.captureSession beginConfiguration];
-    
-    if(sender.selected) {
-
-        [self.captureSession removeInput:self.capturingInputBack];
-        [self.captureSession addInput:self.capturingInputFront];
-    }
-    else {
-        
-        [self.captureSession removeInput:self.capturingInputFront];
-        [self.captureSession addInput:self.capturingInputBack];
-    }
-    
-    [self.captureSession commitConfiguration];
-}
-
 - (AVCaptureDevice *)currentCaptureDevice {
-    if (self.swapButton.isSelected) {
-        return self.inputDeviceFront;
-    } else {
-        return self.inputDeviceBack;
-    }
+    return self.inputDeviceBack;
 }
 
 - (void)setTorchMode:(AVCaptureTorchMode)mode {
