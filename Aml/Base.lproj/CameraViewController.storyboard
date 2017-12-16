@@ -31,18 +31,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0D1-4d-lAp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pV-Zt-z1U">
-                                        <rect key="frame" x="23" y="34" width="36" height="36"/>
-                                        <state key="disabled" image="ic_flash_off_white_36pt"/>
-                                        <state key="selected" image="ic_flash_on_white_36pt"/>
-                                        <state key="highlighted" image="ic_flash_on_white_36pt"/>
-                                        <connections>
-                                            <action selector="setAutoFlash:" destination="pLV-uX-gjF" eventType="touchUpInside" id="pAM-L4-pv4"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeK-rm-ORf">
                                         <rect key="frame" x="23" y="34" width="36" height="36"/>
-                                        <state key="normal" image="ic_flash_auto_white_36pt"/>
+                                        <state key="normal" image="ic_flash_off_white_36pt"/>
                                         <state key="disabled" image="ic_flash_off_white_36pt"/>
                                         <state key="selected" image="ic_flash_on_white_36pt"/>
                                         <state key="highlighted" image="ic_flash_on_white_36pt"/>
@@ -53,13 +44,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="2pV-Zt-z1U" firstAttribute="centerX" secondItem="FeK-rm-ORf" secondAttribute="centerX" id="0a0-Ek-4p7"/>
                                     <constraint firstItem="FeK-rm-ORf" firstAttribute="top" secondItem="0D1-4d-lAp" secondAttribute="top" constant="34" id="60w-Pu-c9i"/>
-                                    <constraint firstItem="2pV-Zt-z1U" firstAttribute="width" secondItem="FeK-rm-ORf" secondAttribute="width" id="7Zb-Dr-LPw"/>
-                                    <constraint firstItem="2pV-Zt-z1U" firstAttribute="centerY" secondItem="FeK-rm-ORf" secondAttribute="centerY" id="Ech-xf-AWx"/>
                                     <constraint firstItem="FeK-rm-ORf" firstAttribute="leading" secondItem="0D1-4d-lAp" secondAttribute="leading" constant="23" id="G88-cc-LYd"/>
                                     <constraint firstAttribute="height" constant="85" id="Gcw-YW-s0Z"/>
-                                    <constraint firstItem="2pV-Zt-z1U" firstAttribute="height" secondItem="FeK-rm-ORf" secondAttribute="height" id="yJc-Fr-cD1"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vv-Fy-LSU">
@@ -141,7 +128,6 @@ camera access.</string>
         <image name="bg_alert" width="375" height="667"/>
         <image name="btn-take-photo" width="66" height="66"/>
         <image name="ic-camera-off" width="40" height="40"/>
-        <image name="ic_flash_auto_white_36pt" width="36" height="36"/>
         <image name="ic_flash_off_white_36pt" width="36" height="36"/>
         <image name="ic_flash_on_white_36pt" width="36" height="36"/>
     </resources>

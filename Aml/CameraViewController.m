@@ -106,7 +106,7 @@
         self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
     }
 
-    self.torchMode = AVCaptureTorchModeAuto;
+    self.torchMode = AVCaptureTorchModeOff;
 
     self.capturingInputBack = [AVCaptureDeviceInput deviceInputWithDevice:self.inputDeviceBack error:nil];
 
@@ -320,8 +320,6 @@
 - (IBAction)cycleFlash:(UIButton*)sender
 {
     if(sender.selected) {
-        
-        sender.enabled = NO;
         sender.selected = NO;
         
         self.torchMode = AVCaptureTorchModeOff;
@@ -332,14 +330,6 @@
         
         self.torchMode = AVCaptureTorchModeOn;
     }
-}
-
-- (IBAction)setAutoFlash:(id)sender
-{
-    self.flashButton.enabled = YES;
-    self.flashButton.selected = NO;
-    
-    self.torchMode = AVCaptureTorchModeAuto;
 }
 
 - (IBAction)capturePhoto:(id)sender {
