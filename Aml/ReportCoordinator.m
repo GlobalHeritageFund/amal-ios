@@ -66,6 +66,7 @@
 
     ReportViewModel *viewModel = [[ReportViewModel alloc] initWithReport:reportDraft];
     ReportDetailViewController *reportViewController = [[ReportDetailViewController alloc] initWithReportViewModel:viewModel];
+    reportViewController.delegate = self;
     [reportsViewController.navigationController pushViewController:reportViewController animated:YES];
     [reportViewController loadViewIfNeeded];
     reportViewController.navigationItem.leftBarButtonItem = nil;
