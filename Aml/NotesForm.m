@@ -165,14 +165,17 @@
 
 - (void)updateConditionLabel {
     NSArray<NSString *> *labels = @[
-                                    @"No damage, good condition",
-                                    @"Minor damage, fair condition",
-                                    @"Moderate damage, poor condition",
-                                    @"Severe damage, very bad condition",
-                                    @"Collapsed, destroyed",
+                                    @"No damage, good condition.",
+                                    @"Minor damage, fair condition.",
+                                    @"Moderate damage, poor condition.",
+                                    @"Severe damage, very bad condition.",
+                                    @"Collapsed, destroyed.",
                                     ];
-
-    self.conditionLabel.text = labels[self.selectedValue - 1];
+    if (self.selectedValue == 0) {
+        self.conditionLabel.text = @"Select a condition.";
+    } else {
+        self.conditionLabel.text = labels[self.selectedValue - 1];
+    }
 }
 
 - (void)setSelectedValue:(int)selectedValue {
