@@ -127,8 +127,12 @@
         [[LocalDraftDataSource new] addReportDraft:reportDetailViewController.viewModel.draft];
         [reportDetailViewController dismissViewControllerAnimated:YES completion:nil];
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Discard" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Discard" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [reportDetailViewController dismissViewControllerAnimated:YES completion:nil];
+    }]];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+
     }]];
     [reportDetailViewController presentViewController:alertController animated:YES completion:nil];
 }
