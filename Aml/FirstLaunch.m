@@ -19,7 +19,7 @@
 }
 
 - (BOOL)isFirstLaunch {
-    return [self.userDefaults boolForKey:self.firstLaunchKey];
+    return ![self.userDefaults boolForKey:self.firstLaunchKey];
 }
 
 - (void)launched {
