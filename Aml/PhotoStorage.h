@@ -27,4 +27,7 @@
 
 - (NSArray<PhotoSection *> *)fetchGroupedPhotos;
 
+
+- (NSURL*)imagesDirectory;
+
 @end

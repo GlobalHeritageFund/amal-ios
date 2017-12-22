@@ -14,6 +14,7 @@
 #import "UIImage+Additions.h"
 #import "NSObject+Helpers.h"
 #import "ImageCache.h"
+#import "PhotoStorage.h"
 
 @implementation LocalPhoto
 
@@ -87,15 +88,20 @@
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    NSString *imagePath = [dictionary[@"imagePath"] asClassOrNil:[NSString class]] ?: @"";
-    NSString *settingsPath = [dictionary[@"settingsPath"] asClassOrNil:[NSString class]] ?: @"";
+    NSString *imageFileName = [dictionary[@"imageFileName"] asClassOrNil:[NSString class]] ?: @"";
+    NSString *settingsFileName = [dictionary[@"settingsFileName"] asClassOrNil:[NSString class]] ?: @"";
+
+    PhotoStorage *photoStorage = [PhotoStorage new];
+    NSString *imagesDirectory = [[photoStorage imagesDirectory] path];
+    NSString *imagePath = [imagesDirectory stringByAppendingPathComponent:imageFileName];
+    NSString *settingsPath = [imagesDirectory stringByAppendingPathComponent:settingsFileName];
     return [self initWithImagePath:imagePath settingsPath:settingsPath];
 }
 
 - (NSDictionary *)dictionaryRepresentation {
     return @{
-             @"imagePath": self.imagePath,
-             @"settingsPath": self.settingsPath,
+             @"imageFileName": self.imagePath.lastPathComponent,
+             @"settingsFileName": self.settingsPath.lastPathComponent,
              };
 }
 
