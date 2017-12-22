@@ -64,12 +64,9 @@
 - (void)reportsViewController:(ReportsViewController *)reportsViewController didTapDraft:(ReportDraft *)reportDraft {
     [FIRAnalytics logEventWithName:@"draft_tapped" parameters:nil];
 
-    ReportViewModel *viewModel = [[ReportViewModel alloc] initWithReport:reportDraft];
-    ReportDetailViewController *reportViewController = [[ReportDetailViewController alloc] initWithReportViewModel:viewModel];
-    reportViewController.delegate = self;
-    [reportsViewController.navigationController pushViewController:reportViewController animated:YES];
-    [reportViewController loadViewIfNeeded];
-    reportViewController.navigationItem.leftBarButtonItem = nil;
+    ReportCreationCoordinator *reportCreation = [[ReportCreationCoordinator alloc] initWithViewController:self.navigationController reportDraft:reportDraft];
+    [reportCreation start];
+    [self.childCoordinators addObject:reportCreation];
 }
 
 - (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteDraft:(ReportDraft *)reportDraft atIndexPath:(NSIndexPath *)indexPath {
