@@ -123,11 +123,11 @@
 
 - (void)reportDetailViewControllerDidTapCancel:(ReportDetailViewController *)reportDetailViewController {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"Would you like to save this as a draft?" preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Save Draft" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [[LocalDraftDataSource new] addReportDraft:reportDetailViewController.viewModel.draft];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Discard" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [reportDetailViewController dismissViewControllerAnimated:YES completion:nil];
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Discard" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Save Draft" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [[LocalDraftDataSource new] addReportDraft:reportDetailViewController.viewModel.draft];
         [reportDetailViewController dismissViewControllerAnimated:YES completion:nil];
     }]];
 
