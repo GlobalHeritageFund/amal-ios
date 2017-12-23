@@ -47,11 +47,11 @@ static NSString *LocalDraftDataSourceDidChange = @"LocalDraftDataSourceDidChange
     NSInteger index = [array indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         return [[obj localIdentifier] isEqualToString:draft.localIdentifier];
     }];
-    if (index != NSNotFound) {
-        return;
+    if (index == NSNotFound) {
+        [array addObject:draft];
+    } else {
+        [array replaceObjectAtIndex:index withObject:draft];
     }
-    [array addObject:draft];
-
     [self.storage write:array];
     [self postNotification];
 }
