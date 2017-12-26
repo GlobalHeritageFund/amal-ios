@@ -280,7 +280,7 @@
 			name = Coordinators;
 			sourceTree = "<group>";
 		};
-		1A35595B1F0023CA00FFFBCA /* Capture Notes */ = {
+		1A35595B1F0023CA00FFFBCA /* Assess */ = {
 			isa = PBXGroup;
 			children = (
 				1A3559581F001DF000FFFBCA /* AssessViewController.h */,
@@ -290,7 +290,7 @@
 				1A35595C1F0023DF00FFFBCA /* FormElements.h */,
 				1A35595D1F0023DF00FFFBCA /* FormElements.m */,
 			);
-			name = "Capture Notes";
+			name = Assess;
 			sourceTree = "<group>";
 		};
 		1A4E393D1F2FD78A0055C7FA /* Gallery */ = {
@@ -546,7 +546,7 @@
 				580A55441E5CFC1000A70AB1 /* CameraViewController.m */,
 				1A4E39411F2FF1D50055C7FA /* Report */,
 				1A4E393D1F2FD78A0055C7FA /* Gallery */,
-				1A35595B1F0023CA00FFFBCA /* Capture Notes */,
+				1A35595B1F0023CA00FFFBCA /* Assess */,
 				1A3EE1561F0748490068B596 /* MapViewController.h */,
 				1A3EE1571F0748490068B596 /* MapViewController.m */,
 				1A4D48B71FF2C24600409CF9 /* SettingsViewController.h */,
