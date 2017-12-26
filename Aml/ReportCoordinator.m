@@ -39,7 +39,7 @@
     ReportsViewController *reportsViewController = [[ReportsViewController alloc] init];
     reportsViewController.delegate = self;
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:reportsViewController];
-    reportsViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Reports" image:[UIImage imageNamed:@"ic_folder_shared_outline"] selectedImage:[UIImage imageNamed:@"ic_sync_active"]];
+    reportsViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Reports" image:[UIImage imageNamed:@"ic_report"] selectedImage:[UIImage imageNamed:@"ic_report"]];
     self.navigationController = navigationController;
 
 }

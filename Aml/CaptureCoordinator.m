@@ -32,7 +32,7 @@
     UINavigationController *cameraNavigationController = [[UINavigationController alloc] initWithRootViewController:cameraViewController];
     cameraNavigationController.navigationBarHidden = true;
     cameraNavigationController.delegate = self;
-    cameraNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"ic_camera_outline"] selectedImage:[UIImage imageNamed:@"ic_camera_active"]];
+    cameraNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"ic_camera"] selectedImage:[UIImage imageNamed:@"ic_camera"]];
     self.navigationController = cameraNavigationController;
 
 }
