@@ -25,6 +25,7 @@
 		1A3559701F0087D800FFFBCA /* GalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35596F1F0087D800FFFBCA /* GalleryCell.m */; };
 		1A3640651F049C650070E686 /* AMLMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3640641F049C650070E686 /* AMLMetadata.m */; };
 		1A3EE1581F0748490068B596 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3EE1571F0748490068B596 /* MapViewController.m */; };
+		1A4D48B91FF2C24600409CF9 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D48B81FF2C24600409CF9 /* SettingsViewController.m */; };
 		1A4E39391F2FCEA80055C7FA /* FirstLaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E39381F2FCEA80055C7FA /* FirstLaunch.m */; };
 		1A4E393C1F2FD2F40055C7FA /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E393B1F2FD2F40055C7FA /* CurrentUser.m */; };
 		1A4E39401F2FD7C70055C7FA /* ReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */; };
@@ -128,6 +129,8 @@
 		1A3640641F049C650070E686 /* AMLMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMLMetadata.m; sourceTree = "<group>"; };
 		1A3EE1561F0748490068B596 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		1A3EE1571F0748490068B596 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		1A4D48B71FF2C24600409CF9 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		1A4D48B81FF2C24600409CF9 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		1A4E39371F2FCEA80055C7FA /* FirstLaunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstLaunch.h; sourceTree = "<group>"; };
 		1A4E39381F2FCEA80055C7FA /* FirstLaunch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstLaunch.m; sourceTree = "<group>"; };
 		1A4E393A1F2FD2F40055C7FA /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUser.h; sourceTree = "<group>"; };
@@ -546,6 +549,8 @@
 				1A35595B1F0023CA00FFFBCA /* Capture Notes */,
 				1A3EE1561F0748490068B596 /* MapViewController.h */,
 				1A3EE1571F0748490068B596 /* MapViewController.m */,
+				1A4D48B71FF2C24600409CF9 /* SettingsViewController.h */,
+				1A4D48B81FF2C24600409CF9 /* SettingsViewController.m */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -720,6 +725,7 @@
 				1A4E9AD11F50ABF0006856A8 /* ReportHeaderView.m in Sources */,
 				1A2BEBF81F33618800A59E69 /* UIImage+Additions.m in Sources */,
 				1ACAD1EA1F0EF7A3001935D4 /* ReportDraft.m in Sources */,
+				1A4D48B91FF2C24600409CF9 /* SettingsViewController.m in Sources */,
 				1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */,
 				1A5AADEC1F4F756A00573829 /* QBVideoIconView.m in Sources */,
 				1A1F7DE51F3F8CBE0028DCF0 /* ReportCreationCoordinator.m in Sources */,

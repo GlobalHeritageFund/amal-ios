@@ -76,6 +76,8 @@
 
     self.orientation = @"portrait";
 
+    self.title = @"Camera";
+
     self.focusSquare = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_focus"]];
     self.focusSquare.hidden = YES;
     [self.focusSquare sizeToFit];
