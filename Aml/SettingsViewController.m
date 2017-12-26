@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "FormElements.h"
 
 @interface SettingsViewController ()
 
@@ -25,7 +26,47 @@
 
     self.title = @"Settings";
 
-    
+    [self.view addFormGroup:
+     [[FormGroup alloc]
+      initWithHeaderText:@"About AMAL"
+      formElements:@[
+                     [[TextFormElement alloc] initWithImmutableText:@"Woo"],
+                     ]
+      ]
+     ];
+
+
+    NSDictionary *bundleDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *version = [NSString stringWithFormat:@"%@b%@", [bundleDict valueForKey:@"CFBundleShortVersionString"], [bundleDict valueForKey:(NSString*)kCFBundleVersionKey]];
+
+    [self.view addFormGroup:
+     [[FormGroup alloc]
+      initWithHeaderText:@"Version"
+      formElements:@[
+                     [[TextFormElement alloc] initWithImmutableText:version],
+                     ]
+      ]
+     ];
+
+    [self.view addFormGroup:
+     [[FormGroup alloc]
+      initWithHeaderText:@"amal.global"
+      formElements:@[
+                     [[TextFormElement alloc] initWithImmutableText:@"Visit amal.global."],
+                     ]
+      ]
+     ];
+
+    [self.view addFormGroup:
+     [[FormGroup alloc]
+      initWithHeaderText:@"Privacy Policy"
+      formElements:@[
+                     [[TextFormElement alloc] initWithImmutableText:@"View the privacy policy."],
+                     ]
+      ]
+     ];
+
+
 }
 
 @end

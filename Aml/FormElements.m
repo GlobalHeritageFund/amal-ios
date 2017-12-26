@@ -255,6 +255,15 @@
     return self;
 }
 
+- (instancetype)initWithImmutableText:(NSString *)text {
+    self = [super init];
+    if (!self) return nil;
+
+    self.textField.text = text;
+    self.textField.enabled = false;
+
+    return self;
+}
 
 - (CGFloat)expectedHeight {
     return 44;

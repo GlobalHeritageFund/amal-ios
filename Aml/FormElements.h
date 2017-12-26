@@ -59,6 +59,8 @@
 
 - (instancetype)initWithPlaceholder:(NSString *)placeholder initialText:(NSString *)initialText;
 
+- (instancetype)initWithImmutableText:(NSString *)text;
+
 @property (nonatomic) UITextField *textField;
 
 @end
