@@ -50,18 +50,11 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"amal.global"
+      initWithHeaderText:@"Visit"
       formElements:@[
                      [[TextFormElement alloc] initWithImmutableText:@"Visit amal.global."],
-                     ]
-      ]
-     ];
-
-    [self.view addFormGroup:
-     [[FormGroup alloc]
-      initWithHeaderText:@"Privacy Policy"
-      formElements:@[
                      [[TextFormElement alloc] initWithImmutableText:@"View the privacy policy."],
+                     [[TextFormElement alloc] initWithImmutableText:@"View the terms of service."],
                      ]
       ]
      ];
