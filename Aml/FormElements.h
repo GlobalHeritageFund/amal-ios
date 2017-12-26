@@ -65,9 +65,19 @@
 
 @end
 
+
 @interface TextViewFormElement : UIView <FormElement>
 
 @property (nonatomic) UITextView *textView;
+
+@end
+
+
+@interface ButtonFormElement : UIView <FormElement>
+
+@property (nonatomic) UIButton *innerButton;
+
+- (instancetype)initWithTitle:(NSString *)title;
 
 @end
 

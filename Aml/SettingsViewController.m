@@ -52,9 +52,9 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Visit"
       formElements:@[
-                     [[TextFormElement alloc] initWithImmutableText:@"Visit amal.global."],
-                     [[TextFormElement alloc] initWithImmutableText:@"View the privacy policy."],
-                     [[TextFormElement alloc] initWithImmutableText:@"View the terms of service."],
+                     [[ButtonFormElement alloc] initWithTitle:@"Visit amal.global"],
+                     [[ButtonFormElement alloc] initWithTitle:@"Privacy Policy"],
+                     [[ButtonFormElement alloc] initWithTitle:@"Terms of Service"],
                      ]
       ]
      ];

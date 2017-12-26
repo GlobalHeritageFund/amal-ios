@@ -289,6 +289,42 @@
 @end
 
 
+@implementation ButtonFormElement
+
+- (instancetype)initWithTitle:(NSString *)title {
+    self = [super init];
+    if (!self) return nil;
+
+    [self.innerButton setTitle:title forState:UIControlStateNormal];
+
+    return self;
+}
+
+- (CGFloat)expectedHeight {
+    return 44;
+}
+
+- (UIButton *)innerButton {
+    if (!_innerButton) {
+        UIButton *innerButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [innerButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        innerButton.titleLabel.font = [UIFont systemFontOfSize:18.0f];
+        [self addSubview:innerButton];
+        self.innerButton = innerButton;
+    }
+    return _innerButton;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGRect workingRect = self.bounds;
+    workingRect = CGRectInset(workingRect, 15, 0);
+    self.innerButton.frame = workingRect;
+}
+
+@end
+
+
 @implementation TextViewFormElement
 
 - (CGFloat)expectedHeight {
