@@ -9,7 +9,7 @@
 #import "ReportCreationCoordinator.h"
 #import "GalleryViewController.h"
 #import "ReportDetailViewController.h"
-#import "CaptureNotesViewController.h"
+#import "AssessViewController.h"
 #import "LocalPhoto.h"
 #import "ReportDraft.h"
 #import "ReportUpload.h"
@@ -138,7 +138,7 @@
 }
 
 - (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectLocalPhoto:(LocalPhoto *)photo {
-    CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
+    AssessViewController *captureNotes = [[AssessViewController alloc] initWithPhoto:photo];
     [reportDetailViewController.navigationController pushViewController:captureNotes animated:YES];
 }
 

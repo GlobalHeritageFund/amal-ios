@@ -8,7 +8,7 @@
 
 #import "AssessCoordinator.h"
 #import "GalleryViewController.h"
-#import "CaptureNotesViewController.h"
+#import "AssessViewController.h"
 #import "Firebase.h"
 #import "ReportCreationCoordinator.h"
 #import "ReportDraft.h"
@@ -46,7 +46,7 @@
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
-    CaptureNotesViewController *captureNotes = [[CaptureNotesViewController alloc] initWithPhoto:photo];
+    AssessViewController *captureNotes = [[AssessViewController alloc] initWithPhoto:photo];
     [galleryViewController.navigationController pushViewController:captureNotes animated:YES];
 }
 

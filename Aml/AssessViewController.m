@@ -1,12 +1,12 @@
 //
-//  CaptureNotesViewController.m
+//  AssessViewController.m
 //  Amal
 //
 //  Created by Soroush Khanlou on 6/25/17.
 //  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
-#import "CaptureNotesViewController.h"
+#import "AssessViewController.h"
 #import "LocalPhoto.h"
 #import "NotesForm.h"
 #import "UIColor+Additions.h"
@@ -15,7 +15,7 @@
 #import "MapViewController.h"
 #import "Firebase.h"
 
-@interface CaptureNotesViewController ()
+@interface AssessViewController ()
 
 @property (nonatomic, strong) LocalPhoto *photo;
 @property (nonatomic) SwitchFormElement *hazardsSwitchElement;
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation CaptureNotesViewController
+@implementation AssessViewController
 
 @dynamic view;
 

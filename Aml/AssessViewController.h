@@ -1,5 +1,5 @@
 //
-//  CaptureNotesViewController.h
+//  AssessViewController.h
 //  Amal
 //
 //  Created by Soroush Khanlou on 6/25/17.
@@ -11,7 +11,7 @@
 
 @class LocalPhoto;
 
-@interface CaptureNotesViewController : UIViewController
+@interface AssessViewController : UIViewController
 
 @property (nonatomic) FormView *view;
 
