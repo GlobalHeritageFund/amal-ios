@@ -45,7 +45,7 @@
 }
 
 - (void)loadView {
-    self.view = [[CaptureNotesView alloc] init];
+    self.view = [[FormView alloc] init];
 }
 
 - (void)viewDidLoad {

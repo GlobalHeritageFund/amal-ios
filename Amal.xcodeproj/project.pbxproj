@@ -19,7 +19,7 @@
 		1A35595A1F001DF000FFFBCA /* CaptureNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559591F001DF000FFFBCA /* CaptureNotesViewController.m */; };
 		1A35595E1F0023DF00FFFBCA /* NotesForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35595D1F0023DF00FFFBCA /* NotesForm.m */; };
 		1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559601F00418000FFFBCA /* CGGeometry.m */; };
-		1A3559641F0062CB00FFFBCA /* CaptureNotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559631F0062CB00FFFBCA /* CaptureNotesView.m */; };
+		1A3559641F0062CB00FFFBCA /* FormView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559631F0062CB00FFFBCA /* FormView.m */; };
 		1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3559691F006E4900FFFBCA /* PhotoStorage.m */; };
 		1A35596C1F007E9200FFFBCA /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35596B1F007E9200FFFBCA /* GalleryViewController.m */; };
 		1A3559701F0087D800FFFBCA /* GalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A35596F1F0087D800FFFBCA /* GalleryCell.m */; };
@@ -116,8 +116,8 @@
 		1A35595D1F0023DF00FFFBCA /* NotesForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesForm.m; sourceTree = "<group>"; };
 		1A35595F1F00418000FFFBCA /* CGGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGGeometry.h; sourceTree = "<group>"; };
 		1A3559601F00418000FFFBCA /* CGGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGGeometry.m; sourceTree = "<group>"; };
-		1A3559621F0062CB00FFFBCA /* CaptureNotesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureNotesView.h; sourceTree = "<group>"; };
-		1A3559631F0062CB00FFFBCA /* CaptureNotesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureNotesView.m; sourceTree = "<group>"; };
+		1A3559621F0062CB00FFFBCA /* FormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormView.h; sourceTree = "<group>"; };
+		1A3559631F0062CB00FFFBCA /* FormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormView.m; sourceTree = "<group>"; };
 		1A3559681F006E4900FFFBCA /* PhotoStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoStorage.h; sourceTree = "<group>"; };
 		1A3559691F006E4900FFFBCA /* PhotoStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoStorage.m; sourceTree = "<group>"; };
 		1A35596B1F007E9200FFFBCA /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
@@ -282,8 +282,8 @@
 			children = (
 				1A3559581F001DF000FFFBCA /* CaptureNotesViewController.h */,
 				1A3559591F001DF000FFFBCA /* CaptureNotesViewController.m */,
-				1A3559621F0062CB00FFFBCA /* CaptureNotesView.h */,
-				1A3559631F0062CB00FFFBCA /* CaptureNotesView.m */,
+				1A3559621F0062CB00FFFBCA /* FormView.h */,
+				1A3559631F0062CB00FFFBCA /* FormView.m */,
 				1A35595C1F0023DF00FFFBCA /* NotesForm.h */,
 				1A35595D1F0023DF00FFFBCA /* NotesForm.m */,
 			);
@@ -740,7 +740,7 @@
 				580A553F1E5CFC1000A70AB1 /* main.m in Sources */,
 				5846B2051E773354008E48BC /* TabBarPage.m in Sources */,
 				580A555B1E5D136200A70AB1 /* CALayer+Additions.m in Sources */,
-				1A3559641F0062CB00FFFBCA /* CaptureNotesView.m in Sources */,
+				1A3559641F0062CB00FFFBCA /* FormView.m in Sources */,
 				1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */,
 				1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */,
 				1A5AADE41F4F756A00573829 /* QBAlbumCell.m in Sources */,

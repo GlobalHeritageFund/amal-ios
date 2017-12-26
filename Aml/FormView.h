@@ -1,5 +1,5 @@
 //
-//  CaptureNotesView.h
+//  FormView.h
 //  Amal
 //
 //  Created by Soroush Khanlou on 6/25/17.
@@ -10,7 +10,7 @@
 
 @class FormGroup;
 
-@interface CaptureNotesView : UIView
+@interface FormView : UIView
 
 @property (readonly) UIScrollView *scrollView;
 

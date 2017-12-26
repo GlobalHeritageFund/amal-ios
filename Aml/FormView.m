@@ -1,23 +1,23 @@
 //
-//  CaptureNotesView.m
+//  FormView.m
 //  Amal
 //
 //  Created by Soroush Khanlou on 6/25/17.
 //  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
-#import "CaptureNotesView.h"
+#import "FormView.h"
 #import "UIColor+Additions.h"
 #import "NotesForm.h"
 
-@interface CaptureNotesView ()
+@interface FormView ()
 
 @property (nonatomic) UIScrollView *scrollView;
 @property (nonatomic) NSMutableArray *formGroups;
 
 @end
 
-@implementation CaptureNotesView
+@implementation FormView
 
 - (NSMutableArray *)formGroups {
     if (!_formGroups) {

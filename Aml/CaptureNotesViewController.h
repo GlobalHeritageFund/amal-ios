@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CaptureNotesView.h"
+#import "FormView.h"
 
 @class LocalPhoto;
 
 @interface CaptureNotesViewController : UIViewController
 
-@property (nonatomic) CaptureNotesView *view;
+@property (nonatomic) FormView *view;
 
 @property (nonatomic, readonly) LocalPhoto *photo;
 
