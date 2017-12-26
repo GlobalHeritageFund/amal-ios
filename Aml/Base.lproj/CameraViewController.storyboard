@@ -42,12 +42,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtF-n2-Mwh" userLabel="Settings Button">
-                                        <rect key="frame" x="312" y="34" width="39" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="39" id="B6S-sB-pWM"/>
-                                            <constraint firstAttribute="height" constant="34" id="jqO-y1-7GS"/>
-                                        </constraints>
-                                        <state key="normal" image="ic_gear"/>
+                                        <rect key="frame" x="321" y="34" width="30" height="30"/>
+                                        <state key="normal" image="ic_settings"/>
                                         <connections>
                                             <action selector="settingsTapped:" destination="pLV-uX-gjF" eventType="touchUpInside" id="ecg-NI-JrL"/>
                                         </connections>
@@ -143,6 +139,6 @@ camera access.</string>
         <image name="ic-camera-off" width="40" height="40"/>
         <image name="ic_flash_off_white_36pt" width="36" height="36"/>
         <image name="ic_flash_on_white_36pt" width="36" height="36"/>
-        <image name="ic_gear" width="233" height="202"/>
+        <image name="ic_settings" width="30" height="30"/>
     </resources>
 </document>
