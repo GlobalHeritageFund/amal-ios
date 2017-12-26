@@ -9,7 +9,7 @@
 #import "CaptureCoordinator.h"
 #import "CameraViewController.h"
 
-@interface CaptureCoordinator()
+@interface CaptureCoordinator() <CameraViewControllerDelegate>
 
 @property (nonatomic) UINavigationController *navigationController;
 @property (nonatomic) NSMutableArray *childCoordinators;
@@ -28,11 +28,16 @@
 - (void)start {
 
     CameraViewController *cameraViewController = [CameraViewController makeFromStoryboard];
+    cameraViewController.delegate = self;
     UINavigationController *cameraNavigationController = [[UINavigationController alloc] initWithRootViewController:cameraViewController];
     cameraNavigationController.navigationBarHidden = true;
     cameraNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"ic_camera_outline"] selectedImage:[UIImage imageNamed:@"ic_camera_active"]];
     self.navigationController = cameraNavigationController;
 
+}
+
+- (void)settingsButtonTappedOnCameraViewController:(CameraViewController *)cameraViewController {
+    NSLog(@"sick");
 }
 
 @end

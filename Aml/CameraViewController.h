@@ -9,10 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+@class CameraViewController;
+
+@protocol CameraViewControllerDelegate
+
+- (void)settingsButtonTappedOnCameraViewController:(CameraViewController *)cameraViewController;
+
+@end
+
 @interface CameraViewController : UIViewController<CLLocationManagerDelegate>
 
 + (instancetype)makeFromStoryboard;
 
+@property (weak) id<CameraViewControllerDelegate> delegate;
 @property (weak) IBOutlet UIImageView *previewImageView;
 
 @end

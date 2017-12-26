@@ -41,12 +41,28 @@
                                             <action selector="cycleFlash:" destination="pLV-uX-gjF" eventType="touchDown" id="SBY-vK-Gj1"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtF-n2-Mwh" userLabel="Settings Button">
+                                        <rect key="frame" x="312" y="34" width="39" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="39" id="B6S-sB-pWM"/>
+                                            <constraint firstAttribute="height" constant="34" id="jqO-y1-7GS"/>
+                                        </constraints>
+                                        <state key="normal" image="ic_gear"/>
+                                        <state key="disabled" image="ic_flash_off_white_36pt"/>
+                                        <state key="selected" image="ic_flash_on_white_36pt"/>
+                                        <state key="highlighted" image="ic_flash_on_white_36pt"/>
+                                        <connections>
+                                            <action selector="settingsTapped:" destination="pLV-uX-gjF" eventType="touchUpInside" id="ecg-NI-JrL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="gtF-n2-Mwh" firstAttribute="top" secondItem="0D1-4d-lAp" secondAttribute="top" constant="34" id="2Ic-V1-feS"/>
                                     <constraint firstItem="FeK-rm-ORf" firstAttribute="top" secondItem="0D1-4d-lAp" secondAttribute="top" constant="34" id="60w-Pu-c9i"/>
                                     <constraint firstItem="FeK-rm-ORf" firstAttribute="leading" secondItem="0D1-4d-lAp" secondAttribute="leading" constant="23" id="G88-cc-LYd"/>
                                     <constraint firstAttribute="height" constant="85" id="Gcw-YW-s0Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="gtF-n2-Mwh" secondAttribute="trailing" constant="24" id="VNp-np-5Q9"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vv-Fy-LSU">
@@ -130,5 +146,6 @@ camera access.</string>
         <image name="ic-camera-off" width="40" height="40"/>
         <image name="ic_flash_off_white_36pt" width="36" height="36"/>
         <image name="ic_flash_on_white_36pt" width="36" height="36"/>
+        <image name="ic_gear" width="233" height="202"/>
     </resources>
 </document>

@@ -332,6 +332,10 @@
     }
 }
 
+- (IBAction)settingsTapped:(id)sender {
+    [self.delegate settingsButtonTappedOnCameraViewController:self];
+}
+
 - (IBAction)capturePhoto:(id)sender {
     [FIRAnalytics logEventWithName:@"capture_photo" parameters:@{ @"orientation": self.orientation }];
 
