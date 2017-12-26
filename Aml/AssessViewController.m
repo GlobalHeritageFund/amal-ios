@@ -147,6 +147,12 @@
         latLong.textField.text = self.photo.metadata.locationString;
         latLong.textField.enabled = NO;
         [formElements addObject:latLong];
+
+        __weak __typeof(&*self)weakSelf = self;
+        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:@"Edit Location" block:^{
+            [weakSelf showEditableMap];
+        }];
+        [formElements addObject:element];
     } else {
         __weak __typeof(&*self)weakSelf = self;
         ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:@"Set Location" block:^{
