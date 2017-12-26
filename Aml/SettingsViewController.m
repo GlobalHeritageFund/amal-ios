@@ -52,9 +52,17 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Visit"
       formElements:@[
-                     [[ButtonFormElement alloc] initWithTitle:@"Visit amal.global"],
-                     [[ButtonFormElement alloc] initWithTitle:@"Privacy Policy"],
-                     [[ButtonFormElement alloc] initWithTitle:@"Terms of Service"],
+                     [[ButtonFormElement alloc] initWithTitle:@"Visit amal.global" block:^{
+         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/"]];
+     }],
+                     [[ButtonFormElement alloc] initWithTitle:@"Privacy Policy" block:^{
+         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://globalheritagefund.org/index.php/news-resources/library/privacy-policy/"]];
+
+     }],
+                     [[ButtonFormElement alloc] initWithTitle:@"Terms of Service" block:^{
+         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/terms-of-service/"]];
+
+     }],
                      ]
       ]
      ];

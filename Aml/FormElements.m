@@ -291,11 +291,17 @@
 
 @implementation ButtonFormElement
 
+
 - (instancetype)initWithTitle:(NSString *)title {
+    return [self initWithTitle:title block:^{ }];
+}
+
+- (instancetype)initWithTitle:(NSString *)title block:(void (^)())block {
     self = [super init];
     if (!self) return nil;
 
     [self.innerButton setTitle:title forState:UIControlStateNormal];
+    self.block = block;
 
     return self;
 }
@@ -309,6 +315,7 @@
         UIButton *innerButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [innerButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
         innerButton.titleLabel.font = [UIFont systemFontOfSize:18.0f];
+        [innerButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:innerButton];
         self.innerButton = innerButton;
     }
@@ -320,6 +327,12 @@
     CGRect workingRect = self.bounds;
     workingRect = CGRectInset(workingRect, 15, 0);
     self.innerButton.frame = workingRect;
+}
+
+- (void)buttonTapped:(id)sender {
+    if (self.block) {
+        self.block();
+    }
 }
 
 @end
