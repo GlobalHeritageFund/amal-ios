@@ -17,6 +17,7 @@
 #import "AMLMetadata.h"
 #import "PhotoStorage.h"
 #import "NSObject+Helpers.h"
+#import "EditLocationViewController.h"
 
 @interface AssessCoordinator() <GalleryViewControllerDelegate, QBImagePickerControllerDelegate, AssessViewControllerDelegate>
 
@@ -117,7 +118,11 @@
 }
 
 - (void)assessViewControllerDidTapEditCoordinates:(AssessViewController *)assessViewController {
-    NSLog(@"show map editing vc");
+    AMLMetadata *metadata = assessViewController.photo.metadata;
+    EditLocationViewController *editLocation = metadata.hasLocationCoordinates
+    ? [[EditLocationViewController alloc] initWithLocation:assessViewController.photo.metadata.coordinate]
+    : [[EditLocationViewController alloc] initGlobally];
+    [self.navigationController pushViewController:editLocation animated:YES];
 }
 
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {
