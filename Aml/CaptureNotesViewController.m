@@ -85,7 +85,7 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Name"
       formElements:@[
-                     [self nameFormElement],
+                     [self newNameFormElement],
                      ]]
      ];
 
@@ -94,7 +94,7 @@
          [[FormGroup alloc]
           initWithHeaderText:@"Map"
           formElements:@[
-                         [self mapFormElement],
+                         [self newMapFormElement],
                          ]]
          ];
     }
@@ -103,7 +103,7 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Category"
       formElements:@[
-                    [self categoryFormElement],
+                    [self newCategoryFormElement],
                      ]]
      ];
 
@@ -111,7 +111,7 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Overall Condition"
       formElements:@[
-                     [self conditionElement],
+                     [self newConditionElement],
                      ]
       ]];
 
@@ -137,7 +137,7 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Notes"
       formElements:@[
-                     [self notesFormElement],
+                     [self newNotesFormElement],
                      ]]
      ];
 
@@ -161,7 +161,7 @@
      ];
 }
 
-- (TextFormElement *)nameFormElement {
+- (TextFormElement *)newNameFormElement {
     TextFormElement *nameFormElement = [[TextFormElement alloc] initWithPlaceholder:@"Name" initialText:self.photo.metadata.name];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nameFieldDidChange:) name:UITextFieldTextDidEndEditingNotification object:nameFormElement.textField];
     return nameFormElement;
@@ -179,7 +179,7 @@
     [self saveMetadata];
 }
 
-- (MapFormElement *)mapFormElement {
+- (MapFormElement *)newMapFormElement {
     MapFormElement *mapFormElement = [[MapFormElement alloc] initWithCoordinate:self.photo.metadata.coordinate];
     [mapFormElement addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapTapped:)]];
     return mapFormElement;
@@ -191,7 +191,7 @@
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
-- (TextViewFormElement *)notesFormElement {
+- (TextViewFormElement *)newNotesFormElement {
     TextViewFormElement *notesFormElement = [[TextViewFormElement alloc] init];
     notesFormElement.textView.text = self.photo.metadata.notes;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notesFieldDidChange:) name:UITextViewTextDidChangeNotification object:notesFormElement.textView];
@@ -205,7 +205,7 @@
     [self saveMetadata];
 }
 
-- (SegmentedControlFormElement *)categoryFormElement {
+- (SegmentedControlFormElement *)newCategoryFormElement {
     SegmentedControlFormElement *categoryFormElement = [[SegmentedControlFormElement alloc] initWithTitles:@[@"Overall Area", @"Site / Building", @"Object"]];
     UISegmentedControl *segmentedControl = categoryFormElement.segmentedControl;
     [segmentedControl addTarget:self action:@selector(categoryDidChange:) forControlEvents:UIControlEventValueChanged];
@@ -248,7 +248,7 @@
     [self saveMetadata];
 }
 
-- (DamageButtonFormElement *)conditionElement {
+- (DamageButtonFormElement *)newConditionElement {
     DamageButtonFormElement *conditionElement = [[DamageButtonFormElement alloc] init];
     [conditionElement addTarget:self action:@selector(conditionDidChange:) forControlEvents:UIControlEventValueChanged];
     conditionElement.selectedValue = self.photo.metadata.conditionNumber;
