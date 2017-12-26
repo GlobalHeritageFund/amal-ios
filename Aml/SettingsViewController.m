@@ -30,7 +30,7 @@
      [[FormGroup alloc]
       initWithHeaderText:@"About AMAL"
       formElements:@[
-                     [[TextFormElement alloc] initWithImmutableText:@"Woo"],
+                     [[TextFormElement alloc] initWithImmutableText:@"AMAL is a mobile and web application designed for the rapid impact assessment of damaged heritage areas, buildings, or artifacts."],
                      ]
       ]
      ];
@@ -50,18 +50,19 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"amal.global"
+      initWithHeaderText:@"Visit"
       formElements:@[
-                     [[TextFormElement alloc] initWithImmutableText:@"Visit amal.global."],
-                     ]
-      ]
-     ];
+                     [[ButtonFormElement alloc] initWithTitle:@"Visit amal.global" block:^{
+         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/"]];
+     }],
+                     [[ButtonFormElement alloc] initWithTitle:@"Privacy Policy" block:^{
+         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://globalheritagefund.org/index.php/news-resources/library/privacy-policy/"]];
 
-    [self.view addFormGroup:
-     [[FormGroup alloc]
-      initWithHeaderText:@"Privacy Policy"
-      formElements:@[
-                     [[TextFormElement alloc] initWithImmutableText:@"View the privacy policy."],
+     }],
+                     [[ButtonFormElement alloc] initWithTitle:@"Terms of Service" block:^{
+         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/terms-of-service/"]];
+
+     }],
                      ]
       ]
      ];

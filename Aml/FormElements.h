@@ -65,9 +65,21 @@
 
 @end
 
+
 @interface TextViewFormElement : UIView <FormElement>
 
 @property (nonatomic) UITextView *textView;
+
+@end
+
+
+@interface ButtonFormElement : UIView <FormElement>
+
+@property (nonatomic) UIButton *innerButton;
+@property (nonatomic, copy) void (^block)();
+
+- (instancetype)initWithTitle:(NSString *)title block:(void (^)())block;
+- (instancetype)initWithTitle:(NSString *)title;
 
 @end
 
