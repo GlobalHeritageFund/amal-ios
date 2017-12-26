@@ -141,15 +141,24 @@
                      ]]
      ];
 
-    TextFormElement *latLong = [[TextFormElement alloc] init];
-    latLong.textField.text = self.photo.metadata.locationString;
-    latLong.textField.enabled = NO;
+    NSMutableArray<UIView<FormElement> *> *formElements = [@[] mutableCopy];
+    if (self.photo.metadata.hasLocationCoordinates) {
+        TextFormElement *latLong = [[TextFormElement alloc] init];
+        latLong.textField.text = self.photo.metadata.locationString;
+        latLong.textField.enabled = NO;
+        [formElements addObject:latLong];
+    } else {
+        __weak __typeof(&*self)weakSelf = self;
+        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:@"Set Location" block:^{
+            [weakSelf showEditableMap];
+        }];
+        [formElements addObject:element];
+    }
+
     [self.view addFormGroup:
      [[FormGroup alloc]
       initWithHeaderText:@"Coordinates"
-      formElements:@[
-                     latLong,
-                     ]]
+      formElements:formElements]
      ];
 
 }
@@ -321,7 +330,9 @@
         return nil;
     }];
     [self.navigationController pushViewController:imageDetail animated:YES];
-
 }
 
+- (void)showEditableMap {
+
+}
 @end
