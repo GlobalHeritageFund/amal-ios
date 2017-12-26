@@ -18,7 +18,7 @@
 #import "Report.h"
 #import "ImageDetailViewController.h"
 
-@interface ReportCreationCoordinator () <GalleryViewControllerDelegate, ReportDetailViewControllerDelegate>
+@interface ReportCreationCoordinator () <GalleryViewControllerDelegate, ReportDetailViewControllerDelegate, AssessViewControllerDelegate>
 
 @property (nonatomic) ReportDraft *currentReport;
 
@@ -92,6 +92,10 @@
     [galleryViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)assessViewControllerDidTapEditCoordinates:(AssessViewController *)assessViewController {
+    NSLog(@"show map editing vc");
+}
+
 - (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didTapUploadWithDraft:(ReportDraft *)draft {
 
     [FIRAnalytics logEventWithName:@"report_upload_tapped" parameters:nil];
@@ -138,8 +142,9 @@
 }
 
 - (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectLocalPhoto:(LocalPhoto *)photo {
-    AssessViewController *captureNotes = [[AssessViewController alloc] initWithPhoto:photo];
-    [reportDetailViewController.navigationController pushViewController:captureNotes animated:YES];
+    AssessViewController *assess = [[AssessViewController alloc] initWithPhoto:photo];
+    assess.delegate = self;
+    [reportDetailViewController.navigationController pushViewController:assess animated:YES];
 }
 
 - (void)reportDetailViewControllerDidTapAddPhoto:(ReportDetailViewController *)reportDetailViewController {

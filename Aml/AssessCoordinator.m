@@ -18,7 +18,7 @@
 #import "PhotoStorage.h"
 #import "NSObject+Helpers.h"
 
-@interface AssessCoordinator() <GalleryViewControllerDelegate, QBImagePickerControllerDelegate>
+@interface AssessCoordinator() <GalleryViewControllerDelegate, QBImagePickerControllerDelegate, AssessViewControllerDelegate>
 
 @property (nonatomic) UINavigationController *navigationController;
 @property (nonatomic) NSMutableArray *childCoordinators;
@@ -46,8 +46,9 @@
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
-    AssessViewController *captureNotes = [[AssessViewController alloc] initWithPhoto:photo];
-    [galleryViewController.navigationController pushViewController:captureNotes animated:YES];
+    AssessViewController *assess = [[AssessViewController alloc] initWithPhoto:photo];
+    assess.delegate = self;
+    [galleryViewController.navigationController pushViewController:assess animated:YES];
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
@@ -113,6 +114,10 @@
     imagePickerController.mediaType = QBImagePickerMediaTypeImage;
 
     [self.navigationController presentViewController:imagePickerController animated:YES completion:NULL];
+}
+
+- (void)assessViewControllerDidTapEditCoordinates:(AssessViewController *)assessViewController {
+    NSLog(@"show map editing vc");
 }
 
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {

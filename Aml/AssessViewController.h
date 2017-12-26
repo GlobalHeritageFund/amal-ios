@@ -9,11 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "FormView.h"
 
-@class LocalPhoto;
+@class LocalPhoto, AssessViewController;
+
+@protocol AssessViewControllerDelegate
+
+- (void)assessViewControllerDidTapEditCoordinates:(AssessViewController *)assessViewController;
+
+@end
 
 @interface AssessViewController : UIViewController
 
 @property (nonatomic) FormView *view;
+
+@property (weak) id<AssessViewControllerDelegate> delegate;
 
 @property (nonatomic, readonly) LocalPhoto *photo;
 
