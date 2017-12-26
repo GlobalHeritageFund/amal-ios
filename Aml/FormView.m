@@ -8,7 +8,7 @@
 
 #import "FormView.h"
 #import "UIColor+Additions.h"
-#import "NotesForm.h"
+#import "FormElements.h"
 
 @interface FormView ()
 
