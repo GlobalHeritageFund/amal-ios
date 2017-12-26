@@ -152,13 +152,6 @@
                      ]]
      ];
 
-    NSDictionary *bundleDict = [[NSBundle mainBundle] infoDictionary];
-    NSString *version = [NSString stringWithFormat:@"%@b%@", [bundleDict valueForKey:@"CFBundleShortVersionString"], [bundleDict valueForKey:(NSString*)kCFBundleVersionKey]];
-    [self.view addFormGroup:
-     [[FormGroup alloc]
-      initWithHeaderText:version
-      formElements:@[]]
-     ];
 }
 
 - (TextFormElement *)newNameFormElement {
