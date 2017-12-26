@@ -66,6 +66,15 @@
 @end
 
 
+@interface MultiLineLabelFormElement : UIView <FormElement>
+
+- (instancetype)initWithText:(NSString *)text;
+
+@property (nonatomic) UILabel *label;
+
+@end
+
+
 @interface TextViewFormElement : UIView <FormElement>
 
 @property (nonatomic) UITextView *textView;

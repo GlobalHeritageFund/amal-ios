@@ -288,6 +288,45 @@
 
 @end
 
+@implementation MultiLineLabelFormElement
+
+- (instancetype)initWithText:(NSString *)text {
+    self = [super init];
+    if (!self) return nil;
+
+    self.label.text = text;
+
+    return self;
+}
+
+- (CGFloat)verticalPadding {
+    return 10;
+}
+
+- (CGFloat)expectedHeight {
+    return [self.label sizeThatFits:self.bounds.size].height + 2*[self verticalPadding];
+}
+
+- (UILabel *)label {
+    if (!_label) {
+        UILabel *label = [[UILabel alloc] init];\
+        label.numberOfLines = 0;
+        [self addSubview:label];
+        self.label = label;
+    }
+    return _label;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGRect workingRect = self.bounds;
+    workingRect = CGRectInset(workingRect, 15, [self verticalPadding]);
+    self.label.frame = workingRect;
+}
+
+@end
+
+
 
 @implementation ButtonFormElement
 
