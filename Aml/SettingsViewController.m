@@ -30,7 +30,7 @@
      [[FormGroup alloc]
       initWithHeaderText:@"About AMAL"
       formElements:@[
-                     [[TextFormElement alloc] initWithImmutableText:@"Woo"],
+                     [[TextFormElement alloc] initWithImmutableText:@"AMAL is a mobile and web application designed for the rapid impact assessment of damaged heritage areas, buildings, or artifacts."],
                      ]
       ]
      ];
