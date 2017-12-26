@@ -527,7 +527,7 @@
         element.backgroundColor = [UIColor whiteColor];
         element.frame = elementRect;
         CGRect separatorRect = elementRect;
-        separatorRect.size.height = 1;
+        separatorRect.size.height = 1/UIScreen.mainScreen.scale;
         separatorRect = CGRectTrim(separatorRect, 10, CGRectMinXEdge);
         separator.frame = separatorRect;
     }
