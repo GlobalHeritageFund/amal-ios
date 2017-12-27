@@ -64,6 +64,7 @@
         updateButton.backgroundColor = [UIColor amalTeal];
         updateButton.enabled = NO;
         updateButton.layer.cornerRadius = 6.0f;
+        [updateButton addTarget:self action:@selector(updateButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:updateButton];
         self.updateButton = updateButton;
     }
@@ -87,6 +88,10 @@
 - (void)setMapMoved:(BOOL)mapMoved {
     _mapMoved = mapMoved;
     _updateButton.enabled = mapMoved;
+}
+
+- (void)updateButtonTapped:(UIButton *)sender {
+    [self.delegate editLocationViewControllerUpdateLocationButtonTapped:self];
 }
 
 - (void)viewDidLayoutSubviews {

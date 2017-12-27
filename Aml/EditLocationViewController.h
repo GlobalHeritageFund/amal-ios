@@ -9,11 +9,20 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
+@class EditLocationViewController;
+
+@protocol EditLocationViewControllerDelegate
+
+- (void)editLocationViewControllerUpdateLocationButtonTapped:(EditLocationViewController *)editLocationViewController;
+@end
+
 @interface EditLocationViewController : UIViewController
 
 - (instancetype)initWithLocation:(CLLocationCoordinate2D)location;
 
 - (instancetype)initGlobally;
+
+@property (nonatomic, weak) id<EditLocationViewControllerDelegate> delegate;
 
 @property (nonatomic) MKMapView *mapView;
 

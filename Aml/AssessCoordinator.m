@@ -19,10 +19,11 @@
 #import "NSObject+Helpers.h"
 #import "EditLocationViewController.h"
 
-@interface AssessCoordinator() <GalleryViewControllerDelegate, QBImagePickerControllerDelegate, AssessViewControllerDelegate>
+@interface AssessCoordinator() <GalleryViewControllerDelegate, QBImagePickerControllerDelegate, AssessViewControllerDelegate, EditLocationViewControllerDelegate>
 
 @property (nonatomic) UINavigationController *navigationController;
 @property (nonatomic) NSMutableArray *childCoordinators;
+@property (nonatomic) LocalPhoto *currentlyAssessing;
 
 @end
 
@@ -47,6 +48,7 @@
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
+    self.currentlyAssessing = photo;
     AssessViewController *assess = [[AssessViewController alloc] initWithPhoto:photo];
     assess.delegate = self;
     [galleryViewController.navigationController pushViewController:assess animated:YES];
@@ -122,7 +124,17 @@
     EditLocationViewController *editLocation = metadata.hasLocationCoordinates
     ? [[EditLocationViewController alloc] initWithLocation:assessViewController.photo.metadata.coordinate]
     : [[EditLocationViewController alloc] initGlobally];
+    editLocation.delegate = self;
     [self.navigationController pushViewController:editLocation animated:YES];
+}
+
+- (void)editLocationViewControllerUpdateLocationButtonTapped:(EditLocationViewController *)editLocationViewController {
+    CLLocationCoordinate2D location = editLocationViewController.mapView.centerCoordinate;
+    LocalPhoto *photo = self.currentlyAssessing;
+
+    photo.metadata.latitude = location.latitude;
+    photo.metadata.longitude = location.longitude;
+    [photo saveMetadata];
 }
 
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {
