@@ -26,4 +26,9 @@ CGSize CGSizeFitting(CGSize original, CGSize maximum) {
     return final;
 }
 
+CGRect CGRectInsetToSize(CGRect rect, CGSize newSize) {
+    CGFloat horizontalInset = (rect.size.width - newSize.width)/2;
+    CGFloat verticalInset = (rect.size.height - newSize.height)/2;
 
+    return CGRectInset(rect, horizontalInset, verticalInset);
+}

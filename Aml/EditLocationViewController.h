@@ -17,4 +17,8 @@
 
 @property (nonatomic) MKMapView *mapView;
 
+@property (nonatomic) UIButton *updateButton;
+
+@property (nonatomic) UIImageView *pinImage;
+
 @end
