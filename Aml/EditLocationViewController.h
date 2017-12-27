@@ -30,4 +30,6 @@
 
 @property (nonatomic) UIImageView *pinImage;
 
+- (void)resetUpdateButton;
+
 @end

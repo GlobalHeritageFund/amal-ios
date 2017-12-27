@@ -135,6 +135,7 @@
     photo.metadata.latitude = location.latitude;
     photo.metadata.longitude = location.longitude;
     [photo saveMetadata];
+    [editLocationViewController resetUpdateButton];
 }
 
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {

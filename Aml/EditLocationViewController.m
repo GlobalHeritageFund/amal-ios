@@ -94,6 +94,10 @@
     [self.delegate editLocationViewControllerUpdateLocationButtonTapped:self];
 }
 
+- (void)resetUpdateButton {
+    self.mapMoved = NO;
+}
+
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
 
