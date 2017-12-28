@@ -31,7 +31,7 @@
         UIScrollView *scrollView = [[UIScrollView alloc] init];
         scrollView.alwaysBounceVertical = true;
         scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
-        scrollView.backgroundColor = [UIColor colorWithHex:0xEFEFF4];
+        scrollView.backgroundColor = [UIColor backgroundColor];
         [self addSubview:scrollView];
         self.scrollView = scrollView;
     }

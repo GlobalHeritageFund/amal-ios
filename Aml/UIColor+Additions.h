@@ -16,4 +16,6 @@
 
 + (UIColor *)amalTeal;
 
++ (UIColor *)backgroundColor;
+
 @end

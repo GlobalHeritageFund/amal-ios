@@ -97,7 +97,7 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.flowLayout];
-        collectionView.backgroundColor = [UIColor colorWithHex:0xEFEFF4];
+        collectionView.backgroundColor = [UIColor backgroundColor];
         collectionView.delegate = self;
         collectionView.alwaysBounceVertical = YES;
         collectionView.dataSource = self;

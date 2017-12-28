@@ -27,4 +27,8 @@
     return [UIColor colorWithHex:0x16a7c7];
 }
 
++ (UIColor *)backgroundColor {
+    return [UIColor colorWithHex:0xEFEFF4];
+}
+
 @end
