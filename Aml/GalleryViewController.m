@@ -18,12 +18,15 @@
 #import "NSArray+Additions.h"
 #import "Promise.h"
 #import "Firebase.h"
+#import "EmptyStateView.h"
+#import "CGGeometry.h"
 
 @interface GalleryViewController ()
 
 @property (strong) NSArray<PhotoSection*> *photoSections;
 @property (nonatomic) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic) UIToolbar *toolbar;
+@property (nonatomic) EmptyStateView *emptyState;
 
 @end
 
@@ -71,8 +74,10 @@
     if (!self.toolbar.hidden) {
         CGRectDivide(workingRect, &toolbarRect, &discardableRect, 44, CGRectMaxYEdge);
     }
-    
+
     self.toolbar.frame = toolbarRect;
+
+    self.emptyState.frame = CGRectInsetToSize(self.view.bounds, CGSizeMake(300, 400));
 
     self.collectionView.frame = workingRect;
 }
@@ -81,7 +86,11 @@
     [super viewWillAppear:animated];
     
     self.photoSections = [[PhotoStorage new] fetchGroupedPhotos];
-    
+
+    BOOL isEmpty = self.photoSections.count == 0 || (self.photoSections.count == 1 && self.photoSections.firstObject.photos.count == 0);
+
+    self.emptyState.hidden = !isEmpty;
+
     [self.collectionView reloadData];
 }
 
@@ -125,6 +134,17 @@
         self.flowLayout = layout;
     }
     return _flowLayout;
+}
+
+- (EmptyStateView *)emptyState {
+    if (!_emptyState) {
+        EmptyStateView *emptyState = [[EmptyStateView alloc] init];
+        emptyState.imageView.image = [UIImage imageNamed:@"gallery_bg"];
+        emptyState.label.text = @"As you take photos, your gallery will store those photos.";
+        [self.view addSubview:emptyState];
+        self.emptyState = emptyState;
+    }
+    return _emptyState;
 }
 
 - (void)setMode:(GalleryMode)mode {
