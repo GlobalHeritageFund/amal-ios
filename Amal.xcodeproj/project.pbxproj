@@ -59,6 +59,7 @@
 		1ACAD1EA1F0EF7A3001935D4 /* ReportDraft.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E91F0EF7A3001935D4 /* ReportDraft.m */; };
 		1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */; };
 		1ACAD1F41F101B25001935D4 /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */; };
+		1AE0AF981FF49B6C00A816F7 /* EmptyStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0AF971FF49B6C00A816F7 /* EmptyStateView.m */; };
 		1AEBACA41F4A6E9F002DC63F /* FirebaseReportDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */; };
 		1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
@@ -194,6 +195,8 @@
 		1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportUpload.m; sourceTree = "<group>"; };
 		1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldTableViewCell.h; sourceTree = "<group>"; };
 		1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldTableViewCell.m; sourceTree = "<group>"; };
+		1AE0AF961FF49B6C00A816F7 /* EmptyStateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmptyStateView.h; sourceTree = "<group>"; };
+		1AE0AF971FF49B6C00A816F7 /* EmptyStateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyStateView.m; sourceTree = "<group>"; };
 		1AEBACA21F4A6E9F002DC63F /* FirebaseReportDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseReportDataSource.h; sourceTree = "<group>"; };
 		1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseReportDataSource.m; sourceTree = "<group>"; };
 		1AEBACA51F4A7289002DC63F /* LocalDraftDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalDraftDataSource.h; sourceTree = "<group>"; };
@@ -556,6 +559,8 @@
 				1A3EE1571F0748490068B596 /* MapViewController.m */,
 				1A4D48B71FF2C24600409CF9 /* SettingsViewController.h */,
 				1A4D48B81FF2C24600409CF9 /* SettingsViewController.m */,
+				1AE0AF961FF49B6C00A816F7 /* EmptyStateView.h */,
+				1AE0AF971FF49B6C00A816F7 /* EmptyStateView.m */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -720,6 +725,7 @@
 				1A16EE0C1FE2C88700DF2E79 /* AssessCoordinator.m in Sources */,
 				1A16EE0F1FE2C89000DF2E79 /* CaptureCoordinator.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */,
+				1AE0AF981FF49B6C00A816F7 /* EmptyStateView.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
 				1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */,
 				1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */,
