@@ -29,6 +29,16 @@
 
 @implementation ReportsViewController
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (!self) return nil;
+
+    [self beginLoading];
+
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -37,13 +47,18 @@
     self.view.backgroundColor = [UIColor backgroundColor];
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(composeTapped:)];
+}
 
+- (void)beginLoading {
     self.publishedReports = [[FirebaseReportDataSource alloc] init];
     [self.publishedReports beginObserving];
     self.publishedReports.delegate = self;
 
     self.localDrafts = [[LocalDraftDataSource alloc] init];
     self.localDrafts.delegate = self;
+
+    [self reloadData];
+
 }
 
 - (void)viewDidLayoutSubviews {
