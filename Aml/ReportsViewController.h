@@ -20,12 +20,12 @@
 
 @end
 
-@interface ReportsViewController : UITableViewController
+@interface ReportsViewController : UIViewController
 
 @property (nonatomic, weak) id<ReportsViewControllerDelegate> delegate;
 
 @property (readonly) FirebaseReportDataSource *publishedReports;
 @property (readonly) LocalDraftDataSource *localDrafts;
-
+@property (nonatomic) UITableView *tableView;
 
 @end

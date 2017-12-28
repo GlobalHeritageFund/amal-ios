@@ -16,7 +16,7 @@
 #import "LocalDraftDataSource.h"
 #import "ReportDraft.h"
 
-@interface ReportsViewController () <DataSourceDelegate>
+@interface ReportsViewController () <DataSourceDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) FirebaseReportDataSource *publishedReports;
 @property (nonatomic) LocalDraftDataSource *localDrafts;
@@ -38,6 +38,22 @@
 
     self.localDrafts = [[LocalDraftDataSource alloc] init];
     self.localDrafts.delegate = self;
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.tableView.frame = self.view.bounds;
+}
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        UITableView *tableView = [[UITableView alloc] init];
+        tableView.dataSource = self;
+        tableView.delegate = self;
+        [self.view addSubview:tableView];
+        self.tableView = tableView;
+    }
+    return _tableView;
 }
 
 - (void)dataSourceUpdated:(id)dataSource {
