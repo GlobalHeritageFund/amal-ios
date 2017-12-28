@@ -188,7 +188,6 @@
     if (self.mode == GalleryModeCreateReport) {
         self.navigationItem.rightBarButtonItem.enabled = hasSelectedAnyItems;
     }
-
 }
 
 - (void)reloadData {
@@ -213,18 +212,19 @@
     self.mode = GalleryModeNormal;
 }
 
-- (void)deleteMultiSelect:(id)sender {
-    NSArray<LocalPhoto *> *photos = [self.collectionView.indexPathsForSelectedItems arrayByTransformingObjectsUsingBlock:^LocalPhoto *(NSIndexPath *indexPath) {
+- (NSArray<LocalPhoto *> *)selectedPhotos {
+    return [self.collectionView.indexPathsForSelectedItems arrayByTransformingObjectsUsingBlock:^LocalPhoto *(NSIndexPath *indexPath) {
         return self.photoSections[indexPath.section].photos[indexPath.row];
     }];
-    [self.delegate galleryViewController:self deletePhotos:photos];
+}
+
+- (void)deleteMultiSelect:(id)sender {
+    [self.delegate galleryViewController:self deletePhotos:self.selectedPhotos];
+}
 }
 
 - (void)saveSelectedItems:(id)sender {
-    NSArray<LocalPhoto *> *photos = [self.collectionView.indexPathsForSelectedItems arrayByTransformingObjectsUsingBlock:^LocalPhoto *(NSIndexPath *indexPath) {
-        return self.photoSections[indexPath.section].photos[indexPath.row];
-    }];
-    [self.delegate galleryViewController:self savePhotos:photos];
+    [self.delegate galleryViewController:self savePhotos:self.selectedPhotos];
 }
 
 - (void)dismiss:(id)sender {
@@ -232,10 +232,7 @@
 }
 
 - (void)createReport:(id)sender {
-    NSArray<LocalPhoto *> *photos = [self.collectionView.indexPathsForSelectedItems arrayByTransformingObjectsUsingBlock:^LocalPhoto *(NSIndexPath *indexPath) {
-        return self.photoSections[indexPath.section].photos[indexPath.row];
-    }];
-    [self.delegate galleryViewController:self createReportWithPhotos:photos];
+    [self.delegate galleryViewController:self createReportWithPhotos:self.selectedPhotos];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
