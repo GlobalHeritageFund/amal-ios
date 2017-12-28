@@ -57,14 +57,23 @@
     [self.safetySwitchElement.toggle addTarget:self action:@selector(safetySwitchChanged:) forControlEvents:UIControlEventValueChanged];
     [self.interventionSwitchElement.toggle addTarget:self action:@selector(interventionSwitchChanged:) forControlEvents:UIControlEventValueChanged];
 
-    self.hazardsSwitchElement.toggle.on = self.photo.metadata.hazards;
-    self.safetySwitchElement.toggle.on = self.photo.metadata.safetyHazards;
-    self.interventionSwitchElement.toggle.on = self.photo.metadata.interventionRequired;
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic-delete"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteTapped:)];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self renderForm];
+}
+
+- (void)renderForm {
+    [self.view resetForm];
+    
+    self.hazardsSwitchElement.toggle.on = self.photo.metadata.hazards;
+    self.safetySwitchElement.toggle.on = self.photo.metadata.safetyHazards;
+    self.interventionSwitchElement.toggle.on = self.photo.metadata.interventionRequired;
 
     PhotoFormElement *photoElement = [[PhotoFormElement alloc] init];
     [[self.photo loadThumbnailImage] then:^id _Nullable(id  _Nonnull object) {

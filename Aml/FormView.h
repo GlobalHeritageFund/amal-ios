@@ -16,5 +16,7 @@
 
 - (void)addFormGroup:(FormGroup *)formGroup;
 
+- (void)resetForm;
+
 @end
 

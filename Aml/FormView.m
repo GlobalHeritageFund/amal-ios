@@ -56,4 +56,11 @@
     }
 }
 
+- (void)resetForm {
+    for (UIView *formGroup in self.scrollView.subviews) {
+        [formGroup removeFromSuperview];
+    }
+    self.formGroups = [NSMutableArray new];
+}
+
 @end
