@@ -41,6 +41,7 @@
 - (void)addFormGroup:(FormGroup *)formGroup {
     [self.scrollView addSubview:formGroup];
     [self.formGroups addObject:formGroup];
+    [self setNeedsLayout];
 }
 
 - (void)layoutSubviews {
