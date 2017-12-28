@@ -84,7 +84,7 @@
     return _pinImage;
 }
 
-- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
     self.mapMoved = YES;
 }
 
@@ -107,7 +107,6 @@
     self.mapView.frame = self.view.bounds;
 
     [self.pinImage sizeToFit];
-    self.pinImage.frame = CGRectMake(0, 0, 20, 20);
     self.pinImage.center = self.view.center;
 
     CGRect workingRect = self.view.bounds;
