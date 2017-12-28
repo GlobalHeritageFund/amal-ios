@@ -85,13 +85,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.photoSections = [[PhotoStorage new] fetchGroupedPhotos];
-
-    BOOL isEmpty = self.photoSections.count == 0 || (self.photoSections.count == 1 && self.photoSections.firstObject.photos.count == 0);
-
-    self.emptyState.hidden = !isEmpty;
-
-    [self.collectionView reloadData];
+    [self reloadData];
 }
 
 - (UICollectionView *)collectionView {
@@ -201,6 +195,10 @@
     self.photoSections = [[PhotoStorage new] fetchGroupedPhotos];
 
     [self.collectionView reloadData];
+
+    BOOL isEmpty = self.photoSections.count == 0 || (self.photoSections.count == 1 && self.photoSections.firstObject.photos.count == 0);
+
+    self.emptyState.hidden = !isEmpty;
 }
 
 - (void)importImage:(id)sender {
