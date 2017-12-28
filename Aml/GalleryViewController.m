@@ -18,7 +18,7 @@
 #import "NSArray+Additions.h"
 #import "Promise.h"
 #import "Firebase.h"
-#import "EmptyStateView.h"
+#import "EmptyState.h"
 #import "CGGeometry.h"
 
 @interface GalleryViewController ()

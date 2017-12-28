@@ -15,7 +15,7 @@
 #import "ReportCell.h"
 #import "LocalDraftDataSource.h"
 #import "ReportDraft.h"
-#import "EmptyStateView.h"
+#import "EmptyState.h"
 #import "UIColor+Additions.h"
 #import "CGGeometry.h"
 

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
-#import "EmptyStateView.h"
+#import "EmptyState.h"
 
 @implementation EmptyStateView
 
