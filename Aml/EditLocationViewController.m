@@ -9,6 +9,7 @@
 #import "EditLocationViewController.h"
 #import "CGGeometry.h"
 #import "UIColor+Additions.h"
+#import "UIImage+Additions.h"
 
 @interface EditLocationViewController () <MKMapViewDelegate>
 
@@ -61,9 +62,11 @@
     if (!_updateButton) {
         UIButton *updateButton = [[UIButton alloc] init];
         [updateButton setTitle:@"Update Location" forState:UIControlStateNormal];
-        updateButton.backgroundColor = [UIColor amalTeal];
+        [updateButton setBackgroundImage:[UIImage imageWithColor:[UIColor amalTeal]] forState:UIControlStateNormal];
+        [updateButton setBackgroundImage:[UIImage imageWithColor:[[UIColor amalTeal] colorWithAlphaComponent:0.5]] forState:UIControlStateDisabled];
         updateButton.enabled = NO;
         updateButton.layer.cornerRadius = 6.0f;
+        updateButton.clipsToBounds = YES;
         [updateButton addTarget:self action:@selector(updateButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:updateButton];
         self.updateButton = updateButton;
