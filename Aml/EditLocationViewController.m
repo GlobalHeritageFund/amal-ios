@@ -77,7 +77,7 @@
 - (UIImageView *)pinImage {
     if (!_pinImage) {
         UIImageView *pinImage = [[UIImageView alloc] init];
-        pinImage.backgroundColor = [UIColor redColor];
+        pinImage.image = [UIImage imageNamed:@"ic_pin_new"];
         [self.view addSubview:pinImage];
         self.pinImage = pinImage;
     }
