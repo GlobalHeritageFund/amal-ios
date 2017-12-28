@@ -15,11 +15,15 @@
 #import "ReportCell.h"
 #import "LocalDraftDataSource.h"
 #import "ReportDraft.h"
+#import "EmptyStateView.h"
+#import "UIColor+Additions.h"
+#import "CGGeometry.h"
 
 @interface ReportsViewController () <DataSourceDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) FirebaseReportDataSource *publishedReports;
 @property (nonatomic) LocalDraftDataSource *localDrafts;
+@property (nonatomic) EmptyStateView *emptyState;
 
 @end
 
@@ -29,6 +33,8 @@
     [super viewDidLoad];
 
     self.title = @"Reports";
+
+    self.view.backgroundColor = [UIColor backgroundColor];
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(composeTapped:)];
 
@@ -43,6 +49,8 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.tableView.frame = self.view.bounds;
+
+    self.emptyState.frame = CGRectInsetToSize(self.view.bounds, CGSizeMake(300, 400));
 }
 
 - (UITableView *)tableView {
@@ -56,8 +64,28 @@
     return _tableView;
 }
 
+- (EmptyStateView *)emptyState {
+    if (!_emptyState) {
+        EmptyStateView *emptyState = [[EmptyStateView alloc] init];
+        emptyState.imageView.image = [UIImage imageNamed:@"reports_bg"];
+        emptyState.label.text = @"To create a report, first take some photos, then tap \"New\" at the top.";
+        [self.view addSubview:emptyState];
+        self.emptyState = emptyState;
+    }
+    return _emptyState;
+}
+
 - (void)dataSourceUpdated:(id)dataSource {
+    [self reloadData];
+}
+
+- (void)reloadData {
     [self.tableView reloadData];
+
+    BOOL hasItems = self.publishedReports.hasItems || self.localDrafts.hasDrafts;
+
+    self.tableView.hidden = !hasItems;
+    self.emptyState.hidden = hasItems;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
