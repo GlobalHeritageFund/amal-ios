@@ -103,6 +103,10 @@
     [galleryViewController presentViewController:alertController animated:true completion:nil];
 }
 
+- (void)galleryViewController:(GalleryViewController *)galleryViewController batchAssessPhotos:(NSArray<LocalPhoto *> *)photos {
+
+}
+
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {
     [galleryViewController dismissViewControllerAnimated:YES completion:nil];
 }

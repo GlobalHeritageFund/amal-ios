@@ -73,6 +73,10 @@
     //not implemented
 }
 
+- (void)galleryViewController:(GalleryViewController *)galleryViewController batchAssessPhotos:(NSArray<LocalPhoto *> *)photos {
+    //not implemented
+}
+
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
     [FIRAnalytics logEventWithName:@"report_images_selected" parameters:nil];
     self.currentReport = [[ReportDraft alloc] initWithPhotos:photos];

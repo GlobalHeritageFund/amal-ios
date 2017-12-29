@@ -18,6 +18,7 @@
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos;
 - (void)galleryViewController:(GalleryViewController *)galleryViewController deletePhotos:(NSArray<LocalPhoto *> *)photos;
 - (void)galleryViewController:(GalleryViewController *)galleryViewController savePhotos:(NSArray<LocalPhoto *> *)photos;
+- (void)galleryViewController:(GalleryViewController *)galleryViewController batchAssessPhotos:(NSArray<LocalPhoto *> *)photos;
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController;
 
 @end

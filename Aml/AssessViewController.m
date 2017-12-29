@@ -350,4 +350,5 @@
 - (void)showEditableMap {
     [self.delegate assessViewControllerDidTapEditCoordinates:self];
 }
+
 @end

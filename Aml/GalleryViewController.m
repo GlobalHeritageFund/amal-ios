@@ -168,6 +168,12 @@
     UIBarButtonItem *flexibleSpace2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [items addObject:flexibleSpace2];
 
+    UIBarButtonItem *assessItem = [[UIBarButtonItem alloc] initWithTitle:@"Assess" style:UIBarButtonItemStylePlain target:self action:@selector(multiAssess:)];
+    [items addObject:assessItem];
+
+    UIBarButtonItem *flexibleSpace3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [items addObject:flexibleSpace3];
+
     UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteMultiSelect:)];
     deleteItem.tintColor = [UIColor redColor];
     [items addObject:deleteItem];
@@ -221,6 +227,9 @@
 - (void)deleteMultiSelect:(id)sender {
     [self.delegate galleryViewController:self deletePhotos:self.selectedPhotos];
 }
+
+- (void)multiAssess:(id)sender {
+    [self.delegate galleryViewController:self batchAssessPhotos:self.selectedPhotos];
 }
 
 - (void)saveSelectedItems:(id)sender {
