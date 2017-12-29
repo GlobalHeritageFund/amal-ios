@@ -229,7 +229,12 @@
 }
 
 - (void)multiAssess:(id)sender {
-    [self.delegate galleryViewController:self batchAssessPhotos:self.selectedPhotos];
+    NSArray<LocalPhoto *> *selectedPhotos = self.selectedPhotos;
+    if (selectedPhotos.count == 1) {
+        [self.delegate galleryViewController:self didTapPhoto:self.selectedPhotos.firstObject];
+    } else {
+        [self.delegate galleryViewController:self batchAssessPhotos:self.selectedPhotos];
+    }
 }
 
 - (void)saveSelectedItems:(id)sender {

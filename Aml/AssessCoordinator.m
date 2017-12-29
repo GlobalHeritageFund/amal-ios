@@ -18,6 +18,7 @@
 #import "PhotoStorage.h"
 #import "NSObject+Helpers.h"
 #import "EditLocationViewController.h"
+#import "MultiAssessViewController.h"
 
 @interface AssessCoordinator() <GalleryViewControllerDelegate, QBImagePickerControllerDelegate, AssessViewControllerDelegate, EditLocationViewControllerDelegate>
 
@@ -104,7 +105,8 @@
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController batchAssessPhotos:(NSArray<LocalPhoto *> *)photos {
-
+    MultiAssessViewController *multiAssess = [[MultiAssessViewController alloc] initWithPhotos:photos];
+    [self.navigationController pushViewController:multiAssess animated:YES];
 }
 
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {

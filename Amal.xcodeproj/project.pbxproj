@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A03AB891FF5C31300D15002 /* MultiAssessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A03AB871FF5C31300D15002 /* MultiAssessViewController.m */; };
 		1A04FCE91F51CE3B0010A9D8 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */; };
 		1A04FCEC1F51D07C0010A9D8 /* ReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */; };
 		1A16EE0C1FE2C88700DF2E79 /* AssessCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A16EE0B1FE2C88700DF2E79 /* AssessCoordinator.m */; };
@@ -95,6 +96,8 @@
 
 /* Begin PBXFileReference section */
 		05C28DCB1F018D480067736E /* Amal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Amal.entitlements; sourceTree = "<group>"; };
+		1A03AB871FF5C31300D15002 /* MultiAssessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiAssessViewController.m; sourceTree = "<group>"; };
+		1A03AB881FF5C31300D15002 /* MultiAssessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiAssessViewController.h; sourceTree = "<group>"; };
 		1A04FCE71F51CE3B0010A9D8 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		1A04FCEA1F51D07C0010A9D8 /* ReportCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCell.h; sourceTree = "<group>"; };
@@ -291,6 +294,8 @@
 			children = (
 				1A3559581F001DF000FFFBCA /* AssessViewController.h */,
 				1A3559591F001DF000FFFBCA /* AssessViewController.m */,
+				1A03AB881FF5C31300D15002 /* MultiAssessViewController.h */,
+				1A03AB871FF5C31300D15002 /* MultiAssessViewController.m */,
 				1A3559621F0062CB00FFFBCA /* FormView.h */,
 				1A3559631F0062CB00FFFBCA /* FormView.m */,
 				1A35595C1F0023DF00FFFBCA /* FormElements.h */,
@@ -763,6 +768,7 @@
 				1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */,
 				1A5AADE41F4F756A00573829 /* QBAlbumCell.m in Sources */,
 				1A4E9AD61F511396006856A8 /* ReportViewModel.m in Sources */,
+				1A03AB891FF5C31300D15002 /* MultiAssessViewController.m in Sources */,
 				1A5AADE61F4F756A00573829 /* QBAssetCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
