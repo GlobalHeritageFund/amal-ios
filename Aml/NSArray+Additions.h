@@ -16,4 +16,10 @@
 
 - (NSArray *)arrayByTransformingObjectsUsingBlock:(id (^)(id object))block;
 
+- (BOOL)allObjectsPassTest:(BOOL (^)(id object))test;
+
+- (BOOL)anyObjectsPassTest:(BOOL (^)(id object))test;
+
+- (BOOL)allObjectsEqual;
+
 @end

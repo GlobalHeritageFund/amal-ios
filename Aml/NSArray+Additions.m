@@ -39,4 +39,32 @@
     return result;
 }
 
+- (BOOL)allObjectsPassTest:(BOOL (^)(id object))test {
+    NSParameterAssert(test != nil);
+
+    for (id object in self) {
+        if (!test(object)) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+- (BOOL)anyObjectsPassTest:(BOOL (^)(id object))test {
+    NSParameterAssert(test != nil);
+
+    for (id object in self) {
+        if (test(object)) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (BOOL)allObjectsEqual {
+    return [self allObjectsPassTest:^BOOL(id object) {
+        return object == self.firstObject;
+    }];
+}
+
 @end
