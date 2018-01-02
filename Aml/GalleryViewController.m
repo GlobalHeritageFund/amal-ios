@@ -96,7 +96,9 @@
 
     workingRect = CGRectTrim(workingRect, topLayoutGuide, CGRectMinYEdge);
 
-    CGRectDivide(workingRect, &filterButtonRect, &workingRect, 40, CGRectMinYEdge);
+    if (self.shouldShowFilterButton) {
+        CGRectDivide(workingRect, &filterButtonRect, &workingRect, 40, CGRectMinYEdge);
+    }
 
     self.filterButton.frame = CGRectInset(filterButtonRect, 15, 0);
     self.collectionView.frame = workingRect;

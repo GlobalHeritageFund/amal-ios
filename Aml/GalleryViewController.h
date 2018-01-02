@@ -31,6 +31,8 @@
 
 @property (nonatomic) GalleryMode mode;
 
+@property (nonatomic) BOOL shouldShowFilterButton;
+
 - (void)reloadData;
 
 @end

@@ -41,6 +41,7 @@
 
     GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
     galleryViewController.delegate = self;
+    galleryViewController.shouldShowFilterButton = YES;
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
     galleryViewController.delegate = self;
     navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Assess" image:[UIImage imageNamed:@"ic_assess"] selectedImage:[UIImage imageNamed:@"ic_assess"]];
