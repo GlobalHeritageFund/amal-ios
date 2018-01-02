@@ -62,7 +62,13 @@
 }
 
 - (NSArray<PhotoSection *> *)fetchGroupedPhotos {
-    NSArray<LocalPhoto *> *photos = [self fetchPhotos];
+    return [self fetchGroupedPhotosWithFilter:[DefaultPhotoFilter new]];
+}
+
+- (NSArray<PhotoSection *> *)fetchGroupedPhotosWithFilter:(id<LocalPhotoFilter>)filter {
+    NSArray<LocalPhoto *> *photos = [[self fetchPhotos] arrayBySelectingObjectsPassingTest:^BOOL(LocalPhoto *photo) {
+        return [filter shouldIncludePhoto:photo];
+    }];
 
     NSMutableArray<PhotoSection *> *sections = [NSMutableArray new];
 

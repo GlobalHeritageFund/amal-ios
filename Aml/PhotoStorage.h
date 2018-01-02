@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LocalPhotoFilter.h"
 
 @class LocalPhoto, AMLMetadata;
+
 
 @interface PhotoSection : NSObject
 
@@ -27,6 +29,7 @@
 
 - (NSArray<PhotoSection *> *)fetchGroupedPhotos;
 
+- (NSArray<PhotoSection *> *)fetchGroupedPhotosWithFilter:(id<LocalPhotoFilter>)filter;
 
 - (NSURL*)imagesDirectory;
 
