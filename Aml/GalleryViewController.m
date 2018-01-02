@@ -20,7 +20,7 @@
 #import "Firebase.h"
 #import "EmptyState.h"
 #import "CGGeometry.h"
-
+#import "LocalPhotoFilter.h"
 @interface GalleryViewController ()
 
 @property (strong) NSArray<PhotoSection*> *photoSections;
@@ -28,10 +28,25 @@
 @property (nonatomic) UIToolbar *toolbar;
 @property (nonatomic) EmptyStateView *emptyState;
 @property (nonatomic) UIButton *filterButton;
+@property (nonatomic) id<LocalPhotoFilter> currentFilter;
 
 @end
 
 @implementation GalleryViewController
+
+@synthesize currentFilter = _currentFilter;
+
+- (id<LocalPhotoFilter>)currentFilter {
+    if (!_currentFilter) {
+        self.currentFilter = [[DefaultPhotoFilter alloc] init];
+    }
+    return _currentFilter;
+}
+
+- (void)setCurrentFilter:(id<LocalPhotoFilter>)currentFilter {
+    _currentFilter = currentFilter;
+    [self reloadData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -168,6 +183,7 @@
         UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [filterButton setTitle:@"FILTER" forState:UIControlStateNormal];
         filterButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        [filterButton addTarget:self action:@selector(filterButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:filterButton];
         self.filterButton = filterButton;
     }
@@ -230,7 +246,7 @@
 }
 
 - (void)reloadData {
-    self.photoSections = [[PhotoStorage new] fetchGroupedPhotos];
+    self.photoSections = [[PhotoStorage new] fetchGroupedPhotosWithFilter:self.currentFilter];
 
     [self.collectionView reloadData];
 
@@ -328,6 +344,23 @@
         [cell updateOverlay];
         [self updateEnabledStateOnToolbarItems];
     }
+}
+
+- (void)filterButtonTapped:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"All" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.currentFilter = [DefaultPhotoFilter new];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Assessed" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.currentFilter = [AssessedPhotoFilter new];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Unassessed" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.currentFilter = [UnassessedPhotoFilter new];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        //do nothing
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
