@@ -35,6 +35,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    if (@available(iOS 11.0, *)) {
+        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+
     self.title = @"Assess";
 
     self.mode = GalleryModeNormal;
@@ -78,6 +84,12 @@
     self.toolbar.frame = toolbarRect;
 
     self.emptyState.frame = CGRectInsetToSize(self.view.bounds, CGSizeMake(300, 400));
+
+    CGFloat topLayoutGuide = [self.topLayoutGuide length];
+    CGFloat bottomLayoutGuide = [self.bottomLayoutGuide length];
+
+    self.collectionView.contentInset = UIEdgeInsetsMake(topLayoutGuide, 0, bottomLayoutGuide, 0);
+    self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(topLayoutGuide, 0, bottomLayoutGuide, 0);
 
     self.collectionView.frame = workingRect;
 }
