@@ -12,6 +12,8 @@
 
 @protocol LocalPhotoFilter
 
+- (NSString *)name;
+
 - (BOOL)shouldIncludePhoto:(LocalPhoto *)photo;
 
 @end

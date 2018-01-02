@@ -45,6 +45,9 @@
 
 - (void)setCurrentFilter:(id<LocalPhotoFilter>)currentFilter {
     _currentFilter = currentFilter;
+
+    NSString *buttonTitle = [[NSString stringWithFormat:@"Filter: %@", self.currentFilter.name] uppercaseString];
+    [self.filterButton setTitle:buttonTitle forState:UIControlStateNormal];
     [self reloadData];
 }
 
@@ -348,15 +351,22 @@
 
 - (void)filterButtonTapped:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"All" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        self.currentFilter = [DefaultPhotoFilter new];
-    }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Assessed" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        self.currentFilter = [AssessedPhotoFilter new];
-    }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Unassessed" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        self.currentFilter = [UnassessedPhotoFilter new];
-    }]];
+    NSArray<id<LocalPhotoFilter>> *filters = @[[DefaultPhotoFilter new], [AssessedPhotoFilter new], [UnassessedPhotoFilter new]];
+    NSArray<UIAlertAction *> *actions = [filters  arrayByTransformingObjectsUsingBlock:^id(id<LocalPhotoFilter> filter) {
+        NSString *name;
+        if ([filter.name isEqualToString:self.currentFilter.name]) {
+            name = [NSString stringWithFormat:@"%@ ✓", filter.name];
+        } else {
+            name = filter.name;
+        }
+        return [UIAlertAction actionWithTitle:name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            self.currentFilter = filter;
+        }];
+    }];
+
+    for (UIAlertAction *action in actions) {
+        [alertController addAction:action];
+    }
     [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         //do nothing
     }]];

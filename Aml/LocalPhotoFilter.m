@@ -12,6 +12,10 @@
 
 @implementation DefaultPhotoFilter
 
+- (NSString *)name {
+    return @"All";
+}
+
 - (BOOL)shouldIncludePhoto:(LocalPhoto *)photo {
     return YES;
 }
@@ -19,6 +23,10 @@
 @end
 
 @implementation UnassessedPhotoFilter
+
+- (NSString *)name {
+    return @"Unassessed";
+}
 
 - (BOOL)shouldIncludePhoto:(LocalPhoto *)photo {
     AMLMetadata *metadata = photo.metadata;
@@ -37,6 +45,10 @@
 @end
 
 @implementation AssessedPhotoFilter
+
+- (NSString *)name {
+    return @"Assessed";
+}
 
 - (instancetype)init {
     self = [super init];
