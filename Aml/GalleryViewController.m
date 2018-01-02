@@ -27,6 +27,7 @@
 @property (nonatomic) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic) UIToolbar *toolbar;
 @property (nonatomic) EmptyStateView *emptyState;
+@property (nonatomic) UIButton *filterButton;
 
 @end
 
@@ -42,6 +43,8 @@
     }
 
     self.title = @"Assess";
+
+    self.view.backgroundColor = [UIColor backgroundColor];
 
     self.mode = GalleryModeNormal;
 
@@ -75,7 +78,7 @@
 
     CGRect workingRect = self.view.bounds;
 
-    CGRect toolbarRect = CGRectZero, discardableRect = CGRectZero;
+    CGRect toolbarRect = CGRectZero, discardableRect = CGRectZero, filterButtonRect = CGRectZero;
 
     if (!self.toolbar.hidden) {
         CGRectDivide(workingRect, &toolbarRect, &discardableRect, 44, CGRectMaxYEdge);
@@ -88,9 +91,14 @@
     CGFloat topLayoutGuide = [self.topLayoutGuide length];
     CGFloat bottomLayoutGuide = [self.bottomLayoutGuide length];
 
-    self.collectionView.contentInset = UIEdgeInsetsMake(topLayoutGuide, 0, bottomLayoutGuide, 0);
-    self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(topLayoutGuide, 0, bottomLayoutGuide, 0);
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, bottomLayoutGuide, 0);
+    self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, bottomLayoutGuide, 0);
 
+    workingRect = CGRectTrim(workingRect, topLayoutGuide, CGRectMinYEdge);
+
+    CGRectDivide(workingRect, &filterButtonRect, &workingRect, 40, CGRectMinYEdge);
+
+    self.filterButton.frame = CGRectInset(filterButtonRect, 15, 0);
     self.collectionView.frame = workingRect;
 }
 
@@ -151,6 +159,17 @@
         self.emptyState = emptyState;
     }
     return _emptyState;
+}
+
+- (UIButton *)filterButton {
+    if (!_filterButton) {
+        UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [filterButton setTitle:@"FILTER" forState:UIControlStateNormal];
+        filterButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        [self.view addSubview:filterButton];
+        self.filterButton = filterButton;
+    }
+    return _filterButton;
 }
 
 - (void)setMode:(GalleryMode)mode {
