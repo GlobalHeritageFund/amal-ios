@@ -91,12 +91,13 @@
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
     [self.currentReport addPhoto:photo];
-    //update upload button state
-    //    [self.createReportViewController updateUploadButtonState];
+    // need to get a handle on the report detail view controller somehow
+    //    [self.reportDetailViewController updateUploadButtonState];
     [galleryViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)assessViewControllerDidTapEditCoordinates:(AssessViewController *)assessViewController {
+    // TODO
     NSLog(@"show map editing vc");
 }
 
