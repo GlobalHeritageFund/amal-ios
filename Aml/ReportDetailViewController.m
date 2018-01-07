@@ -43,12 +43,7 @@
 }
 
 - (instancetype)initWithReportDraft:(ReportDraft *)reportDraft {
-    self = [super init];
-    if (!self) return nil;
-
-    _viewModel = [[ReportViewModel alloc] initWithReport:reportDraft];
-
-    return self;
+    return [self initWithReportViewModel:[[ReportViewModel alloc] initWithReport:reportDraft]];
 }
 
 - (UITableView *)tableView {
