@@ -131,8 +131,16 @@
         Report *report = self.publishedReports.reports[indexPath.row];
         viewModel = [[ReportViewModel alloc] initWithReport:report];
     }
-    
-    cell.textLabel.text = viewModel.title;
+
+    if (viewModel.isEditable) {
+        NSString *title = viewModel.title;
+        if (title.length == 0) {
+            title = @"Untitled";
+        }
+        cell.textLabel.text = title;
+    } else {
+        cell.textLabel.text = viewModel.title;
+    }
     cell.detailTextLabel.text = viewModel.imageCountString;
 
     [[[viewModel.photos.firstObject loadThumbnailImage] then:^id _Nullable(id  _Nonnull image) {

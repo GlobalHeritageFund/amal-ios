@@ -70,11 +70,21 @@
 }
 
 - (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteDraft:(ReportDraft *)reportDraft atIndexPath:(NSIndexPath *)indexPath {
-    [[LocalDraftDataSource new] removeReportDraft:reportDraft];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to delete this draft? This can not be undone." preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        [[LocalDraftDataSource new] removeReportDraft:reportDraft];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [reportsViewController presentViewController:alertController animated:true completion:nil];
 }
 
 - (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteReport:(Report *)report atIndexPath:(NSIndexPath *)indexPath {
-    [reportsViewController.publishedReports deleteReport:report];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to delete this report? This can not be undone." preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        [reportsViewController.publishedReports deleteReport:report];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [reportsViewController presentViewController:alertController animated:true completion:nil];
 }
 
 - (void)reportDetailViewControllerDidTapCancel:(ReportDetailViewController *)reportDetailViewController {
