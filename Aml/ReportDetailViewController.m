@@ -146,7 +146,9 @@
 }
 
 - (void)shareButtonTapped:(id)sender {
-    
+    NSArray *objectsToShare = @[[NSURL URLWithString:@"https://amal.global/"]];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
