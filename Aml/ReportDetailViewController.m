@@ -232,11 +232,13 @@
 
 - (void)upload:(id)sender {
     self.viewModel.draft.title = self.reportHeader.titleField.text ?: @"";
+    self.viewModel.draft.email = self.reportHeader.assessorEmailField.text ?: @"";
     [self.delegate reportDetailViewController:self didTapUploadWithDraft:self.viewModel.draft];
 }
 
 - (void)cancel:(id)sender {
     self.viewModel.draft.title = self.reportHeader.titleField.text ?: @"";
+    self.viewModel.draft.email = self.reportHeader.assessorEmailField.text ?: @"";
    [self.delegate reportDetailViewControllerDidTapCancel:self];
 }
 

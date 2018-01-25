@@ -72,6 +72,8 @@
         UITextField *assessorEmailField = [[UITextField alloc] init];
         assessorEmailField.font = [UIFont boldSystemFontOfSize:20.0];
         assessorEmailField.placeholder = @"Email";
+        assessorEmailField.keyboardType = UIKeyboardTypeEmailAddress;
+        assessorEmailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         [self.containerView addSubview:assessorEmailField];
         self.assessorEmailField = assessorEmailField;
     }

@@ -63,6 +63,7 @@
     _title = dictionary[@"title"];
     _creationDate = [[NSDate alloc] initWithTimeIntervalSince1970:[dictionary[@"creationDate"] doubleValue]];
     _uploadComplete = [dictionary[@"uploadComplete"] boolValue];
+    _assessorEmail = dictionary[@"assessorEmail"];
 
     NSDictionary *images = dictionary[@"images"];
     _photos = [images.allKeys arrayByTransformingObjectsUsingBlock:^id(id object) {

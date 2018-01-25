@@ -17,6 +17,7 @@
 
 @property (readonly) NSString *localIdentifier;
 @property (nonatomic) NSString *title;
+@property (nonatomic) NSString *email;
 @property (nonatomic) NSString *deviceToken;
 @property (readonly) NSDate *creationDate;
 

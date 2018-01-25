@@ -73,6 +73,7 @@
          @[
            [[reportRef child:@"title"] promiseSetValue:self.reportDraft.title],
            [[reportRef child:@"authorDeviceToken"] promiseSetValue:self.reportDraft.deviceToken],
+           [[reportRef child:@"assessorEmail"] promiseSetValue:self.reportDraft.email],
            [[reportRef child:@"creationDate"] promiseSetValue:@(self.reportDraft.creationDate.timeIntervalSince1970)],
            [Promise all:photoUploadPromises],
            ]]
