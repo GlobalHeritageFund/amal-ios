@@ -124,6 +124,12 @@
     self.reportHeader.reportStateLabel.text = self.viewModel.reportState;
     self.reportHeader.reportStateLabel.textColor = self.viewModel.reportStateColor;
     self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
+
+    if (self.viewModel.isEditable) {
+        self.navigationItem.rightBarButtonItem = nil;
+    } else {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -137,6 +143,10 @@
     }
     MapViewController *mapViewController = [[MapViewController alloc] initWithPhotos:self.viewModel.photos];
     [self.navigationController pushViewController:mapViewController animated:YES];
+}
+
+- (void)shareButtonTapped:(id)sender {
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
