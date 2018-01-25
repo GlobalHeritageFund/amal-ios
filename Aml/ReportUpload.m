@@ -127,6 +127,10 @@
     return NO;
 }
 
+- (NSString *)email {
+    return self.reportDraft.email;
+}
+
 - (NSArray<id<PhotoProtocol>> *)photos {
     return self.reportDraft.photos;
 }

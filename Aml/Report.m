@@ -80,6 +80,14 @@
     return NO;
 }
 
+- (NSString *)email {
+    if (self.assessorEmail.length) {
+        return self.assessorEmail;
+    } else {
+        return @"No email set.";
+    }
+}
+
 - (NSDate *)minDate {
     return [self.photos valueForKeyPath:@"@min.metadata.date"];
 }

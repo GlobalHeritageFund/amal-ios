@@ -32,6 +32,7 @@
 
 @property (readonly) NSString *firebaseID;
 @property (readonly) NSString *title;
+@property (readonly) NSString *assessorEmail;
 @property (readonly) NSDate *creationDate;
 @property (nonatomic) BOOL uploadComplete;
 

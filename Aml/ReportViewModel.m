@@ -72,6 +72,10 @@ static NSDateFormatter *dateFormatter = nil;
     }
 }
 
+- (NSString *)email {
+    return self.report.email;
+}
+
 - (NSString *)uploadState {
     return self.report.uploadState;
 }

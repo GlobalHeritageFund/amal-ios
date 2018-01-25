@@ -19,6 +19,7 @@
 @property (readonly) BOOL isEditable;
 @property (readonly) NSArray<id<PhotoProtocol>> *photos;
 @property (readonly) NSString *title;
+@property (readonly) NSString *email;
 @property (readonly) NSString *dateInterval;
 @property (readonly) NSString *creationDateString;
 @property (readonly) NSString *imageCountString;
