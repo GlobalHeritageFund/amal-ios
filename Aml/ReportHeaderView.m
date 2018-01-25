@@ -17,9 +17,10 @@
 @property (nonatomic) UIView *containerView;
 
 @property (nonatomic) UITextField *titleField;
+@property (nonatomic) UITextField *assessorEmailField;
+
 @property (nonatomic) UILabel *dateLabel;
 @property (nonatomic) UILabel *countLabel;
-@property (nonatomic) UIView *separator;
 @property (nonatomic) UIButton *uploadStateButton;
 @property (nonatomic) UIProgressView *totalProgressView;
 @property (nonatomic) UILabel *creationDateLabel;
@@ -66,6 +67,17 @@
     return _titleField;
 }
 
+- (UITextField *)assessorEmailField {
+    if (!_assessorEmailField) {
+        UITextField *assessorEmailField = [[UITextField alloc] init];
+        assessorEmailField.font = [UIFont boldSystemFontOfSize:20.0];
+        assessorEmailField.placeholder = @"Email";
+        [self.containerView addSubview:assessorEmailField];
+        self.assessorEmailField = assessorEmailField;
+    }
+    return _assessorEmailField;
+}
+
 - (UILabel *)dateLabel {
     if (!_dateLabel) {
         UILabel *dateLabel = [[UILabel alloc] init];
@@ -86,16 +98,6 @@
         self.countLabel = countLabel;
     }
     return _countLabel;
-}
-
-- (UIView *)separator {
-    if (!_separator) {
-        UIView *separator = [[UIView alloc] init];
-        separator.backgroundColor  = [UIColor colorWithHex:0xC7C7CC];
-        [self.containerView addSubview:separator];
-        self.separator = separator;
-    }
-    return _separator;
 }
 
 - (UIButton *)uploadStateButton {
@@ -154,7 +156,7 @@
     mapRect = workingRect;
     mapRect.size.height = 100;
 
-    CGRect containerRect = CGRectZero, titleRect = CGRectZero, dateRect = CGRectZero, countRect = CGRectZero, separatorRect = CGRectZero, uploadStateRect = CGRectZero, totalProgressRect = CGRectZero, creationDateRect = CGRectZero, reportStateRect = CGRectZero;
+    CGRect containerRect = CGRectZero, titleRect = CGRectZero, assessorEmailRect = CGRectZero, dateRect = CGRectZero, countRect = CGRectZero, uploadStateRect = CGRectZero, totalProgressRect = CGRectZero, creationDateRect = CGRectZero, reportStateRect = CGRectZero;
     workingRect = CGRectInset(workingRect, 10, 25);
     workingRect = CGRectTrim(workingRect, 30, CGRectMinYEdge);
 
@@ -165,10 +167,10 @@
     workingRect = CGRectInset(workingRect, 15, 15);
 
     CGRectDivide(workingRect, &titleRect, &workingRect, 40, CGRectMinYEdge);
+    CGRectDivide(workingRect, &assessorEmailRect, &workingRect, 24, CGRectMinYEdge);
     CGRectDivide(workingRect, &dateRect, &workingRect, 26, CGRectMinYEdge);
     CGRectDivide(workingRect, &countRect, &workingRect, 26, CGRectMinYEdge);
     workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
-    CGRectDivide(workingRect, &separatorRect, &workingRect, 1, CGRectMinYEdge);
     CGRectDivide(workingRect, &uploadStateRect, &workingRect, 40, CGRectMinYEdge);
     workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
     CGRectDivide(workingRect, &totalProgressRect, &workingRect, 2, CGRectMinYEdge);
@@ -180,13 +182,22 @@
     self.mapView.frame = mapRect;
     self.containerView.frame = containerRect;
     self.titleField.frame = titleRect;
+    self.assessorEmailField.frame = assessorEmailRect;
     self.dateLabel.frame = dateRect;
     self.countLabel.frame = countRect;
-//    self.separator.frame = separatorRect;
     self.uploadStateButton.frame = uploadStateRect;
     self.totalProgressView.frame = totalProgressRect;
     self.creationDateLabel.frame = creationDateRect;
     self.reportStateLabel.frame = reportStateRect;
+}
+
+- (BOOL)enabled {
+    return self.titleField.enabled;
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    self.titleField.enabled = enabled;
+    self.assessorEmailField.enabled = enabled;
 }
 
 @end

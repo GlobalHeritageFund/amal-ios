@@ -111,8 +111,8 @@
 - (void)configureView {
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.viewModel.coordinateMidpoint, 1500, 1500);
     [self.reportHeader.mapView setRegion:viewRegion animated:NO];
+    self.reportHeader.enabled = self.viewModel.isEditable;
     self.reportHeader.titleField.text = self.viewModel.title;
-    self.reportHeader.titleField.enabled = self.viewModel.isEditable;
     self.reportHeader.dateLabel.text = self.viewModel.dateInterval;
     self.reportHeader.dateLabel.text = self.viewModel.dateInterval;
     self.reportHeader.countLabel.text = self.viewModel.imageCountString;
