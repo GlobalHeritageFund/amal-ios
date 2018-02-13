@@ -147,7 +147,8 @@
 }
 
 - (void)shareButtonTapped:(id)sender {
-    NSArray *objectsToShare = @[[NSURL URLWithString:@"https://amal.global/"]];
+    NSString *url = [NSString stringWithFormat:@"https://app.amal.global/reports/%@", self.viewModel.finalized.firebaseID];
+    NSArray *objectsToShare = @[[NSURL URLWithString:url]];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
     [self presentViewController:activityViewController animated:YES completion:nil];
 }
