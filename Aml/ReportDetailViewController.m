@@ -126,10 +126,10 @@
     self.reportHeader.reportStateLabel.textColor = self.viewModel.reportStateColor;
     self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
 
-    if (self.viewModel.isEditable) {
-        self.navigationItem.rightBarButtonItem = nil;
-    } else {
+    if (self.viewModel.finalized) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
+    } else {
+        self.navigationItem.rightBarButtonItem = nil;
     }
 }
 
