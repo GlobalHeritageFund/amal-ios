@@ -17,4 +17,6 @@
 
 - (UIImage *)imageForKey:(NSString *)key;
 
+- (void)resetCache;
+
 @end

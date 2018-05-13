@@ -54,4 +54,8 @@
     return [UIImage imageWithData:imageData];
 }
 
+- (void)resetCache {
+    [[NSFileManager defaultManager] removeItemAtPath:self.location.relativePath error:nil];
+}
+
 @end
