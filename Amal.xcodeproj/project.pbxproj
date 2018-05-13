@@ -10,6 +10,8 @@
 		1A03AB891FF5C31300D15002 /* MultiAssessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A03AB871FF5C31300D15002 /* MultiAssessViewController.m */; };
 		1A04FCE91F51CE3B0010A9D8 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */; };
 		1A04FCEC1F51D07C0010A9D8 /* ReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */; };
+		1A12B2DA20A894A20062C333 /* DiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A12B2D920A894A20062C333 /* DiskCache.m */; };
+		1A12B2DD20A897340062C333 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A12B2DC20A897340062C333 /* NSString+Additions.m */; };
 		1A16EE0C1FE2C88700DF2E79 /* AssessCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A16EE0B1FE2C88700DF2E79 /* AssessCoordinator.m */; };
 		1A16EE0F1FE2C89000DF2E79 /* CaptureCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A16EE0E1FE2C89000DF2E79 /* CaptureCoordinator.m */; };
 		1A16EE121FE2C89C00DF2E79 /* ReportCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A16EE111FE2C89C00DF2E79 /* ReportCoordinator.m */; };
@@ -103,6 +105,10 @@
 		1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		1A04FCEA1F51D07C0010A9D8 /* ReportCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCell.h; sourceTree = "<group>"; };
 		1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportCell.m; sourceTree = "<group>"; };
+		1A12B2D820A894A20062C333 /* DiskCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiskCache.h; sourceTree = "<group>"; };
+		1A12B2D920A894A20062C333 /* DiskCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiskCache.m; sourceTree = "<group>"; };
+		1A12B2DB20A897340062C333 /* NSString+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
+		1A12B2DC20A897340062C333 /* NSString+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		1A16EE0A1FE2C88700DF2E79 /* AssessCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssessCoordinator.h; sourceTree = "<group>"; };
 		1A16EE0B1FE2C88700DF2E79 /* AssessCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssessCoordinator.m; sourceTree = "<group>"; };
 		1A16EE0D1FE2C89000DF2E79 /* CaptureCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaptureCoordinator.h; sourceTree = "<group>"; };
@@ -362,6 +368,8 @@
 				1A4E9AD71F514313006856A8 /* ReportProtocols.h */,
 				1A04FCE71F51CE3B0010A9D8 /* ImageCache.h */,
 				1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */,
+				1A12B2D820A894A20062C333 /* DiskCache.h */,
+				1A12B2D920A894A20062C333 /* DiskCache.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -549,6 +557,8 @@
 				1A31FA4D1F0569A6007DDD88 /* NSObject+Helpers.m */,
 				1A2BEBF61F33618800A59E69 /* UIImage+Additions.h */,
 				1A2BEBF71F33618800A59E69 /* UIImage+Additions.m */,
+				1A12B2DB20A897340062C333 /* NSString+Additions.h */,
+				1A12B2DC20A897340062C333 /* NSString+Additions.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -724,6 +734,7 @@
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
 				1A3640651F049C650070E686 /* AMLMetadata.m in Sources */,
+				1A12B2DA20A894A20062C333 /* DiskCache.m in Sources */,
 				1A3EE1581F0748490068B596 /* MapViewController.m in Sources */,
 				1A35595A1F001DF000FFFBCA /* AssessViewController.m in Sources */,
 				1A5AADEB1F4F756A00573829 /* QBSlomoIconView.m in Sources */,
@@ -770,6 +781,7 @@
 				5846B2051E773354008E48BC /* TabBarPage.m in Sources */,
 				580A555B1E5D136200A70AB1 /* CALayer+Additions.m in Sources */,
 				1A3559641F0062CB00FFFBCA /* FormView.m in Sources */,
+				1A12B2DD20A897340062C333 /* NSString+Additions.m in Sources */,
 				1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */,
 				1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */,
 				1A5AADE41F4F756A00573829 /* QBAlbumCell.m in Sources */,
