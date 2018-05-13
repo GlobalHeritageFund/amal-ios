@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DiskCache.h"
 
 @interface ImageCache : NSObject
 
-+ (NSCache *)cache;
++ (NSCache *)memoryCache;
+
++ (DiskCache *)diskCache;
 
 @end

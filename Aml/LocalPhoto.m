@@ -47,12 +47,12 @@
     }];
 }
 
-- (NSCache *)cache {
-    return [ImageCache cache];
+- (NSCache *)memoryCache {
+    return [ImageCache memoryCache];
 }
 
 - (Promise<UIImage *> *)loadThumbnailImage {
-    UIImage *cachedValue = [self.cache objectForKey:self.imagePath];
+    UIImage *cachedValue = [self.memoryCache objectForKey:self.imagePath];
     if (cachedValue) {
         return [Promise fulfilled:cachedValue];
     }
@@ -60,7 +60,7 @@
              then:^id _Nullable(UIImage *_Nonnull image) {
                  return [image resizedImage:CGSizeFitting(image.size, CGSizeMake(400, 400)) interpolationQuality:kCGInterpolationMedium];
              }] then:^id _Nullable(id  _Nonnull image) {
-                 [self.cache setObject:image forKey:self.imagePath];
+                 [self.memoryCache setObject:image forKey:self.imagePath];
                  return image;
              }];
 }

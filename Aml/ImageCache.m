@@ -10,12 +10,23 @@
 
 @implementation ImageCache
 
-+ (NSCache *)cache {
++ (NSCache *)memoryCache {
     static NSCache *cache;
     static dispatch_once_t onceToken;
 
     dispatch_once(&onceToken, ^{
         cache = [NSCache new];
+    });
+
+    return cache;
+}
+
++ (DiskCache *)diskCache {
+    static DiskCache *cache;
+    static dispatch_once_t onceToken;
+
+    dispatch_once(&onceToken, ^{
+        cache = [[DiskCache alloc] initWithName:@"images"];
     });
 
     return cache;

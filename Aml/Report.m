@@ -27,19 +27,25 @@
     return self;
 }
 
-- (NSCache *)cache {
-    return [ImageCache cache];
+- (NSCache *)memoryCache {
+    return [ImageCache memoryCache];
+}
+
+- (DiskCache *)diskCache {
+    return [ImageCache diskCache];
 }
 
 - (Promise<UIImage *> *)loadThumbnailImage {
-    UIImage *cachedValue = [self.cache objectForKey:self.remoteStorageLocation];
+    UIImage *cachedValue = [self.memoryCache objectForKey:self.remoteStorageLocation] ?: [self.diskCache imageForKey:self.remoteStorageLocation];
     if (cachedValue) {
         return [Promise fulfilled:cachedValue];
     }
+
     return [[[self loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
         return [image resizedImage:CGSizeFitting(image.size, CGSizeMake(100, 100)) interpolationQuality:kCGInterpolationMedium];
     }] then:^id _Nullable(id  _Nonnull object) {
-        [self.cache setObject:object forKey:self.remoteStorageLocation];
+        [self.memoryCache setObject:object forKey:self.remoteStorageLocation];
+        [self.diskCache setImage:object forKey:self.remoteStorageLocation];
         return nil;
     }];
 }
