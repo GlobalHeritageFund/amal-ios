@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pLV-uX-gjF">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pLV-uX-gjF">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,21 +19,21 @@
                         <viewControllerLayoutGuide type="bottom" id="PCk-La-t9L"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dz4-ea-ogN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_alert" translatesAutoresizingMaskIntoConstraints="NO" id="boV-Ur-A1X">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xrq-UL-7SC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0D1-4d-lAp">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeK-rm-ORf">
-                                        <rect key="frame" x="23" y="34" width="36" height="36"/>
+                                        <rect key="frame" x="23" y="52" width="36" height="36"/>
                                         <state key="normal" image="ic_flash_off_white_36pt"/>
                                         <state key="disabled" image="ic_flash_off_white_36pt"/>
                                         <state key="selected" image="ic_flash_on_white_36pt"/>
@@ -42,7 +43,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtF-n2-Mwh" userLabel="Settings Button">
-                                        <rect key="frame" x="321" y="34" width="30" height="30"/>
+                                        <rect key="frame" x="321" y="52" width="30" height="30"/>
                                         <state key="normal" image="ic_settings"/>
                                         <connections>
                                             <action selector="settingsTapped:" destination="pLV-uX-gjF" eventType="touchUpInside" id="ecg-NI-JrL"/>
@@ -51,25 +52,24 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="gtF-n2-Mwh" firstAttribute="top" secondItem="0D1-4d-lAp" secondAttribute="top" constant="34" id="2Ic-V1-feS"/>
-                                    <constraint firstItem="FeK-rm-ORf" firstAttribute="top" secondItem="0D1-4d-lAp" secondAttribute="top" constant="34" id="60w-Pu-c9i"/>
+                                    <constraint firstItem="gtF-n2-Mwh" firstAttribute="top" secondItem="0D1-4d-lAp" secondAttribute="topMargin" id="2Ic-V1-feS"/>
+                                    <constraint firstItem="FeK-rm-ORf" firstAttribute="top" secondItem="0D1-4d-lAp" secondAttribute="topMargin" id="60w-Pu-c9i"/>
                                     <constraint firstItem="FeK-rm-ORf" firstAttribute="leading" secondItem="0D1-4d-lAp" secondAttribute="leading" constant="23" id="G88-cc-LYd"/>
-                                    <constraint firstAttribute="height" constant="85" id="Gcw-YW-s0Z"/>
                                     <constraint firstAttribute="trailing" secondItem="gtF-n2-Mwh" secondAttribute="trailing" constant="24" id="VNp-np-5Q9"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vv-Fy-LSU">
-                                <rect key="frame" x="155" y="584" width="66" height="66"/>
+                                <rect key="frame" x="154.66666666666666" y="695" width="66" height="66"/>
                                 <state key="normal" image="btn-take-photo"/>
                                 <connections>
                                     <action selector="capturePhoto:" destination="pLV-uX-gjF" eventType="touchUpInside" id="OS9-hL-3mo"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rty-Y9-QjU">
-                                <rect key="frame" x="67" y="233" width="240" height="200"/>
+                                <rect key="frame" x="67.666666666666686" y="306" width="240" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBi-gu-H3G">
-                                        <rect key="frame" x="33" y="68.5" width="175" height="62.5"/>
+                                        <rect key="frame" x="33.333333333333329" y="68.666666666666686" width="174.66666666666669" height="62.333333333333343"/>
                                         <string key="text">Please enable
 camera access.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -77,10 +77,10 @@ camera access.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-camera-off" translatesAutoresizingMaskIntoConstraints="NO" id="N7g-Sq-8jW">
-                                        <rect key="frame" x="99.5" y="20" width="40" height="40"/>
+                                        <rect key="frame" x="99.666666666666671" y="20" width="40.000000000000014" height="40"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings &gt; Privacy &gt; Camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9J4-1L-z66">
-                                        <rect key="frame" x="11.5" y="151" width="217.5" height="21"/>
+                                        <rect key="frame" x="11.666666666666657" y="151" width="217.33333333333334" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -109,6 +109,7 @@ camera access.</string>
                             <constraint firstItem="rty-Y9-QjU" firstAttribute="centerX" secondItem="dz4-ea-ogN" secondAttribute="centerX" id="UkW-nk-hVx"/>
                             <constraint firstItem="Xrq-UL-7SC" firstAttribute="height" secondItem="boV-Ur-A1X" secondAttribute="height" id="YaO-nn-9nN"/>
                             <constraint firstItem="Xrq-UL-7SC" firstAttribute="width" secondItem="boV-Ur-A1X" secondAttribute="width" id="b3Z-X9-eY1"/>
+                            <constraint firstItem="0D1-4d-lAp" firstAttribute="bottom" secondItem="Lff-0l-6Co" secondAttribute="bottom" constant="54" id="dp1-36-14Y"/>
                             <constraint firstItem="rty-Y9-QjU" firstAttribute="centerY" secondItem="dz4-ea-ogN" secondAttribute="centerY" id="ixY-ZA-GLc"/>
                             <constraint firstItem="Xrq-UL-7SC" firstAttribute="centerX" secondItem="boV-Ur-A1X" secondAttribute="centerX" id="kvs-71-Ls3"/>
                             <constraint firstAttribute="trailing" secondItem="boV-Ur-A1X" secondAttribute="trailing" id="mbl-co-eXi"/>
@@ -130,7 +131,7 @@ camera access.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNF-zs-Oqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="440.80000000000001" y="220.83958020989508"/>
+            <point key="canvasLocation" x="440.80000000000001" y="220.19704433497537"/>
         </scene>
     </scenes>
     <resources>
