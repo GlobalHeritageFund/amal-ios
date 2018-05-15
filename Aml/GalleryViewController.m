@@ -91,6 +91,13 @@
     }
 }
 
+- (CGFloat)bottomSpacingForToolbar {
+    if (@available(iOS 11.0, *)) {
+        return self.view.window.safeAreaInsets.bottom;
+    }
+    return 0;
+}
+
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
 
@@ -99,7 +106,8 @@
     CGRect toolbarRect = CGRectZero, discardableRect = CGRectZero, filterButtonRect = CGRectZero;
 
     if (!self.toolbar.hidden) {
-        CGRectDivide(workingRect, &toolbarRect, &discardableRect, 44, CGRectMaxYEdge);
+        CGRect toolbarWorkingRect = CGRectTrim(workingRect, self.bottomSpacingForToolbar, CGRectMaxYEdge);
+        CGRectDivide(toolbarWorkingRect, &toolbarRect, &discardableRect, 44, CGRectMaxYEdge);
     }
 
     self.toolbar.frame = toolbarRect;
