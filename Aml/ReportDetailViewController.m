@@ -115,7 +115,6 @@
     self.reportHeader.titleField.text = self.viewModel.title;
     self.reportHeader.assessorEmailField.text = self.viewModel.email;
     self.reportHeader.dateLabel.text = self.viewModel.dateInterval;
-    self.reportHeader.dateLabel.text = self.viewModel.dateInterval;
     self.reportHeader.countLabel.text = self.viewModel.imageCountString;
     [self.reportHeader.uploadStateButton setTitle:self.viewModel.uploadState forState:UIControlStateNormal];
     self.reportHeader.uploadStateButton.enabled = self.viewModel.isEditable;
