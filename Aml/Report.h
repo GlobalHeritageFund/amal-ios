@@ -36,6 +36,7 @@
 @property (readonly) NSDate *creationDate;
 @property (nonatomic) BOOL uploadComplete;
 
+@property (readonly) Promise<NSURL *> *pdfURL;
 
 @property (nonatomic, readonly) NSArray<RemotePhoto *> *photos;
 

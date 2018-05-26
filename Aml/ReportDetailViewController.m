@@ -146,10 +146,29 @@
 }
 
 - (void)shareButtonTapped:(id)sender {
-    NSString *url = [NSString stringWithFormat:@"https://app.amal.global/reports/%@", self.viewModel.finalized.firebaseID];
-    NSArray *objectsToShare = @[[NSURL URLWithString:url]];
-    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
-    [self presentViewController:activityViewController animated:YES completion:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Share" message:@"Would you like to share the editable report or the PDF?" preferredStyle:UIAlertControllerStyleActionSheet];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Editable Report..." style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSString *url = [NSString stringWithFormat:@"https://app.amal.global/reports/%@", self.viewModel.finalized.firebaseID];
+        NSArray *objectsToShare = @[[NSURL URLWithString:url]];
+        UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+        [self presentViewController:activityViewController animated:YES completion:nil];
+    }]];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Report PDF..." style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+        [self.viewModel.finalized.pdfURL then:^id _Nullable(id  _Nonnull url) {
+            NSArray *objectsToShare = @[url];
+            UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+            [self presentViewController:activityViewController animated:YES completion:nil];
+            return nil;
+        }];
+
+    }]];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

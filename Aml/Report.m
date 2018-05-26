@@ -79,6 +79,19 @@
     return self;
 }
 
+- (Promise *)pdfURL {
+    FIRStorageReference * reference = [[[[FIRStorage storage] reference] child:@"pdfs"] child:[self.firebaseID stringByAppendingPathExtension:@"pdf"]];
+    return [[Promise alloc] initWithWorkQueue:dispatch_get_main_queue() work:^(void (^ _Nonnull fulfill)(NSURL * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+        [reference downloadURLWithCompletion:^(NSURL * _Nullable URL, NSError * _Nullable error) {
+            if (error) {
+                reject(error);
+            } else {
+                fulfill(URL);
+            }
+        }];
+    }];
+}
+
 - (NSInteger)photoCount {
     return self.photos.count;
 }
