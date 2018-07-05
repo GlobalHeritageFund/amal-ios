@@ -143,7 +143,9 @@
         collectionView.delegate = self;
         collectionView.alwaysBounceVertical = YES;
         collectionView.dataSource = self;
-        collectionView.prefetchingEnabled = NO;
+        if (@available(iOS 10.0, *)) {
+            collectionView.prefetchingEnabled = NO;
+        }
         [self.view addSubview:collectionView];
         self.collectionView = collectionView;
     }
