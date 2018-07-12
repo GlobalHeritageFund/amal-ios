@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zyO-dE-fdw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zyO-dE-fdw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,19 +14,19 @@
             <objects>
                 <navigationController id="zyO-dE-fdw" customClass="NavPage" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dAX-Jr-ev2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="navigationBarHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="0BO-0c-Nf2" kind="relationship" relationship="rootViewController" id="bW9-KG-8H6"/>
+                        <segue destination="dQ7-dK-9r7" kind="relationship" relationship="rootViewController" id="KMi-I1-hpW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlG-Eg-nGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-263" y="99"/>
+            <point key="canvasLocation" x="-1409" y="99"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="eeh-40-mTo">
@@ -83,8 +84,8 @@
                                     <segue destination="Waq-Yc-eWd" kind="show" id="mgr-Ci-YgQ"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-Ws-gNy">
-                                <rect key="frame" x="168" y="599" width="39" height="37"/>
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-Ws-gNy">
+                                <rect key="frame" x="160" y="599" width="55" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="QUn-HK-KbU">
                                 <rect key="frame" x="118" y="181" width="138" height="158"/>
@@ -117,7 +118,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCH-r6-8MJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="left" id="TlN-Yc-ic3">
                     <connections>
-                        <segue destination="Waq-Yc-eWd" kind="show" id="Cfj-Nu-Mg5"/>
+                        <segue destination="Waq-Yc-eWd" kind="show" id="Wga-Vb-Clr"/>
                     </connections>
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="aS7-QE-pES">
@@ -184,8 +185,8 @@
                                     <segue destination="kB0-sa-3Ii" kind="show" id="1PL-rN-xdh"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="51h-sm-glM">
-                                <rect key="frame" x="168" y="599" width="39" height="37"/>
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="51h-sm-glM">
+                                <rect key="frame" x="160" y="599" width="55" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-feature-intro" translatesAutoresizingMaskIntoConstraints="NO" id="6Im-8k-998">
                                 <rect key="frame" x="71.5" y="181" width="231" height="156"/>
@@ -246,7 +247,7 @@
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With the support of Avec le soutien de                    بدعم من" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RtJ-hu-D29">
-                                <rect key="frame" x="84.5" y="221" width="206" height="75.5"/>
+                                <rect key="frame" x="84.5" y="265" width="206" height="75.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="206" id="MQw-LP-6OQ"/>
                                 </constraints>
@@ -281,11 +282,11 @@
                                     <action selector="dismissSelf" destination="kB0-sa-3Ii" eventType="touchUpInside" id="ury-8B-qJ7"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="l88-Gt-ZXf">
-                                <rect key="frame" x="168" y="599" width="39" height="37"/>
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="l88-Gt-ZXf">
+                                <rect key="frame" x="160" y="599" width="55" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-logo-ghf" translatesAutoresizingMaskIntoConstraints="NO" id="RBe-WB-gAt">
-                                <rect key="frame" x="72" y="146" width="230" height="31"/>
+                                <rect key="frame" x="72" y="190" width="230" height="31"/>
                                 <accessibility key="accessibilityConfiguration" label="Global Heritage Fund">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
@@ -359,18 +360,143 @@
                     <navigationItem key="navigationItem" id="8pl-ur-G9T"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1PV-cB-MT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="8QO-Sm-fbM">
-                    <connections>
-                        <action selector="dismissSelf" destination="kB0-sa-3Ii" id="iRm-Gz-voS"/>
-                    </connections>
-                </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="C1Y-Mm-YFi">
                     <connections>
                         <action selector="popNavigationController" destination="kB0-sa-3Ii" id="zAi-l5-JnB"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="8QO-Sm-fbM">
+                    <connections>
+                        <action selector="dismissSelf" destination="kB0-sa-3Ii" id="iRm-Gz-voS"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2885.5999999999999" y="98.50074962518741"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UUS-Z8-qw8">
+            <objects>
+                <viewController id="dQ7-dK-9r7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UWb-6Q-FNu"/>
+                        <viewControllerLayoutGuide type="bottom" id="tWb-BR-okz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OgG-i2-dOW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg-intro-1" translatesAutoresizingMaskIntoConstraints="NO" id="f9k-Mv-zGs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Kc3-Wo-7AG" appends="YES" id="aqe-uJ-HLk"/>
+                                    <outletCollection property="gestureRecognizers" destination="060-a3-PLY" appends="YES" id="ncV-kB-A6m"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frt-8k-H3g">
+                                <rect key="frame" x="16" y="601" width="81" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="81" id="E2h-c5-wPK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissSelf" destination="dQ7-dK-9r7" eventType="touchUpInside" id="Eeo-IF-7Ze"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef5-KU-A4I">
+                                <rect key="frame" x="273" y="601" width="81" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="81" id="Fyq-q2-hZE"/>
+                                    <constraint firstAttribute="height" constant="33" id="ncS-Cv-jvW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0BO-0c-Nf2" kind="show" id="VIz-cO-19D"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="WWG-2W-zJ0">
+                                <rect key="frame" x="160" y="599" width="55" height="37"/>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By using this application, you agree to our" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtw-SB-pBC">
+                                <rect key="frame" x="68.5" y="181" width="237" height="50.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="237" id="f3J-hU-AWD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Service &amp; Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeG-oW-grb">
+                                <rect key="frame" x="62.5" y="253.5" width="251" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="251" id="oKN-Uu-kbD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caution" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmI-Aq-khP">
+                                <rect key="frame" x="68.5" y="432" width="237" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="237" id="56z-pS-DN4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Never assess a site that has not been cleared by first responders" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nid-Xd-Bgf">
+                                <rect key="frame" x="28" y="500" width="318" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="251" id="cJt-PO-ATw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f9k-Mv-zGs" firstAttribute="leading" secondItem="OgG-i2-dOW" secondAttribute="leading" id="4Wn-jU-uXS"/>
+                            <constraint firstItem="vtw-SB-pBC" firstAttribute="top" secondItem="UWb-6Q-FNu" secondAttribute="bottom" constant="117" id="7x5-fk-rrf"/>
+                            <constraint firstItem="WWG-2W-zJ0" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="9LS-Iy-LPR"/>
+                            <constraint firstItem="f9k-Mv-zGs" firstAttribute="top" secondItem="OgG-i2-dOW" secondAttribute="top" id="N6r-59-hVV"/>
+                            <constraint firstItem="WeG-oW-grb" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="Rre-Dg-mGe"/>
+                            <constraint firstAttribute="trailing" secondItem="f9k-Mv-zGs" secondAttribute="trailing" id="Y4f-GL-cZj"/>
+                            <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="Nid-Xd-Bgf" secondAttribute="bottom" constant="151" id="YVy-a9-doL"/>
+                            <constraint firstItem="WWG-2W-zJ0" firstAttribute="centerY" secondItem="frt-8k-H3g" secondAttribute="centerY" id="Ymk-kV-Eg4"/>
+                            <constraint firstItem="vtw-SB-pBC" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="fJf-gt-AiC"/>
+                            <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="f9k-Mv-zGs" secondAttribute="bottom" id="gGF-vd-2IC"/>
+                            <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="Ef5-KU-A4I" secondAttribute="bottom" constant="33" id="jBZ-J2-Tg4"/>
+                            <constraint firstItem="frt-8k-H3g" firstAttribute="leading" secondItem="OgG-i2-dOW" secondAttribute="leading" constant="16" id="kS8-c1-m4H"/>
+                            <constraint firstItem="qmI-Aq-khP" firstAttribute="top" secondItem="vtw-SB-pBC" secondAttribute="bottom" constant="200.5" id="kWP-xC-bmJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Ef5-KU-A4I" secondAttribute="trailing" constant="21" id="nva-A5-31G"/>
+                            <constraint firstItem="qmI-Aq-khP" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="ohQ-K0-9Zn"/>
+                            <constraint firstItem="Nid-Xd-Bgf" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="qWH-rI-vwl"/>
+                            <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="frt-8k-H3g" secondAttribute="bottom" constant="33" id="tTl-cy-pjh"/>
+                            <constraint firstItem="WeG-oW-grb" firstAttribute="top" secondItem="vtw-SB-pBC" secondAttribute="bottom" constant="22" id="xFU-Qi-gTI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BUf-0g-mkr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t0B-su-UB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="Kc3-Wo-7AG">
+                    <connections>
+                        <segue destination="0BO-0c-Nf2" kind="show" id="jzm-ab-eB8"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="060-a3-PLY">
+                    <connections>
+                        <action selector="popNavigationController" destination="dQ7-dK-9r7" id="aAV-fl-zJQ"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-44" y="98.50074962518741"/>
         </scene>
     </scenes>
     <resources>
@@ -386,7 +512,8 @@
         <image name="img_logo" width="138" height="158"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mgr-Ci-YgQ"/>
         <segue reference="zPB-B9-eNt"/>
+        <segue reference="mgr-Ci-YgQ"/>
+        <segue reference="VIz-cO-19D"/>
     </inferredMetricsTieBreakers>
 </document>
