@@ -85,7 +85,7 @@
 @implementation DamageButtonFormElement
 
 - (CGFloat)expectedHeight {
-    return 84;
+    return 94;
 }
 
 - (instancetype)init {
@@ -112,8 +112,9 @@
 - (UILabel *)conditionLabel {
     if (!_conditionLabel) {
         UILabel *conditionLabel = [UILabel new];
-        conditionLabel.textColor = [UIColor lightGrayColor];
+        conditionLabel.textColor = [UIColor darkGrayColor];
         conditionLabel.font = [UIFont systemFontOfSize:14.0f];
+        conditionLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:conditionLabel];
         self.conditionLabel = conditionLabel;
     }
@@ -125,10 +126,10 @@
 
     CGRect workingRect = self.bounds, labelRect = CGRectZero;
 
-    CGRectDivide(workingRect, &labelRect, &workingRect, 20, CGRectMaxYEdge);
+    CGRectDivide(workingRect, &labelRect, &workingRect, 40, CGRectMaxYEdge);
     labelRect = CGRectInset(labelRect, 10, 0);
 
-    workingRect = CGRectInset(workingRect, 15, 15);
+    workingRect = CGRectInset(workingRect, 15, 10);
 
     CGFloat buttonWidth = self.buttons.firstObject.imageView.image.size.width;
 
