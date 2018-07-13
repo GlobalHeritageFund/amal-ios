@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "btn_damage_2.png",
+      "filename" : "btn_damage_2@1x.png",
       "scale" : "1x"
     },
     {
