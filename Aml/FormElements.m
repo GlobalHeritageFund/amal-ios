@@ -93,7 +93,7 @@
     if (!self) return nil;
 
     NSMutableArray *array = [NSMutableArray array];
-    for (int i = 1; i <= 5; i++) {
+    for (int i = 0; i <= 5; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         NSString *buttonName = [NSString stringWithFormat:@"btn_damage_%d", i];
         NSString *buttonNameOn = [buttonName stringByAppendingString:@"_on"];
@@ -106,6 +106,8 @@
     }
     self.buttons = array;
 
+    self.buttons.firstObject.selected = YES;
+    
     return self;
 }
 
@@ -157,7 +159,7 @@
     for (int i = 0; i < self.buttons.count; i++) {
         UIButton *button = self.buttons[i];
         if (button.isSelected) {
-            return i + 1;
+            return i;
         }
     }
     return 0;
@@ -165,26 +167,22 @@
 
 - (void)updateConditionLabel {
     NSArray<NSString *> *labels = @[
+                                    @"Condition unknown.",
                                     @"No damage, good condition.",
                                     @"Minor damage, fair condition.",
                                     @"Moderate damage, poor condition.",
                                     @"Severe damage, very bad condition.",
                                     @"Collapsed, destroyed.",
                                     ];
-    if (self.selectedValue == 0) {
-        self.conditionLabel.text = @"Select a condition.";
-    } else {
-        self.conditionLabel.text = labels[self.selectedValue - 1];
-    }
+    self.conditionLabel.text = labels[self.selectedValue];
 }
 
 - (void)setSelectedValue:(int)selectedValue {
     for (UIButton *button in self.buttons) {
         button.selected = NO;
     }
-    if (selectedValue != 0) {
-        self.buttons[selectedValue-1].selected = YES;
-    }
+    self.buttons[selectedValue].selected = YES;
+
     [self updateConditionLabel];
 }
 
