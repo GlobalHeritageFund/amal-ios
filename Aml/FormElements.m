@@ -105,8 +105,6 @@
         [array addObject:button];
     }
     self.buttons = array;
-
-    self.buttons.firstObject.selected = YES;
     
     return self;
 }
