@@ -33,8 +33,11 @@
     applyLink(tosRange, @"http://amal.global/terms-of-service/");
     applyLink(privacyPolicyRange, @"https://globalheritagefund.org/index.php/news-resources/library/privacy-policy/");
     
-    [policyText addAttribute:NSForegroundColorAttributeName value:self.termsOfServicesAndPrivacyPolicyLabel.textColor range:NSMakeRange(0, self.termsOfServicesAndPrivacyPolicyLabel.text.length)];
+    const NSRange fullStringRange = NSMakeRange(0, self.termsOfServicesAndPrivacyPolicyLabel.text.length);
     
+    [policyText addAttribute:NSForegroundColorAttributeName value:self.termsOfServicesAndPrivacyPolicyLabel.textColor range:fullStringRange];
+    [policyText addAttribute:NSFontAttributeName value:self.termsOfServicesAndPrivacyPolicyLabel.font range:fullStringRange];
+
     // Set the tint color to color the hyperlinks the correct color
     self.termsOfServicesAndPrivacyPolicyLabel.tintColor = self.termsOfServicesAndPrivacyPolicyLabel.textColor;
     self.termsOfServicesAndPrivacyPolicyLabel.attributedText = policyText;
