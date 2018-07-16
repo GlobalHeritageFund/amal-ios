@@ -373,10 +373,10 @@
             </objects>
             <point key="canvasLocation" x="2885.5999999999999" y="98.50074962518741"/>
         </scene>
-        <!--View Controller-->
+        <!--Caution View Controller-->
         <scene sceneID="UUS-Z8-qw8">
             <objects>
-                <viewController id="dQ7-dK-9r7" sceneMemberID="viewController">
+                <viewController id="dQ7-dK-9r7" customClass="CautionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UWb-6Q-FNu"/>
                         <viewControllerLayoutGuide type="bottom" id="tWb-BR-okz"/>
@@ -432,15 +432,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Service &amp; Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeG-oW-grb">
-                                <rect key="frame" x="62.5" y="253.5" width="251" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="251" id="oKN-Uu-kbD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caution" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmI-Aq-khP">
                                 <rect key="frame" x="68.5" y="348.5" width="237" height="42"/>
                                 <constraints>
@@ -462,14 +453,21 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="ic-camera-off" translatesAutoresizingMaskIntoConstraints="NO" id="GXp-Bo-rrf">
                                 <rect key="frame" x="168" y="410.5" width="40" height="40"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Terms of Service &amp; Privacy Policy" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m03-ry-6rl">
+                                <rect key="frame" x="68.5" y="253.5" width="238.5" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="1" green="1" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="f9k-Mv-zGs" firstAttribute="leading" secondItem="OgG-i2-dOW" secondAttribute="leading" id="4Wn-jU-uXS"/>
                             <constraint firstItem="vtw-SB-pBC" firstAttribute="top" secondItem="UWb-6Q-FNu" secondAttribute="bottom" constant="117" id="7x5-fk-rrf"/>
                             <constraint firstItem="WWG-2W-zJ0" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="9LS-Iy-LPR"/>
+                            <constraint firstItem="m03-ry-6rl" firstAttribute="top" secondItem="vtw-SB-pBC" secondAttribute="bottom" constant="22" id="I9B-Xn-Rn5"/>
                             <constraint firstItem="f9k-Mv-zGs" firstAttribute="top" secondItem="OgG-i2-dOW" secondAttribute="top" id="N6r-59-hVV"/>
-                            <constraint firstItem="WeG-oW-grb" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="Rre-Dg-mGe"/>
                             <constraint firstAttribute="trailing" secondItem="f9k-Mv-zGs" secondAttribute="trailing" id="Y4f-GL-cZj"/>
                             <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="Nid-Xd-Bgf" secondAttribute="bottom" constant="151" id="YVy-a9-doL"/>
                             <constraint firstItem="WWG-2W-zJ0" firstAttribute="centerY" secondItem="frt-8k-H3g" secondAttribute="centerY" id="Ymk-kV-Eg4"/>
@@ -484,10 +482,13 @@
                             <constraint firstItem="qmI-Aq-khP" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="ohQ-K0-9Zn"/>
                             <constraint firstItem="Nid-Xd-Bgf" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="qWH-rI-vwl"/>
                             <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="frt-8k-H3g" secondAttribute="bottom" constant="33" id="tTl-cy-pjh"/>
-                            <constraint firstItem="WeG-oW-grb" firstAttribute="top" secondItem="vtw-SB-pBC" secondAttribute="bottom" constant="22" id="xFU-Qi-gTI"/>
+                            <constraint firstItem="m03-ry-6rl" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="xYc-YV-6oR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BUf-0g-mkr"/>
+                    <connections>
+                        <outlet property="termsOfServicesAndPrivacyPolicyLabel" destination="m03-ry-6rl" id="CR7-86-LiE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t0B-su-UB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="left" id="Kc3-Wo-7AG">
