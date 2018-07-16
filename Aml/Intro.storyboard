@@ -442,7 +442,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caution" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmI-Aq-khP">
-                                <rect key="frame" x="68.5" y="432" width="237" height="42"/>
+                                <rect key="frame" x="68.5" y="348.5" width="237" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="56z-pS-DN4"/>
                                 </constraints>
@@ -459,6 +459,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="ic-camera-off" translatesAutoresizingMaskIntoConstraints="NO" id="GXp-Bo-rrf">
+                                <rect key="frame" x="168" y="410.5" width="40" height="40"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -474,8 +477,10 @@
                             <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="f9k-Mv-zGs" secondAttribute="bottom" id="gGF-vd-2IC"/>
                             <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="Ef5-KU-A4I" secondAttribute="bottom" constant="33" id="jBZ-J2-Tg4"/>
                             <constraint firstItem="frt-8k-H3g" firstAttribute="leading" secondItem="OgG-i2-dOW" secondAttribute="leading" constant="16" id="kS8-c1-m4H"/>
-                            <constraint firstItem="qmI-Aq-khP" firstAttribute="top" secondItem="vtw-SB-pBC" secondAttribute="bottom" constant="200.5" id="kWP-xC-bmJ"/>
+                            <constraint firstItem="qmI-Aq-khP" firstAttribute="top" secondItem="vtw-SB-pBC" secondAttribute="bottom" constant="117" id="kWP-xC-bmJ"/>
+                            <constraint firstItem="GXp-Bo-rrf" firstAttribute="top" secondItem="qmI-Aq-khP" secondAttribute="bottom" constant="20" id="nUV-eH-hMj"/>
                             <constraint firstAttribute="trailing" secondItem="Ef5-KU-A4I" secondAttribute="trailing" constant="21" id="nva-A5-31G"/>
+                            <constraint firstItem="GXp-Bo-rrf" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="oc0-Vw-ZOX"/>
                             <constraint firstItem="qmI-Aq-khP" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="ohQ-K0-9Zn"/>
                             <constraint firstItem="Nid-Xd-Bgf" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="qWH-rI-vwl"/>
                             <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="frt-8k-H3g" secondAttribute="bottom" constant="33" id="tTl-cy-pjh"/>
@@ -500,6 +505,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic-camera-off" width="40" height="40"/>
         <image name="img-bg-intro-1" width="375" height="667"/>
         <image name="img-bg-intro-2" width="375" height="667"/>
         <image name="img-bg-intro-3" width="375" height="667"/>
