@@ -95,6 +95,7 @@
 		58A174AE1ED7BEAE003CACA0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */; };
 		58A174B01ED7BEB6003CACA0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */; };
 		58A174B21ED7BF4F003CACA0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174B11ED7BF4F003CACA0 /* Photos.framework */; };
+		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -254,6 +255,8 @@
 		58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		58A174B11ED7BF4F003CACA0 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
+		B98953A020FD321900BC79C0 /* CautionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CautionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -581,6 +584,8 @@
 				1A4D48B81FF2C24600409CF9 /* SettingsViewController.m */,
 				1AE0AF961FF49B6C00A816F7 /* EmptyState.h */,
 				1AE0AF971FF49B6C00A816F7 /* EmptyState.m */,
+				B989539F20FD321900BC79C0 /* CautionViewController.h */,
+				B98953A020FD321900BC79C0 /* CautionViewController.m */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -729,6 +734,7 @@
 				58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */,
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
 				1A4E39441F2FF1DF0055C7FA /* Report.m in Sources */,
+				B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */,
 				1AEBACA41F4A6E9F002DC63F /* FirebaseReportDataSource.m in Sources */,
 				1ACAD1E61F0EF796001935D4 /* ReportDetailViewController.m in Sources */,
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
