@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "Integrations.h"
 #import "Firebase.h"
 #import "AppCoordinator.h"
 
@@ -23,18 +24,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Secrets" ofType:@"plist" inDirectory:nil forLocalization:nil];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSDictionary *dictionary = [NSPropertyListSerialization propertyListWithData:data options:0 format:nil error:nil];
+    NSArray<id<Integration>> *integrations = @[
+                                               [CrashlyticsIntegration new],
+                                               [FirebaseIntegration new],
+                                               ];
 
-    [Crashlytics startWithAPIKey:dictionary[@"crashlyticsKey"]];
+    for (id<Integration> integration in integrations) {
+        [integration setUp];
+    }
 
-    [FIRApp configure];
-
-    [[FIRConfiguration sharedInstance] setLoggerLevel:FIRLoggerLevelMin];
-    
-    [FIRDatabase database].persistenceEnabled = YES;
-    
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 
     self.window = [[UIWindow alloc] init];
