@@ -18,20 +18,6 @@
 	<string>1.2</string>
 	<key>CFBundleVersion</key>
 	<string>15</string>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>2ab0395cf58b182ae93affd373c203eefa18a44b</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
-				<string>Crashlytics</string>
-			</dict>
-		</array>
-	</dict>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>

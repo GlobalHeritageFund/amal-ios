@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "Integrations.h"
 #import "Firebase.h"
 #import "AppCoordinator.h"
 
@@ -22,14 +23,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [Fabric with:@[[Crashlytics class]]];
-    
-    [FIRApp configure];
 
-    [[FIRConfiguration sharedInstance] setLoggerLevel:FIRLoggerLevelMin];
-    
-    [FIRDatabase database].persistenceEnabled = YES;
-    
+    NSArray<id<Integration>> *integrations = @[
+                                               [CrashlyticsIntegration new],
+                                               [FirebaseIntegration new],
+                                               ];
+
+    for (id<Integration> integration in integrations) {
+        [integration setUp];
+    }
+
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 
     self.window = [[UIWindow alloc] init];
