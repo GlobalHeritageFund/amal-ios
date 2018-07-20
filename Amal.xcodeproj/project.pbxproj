@@ -12,6 +12,7 @@
 		1A04FCEC1F51D07C0010A9D8 /* ReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */; };
 		1A12B2DA20A894A20062C333 /* DiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A12B2D920A894A20062C333 /* DiskCache.m */; };
 		1A12B2DD20A897340062C333 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A12B2DC20A897340062C333 /* NSString+Additions.m */; };
+		1A12E7EC210275A000EA8F4C /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A12E7EB210275A000EA8F4C /* Secrets.plist */; };
 		1A16EE0C1FE2C88700DF2E79 /* AssessCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A16EE0B1FE2C88700DF2E79 /* AssessCoordinator.m */; };
 		1A16EE0F1FE2C89000DF2E79 /* CaptureCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A16EE0E1FE2C89000DF2E79 /* CaptureCoordinator.m */; };
 		1A16EE121FE2C89C00DF2E79 /* ReportCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A16EE111FE2C89C00DF2E79 /* ReportCoordinator.m */; };
@@ -110,6 +111,7 @@
 		1A12B2D920A894A20062C333 /* DiskCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiskCache.m; sourceTree = "<group>"; };
 		1A12B2DB20A897340062C333 /* NSString+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
 		1A12B2DC20A897340062C333 /* NSString+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
+		1A12E7EB210275A000EA8F4C /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		1A16EE0A1FE2C88700DF2E79 /* AssessCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssessCoordinator.h; sourceTree = "<group>"; };
 		1A16EE0B1FE2C88700DF2E79 /* AssessCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssessCoordinator.m; sourceTree = "<group>"; };
 		1A16EE0D1FE2C89000DF2E79 /* CaptureCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaptureCoordinator.h; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				5846B2151E809C95008E48BC /* GoogleService-Info.plist */,
 				580A554E1E5CFC1000A70AB1 /* Info.plist */,
 				580A553E1E5CFC1000A70AB1 /* main.m */,
+				1A12E7EB210275A000EA8F4C /* Secrets.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				1A5AADFE1F4F78FE00573829 /* QBImagePicker.strings in Resources */,
 				580A554A1E5CFC1000A70AB1 /* Assets.xcassets in Resources */,
 				1A5AADFD1F4F78FE00573829 /* QBImagePicker.strings in Resources */,
+				1A12E7EC210275A000EA8F4C /* Secrets.plist in Resources */,
 				580A55481E5CFC1000A70AB1 /* CameraViewController.storyboard in Resources */,
 				1A5AAE001F4F78FE00573829 /* QBImagePicker.strings in Resources */,
 				1A5AADFF1F4F78FE00573829 /* QBImagePicker.strings in Resources */,

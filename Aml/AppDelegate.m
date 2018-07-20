@@ -22,8 +22,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [Fabric with:@[[Crashlytics class]]];
-    
+
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Secrets" ofType:@"plist" inDirectory:nil forLocalization:nil];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSDictionary *dictionary = [NSPropertyListSerialization propertyListWithData:data options:0 format:nil error:nil];
+
+    [Crashlytics startWithAPIKey:dictionary[@"crashlyticsKey"]];
+
     [FIRApp configure];
 
     [[FIRConfiguration sharedInstance] setLoggerLevel:FIRLoggerLevelMin];
