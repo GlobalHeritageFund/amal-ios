@@ -10,6 +10,7 @@ target 'Amal' do
     pod 'Firebase/Storage'
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
+    pod 'FirebaseUI/Auth'
 
     pod 'Fabric'
     pod 'Crashlytics'

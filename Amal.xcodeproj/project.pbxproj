@@ -619,6 +619,7 @@
 				580A55381E5CFC1000A70AB1 /* Resources */,
 				580A55671E5E4E3000A70AB1 /* ShellScript */,
 				CA8FEB0EC503AC0D275F3230 /* [CP] Embed Pods Frameworks */,
+				A657473CC02C535BB5C65EE1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -726,6 +727,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" cc2cd36e965fb4c69068cb90fa09625a9c593fdf 366c7ec0e137586320669e7e1ec62b5261bedcaf06c7de8f76cff4320fb3ded4";
+		};
+		A657473CC02C535BB5C65EE1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Amal/Pods-Amal-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Amal/Pods-Amal-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		CA8FEB0EC503AC0D275F3230 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
