@@ -78,18 +78,8 @@
 		580A555F1E5D1C5A00A70AB1 /* UIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A555E1E5D1C5A00A70AB1 /* UIViewController+Additions.m */; };
 		580A55621E5D1E7400A70AB1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55611E5D1E7400A70AB1 /* MapKit.framework */; };
 		580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55651E5D255600A70AB1 /* UIButton+Additions.m */; };
-		580A556A1E5E4E4800A70AB1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55681E5E4E4800A70AB1 /* Fabric.framework */; };
-		580A556B1E5E4E4800A70AB1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580A55691E5E4E4800A70AB1 /* Crashlytics.framework */; };
-		581AA20A1E9D8A6000D6387B /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581AA2081E9D8A6000D6387B /* FirebaseStorage.framework */; };
-		581AA20B1E9D8A6000D6387B /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581AA2091E9D8A6000D6387B /* GTMSessionFetcher.framework */; };
 		5846B2011E773315008E48BC /* NavPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2001E773315008E48BC /* NavPage.m */; };
 		5846B2051E773354008E48BC /* TabBarPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2041E773354008E48BC /* TabBarPage.m */; };
-		5846B20A1E809BA9008E48BC /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B2061E809BA9008E48BC /* FirebaseAnalytics.framework */; };
-		5846B20B1E809BA9008E48BC /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B2071E809BA9008E48BC /* FirebaseCore.framework */; };
-		5846B20C1E809BA9008E48BC /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B2081E809BA9008E48BC /* FirebaseInstanceID.framework */; };
-		5846B20D1E809BA9008E48BC /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B2091E809BA9008E48BC /* GoogleToolboxForMac.framework */; };
-		5846B2111E809BCB008E48BC /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B20E1E809BCB008E48BC /* FirebaseAuth.framework */; };
-		5846B2131E809BCB008E48BC /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5846B2101E809BCB008E48BC /* FirebaseDatabase.framework */; };
 		5846B2161E809C95008E48BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5846B2151E809C95008E48BC /* GoogleService-Info.plist */; };
 		5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2191E809DB7008E48BC /* PhotoSettings.m */; };
 		5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5892D0D31E8616FD0051C60E /* Intro.storyboard */; };
@@ -97,6 +87,7 @@
 		58A174AE1ED7BEAE003CACA0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */; };
 		58A174B01ED7BEB6003CACA0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */; };
 		58A174B21ED7BF4F003CACA0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174B11ED7BF4F003CACA0 /* Photos.framework */; };
+		787F78DD75256DFD899543BB /* Pods_Amal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCEA2966FD5005700E769BF /* Pods_Amal.framework */; };
 		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -219,6 +210,7 @@
 		1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseReportDataSource.m; sourceTree = "<group>"; };
 		1AEBACA51F4A7289002DC63F /* LocalDraftDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalDraftDataSource.h; sourceTree = "<group>"; };
 		1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalDraftDataSource.m; sourceTree = "<group>"; };
+		364849B5AE5394A5BF3ECBD8 /* Pods-Amal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Amal/Pods-Amal.debug.xcconfig"; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580A553E1E5CFC1000A70AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		580A55401E5CFC1000A70AB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -236,21 +228,10 @@
 		580A55611E5D1E7400A70AB1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		580A55641E5D255600A70AB1 /* UIButton+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Additions.h"; sourceTree = "<group>"; };
 		580A55651E5D255600A70AB1 /* UIButton+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Additions.m"; sourceTree = "<group>"; };
-		580A55681E5E4E4800A70AB1 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		580A55691E5E4E4800A70AB1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		581AA2081E9D8A6000D6387B /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = "<group>"; };
-		581AA2091E9D8A6000D6387B /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = "<group>"; };
 		5846B1FF1E773315008E48BC /* NavPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavPage.h; sourceTree = "<group>"; };
 		5846B2001E773315008E48BC /* NavPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavPage.m; sourceTree = "<group>"; };
 		5846B2031E773354008E48BC /* TabBarPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarPage.h; sourceTree = "<group>"; };
 		5846B2041E773354008E48BC /* TabBarPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarPage.m; sourceTree = "<group>"; };
-		5846B2061E809BA9008E48BC /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		5846B2071E809BA9008E48BC /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
-		5846B2081E809BA9008E48BC /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		5846B2091E809BA9008E48BC /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
-		5846B20E1E809BCB008E48BC /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = "<group>"; };
-		5846B2101E809BCB008E48BC /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
-		5846B2141E809BF4008E48BC /* Firebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		5846B2151E809C95008E48BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5846B2181E809DB7008E48BC /* PhotoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSettings.h; sourceTree = "<group>"; };
 		5846B2191E809DB7008E48BC /* PhotoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSettings.m; sourceTree = "<group>"; };
@@ -260,8 +241,10 @@
 		58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		58A174B11ED7BF4F003CACA0 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		5CCEA2966FD5005700E769BF /* Pods_Amal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
 		B98953A020FD321900BC79C0 /* CautionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CautionViewController.m; sourceTree = "<group>"; };
+		BDF4AA242F7D6618E6B3175E /* Pods-Amal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Amal/Pods-Amal.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,17 +255,8 @@
 				58A174B21ED7BF4F003CACA0 /* Photos.framework in Frameworks */,
 				58A174B01ED7BEB6003CACA0 /* AssetsLibrary.framework in Frameworks */,
 				58A174AE1ED7BEAE003CACA0 /* ImageIO.framework in Frameworks */,
-				5846B20D1E809BA9008E48BC /* GoogleToolboxForMac.framework in Frameworks */,
-				581AA20B1E9D8A6000D6387B /* GTMSessionFetcher.framework in Frameworks */,
-				5846B20A1E809BA9008E48BC /* FirebaseAnalytics.framework in Frameworks */,
-				5846B20C1E809BA9008E48BC /* FirebaseInstanceID.framework in Frameworks */,
-				581AA20A1E9D8A6000D6387B /* FirebaseStorage.framework in Frameworks */,
-				5846B2131E809BCB008E48BC /* FirebaseDatabase.framework in Frameworks */,
-				5846B20B1E809BA9008E48BC /* FirebaseCore.framework in Frameworks */,
 				580A55621E5D1E7400A70AB1 /* MapKit.framework in Frameworks */,
-				5846B2111E809BCB008E48BC /* FirebaseAuth.framework in Frameworks */,
-				580A556B1E5E4E4800A70AB1 /* Crashlytics.framework in Frameworks */,
-				580A556A1E5E4E4800A70AB1 /* Fabric.framework in Frameworks */,
+				787F78DD75256DFD899543BB /* Pods_Amal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +447,15 @@
 			name = Promise;
 			sourceTree = "<group>";
 		};
+		4EDC5761365FA3B322FE7523 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				364849B5AE5394A5BF3ECBD8 /* Pods-Amal.debug.xcconfig */,
+				BDF4AA242F7D6618E6B3175E /* Pods-Amal.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		580A55311E5CFC1000A70AB1 = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +463,7 @@
 				580A553C1E5CFC1000A70AB1 /* Aml */,
 				580A553B1E5CFC1000A70AB1 /* Products */,
 				580A55601E5D1E7300A70AB1 /* Frameworks */,
+				4EDC5761365FA3B322FE7523 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -531,18 +515,8 @@
 				58A174B11ED7BF4F003CACA0 /* Photos.framework */,
 				58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */,
 				58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */,
-				5846B2141E809BF4008E48BC /* Firebase.h */,
-				581AA2081E9D8A6000D6387B /* FirebaseStorage.framework */,
-				581AA2091E9D8A6000D6387B /* GTMSessionFetcher.framework */,
-				5846B20E1E809BCB008E48BC /* FirebaseAuth.framework */,
-				5846B2101E809BCB008E48BC /* FirebaseDatabase.framework */,
-				5846B2061E809BA9008E48BC /* FirebaseAnalytics.framework */,
-				5846B2071E809BA9008E48BC /* FirebaseCore.framework */,
-				5846B2081E809BA9008E48BC /* FirebaseInstanceID.framework */,
-				5846B2091E809BA9008E48BC /* GoogleToolboxForMac.framework */,
-				580A55681E5E4E4800A70AB1 /* Fabric.framework */,
-				580A55691E5E4E4800A70AB1 /* Crashlytics.framework */,
 				580A55611E5D1E7400A70AB1 /* MapKit.framework */,
+				5CCEA2966FD5005700E769BF /* Pods_Amal.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -639,10 +613,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 580A55511E5CFC1000A70AB1 /* Build configuration list for PBXNativeTarget "Amal" */;
 			buildPhases = (
+				4C3465B31A4A8B73FA03A825 /* [CP] Check Pods Manifest.lock */,
 				580A55361E5CFC1000A70AB1 /* Sources */,
 				580A55371E5CFC1000A70AB1 /* Frameworks */,
 				580A55381E5CFC1000A70AB1 /* Resources */,
 				580A55671E5E4E3000A70AB1 /* ShellScript */,
+				CA8FEB0EC503AC0D275F3230 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -719,18 +695,61 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4C3465B31A4A8B73FA03A825 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Amal-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		580A55671E5E4E3000A70AB1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 2ab0395cf58b182ae93affd373c203eefa18a44b 9d6e894c8750efc6abd12e9142a263f6026e8497fae785078961f6c26814cd4a";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" cc2cd36e965fb4c69068cb90fa09625a9c593fdf 366c7ec0e137586320669e7e1ec62b5261bedcaf06c7de8f76cff4320fb3ded4";
+		};
+		CA8FEB0EC503AC0D275F3230 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Amal/Pods-Amal-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Amal/Pods-Amal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -973,6 +992,7 @@
 		};
 		580A55521E5CFC1000A70AB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 364849B5AE5394A5BF3ECBD8 /* Pods-Amal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Amal.entitlements;
@@ -998,6 +1018,7 @@
 		};
 		580A55531E5CFC1000A70AB1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDF4AA242F7D6618E6B3175E /* Pods-Amal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Amal.entitlements;
