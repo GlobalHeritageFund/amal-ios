@@ -6,12 +6,12 @@ target 'Amal' do
     use_frameworks!
 
     # Pods for Amal
-    pod 'Firebase/Core'
-    pod 'Firebase/Storage'
-    pod 'Firebase/Database'
-    pod 'Firebase/Auth'
-    pod 'FirebaseUI/Auth'
+    pod 'Firebase/Core', '5.4.0'
+    pod 'Firebase/Storage', '5.4.0'
+    pod 'Firebase/Database', '5.4.0'
+    pod 'Firebase/Auth', '5.4.0'
+    pod 'FirebaseUI/Auth', '5.1.3'
 
-    pod 'Fabric'
-    pod 'Crashlytics'
+    pod 'Fabric', '1.7.9'
+    pod 'Crashlytics', '3.10.5'
 end
