@@ -21,7 +21,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="navigationBarHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="dQ7-dK-9r7" kind="relationship" relationship="rootViewController" id="KMi-I1-hpW"/>
+                        <segue destination="0BO-0c-Nf2" kind="relationship" relationship="rootViewController" id="aPG-8O-MDi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlG-Eg-nGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,7 +84,7 @@
                                     <segue destination="Waq-Yc-eWd" kind="show" id="mgr-Ci-YgQ"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-Ws-gNy">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-Ws-gNy">
                                 <rect key="frame" x="160" y="599" width="55" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="QUn-HK-KbU">
@@ -185,7 +185,7 @@
                                     <segue destination="kB0-sa-3Ii" kind="show" id="1PL-rN-xdh"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="51h-sm-glM">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="51h-sm-glM">
                                 <rect key="frame" x="160" y="599" width="55" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-feature-intro" translatesAutoresizingMaskIntoConstraints="NO" id="6Im-8k-998">
@@ -279,10 +279,10 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismissSelf" destination="kB0-sa-3Ii" eventType="touchUpInside" id="ury-8B-qJ7"/>
+                                    <segue destination="dQ7-dK-9r7" kind="show" id="oIJ-eH-vnX"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="l88-Gt-ZXf">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="l88-Gt-ZXf">
                                 <rect key="frame" x="160" y="599" width="55" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-logo-ghf" translatesAutoresizingMaskIntoConstraints="NO" id="RBe-WB-gAt">
@@ -367,7 +367,7 @@
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="left" id="8QO-Sm-fbM">
                     <connections>
-                        <action selector="dismissSelf" destination="kB0-sa-3Ii" id="iRm-Gz-voS"/>
+                        <segue destination="dQ7-dK-9r7" kind="show" id="aQR-uH-epm"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -417,10 +417,10 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0BO-0c-Nf2" kind="show" id="VIz-cO-19D"/>
+                                    <action selector="dismissSelf" destination="dQ7-dK-9r7" eventType="touchUpInside" id="fpK-Ya-gXH"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="WWG-2W-zJ0">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="WWG-2W-zJ0">
                                 <rect key="frame" x="160" y="599" width="55" height="37"/>
                             </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By using this application, you agree to our" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtw-SB-pBC">
@@ -491,18 +491,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t0B-su-UB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="Kc3-Wo-7AG">
-                    <connections>
-                        <segue destination="0BO-0c-Nf2" kind="show" id="jzm-ab-eB8"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="Kc3-Wo-7AG"/>
                 <swipeGestureRecognizer direction="right" id="060-a3-PLY">
                     <connections>
                         <action selector="popNavigationController" destination="dQ7-dK-9r7" id="aAV-fl-zJQ"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-44" y="98.50074962518741"/>
+            <point key="canvasLocation" x="3943" y="99"/>
         </scene>
     </scenes>
     <resources>
@@ -519,8 +515,8 @@
         <image name="img_logo" width="138" height="158"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="oIJ-eH-vnX"/>
         <segue reference="zPB-B9-eNt"/>
         <segue reference="mgr-Ci-YgQ"/>
-        <segue reference="VIz-cO-19D"/>
     </inferredMetricsTieBreakers>
 </document>
