@@ -265,7 +265,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismissSelf" destination="kB0-sa-3Ii" eventType="touchUpInside" id="ase-ZF-Jim"/>
+                                    <action selector="popNavigationController" destination="kB0-sa-3Ii" eventType="touchUpInside" id="KGX-eK-0vJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-IH-KJD">
