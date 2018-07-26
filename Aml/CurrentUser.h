@@ -14,5 +14,8 @@
 
 @property (nonatomic) NSString *deviceToken;
 
+@property (nonatomic, readonly) NSString *emailAddress;
+
+@property (nonatomic, readonly) BOOL isLoggedIn;
 
 @end

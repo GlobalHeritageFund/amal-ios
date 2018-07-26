@@ -7,6 +7,7 @@
 //
 
 #import "CurrentUser.h"
+@import FirebaseAuth;
 
 @implementation CurrentUser
 
@@ -44,5 +45,12 @@
     [self.userDefaults setObject:deviceToken forKey:self.deviceTokenKey];
 }
 
+- (NSString *)emailAddress {
+    return [FIRAuth auth].currentUser.email;
+}
+
+- (BOOL)isLoggedIn {
+    return [FIRAuth auth].currentUser != nil;
+}
 
 @end
