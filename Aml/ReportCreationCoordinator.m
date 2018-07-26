@@ -17,6 +17,7 @@
 #import "LocalDraftDataSource.h"
 #import "Report.h"
 #import "ImageDetailViewController.h"
+#import "CurrentUser.h"
 
 @interface ReportCreationCoordinator () <GalleryViewControllerDelegate, ReportDetailViewControllerDelegate, AssessViewControllerDelegate>
 
@@ -41,8 +42,18 @@
 
     _viewController = viewController;
     _currentReport = reportDraft;
+    
+    [self updateCurrentReportEmailIfNeeded];
 
     return self;
+}
+
+- (void)updateCurrentReportEmailIfNeeded {
+    
+    // We may have an email address already, like if the report was a draft or if the user has already edited the field - so we don't want to override it always.
+    if (!self.currentReport.email) {
+        self.currentReport.email = [CurrentUser shared].emailAddress;
+    }
 }
 
 - (void)start {
@@ -80,6 +91,7 @@
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
     [FIRAnalytics logEventWithName:@"report_images_selected" parameters:nil];
     self.currentReport = [[ReportDraft alloc] initWithPhotos:photos];
+    [self updateCurrentReportEmailIfNeeded];
     ReportDetailViewController *reportDetail = [[ReportDetailViewController alloc] initWithReportDraft:self.currentReport];
     reportDetail.delegate = self;
     [galleryViewController.navigationController pushViewController:reportDetail animated:YES];
