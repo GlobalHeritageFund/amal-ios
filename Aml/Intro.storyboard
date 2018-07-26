@@ -21,7 +21,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="navigationBarHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="dQ7-dK-9r7" kind="relationship" relationship="rootViewController" id="KMi-I1-hpW"/>
+                        <segue destination="0BO-0c-Nf2" kind="relationship" relationship="rootViewController" id="aPG-8O-MDi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlG-Eg-nGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,7 +84,7 @@
                                     <segue destination="Waq-Yc-eWd" kind="show" id="mgr-Ci-YgQ"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-Ws-gNy">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-Ws-gNy">
                                 <rect key="frame" x="160" y="599" width="55" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="QUn-HK-KbU">
@@ -101,7 +101,7 @@
                             <constraint firstItem="eH8-uN-Ql8" firstAttribute="top" secondItem="SGr-2B-bVe" secondAttribute="top" id="Ray-cd-koM"/>
                             <constraint firstItem="WPo-Ws-gNy" firstAttribute="centerX" secondItem="SGr-2B-bVe" secondAttribute="centerX" id="RpX-mO-riB"/>
                             <constraint firstItem="5aP-Z5-7D6" firstAttribute="top" secondItem="aNq-ii-q6j" secondAttribute="bottom" constant="33" id="UdG-g1-NCY"/>
-                            <constraint firstItem="5aP-Z5-7D6" firstAttribute="top" secondItem="eH8-uN-Ql8" secondAttribute="bottom" id="VnC-gg-dyt"/>
+                            <constraint firstAttribute="bottom" secondItem="eH8-uN-Ql8" secondAttribute="bottom" id="VnC-gg-dyt"/>
                             <constraint firstItem="5aP-Z5-7D6" firstAttribute="top" secondItem="LsL-NH-DFg" secondAttribute="bottom" constant="33" id="YMd-QK-uxl"/>
                             <constraint firstItem="aNq-ii-q6j" firstAttribute="leading" secondItem="SGr-2B-bVe" secondAttribute="leading" constant="16" id="cXq-VW-ozK"/>
                             <constraint firstItem="WPo-Ws-gNy" firstAttribute="centerY" secondItem="aNq-ii-q6j" secondAttribute="centerY" id="dQA-SU-iXc"/>
@@ -185,7 +185,7 @@
                                     <segue destination="kB0-sa-3Ii" kind="show" id="1PL-rN-xdh"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="51h-sm-glM">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="51h-sm-glM">
                                 <rect key="frame" x="160" y="599" width="55" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-feature-intro" translatesAutoresizingMaskIntoConstraints="NO" id="6Im-8k-998">
@@ -204,7 +204,7 @@
                             <constraint firstAttribute="trailing" secondItem="7F3-XR-bdD" secondAttribute="trailing" constant="21" id="ZLh-i9-hlq"/>
                             <constraint firstItem="Eud-K6-ZGj" firstAttribute="top" secondItem="WUq-q9-CNe" secondAttribute="bottom" constant="151" id="a5D-yf-tNH"/>
                             <constraint firstItem="51h-sm-glM" firstAttribute="centerY" secondItem="APY-9C-0Te" secondAttribute="centerY" id="bmO-Ih-Ojr"/>
-                            <constraint firstItem="Eud-K6-ZGj" firstAttribute="top" secondItem="h0A-CK-IeE" secondAttribute="bottom" id="pAc-Wr-BFz"/>
+                            <constraint firstAttribute="bottom" secondItem="h0A-CK-IeE" secondAttribute="bottom" id="pAc-Wr-BFz"/>
                             <constraint firstItem="h0A-CK-IeE" firstAttribute="top" secondItem="rgO-6v-SSz" secondAttribute="top" id="t4o-cB-hx0"/>
                             <constraint firstItem="6Im-8k-998" firstAttribute="top" secondItem="dNS-WL-zvK" secondAttribute="bottom" constant="117" id="yf3-O5-sJB"/>
                             <constraint firstItem="Eud-K6-ZGj" firstAttribute="top" secondItem="APY-9C-0Te" secondAttribute="bottom" constant="33" id="z2D-9x-kvQ"/>
@@ -265,7 +265,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismissSelf" destination="kB0-sa-3Ii" eventType="touchUpInside" id="ase-ZF-Jim"/>
+                                    <action selector="popNavigationController" destination="kB0-sa-3Ii" eventType="touchUpInside" id="KGX-eK-0vJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-IH-KJD">
@@ -279,10 +279,10 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismissSelf" destination="kB0-sa-3Ii" eventType="touchUpInside" id="ury-8B-qJ7"/>
+                                    <segue destination="dQ7-dK-9r7" kind="show" id="oIJ-eH-vnX"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="l88-Gt-ZXf">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="l88-Gt-ZXf">
                                 <rect key="frame" x="160" y="599" width="55" height="37"/>
                             </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-logo-ghf" translatesAutoresizingMaskIntoConstraints="NO" id="RBe-WB-gAt">
@@ -341,7 +341,7 @@
                             <constraint firstItem="DLe-lc-J87" firstAttribute="leading" secondItem="YeZ-VW-bKy" secondAttribute="leading" constant="16" id="UCP-Vg-gR5"/>
                             <constraint firstItem="mKt-oM-ydb" firstAttribute="top" secondItem="iSM-ga-8Cd" secondAttribute="bottom" constant="26" id="WuL-WJ-lLQ"/>
                             <constraint firstAttribute="trailing" secondItem="Z3f-6J-nnS" secondAttribute="trailing" id="aTE-BI-8Nb"/>
-                            <constraint firstItem="5XR-sK-0we" firstAttribute="top" secondItem="Z3f-6J-nnS" secondAttribute="bottom" id="cOD-MM-gI6"/>
+                            <constraint firstAttribute="bottom" secondItem="Z3f-6J-nnS" secondAttribute="bottom" id="cOD-MM-gI6"/>
                             <constraint firstItem="l88-Gt-ZXf" firstAttribute="centerX" secondItem="YeZ-VW-bKy" secondAttribute="centerX" id="e8M-b8-wDN"/>
                             <constraint firstItem="5XR-sK-0we" firstAttribute="top" secondItem="mKt-oM-ydb" secondAttribute="bottom" constant="86" id="ffL-0R-cUV"/>
                             <constraint firstItem="RBe-WB-gAt" firstAttribute="centerX" secondItem="YeZ-VW-bKy" secondAttribute="centerX" id="frO-Bl-blZ"/>
@@ -367,7 +367,7 @@
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="left" id="8QO-Sm-fbM">
                     <connections>
-                        <action selector="dismissSelf" destination="kB0-sa-3Ii" id="iRm-Gz-voS"/>
+                        <segue destination="dQ7-dK-9r7" kind="show" id="aQR-uH-epm"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -399,28 +399,14 @@
                                     <constraint firstAttribute="width" constant="81" id="E2h-c5-wPK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Skip">
+                                <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="dismissSelf" destination="dQ7-dK-9r7" eventType="touchUpInside" id="Eeo-IF-7Ze"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef5-KU-A4I">
-                                <rect key="frame" x="273" y="601" width="81" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="81" id="Fyq-q2-hZE"/>
-                                    <constraint firstAttribute="height" constant="33" id="ncS-Cv-jvW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="0BO-0c-Nf2" kind="show" id="VIz-cO-19D"/>
-                                </connections>
-                            </button>
-                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="WWG-2W-zJ0">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="WWG-2W-zJ0">
                                 <rect key="frame" x="160" y="599" width="55" height="37"/>
                             </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By using this application, you agree to our" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtw-SB-pBC">
@@ -472,12 +458,10 @@
                             <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="Nid-Xd-Bgf" secondAttribute="bottom" constant="151" id="YVy-a9-doL"/>
                             <constraint firstItem="WWG-2W-zJ0" firstAttribute="centerY" secondItem="frt-8k-H3g" secondAttribute="centerY" id="Ymk-kV-Eg4"/>
                             <constraint firstItem="vtw-SB-pBC" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="fJf-gt-AiC"/>
-                            <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="f9k-Mv-zGs" secondAttribute="bottom" id="gGF-vd-2IC"/>
-                            <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="Ef5-KU-A4I" secondAttribute="bottom" constant="33" id="jBZ-J2-Tg4"/>
+                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="f9k-Mv-zGs" secondAttribute="bottom" id="gGF-vd-2IC"/>
                             <constraint firstItem="frt-8k-H3g" firstAttribute="leading" secondItem="OgG-i2-dOW" secondAttribute="leading" constant="16" id="kS8-c1-m4H"/>
                             <constraint firstItem="qmI-Aq-khP" firstAttribute="top" secondItem="vtw-SB-pBC" secondAttribute="bottom" constant="117" id="kWP-xC-bmJ"/>
                             <constraint firstItem="GXp-Bo-rrf" firstAttribute="top" secondItem="qmI-Aq-khP" secondAttribute="bottom" constant="20" id="nUV-eH-hMj"/>
-                            <constraint firstAttribute="trailing" secondItem="Ef5-KU-A4I" secondAttribute="trailing" constant="21" id="nva-A5-31G"/>
                             <constraint firstItem="GXp-Bo-rrf" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="oc0-Vw-ZOX"/>
                             <constraint firstItem="qmI-Aq-khP" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="ohQ-K0-9Zn"/>
                             <constraint firstItem="Nid-Xd-Bgf" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="qWH-rI-vwl"/>
@@ -491,18 +475,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t0B-su-UB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="Kc3-Wo-7AG">
-                    <connections>
-                        <segue destination="0BO-0c-Nf2" kind="show" id="jzm-ab-eB8"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="Kc3-Wo-7AG"/>
                 <swipeGestureRecognizer direction="right" id="060-a3-PLY">
                     <connections>
                         <action selector="popNavigationController" destination="dQ7-dK-9r7" id="aAV-fl-zJQ"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-44" y="98.50074962518741"/>
+            <point key="canvasLocation" x="3943" y="99"/>
         </scene>
     </scenes>
     <resources>
@@ -519,8 +499,8 @@
         <image name="img_logo" width="138" height="158"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="oIJ-eH-vnX"/>
         <segue reference="zPB-B9-eNt"/>
         <segue reference="mgr-Ci-YgQ"/>
-        <segue reference="VIz-cO-19D"/>
     </inferredMetricsTieBreakers>
 </document>
