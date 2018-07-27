@@ -6,7 +6,11 @@
 //  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
-#import "Firebase+Promises.h"
+@import FirebaseDatabase;
+@import FirebaseStorage;
+@import FirebaseUI;
+#import "Promise.h"
+#import "DedicatedFirebaseAuthDelegate.h"
 
 @implementation FIRDatabaseReference (Promises)
 
@@ -65,3 +69,21 @@
 }
 
 @end
+
+@implementation FUIAuth (Promises)
+
+- (Promise *)signInPromise {
+    DedicatedFirebaseAuthDelegate *delegate = [[DedicatedFirebaseAuthDelegate alloc] init];
+    self.delegate = delegate;
+    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(id _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+        delegate.success = ^(FIRAuthDataResult *result) {
+            fulfill(result);
+        };
+        delegate.error = ^(NSError *error) {
+            reject(error);
+        };
+    }];
+}
+
+@end
+
