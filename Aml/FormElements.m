@@ -332,7 +332,7 @@
     return [self initWithTitle:title block:^{ }];
 }
 
-- (instancetype)initWithTitle:(NSString *)title block:(void (^)())block {
+- (instancetype)initWithTitle:(NSString *)title block:(void (^)(void))block {
     self = [super init];
     if (!self) return nil;
 
