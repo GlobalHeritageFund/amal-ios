@@ -26,6 +26,8 @@
 
 @property (readonly) BOOL isEditable;
 
+@property (readonly) BOOL hasPrefilledEmail;
+
 @property (readonly) NSString *email;
 
 @property (readonly) NSString *title;

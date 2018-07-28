@@ -136,4 +136,8 @@
     return NO;
 }
 
+- (BOOL)hasPrefilledEmail {
+    return NO;
+}
+
 @end

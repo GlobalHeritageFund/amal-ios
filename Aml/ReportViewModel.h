@@ -28,6 +28,7 @@
 @property (readonly) NSString *reportState;
 @property (readonly) UIColor *reportStateColor;
 @property (readonly) NSProgress *progress;
+@property (readonly) BOOL hasPrefilledEmail;
 
 @property (nonatomic, readonly) ReportDraft *draft;
 @property (nonatomic, readonly) ReportUpload *upload;

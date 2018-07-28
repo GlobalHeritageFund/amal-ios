@@ -54,7 +54,12 @@
     
     // We may have an email address already, like if the report was a draft or if the user has already edited the field - so we don't want to override it always.
     if (!self.currentReport.email) {
-        self.currentReport.email = [CurrentUser shared].emailAddress;
+        NSString *currentUserEmail = [CurrentUser shared].emailAddress;
+        self.currentReport.email = currentUserEmail;
+        
+        if (currentUserEmail) {
+            self.currentReport.hasPrefilledEmail = YES;
+        }
     }
 }
 
