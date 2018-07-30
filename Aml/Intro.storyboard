@@ -437,8 +437,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Never assess a site that has not been cleared by first responders" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nid-Xd-Bgf">
-                                <rect key="frame" x="28" y="478" width="318" height="51"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Never assess a site that has not been cleared by first responders" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nid-Xd-Bgf">
+                                <rect key="frame" x="61.5" y="470.5" width="251" height="75.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="251" id="cJt-PO-ATw"/>
                                 </constraints>
