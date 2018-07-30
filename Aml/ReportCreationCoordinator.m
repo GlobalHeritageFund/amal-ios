@@ -151,8 +151,7 @@
     
     if ([CurrentUser shared].isLoggedIn) {
         [self uploadReportFromDetailViewController:reportDetailViewController withDraft:draft];
-    }
-    else {
+    } else {
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Log in" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
         [alertController addAction:[UIAlertAction actionWithTitle:@"Log in" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
