@@ -215,7 +215,7 @@
     }];
 }
 
-- (void)withCameraConfigurationLock:(void (^)())block {
+- (void)withCameraConfigurationLock:(void (^)(void))block {
     if ([[self currentCaptureDevice] lockForConfiguration:nil]) {
         block();
         [[self currentCaptureDevice] unlockForConfiguration];
