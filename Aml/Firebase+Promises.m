@@ -70,6 +70,23 @@
 
 @end
 
+@implementation FIRAuth (Promises)
+
+- (Promise *)anonymousSignInPromise {
+    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(id _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+        [self signInAnonymouslyWithCompletion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+            if (authResult) {
+                fulfill(authResult);
+            }
+            else {
+                reject(error);
+            }
+        }];
+    }];
+}
+
+@end
+
 @implementation FUIAuth (Promises)
 
 - (Promise *)signInPromise {

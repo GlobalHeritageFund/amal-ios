@@ -32,6 +32,12 @@
 
 @interface FUIAuth (Promises)
 
-- (Promise *)signInPromise;
+- (Promise <FIRAuthDataResult *> *)signInPromise;
+
+@end
+
+@interface FIRAuth (Promises)
+
+- (Promise <FIRAuthDataResult *> *)anonymousSignInPromise;
 
 @end

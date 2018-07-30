@@ -153,17 +153,35 @@
         [self uploadReportFromDetailViewController:reportDetailViewController withDraft:draft];
     }
     else {
-        FUIAuth *auth = [FUIAuth defaultAuthUI];
-        UINavigationController *controller = [auth authViewController];
-        [reportDetailViewController presentViewController:controller animated:YES completion:nil];
-        [[[auth signInPromise] then:^id _Nullable(FIRAuthDataResult * _Nonnull object) {
-            [self updateCurrentReportEmailIfNeeded];
-            [self uploadReportFromDetailViewController:reportDetailViewController withDraft:draft];
-
-            return nil;
-        }] catch:^(NSError * _Nonnull error) {
-            // Error state :(
-        }];
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Log in" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Log in" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            FUIAuth *auth = [FUIAuth defaultAuthUI];
+            UINavigationController *controller = [auth authViewController];
+            [reportDetailViewController presentViewController:controller animated:YES completion:nil];
+            [[[auth signInPromise] then:^id _Nullable(FIRAuthDataResult * _Nonnull object) {
+                [self updateCurrentReportEmailIfNeeded];
+                [self uploadReportFromDetailViewController:reportDetailViewController withDraft:draft];
+                
+                return nil;
+            }] catch:^(NSError * _Nonnull error) {
+                // Error state :(
+            }];
+        }]];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Publish anonymously" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[[[FIRAuth auth] anonymousSignInPromise] then:^id _Nullable(id  _Nonnull object) {
+                [self uploadReportFromDetailViewController:reportDetailViewController withDraft:draft];
+                return nil;
+            }] catch:^(NSError * _Nonnull error) {
+                // Error state :(
+            }];
+        }]];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+        
+        [reportDetailViewController presentViewController:alertController animated:YES completion:nil];
+        
     }
 }
 
