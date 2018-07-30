@@ -88,6 +88,10 @@ static NSDateFormatter *dateFormatter = nil;
     return self.report.reportStateColor;
 }
 
+- (BOOL)hasPrefilledEmail {
+    return self.report.hasPrefilledEmail;
+}
+
 - (NSProgress *)progress {
     return self.report.progress;
 }

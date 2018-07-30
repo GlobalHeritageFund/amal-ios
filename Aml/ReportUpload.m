@@ -128,6 +128,10 @@
     return NO;
 }
 
+- (BOOL)hasPrefilledEmail {
+    return self.reportDraft.hasPrefilledEmail;
+}
+
 - (NSString *)email {
     return self.reportDraft.email;
 }

@@ -88,6 +88,7 @@
 		58A174B01ED7BEB6003CACA0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */; };
 		58A174B21ED7BF4F003CACA0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174B11ED7BF4F003CACA0 /* Photos.framework */; };
 		787F78DD75256DFD899543BB /* Pods_Amal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCEA2966FD5005700E769BF /* Pods_Amal.framework */; };
+		B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */; };
 		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -242,6 +243,8 @@
 		58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		58A174B11ED7BF4F003CACA0 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		5CCEA2966FD5005700E769BF /* Pods_Amal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DedicatedFirebaseAuthDelegate.m; sourceTree = "<group>"; };
+		B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DedicatedFirebaseAuthDelegate.h; sourceTree = "<group>"; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
 		B98953A020FD321900BC79C0 /* CautionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CautionViewController.m; sourceTree = "<group>"; };
 		BDF4AA242F7D6618E6B3175E /* Pods-Amal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Amal/Pods-Amal.release.xcconfig"; sourceTree = "<group>"; };
@@ -443,6 +446,8 @@
 				1ABD81CC1F10562400E2C460 /* Promise.m */,
 				1ABD81CE1F10565F00E2C460 /* Firebase+Promises.h */,
 				1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */,
+				B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */,
+				B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */,
 			);
 			name = Promise;
 			sourceTree = "<group>";
@@ -619,6 +624,7 @@
 				580A55381E5CFC1000A70AB1 /* Resources */,
 				580A55671E5E4E3000A70AB1 /* ShellScript */,
 				CA8FEB0EC503AC0D275F3230 /* [CP] Embed Pods Frameworks */,
+				A657473CC02C535BB5C65EE1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -727,6 +733,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" cc2cd36e965fb4c69068cb90fa09625a9c593fdf 366c7ec0e137586320669e7e1ec62b5261bedcaf06c7de8f76cff4320fb3ded4";
 		};
+		A657473CC02C535BB5C65EE1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Amal/Pods-Amal-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Amal/Pods-Amal-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CA8FEB0EC503AC0D275F3230 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -765,6 +789,7 @@
 				B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */,
 				1AEBACA41F4A6E9F002DC63F /* FirebaseReportDataSource.m in Sources */,
 				1ACAD1E61F0EF796001935D4 /* ReportDetailViewController.m in Sources */,
+				B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */,
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
 				1A3640651F049C650070E686 /* AMLMetadata.m in Sources */,

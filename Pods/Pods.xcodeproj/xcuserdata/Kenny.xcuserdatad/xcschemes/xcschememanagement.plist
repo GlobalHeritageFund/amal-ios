@@ -34,6 +34,15 @@
 		</dict>
 		<key>FirebaseUI-FirebaseAuthUI.xcscheme</key>
 		<dict>
+<<<<<<< HEAD
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FirebaseUI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+=======
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
@@ -41,6 +50,7 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+>>>>>>> master
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>

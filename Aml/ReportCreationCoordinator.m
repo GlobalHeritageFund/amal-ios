@@ -6,6 +6,8 @@
 //  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
+@import Firebase;
+@import FirebaseUI;
 #import "ReportCreationCoordinator.h"
 #import "GalleryViewController.h"
 #import "ReportDetailViewController.h"
@@ -13,12 +15,13 @@
 #import "LocalPhoto.h"
 #import "ReportDraft.h"
 #import "ReportUpload.h"
-#import "Firebase.h"
 #import "LocalDraftDataSource.h"
 #import "Report.h"
 #import "ImageDetailViewController.h"
+#import "CurrentUser.h"
+#import "Firebase+Promises.h"
 
-@interface ReportCreationCoordinator () <GalleryViewControllerDelegate, ReportDetailViewControllerDelegate, AssessViewControllerDelegate>
+@interface ReportCreationCoordinator () <GalleryViewControllerDelegate, ReportDetailViewControllerDelegate, AssessViewControllerDelegate, FUIAuthDelegate>
 
 @property (nonatomic) ReportDraft *currentReport;
 
@@ -41,8 +44,23 @@
 
     _viewController = viewController;
     _currentReport = reportDraft;
+    
+    [self updateCurrentReportEmailIfNeeded];
 
     return self;
+}
+
+- (void)updateCurrentReportEmailIfNeeded {
+    
+    // We may have an email address already, like if the report was a draft or if the user has already edited the field - so we don't want to override it always.
+    if (!self.currentReport.email) {
+        NSString *currentUserEmail = [CurrentUser shared].emailAddress;
+        self.currentReport.email = currentUserEmail;
+        
+        if (currentUserEmail) {
+            self.currentReport.hasPrefilledEmail = YES;
+        }
+    }
 }
 
 - (void)start {
@@ -80,6 +98,7 @@
 - (void)galleryViewController:(GalleryViewController *)galleryViewController createReportWithPhotos:(NSArray<LocalPhoto *> *)photos {
     [FIRAnalytics logEventWithName:@"report_images_selected" parameters:nil];
     self.currentReport = [[ReportDraft alloc] initWithPhotos:photos];
+    [self updateCurrentReportEmailIfNeeded];
     ReportDetailViewController *reportDetail = [[ReportDetailViewController alloc] initWithReportDraft:self.currentReport];
     reportDetail.delegate = self;
     [galleryViewController.navigationController pushViewController:reportDetail animated:YES];
@@ -101,33 +120,68 @@
     NSLog(@"show map editing vc");
 }
 
-- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didTapUploadWithDraft:(ReportDraft *)draft {
-
-    [FIRAnalytics logEventWithName:@"report_upload_tapped" parameters:nil];
-
+- (void)uploadReportFromDetailViewController:(ReportDetailViewController *)reportDetailViewController withDraft:(ReportDraft *)draft {
     ReportUpload *upload = [[ReportUpload alloc] initWithReportDraft:draft];
     reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:upload];
-
+    
     [upload upload];
     [[upload.promise then:^id _Nullable(id  _Nonnull object) {
         [FIRAnalytics logEventWithName:@"report_upload_completed" parameters:nil];
-
+        
         reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:object];
         reportDetailViewController.navigationItem.hidesBackButton = YES;
         reportDetailViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissReportCreation:)];
         reportDetailViewController.navigationItem.leftBarButtonItem = nil;
-
+        
         [[LocalDraftDataSource new] removeReportDraft:draft];
         
         return nil;
     }] catch:^(NSError * _Nonnull error) {
         [FIRAnalytics logEventWithName:@"report_upload_failed" parameters:nil];
-
+        
         reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:draft];
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"An error occurred" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
         [reportDetailViewController presentViewController:alertController animated:YES completion:nil];
     }];
+}
+
+- (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didTapUploadWithDraft:(ReportDraft *)draft {
+    [FIRAnalytics logEventWithName:@"report_upload_tapped" parameters:nil];
+    
+    if ([CurrentUser shared].isLoggedIn) {
+        [self uploadReportFromDetailViewController:reportDetailViewController withDraft:draft];
+    } else {
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Log in" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Log in" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            FUIAuth *auth = [FUIAuth defaultAuthUI];
+            UINavigationController *controller = [auth authViewController];
+            [reportDetailViewController presentViewController:controller animated:YES completion:nil];
+            [[[auth signInPromise] then:^id _Nullable(FIRAuthDataResult * _Nonnull object) {
+                [self updateCurrentReportEmailIfNeeded];
+                [self uploadReportFromDetailViewController:reportDetailViewController withDraft:draft];
+                
+                return nil;
+            }] catch:^(NSError * _Nonnull error) {
+                // Error state :(
+            }];
+        }]];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Publish anonymously" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[[[FIRAuth auth] anonymousSignInPromise] then:^id _Nullable(id  _Nonnull object) {
+                [self uploadReportFromDetailViewController:reportDetailViewController withDraft:draft];
+                return nil;
+            }] catch:^(NSError * _Nonnull error) {
+                // Error state :(
+            }];
+        }]];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+        
+        [reportDetailViewController presentViewController:alertController animated:YES completion:nil];
+        
+    }
 }
 
 - (void)reportDetailViewControllerDidTapCancel:(ReportDetailViewController *)reportDetailViewController {

@@ -6,8 +6,9 @@
 //  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
-#import "Firebase.h"
-#import "Promise.h"
+@import Firebase;
+@import FirebaseDatabase;
+@import FirebaseUI;
 
 @interface FIRDatabaseReference (Promises)
 
@@ -26,5 +27,17 @@
 @interface FIRStorageObservableTask (Promises)
 
 - (Promise<FIRStorageMetadata *> *_Nonnull)promise;
+
+@end
+
+@interface FUIAuth (Promises)
+
+- (Promise <FIRAuthDataResult *> *)signInPromise;
+
+@end
+
+@interface FIRAuth (Promises)
+
+- (Promise <FIRAuthDataResult *> *)anonymousSignInPromise;
 
 @end

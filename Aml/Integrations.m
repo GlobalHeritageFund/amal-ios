@@ -6,9 +6,10 @@
 //  Copyright © 2018 Global Heritage Fund. All rights reserved.
 //
 
+@import FirebaseDatabase;
+@import Firebase;
 #import "Integrations.h"
 #import <Crashlytics/Crashlytics.h>
-#import "Firebase.h"
 
 @implementation CrashlyticsIntegration
 

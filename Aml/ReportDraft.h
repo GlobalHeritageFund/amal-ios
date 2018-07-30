@@ -20,6 +20,7 @@
 @property (nonatomic) NSString *email;
 @property (nonatomic) NSString *deviceToken;
 @property (readonly) NSDate *creationDate;
+@property (nonatomic) BOOL hasPrefilledEmail;
 
 @property (nonatomic) NSMutableArray<LocalPhoto *> *localPhotos;
 
