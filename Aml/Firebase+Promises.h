@@ -9,6 +9,7 @@
 @import Firebase;
 @import FirebaseDatabase;
 @import FirebaseUI;
+#import "Promise.h"
 
 @interface FIRDatabaseReference (Promises)
 

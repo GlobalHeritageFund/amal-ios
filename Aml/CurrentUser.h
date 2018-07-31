@@ -18,4 +18,6 @@
 
 @property (nonatomic, readonly) BOOL isLoggedIn;
 
+- (void)signOut;
+
 @end
