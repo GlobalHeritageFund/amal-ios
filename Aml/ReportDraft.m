@@ -102,4 +102,8 @@
     return NO;
 }
 
+- (ReportDraft *)draft {
+    return self;
+}
+
 @end

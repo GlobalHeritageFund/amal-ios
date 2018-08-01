@@ -140,4 +140,8 @@
     return NO;
 }
 
+- (ReportDraft *)draft {
+    return nil;
+}
+
 @end
