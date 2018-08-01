@@ -59,6 +59,26 @@
      ];
     
     
+    
+    [self.view addFormGroup:
+     [[FormGroup alloc]
+      initWithHeaderText:@"Visit"
+      formElements:@[
+                     [[ButtonFormElement alloc] initWithTitle:@"Visit amal.global" block:^{
+         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/"]];
+     }],
+                     [[ButtonFormElement alloc] initWithTitle:@"Privacy Policy" block:^{
+         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://globalheritagefund.org/index.php/news-resources/library/privacy-policy/"]];
+
+     }],
+                     [[ButtonFormElement alloc] initWithTitle:@"Terms of Service" block:^{
+         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/terms-of-service/"]];
+
+     }],
+                     ]
+      ]
+     ];
+    
     CurrentUser *user = [CurrentUser shared];
     
     __weak typeof(self) weakSelf = self;
@@ -90,26 +110,9 @@
         }
     }();
     
+    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Account" formElements:@[authenticationElement]]];
     
-    [self.view addFormGroup:
-     [[FormGroup alloc]
-      initWithHeaderText:@"Visit"
-      formElements:@[
-                     [[ButtonFormElement alloc] initWithTitle:@"Visit amal.global" block:^{
-         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/"]];
-     }],
-                     [[ButtonFormElement alloc] initWithTitle:@"Privacy Policy" block:^{
-         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://globalheritagefund.org/index.php/news-resources/library/privacy-policy/"]];
-
-     }],
-                     [[ButtonFormElement alloc] initWithTitle:@"Terms of Service" block:^{
-         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/terms-of-service/"]];
-
-     }],
-                     authenticationElement,
-                     ]
-      ]
-     ];
+    
 }
 
 @end
