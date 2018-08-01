@@ -100,11 +100,11 @@
      }],
                      [[ButtonFormElement alloc] initWithTitle:@"Privacy Policy" block:^{
          [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://globalheritagefund.org/index.php/news-resources/library/privacy-policy/"]];
-         
+
      }],
                      [[ButtonFormElement alloc] initWithTitle:@"Terms of Service" block:^{
          [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/terms-of-service/"]];
-         
+
      }],
                      authenticationElement,
                      ]
