@@ -49,6 +49,10 @@
     return [FIRAuth auth].currentUser.email;
 }
 
+- (void)signOut {
+    [[FIRAuth auth] signOut:nil];
+}
+
 - (BOOL)isLoggedIn {
     return [FIRAuth auth].currentUser != nil;
 }
