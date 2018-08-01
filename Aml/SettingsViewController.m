@@ -67,6 +67,9 @@
                      [[ButtonFormElement alloc] initWithTitle:@"Visit amal.global" block:^{
          [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/"]];
      }],
+                     [[ButtonFormElement alloc] initWithTitle:@"User Guide" block:^{
+         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"amal.global/guide"]];
+     }],
                      [[ButtonFormElement alloc] initWithTitle:@"Privacy Policy" block:^{
          [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://globalheritagefund.org/index.php/news-resources/library/privacy-policy/"]];
 
