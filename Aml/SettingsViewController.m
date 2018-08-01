@@ -67,7 +67,7 @@
                      [[ButtonFormElement alloc] initWithTitle:@"Visit amal.global" block:^{
          [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/"]];
      }],
-                     [[ButtonFormElement alloc] initWithTitle:@"Documentation" block:^{
+                     [[ButtonFormElement alloc] initWithTitle:@"User Guide" block:^{
          [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"amal.global/guide"]];
      }],
                      [[ButtonFormElement alloc] initWithTitle:@"Privacy Policy" block:^{
