@@ -82,8 +82,12 @@
 
         [self.firstLaunch launched];
     }
+    
+    [self setupGlobalAppearances];
 }
 
-
+- (void)setupGlobalAppearances {
+    [[UISwitch appearance] setOnTintColor:[UIColor amalTeal]];
+}
 
 @end
