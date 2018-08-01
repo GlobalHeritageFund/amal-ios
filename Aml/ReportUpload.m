@@ -180,4 +180,8 @@
     return YES;
 }
 
+- (ReportDraft *)draft {
+    return self.reportDraft;
+}
+
 @end

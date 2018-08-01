@@ -101,7 +101,7 @@ static NSDateFormatter *dateFormatter = nil;
 }
 
 - (ReportDraft *)draft {
-    return [(NSObject*)self.report asClassOrNil:[ReportDraft class]];
+    return self.report.draft;
 }
 
 - (ReportUpload *)upload {

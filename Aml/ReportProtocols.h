@@ -52,4 +52,6 @@
 
 @property (readonly) BOOL showProgressBars;
 
+@property (readonly) ReportDraft *draft;
+
 @end
