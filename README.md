@@ -15,3 +15,8 @@ This repository hosts the code for running the Amal iOS app.
 2. Get the `GoogleService-Info.plist` file from a developer and move it to the `Aml` folder. It should be gitignored.
 3. Get the `Secrets.plist` file from a developer and move it to the `Aml` folder. It should be gitignored.
 5. Build the app.
+
+
+## Notes
+
+* This project does not use bitcode
