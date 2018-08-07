@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Promise.h"
 
 typedef NS_ENUM(NSInteger, PassphraseUnlockStatus) {
-    PassphraseUnlockStatusNothingUnlocked,
-    PassphraseUnlockStatusUnlockedEAMENA
+    PassphraseUnlockStatusEAMENA
 };
 
 @interface PassphraseUnlockDeterminer : NSObject
 
-- (PassphraseUnlockStatus)unlockStatusForPassphaseAttempt:(NSString *)passphraseAttempt;
+- (Promise<NSNumber *>*)unlockStatusForPassphaseAttempt:(NSString *)passphraseAttempt;
 
 @end

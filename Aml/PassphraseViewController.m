@@ -10,6 +10,7 @@
 #import "FormView.h"
 #import "FormElements.h"
 #import "PassphraseUnlockDeterminer.h"
+#import "NSObject+Helpers.h"
 
 @interface PassphraseViewController ()
 
@@ -29,6 +30,8 @@
 
     TextFormElement *textFormElement = [[TextFormElement alloc] initWithPlaceholder:@"Enter Passphrase" initialText:@""];
     
+    __weak typeof(self) weakSelf = self;
+    
     [self.view addFormGroup:
      [[FormGroup alloc]
       initWithHeaderText:@"Passphrase"
@@ -36,9 +39,23 @@
                      textFormElement,
                      [[ButtonFormElement alloc] initWithTitle:@"Submit" block:^{
          
-        PassphraseUnlockStatus unlockStatus = [[[PassphraseUnlockDeterminer alloc] init] unlockStatusForPassphaseAttempt:textFormElement.textField.text];
-         
-         
+         Promise *promise = [[[PassphraseUnlockDeterminer alloc] init] unlockStatusForPassphaseAttempt:textFormElement.textField.text];
+         [[promise then:^id _Nullable(id  _Nonnull object) {
+             NSNumber *number = [object asClassOrNil:[NSNumber class]];
+             
+             if (number) {
+                 PassphraseUnlockStatus status = number.integerValue;
+                 
+             }
+             
+             return nil;
+         }] catch:^(NSError * _Nonnull error) {
+             
+             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"This passphrase is not correct" preferredStyle:UIAlertControllerStyleAlert];
+             [alertController addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
+             [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+             [weakSelf presentViewController:alertController animated:YES completion:nil];
+         }];
      }],
                      ]
       ]

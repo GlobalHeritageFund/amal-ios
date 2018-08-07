@@ -10,13 +10,17 @@
 
 @implementation PassphraseUnlockDeterminer
 
-- (PassphraseUnlockStatus)unlockStatusForPassphaseAttempt:(NSString *)passphraseAttempt {
+- (Promise *)unlockStatusForPassphaseAttempt:(NSString *)passphraseAttempt {
     
-    if ([passphraseAttempt isEqualToString:@"EAMENA"]) {
-        return PassphraseUnlockStatusUnlockedEAMENA;
-    }
-    
-    return PassphraseUnlockStatusNothingUnlocked;
+    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSNumber * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+       
+        if ([passphraseAttempt isEqualToString:@"EAMENA"]) {
+            fulfill(@(PassphraseUnlockStatusEAMENA));
+        }
+        
+        reject([NSError errorWithDomain:@"com.amal.passwordvalidation" code:1 userInfo:nil]);
+    }];
+
 }
 
 @end
