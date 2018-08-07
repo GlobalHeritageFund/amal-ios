@@ -13,7 +13,7 @@ typedef NS_ENUM(NSInteger, PassphraseUnlockStatus) {
     PassphraseUnlockStatusUnlockedEAMENA
 };
 
-@interface PassphraseDeterminer : NSObject
+@interface PassphraseUnlockDeterminer : NSObject
 
 - (PassphraseUnlockStatus)unlockStatusForPassphaseAttempt:(NSString *)passphraseAttempt;
 

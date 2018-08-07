@@ -1,14 +1,14 @@
 //
-//  PassphraseDeterminer.m
+//  PassphraseUnlockDeterminer.m
 //  Amal
 //
 //  Created by Kenneth Parker Ackerson on 8/7/18.
 //  Copyright © 2018 Global Heritage Fund. All rights reserved.
 //
 
-#import "PassphraseDeterminer.h"
+#import "PassphraseUnlockDeterminer.h"
 
-@implementation PassphraseDeterminer
+@implementation PassphraseUnlockDeterminer
 
 - (PassphraseUnlockStatus)unlockStatusForPassphaseAttempt:(NSString *)passphraseAttempt {
     

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FormView.h"
 
-@class FormView;
 @interface PassphraseViewController : UIViewController
 
-@property (nonatomic, readonly) FormView *view;
+@property (nonatomic) FormView *view;
 
 @end

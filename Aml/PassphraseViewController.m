@@ -9,7 +9,7 @@
 #import "PassphraseViewController.h"
 #import "FormView.h"
 #import "FormElements.h"
-#import "PassphraseDeterminer.h"
+#import "PassphraseUnlockDeterminer.h"
 
 @interface PassphraseViewController ()
 
@@ -34,7 +34,7 @@
                      textFormElement,
                      [[ButtonFormElement alloc] initWithTitle:@"Submit" block:^{
          
-        PassphraseUnlockStatus unlockStatus = [[[PassphraseDeterminer alloc] init] unlockStatusForPassphaseAttempt:textFormElement.textField.text];
+        PassphraseUnlockStatus unlockStatus = [[[PassphraseUnlockDeterminer alloc] init] unlockStatusForPassphaseAttempt:textFormElement.textField.text];
          
          
      }],
