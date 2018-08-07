@@ -88,6 +88,7 @@
 		58A174B01ED7BEB6003CACA0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */; };
 		58A174B21ED7BF4F003CACA0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174B11ED7BF4F003CACA0 /* Photos.framework */; };
 		787F78DD75256DFD899543BB /* Pods_Amal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCEA2966FD5005700E769BF /* Pods_Amal.framework */; };
+		B910B83F211A34FC00468383 /* PassphraseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B83E211A34FC00468383 /* PassphraseViewController.m */; };
 		B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */; };
 		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
 /* End PBXBuildFile section */
@@ -243,6 +244,8 @@
 		58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		58A174B11ED7BF4F003CACA0 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		5CCEA2966FD5005700E769BF /* Pods_Amal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B910B83D211A34FC00468383 /* PassphraseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassphraseViewController.h; sourceTree = "<group>"; };
+		B910B83E211A34FC00468383 /* PassphraseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassphraseViewController.m; sourceTree = "<group>"; };
 		B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DedicatedFirebaseAuthDelegate.m; sourceTree = "<group>"; };
 		B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DedicatedFirebaseAuthDelegate.h; sourceTree = "<group>"; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
@@ -569,6 +572,8 @@
 				1A3EE1571F0748490068B596 /* MapViewController.m */,
 				1A4D48B71FF2C24600409CF9 /* SettingsViewController.h */,
 				1A4D48B81FF2C24600409CF9 /* SettingsViewController.m */,
+				B910B83D211A34FC00468383 /* PassphraseViewController.h */,
+				B910B83E211A34FC00468383 /* PassphraseViewController.m */,
 				1AE0AF961FF49B6C00A816F7 /* EmptyState.h */,
 				1AE0AF971FF49B6C00A816F7 /* EmptyState.m */,
 				B989539F20FD321900BC79C0 /* CautionViewController.h */,
@@ -834,6 +839,7 @@
 				1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */,
 				1A5AADE81F4F756A00573829 /* QBCheckmarkView.m in Sources */,
 				1A7432621EF5CCFA00CE9D17 /* NSArray+Additions.m in Sources */,
+				B910B83F211A34FC00468383 /* PassphraseViewController.m in Sources */,
 				1A5AADED1F4F756A00573829 /* QBVideoIndicatorView.m in Sources */,
 				5846B2011E773315008E48BC /* NavPage.m in Sources */,
 				1A35596C1F007E9200FFFBCA /* GalleryViewController.m in Sources */,

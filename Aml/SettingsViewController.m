@@ -11,6 +11,7 @@
 #import "FormElements.h"
 #import "CurrentUser.h"
 #import "Firebase+Promises.h"
+#import "PassphraseViewController.h"
 
 @interface SettingsViewController ()
 
@@ -115,6 +116,10 @@
     
     [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Account" formElements:@[authenticationElement]]];
     
+    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Other" formElements:@[[[ButtonFormElement alloc] initWithTitle:@"Enter Passphrase" block:^{
+        [weakSelf.navigationController pushViewController:[[PassphraseViewController alloc] init] animated:YES];
+    }]]]];
+
     
 }
 
