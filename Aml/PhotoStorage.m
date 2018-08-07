@@ -10,6 +10,7 @@
 #import "NSArray+Additions.h"
 #import "LocalPhoto.h"
 #import "AMLMetadata.h"
+#import "UIImage+Resize.h"
 
 @implementation PhotoSection
 
@@ -55,7 +56,7 @@
         NSString *settingsPath = [root stringByAppendingPathComponent:settingsFilename];
 
         return [[LocalPhoto alloc] initWithImagePath:imagePath settingsPath:settingsPath];
-;
+
     }];
 
     return [localPhotos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
@@ -120,6 +121,11 @@
     NSString *settingsFilename = [NSString stringWithFormat:@"%s/%@.json", self.imagesDirectory.fileSystemRepresentation, newNumber];
     NSString *filename = [NSString stringWithFormat:@"%s/%@.jpeg", self.imagesDirectory.fileSystemRepresentation, newNumber];
 
+    UIImage *image = [[UIImage alloc] initWithData:jpegData];
+    
+    image = [image synchronousResizedImage:image.size interpolationQuality:kCGInterpolationHigh];
+    jpegData = UIImageJPEGRepresentation(image, 1.0);
+    
     [jpegData writeToFile:filename atomically:NO];
 
     NSData *settingsData = [NSJSONSerialization dataWithJSONObject:metadata.dictionaryRepresentation options:0 error:nil];
