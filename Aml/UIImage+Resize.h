@@ -14,4 +14,6 @@
 - (Promise<UIImage *> *)resizedImage:(CGSize)newSize
      interpolationQuality:(CGInterpolationQuality)quality;
 
+- (UIImage *)synchronousResizedImage:(CGSize)newSize interpolationQuality:(CGInterpolationQuality)quality;
+
 @end
