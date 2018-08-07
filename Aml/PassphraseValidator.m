@@ -6,9 +6,9 @@
 //  Copyright © 2018 Global Heritage Fund. All rights reserved.
 //
 
-#import "PassphraseUnlockDeterminer.h"
+#import "PassphraseValidator.h"
 
-@implementation PassphraseUnlockDeterminer
+@implementation PassphraseValidator
 
 - (Promise *)unlockStatusForPassphaseAttempt:(NSString *)passphraseAttempt {
     

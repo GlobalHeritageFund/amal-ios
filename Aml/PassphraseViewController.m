@@ -9,7 +9,7 @@
 #import "PassphraseViewController.h"
 #import "FormView.h"
 #import "FormElements.h"
-#import "PassphraseUnlockDeterminer.h"
+#import "PassphraseValidator.h"
 #import "NSObject+Helpers.h"
 
 @interface PassphraseViewController ()
@@ -39,7 +39,7 @@
                      textFormElement,
                      [[ButtonFormElement alloc] initWithTitle:@"Submit" block:^{
          
-         Promise *promise = [[[PassphraseUnlockDeterminer alloc] init] unlockStatusForPassphaseAttempt:textFormElement.textField.text];
+         Promise *promise = [[[PassphraseValidator alloc] init] unlockStatusForPassphaseAttempt:textFormElement.textField.text];
          [[promise then:^id _Nullable(id  _Nonnull object) {
              NSNumber *number = [object asClassOrNil:[NSNumber class]];
              

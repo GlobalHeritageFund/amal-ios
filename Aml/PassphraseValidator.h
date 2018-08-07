@@ -1,5 +1,5 @@
 //
-//  PassphraseDeterminer.h
+//  PassphraseValidator.h
 //  Amal
 //
 //  Created by Kenneth Parker Ackerson on 8/7/18.
@@ -13,7 +13,7 @@ typedef NS_ENUM(NSInteger, PassphraseUnlockStatus) {
     PassphraseUnlockStatusEAMENA
 };
 
-@interface PassphraseUnlockDeterminer : NSObject
+@interface PassphraseValidator : NSObject
 
 - (Promise<NSNumber *>*)unlockStatusForPassphaseAttempt:(NSString *)passphraseAttempt;
 
