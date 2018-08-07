@@ -9,6 +9,7 @@
 #import "PassphraseViewController.h"
 #import "FormView.h"
 #import "FormElements.h"
+#import "PassphraseDeterminer.h"
 
 @interface PassphraseViewController ()
 
@@ -24,12 +25,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    TextFormElement *textFormElement = [[TextFormElement alloc] initWithPlaceholder:@"Enter Passphrase" initialText:@""];
+    
     [self.view addFormGroup:
      [[FormGroup alloc]
       initWithHeaderText:@"Passphrase"
       formElements:@[
-                     [[TextFormElement alloc] initWithPlaceholder:@"Enter Passphrase" initialText:@""],
+                     textFormElement,
                      [[ButtonFormElement alloc] initWithTitle:@"Submit" block:^{
+         
+        PassphraseUnlockStatus unlockStatus = [[[PassphraseDeterminer alloc] init] unlockStatusForPassphaseAttempt:textFormElement.textField.text];
+         
          
      }],
                      ]
