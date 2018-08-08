@@ -32,6 +32,8 @@
 
 - (Promise<UIImage *> *)loadFullSizeImage;
 
+- (Promise<UIImage *> *)loadCorrectlyOrientedFullSizeImage;
+
 - (void)removeLocalData;
 
 @property (nonatomic, readonly) NSDictionary *dictionaryRepresentation;
