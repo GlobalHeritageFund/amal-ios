@@ -106,9 +106,7 @@
 
     metadata.contentType = @"image/jpeg";
 
-    Promise *loadImagePromise = [[photo loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
-        return [image resizedImage:image.size interpolationQuality:kCGInterpolationHigh];
-    }];
+    Promise *loadImagePromise = [photo loadCorrectlyOrientedFullSizeImage];
     
     Promise *photoUploadPromise = [loadImagePromise then:^id _Nullable(UIImage * _Nonnull image) {
         

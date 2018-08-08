@@ -47,6 +47,12 @@
     }];
 }
 
+- (Promise<UIImage *> *)loadCorrectlyOrientedFullSizeImage {
+    return [[self loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
+        return [image resizedImage:image.size interpolationQuality:kCGInterpolationHigh];
+    }];
+}
+
 - (NSCache *)memoryCache {
     return [ImageCache memoryCache];
 }
