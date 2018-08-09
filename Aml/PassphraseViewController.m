@@ -11,6 +11,7 @@
 #import "FormElements.h"
 #import "PassphraseValidator.h"
 #import "NSObject+Helpers.h"
+#import "CurrentUser.h"
 
 @interface PassphraseViewController ()
 
@@ -45,6 +46,16 @@
              
              if (number) {
                  PassphraseUnlockStatus status = number.integerValue;
+                 
+                 if (status == PassphraseUnlockStatusEAMENA) {
+                     [CurrentUser shared].isEAMENAEnabled = YES;
+                     
+                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Success!" message:@"You have unlocked EAMENA" preferredStyle:UIAlertControllerStyleAlert];
+                     [alertController addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                         [weakSelf.navigationController popViewControllerAnimated:YES];
+                     }]];
+                     [weakSelf presentViewController:alertController animated:YES completion:nil];
+                 }
                  
              }
              

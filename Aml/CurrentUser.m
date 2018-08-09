@@ -31,6 +31,10 @@
     return @"AMALDeviceToken";
 }
 
+- (NSString *)EAMENAEnabledKey {
+    return @"EAMENAEnabledKey";
+}
+
 - (NSString *)deviceToken {
     NSString *deviceToken = [self.userDefaults stringForKey:self.deviceTokenKey];
     if (deviceToken == nil) {
@@ -47,6 +51,14 @@
 
 - (NSString *)emailAddress {
     return [FIRAuth auth].currentUser.email;
+}
+
+- (BOOL)isEAMENAEnabled {
+    return [self.userDefaults boolForKey:self.EAMENAEnabledKey];
+}
+
+- (void)setIsEAMENAEnabled:(BOOL)isEAMENAEnabled {
+    [self.userDefaults setBool:isEAMENAEnabled forKey:self.EAMENAEnabledKey];
 }
 
 - (void)signOut {
