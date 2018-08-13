@@ -144,4 +144,8 @@
     return nil;
 }
 
+- (BOOL)isEAMENA {
+    return NO;
+}
+
 @end

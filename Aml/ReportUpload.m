@@ -184,4 +184,8 @@
     return self.reportDraft;
 }
 
+- (BOOL)isEAMENA {
+    return self.reportDraft.isEAMENA;
+}
+
 @end

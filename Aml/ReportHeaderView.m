@@ -9,6 +9,8 @@
 #import "ReportHeaderView.h"
 #import "CGGeometry.h"
 #import "UIColor+Additions.h"
+#import "SwitchView.h"
+#import "CurrentUser.h"
 
 @interface ReportHeaderView ()
 
@@ -26,9 +28,21 @@
 @property (nonatomic) UILabel *creationDateLabel;
 @property (nonatomic) UILabel *reportStateLabel;
 
+@property (nonatomic) SwitchView *switchView;
+
 @end
 
 @implementation ReportHeaderView
+
+- (SwitchView *)switchView {
+    if (!_switchView) {
+        _switchView = [[SwitchView alloc] init];
+        [self.containerView addSubview:_switchView];
+        
+        [_switchView.statusSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _switchView;
+}
 
 - (MKMapView *)mapView {
     if (!_mapView) {
@@ -151,6 +165,8 @@
     [super layoutSubviews];
 
     [self sendSubviewToBack:self.mapView];
+    
+    BOOL shouldShowEAMENA = [CurrentUser shared].isEAMENAEnabled && self.enabled;
 
     CGRect workingRect = self.bounds;
 
@@ -158,7 +174,7 @@
     mapRect = workingRect;
     mapRect.size.height = 100;
 
-    CGRect containerRect = CGRectZero, titleRect = CGRectZero, assessorEmailRect = CGRectZero, dateRect = CGRectZero, countRect = CGRectZero, uploadStateRect = CGRectZero, totalProgressRect = CGRectZero, creationDateRect = CGRectZero, reportStateRect = CGRectZero;
+    CGRect containerRect = CGRectZero, titleRect = CGRectZero, assessorEmailRect = CGRectZero, dateRect = CGRectZero, countRect = CGRectZero, uploadStateRect = CGRectZero, totalProgressRect = CGRectZero, creationDateRect = CGRectZero, reportStateRect = CGRectZero, switchViewRect = CGRectZero;
     workingRect = CGRectInset(workingRect, 10, 25);
     workingRect = CGRectTrim(workingRect, 30, CGRectMinYEdge);
 
@@ -173,7 +189,14 @@
     CGRectDivide(workingRect, &dateRect, &workingRect, 26, CGRectMinYEdge);
     CGRectDivide(workingRect, &countRect, &workingRect, 26, CGRectMinYEdge);
     workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
+    
+    if (shouldShowEAMENA) {
+        CGRectDivide(workingRect, &switchViewRect, &workingRect, 40, CGRectMinYEdge);
+        workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
+    }
+    
     CGRectDivide(workingRect, &uploadStateRect, &workingRect, 40, CGRectMinYEdge);
+    
     workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
     CGRectDivide(workingRect, &totalProgressRect, &workingRect, 2, CGRectMinYEdge);
     workingRect = CGRectTrim(workingRect, 15, CGRectMinYEdge);
@@ -191,6 +214,14 @@
     self.totalProgressView.frame = totalProgressRect;
     self.creationDateLabel.frame = creationDateRect;
     self.reportStateLabel.frame = reportStateRect;
+    
+    if (shouldShowEAMENA) {
+        self.switchView.frame = switchViewRect;
+    }
+}
+
+- (void)switchChanged:(UISwitch *)statusSwitch {
+    [self.delegate changedEAMENAStatusTo:statusSwitch.enabled];
 }
 
 - (BOOL)enabled {

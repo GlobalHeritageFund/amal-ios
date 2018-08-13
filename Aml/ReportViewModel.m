@@ -116,4 +116,8 @@ static NSDateFormatter *dateFormatter = nil;
     return self.report.showProgressBars;
 }
 
+- (BOOL)isEAMENA {
+    return self.report.isEAMENA;
+}
+
 @end

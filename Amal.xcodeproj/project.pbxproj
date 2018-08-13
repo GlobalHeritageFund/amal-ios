@@ -90,6 +90,7 @@
 		787F78DD75256DFD899543BB /* Pods_Amal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCEA2966FD5005700E769BF /* Pods_Amal.framework */; };
 		B910B83F211A34FC00468383 /* PassphraseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B83E211A34FC00468383 /* PassphraseViewController.m */; };
 		B910B843211A393300468383 /* PassphraseValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B842211A393300468383 /* PassphraseValidator.m */; };
+		B910B846212217D000468383 /* SwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B845212217D000468383 /* SwitchView.m */; };
 		B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */; };
 		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
 /* End PBXBuildFile section */
@@ -249,6 +250,8 @@
 		B910B83E211A34FC00468383 /* PassphraseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassphraseViewController.m; sourceTree = "<group>"; };
 		B910B841211A393300468383 /* PassphraseValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassphraseValidator.h; sourceTree = "<group>"; };
 		B910B842211A393300468383 /* PassphraseValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassphraseValidator.m; sourceTree = "<group>"; };
+		B910B844212217D000468383 /* SwitchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchView.h; sourceTree = "<group>"; };
+		B910B845212217D000468383 /* SwitchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchView.m; sourceTree = "<group>"; };
 		B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DedicatedFirebaseAuthDelegate.m; sourceTree = "<group>"; };
 		B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DedicatedFirebaseAuthDelegate.h; sourceTree = "<group>"; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
@@ -335,6 +338,8 @@
 				1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */,
 				1A4E9ACF1F50ABF0006856A8 /* ReportHeaderView.h */,
 				1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */,
+				B910B844212217D000468383 /* SwitchView.h */,
+				B910B845212217D000468383 /* SwitchView.m */,
 				1ACAD1E41F0EF796001935D4 /* ReportDetailViewController.h */,
 				1ACAD1E51F0EF796001935D4 /* ReportDetailViewController.m */,
 				1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */,
@@ -815,6 +820,7 @@
 				1A12B2DA20A894A20062C333 /* DiskCache.m in Sources */,
 				1A3EE1581F0748490068B596 /* MapViewController.m in Sources */,
 				1A35595A1F001DF000FFFBCA /* AssessViewController.m in Sources */,
+				B910B846212217D000468383 /* SwitchView.m in Sources */,
 				1A5AADEB1F4F756A00573829 /* QBSlomoIconView.m in Sources */,
 				1ABD81CD1F10562400E2C460 /* Promise.m in Sources */,
 				1A4E393C1F2FD2F40055C7FA /* CurrentUser.m in Sources */,
