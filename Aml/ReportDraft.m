@@ -47,6 +47,8 @@
         return [[LocalPhoto alloc] initWithDictionary:object];
     }] mutableCopy];
 
+    _isEAMENA = [[dictionary[@"isEAMENA"] asClassOrNil:[NSNumber class]] boolValue];
+    
     return self;
 }
 
@@ -59,6 +61,7 @@
              @"photos": [self.photos arrayByTransformingObjectsUsingBlock:^id(LocalPhoto *object) {
                  return object.dictionaryRepresentation;
              }],
+             @"isEAMENA" : @(self.isEAMENA),
              };
 }
 
