@@ -28,6 +28,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 - (NSDictionary *)dictionaryRepresentation;
+- (NSDictionary *)heritageDictionaryRepresentation;
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 

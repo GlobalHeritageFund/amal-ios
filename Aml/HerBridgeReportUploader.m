@@ -10,6 +10,8 @@
 #import "ReportUpload.h"
 #import "NSURLSession+Promises.h"
 #import "ReportDraft.h"
+#import "LocalPhoto.h"
+#import "AMLMetadata.h"
 
 @interface HerBridgeReportUploader ()
 
@@ -29,10 +31,20 @@
 
 - (void)uploadReport:(ReportUpload *)reportUpload {
     
-    [[self.session POSTJSONTaskWith:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/report/"] JSONBody:[reportUpload.draft heritageDictionaryRepresentation]] then:^id _Nullable(id  _Nonnull object) {
+    id <PhotoProtocol> photo = reportUpload.photos.firstObject;
+    
+    [[[photo loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
+        return [self.session POSTImageTo:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/image/"] image:image metadata:[photo.metadata heritageDictionaryRepresentation]];
+    }] then:^id _Nullable(id  _Nonnull object) {
         NSLog(@"%@", object);
         return nil;
     }];
+    
+    
+//    [[self.session POSTJSONTaskWith:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/report/"] JSONBody:[reportUpload.draft heritageDictionaryRepresentation]] then:^id _Nullable(id  _Nonnull object) {
+//        NSLog(@"%@", object);
+//        return nil;
+//    }];
     
 }
 

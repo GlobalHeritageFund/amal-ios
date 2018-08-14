@@ -6,11 +6,23 @@
 //  Copyright © 2018 Global Heritage Fund. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "NSURLSession+Promises.h"
 #import "MultipartPart.h"
 #import "MultipartFormData.h"
 
 @implementation NSURLSession (Promises)
+
+- (Promise <NSDictionary *> *)POSTImageTo:(NSURL *)URL image:(UIImage *)image metadata:(NSDictionary *)metadata {
+    
+    NSData *data = UIImageJPEGRepresentation(image, 1.0);
+    NSData *settings = [NSJSONSerialization dataWithJSONObject:metadata options:0 error:nil];
+
+    MultipartPart *imagePart = [[MultipartPart alloc] initWithData:data name:@"image" fileName:@"image_1.jpg" contentType:@"image/jpeg"];
+    MultipartPart *settingsPart = [[MultipartPart alloc] initWithData:settings name:@"settings" fileName:nil contentType:@"application/json"];
+    
+    return [self POSTMultipartWithURL:URL multiparts:@[settingsPart, imagePart]];
+}
 
 - (Promise <NSDictionary *> *)POSTMultipartWithURL:(NSURL *)URL multiparts:(NSArray <MultipartPart *> *)parts {
     MultipartFormData *multipartData = [[MultipartFormData alloc] initWithParts:parts boundary:@"AMALBoundary"];
@@ -19,7 +31,8 @@
     request.HTTPBody = data;
     request.HTTPMethod = @"POST";
     
-    [request setValue:@"multipart/form-data; charset=utf-8; boundary=AMALBoundary" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"multipart/form-data; charset=utf-8; boundary=\"AMALBoundary\"" forHTTPHeaderField:@"Content-Type"];
     [request setValue:[NSString stringWithFormat:@"%ld", [request.HTTPBody length]] forHTTPHeaderField:@"Content-Length"];
 
     return [[self POSTTaskWithURL:URL request:request] then:^id _Nullable(NSData * _Nonnull object) {

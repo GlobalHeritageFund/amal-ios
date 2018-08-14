@@ -55,6 +55,15 @@
              };
 }
 
+- (NSDictionary *)heritageDictionaryRepresentation {
+    return @{
+             @"latitude" : @(self.latitude),
+             @"longitude" : @(self.longitude),
+             @"caption" : self.notes,
+             @"captureDate" : @(self.date.timeIntervalSince1970),
+             };
+}
+
 - (NSString *)locationString {
     if (self.hasLocationCoordinates) {
         return [NSString stringWithFormat:@"%f, %f", self.latitude, self.longitude];
