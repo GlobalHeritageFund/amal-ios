@@ -7,23 +7,47 @@
 //
 
 #import "NSURLSession+Promises.h"
+#import "MultipartPart.h"
+#import "MultipartFormData.h"
 
 @implementation NSURLSession (Promises)
 
+- (Promise <NSDictionary *> *)POSTMultipartWithURL:(NSURL *)URL multiparts:(NSArray <MultipartPart *> *)parts {
+    MultipartFormData *multipartData = [[MultipartFormData alloc] initWithParts:parts boundary:@"AMALBoundary"];
+    NSData *data = [multipartData dataRepresentation];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
+    request.HTTPBody = data;
+    request.HTTPMethod = @"POST";
+    
+    [request setValue:@"multipart/form-data; charset=utf-8; boundary=AMALBoundary" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%ld", [request.HTTPBody length]] forHTTPHeaderField:@"Content-Length"];
+
+    return [[self POSTTaskWithURL:URL request:request] then:^id _Nullable(NSData * _Nonnull object) {
+        return [self JSONDictionaryFromData:object];
+    }];
+}
+
 - (Promise <NSDictionary *> *)POSTJSONTaskWith:(NSURL *)URL JSONBody:(NSDictionary *)body {
-    return [[[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSData * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
-        
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
-        
-        request.HTTPBody = [NSJSONSerialization dataWithJSONObject:body options:0 error:nil];
-        request.HTTPMethod = @"POST";
-        
-        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request setValue:[NSString stringWithFormat:@"%ld", [request.HTTPBody length]] forHTTPHeaderField:@"Content-Length"];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
+    
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:body options:0 error:nil];
+    request.HTTPMethod = @"POST";
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%ld", [request.HTTPBody length]] forHTTPHeaderField:@"Content-Length"];
+    
+    return [[self POSTTaskWithURL:URL request:request] then:^id _Nullable(NSData * _Nonnull object) {
+        return [self JSONDictionaryFromData:object];
+    }];
+}
+
+- (Promise <NSDictionary *> *)POSTTaskWithURL:(NSURL *)URL request:(NSURLRequest *)request {
+    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSData * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
         
         NSURLSessionDataTask *task = [self dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-           
+            
             NSLog(@"response: %@", response);
             if (data) {
                 fulfill(data);
@@ -34,18 +58,19 @@
         }];
         
         [task resume];
-        
-    }] then:^id _Nullable(NSData * _Nonnull object) {
-        return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSDictionary * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
-            NSError *error = nil;
-            NSDictionary *JSONDictionary = [NSJSONSerialization JSONObjectWithData:object options:0 error:&error];
-            if (error) {
-                reject(error);
-            }
-            else {
-                fulfill(JSONDictionary);
-            }
-        }];
+    }];
+}
+
+- (Promise <NSDictionary *> *)JSONDictionaryFromData:(NSData *)data {
+    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSDictionary * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+        NSError *error = nil;
+        NSDictionary *JSONDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if (error) {
+            reject(error);
+        }
+        else {
+            fulfill(JSONDictionary);
+        }
     }];
 }
 
