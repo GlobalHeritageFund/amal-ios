@@ -35,8 +35,18 @@
     [super layoutSubviews];
     
     [self.label sizeToFit];
-    self.label.center = CGPointMake(10 + self.label.bounds.size.width / 2, self.bounds.size.height / 2);
-    self.statusSwitch.center = CGPointMake(self.bounds.size.width - self.label.bounds.size.width / 2, self.bounds.size.height / 2);
+    
+    CGRect labelRect = CGRectZero, switchRect = CGRectZero;
+    
+    CGRect workingRect = self.bounds;
+    
+    workingRect = CGRectInset(workingRect, 5, 5);
+    
+    CGRectDivide(workingRect, &switchRect, &labelRect, self.statusSwitch.bounds.size.width, CGRectMaxXEdge);
+    
+    self.label.frame = labelRect;
+    self.statusSwitch.frame = switchRect;
+    
 }
 
 @end
