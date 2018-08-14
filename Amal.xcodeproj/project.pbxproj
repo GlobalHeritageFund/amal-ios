@@ -91,6 +91,7 @@
 		B910B83F211A34FC00468383 /* PassphraseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B83E211A34FC00468383 /* PassphraseViewController.m */; };
 		B910B843211A393300468383 /* PassphraseValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B842211A393300468383 /* PassphraseValidator.m */; };
 		B910B846212217D000468383 /* SwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B845212217D000468383 /* SwitchView.m */; };
+		B910B84B2123184700468383 /* HerBridgeReportUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B84A2123184700468383 /* HerBridgeReportUploader.m */; };
 		B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */; };
 		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
 /* End PBXBuildFile section */
@@ -252,6 +253,8 @@
 		B910B842211A393300468383 /* PassphraseValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassphraseValidator.m; sourceTree = "<group>"; };
 		B910B844212217D000468383 /* SwitchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchView.h; sourceTree = "<group>"; };
 		B910B845212217D000468383 /* SwitchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchView.m; sourceTree = "<group>"; };
+		B910B8492123184700468383 /* HerBridgeReportUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HerBridgeReportUploader.h; path = Aml/Networking/HerBridgeReportUploader.h; sourceTree = SOURCE_ROOT; };
+		B910B84A2123184700468383 /* HerBridgeReportUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HerBridgeReportUploader.m; path = Aml/Networking/HerBridgeReportUploader.m; sourceTree = SOURCE_ROOT; };
 		B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DedicatedFirebaseAuthDelegate.m; sourceTree = "<group>"; };
 		B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DedicatedFirebaseAuthDelegate.h; sourceTree = "<group>"; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
@@ -331,6 +334,7 @@
 				1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */,
 				1A04FCEA1F51D07C0010A9D8 /* ReportCell.h */,
 				1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */,
+				B910B848212317E800468383 /* Networking */,
 				1A4E9AD21F5111ED006856A8 /* Models */,
 				1AEBACA21F4A6E9F002DC63F /* FirebaseReportDataSource.h */,
 				1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */,
@@ -634,6 +638,16 @@
 			name = Passphrase;
 			sourceTree = "<group>";
 		};
+		B910B848212317E800468383 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B910B8492123184700468383 /* HerBridgeReportUploader.h */,
+				B910B84A2123184700468383 /* HerBridgeReportUploader.m */,
+			);
+			name = Networking;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -851,6 +865,7 @@
 				1A4E39391F2FCEA80055C7FA /* FirstLaunch.m in Sources */,
 				1A35595E1F0023DF00FFFBCA /* FormElements.m in Sources */,
 				1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */,
+				B910B84B2123184700468383 /* HerBridgeReportUploader.m in Sources */,
 				1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */,
 				1A3559701F0087D800FFFBCA /* GalleryCell.m in Sources */,
 				1A04FCE91F51CE3B0010A9D8 /* ImageCache.m in Sources */,
