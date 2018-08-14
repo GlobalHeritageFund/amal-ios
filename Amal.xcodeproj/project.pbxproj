@@ -253,8 +253,8 @@
 		B910B842211A393300468383 /* PassphraseValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassphraseValidator.m; sourceTree = "<group>"; };
 		B910B844212217D000468383 /* SwitchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchView.h; sourceTree = "<group>"; };
 		B910B845212217D000468383 /* SwitchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchView.m; sourceTree = "<group>"; };
-		B910B8492123184700468383 /* HerBridgeReportUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HerBridgeReportUploader.h; path = Aml/Networking/HerBridgeReportUploader.h; sourceTree = SOURCE_ROOT; };
-		B910B84A2123184700468383 /* HerBridgeReportUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HerBridgeReportUploader.m; path = Aml/Networking/HerBridgeReportUploader.m; sourceTree = SOURCE_ROOT; };
+		B910B8492123184700468383 /* HerBridgeReportUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HerBridgeReportUploader.h; path = Aml/HerBridgeReportUploader.h; sourceTree = SOURCE_ROOT; };
+		B910B84A2123184700468383 /* HerBridgeReportUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HerBridgeReportUploader.m; path = Aml/HerBridgeReportUploader.m; sourceTree = SOURCE_ROOT; };
 		B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DedicatedFirebaseAuthDelegate.m; sourceTree = "<group>"; };
 		B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DedicatedFirebaseAuthDelegate.h; sourceTree = "<group>"; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
@@ -334,7 +334,7 @@
 				1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */,
 				1A04FCEA1F51D07C0010A9D8 /* ReportCell.h */,
 				1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */,
-				B910B848212317E800468383 /* Networking */,
+				B910B84C21232C3200468383 /* Networking */,
 				1A4E9AD21F5111ED006856A8 /* Models */,
 				1AEBACA21F4A6E9F002DC63F /* FirebaseReportDataSource.h */,
 				1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */,
@@ -638,14 +638,13 @@
 			name = Passphrase;
 			sourceTree = "<group>";
 		};
-		B910B848212317E800468383 /* Networking */ = {
+		B910B84C21232C3200468383 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				B910B8492123184700468383 /* HerBridgeReportUploader.h */,
 				B910B84A2123184700468383 /* HerBridgeReportUploader.m */,
 			);
 			name = Networking;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
