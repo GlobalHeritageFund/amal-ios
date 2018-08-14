@@ -34,6 +34,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @property (nonatomic, readonly) NSDictionary *dictionaryRepresentation;
+@property (nonatomic, readonly) NSDictionary *heritageDictionaryRepresentation;
 
 @property (readonly) NSDate *minDate;
 

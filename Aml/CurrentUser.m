@@ -69,4 +69,11 @@
     return [FIRAuth auth].currentUser != nil;
 }
 
+- (NSDictionary *)dictionaryRepresentation {
+    return @{
+             @"email" : self.emailAddress ?: [NSNull null],
+             @"deviceToken" : self.deviceToken
+             };
+}
+
 @end

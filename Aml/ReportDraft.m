@@ -10,6 +10,7 @@
 #import "LocalPhoto.h"
 #import "NSObject+Helpers.h"
 #import "NSArray+Additions.h"
+#import "CurrentUser.h"
 
 @implementation ReportDraft
 
@@ -62,6 +63,19 @@
                  return object.dictionaryRepresentation;
              }],
              @"isEAMENA" : @(self.isEAMENA),
+             };
+}
+
+- (NSDictionary *)heritageDictionaryRepresentation {
+    return @{
+             @"id": self.localIdentifier ?: [[NSUUID UUID] UUIDString],
+             @"title": self.title ?: [NSNull null],
+             @"createdAt": @([self.creationDate timeIntervalSince1970]),
+             
+             @"type" : @"field report",
+             
+             @"assessor" : [[CurrentUser shared] dictionaryRepresentation],
+             @"resources": @[],
              };
 }
 

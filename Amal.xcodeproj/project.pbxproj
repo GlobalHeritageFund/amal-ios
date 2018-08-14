@@ -92,6 +92,7 @@
 		B910B843211A393300468383 /* PassphraseValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B842211A393300468383 /* PassphraseValidator.m */; };
 		B910B846212217D000468383 /* SwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B845212217D000468383 /* SwitchView.m */; };
 		B910B84B2123184700468383 /* HerBridgeReportUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B84A2123184700468383 /* HerBridgeReportUploader.m */; };
+		B910B84F21233D2500468383 /* NSURLSession+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B84E21233D2500468383 /* NSURLSession+Promises.m */; };
 		B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */; };
 		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
 /* End PBXBuildFile section */
@@ -255,6 +256,8 @@
 		B910B845212217D000468383 /* SwitchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchView.m; sourceTree = "<group>"; };
 		B910B8492123184700468383 /* HerBridgeReportUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HerBridgeReportUploader.h; path = Aml/HerBridgeReportUploader.h; sourceTree = SOURCE_ROOT; };
 		B910B84A2123184700468383 /* HerBridgeReportUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HerBridgeReportUploader.m; path = Aml/HerBridgeReportUploader.m; sourceTree = SOURCE_ROOT; };
+		B910B84D21233D2500468383 /* NSURLSession+Promises.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+Promises.h"; sourceTree = "<group>"; };
+		B910B84E21233D2500468383 /* NSURLSession+Promises.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+Promises.m"; sourceTree = "<group>"; };
 		B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DedicatedFirebaseAuthDelegate.m; sourceTree = "<group>"; };
 		B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DedicatedFirebaseAuthDelegate.h; sourceTree = "<group>"; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
@@ -463,6 +466,8 @@
 				1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */,
 				B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */,
 				B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */,
+				B910B84D21233D2500468383 /* NSURLSession+Promises.h */,
+				B910B84E21233D2500468383 /* NSURLSession+Promises.m */,
 			);
 			name = Promise;
 			sourceTree = "<group>";
@@ -858,6 +863,7 @@
 				1A2BEBF81F33618800A59E69 /* UIImage+Additions.m in Sources */,
 				1ACAD1EA1F0EF7A3001935D4 /* ReportDraft.m in Sources */,
 				1A4D48B91FF2C24600409CF9 /* SettingsViewController.m in Sources */,
+				B910B84F21233D2500468383 /* NSURLSession+Promises.m in Sources */,
 				1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */,
 				1A5AADEC1F4F756A00573829 /* QBVideoIconView.m in Sources */,
 				1A1F7DE51F3F8CBE0028DCF0 /* ReportCreationCoordinator.m in Sources */,

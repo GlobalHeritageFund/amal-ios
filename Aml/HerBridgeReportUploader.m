@@ -8,6 +8,8 @@
 
 #import "HerBridgeReportUploader.h"
 #import "ReportUpload.h"
+#import "NSURLSession+Promises.h"
+#import "ReportDraft.h"
 
 @interface HerBridgeReportUploader ()
 
@@ -26,6 +28,11 @@
 }
 
 - (void)uploadReport:(ReportUpload *)reportUpload {
+    
+    [[self.session POSTJSONTaskWith:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/report/"] JSONBody:[reportUpload.draft heritageDictionaryRepresentation]] then:^id _Nullable(id  _Nonnull object) {
+        NSLog(@"%@", object);
+        return nil;
+    }];
     
 }
 
