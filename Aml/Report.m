@@ -75,6 +75,8 @@
     _photos = [images.allKeys arrayByTransformingObjectsUsingBlock:^id(id object) {
         return [[RemotePhoto alloc] initWithDictionary:images[object]];
     }];
+    
+    _isEAMENA = [dictionary[@"isEAMENA"] boolValue];
 
     return self;
 }

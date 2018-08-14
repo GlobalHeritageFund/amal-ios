@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "SwitchView.h"
+
+@protocol ReportHeaderViewDelegate
+
+- (void)changedEAMENAStatusTo:(BOOL)status;
+
+@end
 
 @interface ReportHeaderView : UIView
 
@@ -20,6 +27,9 @@
 @property (readonly) UIProgressView *totalProgressView;
 @property (readonly) UILabel *creationDateLabel;
 @property (readonly) UILabel *reportStateLabel;
+@property (readonly) SwitchView *switchView;
+
+@property (nonatomic, weak) id <ReportHeaderViewDelegate> delegate;
 
 @property BOOL enabled;
 

@@ -21,7 +21,7 @@
 #import "MapViewController.h"
 #import "NSArray+Additions.h"
 
-@interface ReportDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ReportDetailViewController ()<UITableViewDelegate, UITableViewDataSource, ReportHeaderViewDelegate>
 
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) ReportHeaderView *reportHeader;
@@ -66,9 +66,10 @@
 
     self.title = @"Report";
 
-    self.reportHeader = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 300)];
+    self.reportHeader = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 320)];
     self.tableView.tableHeaderView = self.reportHeader;
-
+    self.reportHeader.delegate = self;
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
 
     [self.reportHeader.mapView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapViewTapped:)]];
@@ -124,7 +125,11 @@
     self.reportHeader.reportStateLabel.text = self.viewModel.reportState;
     self.reportHeader.reportStateLabel.textColor = self.viewModel.reportStateColor;
     self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
-
+    
+    if (self.viewModel.isEAMENA) {
+        self.reportHeader.switchView.statusSwitch.enabled = self.viewModel.isEAMENA;
+    }
+    
     self.reportHeader.assessorEmailField.enabled = !self.viewModel.hasPrefilledEmail;
     
     if (self.viewModel.finalized) {
@@ -261,6 +266,10 @@
     self.viewModel.draft.title = self.reportHeader.titleField.text ?: @"";
     self.viewModel.draft.email = self.reportHeader.assessorEmailField.text ?: @"";
    [self.delegate reportDetailViewControllerDidTapCancel:self];
+}
+
+- (void)changedEAMENAStatusTo:(BOOL)status {
+    self.viewModel.draft.isEAMENA = status;
 }
 
 @end

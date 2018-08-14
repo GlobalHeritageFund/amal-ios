@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "FormView.h"
 
+@protocol SettingsViewControllerDelegate
+
+- (void)didSelectEnterPassphrase;
+
+@end
+
 @interface SettingsViewController : UIViewController
+
+- (instancetype)initWithDelegate:(id <SettingsViewControllerDelegate>)delegate;
 
 @property (nonatomic) FormView *view;
 

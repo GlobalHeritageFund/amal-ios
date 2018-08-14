@@ -11,14 +11,27 @@
 #import "FormElements.h"
 #import "CurrentUser.h"
 #import "Firebase+Promises.h"
+#import "PassphraseViewController.h"
 
 @interface SettingsViewController ()
+
+@property (nonatomic, weak) id <SettingsViewControllerDelegate>delegate;
 
 @end
 
 @implementation SettingsViewController
 
 @dynamic view;
+
+- (instancetype)initWithDelegate:(id <SettingsViewControllerDelegate>)delegate {
+    self = [super init];
+    
+    if (self) {
+        _delegate = delegate;
+    }
+
+    return self;
+}
 
 - (void)loadView {
     self.view = [[FormView alloc] init];
@@ -115,6 +128,9 @@
     
     [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Account" formElements:@[authenticationElement]]];
     
+    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Other" formElements:@[[[ButtonFormElement alloc] initWithTitle:@"Enter Passphrase" block:^{
+        [weakSelf.delegate didSelectEnterPassphrase];
+    }]]]];
     
 }
 

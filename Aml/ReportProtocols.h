@@ -54,4 +54,6 @@
 
 @property (readonly) ReportDraft *draft;
 
+@property (readonly) BOOL isEAMENA;
+
 @end

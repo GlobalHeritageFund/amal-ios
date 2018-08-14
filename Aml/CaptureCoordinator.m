@@ -9,8 +9,9 @@
 #import "CaptureCoordinator.h"
 #import "CameraViewController.h"
 #import "SettingsViewController.h"
+#import "PassphraseViewController.h"
 
-@interface CaptureCoordinator() <CameraViewControllerDelegate, UINavigationControllerDelegate>
+@interface CaptureCoordinator() <CameraViewControllerDelegate, UINavigationControllerDelegate, SettingsViewControllerDelegate>
 
 @property (nonatomic) UINavigationController *navigationController;
 @property (nonatomic) NSMutableArray *childCoordinators;
@@ -37,8 +38,8 @@
 
 }
 
-- (void)settingsButtonTappedOnCameraViewController:(CameraViewController    *)cameraViewController {
-    SettingsViewController *settings = [[SettingsViewController alloc] init];
+- (void)settingsButtonTappedOnCameraViewController:(CameraViewController *)cameraViewController {
+    SettingsViewController *settings = [[SettingsViewController alloc] initWithDelegate:self];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:settings animated:YES];
 }
@@ -47,6 +48,12 @@
     if ([viewController isKindOfClass:[CameraViewController class]]) {
         [navigationController setNavigationBarHidden:YES animated:YES];
     }
+}
+
+#pragma mark SettingsViewControllerDelegate
+
+- (void)didSelectEnterPassphrase {
+    [self.navigationController pushViewController:[[PassphraseViewController alloc] init] animated:YES];
 }
 
 @end

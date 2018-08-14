@@ -22,6 +22,8 @@
 @property (readonly) NSDate *creationDate;
 @property (nonatomic) BOOL hasPrefilledEmail;
 
+@property (nonatomic) BOOL isEAMENA;
+
 @property (nonatomic) NSMutableArray<LocalPhoto *> *localPhotos;
 
 @property (readonly) NSArray<id<PhotoProtocol>> *photos;
