@@ -15,6 +15,7 @@
 #import "Firebase+Promises.h"
 #import "CurrentUser.h"
 #import "Report.h"
+#import "UIImage+Resize.h"
 
 @interface ReportUpload ()
 
@@ -105,7 +106,10 @@
 
     metadata.contentType = @"image/jpeg";
 
-    Promise *photoUploadPromise = [[photo loadFullSizeImage] then:^id _Nullable(id  _Nonnull image) {
+    Promise *loadImagePromise = [photo loadCorrectlyOrientedFullSizeImage];
+    
+    Promise *photoUploadPromise = [loadImagePromise then:^id _Nullable(UIImage * _Nonnull image) {
+        
         NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
         FIRStorageObservableTask *task = [imageRef putData:imageData metadata:metadata];
         [task observeStatus:FIRStorageTaskStatusProgress handler:^(FIRStorageTaskSnapshot * _Nonnull snapshot) {
