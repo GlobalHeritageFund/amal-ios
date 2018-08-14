@@ -66,7 +66,7 @@
 
     self.title = @"Report";
 
-    self.reportHeader = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 300)];
+    self.reportHeader = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 320)];
     self.tableView.tableHeaderView = self.reportHeader;
     self.reportHeader.delegate = self;
     
