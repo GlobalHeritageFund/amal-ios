@@ -30,7 +30,7 @@
         }
         
         NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
-        MultipartPart *part = [[MultipartPart alloc] initWithData:data name:key fileName:nil contentType:@"text/json"];
+        MultipartPart *part = [[MultipartPart alloc] initWithData:data name:key fileName:nil contentType:@"text/plain"];
 
         [parts addObject:part];
     }
