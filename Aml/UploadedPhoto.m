@@ -10,10 +10,11 @@
 
 @implementation UploadedPhoto
 
-- (instancetype)initWithThumbnailURL:(NSString *)thumbnailURL URL:(NSString *)URL photoUpload:(PhotoUpload *)photoUpload {
+- (instancetype)initWithIdentifier:(NSString *)identifier thumbnailURL:(NSString *)thumbnailURL URL:(NSString *)URL photoUpload:(PhotoUpload *)photoUpload {
     self = [super init];
     
     if (self) {
+        _identifier = identifier;
         _thumbnailURL = thumbnailURL;
         _URL = URL;
         _photoUpload = photoUpload;
@@ -28,9 +29,10 @@
         
         NSString *thumbnailURL = dictionary[@"thumbnailUrl"];
         NSString *url = dictionary[@"url"];
+        NSString *identifier = dictionary[@"id"];
         
-        if (url && thumbnailURL) {
-            fulfill([[UploadedPhoto alloc] initWithThumbnailURL:thumbnailURL URL:url photoUpload:photoUpload]);
+        if (url && thumbnailURL && identifier) {
+            fulfill([[UploadedPhoto alloc] initWithIdentifier:identifier thumbnailURL:thumbnailURL URL:url photoUpload:photoUpload]);
         }
         else {
             reject([NSError errorWithDomain:@"com.amal.uploadedphoto" code:1 userInfo:nil]);

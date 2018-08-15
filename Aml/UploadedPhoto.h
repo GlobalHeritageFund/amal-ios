@@ -12,8 +12,9 @@
 
 @interface UploadedPhoto : NSObject
 
-- (instancetype)initWithThumbnailURL:(NSString *)thumbnailURL URL:(NSString *)URL photoUpload:(PhotoUpload *)photoUpload;
+- (instancetype)initWithIdentifier:(NSString *)identifier thumbnailURL:(NSString *)thumbnailURL URL:(NSString *)URL photoUpload:(PhotoUpload *)photoUpload;
 
+@property (nonatomic, readonly) NSString *identifier;
 @property (nonatomic, readonly) NSString *thumbnailURL;
 @property (nonatomic, readonly) NSString *URL;
 @property (nonatomic, readonly) PhotoUpload *photoUpload;
