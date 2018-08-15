@@ -89,26 +89,26 @@
 - (NSString *)condition {
     switch (self.conditionNumber) {
         case 0:
-            return @"Unknown";
+            return @"unknown";
             break;
         case 1:
-            return @"None";
+            return @"none";
             break;
         case 2:
-            return @"Minor";
+            return @"minor";
             break;
         case 3:
-            return @"Moderate";
+            return @"moderate";
             break;
         case 4:
-            return @"Severe";
+            return @"severe";
             break;
         case 5:
-            return @"Collapsed";
+            return @"collapsed";
             break;
     }
     
-    return @"Unknown";
+    return @"unknown";
 }
 
 @end
