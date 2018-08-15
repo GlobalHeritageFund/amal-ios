@@ -41,4 +41,20 @@
     
 }
 
+- (NSDictionary *)dictionaryRepresentation {
+    
+    return @{
+      @"name" : self.photoUpload.metadata.name,
+      @"notes" : self.photoUpload.metadata.notes,
+      @"condition" : self.photoUpload.metadata.condition,
+      @"type" : self.photoUpload.metadata.category,
+      @"hazards" : @(self.photoUpload.metadata.hazards),
+      @"safetyHazards" : @(self.photoUpload.metadata.safetyHazards),
+      @"interventionRequired" : @(self.photoUpload.metadata.interventionRequired),
+      @"images" : @[
+              self.identifier
+              ]
+      };
+}
+
 @end

@@ -21,4 +21,6 @@
 
 + (Promise <UploadedPhoto *> *)uploadedPhotoFrom:(NSDictionary *)dictionary photoUpload:(PhotoUpload *)photoUpload;
 
+- (NSDictionary *)dictionaryRepresentation;
+
 @end

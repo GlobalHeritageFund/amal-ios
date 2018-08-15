@@ -79,4 +79,36 @@
     return CLLocationCoordinate2DMake(self.latitude, self.longitude);
 }
 
+- (NSString *)category {
+    if (_category.length == 0) {
+        return @"object";
+    }
+    return _category;
+}
+
+- (NSString *)condition {
+    switch (self.conditionNumber) {
+        case 0:
+            return @"Unknown";
+            break;
+        case 1:
+            return @"None";
+            break;
+        case 2:
+            return @"Minor";
+            break;
+        case 3:
+            return @"Moderate";
+            break;
+        case 4:
+            return @"Severe";
+            break;
+        case 5:
+            return @"Collapsed";
+            break;
+    }
+    
+    return @"Unknown";
+}
+
 @end

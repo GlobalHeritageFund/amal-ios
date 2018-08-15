@@ -52,10 +52,17 @@
         }]];
     }];
     
-    [uploadedPhotoPromise then:^id _Nullable(id  _Nonnull object) {
+    [uploadedPhotoPromise then:^id _Nullable(NSArray <UploadedPhoto *> * _Nonnull object) {
         NSLog(@"here %@", object);
-        return nil;
+        return [Promise all:[object arrayByTransformingObjectsUsingBlock:^id(UploadedPhoto * image) {
+            return [[self.session POSTJSONTaskWith:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/resource/"] JSONBody:[image dictionaryRepresentation]] then:^id _Nullable(id  _Nonnull object) {
+                NSLog(@"objc %@", object);
+                return nil;
+            }];
+        }]];
     }];
+    
+    
     
 }
 

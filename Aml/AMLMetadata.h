@@ -12,7 +12,7 @@
 @interface AMLMetadata : NSObject
 
 @property NSString *name;
-@property NSString *category;
+@property (nonatomic) NSString *category;
 @property int levelOfDamage;
 @property int conditionNumber;
 @property BOOL hazards;
@@ -24,6 +24,8 @@
 @property NSDate *date;
 @property NSString *firebaseImageKey;
 @property NSString *localIdentifier;
+
+@property (nonatomic, readonly) NSString *condition;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
