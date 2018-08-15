@@ -15,6 +15,7 @@
 #import "NSArray+Additions.h"
 #import "UploadedPhoto.h"
 #import "PhotoUpload.h"
+#import "Resource.h"
 
 @interface HerBridgeReportUploader ()
 
@@ -52,16 +53,23 @@
         }]];
     }];
     
-    [uploadedPhotoPromise then:^id _Nullable(NSArray <UploadedPhoto *> * _Nonnull object) {
-        NSLog(@"here %@", object);
+    Promise * resourcesPromise = [uploadedPhotoPromise then:^id _Nullable(NSArray <UploadedPhoto *> * _Nonnull object) {
         return [Promise all:[object arrayByTransformingObjectsUsingBlock:^id(UploadedPhoto * image) {
-            return [[self.session POSTJSONTaskWith:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/resource/"] JSONBody:[image dictionaryRepresentation]] then:^id _Nullable(id  _Nonnull object) {
-                NSLog(@"objc %@", object);
-                return nil;
+            return [[self.session POSTJSONTaskWith:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/resource/"] JSONBody:[image dictionaryRepresentation]] then:^id _Nullable(NSDictionary * _Nonnull object) {
+                return [Resource resourceWithDictionary:object uploadedPhoto:image];
             }];
         }]];
     }];
     
+    [[resourcesPromise then:^id _Nullable(NSArray <Resource *> * _Nonnull resources) {
+        
+        
+        return [self.session POSTJSONTaskWith:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/report/"] JSONBody:[reportUpload dictionaryRepresentationWithResources:resources]];
+        
+    }] then:^id _Nullable(id  _Nonnull object) {
+        NSLog(@"here %@", object);
+        return nil;
+    }] ;
     
     
 }
