@@ -12,6 +12,9 @@
 #import "ReportDraft.h"
 #import "LocalPhoto.h"
 #import "AMLMetadata.h"
+#import "NSArray+Additions.h"
+#import "UploadedPhoto.h"
+#import "PhotoUpload.h"
 
 @interface HerBridgeReportUploader ()
 
@@ -31,20 +34,28 @@
 
 - (void)uploadReport:(ReportUpload *)reportUpload {
     
-    id <PhotoProtocol> photo = reportUpload.photos.firstObject;
+    NSArray *photos = reportUpload.photos;
     
-    [[[photo loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
-        return [self.session POSTImageTo:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/image/"] image:image metadata:[photo.metadata heritageDictionaryRepresentation]];
-    }] then:^id _Nullable(id  _Nonnull object) {
-        NSLog(@"%@", object);
-        return nil;
+    Promise <NSArray <PhotoUpload *> *> *loadAll = [Promise all:[photos arrayByTransformingObjectsUsingBlock:^id(id <PhotoProtocol> object) {
+        return [[object loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
+            return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(PhotoUpload * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+                fulfill([[PhotoUpload alloc] initWithImage:image metadata:[object metadata]]);
+            }];
+        }];
+    }]];
+    
+    Promise *uploadedPhotoPromise = [loadAll then:^id _Nullable(NSArray <PhotoUpload *> * _Nonnull array) {
+        return [Promise all:[array arrayByTransformingObjectsUsingBlock:^id(PhotoUpload * image) {
+            return [[self.session POSTImageTo:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/image/"] image:image.image metadata:[image.metadata heritageDictionaryRepresentation]] then:^id _Nullable(NSDictionary * _Nonnull dictionary) {
+                    return [UploadedPhoto uploadedPhotoFrom:dictionary photoUpload:image];
+            }];
+        }]];
     }];
     
-    
-//    [[self.session POSTJSONTaskWith:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/report/"] JSONBody:[reportUpload.draft heritageDictionaryRepresentation]] then:^id _Nullable(id  _Nonnull object) {
-//        NSLog(@"%@", object);
-//        return nil;
-//    }];
+    [uploadedPhotoPromise then:^id _Nullable(id  _Nonnull object) {
+        NSLog(@"here %@", object);
+        return nil;
+    }];
     
 }
 

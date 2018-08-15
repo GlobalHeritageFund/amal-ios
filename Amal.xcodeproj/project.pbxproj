@@ -95,6 +95,8 @@
 		B910B84F21233D2500468383 /* NSURLSession+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B84E21233D2500468383 /* NSURLSession+Promises.m */; };
 		B910B852212357B800468383 /* MultipartPart.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B851212357B800468383 /* MultipartPart.m */; };
 		B910B855212357FD00468383 /* MultipartFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B854212357FD00468383 /* MultipartFormData.m */; };
+		B910B85A2123BCF200468383 /* UploadedPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B8592123BCF200468383 /* UploadedPhoto.m */; };
+		B910B85D2123C44300468383 /* PhotoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B85C2123C44300468383 /* PhotoUpload.m */; };
 		B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */; };
 		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
 /* End PBXBuildFile section */
@@ -264,6 +266,10 @@
 		B910B851212357B800468383 /* MultipartPart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipartPart.m; sourceTree = "<group>"; };
 		B910B853212357FD00468383 /* MultipartFormData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipartFormData.h; sourceTree = "<group>"; };
 		B910B854212357FD00468383 /* MultipartFormData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipartFormData.m; sourceTree = "<group>"; };
+		B910B8582123BCF200468383 /* UploadedPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadedPhoto.h; sourceTree = "<group>"; };
+		B910B8592123BCF200468383 /* UploadedPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadedPhoto.m; sourceTree = "<group>"; };
+		B910B85B2123C44300468383 /* PhotoUpload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoUpload.h; sourceTree = "<group>"; };
+		B910B85C2123C44300468383 /* PhotoUpload.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoUpload.m; sourceTree = "<group>"; };
 		B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DedicatedFirebaseAuthDelegate.m; sourceTree = "<group>"; };
 		B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DedicatedFirebaseAuthDelegate.h; sourceTree = "<group>"; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
@@ -654,12 +660,24 @@
 			children = (
 				B910B8492123184700468383 /* HerBridgeReportUploader.h */,
 				B910B84A2123184700468383 /* HerBridgeReportUploader.m */,
+				B910B85E2123C44900468383 /* Models */,
 				B910B850212357B800468383 /* MultipartPart.h */,
 				B910B851212357B800468383 /* MultipartPart.m */,
 				B910B853212357FD00468383 /* MultipartFormData.h */,
 				B910B854212357FD00468383 /* MultipartFormData.m */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		B910B85E2123C44900468383 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B910B8582123BCF200468383 /* UploadedPhoto.h */,
+				B910B8592123BCF200468383 /* UploadedPhoto.m */,
+				B910B85B2123C44300468383 /* PhotoUpload.h */,
+				B910B85C2123C44300468383 /* PhotoUpload.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -845,6 +863,7 @@
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
 				1A3640651F049C650070E686 /* AMLMetadata.m in Sources */,
+				B910B85D2123C44300468383 /* PhotoUpload.m in Sources */,
 				1A12B2DA20A894A20062C333 /* DiskCache.m in Sources */,
 				1A3EE1581F0748490068B596 /* MapViewController.m in Sources */,
 				1A35595A1F001DF000FFFBCA /* AssessViewController.m in Sources */,
@@ -899,6 +918,7 @@
 				5846B2051E773354008E48BC /* TabBarPage.m in Sources */,
 				580A555B1E5D136200A70AB1 /* CALayer+Additions.m in Sources */,
 				1A3559641F0062CB00FFFBCA /* FormView.m in Sources */,
+				B910B85A2123BCF200468383 /* UploadedPhoto.m in Sources */,
 				1A12B2DD20A897340062C333 /* NSString+Additions.m in Sources */,
 				1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */,
 				1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */,
