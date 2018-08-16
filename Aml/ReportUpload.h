@@ -24,6 +24,6 @@
 
 - (void)upload;
 
-- (NSDictionary *)dictionaryRepresentationWithResources:(NSArray <Resource *> *)resources;
+- (NSDictionary *)dictionaryRepresentationWithResources:(NSArray <NSDictionary *> *)resources;
 
 @end

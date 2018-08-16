@@ -97,7 +97,6 @@
 		B910B855212357FD00468383 /* MultipartFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B854212357FD00468383 /* MultipartFormData.m */; };
 		B910B85A2123BCF200468383 /* UploadedPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B8592123BCF200468383 /* UploadedPhoto.m */; };
 		B910B85D2123C44300468383 /* PhotoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B85C2123C44300468383 /* PhotoUpload.m */; };
-		B910B8612124D5CC00468383 /* Resource.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B8602124D5CC00468383 /* Resource.m */; };
 		B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */; };
 		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
 /* End PBXBuildFile section */
@@ -271,8 +270,6 @@
 		B910B8592123BCF200468383 /* UploadedPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadedPhoto.m; sourceTree = "<group>"; };
 		B910B85B2123C44300468383 /* PhotoUpload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoUpload.h; sourceTree = "<group>"; };
 		B910B85C2123C44300468383 /* PhotoUpload.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoUpload.m; sourceTree = "<group>"; };
-		B910B85F2124D5CC00468383 /* Resource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Resource.h; sourceTree = "<group>"; };
-		B910B8602124D5CC00468383 /* Resource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Resource.m; sourceTree = "<group>"; };
 		B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DedicatedFirebaseAuthDelegate.m; sourceTree = "<group>"; };
 		B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DedicatedFirebaseAuthDelegate.h; sourceTree = "<group>"; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
@@ -679,8 +676,6 @@
 				B910B8592123BCF200468383 /* UploadedPhoto.m */,
 				B910B85B2123C44300468383 /* PhotoUpload.h */,
 				B910B85C2123C44300468383 /* PhotoUpload.m */,
-				B910B85F2124D5CC00468383 /* Resource.h */,
-				B910B8602124D5CC00468383 /* Resource.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -905,7 +900,6 @@
 				1A1F7DE51F3F8CBE0028DCF0 /* ReportCreationCoordinator.m in Sources */,
 				1A4E39391F2FCEA80055C7FA /* FirstLaunch.m in Sources */,
 				1A35595E1F0023DF00FFFBCA /* FormElements.m in Sources */,
-				B910B8612124D5CC00468383 /* Resource.m in Sources */,
 				1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */,
 				B910B84B2123184700468383 /* HerBridgeReportUploader.m in Sources */,
 				1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */,

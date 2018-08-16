@@ -16,6 +16,8 @@
 #import "CurrentUser.h"
 #import "Report.h"
 #import "UIImage+Resize.h"
+#import "HerBridgeReportUploader.h"
+#import "Resource.h"
 
 @interface ReportUpload ()
 
@@ -60,6 +62,16 @@
 
 - (FIRStorageReference *)imagesDirectory {
     return [[[self storage] reference] child:@"images"];
+}
+
+- (NSDictionary *)dictionaryRepresentationWithResources:(NSArray <NSDictionary *> *)resources {
+    return @{
+             @"title" : self.title,
+             @"createdAt" : @([self.creationDate timeIntervalSince1970]),
+             @"type" : @"field_report",
+             @"assessor" : [CurrentUser shared].dictionaryRepresentation,
+             @"resources" : resources,
+             };
 }
 
 - (void)upload {
