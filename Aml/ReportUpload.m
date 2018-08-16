@@ -76,7 +76,7 @@
 - (void)upload {
     
     if (self.isEAMENA) {
-        [[[HerBridgeReportUploader alloc] initWithSession:[NSURLSession sharedSession]] uploadReport:self];
+        [[[HerBridgeReportUploader alloc] initWithSession:[NSURLSession sharedSession] progresses:self.progresses] uploadReport:self];
     }
     else {
         FIRDatabaseReference *reportRef = [self.reportsDirectory childByAutoId];

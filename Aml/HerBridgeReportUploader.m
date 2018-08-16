@@ -19,16 +19,20 @@
 @interface HerBridgeReportUploader ()
 
 @property (nonatomic, readonly) NSURLSession *session;
+@property (nonatomic, readonly) NSArray <NSProgress *> *progresses;
 
 @end
 
 @implementation HerBridgeReportUploader
 
-- (instancetype)initWithSession:(NSURLSession *)session {
+- (instancetype)initWithSession:(NSURLSession *)session progresses:(NSArray <NSProgress *> *)progresses {
     self = [super init];
+    
     if (self) {
         _session = session;
+        _progresses = progresses;
     }
+    
     return self;
 }
 
@@ -36,11 +40,22 @@
     
     NSArray *photos = reportUpload.photos;
     
+    NSEnumerator <NSProgress *> *progressEnumerator = [self.progresses objectEnumerator];
+    
     Promise <NSArray <PhotoUpload *> *> *loadAll = [Promise all:[photos arrayByTransformingObjectsUsingBlock:^id(id <PhotoProtocol> object) {
+        NSProgress *progress = [progressEnumerator nextObject];
         return [[object loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
-            return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(PhotoUpload * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+            
+            Promise *returnPromise = [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(PhotoUpload * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
                 fulfill([[PhotoUpload alloc] initWithImage:image metadata:[object metadata]]);
             }];
+            
+            [returnPromise then:^id _Nullable(id  _Nonnull object) {
+                progress.completedUnitCount = progress.totalUnitCount;
+                return nil;
+            }];
+            
+            return returnPromise;
         }];
     }]];
     
