@@ -17,7 +17,6 @@
 #import "Report.h"
 #import "UIImage+Resize.h"
 #import "HerBridgeReportUploader.h"
-#import "Resource.h"
 
 @interface ReportUpload ()
 

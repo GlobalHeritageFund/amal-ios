@@ -15,7 +15,6 @@
 #import "NSArray+Additions.h"
 #import "UploadedPhoto.h"
 #import "PhotoUpload.h"
-#import "Resource.h"
 
 @interface HerBridgeReportUploader ()
 
