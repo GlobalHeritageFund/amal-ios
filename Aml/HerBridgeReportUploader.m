@@ -36,7 +36,7 @@
     return self;
 }
 
-- (void)uploadReport:(ReportUpload *)reportUpload {
+- (Promise *)uploadReport:(ReportUpload *)reportUpload {
     
     NSArray *photos = reportUpload.photos;
     
@@ -81,7 +81,11 @@
         return nil;
     }];
     
-    
+    return [resourcesPromise then:^id _Nullable(id  _Nonnull object) {
+        return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(ReportDraft * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+            fulfill(reportUpload);
+        }];
+    }];
 }
 
 @end

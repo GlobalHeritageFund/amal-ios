@@ -76,7 +76,14 @@
 - (void)upload {
     
     if (self.isEAMENA) {
-        [[[HerBridgeReportUploader alloc] initWithSession:[NSURLSession sharedSession] progresses:self.progresses] uploadReport:self];
+        HerBridgeReportUploader *uploader = [[HerBridgeReportUploader alloc] initWithSession:[NSURLSession sharedSession] progresses:self.progresses];
+        Promise *promise = [uploader uploadReport:self];
+        
+        [promise then:^id _Nullable(id  _Nonnull object) {
+            [self.promise fulfill:object];
+            return nil;
+        }];
+        
     }
     else {
         FIRDatabaseReference *reportRef = [self.reportsDirectory childByAutoId];

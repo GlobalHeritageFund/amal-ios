@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class ReportUpload;
+@class ReportUpload, Promise;
 @interface HerBridgeReportUploader : NSObject
 
 - (instancetype)initWithSession:(NSURLSession *)session progresses:(NSArray <NSProgress *> *)progresses;
 
-- (void)uploadReport:(ReportUpload *)reportUpload;
+- (Promise *)uploadReport:(ReportUpload *)reportUpload;
 
 @end
