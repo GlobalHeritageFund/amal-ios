@@ -20,6 +20,7 @@
 #import "Report.h"
 #import "MapViewController.h"
 #import "NSArray+Additions.h"
+#import "CurrentUser.h"
 
 @interface ReportDetailViewController ()<UITableViewDelegate, UITableViewDataSource, ReportHeaderViewDelegate>
 
@@ -126,8 +127,10 @@
     self.reportHeader.reportStateLabel.textColor = self.viewModel.reportStateColor;
     self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
     
-    self.reportHeader.switchView.statusSwitch.on = self.viewModel.isEAMENA;
-    self.reportHeader.switchView.statusSwitch.enabled = !self.viewModel.finalized;
+    if ([CurrentUser shared].isEAMENAEnabled) {
+        self.reportHeader.switchView.statusSwitch.on = self.viewModel.isEAMENA;
+        self.reportHeader.switchView.statusSwitch.enabled = !self.viewModel.finalized;
+    }
     
     self.reportHeader.assessorEmailField.enabled = !self.viewModel.hasPrefilledEmail;
     
