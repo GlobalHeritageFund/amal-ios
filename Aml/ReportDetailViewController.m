@@ -126,11 +126,8 @@
     self.reportHeader.reportStateLabel.textColor = self.viewModel.reportStateColor;
     self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
     
-    if (self.viewModel.isEAMENA) {
-        self.reportHeader.switchView.statusSwitch.enabled = self.viewModel.isEAMENA && !self.viewModel.finalized;
-    } else {
-        self.reportHeader.switchView.statusSwitch.enabled = !self.viewModel.finalized;
-    }
+    self.reportHeader.switchView.statusSwitch.on = self.viewModel.isEAMENA;
+    self.reportHeader.switchView.statusSwitch.enabled = !self.viewModel.finalized;
     
     self.reportHeader.assessorEmailField.enabled = !self.viewModel.hasPrefilledEmail;
     
