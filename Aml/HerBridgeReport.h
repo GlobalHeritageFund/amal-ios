@@ -19,7 +19,6 @@
 @property (readonly) BOOL isEAMENA;
 
 @property (readonly) NSDate *creationDate;
-@property (nonatomic) BOOL uploadComplete;
 
 @property (nonatomic, readonly) NSArray< id <PhotoProtocol>> *photos;
 
