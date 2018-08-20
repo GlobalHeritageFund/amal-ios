@@ -93,7 +93,7 @@
 		B910B846212217D000468383 /* SwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B845212217D000468383 /* SwitchView.m */; };
 		B910B84B2123184700468383 /* HerBridgeReportUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B84A2123184700468383 /* HerBridgeReportUploader.m */; };
 		B910B84F21233D2500468383 /* NSURLSession+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B84E21233D2500468383 /* NSURLSession+Promises.m */; };
-		B910B852212357B800468383 /* MultipartPart.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B851212357B800468383 /* MultipartPart.m */; };
+		B910B852212357B800468383 /* MultipartComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B851212357B800468383 /* MultipartComponent.m */; };
 		B910B855212357FD00468383 /* MultipartFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B854212357FD00468383 /* MultipartFormData.m */; };
 		B910B85A2123BCF200468383 /* UploadedPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B8592123BCF200468383 /* UploadedPhoto.m */; };
 		B910B85D2123C44300468383 /* PhotoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B85C2123C44300468383 /* PhotoUpload.m */; };
@@ -263,8 +263,8 @@
 		B910B84A2123184700468383 /* HerBridgeReportUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HerBridgeReportUploader.m; path = Aml/HerBridgeReportUploader.m; sourceTree = SOURCE_ROOT; };
 		B910B84D21233D2500468383 /* NSURLSession+Promises.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+Promises.h"; sourceTree = "<group>"; };
 		B910B84E21233D2500468383 /* NSURLSession+Promises.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+Promises.m"; sourceTree = "<group>"; };
-		B910B850212357B800468383 /* MultipartPart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipartPart.h; sourceTree = "<group>"; };
-		B910B851212357B800468383 /* MultipartPart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipartPart.m; sourceTree = "<group>"; };
+		B910B850212357B800468383 /* MultipartComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipartComponent.h; sourceTree = "<group>"; };
+		B910B851212357B800468383 /* MultipartComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipartComponent.m; sourceTree = "<group>"; };
 		B910B853212357FD00468383 /* MultipartFormData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipartFormData.h; sourceTree = "<group>"; };
 		B910B854212357FD00468383 /* MultipartFormData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipartFormData.m; sourceTree = "<group>"; };
 		B910B8582123BCF200468383 /* UploadedPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadedPhoto.h; sourceTree = "<group>"; };
@@ -666,8 +666,8 @@
 				B910B8492123184700468383 /* HerBridgeReportUploader.h */,
 				B910B84A2123184700468383 /* HerBridgeReportUploader.m */,
 				B910B85E2123C44900468383 /* Models */,
-				B910B850212357B800468383 /* MultipartPart.h */,
-				B910B851212357B800468383 /* MultipartPart.m */,
+				B910B850212357B800468383 /* MultipartComponent.h */,
+				B910B851212357B800468383 /* MultipartComponent.m */,
 				B910B853212357FD00468383 /* MultipartFormData.h */,
 				B910B854212357FD00468383 /* MultipartFormData.m */,
 			);
@@ -885,7 +885,7 @@
 				580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */,
 				B910B855212357FD00468383 /* MultipartFormData.m in Sources */,
 				1A8E555C1FFC361500881CDE /* LocalPhotoFilter.m in Sources */,
-				B910B852212357B800468383 /* MultipartPart.m in Sources */,
+				B910B852212357B800468383 /* MultipartComponent.m in Sources */,
 				1AE0AF981FF49B6C00A816F7 /* EmptyState.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
 				1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */,

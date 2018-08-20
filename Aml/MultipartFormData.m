@@ -7,18 +7,18 @@
 //
 
 #import "MultipartFormData.h"
-#import "MultipartPart.h"
+#import "MultipartComponent.h"
 
 @interface MultipartFormData ()
 
-@property (nonatomic, nonnull, copy, readonly) NSArray <MultipartPart *> *parts;
+@property (nonatomic, nonnull, copy, readonly) NSArray <MultipartComponent *> *parts;
 @property (nonatomic, nonnull, copy, readonly) NSString *boundary;
 
 @end
 
 @implementation MultipartFormData
 
-- (nonnull instancetype)initWithParts:(nonnull NSArray <MultipartPart *> *)parts boundary:(nonnull NSString *)boundary {
+- (nonnull instancetype)initWithParts:(nonnull NSArray <MultipartComponent *> *)parts boundary:(nonnull NSString *)boundary {
     NSParameterAssert(parts);
     NSParameterAssert(boundary);
     self = [super init];
@@ -37,7 +37,7 @@
     // Maps all the current body parts to data and appends to the mutable data.
     {
         NSString *boundary = self.boundary;
-        for (MultipartPart *bodyPart in self.parts) {
+        for (MultipartComponent *bodyPart in self.parts) {
             [data appendData:[bodyPart dataRepresentationWithBoundary:[@"--" stringByAppendingString:boundary]]];
         }
     }

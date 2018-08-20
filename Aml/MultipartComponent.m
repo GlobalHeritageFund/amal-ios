@@ -1,14 +1,14 @@
 //
-//  MultipartPart.m
+//  MultipartComponent.m
 //  Amal
 //
 //  Created by Kenneth Parker Ackerson on 8/14/18.
 //  Copyright © 2018 Global Heritage Fund. All rights reserved.
 //
 
-#import "MultipartPart.h"
+#import "MultipartComponent.h"
 
-@interface MultipartPart ()
+@interface MultipartComponent ()
 
 @property (nonatomic, nonnull, readonly) NSData *data;
 @property (nonatomic, nonnull, copy, readonly) NSString *name;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation MultipartPart
+@implementation MultipartComponent
 
 
 - (nonnull instancetype)initWithData:(nonnull NSData *)data

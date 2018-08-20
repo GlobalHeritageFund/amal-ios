@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NSURLSession+Promises.h"
-#import "MultipartPart.h"
+#import "MultipartComponent.h"
 #import "MultipartFormData.h"
 #import "NSJSONSerialization+Promises.h"
 
@@ -18,7 +18,7 @@
     
     NSData *data = UIImageJPEGRepresentation(image, 1.0);
 
-    MultipartPart *imagePart = [[MultipartPart alloc] initWithData:data name:@"image" fileName:@"image_1.jpg" contentType:@"image/jpeg"];
+    MultipartComponent *imagePart = [[MultipartComponent alloc] initWithData:data name:@"image" fileName:@"image_1.jpg" contentType:@"image/jpeg"];
     
     NSMutableArray *parts = [[NSMutableArray alloc] initWithObjects:imagePart, nil];
     
@@ -31,7 +31,7 @@
         }
         
         NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
-        MultipartPart *part = [[MultipartPart alloc] initWithData:data name:key fileName:nil contentType:@"text/plain"];
+        MultipartComponent *part = [[MultipartComponent alloc] initWithData:data name:key fileName:nil contentType:@"text/plain"];
 
         [parts addObject:part];
     }
@@ -39,7 +39,7 @@
     return [self POSTMultipartWithURL:URL multiparts:parts];
 }
 
-- (Promise <NSDictionary *> *)POSTMultipartWithURL:(NSURL *)URL multiparts:(NSArray <MultipartPart *> *)parts {
+- (Promise <NSDictionary *> *)POSTMultipartWithURL:(NSURL *)URL multiparts:(NSArray <MultipartComponent *> *)parts {
     MultipartFormData *multipartData = [[MultipartFormData alloc] initWithParts:parts boundary:@"AMALBoundary"];
     NSData *data = [multipartData dataRepresentation];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];

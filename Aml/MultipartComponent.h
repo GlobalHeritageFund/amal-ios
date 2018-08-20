@@ -1,5 +1,5 @@
 //
-//  MultipartPart.h
+//  MultipartComponent.h
 //  Amal
 //
 //  Created by Kenneth Parker Ackerson on 8/14/18.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MultipartPart : NSObject
+@interface MultipartComponent : NSObject
 
 - (nonnull instancetype)initWithData:(nonnull NSData *)data
                                 name:(nonnull NSString *)name

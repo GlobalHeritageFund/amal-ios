@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class MultipartPart;
+@class MultipartComponent;
 @interface MultipartFormData : NSObject
 
-- (nonnull instancetype)initWithParts:(nonnull NSArray <MultipartPart *> *)parts boundary:(nonnull NSString *)boundary;
+- (nonnull instancetype)initWithParts:(nonnull NSArray <MultipartComponent *> *)parts boundary:(nonnull NSString *)boundary;
 
 - (nonnull NSData *)dataRepresentation;
 
