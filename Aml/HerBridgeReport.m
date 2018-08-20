@@ -17,7 +17,7 @@
     if (self) {
         
         _title = dictionary[@"title"];
-        _assessorEmail = dictionary[@"assessor"][@"email"];
+        _assessorEmail = [dictionary[@"assessor"] asClassOrNil:[NSDictionary class]][@"email"];
         
         NSTimeInterval created = [[dictionary[@"createdAt"] asClassOrNil:[NSNumber class]] doubleValue];
         _creationDate = [NSDate dateWithTimeIntervalSince1970:created];
