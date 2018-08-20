@@ -15,6 +15,7 @@
 #import "NSArray+Additions.h"
 #import "UploadedPhoto.h"
 #import "PhotoUpload.h"
+#import "HerBridgeReport.h"
 
 @interface HerBridgeReportUploader ()
 
@@ -81,9 +82,12 @@
         return nil;
     }];
     
-    return [resourcesPromise then:^id _Nullable(id  _Nonnull object) {
-        return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(ReportDraft * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
-            fulfill(reportUpload);
+    return [resourcesPromise then:^id _Nullable(NSDictionary * _Nonnull object) {
+        return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(id <ReportProtocol> _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+            
+            HerBridgeReport *report = [[HerBridgeReport alloc] initWithDictionary:object];
+            
+            fulfill(report);
         }];
     }];
 }

@@ -98,6 +98,7 @@
 		B910B85A2123BCF200468383 /* UploadedPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B8592123BCF200468383 /* UploadedPhoto.m */; };
 		B910B85D2123C44300468383 /* PhotoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B85C2123C44300468383 /* PhotoUpload.m */; };
 		B910B864212B224D00468383 /* NSJSONSerialization+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B863212B224D00468383 /* NSJSONSerialization+Promises.m */; };
+		B910B867212B2ACD00468383 /* HerBridgeReport.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B866212B2ACD00468383 /* HerBridgeReport.m */; };
 		B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */; };
 		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
 /* End PBXBuildFile section */
@@ -273,6 +274,8 @@
 		B910B85C2123C44300468383 /* PhotoUpload.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoUpload.m; sourceTree = "<group>"; };
 		B910B862212B224D00468383 /* NSJSONSerialization+Promises.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+Promises.h"; sourceTree = "<group>"; };
 		B910B863212B224D00468383 /* NSJSONSerialization+Promises.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+Promises.m"; sourceTree = "<group>"; };
+		B910B865212B2ACD00468383 /* HerBridgeReport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HerBridgeReport.h; sourceTree = "<group>"; };
+		B910B866212B2ACD00468383 /* HerBridgeReport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HerBridgeReport.m; sourceTree = "<group>"; };
 		B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DedicatedFirebaseAuthDelegate.m; sourceTree = "<group>"; };
 		B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DedicatedFirebaseAuthDelegate.h; sourceTree = "<group>"; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
@@ -377,6 +380,8 @@
 			children = (
 				1A4E9AD41F511396006856A8 /* ReportViewModel.h */,
 				1A4E9AD51F511396006856A8 /* ReportViewModel.m */,
+				B910B865212B2ACD00468383 /* HerBridgeReport.h */,
+				B910B866212B2ACD00468383 /* HerBridgeReport.m */,
 				1A4E39421F2FF1DF0055C7FA /* Report.h */,
 				1A4E39431F2FF1DF0055C7FA /* Report.m */,
 				1ACAD1E81F0EF7A3001935D4 /* ReportDraft.h */,
@@ -910,6 +915,7 @@
 				B910B84B2123184700468383 /* HerBridgeReportUploader.m in Sources */,
 				1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */,
 				1A3559701F0087D800FFFBCA /* GalleryCell.m in Sources */,
+				B910B867212B2ACD00468383 /* HerBridgeReport.m in Sources */,
 				1A04FCE91F51CE3B0010A9D8 /* ImageCache.m in Sources */,
 				1A4E39401F2FD7C70055C7FA /* ReportsViewController.m in Sources */,
 				1A5AADEA1F4F756A00573829 /* QBImagePickerController.m in Sources */,
