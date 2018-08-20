@@ -76,7 +76,10 @@
         NSURLSessionDataTask *task = [self dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             
             NSLog(@"response: %@", response);
-            if (data) {
+            
+            NSHTTPURLResponse *URLResponse = (NSHTTPURLResponse *)response;
+            
+            if (data && (URLResponse.statusCode == 200 || URLResponse.statusCode == 201)) {
                 fulfill(data);
             }
             else {
