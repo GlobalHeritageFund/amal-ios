@@ -12,6 +12,7 @@
 #import "ReportUpload.h"
 #import "Report.h"
 #import <MapKit/MapKit.h>
+#import "HerBridgeReport.h"
 
 @implementation ReportViewModel
 
@@ -109,7 +110,7 @@ static NSDateFormatter *dateFormatter = nil;
 }
 
 - (Report *)finalized {
-    return [(NSObject*)self.report asClassOrNil:[Report class]];
+    return [(NSObject*)self.report asClassOrNil:[Report class]] ?: [(NSObject*)self.report asClassOrNil:[HerBridgeReport class]];
 }
 
 - (BOOL)showProgressBars {
