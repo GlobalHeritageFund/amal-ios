@@ -97,6 +97,7 @@
 		B910B855212357FD00468383 /* MultipartFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B854212357FD00468383 /* MultipartFormData.m */; };
 		B910B85A2123BCF200468383 /* UploadedPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B8592123BCF200468383 /* UploadedPhoto.m */; };
 		B910B85D2123C44300468383 /* PhotoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B85C2123C44300468383 /* PhotoUpload.m */; };
+		B910B864212B224D00468383 /* NSJSONSerialization+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B863212B224D00468383 /* NSJSONSerialization+Promises.m */; };
 		B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */; };
 		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
 /* End PBXBuildFile section */
@@ -270,6 +271,8 @@
 		B910B8592123BCF200468383 /* UploadedPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadedPhoto.m; sourceTree = "<group>"; };
 		B910B85B2123C44300468383 /* PhotoUpload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoUpload.h; sourceTree = "<group>"; };
 		B910B85C2123C44300468383 /* PhotoUpload.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoUpload.m; sourceTree = "<group>"; };
+		B910B862212B224D00468383 /* NSJSONSerialization+Promises.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+Promises.h"; sourceTree = "<group>"; };
+		B910B863212B224D00468383 /* NSJSONSerialization+Promises.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+Promises.m"; sourceTree = "<group>"; };
 		B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DedicatedFirebaseAuthDelegate.m; sourceTree = "<group>"; };
 		B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DedicatedFirebaseAuthDelegate.h; sourceTree = "<group>"; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
@@ -480,6 +483,8 @@
 				B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */,
 				B910B84D21233D2500468383 /* NSURLSession+Promises.h */,
 				B910B84E21233D2500468383 /* NSURLSession+Promises.m */,
+				B910B862212B224D00468383 /* NSJSONSerialization+Promises.h */,
+				B910B863212B224D00468383 /* NSJSONSerialization+Promises.m */,
 			);
 			name = Promise;
 			sourceTree = "<group>";
@@ -886,6 +891,7 @@
 				1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */,
 				1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */,
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
+				B910B864212B224D00468383 /* NSJSONSerialization+Promises.m in Sources */,
 				1A5AADE71F4F756A00573829 /* QBAssetsViewController.m in Sources */,
 				1A04FCEC1F51D07C0010A9D8 /* ReportCell.m in Sources */,
 				1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */,

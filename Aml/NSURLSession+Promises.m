@@ -10,6 +10,7 @@
 #import "NSURLSession+Promises.h"
 #import "MultipartPart.h"
 #import "MultipartFormData.h"
+#import "NSJSONSerialization+Promises.h"
 
 @implementation NSURLSession (Promises)
 
@@ -50,7 +51,7 @@
     [request setValue:[NSString stringWithFormat:@"%ld", [request.HTTPBody length]] forHTTPHeaderField:@"Content-Length"];
 
     return [[self POSTTaskWithURL:URL request:request] then:^id _Nullable(NSData * _Nonnull object) {
-        return [self JSONDictionaryFromData:object];
+        return [NSJSONSerialization JSONDictionaryFromData:object];
     }];
 }
 
@@ -66,7 +67,7 @@
     [request setValue:[NSString stringWithFormat:@"%ld", [request.HTTPBody length]] forHTTPHeaderField:@"Content-Length"];
     
     return [[self POSTTaskWithURL:URL request:request] then:^id _Nullable(NSData * _Nonnull object) {
-        return [self JSONDictionaryFromData:object];
+        return [NSJSONSerialization JSONDictionaryFromData:object];
     }];
 }
 
@@ -88,19 +89,6 @@
         }];
         
         [task resume];
-    }];
-}
-
-- (Promise <NSDictionary *> *)JSONDictionaryFromData:(NSData *)data {
-    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSDictionary * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
-        NSError *error = nil;
-        NSDictionary *JSONDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        if (error) {
-            reject(error);
-        }
-        else {
-            fulfill(JSONDictionary);
-        }
     }];
 }
 
