@@ -11,19 +11,19 @@
 
 @interface AMLMetadata : NSObject
 
-@property NSString *name;
+@property (nonatomic) NSString *name;
 @property (nonatomic) NSString *category;
-@property int levelOfDamage;
-@property int conditionNumber;
-@property BOOL hazards;
-@property BOOL safetyHazards;
-@property BOOL interventionRequired;
-@property NSString *notes;
-@property double latitude;
-@property double longitude;
-@property NSDate *date;
-@property NSString *firebaseImageKey;
-@property NSString *localIdentifier;
+@property (nonatomic) int levelOfDamage;
+@property (nonatomic) int conditionNumber;
+@property (nonatomic) BOOL hazards;
+@property (nonatomic) BOOL safetyHazards;
+@property (nonatomic) BOOL interventionRequired;
+@property (nonatomic) NSString *notes;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic) NSDate *date;
+@property (nonatomic) NSString *firebaseImageKey;
+@property (nonatomic) NSString *localIdentifier;
 
 @property (nonatomic, readonly) NSString *condition;
 
