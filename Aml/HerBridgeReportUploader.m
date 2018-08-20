@@ -61,7 +61,7 @@
     
     Promise *uploadedPhotoPromise = [loadAll then:^id _Nullable(NSArray <PhotoUpload *> * _Nonnull array) {
         return [Promise all:[array arrayByTransformingObjectsUsingBlock:^id(PhotoUpload * image) {
-            return [[self.session POSTImageTo:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/image/"] image:image.image metadata:[image.metadata heritageDictionaryRepresentation]] then:^id _Nullable(NSDictionary * _Nonnull dictionary) {
+            return [[self.session POSTImageTo:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/images/"] image:image.image metadata:[image.metadata heritageDictionaryRepresentation]] then:^id _Nullable(NSDictionary * _Nonnull dictionary) {
                     return [UploadedPhoto uploadedPhotoFrom:dictionary photoUpload:image];
             }];
         }]];
@@ -73,7 +73,7 @@
             return [image dictionaryRepresentation];
         }];
         
-        return [self.session POSTJSONTaskWith:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/report/"] JSONBody:[reportUpload dictionaryRepresentationWithResources:resources]];
+        return [self.session POSTJSONTaskWith:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/reports/"] JSONBody:[reportUpload dictionaryRepresentationWithResources:resources]];
     }];
     
     [resourcesPromise then:^id _Nullable(id _Nonnull object) {
