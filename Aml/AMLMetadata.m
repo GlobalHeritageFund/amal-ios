@@ -81,7 +81,7 @@
 
 - (NSString *)category {
     if (_category.length == 0) {
-        return @"object";
+        return @"unknown";
     }
     return _category;
 }
