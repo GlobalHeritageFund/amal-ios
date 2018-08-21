@@ -22,4 +22,6 @@
 
 - (void)signOut;
 
+- (NSDictionary *)dictionaryRepresentation;
+
 @end

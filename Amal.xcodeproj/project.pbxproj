@@ -91,6 +91,14 @@
 		B910B83F211A34FC00468383 /* PassphraseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B83E211A34FC00468383 /* PassphraseViewController.m */; };
 		B910B843211A393300468383 /* PassphraseValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B842211A393300468383 /* PassphraseValidator.m */; };
 		B910B846212217D000468383 /* SwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B845212217D000468383 /* SwitchView.m */; };
+		B910B84B2123184700468383 /* HerBridgeReportUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B84A2123184700468383 /* HerBridgeReportUploader.m */; };
+		B910B84F21233D2500468383 /* NSURLSession+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B84E21233D2500468383 /* NSURLSession+Promises.m */; };
+		B910B852212357B800468383 /* MultipartComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B851212357B800468383 /* MultipartComponent.m */; };
+		B910B855212357FD00468383 /* MultipartFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B854212357FD00468383 /* MultipartFormData.m */; };
+		B910B85A2123BCF200468383 /* UploadedPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B8592123BCF200468383 /* UploadedPhoto.m */; };
+		B910B85D2123C44300468383 /* PhotoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B85C2123C44300468383 /* PhotoUpload.m */; };
+		B910B864212B224D00468383 /* NSJSONSerialization+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B863212B224D00468383 /* NSJSONSerialization+Promises.m */; };
+		B910B867212B2ACD00468383 /* HerBridgeReport.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B866212B2ACD00468383 /* HerBridgeReport.m */; };
 		B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */; };
 		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
 /* End PBXBuildFile section */
@@ -252,6 +260,22 @@
 		B910B842211A393300468383 /* PassphraseValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassphraseValidator.m; sourceTree = "<group>"; };
 		B910B844212217D000468383 /* SwitchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchView.h; sourceTree = "<group>"; };
 		B910B845212217D000468383 /* SwitchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchView.m; sourceTree = "<group>"; };
+		B910B8492123184700468383 /* HerBridgeReportUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HerBridgeReportUploader.h; path = Aml/HerBridgeReportUploader.h; sourceTree = SOURCE_ROOT; };
+		B910B84A2123184700468383 /* HerBridgeReportUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HerBridgeReportUploader.m; path = Aml/HerBridgeReportUploader.m; sourceTree = SOURCE_ROOT; };
+		B910B84D21233D2500468383 /* NSURLSession+Promises.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+Promises.h"; sourceTree = "<group>"; };
+		B910B84E21233D2500468383 /* NSURLSession+Promises.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+Promises.m"; sourceTree = "<group>"; };
+		B910B850212357B800468383 /* MultipartComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipartComponent.h; sourceTree = "<group>"; };
+		B910B851212357B800468383 /* MultipartComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipartComponent.m; sourceTree = "<group>"; };
+		B910B853212357FD00468383 /* MultipartFormData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipartFormData.h; sourceTree = "<group>"; };
+		B910B854212357FD00468383 /* MultipartFormData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipartFormData.m; sourceTree = "<group>"; };
+		B910B8582123BCF200468383 /* UploadedPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadedPhoto.h; sourceTree = "<group>"; };
+		B910B8592123BCF200468383 /* UploadedPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadedPhoto.m; sourceTree = "<group>"; };
+		B910B85B2123C44300468383 /* PhotoUpload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoUpload.h; sourceTree = "<group>"; };
+		B910B85C2123C44300468383 /* PhotoUpload.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoUpload.m; sourceTree = "<group>"; };
+		B910B862212B224D00468383 /* NSJSONSerialization+Promises.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+Promises.h"; sourceTree = "<group>"; };
+		B910B863212B224D00468383 /* NSJSONSerialization+Promises.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+Promises.m"; sourceTree = "<group>"; };
+		B910B865212B2ACD00468383 /* HerBridgeReport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HerBridgeReport.h; sourceTree = "<group>"; };
+		B910B866212B2ACD00468383 /* HerBridgeReport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HerBridgeReport.m; sourceTree = "<group>"; };
 		B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DedicatedFirebaseAuthDelegate.m; sourceTree = "<group>"; };
 		B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DedicatedFirebaseAuthDelegate.h; sourceTree = "<group>"; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
@@ -331,6 +355,7 @@
 				1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */,
 				1A04FCEA1F51D07C0010A9D8 /* ReportCell.h */,
 				1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */,
+				B910B84C21232C3200468383 /* Networking */,
 				1A4E9AD21F5111ED006856A8 /* Models */,
 				1AEBACA21F4A6E9F002DC63F /* FirebaseReportDataSource.h */,
 				1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */,
@@ -355,6 +380,8 @@
 			children = (
 				1A4E9AD41F511396006856A8 /* ReportViewModel.h */,
 				1A4E9AD51F511396006856A8 /* ReportViewModel.m */,
+				B910B865212B2ACD00468383 /* HerBridgeReport.h */,
+				B910B866212B2ACD00468383 /* HerBridgeReport.m */,
 				1A4E39421F2FF1DF0055C7FA /* Report.h */,
 				1A4E39431F2FF1DF0055C7FA /* Report.m */,
 				1ACAD1E81F0EF7A3001935D4 /* ReportDraft.h */,
@@ -459,6 +486,10 @@
 				1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */,
 				B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */,
 				B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */,
+				B910B84D21233D2500468383 /* NSURLSession+Promises.h */,
+				B910B84E21233D2500468383 /* NSURLSession+Promises.m */,
+				B910B862212B224D00468383 /* NSJSONSerialization+Promises.h */,
+				B910B863212B224D00468383 /* NSJSONSerialization+Promises.m */,
 			);
 			name = Promise;
 			sourceTree = "<group>";
@@ -632,6 +663,31 @@
 				B910B842211A393300468383 /* PassphraseValidator.m */,
 			);
 			name = Passphrase;
+			sourceTree = "<group>";
+		};
+		B910B84C21232C3200468383 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B910B8492123184700468383 /* HerBridgeReportUploader.h */,
+				B910B84A2123184700468383 /* HerBridgeReportUploader.m */,
+				B910B85E2123C44900468383 /* Models */,
+				B910B850212357B800468383 /* MultipartComponent.h */,
+				B910B851212357B800468383 /* MultipartComponent.m */,
+				B910B853212357FD00468383 /* MultipartFormData.h */,
+				B910B854212357FD00468383 /* MultipartFormData.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		B910B85E2123C44900468383 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B910B8582123BCF200468383 /* UploadedPhoto.h */,
+				B910B8592123BCF200468383 /* UploadedPhoto.m */,
+				B910B85B2123C44300468383 /* PhotoUpload.h */,
+				B910B85C2123C44300468383 /* PhotoUpload.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -817,6 +873,7 @@
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
 				1A3640651F049C650070E686 /* AMLMetadata.m in Sources */,
+				B910B85D2123C44300468383 /* PhotoUpload.m in Sources */,
 				1A12B2DA20A894A20062C333 /* DiskCache.m in Sources */,
 				1A3EE1581F0748490068B596 /* MapViewController.m in Sources */,
 				1A35595A1F001DF000FFFBCA /* AssessViewController.m in Sources */,
@@ -831,12 +888,15 @@
 				1A16EE0C1FE2C88700DF2E79 /* AssessCoordinator.m in Sources */,
 				1A16EE0F1FE2C89000DF2E79 /* CaptureCoordinator.m in Sources */,
 				580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */,
+				B910B855212357FD00468383 /* MultipartFormData.m in Sources */,
 				1A8E555C1FFC361500881CDE /* LocalPhotoFilter.m in Sources */,
+				B910B852212357B800468383 /* MultipartComponent.m in Sources */,
 				1AE0AF981FF49B6C00A816F7 /* EmptyState.m in Sources */,
 				580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */,
 				1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */,
 				1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */,
 				1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */,
+				B910B864212B224D00468383 /* NSJSONSerialization+Promises.m in Sources */,
 				1A5AADE71F4F756A00573829 /* QBAssetsViewController.m in Sources */,
 				1A04FCEC1F51D07C0010A9D8 /* ReportCell.m in Sources */,
 				1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */,
@@ -845,14 +905,17 @@
 				1A2BEBF81F33618800A59E69 /* UIImage+Additions.m in Sources */,
 				1ACAD1EA1F0EF7A3001935D4 /* ReportDraft.m in Sources */,
 				1A4D48B91FF2C24600409CF9 /* SettingsViewController.m in Sources */,
+				B910B84F21233D2500468383 /* NSURLSession+Promises.m in Sources */,
 				1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */,
 				1A5AADEC1F4F756A00573829 /* QBVideoIconView.m in Sources */,
 				1A1F7DE51F3F8CBE0028DCF0 /* ReportCreationCoordinator.m in Sources */,
 				1A4E39391F2FCEA80055C7FA /* FirstLaunch.m in Sources */,
 				1A35595E1F0023DF00FFFBCA /* FormElements.m in Sources */,
 				1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */,
+				B910B84B2123184700468383 /* HerBridgeReportUploader.m in Sources */,
 				1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */,
 				1A3559701F0087D800FFFBCA /* GalleryCell.m in Sources */,
+				B910B867212B2ACD00468383 /* HerBridgeReport.m in Sources */,
 				1A04FCE91F51CE3B0010A9D8 /* ImageCache.m in Sources */,
 				1A4E39401F2FD7C70055C7FA /* ReportsViewController.m in Sources */,
 				1A5AADEA1F4F756A00573829 /* QBImagePickerController.m in Sources */,
@@ -867,6 +930,7 @@
 				5846B2051E773354008E48BC /* TabBarPage.m in Sources */,
 				580A555B1E5D136200A70AB1 /* CALayer+Additions.m in Sources */,
 				1A3559641F0062CB00FFFBCA /* FormView.m in Sources */,
+				B910B85A2123BCF200468383 /* UploadedPhoto.m in Sources */,
 				1A12B2DD20A897340062C333 /* NSString+Additions.m in Sources */,
 				1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */,
 				1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */,

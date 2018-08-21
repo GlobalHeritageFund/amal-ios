@@ -55,6 +55,15 @@
              };
 }
 
+- (NSDictionary *)heritageDictionaryRepresentation {
+    return @{
+             @"latitude" : @(self.latitude),
+             @"longitude" : @(self.longitude),
+             @"caption" : self.notes,
+             @"captureDate" : @(self.date.timeIntervalSince1970),
+             };
+}
+
 - (NSString *)locationString {
     if (self.hasLocationCoordinates) {
         return [NSString stringWithFormat:@"%f, %f", self.latitude, self.longitude];
@@ -68,6 +77,38 @@
 
 - (CLLocationCoordinate2D)coordinate {
     return CLLocationCoordinate2DMake(self.latitude, self.longitude);
+}
+
+- (NSString *)category {
+    if (_category.length == 0) {
+        return @"unknown";
+    }
+    return _category;
+}
+
+- (NSString *)condition {
+    switch (self.conditionNumber) {
+        case 0:
+            return @"unknown";
+            break;
+        case 1:
+            return @"none";
+            break;
+        case 2:
+            return @"minor";
+            break;
+        case 3:
+            return @"moderate";
+            break;
+        case 4:
+            return @"severe";
+            break;
+        case 5:
+            return @"collapsed";
+            break;
+    }
+    
+    return @"unknown";
 }
 
 @end

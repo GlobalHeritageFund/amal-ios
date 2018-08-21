@@ -10,7 +10,7 @@
 #import "Promise.h"
 #import "ReportViewModel.h"
 
-@class ReportDraft;
+@class ReportDraft, Resource;
 
 @interface ReportUpload : NSObject<ReportProtocol>
 
@@ -23,5 +23,7 @@
 - (instancetype)initWithReportDraft:(ReportDraft *)reportDraft;
 
 - (void)upload;
+
+- (NSDictionary *)dictionaryRepresentationWithResources:(NSArray <NSDictionary *> *)resources;
 
 @end

@@ -16,6 +16,7 @@
 #import "CurrentUser.h"
 #import "Report.h"
 #import "UIImage+Resize.h"
+#import "HerBridgeReportUploader.h"
 
 @interface ReportUpload ()
 
@@ -62,36 +63,59 @@
     return [[[self storage] reference] child:@"images"];
 }
 
+- (NSDictionary *)dictionaryRepresentationWithResources:(NSArray <NSDictionary *> *)resources {
+    return @{
+             @"title" : self.title,
+             @"createdAt" : @([self.creationDate timeIntervalSince1970]),
+             @"type" : @"field_report",
+             @"assessor" : [CurrentUser shared].dictionaryRepresentation,
+             @"resources" : resources,
+             };
+}
+
 - (void)upload {
-    FIRDatabaseReference *reportRef = [self.reportsDirectory childByAutoId];
-
-    NSArray *photoUploadPromises = [self.reportDraft.photos arrayByTransformingObjectsUsingBlock:^id(id photo) {
-        FIRDatabaseReference *photoRef = [[reportRef child:@"images"] childByAutoId];
-        return [self uploadPhoto:photo atRef:photoRef];
-    }];
-
-    [[[[[Promise all:
-         @[
-           [[reportRef child:@"title"] promiseSetValue:self.reportDraft.title],
-           [[reportRef child:@"authorDeviceToken"] promiseSetValue:self.reportDraft.deviceToken],
-           [[reportRef child:@"assessorEmail"] promiseSetValue:self.reportDraft.email],
-           [[reportRef child:@"creationDate"] promiseSetValue:@(self.reportDraft.creationDate.timeIntervalSince1970)],
-           [Promise all:photoUploadPromises],
-           ]]
-        then:^id _Nullable(id  _Nonnull object) {
-            return [[reportRef child:@"uploadComplete"] promiseSetValue:@YES];
-        }]
-       then:^id _Nullable(id  _Nonnull object) {
-           return [reportRef promiseGet];
-       }]
-      then:^id _Nullable(id  _Nonnull object) {
-          Report *report = [[Report alloc] initWithKey:reportRef.key dictionary:object];
-          [self.promise fulfill:report];
-          return nil;
-      }]
-     catch:^(NSError * _Nonnull error) {
-         [self.promise reject:error];
-     }];
+    
+    if (self.isEAMENA) {
+        HerBridgeReportUploader *uploader = [[HerBridgeReportUploader alloc] initWithSession:[NSURLSession sharedSession] progresses:self.progresses];
+        Promise *promise = [uploader uploadReport:self];
+        
+        [promise then:^id _Nullable(id  _Nonnull object) {
+            [self.promise fulfill:object];
+            return nil;
+        }];
+        
+    }
+    else {
+        FIRDatabaseReference *reportRef = [self.reportsDirectory childByAutoId];
+        
+        NSArray *photoUploadPromises = [self.reportDraft.photos arrayByTransformingObjectsUsingBlock:^id(id photo) {
+            FIRDatabaseReference *photoRef = [[reportRef child:@"images"] childByAutoId];
+            return [self uploadPhoto:photo atRef:photoRef];
+        }];
+        
+        [[[[[Promise all:
+             @[
+               [[reportRef child:@"title"] promiseSetValue:self.reportDraft.title],
+               [[reportRef child:@"authorDeviceToken"] promiseSetValue:self.reportDraft.deviceToken],
+               [[reportRef child:@"assessorEmail"] promiseSetValue:self.reportDraft.email],
+               [[reportRef child:@"creationDate"] promiseSetValue:@(self.reportDraft.creationDate.timeIntervalSince1970)],
+               [Promise all:photoUploadPromises],
+               ]]
+            then:^id _Nullable(id  _Nonnull object) {
+                return [[reportRef child:@"uploadComplete"] promiseSetValue:@YES];
+            }]
+           then:^id _Nullable(id  _Nonnull object) {
+               return [reportRef promiseGet];
+           }]
+          then:^id _Nullable(id  _Nonnull object) {
+              Report *report = [[Report alloc] initWithKey:reportRef.key dictionary:object];
+              [self.promise fulfill:report];
+              return nil;
+          }]
+         catch:^(NSError * _Nonnull error) {
+             [self.promise reject:error];
+         }];
+    }
 }
 
 - (Promise *)uploadPhoto:(LocalPhoto *)photo atRef:(FIRDatabaseReference *)ref {
