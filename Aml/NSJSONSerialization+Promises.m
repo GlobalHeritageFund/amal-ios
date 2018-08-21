@@ -16,8 +16,7 @@
         NSDictionary *JSONDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         if (!JSONDictionary) {
             reject(error);
-        }
-        else {
+        } else {
             fulfill(JSONDictionary);
         }
     }];

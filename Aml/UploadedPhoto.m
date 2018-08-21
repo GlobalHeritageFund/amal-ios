@@ -12,13 +12,12 @@
 
 - (instancetype)initWithIdentifier:(NSString *)identifier thumbnailURL:(NSString *)thumbnailURL URL:(NSString *)URL photoUpload:(PhotoUpload *)photoUpload {
     self = [super init];
+    if (!self) return nil;
     
-    if (self) {
-        _identifier = identifier;
-        _thumbnailURL = thumbnailURL;
-        _URL = URL;
-        _photoUpload = photoUpload;
-    }
+    _identifier = identifier;
+    _thumbnailURL = thumbnailURL;
+    _URL = URL;
+    _photoUpload = photoUpload;
     
     return self;
 }
@@ -33,8 +32,7 @@
         
         if (url && thumbnailURL && identifier) {
             fulfill([[UploadedPhoto alloc] initWithIdentifier:identifier thumbnailURL:thumbnailURL URL:url photoUpload:photoUpload]);
-        }
-        else {
+        } else {
             reject([NSError errorWithDomain:@"com.amal.uploadedphoto" code:1 userInfo:nil]);
         }
     }];
