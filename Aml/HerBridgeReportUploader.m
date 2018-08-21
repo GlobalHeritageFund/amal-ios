@@ -37,6 +37,14 @@
     return self;
 }
 
+- (NSString *)baseString {
+    return @"http://herbridge.legiongis.com/";
+}
+
+- (NSString *)URLStringWithPath:(NSString *)path {
+    return [[self baseString] stringByAppendingString:path];
+}
+
 - (Promise *)uploadReport:(ReportUpload *)reportUpload {
     
     NSArray *photos = reportUpload.photos;
@@ -60,26 +68,21 @@
         }];
     }]];
     
-    Promise *uploadedPhotoPromise = [loadAll then:^id _Nullable(NSArray <PhotoUpload *> * _Nonnull array) {
+    Promise *uploadedPhotoPromises = [loadAll then:^id _Nullable(NSArray <PhotoUpload *> * _Nonnull array) {
         return [Promise all:[array arrayByTransformingObjectsUsingBlock:^id(PhotoUpload * image) {
-            return [[self.session POSTImageTo:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/images/"] image:image.image metadata:[image.metadata heritageDictionaryRepresentation]] then:^id _Nullable(NSDictionary * _Nonnull dictionary) {
+            return [[self.session POSTImageTo:[NSURL URLWithString:[self URLStringWithPath:@"api/images/"]] image:image.image metadata:[image.metadata heritageDictionaryRepresentation]] then:^id _Nullable(NSDictionary * _Nonnull dictionary) {
                     return [UploadedPhoto uploadedPhotoFrom:dictionary photoUpload:image];
             }];
         }]];
     }];
     
-    Promise * resourcesPromise = [uploadedPhotoPromise then:^id _Nullable(NSArray <UploadedPhoto *> * _Nonnull object) {
+    Promise *resourcesPromise = [uploadedPhotoPromises then:^id _Nullable(NSArray <UploadedPhoto *> * _Nonnull object) {
         
         NSArray <NSDictionary *> *resources = [object arrayByTransformingObjectsUsingBlock:^id(UploadedPhoto * image) {
             return [image dictionaryRepresentation];
         }];
         
-        return [self.session POSTJSONTaskWith:[NSURL URLWithString:@"http://herbridge.legiongis.com/api/reports/"] JSONBody:[reportUpload dictionaryRepresentationWithResources:resources]];
-    }];
-    
-    [resourcesPromise then:^id _Nullable(id _Nonnull object) {
-        NSLog(@"here %@", object);
-        return nil;
+        return [self.session POSTJSONTaskWith:[NSURL URLWithString:[self URLStringWithPath:@"api/reports/"]] JSONBody:[reportUpload dictionaryRepresentationWithResources:resources]];
     }];
     
     return [resourcesPromise then:^id _Nullable(NSDictionary * _Nonnull object) {
