@@ -73,9 +73,7 @@
     
     NSData *CRLFData = [@"\r\n" dataUsingEncoding:NSUTF8StringEncoding];
     
-    if (CRLFData) {
-        [bodyData appendData:CRLFData];
-    }
+    [bodyData appendData:CRLFData];
     
     return bodyData;
 }
