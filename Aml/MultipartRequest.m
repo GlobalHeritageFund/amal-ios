@@ -16,7 +16,6 @@
 
 @end
 
-
 @implementation MultipartRequest
 
 @synthesize methodType;

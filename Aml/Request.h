@@ -14,7 +14,6 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
     HTTPMethodPOST,
 };
 
-
 @protocol Request
 
 @property (nonatomic, readonly) NSString *URLString;
@@ -26,6 +25,5 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
 @property (nonatomic, readonly) NSData *httpBody;
 
 @end
-
 
 #endif /* Request_h */
