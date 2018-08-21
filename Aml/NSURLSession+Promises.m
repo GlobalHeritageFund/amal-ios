@@ -50,9 +50,7 @@
     [request setValue:@"multipart/form-data; charset=utf-8; boundary=\"AMALBoundary\"" forHTTPHeaderField:@"Content-Type"];
     [request setValue:[NSString stringWithFormat:@"%ld", [request.HTTPBody length]] forHTTPHeaderField:@"Content-Length"];
 
-    return [[self POSTTaskWithURL:URL request:request] then:^id _Nullable(NSData * _Nonnull object) {
-        return [NSJSONSerialization JSONDictionaryFromData:object];
-    }];
+    return [self taskWithRequest:request];
 }
 
 - (Promise <NSDictionary *> *)POSTJSONTaskWith:(NSURL *)URL JSONBody:(NSDictionary *)body {
@@ -66,18 +64,15 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:[NSString stringWithFormat:@"%ld", [request.HTTPBody length]] forHTTPHeaderField:@"Content-Length"];
     
-    return [[self POSTTaskWithURL:URL request:request] then:^id _Nullable(NSData * _Nonnull object) {
-        return [NSJSONSerialization JSONDictionaryFromData:object];
-    }];
+    return [self taskWithRequest:request];
 }
 
-- (Promise <NSDictionary *> *)POSTTaskWithURL:(NSURL *)URL request:(NSURLRequest *)request {
-    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSData * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+- (Promise <NSDictionary *> *)taskWithRequest:(NSURLRequest *)request {
+    return [[[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSData * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
         
         NSURLSessionDataTask *task = [self dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             
             NSHTTPURLResponse *URLResponse = (NSHTTPURLResponse *)response;
-            
             if (data && (URLResponse.statusCode == 200 || URLResponse.statusCode == 201)) {
                 fulfill(data);
             }
@@ -87,6 +82,8 @@
         }];
         
         [task resume];
+    }] then:^id _Nullable(NSData * _Nonnull object) {
+        return [NSJSONSerialization JSONDictionaryFromData:object];
     }];
 }
 

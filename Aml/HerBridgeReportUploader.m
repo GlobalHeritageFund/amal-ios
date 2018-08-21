@@ -16,6 +16,7 @@
 #import "UploadedPhoto.h"
 #import "PhotoUpload.h"
 #import "HerBridgeReport.h"
+#import "RequestFactory.h"
 
 @interface HerBridgeReportUploader ()
 
@@ -47,6 +48,8 @@
 
 - (Promise *)uploadReport:(ReportUpload *)reportUpload {
     
+    RequestFactory *factory = [[RequestFactory alloc] initWithBaseURLString:[self baseString] session:self.session];
+    
     NSArray *photos = reportUpload.photos;
     
     NSEnumerator <NSProgress *> *progressEnumerator = [self.progresses objectEnumerator];
@@ -70,19 +73,18 @@
     
     Promise *uploadedPhotoPromises = [loadAll then:^id _Nullable(NSArray <PhotoUpload *> * _Nonnull array) {
         return [Promise all:[array arrayByTransformingObjectsUsingBlock:^id(PhotoUpload * image) {
-            return [[self.session POSTImageTo:[NSURL URLWithString:[self URLStringWithPath:@"api/images/"]] image:image.image metadata:[image.metadata heritageDictionaryRepresentation]] then:^id _Nullable(NSDictionary * _Nonnull dictionary) {
+            return [[factory uploadImage:image.image metadata:[image.metadata heritageDictionaryRepresentation] path:@"api/images/"] then:^id _Nullable(NSDictionary * _Nonnull dictionary) {
                     return [UploadedPhoto uploadedPhotoFrom:dictionary photoUpload:image];
             }];
         }]];
     }];
     
     Promise *resourcesPromise = [uploadedPhotoPromises then:^id _Nullable(NSArray <UploadedPhoto *> * _Nonnull object) {
-        
         NSArray <NSDictionary *> *resources = [object arrayByTransformingObjectsUsingBlock:^id(UploadedPhoto * image) {
             return [image dictionaryRepresentation];
         }];
         
-        return [self.session POSTJSONTaskWith:[NSURL URLWithString:[self URLStringWithPath:@"api/reports/"]] JSONBody:[reportUpload dictionaryRepresentationWithResources:resources]];
+        return [factory postRequest:[reportUpload dictionaryRepresentationWithResources:resources] path:@"api/reports/"];
     }];
     
     return [resourcesPromise then:^id _Nullable(NSDictionary * _Nonnull object) {
