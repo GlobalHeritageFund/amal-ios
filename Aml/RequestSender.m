@@ -6,21 +6,21 @@
 //  Copyright © 2018 Global Heritage Fund. All rights reserved.
 //
 
-#import "RequestFactory.h"
+#import "RequestSender.h"
 #import "MultipartComponent.h"
 #import "NSURLSession+Promises.h"
 #import "RequestBuilder.h"
 #import "MultipartRequest.h"
 #import "JSONRequest.h"
 
-@interface RequestFactory ()
+@interface RequestSender ()
 
 @property (nonatomic, readonly) NSString *baseURLString;
 @property (nonatomic, readonly) NSURLSession *session;
 
 @end
 
-@implementation RequestFactory
+@implementation RequestSender
 
 - (instancetype)initWithBaseURLString:(NSString *)baseURLString session:(NSURLSession *)session {
     self = [super init];

@@ -11,7 +11,7 @@
 
 #import "Promise.h"
 
-@interface RequestFactory : NSObject
+@interface RequestSender : NSObject
 
 - (instancetype)initWithBaseURLString:(NSString *)baseURLString session:(NSURLSession *)session;
 

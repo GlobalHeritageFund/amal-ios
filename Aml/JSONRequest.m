@@ -23,8 +23,8 @@
     self = [super init];
     
     if (self) {
-        _JSONDictionary = JSONDictionary;
-        _URLString = URLString;
+        _JSONDictionary = [JSONDictionary copy];
+        _URLString = [URLString copy];
         _methodType = requestType;
     }
     

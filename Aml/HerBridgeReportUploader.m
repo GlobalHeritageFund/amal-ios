@@ -16,7 +16,7 @@
 #import "UploadedPhoto.h"
 #import "PhotoUpload.h"
 #import "HerBridgeReport.h"
-#import "RequestFactory.h"
+#import "RequestSender.h"
 
 @interface HerBridgeReportUploader ()
 
@@ -48,7 +48,7 @@
 
 - (Promise *)uploadReport:(ReportUpload *)reportUpload {
     
-    RequestFactory *factory = [[RequestFactory alloc] initWithBaseURLString:[self baseString] session:self.session];
+    RequestSender *factory = [[RequestSender alloc] initWithBaseURLString:[self baseString] session:self.session];
     
     NSArray *photos = reportUpload.photos;
     

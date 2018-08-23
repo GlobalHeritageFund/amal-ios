@@ -21,14 +21,11 @@
 }
 
 - (NSDictionary *)headers {
-    
-    NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
-    headers[@"Content-Type"] = self.request.contentType;
-    headers[@"Accept"] = @"application/json";
-    headers[@"Content-Length"] = [NSString stringWithFormat:@"%ld", [self.request.httpBody length]];
-
-    
-    return [headers copy];
+    return @{
+             @"Content-Type" : self.request.contentType,
+             @"Accept" : @"application/json",
+             @"Content-Length" : [NSString stringWithFormat:@"%ld", [self.request.httpBody length]],
+             };
 }
 
 - (NSURL *)URL {

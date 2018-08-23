@@ -25,9 +25,9 @@
     self = [super init];
     
     if (self) {
-        _boundary = boundary;
+        _boundary = [boundary copy];
         _parts = [parts copy];
-        _URLString = URLString;
+        _URLString = [URLString copy];
     }
     
     return self;
