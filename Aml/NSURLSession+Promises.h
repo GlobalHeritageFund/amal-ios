@@ -11,8 +11,6 @@
 
 @interface NSURLSession (Promises)
 
-- (Promise <NSDictionary *> *)POSTJSONTaskWith:(NSURL *)URL JSONBody:(NSDictionary *)body;
-
-- (Promise <NSDictionary *> *)POSTImageTo:(NSURL *)URL image:(UIImage *)image metadata:(NSDictionary *)metadata;
+- (Promise <NSDictionary *> *)taskWithRequest:(NSURLRequest *)request;
 
 @end
