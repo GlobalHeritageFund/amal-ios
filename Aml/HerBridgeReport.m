@@ -8,6 +8,8 @@
 
 #import "HerBridgeReport.h"
 #import "NSObject+Helpers.h"
+#import "NSArray+Additions.h"
+#import "HerBridgePhoto.h"
 
 @implementation HerBridgeReport
 
@@ -21,6 +23,10 @@
         
         NSTimeInterval created = [[dictionary[@"createdAt"] asClassOrNil:[NSNumber class]] doubleValue];
         _creationDate = [NSDate dateWithTimeIntervalSince1970:created];
+        
+        _photos = [dictionary[@"resources"] arrayByTransformingObjectsUsingBlock:^id(id object) {
+            return [[HerBridgePhoto alloc] initWithDictionary:object];
+        }];
         
     }
     

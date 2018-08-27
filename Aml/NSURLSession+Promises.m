@@ -14,8 +14,8 @@
 
 @implementation NSURLSession (Promises)
 
-- (Promise <NSDictionary *> *)taskWithRequest:(NSURLRequest *)request {
-    return [[[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSData * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
+- (Promise <NSData *> *)taskWithRequest:(NSURLRequest *)request {
+    return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSData * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
         
         NSURLSessionDataTask *task = [self dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             
@@ -29,7 +29,11 @@
         }];
         
         [task resume];
-    }] then:^id _Nullable(NSData * _Nonnull object) {
+    }];
+}
+
+- (Promise *)JSONtaskWithRequest:(NSURLRequest *)request {
+    return [[self taskWithRequest:request] then:^id _Nullable(NSData * _Nonnull object) {
         return [NSJSONSerialization JSONDictionaryFromData:object];
     }];
 }

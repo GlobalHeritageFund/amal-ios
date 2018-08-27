@@ -11,6 +11,7 @@
 
 @interface NSURLSession (Promises)
 
-- (Promise <NSDictionary *> *)taskWithRequest:(NSURLRequest *)request;
+- (Promise <NSData *> *)taskWithRequest:(NSURLRequest *)request;
+- (Promise <NSDictionary *> *)JSONtaskWithRequest:(NSURLRequest *)request;
 
 @end
