@@ -53,7 +53,7 @@
      [[FormGroup alloc]
       initWithHeaderText:@"About AMAL"
       formElements:@[
-                     [[MultiLineLabelFormElement alloc] initWithText:@"AMAL is a mobile and web application designed for the rapid impact assessment of damaged heritage areas, buildings, or artifacts."],
+                     [[MultiLineLabelFormElement alloc] initWithText:@"AMAL is an emergency management application designed for the rapid impact assessment of cultural heritage areas, buildings, and artifacts."],
                      ]
       ]
      ];
@@ -128,7 +128,7 @@
     
     [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Account" formElements:@[authenticationElement]]];
     
-    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Other" formElements:@[[[ButtonFormElement alloc] initWithTitle:@"Enter Passphrase" block:^{
+    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Partners" formElements:@[[[ButtonFormElement alloc] initWithTitle:@"Enter partner code" block:^{
         [weakSelf.delegate didSelectEnterPassphrase];
     }]]]];
     
