@@ -105,6 +105,7 @@
 		B910B87A212CBB3D00468383 /* RequestSender.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B879212CBB3D00468383 /* RequestSender.m */; };
 		B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */; };
 		B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98953A020FD321900BC79C0 /* CautionViewController.m */; };
+		B98A9A62213486A90028914E /* HerBridgePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B98A9A61213486A90028914E /* HerBridgePhoto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -293,6 +294,8 @@
 		B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DedicatedFirebaseAuthDelegate.h; sourceTree = "<group>"; };
 		B989539F20FD321900BC79C0 /* CautionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CautionViewController.h; sourceTree = "<group>"; };
 		B98953A020FD321900BC79C0 /* CautionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CautionViewController.m; sourceTree = "<group>"; };
+		B98A9A60213486A90028914E /* HerBridgePhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HerBridgePhoto.h; sourceTree = "<group>"; };
+		B98A9A61213486A90028914E /* HerBridgePhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HerBridgePhoto.m; sourceTree = "<group>"; };
 		BDF4AA242F7D6618E6B3175E /* Pods-Amal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Amal/Pods-Amal.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -395,6 +398,8 @@
 				1A4E9AD51F511396006856A8 /* ReportViewModel.m */,
 				B910B865212B2ACD00468383 /* HerBridgeReport.h */,
 				B910B866212B2ACD00468383 /* HerBridgeReport.m */,
+				B98A9A60213486A90028914E /* HerBridgePhoto.h */,
+				B98A9A61213486A90028914E /* HerBridgePhoto.m */,
 				1A4E39421F2FF1DF0055C7FA /* Report.h */,
 				1A4E39431F2FF1DF0055C7FA /* Report.m */,
 				1ACAD1E81F0EF7A3001935D4 /* ReportDraft.h */,
@@ -901,6 +906,7 @@
 				B910B843211A393300468383 /* PassphraseValidator.m in Sources */,
 				1ACAD1E61F0EF796001935D4 /* ReportDetailViewController.m in Sources */,
 				B94B67DD210BE91E00993431 /* DedicatedFirebaseAuthDelegate.m in Sources */,
+				B98A9A62213486A90028914E /* HerBridgePhoto.m in Sources */,
 				5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */,
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
 				1A3640651F049C650070E686 /* AMLMetadata.m in Sources */,

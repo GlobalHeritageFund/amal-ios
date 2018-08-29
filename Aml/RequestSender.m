@@ -41,14 +41,14 @@
     JSONRequest *request = [[JSONRequest alloc] initWithJSONDictionary:nil URLString:[self urlStringWithPath:path] requestType:HTTPMethodGET];
     RequestBuilder *builder = [[RequestBuilder alloc] initWithRequest:request];
 
-    return [self.session taskWithRequest:[builder URLRequest]];
+    return [self.session JSONtaskWithRequest:[builder URLRequest]];
 }
 
 - (Promise <NSDictionary *> *)postRequest:(NSDictionary *)jsonDictionary path:(NSString *)path {
     JSONRequest *request = [[JSONRequest alloc] initWithJSONDictionary:jsonDictionary URLString:[self urlStringWithPath:path] requestType:HTTPMethodPOST];
     RequestBuilder *builder = [[RequestBuilder alloc] initWithRequest:request];
     
-    return [self.session taskWithRequest:[builder URLRequest]];
+    return [self.session JSONtaskWithRequest:[builder URLRequest]];
 }
 
 - (Promise <NSDictionary *> *)uploadImage:(UIImage *)image metadata:(NSDictionary *)metadata path:(NSString *)path {
@@ -75,7 +75,7 @@
     MultipartRequest *request = [[MultipartRequest alloc] initWithBoundary:@"AMALBoundary" parts:parts URLString:[self urlStringWithPath:path]];
     RequestBuilder *builder = [[RequestBuilder alloc] initWithRequest:request];
     
-    return [self.session taskWithRequest:[builder URLRequest]];
+    return [self.session JSONtaskWithRequest:[builder URLRequest]];
 }
 
 @end
