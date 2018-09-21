@@ -300,14 +300,24 @@
     return 10;
 }
 
+- (CGFloat)horizontalPadding {
+    return 15;
+}
+
+- (CGFloat)hack_currentWidth {
+    return [[UIScreen mainScreen] bounds].size.width;
+}
+
 - (CGFloat)expectedHeight {
-    return [self.label sizeThatFits:self.bounds.size].height + 2*[self verticalPadding];
+    CGFloat value = [self.label sizeThatFits:CGSizeMake(self.hack_currentWidth - self.horizontalPadding * 2, CGFLOAT_MAX)].height + 2*[self verticalPadding];
+    
+    return value;
 }
 
 - (UILabel *)label {
     if (!_label) {
-        UILabel *label = [[UILabel alloc] init];\
-        label.numberOfLines = 0;
+        UILabel *label = [[UILabel alloc] init];
+        label.numberOfLines = 20;
         [self addSubview:label];
         self.label = label;
     }
@@ -317,7 +327,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     CGRect workingRect = self.bounds;
-    workingRect = CGRectInset(workingRect, 15, [self verticalPadding]);
+    workingRect = CGRectInset(workingRect, [self horizontalPadding], [self verticalPadding]);
     self.label.frame = workingRect;
 }
 
