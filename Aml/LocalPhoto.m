@@ -40,6 +40,12 @@
     return self.metadata.date;
 }
 
+- (NSURL *)imageURL {
+    NSURLComponents *urlComponents = [NSURLComponents componentsWithString:self.imagePath];
+    urlComponents.scheme = @"file";
+    return [urlComponents URL];
+}
+
 - (Promise<UIImage *> *)loadFullSizeImage {
     return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(id _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
         UIImage *image = [UIImage imageWithContentsOfFile:self.imagePath];

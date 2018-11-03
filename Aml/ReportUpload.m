@@ -129,26 +129,19 @@
     FIRStorageMetadata *metadata = [FIRStorageMetadata new];
 
     metadata.contentType = @"image/jpeg";
-
-    Promise *loadImagePromise = [photo loadCorrectlyOrientedFullSizeImage];
     
-    Promise *photoUploadPromise = [loadImagePromise then:^id _Nullable(UIImage * _Nonnull image) {
-        
-        NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
-        FIRStorageObservableTask *task = [imageRef putData:imageData metadata:metadata];
-        [task observeStatus:FIRStorageTaskStatusProgress handler:^(FIRStorageTaskSnapshot * _Nonnull snapshot) {
-            progress.completedUnitCount = ((double)progress.totalUnitCount) * snapshot.progress.fractionCompleted;
-        }];
-        [task observeStatus:FIRStorageTaskStatusSuccess handler:^(FIRStorageTaskSnapshot * _Nonnull snapshot) {
-            progress.completedUnitCount = progress.totalUnitCount;
-        }];
-        return [task promise];
+    FIRStorageObservableTask *task = [imageRef putFile:photo.imageURL metadata:metadata];
+    [task observeStatus:FIRStorageTaskStatusProgress handler:^(FIRStorageTaskSnapshot * _Nonnull snapshot) {
+        progress.completedUnitCount = ((double)progress.totalUnitCount) * snapshot.progress.fractionCompleted;
     }];
-
+    [task observeStatus:FIRStorageTaskStatusSuccess handler:^(FIRStorageTaskSnapshot * _Nonnull snapshot) {
+        progress.completedUnitCount = progress.totalUnitCount;
+    }];
+    
     return [Promise all:@[
                           [[ref child:@"settings"] promiseSetValue:photo.metadata.dictionaryRepresentation],
                           [[ref child:@"imageRef"] promiseSetValue:imageRef.fullPath],
-                          photoUploadPromise,
+                          [task promise],
                           ]];
 }
 
