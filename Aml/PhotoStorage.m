@@ -10,9 +10,9 @@
 #import "NSArray+Additions.h"
 #import "LocalPhoto.h"
 #import "AMLMetadata.h"
+#import "UIImage+Resize.h"
 
 @implementation PhotoSection
-
 
 @end
 
@@ -120,16 +120,19 @@
     NSString *settingsFilename = [NSString stringWithFormat:@"%s/%@.json", self.imagesDirectory.fileSystemRepresentation, newNumber];
     NSString *filename = [NSString stringWithFormat:@"%s/%@.jpeg", self.imagesDirectory.fileSystemRepresentation, newNumber];
 
-    [jpegData writeToFile:filename atomically:NO];
+    UIImage *image = [UIImage imageWithData:jpegData];
+    UIImage *normalizedImage = [image synchronousResizedImage:image.size interpolationQuality:kCGInterpolationHigh];
+    NSData *normalizedImageData = UIImageJPEGRepresentation(normalizedImage, 0.9);
+    
+    [normalizedImageData writeToFile:filename atomically:YES];
 
     NSData *settingsData = [NSJSONSerialization dataWithJSONObject:metadata.dictionaryRepresentation options:0 error:nil];
 
-    [settingsData writeToFile:settingsFilename atomically:NO];
+    [settingsData writeToFile:settingsFilename atomically:YES];
 
     LocalPhoto *localPhoto = [[LocalPhoto alloc] initWithImagePath:filename settingsPath:settingsFilename];
     
     return localPhoto;
 }
-
 
 @end

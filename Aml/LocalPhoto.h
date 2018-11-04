@@ -21,6 +21,7 @@
 @property (readonly) NSString *imagePath;
 @property (readonly) NSString *settingsPath;
 @property (readonly) NSDate *date;
+@property (readonly) NSURL *imageURL;
 
 @property (readonly) AMLMetadata *metadata;
 
