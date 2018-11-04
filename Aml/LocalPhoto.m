@@ -80,7 +80,7 @@
 - (void)saveMetadata {
     NSData *settingsData = [NSJSONSerialization dataWithJSONObject:self.metadata.dictionaryRepresentation options:0 error:nil];
     
-    [settingsData writeToFile:self.settingsPath atomically:NO];
+    [settingsData writeToFile:self.settingsPath atomically:YES];
 }
 
 - (void)refreshMetadata {

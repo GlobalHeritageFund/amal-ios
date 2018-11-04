@@ -124,11 +124,11 @@
     UIImage *normalizedImage = [image synchronousResizedImage:image.size interpolationQuality:kCGInterpolationHigh];
     NSData *normalizedImageData = UIImageJPEGRepresentation(normalizedImage, 0.9);
     
-    [normalizedImageData writeToFile:filename atomically:NO];
+    [normalizedImageData writeToFile:filename atomically:YES];
 
     NSData *settingsData = [NSJSONSerialization dataWithJSONObject:metadata.dictionaryRepresentation options:0 error:nil];
 
-    [settingsData writeToFile:settingsFilename atomically:NO];
+    [settingsData writeToFile:settingsFilename atomically:YES];
 
     LocalPhoto *localPhoto = [[LocalPhoto alloc] initWithImagePath:filename settingsPath:settingsFilename];
     
