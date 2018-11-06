@@ -14,7 +14,6 @@
 #import "AMLMetadata.h"
 #import "NSArray+Additions.h"
 #import "UploadedPhoto.h"
-#import "PhotoUpload.h"
 #import "HerBridgeReport.h"
 #import "RequestSender.h"
 
@@ -54,7 +53,7 @@
     
     NSEnumerator <NSProgress *> *progressEnumerator = [self.progresses objectEnumerator];
     
-    Promise <NSArray <PhotoUpload *> *> *loadAll = [Promise all:[photos arrayByTransformingObjectsUsingBlock:^id(LocalPhoto *photo) {
+    Promise <NSArray <UploadedPhoto *> *> *loadAll = [Promise all:[photos arrayByTransformingObjectsUsingBlock:^id(LocalPhoto *photo) {
         NSProgress *progress = [progressEnumerator nextObject];
         
         return [[[factory uploadFile:photo.imageURL metadata:[photo.metadata heritageDictionaryRepresentation] path:@"api/images/"]
