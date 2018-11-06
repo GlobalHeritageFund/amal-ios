@@ -55,27 +55,23 @@
     NSEnumerator <NSProgress *> *progressEnumerator = [self.progresses objectEnumerator];
     
     Promise <NSArray <PhotoUpload *> *> *loadAll = [Promise all:[photos arrayByTransformingObjectsUsingBlock:^id(id <PhotoProtocol> object) {
-        NSProgress *progress = [progressEnumerator nextObject];
         return [[object loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
-            
-            Promise *returnPromise = [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(PhotoUpload * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
-                fulfill([[PhotoUpload alloc] initWithImage:image metadata:[object metadata]]);
-            }];
-            
-            [returnPromise then:^id _Nullable(id  _Nonnull object) {
-                progress.completedUnitCount = progress.totalUnitCount;
-                return nil;
-            }];
-            
-            return returnPromise;
+            return [[PhotoUpload alloc] initWithImage:image metadata:[object metadata]];
         }];
     }]];
     
     Promise *uploadedPhotoPromises = [loadAll then:^id _Nullable(NSArray <PhotoUpload *> * _Nonnull array) {
         return [Promise all:[array arrayByTransformingObjectsUsingBlock:^id(PhotoUpload * image) {
-            return [[factory uploadImage:image.image metadata:[image.metadata heritageDictionaryRepresentation] path:@"api/images/"] then:^id _Nullable(NSDictionary * _Nonnull dictionary) {
-                    return [UploadedPhoto uploadedPhotoFrom:dictionary photoUpload:image];
+            NSProgress *progress = [progressEnumerator nextObject];
+
+            return [[[factory uploadImage:image.image metadata:[image.metadata heritageDictionaryRepresentation] path:@"api/images/"]
+                     then:^id _Nullable(NSDictionary * _Nonnull dictionary) {
+                return [UploadedPhoto uploadedPhotoFrom:dictionary photoUpload:image];
+            }] then:^id _Nullable(id  _Nonnull object) {
+                progress.completedUnitCount = progress.totalUnitCount;
+                return nil;
             }];
+
         }]];
     }];
     
