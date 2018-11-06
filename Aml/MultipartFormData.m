@@ -8,6 +8,7 @@
 
 #import "MultipartFormData.h"
 #import "MultipartComponent.h"
+#import "NSSerialInputStream.h"
 
 @interface MultipartFormData ()
 
@@ -31,30 +32,28 @@
     return self;
 }
 
-- (nonnull NSData *)dataRepresentation {
-    NSMutableData *data = [[NSMutableData alloc] init];
+- (nonnull NSInputStream *)inputStream {
+
+    NSMutableArray *inputStreams = [@[] mutableCopy];
+    NSString *boundary = self.boundary;
     
-    // Maps all the current body parts to data and appends to the mutable data.
-    {
-        NSString *boundary = self.boundary;
-        for (MultipartComponent *bodyPart in self.parts) {
-            [data appendData:[bodyPart dataRepresentationWithBoundary:[@"--" stringByAppendingString:boundary]]];
-        }
+    for (MultipartComponent *bodyPart in self.parts) {
+        [inputStreams addObject:[bodyPart inputStreamUsingBoundary:[@"--" stringByAppendingString:boundary]]];
     }
     
     NSData *boundaryData = [[NSString stringWithFormat:@"--%@--", self.boundary] dataUsingEncoding:NSUTF8StringEncoding];
     
     if (boundaryData) {
-        [data appendData:boundaryData];
+        [inputStreams addObject:[NSInputStream inputStreamWithData:boundaryData]];
     }
     
     NSData *CRLFData = [@"\r\n" dataUsingEncoding:NSUTF8StringEncoding];
     
     if (CRLFData) {
-        [data appendData:CRLFData];
+        [inputStreams addObject:[NSInputStream inputStreamWithData:CRLFData]];
     }
     
-    return data;
+    return [[NSSerialInputStream alloc] initWithInputStreams:inputStreams];
 }
 
 @end

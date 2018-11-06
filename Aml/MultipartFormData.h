@@ -13,6 +13,6 @@
 
 - (nonnull instancetype)initWithParts:(nonnull NSArray <MultipartComponent *> *)parts boundary:(nonnull NSString *)boundary;
 
-- (nonnull NSData *)dataRepresentation;
+- (nonnull NSInputStream *)inputStream;
 
 @end

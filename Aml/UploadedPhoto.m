@@ -7,22 +7,23 @@
 //
 
 #import "UploadedPhoto.h"
+#import "AMLMetadata.h"
 
 @implementation UploadedPhoto
 
-- (instancetype)initWithIdentifier:(NSString *)identifier thumbnailURL:(NSString *)thumbnailURL URL:(NSString *)URL photoUpload:(PhotoUpload *)photoUpload {
+- (instancetype)initWithIdentifier:(NSString *)identifier thumbnailURL:(NSString *)thumbnailURL URL:(NSString *)URL localPhoto:(LocalPhoto *)localPhoto {
     self = [super init];
     if (!self) return nil;
     
     _identifier = identifier;
     _thumbnailURL = thumbnailURL;
     _URL = URL;
-    _photoUpload = photoUpload;
+    _localPhoto = localPhoto;
     
     return self;
 }
 
-+ (Promise <UploadedPhoto *> *)uploadedPhotoFrom:(NSDictionary *)dictionary photoUpload:(PhotoUpload *)photoUpload {
++ (Promise <UploadedPhoto *> *)uploadedPhotoFrom:(NSDictionary *)dictionary localPhoto:(LocalPhoto *)localPhoto {
     
     return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(UploadedPhoto * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
         
@@ -31,7 +32,7 @@
         NSString *identifier = dictionary[@"id"];
         
         if (url && thumbnailURL && identifier) {
-            fulfill([[UploadedPhoto alloc] initWithIdentifier:identifier thumbnailURL:thumbnailURL URL:url photoUpload:photoUpload]);
+            fulfill([[UploadedPhoto alloc] initWithIdentifier:identifier thumbnailURL:thumbnailURL URL:url localPhoto:localPhoto]);
         } else {
             reject([NSError errorWithDomain:@"com.amal.uploadedphoto" code:1 userInfo:nil]);
         }
@@ -42,13 +43,13 @@
 - (NSDictionary *)dictionaryRepresentation {
     
     return @{
-      @"name" : self.photoUpload.metadata.name,
-      @"notes" : self.photoUpload.metadata.notes,
-      @"condition" : self.photoUpload.metadata.condition,
-      @"type" : self.photoUpload.metadata.category,
-      @"hazards" : @(self.photoUpload.metadata.hazards),
-      @"safetyHazards" : @(self.photoUpload.metadata.safetyHazards),
-      @"interventionRequired" : @(self.photoUpload.metadata.interventionRequired),
+      @"name" : self.localPhoto.metadata.name,
+      @"notes" : self.localPhoto.metadata.notes,
+      @"condition" : self.localPhoto.metadata.condition,
+      @"type" : self.localPhoto.metadata.category,
+      @"hazards" : @(self.localPhoto.metadata.hazards),
+      @"safetyHazards" : @(self.localPhoto.metadata.safetyHazards),
+      @"interventionRequired" : @(self.localPhoto.metadata.interventionRequired),
       @"images" : @[
               self.identifier
               ]

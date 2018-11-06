@@ -19,6 +19,8 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
 
 @property (nonatomic, readonly) NSString *contentType;
 
-@property (nonatomic, readonly) NSData *httpBody;
+@property (nonatomic, readonly) NSInputStream *httpBodyStream;
+
+@property (nonatomic, readonly) NSUInteger contentLength;
 
 @end

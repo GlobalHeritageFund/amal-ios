@@ -35,13 +35,20 @@
     return @"application/json";
 }
 
-- (NSData *)httpBody {
-    
+- (NSData *)data {
     if (self.methodType == HTTPMethodGET) {
         return nil;
     }
     
     return [NSJSONSerialization dataWithJSONObject:self.JSONDictionary options:0 error:nil];
+}
+
+- (NSInputStream *)httpBodyStream {
+    return [NSInputStream inputStreamWithData:self.data];
+}
+
+- (NSUInteger)contentLength {
+    return self.data.length;
 }
 
 @end

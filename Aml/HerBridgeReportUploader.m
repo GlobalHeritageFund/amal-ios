@@ -54,28 +54,19 @@
     
     NSEnumerator <NSProgress *> *progressEnumerator = [self.progresses objectEnumerator];
     
-    Promise <NSArray <PhotoUpload *> *> *loadAll = [Promise all:[photos arrayByTransformingObjectsUsingBlock:^id(id <PhotoProtocol> object) {
-        return [[object loadFullSizeImage] then:^id _Nullable(UIImage * _Nonnull image) {
-            return [[PhotoUpload alloc] initWithImage:image metadata:[object metadata]];
-        }];
+    Promise <NSArray <PhotoUpload *> *> *loadAll = [Promise all:[photos arrayByTransformingObjectsUsingBlock:^id(LocalPhoto *photo) {
+        NSProgress *progress = [progressEnumerator nextObject];
+        
+        return [[[factory uploadFile:photo.imageURL metadata:[photo.metadata heritageDictionaryRepresentation] path:@"api/images/"]
+                  then:^id _Nullable(NSDictionary * _Nonnull dictionary) {
+                      progress.completedUnitCount = progress.totalUnitCount;
+                      return [UploadedPhoto uploadedPhotoFrom:dictionary localPhoto:photo];
+                  }] catch:^(NSError * _Nonnull error) {
+                      NSLog(@"%@", error);
+                  }];
     }]];
     
-    Promise *uploadedPhotoPromises = [loadAll then:^id _Nullable(NSArray <PhotoUpload *> * _Nonnull array) {
-        return [Promise all:[array arrayByTransformingObjectsUsingBlock:^id(PhotoUpload * image) {
-            NSProgress *progress = [progressEnumerator nextObject];
-
-            return [[[factory uploadImage:image.image metadata:[image.metadata heritageDictionaryRepresentation] path:@"api/images/"]
-                     then:^id _Nullable(NSDictionary * _Nonnull dictionary) {
-                return [UploadedPhoto uploadedPhotoFrom:dictionary photoUpload:image];
-            }] then:^id _Nullable(id  _Nonnull object) {
-                progress.completedUnitCount = progress.totalUnitCount;
-                return nil;
-            }];
-
-        }]];
-    }];
-    
-    Promise *resourcesPromise = [uploadedPhotoPromises then:^id _Nullable(NSArray <UploadedPhoto *> * _Nonnull object) {
+    Promise *resourcesPromise = [loadAll then:^id _Nullable(NSArray <UploadedPhoto *> * _Nonnull object) {
         NSArray <NSDictionary *> *resources = [object arrayByTransformingObjectsUsingBlock:^id(UploadedPhoto * image) {
             return [image dictionaryRepresentation];
         }];
