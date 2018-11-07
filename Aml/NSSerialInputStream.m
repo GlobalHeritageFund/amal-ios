@@ -82,7 +82,7 @@
 }
 
 - (BOOL)hasBytesAvailable {
-    return self.currentIndex != self.inputStreams.count;
+    return self.streamStatus == NSStreamStatusClosed || self.currentIndex != self.inputStreams.count;
 }
 
 #pragma mark - NSStream
