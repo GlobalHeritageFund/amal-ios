@@ -66,19 +66,6 @@
              };
 }
 
-- (NSDictionary *)heritageDictionaryRepresentation {
-    return @{
-             @"id": self.localIdentifier ?: [[NSUUID UUID] UUIDString],
-             @"title": self.title ?: [NSNull null],
-             @"createdAt": @([self.creationDate timeIntervalSince1970]),
-             
-             @"type" : @"field report",
-             
-             @"assessor" : [[CurrentUser shared] dictionaryRepresentation],
-             @"resources": @[],
-             };
-}
-
 - (NSArray<LocalPhoto *> *)photos {
     return self.localPhotos;
 }
