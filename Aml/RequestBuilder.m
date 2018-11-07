@@ -24,7 +24,7 @@
     return @{
              @"Content-Type" : self.request.contentType,
              @"Accept" : @"application/json",
-             @"Content-Length" : [NSString stringWithFormat:@"%zd", self.request.contentLength],
+             @"Content-Length" : [NSString stringWithFormat:@"%tu", self.request.contentLength],
              };
 }
 
