@@ -63,12 +63,20 @@
     return [[[self storage] reference] child:@"images"];
 }
 
+- (NSDictionary *)assessorDictionary; {
+    NSMutableDictionary *assessorDictionary = [[[CurrentUser shared] dictionaryRepresentation] mutableCopy];
+    if (assessorDictionary[@"email"] == [NSNull null]) {
+        assessorDictionary[@"email"] = self.reportDraft.email;
+    }
+    return assessorDictionary;
+}
+
 - (NSDictionary *)dictionaryRepresentationWithResources:(NSArray <NSDictionary *> *)resources {
     return @{
              @"title" : self.title,
              @"createdAt" : @([self.creationDate timeIntervalSince1970]),
              @"type" : @"field_report",
-             @"assessor" : [CurrentUser shared].dictionaryRepresentation,
+             @"assessor" : self.assessorDictionary,
              @"resources" : resources,
              };
 }
