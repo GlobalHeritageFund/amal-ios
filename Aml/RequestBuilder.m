@@ -24,7 +24,7 @@
     return @{
              @"Content-Type" : self.request.contentType,
              @"Accept" : @"application/json",
-             @"Content-Length" : [NSString stringWithFormat:@"%ld", [self.request.httpBody length]],
+             @"Content-Length" : [NSString stringWithFormat:@"%tu", self.request.contentLength],
              };
 }
 
@@ -38,7 +38,7 @@
     [self.headers enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [URLRequest addValue:obj forHTTPHeaderField:key];
     }];
-    URLRequest.HTTPBody = self.request.httpBody;
+    URLRequest.HTTPBodyStream = self.request.httpBodyStream;
     
     return [URLRequest copy];
 }

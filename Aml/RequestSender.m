@@ -51,10 +51,9 @@
     return [self.session JSONtaskWithRequest:[builder URLRequest]];
 }
 
-- (Promise <NSDictionary *> *)uploadImage:(UIImage *)image metadata:(NSDictionary *)metadata path:(NSString *)path {
-    NSData *data = UIImageJPEGRepresentation(image, 1.0);
+- (Promise <NSDictionary *> *)uploadFile:(NSURL *)url metadata:(NSDictionary *)metadata path:(NSString *)path {
     
-    MultipartComponent *imagePart = [[MultipartComponent alloc] initWithData:data name:@"image" fileName:@"image_1.jpg" contentType:@"image/jpeg"];
+    MultipartComponent *imagePart = [[MultipartComponent alloc] initWithFileURL:url name:@"image" fileName:@"image_1.jpg" contentType:@"image/jpeg"];
     
     NSMutableArray *parts = [[NSMutableArray alloc] initWithObjects:imagePart, nil];
     

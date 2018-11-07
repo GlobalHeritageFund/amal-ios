@@ -20,11 +20,14 @@
         NSURLSessionDataTask *task = [self dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             
             NSHTTPURLResponse *URLResponse = (NSHTTPURLResponse *)response;
-            if (data && (URLResponse.statusCode == 200 || URLResponse.statusCode == 201)) {
-                fulfill(data);
-            }
-            else {
+            if (error) {
                 reject(error);
+            } else if(!(URLResponse.statusCode >= 200 && URLResponse.statusCode < 300)) {
+                reject([NSError errorWithDomain:@"NSURLSessionStatusCodeError" code:URLResponse.statusCode userInfo:nil]);
+            } else if (data) {
+                fulfill(data);
+            } else {
+                [[NSException exceptionWithName:@"URLSessionException" reason:@"Something has gone horrible wrong" userInfo:nil] raise];
             }
         }];
         

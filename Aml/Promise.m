@@ -98,11 +98,13 @@
 }
 
 - (void)fulfill:(id)value {
+    NSParameterAssert(value);
     [self updateWithValue:value];
 }
 
 - (void)reject:(NSError *)error {
-    [self updateWithValue:error];
+    NSParameterAssert(error);
+   [self updateWithValue:error];
 }
 
 - (void)updateWithValue:(id)valueOrError {

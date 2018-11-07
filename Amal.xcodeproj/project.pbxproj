@@ -59,6 +59,7 @@
 		1A7432621EF5CCFA00CE9D17 /* NSArray+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */; };
 		1A88972A1EEE3C0E00B38D24 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */; };
 		1A8E555C1FFC361500881CDE /* LocalPhotoFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8E555B1FFC361500881CDE /* LocalPhotoFilter.m */; };
+		1A8E7EA7219250E000E21898 /* NSSerialInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8E7EA5219250E000E21898 /* NSSerialInputStream.m */; };
 		1ABD81CD1F10562400E2C460 /* Promise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD81CC1F10562400E2C460 /* Promise.m */; };
 		1ABD81D01F10565F00E2C460 /* Firebase+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */; };
 		1ACAD1E61F0EF796001935D4 /* ReportDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACAD1E51F0EF796001935D4 /* ReportDetailViewController.m */; };
@@ -96,7 +97,6 @@
 		B910B852212357B800468383 /* MultipartComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B851212357B800468383 /* MultipartComponent.m */; };
 		B910B855212357FD00468383 /* MultipartFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B854212357FD00468383 /* MultipartFormData.m */; };
 		B910B85A2123BCF200468383 /* UploadedPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B8592123BCF200468383 /* UploadedPhoto.m */; };
-		B910B85D2123C44300468383 /* PhotoUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B85C2123C44300468383 /* PhotoUpload.m */; };
 		B910B864212B224D00468383 /* NSJSONSerialization+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B863212B224D00468383 /* NSJSONSerialization+Promises.m */; };
 		B910B867212B2ACD00468383 /* HerBridgeReport.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B866212B2ACD00468383 /* HerBridgeReport.m */; };
 		B910B870212CB21D00468383 /* RequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B86F212CB21D00468383 /* RequestBuilder.m */; };
@@ -209,6 +209,8 @@
 		1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		1A8E555A1FFC361500881CDE /* LocalPhotoFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalPhotoFilter.h; sourceTree = "<group>"; };
 		1A8E555B1FFC361500881CDE /* LocalPhotoFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalPhotoFilter.m; sourceTree = "<group>"; };
+		1A8E7EA5219250E000E21898 /* NSSerialInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSerialInputStream.m; sourceTree = "<group>"; };
+		1A8E7EA6219250E000E21898 /* NSSerialInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSerialInputStream.h; sourceTree = "<group>"; };
 		1ABD81CB1F10562400E2C460 /* Promise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Promise.h; sourceTree = "<group>"; };
 		1ABD81CC1F10562400E2C460 /* Promise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Promise.m; sourceTree = "<group>"; };
 		1ABD81CE1F10565F00E2C460 /* Firebase+Promises.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Firebase+Promises.h"; sourceTree = "<group>"; };
@@ -275,8 +277,6 @@
 		B910B854212357FD00468383 /* MultipartFormData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipartFormData.m; sourceTree = "<group>"; };
 		B910B8582123BCF200468383 /* UploadedPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadedPhoto.h; sourceTree = "<group>"; };
 		B910B8592123BCF200468383 /* UploadedPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadedPhoto.m; sourceTree = "<group>"; };
-		B910B85B2123C44300468383 /* PhotoUpload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoUpload.h; sourceTree = "<group>"; };
-		B910B85C2123C44300468383 /* PhotoUpload.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoUpload.m; sourceTree = "<group>"; };
 		B910B862212B224D00468383 /* NSJSONSerialization+Promises.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+Promises.h"; sourceTree = "<group>"; };
 		B910B863212B224D00468383 /* NSJSONSerialization+Promises.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+Promises.m"; sourceTree = "<group>"; };
 		B910B865212B2ACD00468383 /* HerBridgeReport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HerBridgeReport.h; sourceTree = "<group>"; };
@@ -686,6 +686,8 @@
 		B910B84C21232C3200468383 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				1A8E7EA6219250E000E21898 /* NSSerialInputStream.h */,
+				1A8E7EA5219250E000E21898 /* NSSerialInputStream.m */,
 				B910B8492123184700468383 /* HerBridgeReportUploader.h */,
 				B910B84A2123184700468383 /* HerBridgeReportUploader.m */,
 				B910B86D212CB1FD00468383 /* Request Building */,
@@ -703,8 +705,6 @@
 			children = (
 				B910B8582123BCF200468383 /* UploadedPhoto.h */,
 				B910B8592123BCF200468383 /* UploadedPhoto.m */,
-				B910B85B2123C44300468383 /* PhotoUpload.h */,
-				B910B85C2123C44300468383 /* PhotoUpload.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -911,7 +911,6 @@
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
 				1A3640651F049C650070E686 /* AMLMetadata.m in Sources */,
 				B910B870212CB21D00468383 /* RequestBuilder.m in Sources */,
-				B910B85D2123C44300468383 /* PhotoUpload.m in Sources */,
 				1A12B2DA20A894A20062C333 /* DiskCache.m in Sources */,
 				1A3EE1581F0748490068B596 /* MapViewController.m in Sources */,
 				1A35595A1F001DF000FFFBCA /* AssessViewController.m in Sources */,
@@ -974,6 +973,7 @@
 				1A12B2DD20A897340062C333 /* NSString+Additions.m in Sources */,
 				1A1B7FA91F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m in Sources */,
 				1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */,
+				1A8E7EA7219250E000E21898 /* NSSerialInputStream.m in Sources */,
 				1A5AADE41F4F756A00573829 /* QBAlbumCell.m in Sources */,
 				1A4E9AD61F511396006856A8 /* ReportViewModel.m in Sources */,
 				1A03AB891FF5C31300D15002 /* MultiAssessViewController.m in Sources */,

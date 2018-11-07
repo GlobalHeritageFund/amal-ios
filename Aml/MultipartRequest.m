@@ -37,12 +37,20 @@
     return [NSString stringWithFormat:@"multipart/form-data; charset=utf-8; boundary=\"%@\"", self.boundary];
 }
 
-- (NSData *)httpBody {
-    return [[[MultipartFormData alloc] initWithParts:self.parts boundary:self.boundary] dataRepresentation];
+- (NSInputStream *)httpBodyStream {
+    return [[[MultipartFormData alloc] initWithParts:self.parts boundary:self.boundary] inputStream];
 }
 
 - (HTTPMethod)methodType {
     return HTTPMethodPOST;
+}
+
+- (NSUInteger)contentLength {
+    NSUInteger length = 0;
+    for (MultipartComponent *component in self.parts) {
+        length += [component contentLengthWithBoundary:self.boundary];
+    }
+    return length;
 }
 
 @end

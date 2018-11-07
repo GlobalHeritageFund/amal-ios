@@ -18,6 +18,6 @@
 - (Promise <NSDictionary *> *)getRequestWithPath:(NSString *)path;
 - (Promise <NSDictionary *> *)postRequest:(NSDictionary *)jsonDictionary path:(NSString *)path;
 
-- (Promise <NSDictionary *> *)uploadImage:(UIImage *)image metadata:(NSDictionary *)metadata path:(NSString *)path;
+- (Promise <NSDictionary *> *)uploadFile:(NSURL *)url metadata:(NSDictionary *)metadata path:(NSString *)path;
 
 @end
