@@ -62,13 +62,18 @@
         
         NSInteger numberOfBytesRead = [currentInputStream read:&buffer[totalNumberOfBytesRead] maxLength:remainingLength];
         
-        totalNumberOfBytesRead += numberOfBytesRead;
+        if (numberOfBytesRead == 0) {
+            self.currentIndex += 1;
+            continue;
+        }
 
         if (numberOfBytesRead == -1) {
             self.streamError = currentInputStream.streamError;
+            self.streamStatus = NSStreamStatusError;
             return -1;
         }
         
+        totalNumberOfBytesRead += numberOfBytesRead;
     }
     
     return totalNumberOfBytesRead;
@@ -82,7 +87,7 @@
 }
 
 - (BOOL)hasBytesAvailable {
-    return self.streamStatus == NSStreamStatusClosed || self.currentIndex != self.inputStreams.count;
+    return YES;
 }
 
 #pragma mark - NSStream
