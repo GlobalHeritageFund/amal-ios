@@ -35,10 +35,9 @@
 - (nonnull NSInputStream *)inputStream {
 
     NSMutableArray *inputStreams = [@[] mutableCopy];
-    NSString *boundary = self.boundary;
     
     for (MultipartComponent *bodyPart in self.parts) {
-        [inputStreams addObject:[bodyPart inputStreamUsingBoundary:[@"--" stringByAppendingString:boundary]]];
+        [inputStreams addObject:[bodyPart inputStreamUsingBoundary:[@"--" stringByAppendingString:self.boundary]]];
     }
     
     NSData *boundaryData = [[NSString stringWithFormat:@"--%@--", self.boundary] dataUsingEncoding:NSUTF8StringEncoding];
