@@ -22,6 +22,6 @@
 
 - (nonnull NSInputStream *)inputStreamUsingBoundary:(nonnull NSString *)boundary;
 
-- (NSUInteger)contentLengthWithBoundary:(NSString *)boundary;
+- (NSUInteger)contentLengthWithBoundary:(NSString *_Nonnull)boundary;
 
 @end

@@ -59,8 +59,8 @@
     return @{
              @"latitude" : @(self.latitude),
              @"longitude" : @(self.longitude),
-             @"caption" : self.notes,
              @"captureDate" : @(self.date.timeIntervalSince1970),
+             @"caption" : self.notes,
              };
 }
 
