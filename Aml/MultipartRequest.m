@@ -33,7 +33,7 @@
 }
 
 - (NSString *)contentType {
-    return [NSString stringWithFormat:@"multipart/form-data; charset=utf-8; boundary=\"%@\"", self.boundary];
+    return [NSString stringWithFormat:@"multipart/form-data; charset=utf-8; boundary=\"%@\"", self.formData.boundary];
 }
 
 - (NSInputStream *)httpBodyStream {
