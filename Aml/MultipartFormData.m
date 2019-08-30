@@ -13,7 +13,6 @@
 @interface MultipartFormData ()
 
 @property (nonatomic, nonnull, copy, readonly) NSArray <MultipartComponent *> *parts;
-@property (nonatomic, nonnull, copy, readonly) NSString *boundary;
 
 @end
 
@@ -40,19 +39,26 @@
         [inputStreams addObject:[bodyPart inputStreamUsingBoundary:[@"--" stringByAppendingString:self.boundary]]];
     }
     
-    NSData *boundaryData = [[NSString stringWithFormat:@"--%@--", self.boundary] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *finalBoundary = self.finalBoundary;
     
-    if (boundaryData) {
-        [inputStreams addObject:[NSInputStream inputStreamWithData:boundaryData]];
+    if (finalBoundary) {
+        [inputStreams addObject:[NSInputStream inputStreamWithData:finalBoundary]];
     }
-    
-    NSData *CRLFData = [@"\r\n" dataUsingEncoding:NSUTF8StringEncoding];
-    
-    if (CRLFData) {
-        [inputStreams addObject:[NSInputStream inputStreamWithData:CRLFData]];
-    }
-    
+
     return [[NSSerialInputStream alloc] initWithInputStreams:inputStreams];
+}
+
+- (NSData *)finalBoundary {
+    return [[NSString stringWithFormat:@"--%@--\r\n", self.boundary] dataUsingEncoding:NSUTF8StringEncoding];
+
+}
+
+- (NSUInteger)contentLength {
+    NSUInteger length = 0;
+    for (MultipartComponent *component in self.parts) {
+        length += [component contentLengthWithBoundary:self.boundary];
+    }
+    return length + self.finalBoundary.length;
 }
 
 @end

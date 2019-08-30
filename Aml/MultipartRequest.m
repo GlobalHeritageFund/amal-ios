@@ -11,7 +11,7 @@
 
 @interface MultipartRequest ()
 
-@property (nonatomic, readonly) NSString *boundary;
+@property (nonatomic, readonly) MultipartFormData *formData;
 @property (nonatomic, readonly, copy) NSArray <MultipartComponent *> *parts;
 
 @end
@@ -25,8 +25,7 @@
     self = [super init];
     
     if (self) {
-        _boundary = [boundary copy];
-        _parts = [parts copy];
+        _formData = [[MultipartFormData alloc] initWithParts:parts boundary:boundary];
         _URLString = [URLString copy];
     }
     
@@ -38,7 +37,7 @@
 }
 
 - (NSInputStream *)httpBodyStream {
-    return [[[MultipartFormData alloc] initWithParts:self.parts boundary:self.boundary] inputStream];
+    return [self.formData inputStream];
 }
 
 - (HTTPMethod)methodType {
@@ -46,11 +45,7 @@
 }
 
 - (NSUInteger)contentLength {
-    NSUInteger length = 0;
-    for (MultipartComponent *component in self.parts) {
-        length += [component contentLengthWithBoundary:self.boundary];
-    }
-    return length;
+    return self.formData.contentLength;
 }
 
 @end
