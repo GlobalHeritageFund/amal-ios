@@ -38,7 +38,7 @@
 }
 
 - (NSString *)baseString {
-    return @"https://herbridge.legiongis.com/";
+    return @"https://eamena.herbridge.org/";
 }
 
 - (NSString *)URLStringWithPath:(NSString *)path {
