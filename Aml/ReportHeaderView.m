@@ -98,7 +98,7 @@
     if (!_dateLabel) {
         UILabel *dateLabel = [[UILabel alloc] init];
         dateLabel.textColor = [UIColor colorWithHex:0xaaaaaa];
-        dateLabel.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:16.0];
+        dateLabel.font = [UIFont systemFontOfSize:16.0 weight:UIFontWeightSemibold];
         [self.containerView addSubview:dateLabel];
         self.dateLabel = dateLabel;
     }
@@ -109,7 +109,7 @@
     if (!_countLabel) {
         UILabel *countLabel = [[UILabel alloc] init];
         countLabel.textColor = [UIColor colorWithHex:0xaaaaaa];
-        countLabel.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:16.0];
+        countLabel.font = [UIFont systemFontOfSize:16.0 weight:UIFontWeightSemibold];
         [self.containerView addSubview:countLabel];
         self.countLabel = countLabel;
     }
@@ -121,7 +121,7 @@
         UIButton *uploadStateButton = [[UIButton alloc] init];
         [uploadStateButton setTitleColor:[UIColor colorWithHex:0x4A4A4A] forState:UIControlStateDisabled];
         [uploadStateButton setTitleColor:[UIColor amalTeal] forState:UIControlStateNormal];
-        uploadStateButton.titleLabel.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:22.0];
+        uploadStateButton.titleLabel.font = [UIFont systemFontOfSize:22.0 weight:UIFontWeightSemibold];
         uploadStateButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         [self.containerView addSubview:uploadStateButton];
         self.uploadStateButton = uploadStateButton;
@@ -142,7 +142,7 @@
     if (!_creationDateLabel) {
         UILabel *creationDateLabel = [[UILabel alloc] init];
         creationDateLabel.textColor = [UIColor colorWithHex:0x4A4A4A];
-        creationDateLabel.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:14.0];
+        creationDateLabel.font = [UIFont systemFontOfSize:14.0 weight:UIFontWeightSemibold];
         [self.containerView addSubview:creationDateLabel];
         self.creationDateLabel = creationDateLabel;
     }
@@ -153,7 +153,7 @@
     if (!_reportStateLabel) {
         UILabel *reportStateLabel = [[UILabel alloc] init];
         reportStateLabel.textColor = [UIColor colorWithHex:0x4A4A4A];
-        reportStateLabel.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:14.0];
+        reportStateLabel.font = [UIFont systemFontOfSize:14.0 weight:UIFontWeightSemibold];
         reportStateLabel.textAlignment = NSTextAlignmentRight;
         [self.containerView addSubview:reportStateLabel];
         self.reportStateLabel = reportStateLabel;

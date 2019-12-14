@@ -16,7 +16,7 @@
     if (!_label) {
         UILabel *label = [[UILabel alloc] init];
         label.textColor = [UIColor colorWithHex:0x4A4A4A];
-        label.font = [UIFont fontWithName:@".SFUIDisplay-Semibold" size:16.0];
+        label.font = [UIFont systemFontOfSize:16.0 weight:UIFontWeightSemibold];
         [self addSubview:label];
         self.label = label;
     }
