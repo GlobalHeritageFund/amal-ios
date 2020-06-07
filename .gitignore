@@ -4,3 +4,4 @@ Amal.xcodeproj/project.xcworkspace
 .idea/
 Aml/GoogleService-Info.plist
 Aml/Secrets.plist
+.DS_Store
