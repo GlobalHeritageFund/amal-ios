@@ -192,11 +192,11 @@
 		1A5AADE11F4F756A00573829 /* QBVideoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIconView.m; sourceTree = "<group>"; };
 		1A5AADE21F4F756A00573829 /* QBVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIndicatorView.h; sourceTree = "<group>"; };
 		1A5AADE31F4F756A00573829 /* QBVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIndicatorView.m; sourceTree = "<group>"; };
-		1A5AADF01F4F78FE00573829 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = QBImagePicker.strings; sourceTree = "<group>"; };
-		1A5AADF31F4F78FE00573829 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = QBImagePicker.strings; sourceTree = "<group>"; };
-		1A5AADF61F4F78FE00573829 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = QBImagePicker.strings; sourceTree = "<group>"; };
-		1A5AADF91F4F78FE00573829 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = QBImagePicker.strings; sourceTree = "<group>"; };
-		1A5AADFC1F4F78FE00573829 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = QBImagePicker.strings; sourceTree = "<group>"; };
+		1A5AADF01F4F78FE00573829 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/QBImagePicker.strings; sourceTree = "<group>"; };
+		1A5AADF31F4F78FE00573829 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/QBImagePicker.strings; sourceTree = "<group>"; };
+		1A5AADF61F4F78FE00573829 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/QBImagePicker.strings; sourceTree = "<group>"; };
+		1A5AADF91F4F78FE00573829 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/QBImagePicker.strings; sourceTree = "<group>"; };
+		1A5AADFC1F4F78FE00573829 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/QBImagePicker.strings; sourceTree = "<group>"; };
 		1A7432571EF592AF00CE9D17 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCoordinator.h; sourceTree = "<group>"; };
@@ -267,8 +267,8 @@
 		B910B842211A393300468383 /* PassphraseValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassphraseValidator.m; sourceTree = "<group>"; };
 		B910B844212217D000468383 /* SwitchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchView.h; sourceTree = "<group>"; };
 		B910B845212217D000468383 /* SwitchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchView.m; sourceTree = "<group>"; };
-		B910B8492123184700468383 /* HerBridgeReportUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HerBridgeReportUploader.h; path = Aml/HerBridgeReportUploader.h; sourceTree = SOURCE_ROOT; };
-		B910B84A2123184700468383 /* HerBridgeReportUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HerBridgeReportUploader.m; path = Aml/HerBridgeReportUploader.m; sourceTree = SOURCE_ROOT; };
+		B910B8492123184700468383 /* HerBridgeReportUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HerBridgeReportUploader.h; path = HerBridgeReportUploader.h; sourceTree = "<group>"; };
+		B910B84A2123184700468383 /* HerBridgeReportUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HerBridgeReportUploader.m; path = HerBridgeReportUploader.m; sourceTree = "<group>"; };
 		B910B84D21233D2500468383 /* NSURLSession+Promises.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+Promises.h"; sourceTree = "<group>"; };
 		B910B84E21233D2500468383 /* NSURLSession+Promises.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+Promises.m"; sourceTree = "<group>"; };
 		B910B850212357B800468383 /* MultipartComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipartComponent.h; sourceTree = "<group>"; };
@@ -320,16 +320,17 @@
 			children = (
 				1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */,
 				1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */,
-				1A1F7DE31F3F8CBE0028DCF0 /* ReportCreationCoordinator.h */,
-				1A1F7DE41F3F8CBE0028DCF0 /* ReportCreationCoordinator.m */,
 				1A16EE0A1FE2C88700DF2E79 /* AssessCoordinator.h */,
 				1A16EE0B1FE2C88700DF2E79 /* AssessCoordinator.m */,
 				1A16EE0D1FE2C89000DF2E79 /* CaptureCoordinator.h */,
 				1A16EE0E1FE2C89000DF2E79 /* CaptureCoordinator.m */,
 				1A16EE101FE2C89C00DF2E79 /* ReportCoordinator.h */,
 				1A16EE111FE2C89C00DF2E79 /* ReportCoordinator.m */,
+				1A1F7DE31F3F8CBE0028DCF0 /* ReportCreationCoordinator.h */,
+				1A1F7DE41F3F8CBE0028DCF0 /* ReportCreationCoordinator.m */,
 			);
 			name = Coordinators;
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		1A35595B1F0023CA00FFFBCA /* Assess */ = {
@@ -337,82 +338,86 @@
 			children = (
 				1A3559581F001DF000FFFBCA /* AssessViewController.h */,
 				1A3559591F001DF000FFFBCA /* AssessViewController.m */,
-				1A03AB881FF5C31300D15002 /* MultiAssessViewController.h */,
-				1A03AB871FF5C31300D15002 /* MultiAssessViewController.m */,
-				1A3559621F0062CB00FFFBCA /* FormView.h */,
-				1A3559631F0062CB00FFFBCA /* FormView.m */,
-				1A35595C1F0023DF00FFFBCA /* FormElements.h */,
-				1A35595D1F0023DF00FFFBCA /* FormElements.m */,
 				1A4D48BA1FF307F800409CF9 /* EditLocationViewController.h */,
 				1A4D48BB1FF307F800409CF9 /* EditLocationViewController.m */,
+				1A35595C1F0023DF00FFFBCA /* FormElements.h */,
+				1A35595D1F0023DF00FFFBCA /* FormElements.m */,
+				1A3559621F0062CB00FFFBCA /* FormView.h */,
+				1A3559631F0062CB00FFFBCA /* FormView.m */,
+				1A03AB881FF5C31300D15002 /* MultiAssessViewController.h */,
+				1A03AB871FF5C31300D15002 /* MultiAssessViewController.m */,
 			);
 			name = Assess;
+			path = Assess;
 			sourceTree = "<group>";
 		};
 		1A4E393D1F2FD78A0055C7FA /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				1A35596E1F0087D800FFFBCA /* GalleryCell.h */,
+				1A35596F1F0087D800FFFBCA /* GalleryCell.m */,
 				1A35596D1F007E9C00FFFBCA /* GalleryViewController.h */,
 				1A35596B1F007E9200FFFBCA /* GalleryViewController.m */,
 				1A74325D1EF5A0F200CE9D17 /* ImageDetailViewController.h */,
 				1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */,
-				1A35596E1F0087D800FFFBCA /* GalleryCell.h */,
-				1A35596F1F0087D800FFFBCA /* GalleryCell.m */,
 				1A8E555A1FFC361500881CDE /* LocalPhotoFilter.h */,
 				1A8E555B1FFC361500881CDE /* LocalPhotoFilter.m */,
 			);
 			name = Gallery;
+			path = Gallery;
 			sourceTree = "<group>";
 		};
 		1A4E39411F2FF1D50055C7FA /* Report */ = {
 			isa = PBXGroup;
 			children = (
-				1A4E393E1F2FD7C70055C7FA /* ReportsViewController.h */,
-				1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */,
-				1A04FCEA1F51D07C0010A9D8 /* ReportCell.h */,
-				1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */,
-				B910B84C21232C3200468383 /* Networking */,
 				1A4E9AD21F5111ED006856A8 /* Models */,
+				B910B84C21232C3200468383 /* Networking */,
 				1AEBACA21F4A6E9F002DC63F /* FirebaseReportDataSource.h */,
 				1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */,
 				1AEBACA51F4A7289002DC63F /* LocalDraftDataSource.h */,
 				1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */,
-				1A4E9ACF1F50ABF0006856A8 /* ReportHeaderView.h */,
-				1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */,
-				B910B844212217D000468383 /* SwitchView.h */,
-				B910B845212217D000468383 /* SwitchView.m */,
+				1A04FCEA1F51D07C0010A9D8 /* ReportCell.h */,
+				1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */,
 				1ACAD1E41F0EF796001935D4 /* ReportDetailViewController.h */,
 				1ACAD1E51F0EF796001935D4 /* ReportDetailViewController.m */,
-				1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */,
-				1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */,
+				1A4E9ACF1F50ABF0006856A8 /* ReportHeaderView.h */,
+				1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */,
 				1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */,
 				1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */,
+				1A4E393E1F2FD7C70055C7FA /* ReportsViewController.h */,
+				1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */,
+				B910B844212217D000468383 /* SwitchView.h */,
+				B910B845212217D000468383 /* SwitchView.m */,
+				1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */,
+				1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */,
 			);
 			name = Report;
+			path = Report;
 			sourceTree = "<group>";
 		};
 		1A4E9AD21F5111ED006856A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1A4E9AD41F511396006856A8 /* ReportViewModel.h */,
-				1A4E9AD51F511396006856A8 /* ReportViewModel.m */,
-				B910B865212B2ACD00468383 /* HerBridgeReport.h */,
-				B910B866212B2ACD00468383 /* HerBridgeReport.m */,
+				1A12B2D820A894A20062C333 /* DiskCache.h */,
+				1A12B2D920A894A20062C333 /* DiskCache.m */,
 				B98A9A60213486A90028914E /* HerBridgePhoto.h */,
 				B98A9A61213486A90028914E /* HerBridgePhoto.m */,
+				B910B865212B2ACD00468383 /* HerBridgeReport.h */,
+				B910B866212B2ACD00468383 /* HerBridgeReport.m */,
+				1A04FCE71F51CE3B0010A9D8 /* ImageCache.h */,
+				1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */,
 				1A4E39421F2FF1DF0055C7FA /* Report.h */,
 				1A4E39431F2FF1DF0055C7FA /* Report.m */,
 				1ACAD1E81F0EF7A3001935D4 /* ReportDraft.h */,
 				1ACAD1E91F0EF7A3001935D4 /* ReportDraft.m */,
+				1A4E9AD71F514313006856A8 /* ReportProtocols.h */,
 				1ACAD1EB1F0F25C3001935D4 /* ReportUpload.h */,
 				1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */,
-				1A4E9AD71F514313006856A8 /* ReportProtocols.h */,
-				1A04FCE71F51CE3B0010A9D8 /* ImageCache.h */,
-				1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */,
-				1A12B2D820A894A20062C333 /* DiskCache.h */,
-				1A12B2D920A894A20062C333 /* DiskCache.m */,
+				1A4E9AD41F511396006856A8 /* ReportViewModel.h */,
+				1A4E9AD51F511396006856A8 /* ReportViewModel.m */,
 			);
 			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1A5AADCE1F4F750C00573829 /* Vendor */ = {
@@ -421,6 +426,7 @@
 				1A5AADCF1F4F753000573829 /* ImagePicker */,
 			);
 			name = Vendor;
+			path = Vendor;
 			sourceTree = "<group>";
 		};
 		1A5AADCF1F4F753000573829 /* ImagePicker */ = {
@@ -453,6 +459,7 @@
 				1A5AADE31F4F756A00573829 /* QBVideoIndicatorView.m */,
 			);
 			name = ImagePicker;
+			path = ImagePicker;
 			sourceTree = "<group>";
 		};
 		1A5AADEE1F4F78FE00573829 /* de.lproj */ = {
@@ -498,18 +505,19 @@
 		1ABD81CA1F10561B00E2C460 /* Promise */ = {
 			isa = PBXGroup;
 			children = (
-				1ABD81CB1F10562400E2C460 /* Promise.h */,
-				1ABD81CC1F10562400E2C460 /* Promise.m */,
-				1ABD81CE1F10565F00E2C460 /* Firebase+Promises.h */,
-				1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */,
 				B94B67DC210BE91E00993431 /* DedicatedFirebaseAuthDelegate.h */,
 				B94B67DB210BE91D00993431 /* DedicatedFirebaseAuthDelegate.m */,
-				B910B84D21233D2500468383 /* NSURLSession+Promises.h */,
-				B910B84E21233D2500468383 /* NSURLSession+Promises.m */,
+				1ABD81CE1F10565F00E2C460 /* Firebase+Promises.h */,
+				1ABD81CF1F10565F00E2C460 /* Firebase+Promises.m */,
 				B910B862212B224D00468383 /* NSJSONSerialization+Promises.h */,
 				B910B863212B224D00468383 /* NSJSONSerialization+Promises.m */,
+				B910B84D21233D2500468383 /* NSURLSession+Promises.h */,
+				B910B84E21233D2500468383 /* NSURLSession+Promises.m */,
+				1ABD81CB1F10562400E2C460 /* Promise.h */,
+				1ABD81CC1F10562400E2C460 /* Promise.m */,
 			);
 			name = Promise;
+			path = Promise;
 			sourceTree = "<group>";
 		};
 		4EDC5761365FA3B322FE7523 /* Pods */ = {
@@ -524,11 +532,11 @@
 		580A55311E5CFC1000A70AB1 = {
 			isa = PBXGroup;
 			children = (
-				05C28DCB1F018D480067736E /* Amal.entitlements */,
 				580A553C1E5CFC1000A70AB1 /* Aml */,
-				580A553B1E5CFC1000A70AB1 /* Products */,
 				580A55601E5D1E7300A70AB1 /* Frameworks */,
 				4EDC5761365FA3B322FE7523 /* Pods */,
+				580A553B1E5CFC1000A70AB1 /* Products */,
+				05C28DCB1F018D480067736E /* Amal.entitlements */,
 			);
 			sourceTree = "<group>";
 		};
@@ -543,22 +551,22 @@
 		580A553C1E5CFC1000A70AB1 /* Aml */ = {
 			isa = PBXGroup;
 			children = (
+				58BE51821E6639D7001B9575 /* Assets */,
+				1A1F7DE21F3F8CAD0028DCF0 /* Coordinators */,
+				580A55631E5D254600A70AB1 /* Extensions */,
+				58A1123A1ED65E45006689DC /* Model */,
+				585333251EA9BA900011F390 /* Pages */,
+				58BE51811E6639D1001B9575 /* Storyboards */,
+				580A553D1E5CFC1000A70AB1 /* Supporting Files */,
+				1A5AADCE1F4F750C00573829 /* Vendor */,
 				580A55401E5CFC1000A70AB1 /* AppDelegate.h */,
 				580A55411E5CFC1000A70AB1 /* AppDelegate.m */,
-				1A4E39371F2FCEA80055C7FA /* FirstLaunch.h */,
-				1A12E7ED2102768200EA8F4C /* Integrations.h */,
-				1A12E7EE2102768200EA8F4C /* Integrations.m */,
-				1A4E39381F2FCEA80055C7FA /* FirstLaunch.m */,
 				1A4E393A1F2FD2F40055C7FA /* CurrentUser.h */,
 				1A4E393B1F2FD2F40055C7FA /* CurrentUser.m */,
-				1A1F7DE21F3F8CAD0028DCF0 /* Coordinators */,
-				58BE51811E6639D1001B9575 /* Storyboards */,
-				585333251EA9BA900011F390 /* Pages */,
-				58A1123A1ED65E45006689DC /* Model */,
-				580A55631E5D254600A70AB1 /* Extensions */,
-				58BE51821E6639D7001B9575 /* Assets */,
-				1A5AADCE1F4F750C00573829 /* Vendor */,
-				580A553D1E5CFC1000A70AB1 /* Supporting Files */,
+				1A4E39371F2FCEA80055C7FA /* FirstLaunch.h */,
+				1A4E39381F2FCEA80055C7FA /* FirstLaunch.m */,
+				1A12E7ED2102768200EA8F4C /* Integrations.h */,
+				1A12E7EE2102768200EA8F4C /* Integrations.m */,
 			);
 			path = Aml;
 			sourceTree = "<group>";
@@ -568,10 +576,11 @@
 			children = (
 				5846B2151E809C95008E48BC /* GoogleService-Info.plist */,
 				580A554E1E5CFC1000A70AB1 /* Info.plist */,
-				580A553E1E5CFC1000A70AB1 /* main.m */,
 				1A12E7EB210275A000EA8F4C /* Secrets.plist */,
+				580A553E1E5CFC1000A70AB1 /* main.m */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		580A55601E5D1E7300A70AB1 /* Frameworks */ = {
@@ -589,79 +598,83 @@
 		580A55631E5D254600A70AB1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				580A55641E5D255600A70AB1 /* UIButton+Additions.h */,
-				580A55651E5D255600A70AB1 /* UIButton+Additions.m */,
-				580A555D1E5D1C5A00A70AB1 /* UIViewController+Additions.h */,
-				580A555E1E5D1C5A00A70AB1 /* UIViewController+Additions.m */,
 				580A55591E5D136200A70AB1 /* CALayer+Additions.h */,
 				580A555A1E5D136200A70AB1 /* CALayer+Additions.m */,
-				1A8897281EEE3C0E00B38D24 /* UIImage+Resize.h */,
-				1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */,
-				1A7432571EF592AF00CE9D17 /* UIColor+Additions.h */,
-				1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */,
-				1A7432601EF5CCFA00CE9D17 /* NSArray+Additions.h */,
-				1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */,
 				1A35595F1F00418000FFFBCA /* CGGeometry.h */,
 				1A3559601F00418000FFFBCA /* CGGeometry.m */,
+				1A7432601EF5CCFA00CE9D17 /* NSArray+Additions.h */,
+				1A7432611EF5CCFA00CE9D17 /* NSArray+Additions.m */,
 				1A31FA4C1F0569A6007DDD88 /* NSObject+Helpers.h */,
 				1A31FA4D1F0569A6007DDD88 /* NSObject+Helpers.m */,
-				1A2BEBF61F33618800A59E69 /* UIImage+Additions.h */,
-				1A2BEBF71F33618800A59E69 /* UIImage+Additions.m */,
 				1A12B2DB20A897340062C333 /* NSString+Additions.h */,
 				1A12B2DC20A897340062C333 /* NSString+Additions.m */,
+				580A55641E5D255600A70AB1 /* UIButton+Additions.h */,
+				580A55651E5D255600A70AB1 /* UIButton+Additions.m */,
+				1A7432571EF592AF00CE9D17 /* UIColor+Additions.h */,
+				1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */,
+				1A2BEBF61F33618800A59E69 /* UIImage+Additions.h */,
+				1A2BEBF71F33618800A59E69 /* UIImage+Additions.m */,
+				1A8897281EEE3C0E00B38D24 /* UIImage+Resize.h */,
+				1A8897291EEE3C0E00B38D24 /* UIImage+Resize.m */,
+				580A555D1E5D1C5A00A70AB1 /* UIViewController+Additions.h */,
+				580A555E1E5D1C5A00A70AB1 /* UIViewController+Additions.m */,
 			);
 			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		585333251EA9BA900011F390 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				5846B2031E773354008E48BC /* TabBarPage.h */,
-				5846B2041E773354008E48BC /* TabBarPage.m */,
-				5846B1FF1E773315008E48BC /* NavPage.h */,
-				5846B2001E773315008E48BC /* NavPage.m */,
+				1A35595B1F0023CA00FFFBCA /* Assess */,
+				1A4E393D1F2FD78A0055C7FA /* Gallery */,
+				B910B840211A38A100468383 /* Passphrase */,
+				1A4E39411F2FF1D50055C7FA /* Report */,
 				580A55431E5CFC1000A70AB1 /* CameraViewController.h */,
 				580A55441E5CFC1000A70AB1 /* CameraViewController.m */,
-				1A4E39411F2FF1D50055C7FA /* Report */,
-				1A4E393D1F2FD78A0055C7FA /* Gallery */,
-				1A35595B1F0023CA00FFFBCA /* Assess */,
-				1A3EE1561F0748490068B596 /* MapViewController.h */,
-				1A3EE1571F0748490068B596 /* MapViewController.m */,
-				1A4D48B71FF2C24600409CF9 /* SettingsViewController.h */,
-				1A4D48B81FF2C24600409CF9 /* SettingsViewController.m */,
-				B910B840211A38A100468383 /* Passphrase */,
-				1AE0AF961FF49B6C00A816F7 /* EmptyState.h */,
-				1AE0AF971FF49B6C00A816F7 /* EmptyState.m */,
 				B989539F20FD321900BC79C0 /* CautionViewController.h */,
 				B98953A020FD321900BC79C0 /* CautionViewController.m */,
+				1AE0AF961FF49B6C00A816F7 /* EmptyState.h */,
+				1AE0AF971FF49B6C00A816F7 /* EmptyState.m */,
+				1A3EE1561F0748490068B596 /* MapViewController.h */,
+				1A3EE1571F0748490068B596 /* MapViewController.m */,
+				5846B1FF1E773315008E48BC /* NavPage.h */,
+				5846B2001E773315008E48BC /* NavPage.m */,
+				1A4D48B71FF2C24600409CF9 /* SettingsViewController.h */,
+				1A4D48B81FF2C24600409CF9 /* SettingsViewController.m */,
+				5846B2031E773354008E48BC /* TabBarPage.h */,
+				5846B2041E773354008E48BC /* TabBarPage.m */,
 			);
 			name = Pages;
+			path = Pages;
 			sourceTree = "<group>";
 		};
 		58A1123A1ED65E45006689DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				1ABD81CA1F10561B00E2C460 /* Promise */,
-				1A3559681F006E4900FFFBCA /* PhotoStorage.h */,
-				1A3559691F006E4900FFFBCA /* PhotoStorage.m */,
+				1A3640631F049C650070E686 /* AMLMetadata.h */,
+				1A3640641F049C650070E686 /* AMLMetadata.m */,
 				58A1123B1ED65E50006689DC /* LocalPhoto.h */,
 				58A1123C1ED65E50006689DC /* LocalPhoto.m */,
 				5846B2181E809DB7008E48BC /* PhotoSettings.h */,
 				5846B2191E809DB7008E48BC /* PhotoSettings.m */,
-				1A3640631F049C650070E686 /* AMLMetadata.h */,
-				1A3640641F049C650070E686 /* AMLMetadata.m */,
+				1A3559681F006E4900FFFBCA /* PhotoStorage.h */,
+				1A3559691F006E4900FFFBCA /* PhotoStorage.m */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		58BE51811E6639D1001B9575 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				580A55461E5CFC1000A70AB1 /* CameraViewController.storyboard */,
-				580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */,
 				5892D0D31E8616FD0051C60E /* Intro.storyboard */,
+				580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		58BE51821E6639D7001B9575 /* Assets */ = {
@@ -670,34 +683,37 @@
 				580A55491E5CFC1000A70AB1 /* Assets.xcassets */,
 			);
 			name = Assets;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		B910B840211A38A100468383 /* Passphrase */ = {
 			isa = PBXGroup;
 			children = (
-				B910B83D211A34FC00468383 /* PassphraseViewController.h */,
-				B910B83E211A34FC00468383 /* PassphraseViewController.m */,
 				B910B841211A393300468383 /* PassphraseValidator.h */,
 				B910B842211A393300468383 /* PassphraseValidator.m */,
+				B910B83D211A34FC00468383 /* PassphraseViewController.h */,
+				B910B83E211A34FC00468383 /* PassphraseViewController.m */,
 			);
 			name = Passphrase;
+			path = Passphrase;
 			sourceTree = "<group>";
 		};
 		B910B84C21232C3200468383 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				1A8E7EA6219250E000E21898 /* NSSerialInputStream.h */,
-				1A8E7EA5219250E000E21898 /* NSSerialInputStream.m */,
+				B910B85E2123C44900468383 /* Models */,
+				B910B86D212CB1FD00468383 /* Request Building */,
 				B910B8492123184700468383 /* HerBridgeReportUploader.h */,
 				B910B84A2123184700468383 /* HerBridgeReportUploader.m */,
-				B910B86D212CB1FD00468383 /* Request Building */,
-				B910B85E2123C44900468383 /* Models */,
 				B910B850212357B800468383 /* MultipartComponent.h */,
 				B910B851212357B800468383 /* MultipartComponent.m */,
 				B910B853212357FD00468383 /* MultipartFormData.h */,
 				B910B854212357FD00468383 /* MultipartFormData.m */,
+				1A8E7EA6219250E000E21898 /* NSSerialInputStream.h */,
+				1A8E7EA5219250E000E21898 /* NSSerialInputStream.m */,
 			);
 			name = Networking;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		B910B85E2123C44900468383 /* Models */ = {
@@ -707,22 +723,24 @@
 				B910B8592123BCF200468383 /* UploadedPhoto.m */,
 			);
 			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B910B86D212CB1FD00468383 /* Request Building */ = {
 			isa = PBXGroup;
 			children = (
-				B910B871212CB52C00468383 /* Request.h */,
-				B910B878212CBB3D00468383 /* RequestSender.h */,
-				B910B879212CBB3D00468383 /* RequestSender.m */,
 				B910B872212CB5AE00468383 /* JSONRequest.h */,
 				B910B873212CB5AE00468383 /* JSONRequest.m */,
 				B910B875212CB78E00468383 /* MultipartRequest.h */,
 				B910B876212CB78E00468383 /* MultipartRequest.m */,
+				B910B871212CB52C00468383 /* Request.h */,
 				B910B86E212CB21D00468383 /* RequestBuilder.h */,
 				B910B86F212CB21D00468383 /* RequestBuilder.m */,
+				B910B878212CBB3D00468383 /* RequestSender.h */,
+				B910B879212CBB3D00468383 /* RequestSender.m */,
 			);
 			name = "Request Building";
+			path = "Request Building";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -993,6 +1011,7 @@
 				1A5AADF01F4F78FE00573829 /* de */,
 			);
 			name = QBImagePicker.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 		1A5AADF21F4F78FE00573829 /* QBImagePicker.strings */ = {
@@ -1001,6 +1020,7 @@
 				1A5AADF31F4F78FE00573829 /* en */,
 			);
 			name = QBImagePicker.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 		1A5AADF51F4F78FE00573829 /* QBImagePicker.strings */ = {
@@ -1009,6 +1029,7 @@
 				1A5AADF61F4F78FE00573829 /* es */,
 			);
 			name = QBImagePicker.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 		1A5AADF81F4F78FE00573829 /* QBImagePicker.strings */ = {
@@ -1017,6 +1038,7 @@
 				1A5AADF91F4F78FE00573829 /* ja */,
 			);
 			name = QBImagePicker.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 		1A5AADFB1F4F78FE00573829 /* QBImagePicker.strings */ = {
@@ -1025,6 +1047,7 @@
 				1A5AADFC1F4F78FE00573829 /* pl */,
 			);
 			name = QBImagePicker.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 		580A55461E5CFC1000A70AB1 /* CameraViewController.storyboard */ = {
@@ -1033,6 +1056,7 @@
 				580A55471E5CFC1000A70AB1 /* Base */,
 			);
 			name = CameraViewController.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */ = {
@@ -1041,6 +1065,7 @@
 				580A554C1E5CFC1000A70AB1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1163,7 +1188,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Aml/Info.plist;
+				INFOPLIST_FILE = "Aml/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1190,7 +1215,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Aml/Info.plist;
+				INFOPLIST_FILE = "Aml/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

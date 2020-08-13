@@ -2,6 +2,6 @@
 xcuserdata
 Amal.xcodeproj/project.xcworkspace
 .idea/
-Aml/GoogleService-Info.plist
-Aml/Secrets.plist
+Aml/Supporting\ Files/GoogleService-Info.plist
+Aml/Supporting\ Files/Secrets.plist
 .DS_Store
