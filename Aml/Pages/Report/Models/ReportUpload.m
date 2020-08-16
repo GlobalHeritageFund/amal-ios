@@ -84,7 +84,7 @@
 - (void)upload {
     
     if (self.databaseTarget == DatabaseTargetEAMENA) {
-        HerBridgeReportUploader *uploader = [[HerBridgeReportUploader alloc] initWithSession:[NSURLSession sharedSession] progresses:self.progresses];
+        HerBridgeReportUploader *uploader = [[HerBridgeReportUploader alloc] initWithBaseString:@"https://eamena.herbridge.org/" session:[NSURLSession sharedSession] progresses:self.progresses];
         Promise *promise = [uploader uploadReport:self];
         
         [[promise then:^id _Nullable(id  _Nonnull object) {
@@ -94,8 +94,18 @@
             [self.promise reject:error];
         }];
         
-    }
-    else {
+    } else if (self.databaseTarget == DatabaseTargetLebanon) {
+        HerBridgeReportUploader *uploader = [[HerBridgeReportUploader alloc] initWithBaseString:@"https://lebanon.herbridge.org/" session:[NSURLSession sharedSession] progresses:self.progresses];
+        Promise *promise = [uploader uploadReport:self];
+
+        [[promise then:^id _Nullable(id  _Nonnull object) {
+            [self.promise fulfill:object];
+            return nil;
+        }] catch:^(NSError * _Nonnull error) {
+            [self.promise reject:error];
+        }];
+
+    } else if (self.databaseTarget == DatabaseTargetAmal) {
         FIRDatabaseReference *reportRef = [self.reportsDirectory childByAutoId];
         
         NSArray *photoUploadPromises = [self.reportDraft.photos arrayByTransformingObjectsUsingBlock:^id(id photo) {

@@ -11,7 +11,7 @@
 @class ReportUpload, Promise;
 @interface HerBridgeReportUploader : NSObject
 
-- (instancetype)initWithSession:(NSURLSession *)session progresses:(NSArray <NSProgress *> *)progresses;
+- (instancetype)initWithBaseString:(NSString *)baseString session:(NSURLSession *)session progresses:(NSArray <NSProgress *> *)progresses;
 
 - (Promise *)uploadReport:(ReportUpload *)reportUpload;
 

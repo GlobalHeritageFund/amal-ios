@@ -19,6 +19,7 @@
 
 @interface HerBridgeReportUploader ()
 
+@property (nonatomic, readonly) NSString *baseString;
 @property (nonatomic, readonly) NSURLSession *session;
 @property (nonatomic, readonly) NSArray <NSProgress *> *progresses;
 
@@ -26,19 +27,16 @@
 
 @implementation HerBridgeReportUploader
 
-- (instancetype)initWithSession:(NSURLSession *)session progresses:(NSArray <NSProgress *> *)progresses {
+- (instancetype)initWithBaseString:(NSString *)baseString session:(NSURLSession *)session progresses:(NSArray <NSProgress *> *)progresses {
     self = [super init];
     
     if (self) {
+        _baseString = baseString;
         _session = session;
         _progresses = progresses;
     }
     
     return self;
-}
-
-- (NSString *)baseString {
-    return @"https://eamena.herbridge.org/";
 }
 
 - (NSString *)URLStringWithPath:(NSString *)path {
