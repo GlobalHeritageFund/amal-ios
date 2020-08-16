@@ -89,8 +89,8 @@
     return nil;
 }
 
-- (BOOL)isEAMENA {
-    return YES;
+- (DatabaseTarget)databaseTarget {
+    return DatabaseTargetEAMENA;
 }
 
 @end

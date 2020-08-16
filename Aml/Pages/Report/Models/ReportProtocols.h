@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Promise.h"
+#import "DatabaseTarget.h"
 
 @class ReportDraft, Report, ReportUpload, AMLMetadata;
 
@@ -54,6 +55,6 @@
 
 @property (readonly) ReportDraft *draft;
 
-@property (readonly) BOOL isEAMENA;
+@property (readonly) DatabaseTarget databaseTarget;
 
 @end

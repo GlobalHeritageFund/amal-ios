@@ -22,7 +22,7 @@
 @property (readonly) NSDate *creationDate;
 @property (nonatomic) BOOL hasPrefilledEmail;
 
-@property (nonatomic) BOOL isEAMENA;
+@property (nonatomic, readwrite) DatabaseTarget databaseTarget;
 
 @property (nonatomic) NSMutableArray<LocalPhoto *> *localPhotos;
 

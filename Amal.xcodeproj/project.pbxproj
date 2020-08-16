@@ -69,6 +69,7 @@
 		1AE0AF981FF49B6C00A816F7 /* EmptyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0AF971FF49B6C00A816F7 /* EmptyState.m */; };
 		1AEBACA41F4A6E9F002DC63F /* FirebaseReportDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */; };
 		1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */; };
+		34A648EA24E997180089F939 /* DatabaseTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648E924E997180089F939 /* DatabaseTarget.m */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
 		580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55411E5CFC1000A70AB1 /* AppDelegate.m */; };
 		580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55441E5CFC1000A70AB1 /* CameraViewController.m */; };
@@ -229,6 +230,8 @@
 		1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseReportDataSource.m; sourceTree = "<group>"; };
 		1AEBACA51F4A7289002DC63F /* LocalDraftDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalDraftDataSource.h; sourceTree = "<group>"; };
 		1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalDraftDataSource.m; sourceTree = "<group>"; };
+		34A648E824E997180089F939 /* DatabaseTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseTarget.h; sourceTree = "<group>"; };
+		34A648E924E997180089F939 /* DatabaseTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseTarget.m; sourceTree = "<group>"; };
 		364849B5AE5394A5BF3ECBD8 /* Pods-Amal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Amal/Pods-Amal.debug.xcconfig"; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580A553E1E5CFC1000A70AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -267,8 +270,8 @@
 		B910B842211A393300468383 /* PassphraseValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassphraseValidator.m; sourceTree = "<group>"; };
 		B910B844212217D000468383 /* SwitchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchView.h; sourceTree = "<group>"; };
 		B910B845212217D000468383 /* SwitchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchView.m; sourceTree = "<group>"; };
-		B910B8492123184700468383 /* HerBridgeReportUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HerBridgeReportUploader.h; path = HerBridgeReportUploader.h; sourceTree = "<group>"; };
-		B910B84A2123184700468383 /* HerBridgeReportUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HerBridgeReportUploader.m; path = HerBridgeReportUploader.m; sourceTree = "<group>"; };
+		B910B8492123184700468383 /* HerBridgeReportUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HerBridgeReportUploader.h; sourceTree = "<group>"; };
+		B910B84A2123184700468383 /* HerBridgeReportUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HerBridgeReportUploader.m; sourceTree = "<group>"; };
 		B910B84D21233D2500468383 /* NSURLSession+Promises.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+Promises.h"; sourceTree = "<group>"; };
 		B910B84E21233D2500468383 /* NSURLSession+Promises.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+Promises.m"; sourceTree = "<group>"; };
 		B910B850212357B800468383 /* MultipartComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipartComponent.h; sourceTree = "<group>"; };
@@ -329,7 +332,6 @@
 				1A1F7DE31F3F8CBE0028DCF0 /* ReportCreationCoordinator.h */,
 				1A1F7DE41F3F8CBE0028DCF0 /* ReportCreationCoordinator.m */,
 			);
-			name = Coordinators;
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
@@ -347,7 +349,6 @@
 				1A03AB881FF5C31300D15002 /* MultiAssessViewController.h */,
 				1A03AB871FF5C31300D15002 /* MultiAssessViewController.m */,
 			);
-			name = Assess;
 			path = Assess;
 			sourceTree = "<group>";
 		};
@@ -363,7 +364,6 @@
 				1A8E555A1FFC361500881CDE /* LocalPhotoFilter.h */,
 				1A8E555B1FFC361500881CDE /* LocalPhotoFilter.m */,
 			);
-			name = Gallery;
 			path = Gallery;
 			sourceTree = "<group>";
 		};
@@ -391,7 +391,6 @@
 				1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */,
 				1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */,
 			);
-			name = Report;
 			path = Report;
 			sourceTree = "<group>";
 		};
@@ -411,12 +410,13 @@
 				1ACAD1E81F0EF7A3001935D4 /* ReportDraft.h */,
 				1ACAD1E91F0EF7A3001935D4 /* ReportDraft.m */,
 				1A4E9AD71F514313006856A8 /* ReportProtocols.h */,
+				34A648E824E997180089F939 /* DatabaseTarget.h */,
+				34A648E924E997180089F939 /* DatabaseTarget.m */,
 				1ACAD1EB1F0F25C3001935D4 /* ReportUpload.h */,
 				1ACAD1EC1F0F25C3001935D4 /* ReportUpload.m */,
 				1A4E9AD41F511396006856A8 /* ReportViewModel.h */,
 				1A4E9AD51F511396006856A8 /* ReportViewModel.m */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -425,7 +425,6 @@
 			children = (
 				1A5AADCF1F4F753000573829 /* ImagePicker */,
 			);
-			name = Vendor;
 			path = Vendor;
 			sourceTree = "<group>";
 		};
@@ -458,7 +457,6 @@
 				1A5AADE21F4F756A00573829 /* QBVideoIndicatorView.h */,
 				1A5AADE31F4F756A00573829 /* QBVideoIndicatorView.m */,
 			);
-			name = ImagePicker;
 			path = ImagePicker;
 			sourceTree = "<group>";
 		};
@@ -516,7 +514,6 @@
 				1ABD81CB1F10562400E2C460 /* Promise.h */,
 				1ABD81CC1F10562400E2C460 /* Promise.m */,
 			);
-			name = Promise;
 			path = Promise;
 			sourceTree = "<group>";
 		};
@@ -579,7 +576,6 @@
 				1A12E7EB210275A000EA8F4C /* Secrets.plist */,
 				580A553E1E5CFC1000A70AB1 /* main.m */,
 			);
-			name = "Supporting Files";
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
@@ -619,7 +615,6 @@
 				580A555D1E5D1C5A00A70AB1 /* UIViewController+Additions.h */,
 				580A555E1E5D1C5A00A70AB1 /* UIViewController+Additions.m */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -645,7 +640,6 @@
 				5846B2031E773354008E48BC /* TabBarPage.h */,
 				5846B2041E773354008E48BC /* TabBarPage.m */,
 			);
-			name = Pages;
 			path = Pages;
 			sourceTree = "<group>";
 		};
@@ -662,7 +656,6 @@
 				1A3559681F006E4900FFFBCA /* PhotoStorage.h */,
 				1A3559691F006E4900FFFBCA /* PhotoStorage.m */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -673,7 +666,6 @@
 				5892D0D31E8616FD0051C60E /* Intro.storyboard */,
 				580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */,
 			);
-			name = Storyboards;
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
@@ -682,7 +674,6 @@
 			children = (
 				580A55491E5CFC1000A70AB1 /* Assets.xcassets */,
 			);
-			name = Assets;
 			path = Assets;
 			sourceTree = "<group>";
 		};
@@ -694,7 +685,6 @@
 				B910B83D211A34FC00468383 /* PassphraseViewController.h */,
 				B910B83E211A34FC00468383 /* PassphraseViewController.m */,
 			);
-			name = Passphrase;
 			path = Passphrase;
 			sourceTree = "<group>";
 		};
@@ -712,7 +702,6 @@
 				1A8E7EA6219250E000E21898 /* NSSerialInputStream.h */,
 				1A8E7EA5219250E000E21898 /* NSSerialInputStream.m */,
 			);
-			name = Networking;
 			path = Networking;
 			sourceTree = "<group>";
 		};
@@ -722,7 +711,6 @@
 				B910B8582123BCF200468383 /* UploadedPhoto.h */,
 				B910B8592123BCF200468383 /* UploadedPhoto.m */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -739,7 +727,6 @@
 				B910B878212CBB3D00468383 /* RequestSender.h */,
 				B910B879212CBB3D00468383 /* RequestSender.m */,
 			);
-			name = "Request Building";
 			path = "Request Building";
 			sourceTree = "<group>";
 		};
@@ -932,6 +919,7 @@
 				1A35596A1F006E4900FFFBCA /* PhotoStorage.m in Sources */,
 				1A3640651F049C650070E686 /* AMLMetadata.m in Sources */,
 				B910B870212CB21D00468383 /* RequestBuilder.m in Sources */,
+				34A648EA24E997180089F939 /* DatabaseTarget.m in Sources */,
 				1A12B2DA20A894A20062C333 /* DiskCache.m in Sources */,
 				1A3EE1581F0748490068B596 /* MapViewController.m in Sources */,
 				1A35595A1F001DF000FFFBCA /* AssessViewController.m in Sources */,

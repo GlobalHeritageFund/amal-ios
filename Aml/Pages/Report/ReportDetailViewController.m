@@ -127,8 +127,8 @@
     self.reportHeader.reportStateLabel.textColor = self.viewModel.reportStateColor;
     self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
     
-    if ([CurrentUser shared].isEAMENAUnlocked) {
-        self.reportHeader.switchView.statusSwitch.on = self.viewModel.isEAMENA;
+    if ([CurrentUser shared].isEAMENAUnlocked || [CurrentUser shared].isLebanonUnlocked) {
+        self.reportHeader.switchView.statusSwitch.on = self.viewModel.databaseTarget == DatabaseTargetEAMENA;
         self.reportHeader.switchView.statusSwitch.enabled = !self.viewModel.finalized;
     }
     
@@ -271,7 +271,7 @@
 }
 
 - (void)changedEAMENAStatusTo:(BOOL)status {
-    self.viewModel.draft.isEAMENA = status;
+    self.viewModel.draft.databaseTarget = status ? DatabaseTargetEAMENA : DatabaseTargetAmal;
 }
 
 @end

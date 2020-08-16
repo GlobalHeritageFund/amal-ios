@@ -29,7 +29,7 @@
 @property (readonly) UIColor *reportStateColor;
 @property (readonly) NSProgress *progress;
 @property (readonly) BOOL hasPrefilledEmail;
-@property (readonly) BOOL isEAMENA;
+@property (readonly) DatabaseTarget databaseTarget;
 
 @property (nonatomic, readonly) ReportDraft *draft;
 @property (nonatomic, readonly) ReportUpload *upload;

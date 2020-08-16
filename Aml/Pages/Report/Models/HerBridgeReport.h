@@ -15,8 +15,10 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @property (readonly) NSString *title;
+
 @property (readonly) NSString *assessorEmail;
-@property (readonly) BOOL isEAMENA;
+
+@property (readonly) DatabaseTarget databaseTarget;
 
 @property (readonly) NSDate *creationDate;
 

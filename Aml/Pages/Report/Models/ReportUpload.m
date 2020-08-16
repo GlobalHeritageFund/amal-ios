@@ -83,7 +83,7 @@
 
 - (void)upload {
     
-    if (self.isEAMENA) {
+    if (self.databaseTarget == DatabaseTargetEAMENA) {
         HerBridgeReportUploader *uploader = [[HerBridgeReportUploader alloc] initWithSession:[NSURLSession sharedSession] progresses:self.progresses];
         Promise *promise = [uploader uploadReport:self];
         
@@ -215,8 +215,8 @@
     return self.reportDraft;
 }
 
-- (BOOL)isEAMENA {
-    return self.reportDraft.isEAMENA;
+- (DatabaseTarget)databaseTarget {
+    return self.reportDraft.databaseTarget;
 }
 
 @end

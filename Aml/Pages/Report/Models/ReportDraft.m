@@ -48,8 +48,13 @@
         return [[LocalPhoto alloc] initWithDictionary:object];
     }] mutableCopy];
 
-    _isEAMENA = [[dictionary[@"isEAMENA"] asClassOrNil:[NSNumber class]] boolValue];
-    
+    BOOL isEAMENA = [[dictionary[@"isEAMENA"] asClassOrNil:[NSNumber class]] boolValue];
+    if (isEAMENA) {
+        _databaseTarget = DatabaseTargetEAMENA;
+    } else {
+        _databaseTarget = DatabaseTargetFromString([dictionary[@"databaseTarget"] asClassOrNil:[NSString class]]);
+    }
+
     return self;
 }
 
@@ -62,7 +67,7 @@
              @"photos": [self.photos arrayByTransformingObjectsUsingBlock:^id(LocalPhoto *object) {
                  return object.dictionaryRepresentation;
              }],
-             @"isEAMENA" : @(self.isEAMENA),
+             @"databaseTarget": DatabaseTargetMakeString(self.databaseTarget),
              };
 }
 
