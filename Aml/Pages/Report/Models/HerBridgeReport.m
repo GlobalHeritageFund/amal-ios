@@ -90,7 +90,7 @@
 }
 
 - (DatabaseTarget)databaseTarget {
-    return DatabaseTargetEAMENA;
+    return DatabaseTargetEAMENA; //this is...not always true
 }
 
 @end

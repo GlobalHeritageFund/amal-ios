@@ -9,8 +9,8 @@
 #import "ReportHeaderView.h"
 #import "CGGeometry.h"
 #import "UIColor+Additions.h"
-#import "SwitchView.h"
 #import "CurrentUser.h"
+#import "DatabasePicker.h"
 
 @interface ReportHeaderView ()
 
@@ -28,21 +28,11 @@
 @property (nonatomic) UILabel *creationDateLabel;
 @property (nonatomic) UILabel *reportStateLabel;
 
-@property (nonatomic) SwitchView *switchView;
+@property (nonatomic) DatabasePicker *databasePicker;
 
 @end
 
 @implementation ReportHeaderView
-
-- (SwitchView *)switchView {
-    if (!_switchView) {
-        _switchView = [[SwitchView alloc] init];
-        [self.containerView addSubview:_switchView];
-        
-        [_switchView.statusSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-    }
-    return _switchView;
-}
 
 - (MKMapView *)mapView {
     if (!_mapView) {
@@ -97,7 +87,7 @@
 - (UILabel *)dateLabel {
     if (!_dateLabel) {
         UILabel *dateLabel = [[UILabel alloc] init];
-        dateLabel.textColor = [UIColor colorWithHex:0xaaaaaa];
+        dateLabel.textColor = [UIColor colorWithHex:0x666666];
         dateLabel.font = [UIFont systemFontOfSize:16.0 weight:UIFontWeightSemibold];
         [self.containerView addSubview:dateLabel];
         self.dateLabel = dateLabel;
@@ -108,12 +98,21 @@
 - (UILabel *)countLabel {
     if (!_countLabel) {
         UILabel *countLabel = [[UILabel alloc] init];
-        countLabel.textColor = [UIColor colorWithHex:0xaaaaaa];
+        countLabel.textColor = [UIColor colorWithHex:0x666666];
         countLabel.font = [UIFont systemFontOfSize:16.0 weight:UIFontWeightSemibold];
         [self.containerView addSubview:countLabel];
         self.countLabel = countLabel;
     }
     return _countLabel;
+}
+
+- (DatabasePicker *)databasePicker {
+    if (!_databasePicker) {
+        DatabasePicker *databasePicker = [[DatabasePicker alloc] init];
+        [self.containerView addSubview:databasePicker];
+        self.databasePicker = databasePicker;
+    }
+    return _databasePicker;
 }
 
 - (UIButton *)uploadStateButton {
@@ -174,7 +173,7 @@
     mapRect = workingRect;
     mapRect.size.height = 100;
 
-    CGRect containerRect = CGRectZero, titleRect = CGRectZero, assessorEmailRect = CGRectZero, dateRect = CGRectZero, countRect = CGRectZero, uploadStateRect = CGRectZero, totalProgressRect = CGRectZero, creationDateRect = CGRectZero, reportStateRect = CGRectZero, switchViewRect = CGRectZero;
+    CGRect containerRect = CGRectZero, titleRect = CGRectZero, assessorEmailRect = CGRectZero, dateRect = CGRectZero, countRect = CGRectZero, uploadStateRect = CGRectZero, totalProgressRect = CGRectZero, creationDateRect = CGRectZero, reportStateRect = CGRectZero, databasePickerRect = CGRectZero;
     workingRect = CGRectInset(workingRect, 10, 25);
     workingRect = CGRectTrim(workingRect, 30, CGRectMinYEdge);
 
@@ -191,7 +190,7 @@
     workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
     
     if (shouldShowEAMENA) {
-        CGRectDivide(workingRect, &switchViewRect, &workingRect, 40, CGRectMinYEdge);
+        CGRectDivide(workingRect, &databasePickerRect, &workingRect, 40, CGRectMinYEdge);
         workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
     }
     
@@ -216,7 +215,7 @@
     self.reportStateLabel.frame = reportStateRect;
     
     if (shouldShowEAMENA) {
-        self.switchView.frame = switchViewRect;
+        self.databasePicker.frame = databasePickerRect;
     }
 }
 

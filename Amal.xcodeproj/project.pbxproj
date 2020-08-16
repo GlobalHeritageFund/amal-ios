@@ -70,6 +70,7 @@
 		1AEBACA41F4A6E9F002DC63F /* FirebaseReportDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */; };
 		1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */; };
 		34A648EA24E997180089F939 /* DatabaseTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648E924E997180089F939 /* DatabaseTarget.m */; };
+		34A648ED24E99E790089F939 /* DatabasePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648EB24E99E790089F939 /* DatabasePicker.m */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
 		580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55411E5CFC1000A70AB1 /* AppDelegate.m */; };
 		580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55441E5CFC1000A70AB1 /* CameraViewController.m */; };
@@ -92,7 +93,6 @@
 		787F78DD75256DFD899543BB /* Pods_Amal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCEA2966FD5005700E769BF /* Pods_Amal.framework */; };
 		B910B83F211A34FC00468383 /* PassphraseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B83E211A34FC00468383 /* PassphraseViewController.m */; };
 		B910B843211A393300468383 /* PassphraseValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B842211A393300468383 /* PassphraseValidator.m */; };
-		B910B846212217D000468383 /* SwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B845212217D000468383 /* SwitchView.m */; };
 		B910B84B2123184700468383 /* HerBridgeReportUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B84A2123184700468383 /* HerBridgeReportUploader.m */; };
 		B910B84F21233D2500468383 /* NSURLSession+Promises.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B84E21233D2500468383 /* NSURLSession+Promises.m */; };
 		B910B852212357B800468383 /* MultipartComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B851212357B800468383 /* MultipartComponent.m */; };
@@ -232,6 +232,8 @@
 		1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalDraftDataSource.m; sourceTree = "<group>"; };
 		34A648E824E997180089F939 /* DatabaseTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseTarget.h; sourceTree = "<group>"; };
 		34A648E924E997180089F939 /* DatabaseTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseTarget.m; sourceTree = "<group>"; };
+		34A648EB24E99E790089F939 /* DatabasePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabasePicker.m; sourceTree = "<group>"; };
+		34A648EC24E99E790089F939 /* DatabasePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabasePicker.h; sourceTree = "<group>"; };
 		364849B5AE5394A5BF3ECBD8 /* Pods-Amal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Amal/Pods-Amal.debug.xcconfig"; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580A553E1E5CFC1000A70AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -268,8 +270,6 @@
 		B910B83E211A34FC00468383 /* PassphraseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassphraseViewController.m; sourceTree = "<group>"; };
 		B910B841211A393300468383 /* PassphraseValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassphraseValidator.h; sourceTree = "<group>"; };
 		B910B842211A393300468383 /* PassphraseValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassphraseValidator.m; sourceTree = "<group>"; };
-		B910B844212217D000468383 /* SwitchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchView.h; sourceTree = "<group>"; };
-		B910B845212217D000468383 /* SwitchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchView.m; sourceTree = "<group>"; };
 		B910B8492123184700468383 /* HerBridgeReportUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HerBridgeReportUploader.h; sourceTree = "<group>"; };
 		B910B84A2123184700468383 /* HerBridgeReportUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HerBridgeReportUploader.m; sourceTree = "<group>"; };
 		B910B84D21233D2500468383 /* NSURLSession+Promises.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+Promises.h"; sourceTree = "<group>"; };
@@ -382,12 +382,12 @@
 				1ACAD1E51F0EF796001935D4 /* ReportDetailViewController.m */,
 				1A4E9ACF1F50ABF0006856A8 /* ReportHeaderView.h */,
 				1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */,
+				34A648EC24E99E790089F939 /* DatabasePicker.h */,
+				34A648EB24E99E790089F939 /* DatabasePicker.m */,
 				1A1B7FA71F2BCBB4007BCEEB /* ReportPhotoTableViewCell.h */,
 				1A1B7FA81F2BCBB4007BCEEB /* ReportPhotoTableViewCell.m */,
 				1A4E393E1F2FD7C70055C7FA /* ReportsViewController.h */,
 				1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */,
-				B910B844212217D000468383 /* SwitchView.h */,
-				B910B845212217D000468383 /* SwitchView.m */,
 				1ACAD1F21F101B25001935D4 /* TextFieldTableViewCell.h */,
 				1ACAD1F31F101B25001935D4 /* TextFieldTableViewCell.m */,
 			);
@@ -923,7 +923,6 @@
 				1A12B2DA20A894A20062C333 /* DiskCache.m in Sources */,
 				1A3EE1581F0748490068B596 /* MapViewController.m in Sources */,
 				1A35595A1F001DF000FFFBCA /* AssessViewController.m in Sources */,
-				B910B846212217D000468383 /* SwitchView.m in Sources */,
 				1A5AADEB1F4F756A00573829 /* QBSlomoIconView.m in Sources */,
 				1ABD81CD1F10562400E2C460 /* Promise.m in Sources */,
 				1A4E393C1F2FD2F40055C7FA /* CurrentUser.m in Sources */,
@@ -971,6 +970,7 @@
 				1A7432621EF5CCFA00CE9D17 /* NSArray+Additions.m in Sources */,
 				B910B83F211A34FC00468383 /* PassphraseViewController.m in Sources */,
 				1A5AADED1F4F756A00573829 /* QBVideoIndicatorView.m in Sources */,
+				34A648ED24E99E790089F939 /* DatabasePicker.m in Sources */,
 				5846B2011E773315008E48BC /* NavPage.m in Sources */,
 				1A35596C1F007E9200FFFBCA /* GalleryViewController.m in Sources */,
 				580A553F1E5CFC1000A70AB1 /* main.m in Sources */,

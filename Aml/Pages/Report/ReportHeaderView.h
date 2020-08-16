@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "SwitchView.h"
+
+@class DatabasePicker;
 
 @protocol ReportHeaderViewDelegate
 
@@ -27,7 +28,7 @@
 @property (readonly) UIProgressView *totalProgressView;
 @property (readonly) UILabel *creationDateLabel;
 @property (readonly) UILabel *reportStateLabel;
-@property (readonly) SwitchView *switchView;
+@property (readonly) DatabasePicker *databasePicker;
 
 @property (nonatomic, weak) id <ReportHeaderViewDelegate> delegate;
 

@@ -21,6 +21,7 @@
 #import "MapViewController.h"
 #import "NSArray+Additions.h"
 #import "CurrentUser.h"
+#import "DatabasePicker.h"
 
 @interface ReportDetailViewController ()<UITableViewDelegate, UITableViewDataSource, ReportHeaderViewDelegate>
 
@@ -128,8 +129,8 @@
     self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
     
     if ([CurrentUser shared].isEAMENAUnlocked || [CurrentUser shared].isLebanonUnlocked) {
-        self.reportHeader.switchView.statusSwitch.on = self.viewModel.databaseTarget == DatabaseTargetEAMENA;
-        self.reportHeader.switchView.statusSwitch.enabled = !self.viewModel.finalized;
+        self.reportHeader.databasePicker.nameLabel.text = @"Database target";
+        self.reportHeader.databasePicker.valueLabel.text = [DatabaseTargetMakeString(self.viewModel.databaseTarget) capitalizedString];
     }
     
     self.reportHeader.assessorEmailField.enabled = !self.viewModel.hasPrefilledEmail;
