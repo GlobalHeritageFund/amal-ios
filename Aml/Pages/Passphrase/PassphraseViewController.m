@@ -40,7 +40,7 @@
                      textFormElement,
                      [[ButtonFormElement alloc] initWithTitle:@"Submit" block:^{
          
-         Promise *promise = [[[PassphraseValidator alloc] init] unlockStatusForPassphaseAttempt:textFormElement.textField.text];
+         Promise *promise = [[[PassphraseValidator alloc] init] unlockStatusForPassphraseAttempt:textFormElement.textField.text];
          [[promise then:^id _Nullable(id  _Nonnull object) {
              NSNumber *number = [object asClassOrNil:[NSNumber class]];
              

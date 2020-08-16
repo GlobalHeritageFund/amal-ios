@@ -10,7 +10,7 @@
 
 @implementation PassphraseValidator
 
-- (Promise *)unlockStatusForPassphaseAttempt:(NSString *)passphraseAttempt {
+- (Promise *)unlockStatusForPassphraseAttempt:(NSString *)passphraseAttempt {
     
     return [[Promise alloc] initWithWork:^(void (^ _Nonnull fulfill)(NSNumber * _Nonnull), void (^ _Nonnull reject)(NSError * _Nonnull)) {
         

@@ -15,6 +15,6 @@ typedef NS_ENUM(NSInteger, PassphraseUnlockStatus) {
 
 @interface PassphraseValidator : NSObject
 
-- (Promise<NSNumber *>*)unlockStatusForPassphaseAttempt:(NSString *)passphraseAttempt;
+- (Promise<NSNumber *>*)unlockStatusForPassphraseAttempt:(NSString *)passphraseAttempt;
 
 @end
