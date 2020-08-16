@@ -29,7 +29,7 @@
     
     self.title = @"Enter a partner code";
 
-    TextFormElement *textFormElement = [[TextFormElement alloc] initWithPlaceholder:@"Enter partner code" initialText:@""];
+    TextFormElement *textFormElement = [[TextFormElement alloc] initWithPlaceholder:@"Enter a partner code" initialText:@""];
     
     __weak typeof(self) weakSelf = self;
     
@@ -50,8 +50,8 @@
                  if (status == PassphraseUnlockStatusEAMENA) {
                      [CurrentUser shared].isEAMENAEnabled = YES;
                      
-                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Success!" message:@"You have unlocked HerBridge" preferredStyle:UIAlertControllerStyleAlert];
-                     [alertController addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Partner database unlocked" message:@"You have unlocked the EAMENA database." preferredStyle:UIAlertControllerStyleAlert];
+                     [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                          [weakSelf.navigationController popViewControllerAnimated:YES];
                      }]];
                      [weakSelf presentViewController:alertController animated:YES completion:nil];
@@ -62,9 +62,8 @@
              return nil;
          }] catch:^(NSError * _Nonnull error) {
              
-             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"This partner code is not correct" preferredStyle:UIAlertControllerStyleAlert];
-             [alertController addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
-             [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid code" message:@"This code does not match any partners." preferredStyle:UIAlertControllerStyleAlert];
+             [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
              [weakSelf presentViewController:alertController animated:YES completion:nil];
          }];
      }],
