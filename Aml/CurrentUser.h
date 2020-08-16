@@ -18,6 +18,8 @@
 
 @property (nonatomic, readonly) BOOL isLoggedIn;
 
+@property (nonatomic, readonly) NSArray *unlockedDatabaseTargets;
+
 @property (nonatomic) BOOL isEAMENAUnlocked;
 
 @property (nonatomic) BOOL isLebanonUnlocked;

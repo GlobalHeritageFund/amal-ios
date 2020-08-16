@@ -7,6 +7,8 @@
 //
 
 #import "CurrentUser.h"
+#import "DatabaseTarget.h"
+
 @import FirebaseAuth;
 
 @implementation CurrentUser
@@ -71,6 +73,21 @@
 
 - (void)setIsLebanonUnlocked:(BOOL)isLebanonUnlocked {
     [self.userDefaults setBool:isLebanonUnlocked forKey:self.lebanonEAMENAEnabledKey];
+}
+
+- (NSArray *)unlockedDatabaseTargets {
+    NSMutableArray *targets = [NSMutableArray array];
+    [targets addObject:@(DatabaseTargetAmal)];
+
+    if (self.isEAMENAUnlocked) {
+        [targets addObject:@(DatabaseTargetEAMENA)];
+    }
+
+    if (self.isLebanonUnlocked) {
+        [targets addObject:@(DatabaseTargetLebanon)];
+    }
+
+    return targets;
 }
 
 - (void)signOut {
