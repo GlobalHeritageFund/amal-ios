@@ -48,7 +48,7 @@
                  PassphraseUnlockStatus status = number.integerValue;
                  
                  if (status == PassphraseUnlockStatusEAMENA) {
-                     [CurrentUser shared].isEAMENAEnabled = YES;
+                     [CurrentUser shared].isEAMENAUnlocked = YES;
                      
                      UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Partner database unlocked" message:@"You have unlocked the EAMENA database." preferredStyle:UIAlertControllerStyleAlert];
                      [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -56,7 +56,7 @@
                      }]];
                      [weakSelf presentViewController:alertController animated:YES completion:nil];
                  } else if (status == PassphraseUnlockStatusLebanon) {
-                     [CurrentUser shared].isLebanonEnabled = YES;
+                     [CurrentUser shared].isLebanonUnlocked = YES;
                      UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Partner database unlocked" message:@"You have unlocked the Lebanon database." preferredStyle:UIAlertControllerStyleAlert];
                      [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                          [weakSelf.navigationController popViewControllerAnimated:YES];

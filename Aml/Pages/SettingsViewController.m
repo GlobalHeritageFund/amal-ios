@@ -134,11 +134,11 @@
 
     NSMutableArray *partnerElements = [NSMutableArray array];
 
-    if ([CurrentUser shared].isEAMENAEnabled) {
+    if ([CurrentUser shared].isEAMENAUnlocked) {
         [partnerElements addObject:[[TextFormElement alloc] initWithImmutableText:@"EAMENA unlocked"]];
     }
 
-    if ([CurrentUser shared].isLebanonEnabled) {
+    if ([CurrentUser shared].isLebanonUnlocked) {
         [partnerElements addObject:[[TextFormElement alloc] initWithImmutableText:@"Lebanon unlocked"]];
     }
 

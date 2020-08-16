@@ -127,7 +127,7 @@
     self.reportHeader.reportStateLabel.textColor = self.viewModel.reportStateColor;
     self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
     
-    if ([CurrentUser shared].isEAMENAEnabled) {
+    if ([CurrentUser shared].isEAMENAUnlocked) {
         self.reportHeader.switchView.statusSwitch.on = self.viewModel.isEAMENA;
         self.reportHeader.switchView.statusSwitch.enabled = !self.viewModel.finalized;
     }

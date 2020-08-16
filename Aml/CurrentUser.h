@@ -18,9 +18,9 @@
 
 @property (nonatomic, readonly) BOOL isLoggedIn;
 
-@property (nonatomic) BOOL isEAMENAEnabled;
+@property (nonatomic) BOOL isEAMENAUnlocked;
 
-@property (nonatomic) BOOL isLebanonEnabled;
+@property (nonatomic) BOOL isLebanonUnlocked;
 
 - (void)signOut;
 

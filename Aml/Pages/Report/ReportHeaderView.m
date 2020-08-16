@@ -166,7 +166,7 @@
 
     [self sendSubviewToBack:self.mapView];
     
-    BOOL shouldShowEAMENA = [CurrentUser shared].isEAMENAEnabled && self.enabled;
+    BOOL shouldShowEAMENA = [CurrentUser shared].isEAMENAUnlocked && self.enabled;
 
     CGRect workingRect = self.bounds;
 

@@ -57,20 +57,20 @@
     return [FIRAuth auth].currentUser.email;
 }
 
-- (BOOL)isEAMENAEnabled {
+- (BOOL)isEAMENAUnlocked {
     return [self.userDefaults boolForKey:self.EAMENAEnabledKey];
 }
 
-- (void)setIsEAMENAEnabled:(BOOL)isEAMENAEnabled {
-    [self.userDefaults setBool:isEAMENAEnabled forKey:self.EAMENAEnabledKey];
+- (void)setIsEAMENAUnlocked:(BOOL)isEAMENAUnlocked {
+    [self.userDefaults setBool:isEAMENAUnlocked forKey:self.EAMENAEnabledKey];
 }
 
-- (BOOL)isLebanonEnabled {
+- (BOOL)isLebanonUnlocked {
     return [self.userDefaults boolForKey:self.lebanonEAMENAEnabledKey];
 }
 
-- (void)setIsLebanonEnabled:(BOOL)isEAMENAEnabled {
-    [self.userDefaults setBool:isEAMENAEnabled forKey:self.lebanonEAMENAEnabledKey];
+- (void)setIsLebanonUnlocked:(BOOL)isLebanonUnlocked {
+    [self.userDefaults setBool:isLebanonUnlocked forKey:self.lebanonEAMENAEnabledKey];
 }
 
 - (void)signOut {
