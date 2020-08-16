@@ -66,8 +66,8 @@
              [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
              [weakSelf presentViewController:alertController animated:YES completion:nil];
          }];
-     }],
-                     ]
+    }],
+      ]
       ]
      ];
     
