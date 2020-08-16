@@ -10,7 +10,8 @@
 #import "Promise.h"
 
 typedef NS_ENUM(NSInteger, PassphraseUnlockStatus) {
-    PassphraseUnlockStatusEAMENA
+    PassphraseUnlockStatusEAMENA,
+    PassphraseUnlockStatusLebanon,
 };
 
 @interface PassphraseValidator : NSObject

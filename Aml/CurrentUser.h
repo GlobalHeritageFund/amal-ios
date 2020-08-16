@@ -20,6 +20,8 @@
 
 @property (nonatomic) BOOL isEAMENAEnabled;
 
+@property (nonatomic) BOOL isLebanonEnabled;
+
 - (void)signOut;
 
 - (NSDictionary *)dictionaryRepresentation;

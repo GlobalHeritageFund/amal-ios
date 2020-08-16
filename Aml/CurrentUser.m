@@ -35,6 +35,10 @@
     return @"EAMENAEnabledKey";
 }
 
+- (NSString *)lebanonEAMENAEnabledKey {
+    return @"LebanonEAMENAEnabledKey";
+}
+
 - (NSString *)deviceToken {
     NSString *deviceToken = [self.userDefaults stringForKey:self.deviceTokenKey];
     if (deviceToken == nil) {
@@ -59,6 +63,14 @@
 
 - (void)setIsEAMENAEnabled:(BOOL)isEAMENAEnabled {
     [self.userDefaults setBool:isEAMENAEnabled forKey:self.EAMENAEnabledKey];
+}
+
+- (BOOL)isLebanonEnabled {
+    return [self.userDefaults boolForKey:self.lebanonEAMENAEnabledKey];
+}
+
+- (void)setIsLebanonEnabled:(BOOL)isEAMENAEnabled {
+    [self.userDefaults setBool:isEAMENAEnabled forKey:self.lebanonEAMENAEnabledKey];
 }
 
 - (void)signOut {

@@ -55,6 +55,14 @@
                          [weakSelf.navigationController popViewControllerAnimated:YES];
                      }]];
                      [weakSelf presentViewController:alertController animated:YES completion:nil];
+                 } else if (status == PassphraseUnlockStatusLebanon) {
+                     [CurrentUser shared].isLebanonEnabled = YES;
+                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Partner database unlocked" message:@"You have unlocked the Lebanon database." preferredStyle:UIAlertControllerStyleAlert];
+                     [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                         [weakSelf.navigationController popViewControllerAnimated:YES];
+                     }]];
+                     [weakSelf presentViewController:alertController animated:YES completion:nil];
+
                  }
                  
              }

@@ -18,6 +18,10 @@
             fulfill(@(PassphraseUnlockStatusEAMENA));
         }
         
+        if ([[passphraseAttempt lowercaseString] isEqualToString:@"lebanon"]) {
+            fulfill(@(PassphraseUnlockStatusLebanon));
+        }
+
         reject([NSError errorWithDomain:@"com.amal.passwordvalidation" code:1 userInfo:nil]);
     }];
 
