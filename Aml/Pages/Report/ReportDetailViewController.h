@@ -18,6 +18,7 @@
 - (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectLocalPhoto:(LocalPhoto *)photo;
 - (void)reportDetailViewController:(ReportDetailViewController *)reportDetailViewController didSelectRemotePhoto:(RemotePhoto *)photo;
 - (void)reportDetailViewControllerDidTapAddPhoto:(ReportDetailViewController *)reportDetailViewController;
+- (void)reportDetailViewControllerDidTapDatabasePicker:(ReportDetailViewController *)reportDetailViewController;
 
 @end
 
@@ -29,7 +30,6 @@
 
 @property (nonatomic, readonly) UITableView *tableView;
 
-
 - (instancetype)initWithReportDraft:(ReportDraft *)reportDraft;
 - (instancetype)initWithReportViewModel:(ReportViewModel *)viewModel;
 
@@ -38,5 +38,7 @@
 @property (nonatomic) UIBarButtonItem *uploadButton;
 
 - (void)updateUploadButtonState;
+
+- (void)configureView;
 
 @end

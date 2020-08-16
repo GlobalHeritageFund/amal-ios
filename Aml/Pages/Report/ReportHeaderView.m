@@ -109,6 +109,9 @@
 - (DatabasePicker *)databasePicker {
     if (!_databasePicker) {
         DatabasePicker *databasePicker = [[DatabasePicker alloc] init];
+
+        [databasePicker addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
+
         [self.containerView addSubview:databasePicker];
         self.databasePicker = databasePicker;
     }
@@ -164,7 +167,8 @@
     [super layoutSubviews];
 
     [self sendSubviewToBack:self.mapView];
-    
+
+    // needs to be cleaned up
     BOOL shouldShowEAMENA = [CurrentUser shared].isEAMENAUnlocked && self.enabled;
 
     CGRect workingRect = self.bounds;
@@ -219,8 +223,8 @@
     }
 }
 
-- (void)switchChanged:(UISwitch *)statusSwitch {
-    [self.delegate changedEAMENAStatusTo:statusSwitch.enabled];
+- (void)handleTap:(UITapGestureRecognizer *)tap {
+    [self.delegate reportHeaderViewTappedDatabasePicker:self];
 }
 
 - (BOOL)enabled {

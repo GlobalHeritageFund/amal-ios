@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@class DatabasePicker;
+@class DatabasePicker, ReportHeaderView;
 
 @protocol ReportHeaderViewDelegate
 
-- (void)changedEAMENAStatusTo:(BOOL)status;
+- (void)reportHeaderViewTappedDatabasePicker:(ReportHeaderView *)headerView;
 
 @end
 

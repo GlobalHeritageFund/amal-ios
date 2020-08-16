@@ -127,14 +127,16 @@
     self.reportHeader.reportStateLabel.text = self.viewModel.reportState;
     self.reportHeader.reportStateLabel.textColor = self.viewModel.reportStateColor;
     self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
-    
+
     if ([CurrentUser shared].isEAMENAUnlocked || [CurrentUser shared].isLebanonUnlocked) {
         self.reportHeader.databasePicker.nameLabel.text = @"Database target";
         self.reportHeader.databasePicker.valueLabel.text = [DatabaseTargetMakeString(self.viewModel.databaseTarget) capitalizedString];
     }
-    
+
     self.reportHeader.assessorEmailField.enabled = !self.viewModel.hasPrefilledEmail;
     
+    [self.reportHeader.databasePicker setNeedsLayout];
+
     if (self.viewModel.finalized) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
     } else {
@@ -271,8 +273,8 @@
    [self.delegate reportDetailViewControllerDidTapCancel:self];
 }
 
-- (void)changedEAMENAStatusTo:(BOOL)status {
-    self.viewModel.draft.databaseTarget = status ? DatabaseTargetEAMENA : DatabaseTargetAmal;
+- (void)reportHeaderViewTappedDatabasePicker:(ReportHeaderView *)headerView {
+    [self.delegate reportDetailViewControllerDidTapDatabasePicker:self];
 }
 
 @end

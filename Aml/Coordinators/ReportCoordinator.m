@@ -112,5 +112,8 @@
     [reportDetailViewController.navigationController pushViewController:imageDetail animated:YES];
 }
 
+- (void)reportDetailViewControllerDidTapDatabasePicker:(ReportDetailViewController *)reportDetailViewController {
+    // not needed
+}
 
 @end

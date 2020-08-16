@@ -71,6 +71,7 @@
 		1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */; };
 		34A648EA24E997180089F939 /* DatabaseTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648E924E997180089F939 /* DatabaseTarget.m */; };
 		34A648ED24E99E790089F939 /* DatabasePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648EB24E99E790089F939 /* DatabasePicker.m */; };
+		34A648F024E9A5E50089F939 /* DatabasePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648EF24E9A5E50089F939 /* DatabasePickerViewController.m */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
 		580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55411E5CFC1000A70AB1 /* AppDelegate.m */; };
 		580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55441E5CFC1000A70AB1 /* CameraViewController.m */; };
@@ -234,6 +235,8 @@
 		34A648E924E997180089F939 /* DatabaseTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseTarget.m; sourceTree = "<group>"; };
 		34A648EB24E99E790089F939 /* DatabasePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabasePicker.m; sourceTree = "<group>"; };
 		34A648EC24E99E790089F939 /* DatabasePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabasePicker.h; sourceTree = "<group>"; };
+		34A648EE24E9A5E50089F939 /* DatabasePickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabasePickerViewController.h; sourceTree = "<group>"; };
+		34A648EF24E9A5E50089F939 /* DatabasePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabasePickerViewController.m; sourceTree = "<group>"; };
 		364849B5AE5394A5BF3ECBD8 /* Pods-Amal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Amal/Pods-Amal.debug.xcconfig"; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580A553E1E5CFC1000A70AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -380,6 +383,8 @@
 				1A04FCEB1F51D07C0010A9D8 /* ReportCell.m */,
 				1ACAD1E41F0EF796001935D4 /* ReportDetailViewController.h */,
 				1ACAD1E51F0EF796001935D4 /* ReportDetailViewController.m */,
+				34A648EE24E9A5E50089F939 /* DatabasePickerViewController.h */,
+				34A648EF24E9A5E50089F939 /* DatabasePickerViewController.m */,
 				1A4E9ACF1F50ABF0006856A8 /* ReportHeaderView.h */,
 				1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */,
 				34A648EC24E99E790089F939 /* DatabasePicker.h */,
@@ -955,6 +960,7 @@
 				1ACAD1ED1F0F25C3001935D4 /* ReportUpload.m in Sources */,
 				1A5AADEC1F4F756A00573829 /* QBVideoIconView.m in Sources */,
 				1A1F7DE51F3F8CBE0028DCF0 /* ReportCreationCoordinator.m in Sources */,
+				34A648F024E9A5E50089F939 /* DatabasePickerViewController.m in Sources */,
 				1A4E39391F2FCEA80055C7FA /* FirstLaunch.m in Sources */,
 				1A35595E1F0023DF00FFFBCA /* FormElements.m in Sources */,
 				1A3559611F00418000FFFBCA /* CGGeometry.m in Sources */,

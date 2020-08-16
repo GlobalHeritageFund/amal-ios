@@ -20,8 +20,10 @@
 #import "ImageDetailViewController.h"
 #import "CurrentUser.h"
 #import "Firebase+Promises.h"
+#import "DatabasePickerViewController.h"
+#import "NSObject+Helpers.h"
 
-@interface ReportCreationCoordinator () <GalleryViewControllerDelegate, ReportDetailViewControllerDelegate, AssessViewControllerDelegate, FUIAuthDelegate>
+@interface ReportCreationCoordinator () <GalleryViewControllerDelegate, ReportDetailViewControllerDelegate, AssessViewControllerDelegate, FUIAuthDelegate, DatabasePickerViewControllerDelegate>
 
 @property (nonatomic) ReportDraft *currentReport;
 
@@ -224,6 +226,25 @@
     [reportDetailViewController.navigationController pushViewController:imageDetail animated:YES];
 }
 
+- (void)reportDetailViewControllerDidTapDatabasePicker:(ReportDetailViewController *)reportDetailViewController {
+    DatabasePickerViewController *picker = [[DatabasePickerViewController alloc] init];
+
+    picker.selectedDatabase = reportDetailViewController.viewModel.databaseTarget;
+
+    picker.delegate = self;
+
+    [reportDetailViewController.navigationController pushViewController:picker animated:YES];
+}
+
+- (void)databasePicker:(DatabasePickerViewController *)picker didPickNewDatabase:(DatabaseTarget)target {
+    self.currentReport.databaseTarget = target;
+
+    ReportDetailViewController *reportDetail = [picker.navigationController.viewControllers.firstObject asClassOrNil:[ReportDetailViewController class]];
+
+    [reportDetail configureView];
+
+    [picker.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)dismissReportCreation:(id)sender {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
