@@ -53,8 +53,8 @@
      [[FormGroup alloc]
       initWithHeaderText:@"About AMAL"
       formElements:@[
-                     [[MultiLineLabelFormElement alloc] initWithText:@"AMAL is an emergency management application designed for the rapid impact assessment of cultural heritage areas, buildings, and artifacts."],
-                     ]
+          [[MultiLineLabelFormElement alloc] initWithText:@"AMAL is an emergency management application designed for the rapid impact assessment of cultural heritage areas, buildings, and artifacts."],
+      ]
       ]
      ];
     
@@ -66,8 +66,8 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Version"
       formElements:@[
-                     [[TextFormElement alloc] initWithImmutableText:version],
-                     ]
+          [[TextFormElement alloc] initWithImmutableText:version],
+      ]
       ]
      ];
     
@@ -77,21 +77,21 @@
      [[FormGroup alloc]
       initWithHeaderText:@"Visit"
       formElements:@[
-                     [[ButtonFormElement alloc] initWithTitle:@"Visit amal.global" block:^{
-         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/"]];
-     }],
-                     [[ButtonFormElement alloc] initWithTitle:@"User Guide" block:^{
-         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/guide"]];
-     }],
-                     [[ButtonFormElement alloc] initWithTitle:@"Privacy Policy" block:^{
-         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://globalheritagefund.org/index.php/news-resources/library/privacy-policy/"]];
+          [[ButtonFormElement alloc] initWithTitle:@"Visit amal.global" block:^{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/"]];
+    }],
+          [[ButtonFormElement alloc] initWithTitle:@"User Guide" block:^{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/guide"]];
+    }],
+          [[ButtonFormElement alloc] initWithTitle:@"Privacy Policy" block:^{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://globalheritagefund.org/index.php/news-resources/library/privacy-policy/"]];
 
-     }],
-                     [[ButtonFormElement alloc] initWithTitle:@"Terms of Service" block:^{
-         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/terms-of-service/"]];
+    }],
+          [[ButtonFormElement alloc] initWithTitle:@"Terms of Service" block:^{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/terms-of-service/"]];
 
-     }],
-                     ]
+    }],
+      ]
       ]
      ];
     
