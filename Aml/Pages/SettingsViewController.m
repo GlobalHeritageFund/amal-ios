@@ -42,8 +42,12 @@
 
     self.title = @"Settings";
 
-    [self setupForm];
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    [self setupForm];
 }
 
 - (void)setupForm {
@@ -125,12 +129,24 @@
             }];
         }
     }();
-    
+
     [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Account" formElements:@[authenticationElement]]];
-    
-    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Partners" formElements:@[[[ButtonFormElement alloc] initWithTitle:@"Enter partner code" block:^{
+
+    NSMutableArray *partnerElements = [NSMutableArray array];
+
+    if ([CurrentUser shared].isEAMENAEnabled) {
+        [partnerElements addObject:[[TextFormElement alloc] initWithImmutableText:@"EAMENA unlocked"]];
+    }
+
+    if ([CurrentUser shared].isLebanonEnabled) {
+        [partnerElements addObject:[[TextFormElement alloc] initWithImmutableText:@"Lebanon unlocked"]];
+    }
+
+    [partnerElements addObject:[[ButtonFormElement alloc] initWithTitle:@"Enter a new partner code" block:^{
         [weakSelf.delegate didSelectEnterPassphrase];
-    }]]]];
+    }]];
+
+    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Partners" formElements:partnerElements]];
     
 }
 
