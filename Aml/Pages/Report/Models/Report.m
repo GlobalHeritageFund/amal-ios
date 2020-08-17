@@ -76,11 +76,7 @@
         return [[RemotePhoto alloc] initWithDictionary:images[object]];
     }];
     
-    if ([dictionary[@"isEAMENA"] boolValue]) {
-        _databaseTarget = DatabaseTargetEAMENA;
-    } else {
-        _databaseTarget = DatabaseTargetAmal;
-    }
+    _databaseTarget = DatabaseTargetAmal;
 
     return self;
 }
