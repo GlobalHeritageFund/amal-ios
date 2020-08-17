@@ -168,8 +168,7 @@
 
     [self sendSubviewToBack:self.mapView];
 
-    // needs to be cleaned up
-    BOOL shouldShowEAMENA = [CurrentUser shared].isEAMENAUnlocked && self.enabled;
+    BOOL shouldShowSwitcher = ([CurrentUser shared].unlockedDatabaseTargets.count > 1) && self.enabled;
 
     CGRect workingRect = self.bounds;
 
@@ -193,7 +192,7 @@
     CGRectDivide(workingRect, &countRect, &workingRect, 26, CGRectMinYEdge);
     workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
     
-    if (shouldShowEAMENA) {
+    if (shouldShowSwitcher) {
         CGRectDivide(workingRect, &databasePickerRect, &workingRect, 40, CGRectMinYEdge);
         workingRect = CGRectTrim(workingRect, 10, CGRectMinYEdge);
     }
@@ -218,7 +217,7 @@
     self.creationDateLabel.frame = creationDateRect;
     self.reportStateLabel.frame = reportStateRect;
     
-    if (shouldShowEAMENA) {
+    if (shouldShowSwitcher) {
         self.databasePicker.frame = databasePickerRect;
     }
 }
