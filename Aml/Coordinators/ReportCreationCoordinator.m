@@ -26,6 +26,7 @@
 @interface ReportCreationCoordinator () <GalleryViewControllerDelegate, ReportDetailViewControllerDelegate, AssessViewControllerDelegate, FUIAuthDelegate, DatabasePickerViewControllerDelegate>
 
 @property (nonatomic) ReportDraft *currentReport;
+@property (nonatomic) ReportDetailViewController *reportDetail;
 
 @end
 
@@ -78,6 +79,7 @@
         reportDetail.delegate = self;
         UINavigationController *reportDetailNavigationController = [[UINavigationController alloc] initWithRootViewController:reportDetail];
         [self.viewController presentViewController:reportDetailNavigationController animated:true completion:nil];
+        self.reportDetail = reportDetail;
     }
 }
 
@@ -104,6 +106,7 @@
     ReportDetailViewController *reportDetail = [[ReportDetailViewController alloc] initWithReportDraft:self.currentReport];
     reportDetail.delegate = self;
     [galleryViewController.navigationController pushViewController:reportDetail animated:YES];
+    self.reportDetail = reportDetail;
 }
 
 - (void)galleryViewControllerShouldDismiss:(GalleryViewController *)galleryViewController {
@@ -112,8 +115,7 @@
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController didTapPhoto:(LocalPhoto *)photo {
     [self.currentReport addPhoto:photo];
-    // need to get a handle on the report detail view controller somehow
-    //    [self.reportDetailViewController updateUploadButtonState];
+    [self.reportDetail updateUploadButtonState];
     [galleryViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -239,9 +241,7 @@
 - (void)databasePicker:(DatabasePickerViewController *)picker didPickNewDatabase:(DatabaseTarget)target {
     self.currentReport.databaseTarget = target;
 
-    ReportDetailViewController *reportDetail = [picker.navigationController.viewControllers.firstObject asClassOrNil:[ReportDetailViewController class]];
-
-    [reportDetail configureView];
+    [self.reportDetail configureView];
 
     [picker.navigationController popViewControllerAnimated:YES];
 }
