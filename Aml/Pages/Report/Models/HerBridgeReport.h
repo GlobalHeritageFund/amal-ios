@@ -18,7 +18,7 @@
 
 @property (readonly) NSString *assessorEmail;
 
-@property (readonly) DatabaseTarget databaseTarget;
+@property (readwrite) DatabaseTarget databaseTarget;
 
 @property (readonly) NSDate *creationDate;
 

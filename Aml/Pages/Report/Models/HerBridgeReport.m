@@ -27,6 +27,9 @@
         _photos = [dictionary[@"resources"] arrayByTransformingObjectsUsingBlock:^id(id object) {
             return [[HerBridgePhoto alloc] initWithDictionary:object];
         }];
+
+        // a default that should be overridden by the uploader
+        _databaseTarget = DatabaseTargetLebanon;
         
     }
     
@@ -87,10 +90,6 @@
 
 - (ReportDraft *)draft {
     return nil;
-}
-
-- (DatabaseTarget)databaseTarget {
-    return DatabaseTargetEAMENA; //this is...not always true
 }
 
 @end

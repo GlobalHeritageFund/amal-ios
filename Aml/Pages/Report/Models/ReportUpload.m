@@ -17,6 +17,7 @@
 #import "Report.h"
 #import "UIImage+Resize.h"
 #import "HerBridgeReportUploader.h"
+#import "HerBridgeReport.h"
 
 @interface ReportUpload ()
 
@@ -88,6 +89,7 @@
         Promise *promise = [uploader uploadReport:self];
         
         [[promise then:^id _Nullable(id  _Nonnull object) {
+            ((HerBridgeReport *)object).databaseTarget = DatabaseTargetEAMENA;
             [self.promise fulfill:object];
             return nil;
         }] catch:^(NSError * _Nonnull error) {
@@ -99,6 +101,7 @@
         Promise *promise = [uploader uploadReport:self];
 
         [[promise then:^id _Nullable(id  _Nonnull object) {
+            ((HerBridgeReport *)object).databaseTarget = DatabaseTargetLebanon;
             [self.promise fulfill:object];
             return nil;
         }] catch:^(NSError * _Nonnull error) {
