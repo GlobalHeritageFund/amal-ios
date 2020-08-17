@@ -52,15 +52,22 @@
 
     CGRect workingRect = self.bounds;
 
-    CGRectDivide(workingRect, &chevronRect, &workingRect, 10, CGRectMaxXEdge);
+    if (self.enabled) {
+        CGRectDivide(workingRect, &chevronRect, &workingRect, 10, CGRectMaxXEdge);
 
-    workingRect = CGRectTrim(workingRect, 10, CGRectMaxXEdge);
+        workingRect = CGRectTrim(workingRect, 10, CGRectMaxXEdge);
+    }
 
     CGRectDivide(workingRect, &valueRect, &nameRect, self.valueLabel.bounds.size.width, CGRectMaxXEdge);
 
     self.nameLabel.frame = nameRect;
     self.valueLabel.frame = valueRect;
     self.chevronImage.frame = chevronRect;
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    [self setNeedsLayout];
 }
 
 @end

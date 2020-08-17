@@ -223,7 +223,9 @@
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)tap {
-    [self.delegate reportHeaderViewTappedDatabasePicker:self];
+    if (self.enabled) {
+        [self.delegate reportHeaderViewTappedDatabasePicker:self];
+    }
 }
 
 - (BOOL)enabled {
@@ -233,6 +235,7 @@
 - (void)setEnabled:(BOOL)enabled {
     self.titleField.enabled = enabled;
     self.assessorEmailField.enabled = enabled;
+    self.databasePicker.enabled = enabled;
 }
 
 @end

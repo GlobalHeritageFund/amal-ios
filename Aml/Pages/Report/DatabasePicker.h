@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DatabasePicker : UIView
 
+@property (nonatomic, getter=isEnabled) BOOL enabled;
 @property (readonly) UILabel *nameLabel;
 @property (readonly) UILabel *valueLabel;
 
