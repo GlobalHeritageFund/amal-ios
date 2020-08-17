@@ -35,7 +35,7 @@
 		1A4E39391F2FCEA80055C7FA /* FirstLaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E39381F2FCEA80055C7FA /* FirstLaunch.m */; };
 		1A4E393C1F2FD2F40055C7FA /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E393B1F2FD2F40055C7FA /* CurrentUser.m */; };
 		1A4E39401F2FD7C70055C7FA /* ReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */; };
-		1A4E39441F2FF1DF0055C7FA /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E39431F2FF1DF0055C7FA /* Report.m */; };
+		1A4E39441F2FF1DF0055C7FA /* FirebaseReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E39431F2FF1DF0055C7FA /* FirebaseReport.m */; };
 		1A4E9AD11F50ABF0006856A8 /* ReportHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */; };
 		1A4E9AD61F511396006856A8 /* ReportViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E9AD51F511396006856A8 /* ReportViewModel.m */; };
 		1A5AADE41F4F756A00573829 /* QBAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AADD11F4F756A00573829 /* QBAlbumCell.m */; };
@@ -167,8 +167,8 @@
 		1A4E393B1F2FD2F40055C7FA /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUser.m; sourceTree = "<group>"; };
 		1A4E393E1F2FD7C70055C7FA /* ReportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportsViewController.h; sourceTree = "<group>"; };
 		1A4E393F1F2FD7C70055C7FA /* ReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportsViewController.m; sourceTree = "<group>"; };
-		1A4E39421F2FF1DF0055C7FA /* Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Report.h; sourceTree = "<group>"; };
-		1A4E39431F2FF1DF0055C7FA /* Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
+		1A4E39421F2FF1DF0055C7FA /* FirebaseReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseReport.h; sourceTree = "<group>"; };
+		1A4E39431F2FF1DF0055C7FA /* FirebaseReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseReport.m; sourceTree = "<group>"; };
 		1A4E9ACF1F50ABF0006856A8 /* ReportHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportHeaderView.h; sourceTree = "<group>"; };
 		1A4E9AD01F50ABF0006856A8 /* ReportHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportHeaderView.m; sourceTree = "<group>"; };
 		1A4E9AD41F511396006856A8 /* ReportViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewModel.h; sourceTree = "<group>"; };
@@ -410,8 +410,8 @@
 				B910B866212B2ACD00468383 /* HerBridgeReport.m */,
 				1A04FCE71F51CE3B0010A9D8 /* ImageCache.h */,
 				1A04FCE81F51CE3B0010A9D8 /* ImageCache.m */,
-				1A4E39421F2FF1DF0055C7FA /* Report.h */,
-				1A4E39431F2FF1DF0055C7FA /* Report.m */,
+				1A4E39421F2FF1DF0055C7FA /* FirebaseReport.h */,
+				1A4E39431F2FF1DF0055C7FA /* FirebaseReport.m */,
 				1ACAD1E81F0EF7A3001935D4 /* ReportDraft.h */,
 				1ACAD1E91F0EF7A3001935D4 /* ReportDraft.m */,
 				1A4E9AD71F514313006856A8 /* ReportProtocols.h */,
@@ -913,7 +913,7 @@
 				B910B874212CB5AE00468383 /* JSONRequest.m in Sources */,
 				58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */,
 				580A55661E5D255600A70AB1 /* UIButton+Additions.m in Sources */,
-				1A4E39441F2FF1DF0055C7FA /* Report.m in Sources */,
+				1A4E39441F2FF1DF0055C7FA /* FirebaseReport.m in Sources */,
 				B98953A120FD321900BC79C0 /* CautionViewController.m in Sources */,
 				1AEBACA41F4A6E9F002DC63F /* FirebaseReportDataSource.m in Sources */,
 				B910B843211A393300468383 /* PassphraseValidator.m in Sources */,

@@ -10,7 +10,7 @@
 #import "NSObject+Helpers.h"
 #import "ReportDraft.h"
 #import "ReportUpload.h"
-#import "Report.h"
+#import "FirebaseReport.h"
 #import <MapKit/MapKit.h>
 #import "HerBridgeReport.h"
 
@@ -109,8 +109,8 @@ static NSDateFormatter *dateFormatter = nil;
     return [(NSObject*)self.report asClassOrNil:[ReportUpload class]];
 }
 
-- (Report *)finalized {
-    return [(NSObject*)self.report asClassOrNil:[Report class]] ?: [(NSObject*)self.report asClassOrNil:[HerBridgeReport class]];
+- (id<ReportProtocol>)finalized {
+    return [(NSObject*)self.report asClassOrNil:[FirebaseReport class]] ?: [(NSObject*)self.report asClassOrNil:[HerBridgeReport class]];
 }
 
 - (BOOL)showProgressBars {

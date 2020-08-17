@@ -16,7 +16,7 @@
 
 @property (nonatomic, readonly) ReportDraft *reportDraft;
 
-@property (nonatomic, readonly) Promise<Report *> *promise;
+@property (nonatomic, readonly) Promise<FirebaseReport *> *promise;
 
 @property (nonatomic, readonly) NSArray<NSProgress *> *progresses;
 

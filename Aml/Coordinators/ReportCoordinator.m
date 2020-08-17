@@ -15,7 +15,7 @@
 #import "ReportViewModel.h"
 #import "Firebase.h"
 #import "ReportDraft.h"
-#import "Report.h"
+#import "FirebaseReport.h"
 #import "ImageDetailViewController.h"
 
 @interface ReportCoordinator() <ReportsViewControllerDelegate, ReportDetailViewControllerDelegate>
@@ -50,7 +50,7 @@
     [self.childCoordinators addObject:reportCreation];
 }
 
-- (void)reportsViewController:(ReportsViewController *)reportsViewController didTapReport:(Report *)report {
+- (void)reportsViewController:(ReportsViewController *)reportsViewController didTapReport:(FirebaseReport *)report {
     [FIRAnalytics logEventWithName:@"report_tapped" parameters:nil];
 
     ReportViewModel *viewModel = [[ReportViewModel alloc] initWithReport:report];
@@ -78,7 +78,7 @@
     [reportsViewController presentViewController:alertController animated:true completion:nil];
 }
 
-- (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteReport:(Report *)report atIndexPath:(NSIndexPath *)indexPath {
+- (void)reportsViewController:(ReportsViewController *)reportsViewController shouldDeleteReport:(FirebaseReport *)report atIndexPath:(NSIndexPath *)indexPath {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to delete this report? This can not be undone." preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         [reportsViewController.publishedReports deleteReport:report];

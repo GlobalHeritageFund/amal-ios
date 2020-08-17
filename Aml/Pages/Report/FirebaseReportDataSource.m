@@ -7,7 +7,7 @@
 //
 
 #import "FirebaseReportDataSource.h"
-#import "Report.h"
+#import "FirebaseReport.h"
 #import "Firebase.h"
 #import "NSArray+Additions.h"
 #import "CurrentUser.h"
@@ -23,13 +23,13 @@
 - (void)beginObserving {
     __weak __typeof(&*self)weakSelf = self;
 
-    [self observeDataSource:^(NSArray<Report *> *reports) {
+    [self observeDataSource:^(NSArray<FirebaseReport *> *reports) {
         weakSelf.reports = reports;
         [self.delegate dataSourceUpdated:self];
     }];
 }
 
-- (void)observeDataSource:(void ((^)(NSArray<Report *> *)))block {
+- (void)observeDataSource:(void ((^)(NSArray<FirebaseReport *> *)))block {
     FIRDatabaseReference *reportsDirectory = [[[FIRDatabase database] reference] child:@"reports"];
 
     FIRDatabaseQuery *query = [[reportsDirectory queryOrderedByChild:@"authorDeviceToken"] queryEqualToValue:[CurrentUser shared].deviceToken];
@@ -41,10 +41,10 @@
         }
         NSDictionary *reportDicts = snapshot.value;
         NSArray *reports = [[[[reportDicts allKeys] arrayByTransformingObjectsUsingBlock:^id(id key) {
-            return [[Report alloc] initWithKey:key dictionary:reportDicts[key]];
-        }] arrayBySelectingObjectsPassingTest:^BOOL(Report *report) {
+            return [[FirebaseReport alloc] initWithKey:key dictionary:reportDicts[key]];
+        }] arrayBySelectingObjectsPassingTest:^BOOL(FirebaseReport *report) {
             return report.uploadComplete;
-        }] sortedArrayUsingComparator:^NSComparisonResult(Report * _Nonnull obj1, Report * _Nonnull obj2) {
+        }] sortedArrayUsingComparator:^NSComparisonResult(FirebaseReport * _Nonnull obj1, FirebaseReport * _Nonnull obj2) {
             return [obj2.creationDate compare:obj1.creationDate];
         }];
         if (block != nil) {
@@ -54,7 +54,7 @@
 
 }
 
-- (void)deleteReport:(Report *)report {
+- (void)deleteReport:(FirebaseReport *)report {
     [[[[[FIRDatabase database] reference] child:@"reports"] child:report.firebaseID] removeValue];
 }
 

@@ -16,7 +16,7 @@
 #import "ReportDraft.h"
 #import "ReportUpload.h"
 #import "LocalDraftDataSource.h"
-#import "Report.h"
+#import "FirebaseReport.h"
 #import "ImageDetailViewController.h"
 #import "CurrentUser.h"
 #import "Firebase+Promises.h"

@@ -17,7 +17,7 @@
 #import "ReportHeaderView.h"
 #import "UIColor+Additions.h"
 #import "NSObject+Helpers.h"
-#import "Report.h"
+#import "FirebaseReport.h"
 #import "MapViewController.h"
 #import "NSArray+Additions.h"
 #import "CurrentUser.h"
@@ -161,7 +161,7 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Share" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 
     [alertController addAction:[UIAlertAction actionWithTitle:@"Web Report" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSString *url = [NSString stringWithFormat:@"https://app.amal.global/reports/%@", self.viewModel.finalized.firebaseID];
+        NSString *url = [NSString stringWithFormat:@"https://app.amal.global/reports/%@", ((FirebaseReport *)self.viewModel.finalized).firebaseID];
         NSArray *objectsToShare = @[[NSURL URLWithString:url]];
         UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
         [self presentViewController:activityViewController animated:YES completion:nil];
@@ -169,7 +169,7 @@
 
     [alertController addAction:[UIAlertAction actionWithTitle:@"PDF Report" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
-        [self.viewModel.finalized.pdfURL then:^id _Nullable(id  _Nonnull url) {
+        [((FirebaseReport *)self.viewModel.finalized).pdfURL then:^id _Nullable(id  _Nonnull url) {
             NSArray *objectsToShare = @[url];
             UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
             [self presentViewController:activityViewController animated:YES completion:nil];
@@ -244,7 +244,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         LocalPhoto *localPhoto = self.viewModel.draft.localPhotos[indexPath.row];
-        RemotePhoto *remotePhoto = self.viewModel.finalized.photos[indexPath.row];
+        RemotePhoto *remotePhoto = ((FirebaseReport *)self.viewModel.finalized).photos[indexPath.row];
         if (localPhoto) {
             [self.delegate reportDetailViewController:self didSelectLocalPhoto:localPhoto];
         } else if (remotePhoto) {

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Report;
+@class FirebaseReport;
 
 @protocol DataSourceDelegate <NSObject>
 
@@ -20,12 +20,12 @@
 
 @property (nonatomic, weak) id<DataSourceDelegate> delegate;
 
-@property (nonatomic, readonly) NSArray<Report *> *reports;
+@property (nonatomic, readonly) NSArray<FirebaseReport *> *reports;
 
 @property (readonly) BOOL hasItems;
 
 - (void)beginObserving;
 
-- (void)deleteReport:(Report *)report;
+- (void)deleteReport:(FirebaseReport *)report;
 
 @end

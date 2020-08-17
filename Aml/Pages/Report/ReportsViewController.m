@@ -9,7 +9,7 @@
 #import "ReportsViewController.h"
 #import "Firebase.h"
 #import "CurrentUser.h"
-#import "Report.h"
+#import "FirebaseReport.h"
 #import "NSArray+Additions.h"
 #import "FirebaseReportDataSource.h"
 #import "ReportCell.h"
@@ -134,7 +134,7 @@
         ReportDraft *draft = self.localDrafts.reports[indexPath.row];
         viewModel = [[ReportViewModel alloc] initWithReport:draft];
     } else if (indexPath.section == 1) {
-        Report *report = self.publishedReports.reports[indexPath.row];
+        FirebaseReport *report = self.publishedReports.reports[indexPath.row];
         viewModel = [[ReportViewModel alloc] initWithReport:report];
     }
 
@@ -176,7 +176,7 @@
         ReportDraft *reportDraft = self.localDrafts.reports[indexPath.row];
         [self.delegate reportsViewController:self didTapDraft:reportDraft];
     } else if (indexPath.section == 1) {
-        Report *report = self.publishedReports.reports[indexPath.row];
+        FirebaseReport *report = self.publishedReports.reports[indexPath.row];
         [self.delegate reportsViewController:self didTapReport:report];
     }
 }
@@ -194,7 +194,7 @@
 
         [self.delegate reportsViewController:self shouldDeleteDraft:reportDraft atIndexPath:indexPath];
     } else if (indexPath.section == 1) {
-        Report *report = self.publishedReports.reports[indexPath.row];
+        FirebaseReport *report = self.publishedReports.reports[indexPath.row];
         [self.delegate reportsViewController:self shouldDeleteReport:report atIndexPath:indexPath];
     }
 }

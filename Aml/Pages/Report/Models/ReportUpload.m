@@ -14,7 +14,7 @@
 #import "NSArray+Additions.h"
 #import "Firebase+Promises.h"
 #import "CurrentUser.h"
-#import "Report.h"
+#import "FirebaseReport.h"
 #import "UIImage+Resize.h"
 #import "HerBridgeReportUploader.h"
 #import "HerBridgeReport.h"
@@ -131,7 +131,7 @@
                return [reportRef promiseGet];
            }]
           then:^id _Nullable(id  _Nonnull object) {
-              Report *report = [[Report alloc] initWithKey:reportRef.key dictionary:object];
+              FirebaseReport *report = [[FirebaseReport alloc] initWithKey:reportRef.key dictionary:object];
               [self.promise fulfill:report];
               return nil;
           }]

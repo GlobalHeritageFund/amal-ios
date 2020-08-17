@@ -1,5 +1,5 @@
 //
-//  Report.h
+//  FirebaseReport.h
 //  Amal
 //
 //  Created by Soroush Khanlou on 7/31/17.
@@ -28,7 +28,7 @@
 @end
 
 
-@interface Report : NSObject<ReportProtocol>
+@interface FirebaseReport : NSObject<ReportProtocol>
 
 @property (readonly) NSString *firebaseID;
 @property (readonly) NSString *title;

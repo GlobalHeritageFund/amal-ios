@@ -10,7 +10,7 @@
 #import "Promise.h"
 #import "DatabaseTarget.h"
 
-@class ReportDraft, Report, ReportUpload, AMLMetadata;
+@class ReportDraft, FirebaseReport, ReportUpload, AMLMetadata;
 
 @protocol PhotoProtocol
 
