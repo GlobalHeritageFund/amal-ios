@@ -28,7 +28,7 @@
 }
 
 - (void)addPhoto:(LocalPhoto *)photo {
-    NSUInteger i = [self.photos indexOfObjectPassingTest:^BOOL(LocalPhoto * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    NSUInteger i = [((NSArray<LocalPhoto *> *)self.photos) indexOfObjectPassingTest:^BOOL(LocalPhoto * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         return [obj.imagePath isEqual:photo.imagePath];
     }];
     if (i == NSNotFound) {
