@@ -86,6 +86,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [self copyValuesFromFieldsToViewModel];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
@@ -262,15 +263,18 @@
 }
 
 - (void)upload:(id)sender {
-    self.viewModel.draft.title = self.reportHeader.titleField.text ?: @"";
-    self.viewModel.draft.email = self.reportHeader.assessorEmailField.text ?: @"";
+    [self copyValuesFromFieldsToViewModel];
     [self.delegate reportDetailViewController:self didTapUploadWithDraft:self.viewModel.draft];
 }
 
 - (void)cancel:(id)sender {
+    [self copyValuesFromFieldsToViewModel];
+    [self.delegate reportDetailViewControllerDidTapCancel:self];
+}
+
+- (void)copyValuesFromFieldsToViewModel {
     self.viewModel.draft.title = self.reportHeader.titleField.text ?: @"";
     self.viewModel.draft.email = self.reportHeader.assessorEmailField.text ?: @"";
-   [self.delegate reportDetailViewControllerDidTapCancel:self];
 }
 
 - (void)reportHeaderViewTappedDatabasePicker:(ReportHeaderView *)headerView {
