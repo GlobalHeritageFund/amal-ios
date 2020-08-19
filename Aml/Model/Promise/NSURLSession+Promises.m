@@ -23,7 +23,15 @@
             if (error) {
                 reject(error);
             } else if(!(URLResponse.statusCode >= 200 && URLResponse.statusCode < 300)) {
-                reject([NSError errorWithDomain:@"NSURLSessionStatusCodeError" code:URLResponse.statusCode userInfo:nil]);
+                NSString *errorString = @"The body was empty.";
+                NSString *body = [[NSString alloc] initWithData:data encoding:kCFStringEncodingUTF8];
+                if (body != nil) {
+                    errorString = [NSString stringWithFormat:@"The error was %@.", body];
+                }
+                NSDictionary *userInfo = @{
+                    NSLocalizedDescriptionKey: [NSString stringWithFormat:@"The operation failed with a status code of %zd. %@", URLResponse.statusCode, errorString],
+                };
+                reject([NSError errorWithDomain:@"NSURLSessionStatusCodeError" code:URLResponse.statusCode userInfo:userInfo]);
             } else if (data) {
                 fulfill(data);
             } else {
