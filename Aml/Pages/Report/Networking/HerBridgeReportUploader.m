@@ -65,7 +65,7 @@
     
     Promise *resourcesPromise = [loadAll then:^id _Nullable(NSArray <UploadedPhoto *> * _Nonnull object) {
         NSArray <NSDictionary *> *resources = [object arrayByTransformingObjectsUsingBlock:^id(UploadedPhoto * image) {
-            return [image dictionaryRepresentation];
+            return [image heritageReportRepresentation];
         }];
         
         return [factory postRequest:[reportUpload dictionaryRepresentationWithResources:resources] path:@"api/reports/"];

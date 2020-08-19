@@ -22,5 +22,6 @@
 + (Promise <UploadedPhoto *> *)uploadedPhotoFrom:(NSDictionary *)dictionary localPhoto:(LocalPhoto *)localPhoto;
 
 - (NSDictionary *)dictionaryRepresentation;
+- (NSDictionary *)heritageReportRepresentation;
 
 @end

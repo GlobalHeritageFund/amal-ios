@@ -43,17 +43,36 @@
 - (NSDictionary *)dictionaryRepresentation {
     
     return @{
-      @"name" : self.localPhoto.metadata.name,
-      @"notes" : self.localPhoto.metadata.notes,
-      @"condition" : self.localPhoto.metadata.condition,
-      @"type" : self.localPhoto.metadata.category,
-      @"hazards" : @(self.localPhoto.metadata.hazards),
-      @"safetyHazards" : @(self.localPhoto.metadata.safetyHazards),
-      @"interventionRequired" : @(self.localPhoto.metadata.interventionRequired),
-      @"images" : @[
-              self.identifier
-              ]
-      };
+        @"name" : self.localPhoto.metadata.name,
+        @"notes" : self.localPhoto.metadata.notes,
+        @"condition" : self.localPhoto.metadata.condition,
+        @"type" : self.localPhoto.metadata.category,
+        @"hazards" : @(self.localPhoto.metadata.hazards),
+        @"safetyHazards" : @(self.localPhoto.metadata.safetyHazards),
+        @"interventionRequired" : @(self.localPhoto.metadata.interventionRequired),
+        @"images" : @[
+                self.identifier
+        ]
+    };
+}
+
+- (NSDictionary *)heritageReportRepresentation {
+    NSMutableDictionary *representation = [self.dictionaryRepresentation mutableCopy];
+    representation[@"type"] = [self convertTypeToBeHerBridgeFriendly:representation[@"type"]];
+    return representation;
+}
+
+- (NSString *)convertTypeToBeHerBridgeFriendly:(NSString *)oldType {
+    if ([oldType isEqualToString:@"area"]) {
+        return @"area";
+    }
+    if ([oldType isEqualToString:@"site"]) {
+        return @"building";
+    }
+    if ([oldType isEqualToString:@"object"]) {
+        return @"object";
+    }
+    return @"unknown";
 }
 
 @end
