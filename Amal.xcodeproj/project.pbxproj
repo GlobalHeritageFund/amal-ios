@@ -89,7 +89,6 @@
 		5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5892D0D31E8616FD0051C60E /* Intro.storyboard */; };
 		58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A1123C1ED65E50006689DC /* LocalPhoto.m */; };
 		58A174AE1ED7BEAE003CACA0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */; };
-		58A174B01ED7BEB6003CACA0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AF1ED7BEB6003CACA0 /* AssetsLibrary.framework */; };
 		58A174B21ED7BF4F003CACA0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174B11ED7BF4F003CACA0 /* Photos.framework */; };
 		787F78DD75256DFD899543BB /* Pods_Amal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCEA2966FD5005700E769BF /* Pods_Amal.framework */; };
 		B910B83F211A34FC00468383 /* PassphraseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B910B83E211A34FC00468383 /* PassphraseViewController.m */; };
@@ -311,7 +310,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				58A174B21ED7BF4F003CACA0 /* Photos.framework in Frameworks */,
-				58A174B01ED7BEB6003CACA0 /* AssetsLibrary.framework in Frameworks */,
 				58A174AE1ED7BEAE003CACA0 /* ImageIO.framework in Frameworks */,
 				580A55621E5D1E7400A70AB1 /* MapKit.framework in Frameworks */,
 				787F78DD75256DFD899543BB /* Pods_Amal.framework in Frameworks */,
