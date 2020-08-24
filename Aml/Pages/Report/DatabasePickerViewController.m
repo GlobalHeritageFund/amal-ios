@@ -25,7 +25,7 @@
 
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"database_cell"];
 
-    self.title = @"Select a Database";
+    self.title = NSLocalizedString(@"Select a Database", @"");
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

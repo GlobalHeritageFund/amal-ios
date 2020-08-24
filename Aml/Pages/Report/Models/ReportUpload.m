@@ -209,7 +209,7 @@
 }
 
 - (NSString *)reportState {
-    return @"Publishing";
+    return NSLocalizedString(@"Publishing", @"");
 }
 
 - (UIColor *)reportStateColor {
@@ -217,7 +217,7 @@
 }
 
 - (NSString *)uploadState {
-    return @"Uploading...";
+    return NSLocalizedString(@"Uploading...", @"");
 }
 
 - (BOOL)showProgressBars {

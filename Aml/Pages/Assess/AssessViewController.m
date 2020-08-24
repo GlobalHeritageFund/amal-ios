@@ -35,9 +35,9 @@
     }
     _photo = photo;
 
-    self.hazardsSwitchElement = [[SwitchFormElement alloc] initWithTitle:@"Hazards"];
-    self.safetySwitchElement = [[SwitchFormElement alloc] initWithTitle:@"Safety/Personal Hazard"];
-    self.interventionSwitchElement = [[SwitchFormElement alloc] initWithTitle:@"Intervention Recommended"];
+    self.hazardsSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Hazards", @"")];
+    self.safetySwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Safety/Personal Hazard", @"")];
+    self.interventionSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Intervention Recommended", @"")];
 
     [self.photo refreshMetadata];
 
@@ -51,7 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"Assess";
+    self.title = NSLocalizedString(@"Assess", @"");
 
     [self.hazardsSwitchElement.toggle addTarget:self action:@selector(hazardsSwitchChanged:) forControlEvents:UIControlEventValueChanged];
     [self.safetySwitchElement.toggle addTarget:self action:@selector(safetySwitchChanged:) forControlEvents:UIControlEventValueChanged];
@@ -92,7 +92,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Name"
+      initWithHeaderText:NSLocalizedString(@"Name", @"")
       formElements:@[
                      [self newNameFormElement],
                      ]]
@@ -101,7 +101,7 @@
     if (self.photo.metadata.hasLocationCoordinates) {
         [self.view addFormGroup:
          [[FormGroup alloc]
-          initWithHeaderText:@"Map"
+          initWithHeaderText:NSLocalizedString(@"Map", @"")
           formElements:@[
                          [self newMapFormElement],
                          ]]
@@ -110,7 +110,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Category"
+      initWithHeaderText:NSLocalizedString(@"Category", @"")
       formElements:@[
                     [self newCategoryFormElement],
                      ]]
@@ -118,7 +118,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Overall Condition"
+      initWithHeaderText:NSLocalizedString(@"Overall Condition", @"")
       formElements:@[
                      [self newConditionElement],
                      ]
@@ -134,7 +134,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Assess"
+      initWithHeaderText:NSLocalizedString(@"Assess", @"")
       formElements:@[
                      self.hazardsSwitchElement,
                      self.safetySwitchElement,
@@ -144,7 +144,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Notes"
+      initWithHeaderText:NSLocalizedString(@"Notes", @"")
       formElements:@[
                      [self newNotesFormElement],
                      ]]
@@ -158,13 +158,13 @@
         [formElements addObject:latLong];
 
         __weak __typeof(&*self)weakSelf = self;
-        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:@"Edit Location" block:^{
+        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Edit Location", @"") block:^{
             [weakSelf showEditableMap];
         }];
         [formElements addObject:element];
     } else {
         __weak __typeof(&*self)weakSelf = self;
-        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:@"Set Location" block:^{
+        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Set Location", @"") block:^{
             [weakSelf showEditableMap];
         }];
         [formElements addObject:element];
@@ -172,14 +172,14 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Coordinates"
+      initWithHeaderText:NSLocalizedString(@"Coordinates", @"")
       formElements:formElements]
      ];
 
 }
 
 - (TextFormElement *)newNameFormElement {
-    TextFormElement *nameFormElement = [[TextFormElement alloc] initWithPlaceholder:@"Name" initialText:self.photo.metadata.name];
+    TextFormElement *nameFormElement = [[TextFormElement alloc] initWithPlaceholder:NSLocalizedString(@"Name", @"") initialText:self.photo.metadata.name];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nameFieldDidChange:) name:UITextFieldTextDidEndEditingNotification object:nameFormElement.textField];
     return nameFormElement;
 }
@@ -223,7 +223,11 @@
 }
 
 - (SegmentedControlFormElement *)newCategoryFormElement {
-    SegmentedControlFormElement *categoryFormElement = [[SegmentedControlFormElement alloc] initWithTitles:@[@"Overall Area", @"Site / Building", @"Object"]];
+    SegmentedControlFormElement *categoryFormElement = [[SegmentedControlFormElement alloc] initWithTitles:@[
+        NSLocalizedString(@"Overall Area", @""),
+        NSLocalizedString(@"Site / Building", @""),
+        NSLocalizedString(@"Object", @""),
+    ]];
     UISegmentedControl *segmentedControl = categoryFormElement.segmentedControl;
     [segmentedControl addTarget:self action:@selector(categoryDidChange:) forControlEvents:UIControlEventValueChanged];
     if ([self.photo.metadata.category isEqual:@"area"]) {

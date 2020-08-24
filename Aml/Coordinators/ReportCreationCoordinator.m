@@ -134,7 +134,7 @@
         
         reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:object];
         reportDetailViewController.navigationItem.hidesBackButton = YES;
-        reportDetailViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissReportCreation:)];
+        reportDetailViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Dismiss", @"") style:UIBarButtonItemStyleDone target:self action:@selector(dismissReportCreation:)];
         reportDetailViewController.navigationItem.leftBarButtonItem = nil;
         
         [[LocalDraftDataSource new] removeReportDraft:draft];
@@ -144,8 +144,8 @@
         [FIRAnalytics logEventWithName:@"report_upload_failed" parameters:nil];
         
         reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:draft];
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"An error occurred" message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"An error occurred", @"") message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"") style:UIAlertActionStyleCancel handler:nil]];
         [reportDetailViewController presentViewController:alertController animated:YES completion:nil];
     }];
 }
@@ -157,8 +157,8 @@
         [self uploadReportFromDetailViewController:reportDetailViewController withDraft:draft];
     } else {
         
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Log in" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"Log in" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Log in", @"") message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Log in", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             FUIAuth *auth = [FUIAuth defaultAuthUI];
             UINavigationController *controller = [auth authViewController];
             [reportDetailViewController presentViewController:controller animated:YES completion:nil];
@@ -172,7 +172,7 @@
             }];
         }]];
         
-        [alertController addAction:[UIAlertAction actionWithTitle:@"Publish anonymously" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Publish anonymously", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [[[[FIRAuth auth] anonymousSignInPromise] then:^id _Nullable(id  _Nonnull object) {
                 [self uploadReportFromDetailViewController:reportDetailViewController withDraft:draft];
                 return nil;
@@ -181,7 +181,7 @@
             }];
         }]];
         
-        [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"") style:UIAlertActionStyleCancel handler:nil]];
         
         [reportDetailViewController presentViewController:alertController animated:YES completion:nil];
         
@@ -189,16 +189,16 @@
 }
 
 - (void)reportDetailViewControllerDidTapCancel:(ReportDetailViewController *)reportDetailViewController {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"Would you like to save this as a draft?" preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Discard" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedString(@"Would you like to save this as a draft?", @"") preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Discard", @"") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [reportDetailViewController dismissViewControllerAnimated:YES completion:nil];
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Save Draft" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Save Draft", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [[LocalDraftDataSource new] addReportDraft:reportDetailViewController.viewModel.draft];
         [reportDetailViewController dismissViewControllerAnimated:YES completion:nil];
     }]];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
 
     }]];
     [reportDetailViewController presentViewController:alertController animated:YES completion:nil];

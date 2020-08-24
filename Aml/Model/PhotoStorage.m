@@ -22,7 +22,7 @@
     static NSDateFormatter *dateFormatter;
     if (dateFormatter == nil) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"d MMM - H:mm";
+        [dateFormatter setLocalizedDateFormatFromTemplate:@"d MMM y H mm"];
     }
     return dateFormatter;
 }

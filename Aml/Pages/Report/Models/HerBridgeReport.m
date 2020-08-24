@@ -52,7 +52,7 @@
     if (self.assessorEmail.length) {
         return self.assessorEmail;
     } else {
-        return @"No email set.";
+        return NSLocalizedString(@"No email set.", @"");
     }
 }
 
@@ -69,7 +69,7 @@
 }
 
 - (NSString *)reportState {
-    return @"Published";
+    return NSLocalizedString(@"Published", @"");
 }
 
 - (UIColor *)reportStateColor {
@@ -77,7 +77,7 @@
 }
 
 - (NSString *)uploadState {
-    return @"Uploaded";
+    return NSLocalizedString(@"Uploaded", @"");
 }
 
 - (BOOL)showProgressBars {

@@ -52,9 +52,9 @@ static NSDateFormatter *dateFormatter = nil;
 - (NSString *)creationDateString {
     if (dateFormatter == nil) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"d MMMM yyyy";
+        [dateFormatter setLocalizedDateFormatFromTemplate:@"d MMMM y"];
     }
-    return [NSString stringWithFormat:@"Created %@", [dateFormatter stringFromDate:self.report.creationDate]];
+    return [NSString stringWithFormat:@"Created %@", [dateFormatter stringFromDate:self.report.creationDate]]; // localize
 }
 
 - (CLLocationCoordinate2D)coordinateMidpoint {
@@ -64,7 +64,7 @@ static NSDateFormatter *dateFormatter = nil;
 }
 
 - (NSString *)imageCountString {
-    if (self.report.photoCount == 0) {
+    if (self.report.photoCount == 0) { // localize
         return @"No items";
     } else if (self.report.photoCount == 1) {
         return @"1 item";

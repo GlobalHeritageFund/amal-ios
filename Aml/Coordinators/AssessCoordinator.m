@@ -44,7 +44,7 @@
     galleryViewController.shouldShowFilterButton = YES;
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
     galleryViewController.delegate = self;
-    navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Assess" image:[UIImage imageNamed:@"ic_assess"] selectedImage:[UIImage imageNamed:@"ic_assess"]];
+    navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Assess", @"") image:[UIImage imageNamed:@"ic_assess"] selectedImage:[UIImage imageNamed:@"ic_assess"]];
     self.navigationController = navigationController;
 
 }
@@ -87,7 +87,7 @@
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController deletePhotos:(NSArray<LocalPhoto *> *)photos {
     NSString *message;
-    if (photos.count == 1) {
+    if (photos.count == 1) { // localize
         message = @"Are you sure you want to delete this photo? This can not be undone.";
     } else {
         message = @"Are you sure you want to delete these photos? This can not be undone.";
@@ -101,7 +101,7 @@
         [galleryViewController reloadData];
         galleryViewController.mode = GalleryModeNormal;
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"") style:UIAlertActionStyleCancel handler:nil]];
     [galleryViewController presentViewController:alertController animated:true completion:nil];
 }
 
@@ -174,8 +174,8 @@
         metadata.localIdentifier = asset.localIdentifier;
 
         if ([[[PhotoStorage new] fetchPhotos] indexOfObjectPassingTest:^BOOL(LocalPhoto * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) { return [obj.metadata.localIdentifier isEqualToString:metadata.localIdentifier]; }] != NSNotFound) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Duplicate found" message:@"This photo has already been imported. This won't affect other photos you're importing." preferredStyle:UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Duplicate found", @"") message:NSLocalizedString(@"This photo has already been imported. This won't affect other photos you're importing.", @"") preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"") style:UIAlertActionStyleDefault handler:nil]];
             [self.navigationController presentViewController:alertController animated:YES completion:nil];
             return;
         }

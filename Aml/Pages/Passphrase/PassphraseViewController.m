@@ -27,18 +27,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Enter a partner code";
+    self.title =  NSLocalizedString(@"Enter a partner code", @"");
 
-    TextFormElement *textFormElement = [[TextFormElement alloc] initWithPlaceholder:@"Enter a partner code" initialText:@""];
+    TextFormElement *textFormElement = [[TextFormElement alloc] initWithPlaceholder:NSLocalizedString(@"Enter a partner code", @"") initialText:@""];
     
     __weak typeof(self) weakSelf = self;
     
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Partner code"
+      initWithHeaderText:NSLocalizedString(@"Partner code", @"")
       formElements:@[
                      textFormElement,
-                     [[ButtonFormElement alloc] initWithTitle:@"Submit" block:^{
+                     [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Submit", @"") block:^{
          
          Promise *promise = [[[PassphraseValidator alloc] init] unlockStatusForPassphraseAttempt:textFormElement.textField.text];
          [[promise then:^id _Nullable(id  _Nonnull object) {
@@ -50,15 +50,15 @@
                  if (status == PassphraseUnlockStatusEAMENA) {
                      [CurrentUser shared].isEAMENAUnlocked = YES;
                      
-                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Partner database unlocked" message:@"You have unlocked the EAMENA database." preferredStyle:UIAlertControllerStyleAlert];
-                     [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Partner database unlocked", @"") message:NSLocalizedString(@"You have unlocked the EAMENA database.", @"") preferredStyle:UIAlertControllerStyleAlert];
+                     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                          [weakSelf.navigationController popViewControllerAnimated:YES];
                      }]];
                      [weakSelf presentViewController:alertController animated:YES completion:nil];
                  } else if (status == PassphraseUnlockStatusLebanon) {
                      [CurrentUser shared].isLebanonUnlocked = YES;
-                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Partner database unlocked" message:@"You have unlocked the Lebanon database." preferredStyle:UIAlertControllerStyleAlert];
-                     [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Partner database unlocked", @"") message:NSLocalizedString(@"You have unlocked the Lebanon database.", @"") preferredStyle:UIAlertControllerStyleAlert];
+                     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                          [weakSelf.navigationController popViewControllerAnimated:YES];
                      }]];
                      [weakSelf presentViewController:alertController animated:YES completion:nil];
@@ -70,8 +70,8 @@
              return nil;
          }] catch:^(NSError * _Nonnull error) {
              
-             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid code" message:@"This code does not match any partners." preferredStyle:UIAlertControllerStyleAlert];
-             [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Invalid code", @"") message:NSLocalizedString(@"This code does not match any partners.", @"") preferredStyle:UIAlertControllerStyleAlert];
+             [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"") style:UIAlertActionStyleDefault handler:nil]];
              [weakSelf presentViewController:alertController animated:YES completion:nil];
          }];
     }],

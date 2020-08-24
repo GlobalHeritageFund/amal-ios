@@ -92,11 +92,11 @@
 }
 
 - (NSString *)uploadState {
-    return @"Publish Report";
+    return NSLocalizedString(@"Publish Report", @"");
 }
 
 - (NSString *)reportState {
-    return @"Draft";
+    return NSLocalizedString(@"Draft", @"");
 }
 
 - (UIColor *)reportStateColor {

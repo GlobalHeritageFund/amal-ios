@@ -42,11 +42,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"Reports";
+    self.title = NSLocalizedString(@"Reports", @"");
 
     self.view.backgroundColor = [UIColor backgroundColor];
 
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(composeTapped:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"New", @"") style:UIBarButtonItemStylePlain target:self action:@selector(composeTapped:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -89,7 +89,7 @@
     if (!_emptyState) {
         EmptyStateView *emptyState = [[EmptyStateView alloc] init];
         emptyState.imageView.image = [UIImage imageNamed:@"reports_bg"];
-        emptyState.label.text = @"To create a report, first take some photos, then tap \"New\" at the top.";
+        emptyState.label.text = NSLocalizedString(@"To create a report, first take some photos, then tap \"New\" at the top.", @"");
         [self.view addSubview:emptyState];
         self.emptyState = emptyState;
     }
@@ -141,7 +141,7 @@
     if (viewModel.isEditable) {
         NSString *title = viewModel.title;
         if (title.length == 0) {
-            title = @"Untitled";
+            title = NSLocalizedString(@"Untitled", @"");
         }
         cell.textLabel.text = title;
     } else {
@@ -163,10 +163,10 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0 && self.localDrafts.hasDrafts) {
-        return @"Drafts";
+        return NSLocalizedString(@"Drafts", @"");
     }
     if (section == 1 && self.publishedReports.hasItems) {
-        return @"Published";
+        return NSLocalizedString(@"Published", @"");
     }
     return nil;
 }

@@ -90,25 +90,53 @@
     switch (self.conditionNumber) {
         case 0:
             return @"unknown";
-            break;
         case 1:
             return @"none";
-            break;
         case 2:
             return @"minor";
-            break;
         case 3:
             return @"moderate";
-            break;
         case 4:
             return @"severe";
-            break;
         case 5:
             return @"collapsed";
-            break;
     }
     
     return @"unknown";
 }
+
+- (NSString *)localizedCondition {
+    switch (self.conditionNumber) {
+        case 0:
+            return NSLocalizedString(@"unknown", @"");
+        case 1:
+            return NSLocalizedString(@"none", @"");
+        case 2:
+            return NSLocalizedString(@"minor", @"");
+        case 3:
+            return NSLocalizedString(@"moderate", @"");
+        case 4:
+            return NSLocalizedString(@"severe", @"");
+        case 5:
+            return NSLocalizedString(@"collapsed", @"");
+    }
+
+    return NSLocalizedString(@"unknown", @"");
+}
+
+- (NSString *)localizedCategory {
+    if ([self.category isEqualToString:@"area"]) {
+        return NSLocalizedString(@"area", @"");
+    }
+    if ([self.category isEqualToString:@"site"]) {
+        return NSLocalizedString(@"site", @"");
+    }
+
+    if ([self.category isEqualToString:@"object"]) {
+        return NSLocalizedString(@"object", @"");
+    }
+    return NSLocalizedString(@"unknown", @"");
+}
+
 
 @end

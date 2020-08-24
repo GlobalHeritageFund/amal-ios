@@ -10,7 +10,7 @@
 #import "LocalPhoto.h"
 #import "AMLMetadata.h"
 
-@implementation DefaultPhotoFilter
+@implementation DefaultPhotoFilter // localize
 
 - (NSString *)name {
     return @"All";

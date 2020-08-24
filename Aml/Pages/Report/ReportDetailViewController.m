@@ -72,7 +72,7 @@
     self.tableView.tableHeaderView = self.reportHeader;
     self.reportHeader.delegate = self;
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"") style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
 
     [self.reportHeader.mapView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapViewTapped:)]];
     [self configureView];
@@ -130,7 +130,7 @@
     self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
 
     if ([CurrentUser shared].isEAMENAUnlocked || [CurrentUser shared].isLebanonUnlocked) {
-        self.reportHeader.databasePicker.nameLabel.text = @"Database target";
+        self.reportHeader.databasePicker.nameLabel.text = NSLocalizedString(@"Database target", @"");
         self.reportHeader.databasePicker.valueLabel.text = [DatabaseTargetMakeString(self.viewModel.databaseTarget) capitalizedString];
     }
 
@@ -159,16 +159,16 @@
 }
 
 - (void)shareButtonTapped:(id)sender {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Share" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Share", @"") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Web Report" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Web Report", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSString *url = [NSString stringWithFormat:@"https://app.amal.global/reports/%@", ((FirebaseReport *)self.viewModel.finalized).firebaseID];
         NSArray *objectsToShare = @[[NSURL URLWithString:url]];
         UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
         [self presentViewController:activityViewController animated:YES completion:nil];
     }]];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:@"PDF Report" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"PDF Report", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
         [((FirebaseReport *)self.viewModel.finalized).pdfURL then:^id _Nullable(id  _Nonnull url) {
             NSArray *objectsToShare = @[url];
@@ -179,7 +179,7 @@
 
     }]];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"") style:UIAlertActionStyleCancel handler:nil]];
 
     [self presentViewController:alertController animated:YES completion:nil];
 }
@@ -222,7 +222,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        cell.textLabel.text = @"Add...";
+        cell.textLabel.text = NSLocalizedString(@"Add...", @"");
         cell.textLabel.textColor = [UIColor amalTeal];
         return cell;
     }
@@ -235,8 +235,8 @@
         return nil;
     }];
 
-    cell.textLabel.text = (photo.metadata.name.length) ? photo.metadata.name : @"Unnamed";
-    cell.detailTextLabel.text = (photo.metadata.notes.length) ? photo.metadata.notes : @"No notes.";
+    cell.textLabel.text = (photo.metadata.name.length) ? photo.metadata.name : NSLocalizedString(@"Unnamed", @"");
+    cell.detailTextLabel.text = (photo.metadata.notes.length) ? photo.metadata.notes : NSLocalizedString(@"No notes.", @"");
     cell.progressView.observedProgress = self.viewModel.upload.progresses[indexPath.row];
     cell.progressView.hidden = !self.viewModel.showProgressBars;
     return cell;

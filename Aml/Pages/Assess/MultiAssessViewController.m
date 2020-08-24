@@ -35,9 +35,9 @@
     NSAssert(photos.count != 0, @"MultiAsessViewController requires at least one photo");
     _photos = photos;
 
-    self.hazardsSwitchElement = [[SwitchFormElement alloc] initWithTitle:@"Hazards"];
-    self.safetySwitchElement = [[SwitchFormElement alloc] initWithTitle:@"Safety/Personal Hazard"];
-    self.interventionSwitchElement = [[SwitchFormElement alloc] initWithTitle:@"Intervention Recommended"];
+    self.hazardsSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Hazards", @"")];
+    self.safetySwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Safety/Personal Hazard", @"")];
+    self.interventionSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Intervention Recommended", @"")];
 
     for (LocalPhoto *photo in self.photos) {
         [photo refreshMetadata];
@@ -53,7 +53,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"Batch Assess";
+    self.title = NSLocalizedString(@"Batch Assess", @"");
 
     [self.hazardsSwitchElement.toggle addTarget:self action:@selector(hazardsSwitchChanged:) forControlEvents:UIControlEventValueChanged];
     [self.safetySwitchElement.toggle addTarget:self action:@selector(safetySwitchChanged:) forControlEvents:UIControlEventValueChanged];
@@ -96,7 +96,7 @@
     if ([self.photos anyObjectsPassTest:^BOOL(LocalPhoto *photo) { return photo.metadata.hasLocationCoordinates; }]) {
         [self.view addFormGroup:
          [[FormGroup alloc]
-          initWithHeaderText:@"Map"
+          initWithHeaderText:NSLocalizedString(@"Map", @"")
           formElements:@[
                          [self newMapFormElement],
                          ]]
@@ -105,7 +105,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Category"
+      initWithHeaderText:NSLocalizedString(@"Category", @"")
       formElements:@[
                     [self newCategoryFormElement],
                      ]]
@@ -113,7 +113,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Overall Condition"
+      initWithHeaderText:NSLocalizedString(@"Overall Condition", @"")
       formElements:@[
                      [self newConditionElement],
                      ]
@@ -129,7 +129,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Assess"
+      initWithHeaderText:NSLocalizedString(@"Assess", @"")
       formElements:@[
                      self.hazardsSwitchElement,
                      self.safetySwitchElement,
@@ -139,7 +139,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Notes"
+      initWithHeaderText:NSLocalizedString(@"Notes", @"")
       formElements:@[
                      [self newNotesFormElement],
                      ]]
@@ -153,7 +153,7 @@
         initialText = self.photos.firstObject.metadata.name;
     }
 
-    TextFormElement *nameFormElement = [[TextFormElement alloc] initWithPlaceholder:@"Name" initialText:initialText];
+    TextFormElement *nameFormElement = [[TextFormElement alloc] initWithPlaceholder:NSLocalizedString(@"Name", @"") initialText:initialText];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nameFieldDidChange:) name:UITextFieldTextDidEndEditingNotification object:nameFormElement.textField];
     return nameFormElement;
 }
@@ -201,7 +201,11 @@
 }
 
 - (SegmentedControlFormElement *)newCategoryFormElement {
-    SegmentedControlFormElement *categoryFormElement = [[SegmentedControlFormElement alloc] initWithTitles:@[@"Overall Area", @"Site / Building", @"Object"]];
+    SegmentedControlFormElement *categoryFormElement = [[SegmentedControlFormElement alloc] initWithTitles:@[
+        NSLocalizedString(@"Overall Area", @""),
+        NSLocalizedString(@"Site / Building", @""),
+        NSLocalizedString(@"Object", @""),
+    ]];
     UISegmentedControl *segmentedControl = categoryFormElement.segmentedControl;
     [segmentedControl addTarget:self action:@selector(categoryDidChange:) forControlEvents:UIControlEventValueChanged];
     if ([[self.photos valueForKeyPath:@"metadata.category"] allObjectsEqual]) {
@@ -317,14 +321,14 @@
 
 - (void)deleteTapped:(id)sender {
     [FIRAnalytics logEventWithName:@"single_delete" parameters:nil];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to delete these photos? This can not be undone." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Are you sure?", @"") message:NSLocalizedString(@"Are you sure you want to delete these photos? This can not be undone.", @"") preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         for (LocalPhoto *photo in self.photos) {
             [photo removeLocalData];
         }
         [self.navigationController popViewControllerAnimated:true];
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"") style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:true completion:nil];
 }
 

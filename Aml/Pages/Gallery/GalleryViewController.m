@@ -60,7 +60,7 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
 
-    self.title = @"Assess";
+    self.title = NSLocalizedString(@"Assess", @"");
 
     self.view.backgroundColor = [UIColor backgroundColor];
 
@@ -74,17 +74,17 @@
 
 - (void)updateBarButtons {
     if (self.mode == GalleryModeNormal) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Import" style:UIBarButtonItemStylePlain target:self action:@selector(importImage:)];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select" style:UIBarButtonItemStylePlain target:self action:@selector(enterSelectMode:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Import", @"") style:UIBarButtonItemStylePlain target:self action:@selector(importImage:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Select", @"") style:UIBarButtonItemStylePlain target:self action:@selector(enterSelectMode:)];
     } else if (self.mode == GalleryModeMultiSelect) {
         self.navigationItem.leftBarButtonItem = nil;
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(exitSelectMode:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"") style:UIBarButtonItemStylePlain target:self action:@selector(exitSelectMode:)];
     } else if (self.mode == GalleryModeSingleSelect) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"") style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
         self.navigationItem.rightBarButtonItem = nil;
     } else if (self.mode == GalleryModeCreateReport) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create Report" style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"") style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Create Report", @"") style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
         self.navigationItem.rightBarButtonItem.enabled = false;
     } else {
         @throw [NSException new];
@@ -184,7 +184,7 @@
     if (!_emptyState) {
         EmptyStateView *emptyState = [[EmptyStateView alloc] init];
         emptyState.imageView.image = [UIImage imageNamed:@"gallery_bg"];
-        emptyState.label.text = @"As you take photos, your gallery will store those photos.";
+        emptyState.label.text = NSLocalizedString(@"As you take photos, your gallery will store those photos.", @"");
         [self.view addSubview:emptyState];
         self.emptyState = emptyState;
     }
@@ -194,7 +194,7 @@
 - (UIButton *)filterButton {
     if (!_filterButton) {
         UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [filterButton setTitle:@"FILTER" forState:UIControlStateNormal];
+        [filterButton setTitle:@"FILTER" forState:UIControlStateNormal]; //localize
         filterButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [filterButton addTarget:self action:@selector(filterButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:filterButton];
@@ -218,19 +218,19 @@
 - (void)setupToolbar {
     NSMutableArray *items = [NSMutableArray array];
 
-    UIBarButtonItem *createReportItem = [[UIBarButtonItem alloc] initWithTitle:@"Create Report" style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
+    UIBarButtonItem *createReportItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Create Report", @"") style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
     [items addObject:createReportItem];
 
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [items addObject:flexibleSpace];
 
-    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(saveSelectedItems:)];
+    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", @"") style:UIBarButtonItemStylePlain target:self action:@selector(saveSelectedItems:)];
     [items addObject:saveItem];
 
     UIBarButtonItem *flexibleSpace2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [items addObject:flexibleSpace2];
 
-    UIBarButtonItem *assessItem = [[UIBarButtonItem alloc] initWithTitle:@"Assess" style:UIBarButtonItemStylePlain target:self action:@selector(multiAssess:)];
+    UIBarButtonItem *assessItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Assess", @"") style:UIBarButtonItemStylePlain target:self action:@selector(multiAssess:)];
     [items addObject:assessItem];
 
     UIBarButtonItem *flexibleSpace3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -365,7 +365,7 @@
     NSArray<UIAlertAction *> *actions = [filters  arrayByTransformingObjectsUsingBlock:^id(id<LocalPhotoFilter> filter) {
         NSString *name;
         if ([filter.name isEqualToString:self.currentFilter.name]) {
-            name = [NSString stringWithFormat:@"%@ ✓", filter.name];
+            name = [NSString stringWithFormat:@"%@ ✓", filter.name]; // localize
         } else {
             name = filter.name;
         }
@@ -377,7 +377,7 @@
     for (UIAlertAction *action in actions) {
         [alertController addAction:action];
     }
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         //do nothing
     }]];
     [self presentViewController:alertController animated:YES completion:nil];

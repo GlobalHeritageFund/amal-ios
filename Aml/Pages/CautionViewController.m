@@ -21,8 +21,8 @@
     
     NSMutableAttributedString *policyText = [[NSMutableAttributedString alloc] initWithString:self.termsOfServicesAndPrivacyPolicyLabel.text attributes:nil];
     
-    const NSRange tosRange = [self.termsOfServicesAndPrivacyPolicyLabel.text rangeOfString:@"Terms of Service"];
-    const NSRange privacyPolicyRange = [self.termsOfServicesAndPrivacyPolicyLabel.text rangeOfString:@"Privacy Policy"];
+    const NSRange tosRange = [self.termsOfServicesAndPrivacyPolicyLabel.text rangeOfString:@"Terms of Service"]; // localize
+    const NSRange privacyPolicyRange = [self.termsOfServicesAndPrivacyPolicyLabel.text rangeOfString:@"Privacy Policy"]; // localize
 
     void (^applyLink)(NSRange range, NSString *URLString) = ^(NSRange range, NSString *URLString){
         [policyText addAttribute:NSLinkAttributeName value:URLString range:range];

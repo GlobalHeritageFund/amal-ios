@@ -165,13 +165,14 @@
 }
 
 - (void)updateConditionLabel {
+    // todo: move this to model?
     NSArray<NSString *> *labels = @[
-                                    @"Condition unknown.",
-                                    @"No damage, good condition.",
-                                    @"Minor damage, fair condition.",
-                                    @"Moderate damage, poor condition.",
-                                    @"Severe damage, very bad condition.",
-                                    @"Collapsed, destroyed.",
+                                    NSLocalizedString(@"Condition unknown.", @""),
+                                    NSLocalizedString(@"No damage, good condition.", @""),
+                                    NSLocalizedString(@"Minor damage, fair condition.", @""),
+                                    NSLocalizedString(@"Moderate damage, poor condition.", @""),
+                                    NSLocalizedString(@"Severe damage, very bad condition.", @""),
+                                    NSLocalizedString(@"Collapsed, destroyed.", @""),
                                     ];
     self.conditionLabel.text = labels[self.selectedValue];
 }

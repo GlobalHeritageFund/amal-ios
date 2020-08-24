@@ -40,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"Settings";
+    self.title = NSLocalizedString(@"Settings", @"");
 
 }
 
@@ -55,9 +55,9 @@
     
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"About AMAL"
+      initWithHeaderText:NSLocalizedString(@"About AMAL", @"")
       formElements:@[
-          [[MultiLineLabelFormElement alloc] initWithText:@"AMAL is an emergency management application designed for the rapid impact assessment of cultural heritage areas, buildings, and artifacts."],
+          [[MultiLineLabelFormElement alloc] initWithText:NSLocalizedString(@"AMAL is an emergency management application designed for the rapid impact assessment of cultural heritage areas, buildings, and artifacts.", @"")],
       ]
       ]
      ];
@@ -68,7 +68,7 @@
     
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Version"
+      initWithHeaderText:NSLocalizedString(@"Version", @"")
       formElements:@[
           [[TextFormElement alloc] initWithImmutableText:version],
       ]
@@ -79,19 +79,19 @@
     
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:@"Visit"
+      initWithHeaderText:NSLocalizedString(@"Visit", @"")
       formElements:@[
-          [[ButtonFormElement alloc] initWithTitle:@"Visit amal.global" block:^{
+          [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Visit amal.global", @"") block:^{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/"]];
     }],
-          [[ButtonFormElement alloc] initWithTitle:@"User Guide" block:^{
+          [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"User Guide", @"") block:^{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/guide"]];
     }],
-          [[ButtonFormElement alloc] initWithTitle:@"Privacy Policy" block:^{
+          [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Privacy Policy", @"") block:^{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://globalheritagefund.org/index.php/news-resources/library/privacy-policy/"]];
 
     }],
-          [[ButtonFormElement alloc] initWithTitle:@"Terms of Service" block:^{
+          [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Terms of Service", @"") block:^{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://amal.global/terms-of-service/"]];
 
     }],
@@ -105,20 +105,20 @@
     
     ButtonFormElement *authenticationElement = ^ButtonFormElement *(){
         if (user.isLoggedIn) {
-            return [[ButtonFormElement alloc] initWithTitle:@"Log out" block:^{
-                UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to log out?" preferredStyle:UIAlertControllerStyleActionSheet];
+            return [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Log out", @"") block:^{
+                UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Are you sure?", @"") message:NSLocalizedString(@"Are you sure you want to log out?", @"") preferredStyle:UIAlertControllerStyleActionSheet];
                 
-                [controller addAction:[UIAlertAction actionWithTitle:@"Log out" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Log out", @"") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                     [user signOut];
                     [weakSelf setupForm];
                 }]];
                 
-                [controller addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+                [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"") style:UIAlertActionStyleCancel handler:nil]];
                 
                 [weakSelf presentViewController:controller animated:YES completion:nil];
             }];
         } else {
-            return [[ButtonFormElement alloc] initWithTitle:@"Log in" block:^{
+            return [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Log in", @"") block:^{
                 FUIAuth *auth = [FUIAuth defaultAuthUI];
                 [[auth signInPromise] then:^id _Nullable(id  _Nonnull object) {
                     [weakSelf setupForm];
@@ -130,23 +130,23 @@
         }
     }();
 
-    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Account" formElements:@[authenticationElement]]];
+    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:NSLocalizedString(@"Account", @"") formElements:@[authenticationElement]]];
 
     NSMutableArray *partnerElements = [NSMutableArray array];
 
     if ([CurrentUser shared].isEAMENAUnlocked) {
-        [partnerElements addObject:[[TextFormElement alloc] initWithImmutableText:@"EAMENA unlocked"]];
+        [partnerElements addObject:[[TextFormElement alloc] initWithImmutableText:NSLocalizedString(@"EAMENA unlocked", @"")]];
     }
 
     if ([CurrentUser shared].isLebanonUnlocked) {
-        [partnerElements addObject:[[TextFormElement alloc] initWithImmutableText:@"Lebanon unlocked"]];
+        [partnerElements addObject:[[TextFormElement alloc] initWithImmutableText:NSLocalizedString(@"Lebanon unlocked", @"")]];
     }
 
-    [partnerElements addObject:[[ButtonFormElement alloc] initWithTitle:@"Enter a new partner code" block:^{
+    [partnerElements addObject:[[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Enter a new partner code", @"") block:^{
         [weakSelf.delegate didSelectEnterPassphrase];
     }]];
 
-    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Partners" formElements:partnerElements]];
+    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:NSLocalizedString(@"Partners", @"") formElements:partnerElements]];
     
 }
 
