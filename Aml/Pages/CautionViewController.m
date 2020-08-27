@@ -10,37 +10,21 @@
 
 @interface CautionViewController ()
 
-@property (nonatomic) IBOutlet UITextView *termsOfServicesAndPrivacyPolicyLabel;
-
 @end
 
 @implementation CautionViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    NSMutableAttributedString *policyText = [[NSMutableAttributedString alloc] initWithString:self.termsOfServicesAndPrivacyPolicyLabel.text attributes:nil];
-    
-    const NSRange tosRange = [self.termsOfServicesAndPrivacyPolicyLabel.text rangeOfString:@"Terms of Service"]; // localize
-    const NSRange privacyPolicyRange = [self.termsOfServicesAndPrivacyPolicyLabel.text rangeOfString:@"Privacy Policy"]; // localize
+- (IBAction)privacyPolicyButtonTapped:(id)sender {
+    [self open:@"https://globalheritagefund.org/index.php/news-resources/library/privacy-policy/"];
+}
 
-    void (^applyLink)(NSRange range, NSString *URLString) = ^(NSRange range, NSString *URLString){
-        [policyText addAttribute:NSLinkAttributeName value:URLString range:range];
-        [policyText addAttribute:NSUnderlineStyleAttributeName value:@1 range:range];
-        [policyText addAttribute:NSUnderlineColorAttributeName value:[self.termsOfServicesAndPrivacyPolicyLabel.textColor colorWithAlphaComponent:0.8] range:range];
-    };
-    
-    applyLink(tosRange, @"http://amal.global/terms-of-service/");
-    applyLink(privacyPolicyRange, @"https://globalheritagefund.org/index.php/news-resources/library/privacy-policy/");
-    
-    const NSRange fullStringRange = NSMakeRange(0, self.termsOfServicesAndPrivacyPolicyLabel.text.length);
-    
-    [policyText addAttribute:NSForegroundColorAttributeName value:self.termsOfServicesAndPrivacyPolicyLabel.textColor range:fullStringRange];
-    [policyText addAttribute:NSFontAttributeName value:self.termsOfServicesAndPrivacyPolicyLabel.font range:fullStringRange];
+- (IBAction)termsOfServicesButtonTapped:(id)sender {
+    [self open:@"http://amal.global/terms-of-service/"];
+}
 
-    // Set the tint color to color the hyperlinks the correct color
-    self.termsOfServicesAndPrivacyPolicyLabel.tintColor = self.termsOfServicesAndPrivacyPolicyLabel.textColor;
-    self.termsOfServicesAndPrivacyPolicyLabel.attributedText = policyText;
+- (void)open:(NSString *)link {
+    NSURL *url = [[NSURL alloc] initWithString:link];
+    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
 }
 
 
