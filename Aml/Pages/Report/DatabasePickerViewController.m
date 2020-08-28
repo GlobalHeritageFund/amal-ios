@@ -25,7 +25,7 @@
 
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"database_cell"];
 
-    self.title = NSLocalizedString(@"Select a Database", @"");
+    self.title = NSLocalizedString(@"Select a Database", @"A heading for the screen to select a partner's database.");
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -40,7 +40,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"database_cell" forIndexPath:indexPath];
 
     DatabaseTarget database = [self.availableDatabaseTargets[indexPath.row] intValue];
-    cell.textLabel.text = [DatabaseTargetMakeString(database) capitalizedString];
+    cell.textLabel.text = [DatabaseTargetMakeString(database) localizedCapitalizedString];
 
     cell.accessoryType = self.selectedDatabase == database ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 

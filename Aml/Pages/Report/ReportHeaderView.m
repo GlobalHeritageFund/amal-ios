@@ -64,7 +64,7 @@
     if (!_titleField) {
         UITextField *titleField = [[UITextField alloc] init];
         titleField.font = [UIFont boldSystemFontOfSize:28.0];
-        titleField.placeholder = NSLocalizedString(@"Title", @"");
+        titleField.placeholder = NSLocalizedString(@"Title", @"Placeholder text for the title of a report.");
         [self.containerView addSubview:titleField];
         self.titleField = titleField;
     }
@@ -75,7 +75,7 @@
     if (!_assessorEmailField) {
         UITextField *assessorEmailField = [[UITextField alloc] init];
         assessorEmailField.font = [UIFont boldSystemFontOfSize:20.0];
-        assessorEmailField.placeholder = NSLocalizedString(@"Email", @"");
+        assessorEmailField.placeholder = NSLocalizedString(@"Email", @"Placeholder text for the email of a report.");
         assessorEmailField.keyboardType = UIKeyboardTypeEmailAddress;
         assessorEmailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         [self.containerView addSubview:assessorEmailField];

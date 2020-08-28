@@ -35,9 +35,9 @@
     }
     _photo = photo;
 
-    self.hazardsSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Hazards", @"")];
-    self.safetySwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Safety/Personal Hazard", @"")];
-    self.interventionSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Intervention Recommended", @"")];
+    self.hazardsSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Hazards", @"A label for a switch to determine if there are hazards in the area of the assessed object.")];
+    self.safetySwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Safety/Personal Hazard", @"A label for a switch to determine if there is a safety hazard in the area of the assessed object.")];
+    self.interventionSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Intervention Recommended", @"A label for a switch to determine if intervention is recommended for the assessed object.")];
 
     [self.photo refreshMetadata];
 
@@ -51,7 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = NSLocalizedString(@"Assess", @"");
+    self.title = NSLocalizedString(@"Assess", @"A heading for the Assess screen.");
 
     [self.hazardsSwitchElement.toggle addTarget:self action:@selector(hazardsSwitchChanged:) forControlEvents:UIControlEventValueChanged];
     [self.safetySwitchElement.toggle addTarget:self action:@selector(safetySwitchChanged:) forControlEvents:UIControlEventValueChanged];
@@ -92,7 +92,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Name", @"")
+      initWithHeaderText:NSLocalizedString(@"Name", @"A header for a section for the name of the object.")
       formElements:@[
                      [self newNameFormElement],
                      ]]
@@ -101,7 +101,7 @@
     if (self.photo.metadata.hasLocationCoordinates) {
         [self.view addFormGroup:
          [[FormGroup alloc]
-          initWithHeaderText:NSLocalizedString(@"Map", @"")
+          initWithHeaderText:NSLocalizedString(@"Map", @"A header for a section for the location of the object.")
           formElements:@[
                          [self newMapFormElement],
                          ]]
@@ -110,7 +110,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Category", @"")
+      initWithHeaderText:NSLocalizedString(@"Category", @"A header for a section for the category of the object.")
       formElements:@[
                     [self newCategoryFormElement],
                      ]]
@@ -118,7 +118,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Overall Condition", @"")
+      initWithHeaderText:NSLocalizedString(@"Overall Condition", @"A header for a section for the condition of the object.")
       formElements:@[
                      [self newConditionElement],
                      ]
@@ -134,7 +134,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Assess", @"")
+      initWithHeaderText:NSLocalizedString(@"Assess", @"A header for a section for the hazards of the object.")
       formElements:@[
                      self.hazardsSwitchElement,
                      self.safetySwitchElement,
@@ -144,7 +144,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Notes", @"")
+      initWithHeaderText:NSLocalizedString(@"Notes", @"A header for a section for any notes about the object.")
       formElements:@[
                      [self newNotesFormElement],
                      ]]
@@ -158,13 +158,13 @@
         [formElements addObject:latLong];
 
         __weak __typeof(&*self)weakSelf = self;
-        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Edit Location", @"") block:^{
+        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Edit Location", @"A button label to adjust the location of the object.") block:^{
             [weakSelf showEditableMap];
         }];
         [formElements addObject:element];
     } else {
         __weak __typeof(&*self)weakSelf = self;
-        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Set Location", @"") block:^{
+        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Set Location", @"A button label to set a location for an unlocated object.") block:^{
             [weakSelf showEditableMap];
         }];
         [formElements addObject:element];
@@ -172,14 +172,14 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Coordinates", @"")
+      initWithHeaderText:NSLocalizedString(@"Coordinates", @"A header for a section for the GPS coordinates of the object.")
       formElements:formElements]
      ];
 
 }
 
 - (TextFormElement *)newNameFormElement {
-    TextFormElement *nameFormElement = [[TextFormElement alloc] initWithPlaceholder:NSLocalizedString(@"Name", @"") initialText:self.photo.metadata.name];
+    TextFormElement *nameFormElement = [[TextFormElement alloc] initWithPlaceholder:NSLocalizedString(@"Name", @"A label for a text field for the name of the object.") initialText:self.photo.metadata.name];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nameFieldDidChange:) name:UITextFieldTextDidEndEditingNotification object:nameFormElement.textField];
     return nameFormElement;
 }
@@ -224,9 +224,9 @@
 
 - (SegmentedControlFormElement *)newCategoryFormElement {
     SegmentedControlFormElement *categoryFormElement = [[SegmentedControlFormElement alloc] initWithTitles:@[
-        NSLocalizedString(@"Overall Area", @""),
-        NSLocalizedString(@"Site / Building", @""),
-        NSLocalizedString(@"Object", @""),
+        NSLocalizedString(@"Overall Area", @"A control to set the object's category to 'area'."),
+        NSLocalizedString(@"Site / Building", @"A control to set the object's category to 'site' or 'building'."),
+        NSLocalizedString(@"Object", @"A control to set the object's category to 'object'."),
     ]];
     UISegmentedControl *segmentedControl = categoryFormElement.segmentedControl;
     [segmentedControl addTarget:self action:@selector(categoryDidChange:) forControlEvents:UIControlEventValueChanged];
@@ -332,12 +332,12 @@
 
 - (void)deleteTapped:(id)sender {
     [FIRAnalytics logEventWithName:@"single_delete" parameters:nil];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Are you sure you want to delete this photo? This can not be undone." preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Are you sure?", @"A title for a warning asking if the user is sure they want to delete some photos.") message:NSLocalizedString(@"Are you sure you want to delete this photo? This can not be undone.", @"A warning for users asking if they are sure if they want to delete some photos.") preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Delete", @"A standard delete button.") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         [self.photo removeLocalData];
         [self.navigationController popViewControllerAnimated:true];
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:true completion:nil];
 }
 

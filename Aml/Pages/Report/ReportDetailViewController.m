@@ -72,7 +72,7 @@
     self.tableView.tableHeaderView = self.reportHeader;
     self.reportHeader.delegate = self;
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"") style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
 
     [self.reportHeader.mapView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mapViewTapped:)]];
     [self configureView];
@@ -130,8 +130,8 @@
     self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
 
     if ([CurrentUser shared].isEAMENAUnlocked || [CurrentUser shared].isLebanonUnlocked) {
-        self.reportHeader.databasePicker.nameLabel.text = NSLocalizedString(@"Database target", @"");
-        self.reportHeader.databasePicker.valueLabel.text = [DatabaseTargetMakeString(self.viewModel.databaseTarget) capitalizedString];
+        self.reportHeader.databasePicker.nameLabel.text = NSLocalizedString(@"Database target", @"A label for a control that allows the user to change the database target of a report.");
+        self.reportHeader.databasePicker.valueLabel.text = [DatabaseTargetMakeString(self.viewModel.databaseTarget) localizedCapitalizedString];
     }
 
     self.reportHeader.assessorEmailField.enabled = !self.viewModel.hasPrefilledEmail;
@@ -159,16 +159,16 @@
 }
 
 - (void)shareButtonTapped:(id)sender {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Share", @"") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Share", @"A title for an alert asking the user what kind of report they want to share.") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Web Report", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Web Report", @"A button to open the web version of a report.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSString *url = [NSString stringWithFormat:@"https://app.amal.global/reports/%@", ((FirebaseReport *)self.viewModel.finalized).firebaseID];
         NSArray *objectsToShare = @[[NSURL URLWithString:url]];
         UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
         [self presentViewController:activityViewController animated:YES completion:nil];
     }]];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"PDF Report", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"PDF Report", @"A button to open a PDF version of the report.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
         [((FirebaseReport *)self.viewModel.finalized).pdfURL then:^id _Nullable(id  _Nonnull url) {
             NSArray *objectsToShare = @[url];
@@ -179,7 +179,7 @@
 
     }]];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"") style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:nil]];
 
     [self presentViewController:alertController animated:YES completion:nil];
 }
@@ -222,7 +222,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        cell.textLabel.text = NSLocalizedString(@"Add...", @"");
+        cell.textLabel.text = NSLocalizedString(@"Add...", @"A button to start a flow to add more images to a report draft.");
         cell.textLabel.textColor = [UIColor amalTeal];
         return cell;
     }
@@ -235,8 +235,8 @@
         return nil;
     }];
 
-    cell.textLabel.text = (photo.metadata.name.length) ? photo.metadata.name : NSLocalizedString(@"Unnamed", @"");
-    cell.detailTextLabel.text = (photo.metadata.notes.length) ? photo.metadata.notes : NSLocalizedString(@"No notes.", @"");
+    cell.textLabel.text = (photo.metadata.name.length) ? photo.metadata.name : NSLocalizedString(@"Unnamed", @"A label for an object with no name.");
+    cell.detailTextLabel.text = (photo.metadata.notes.length) ? photo.metadata.notes : NSLocalizedString(@"No notes.", @"A label for an object with no notes.");
     cell.progressView.observedProgress = self.viewModel.upload.progresses[indexPath.row];
     cell.progressView.hidden = !self.viewModel.showProgressBars;
     return cell;

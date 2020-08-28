@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title =  NSLocalizedString(@"Map", @"");
+    self.title =  NSLocalizedString(@"Map", @"A title for a screen that shows the location of an object.");
 }
 
 - (MKMapView *)mapView {

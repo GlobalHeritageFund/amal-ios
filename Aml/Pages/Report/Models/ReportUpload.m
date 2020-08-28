@@ -209,7 +209,7 @@
 }
 
 - (NSString *)reportState {
-    return NSLocalizedString(@"Publishing", @"");
+    return NSLocalizedString(@"Publishing", @"A label indicating that a report is in the process of publishing.");
 }
 
 - (UIColor *)reportStateColor {
@@ -217,7 +217,7 @@
 }
 
 - (NSString *)uploadState {
-    return NSLocalizedString(@"Uploading...", @"");
+    return NSLocalizedString(@"Uploading...", @"A label indicating that a repor is in the process of uploading.");
 }
 
 - (BOOL)showProgressBars {

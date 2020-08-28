@@ -76,7 +76,7 @@
 
     self.orientation = @"portrait";
 
-    self.title = NSLocalizedString(@"Camera", @"");
+    self.title = NSLocalizedString(@"Camera", @"A heading for the Camera screen.");
 
     self.focusSquare = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_focus"]];
     self.focusSquare.hidden = YES;

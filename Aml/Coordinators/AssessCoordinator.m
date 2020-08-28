@@ -44,7 +44,7 @@
     galleryViewController.shouldShowFilterButton = YES;
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
     galleryViewController.delegate = self;
-    navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Assess", @"") image:[UIImage imageNamed:@"ic_assess"] selectedImage:[UIImage imageNamed:@"ic_assess"]];
+    navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Assess", @"A tab bar button label that takes you to the Assess tab.") image:[UIImage imageNamed:@"ic_assess"] selectedImage:[UIImage imageNamed:@"ic_assess"]];
     self.navigationController = navigationController;
 
 }
@@ -101,7 +101,7 @@
         [galleryViewController reloadData];
         galleryViewController.mode = GalleryModeNormal;
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"") style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:nil]];
     [galleryViewController presentViewController:alertController animated:true completion:nil];
 }
 
@@ -174,8 +174,8 @@
         metadata.localIdentifier = asset.localIdentifier;
 
         if ([[[PhotoStorage new] fetchPhotos] indexOfObjectPassingTest:^BOOL(LocalPhoto * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) { return [obj.metadata.localIdentifier isEqualToString:metadata.localIdentifier]; }] != NSNotFound) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Duplicate found", @"") message:NSLocalizedString(@"This photo has already been imported. This won't affect other photos you're importing.", @"") preferredStyle:UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"") style:UIAlertActionStyleDefault handler:nil]];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Duplicate found", @"A title for a warning that some duplicate photos were found during import.") message:NSLocalizedString(@"This photo has already been imported. This won't affect other photos you're importing.", @"A warning that shows up if one of the photos you are trying to important has already been imported.") preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"A standard OK button.") style:UIAlertActionStyleDefault handler:nil]];
             [self.navigationController presentViewController:alertController animated:YES completion:nil];
             return;
         }

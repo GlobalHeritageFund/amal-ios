@@ -92,11 +92,11 @@
 }
 
 - (NSString *)uploadState {
-    return NSLocalizedString(@"Publish Report", @"");
+    return NSLocalizedString(@"Publish Report", @"A button to publish a report to a database.");
 }
 
 - (NSString *)reportState {
-    return NSLocalizedString(@"Draft", @"");
+    return NSLocalizedString(@"Draft", @"A label indicating that a report is a draft, not yet published and only saved locally on the user's device.");
 }
 
 - (UIColor *)reportStateColor {

@@ -167,12 +167,12 @@
 - (void)updateConditionLabel {
     // todo: move this to model?
     NSArray<NSString *> *labels = @[
-                                    NSLocalizedString(@"Condition unknown.", @""),
-                                    NSLocalizedString(@"No damage, good condition.", @""),
-                                    NSLocalizedString(@"Minor damage, fair condition.", @""),
-                                    NSLocalizedString(@"Moderate damage, poor condition.", @""),
-                                    NSLocalizedString(@"Severe damage, very bad condition.", @""),
-                                    NSLocalizedString(@"Collapsed, destroyed.", @""),
+                                    NSLocalizedString(@"Condition unknown.", @"A description for an object's condition that is unknown (Scale 0/5)."),
+                                    NSLocalizedString(@"No damage, good condition.", @"A description for an object's condition that is good. (Scale 1/5)"),
+                                    NSLocalizedString(@"Minor damage, fair condition.", @"A description for an object's condition that is fair. (Scale 2/5)"),
+                                    NSLocalizedString(@"Moderate damage, poor condition.", @"A description for an object's condition that is moderate. (Scale 3/5)"),
+                                    NSLocalizedString(@"Severe damage, very bad condition.", @"A description for an object's condition that is severe. (Scale 4/5)"),
+                                    NSLocalizedString(@"Collapsed, destroyed.", @"A description for an object's condition that is destroyed. (Scale 5/5)"),
                                     ];
     self.conditionLabel.text = labels[self.selectedValue];
 }
@@ -508,7 +508,7 @@
 }
 
 - (void)updateHeaderText:(NSString *)headerText {
-    self.headerLabel.text = [headerText uppercaseString];
+    self.headerLabel.text = [headerText localizedUppercaseString];
 }
 
 - (void)layoutSubviews {
