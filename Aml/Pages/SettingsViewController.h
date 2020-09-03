@@ -12,6 +12,7 @@
 @protocol SettingsViewControllerDelegate
 
 - (void)didSelectEnterPassphrase;
+- (void)didSelectAcknowledgements;
 
 @end
 

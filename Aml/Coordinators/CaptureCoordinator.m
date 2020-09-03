@@ -10,6 +10,7 @@
 #import "CameraViewController.h"
 #import "SettingsViewController.h"
 #import "PassphraseViewController.h"
+#import "AcknowledgementsViewController.h"
 
 @interface CaptureCoordinator() <CameraViewControllerDelegate, UINavigationControllerDelegate, SettingsViewControllerDelegate>
 
@@ -54,6 +55,10 @@
 
 - (void)didSelectEnterPassphrase {
     [self.navigationController pushViewController:[[PassphraseViewController alloc] init] animated:YES];
+}
+
+- (void)didSelectAcknowledgements {
+    [self.navigationController pushViewController:[[AcknowledgementsViewController alloc] init] animated:YES];
 }
 
 @end

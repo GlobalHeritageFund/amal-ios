@@ -69,6 +69,7 @@
 		1AE0AF981FF49B6C00A816F7 /* EmptyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0AF971FF49B6C00A816F7 /* EmptyState.m */; };
 		1AEBACA41F4A6E9F002DC63F /* FirebaseReportDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */; };
 		1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */; };
+		341DE4C924FBF73D00A5177D /* AcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341DE4C824FBF73D00A5177D /* AcknowledgementsViewController.m */; };
 		34A648EA24E997180089F939 /* DatabaseTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648E924E997180089F939 /* DatabaseTarget.m */; };
 		34A648ED24E99E790089F939 /* DatabasePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648EB24E99E790089F939 /* DatabasePicker.m */; };
 		34A648F024E9A5E50089F939 /* DatabasePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648EF24E9A5E50089F939 /* DatabasePickerViewController.m */; };
@@ -230,6 +231,8 @@
 		1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseReportDataSource.m; sourceTree = "<group>"; };
 		1AEBACA51F4A7289002DC63F /* LocalDraftDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalDraftDataSource.h; sourceTree = "<group>"; };
 		1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalDraftDataSource.m; sourceTree = "<group>"; };
+		341DE4C724FBF73D00A5177D /* AcknowledgementsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcknowledgementsViewController.h; sourceTree = "<group>"; };
+		341DE4C824FBF73D00A5177D /* AcknowledgementsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AcknowledgementsViewController.m; sourceTree = "<group>"; };
 		34A648E824E997180089F939 /* DatabaseTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseTarget.h; sourceTree = "<group>"; };
 		34A648E924E997180089F939 /* DatabaseTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseTarget.m; sourceTree = "<group>"; };
 		34A648EB24E99E790089F939 /* DatabasePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabasePicker.m; sourceTree = "<group>"; };
@@ -640,6 +643,8 @@
 				5846B2001E773315008E48BC /* NavPage.m */,
 				1A4D48B71FF2C24600409CF9 /* SettingsViewController.h */,
 				1A4D48B81FF2C24600409CF9 /* SettingsViewController.m */,
+				341DE4C724FBF73D00A5177D /* AcknowledgementsViewController.h */,
+				341DE4C824FBF73D00A5177D /* AcknowledgementsViewController.m */,
 				5846B2031E773354008E48BC /* TabBarPage.h */,
 				5846B2041E773354008E48BC /* TabBarPage.m */,
 			);
@@ -948,6 +953,7 @@
 				B910B864212B224D00468383 /* NSJSONSerialization+Promises.m in Sources */,
 				1A5AADE71F4F756A00573829 /* QBAssetsViewController.m in Sources */,
 				1A04FCEC1F51D07C0010A9D8 /* ReportCell.m in Sources */,
+				341DE4C924FBF73D00A5177D /* AcknowledgementsViewController.m in Sources */,
 				1A31FA4E1F0569A6007DDD88 /* NSObject+Helpers.m in Sources */,
 				1A4D48BC1FF307F800409CF9 /* EditLocationViewController.m in Sources */,
 				1A4E9AD11F50ABF0006856A8 /* ReportHeaderView.m in Sources */,
