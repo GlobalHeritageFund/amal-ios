@@ -22,7 +22,7 @@
     CGRect imageRect = CGRectZero, textRect = CGRectZero, detailTextRect;
 
     CGRectDivide(workingRect, &imageRect, &workingRect, 72, CGLeadingEdge());
-    CGRectDivide(workingRect, &textRect, &detailTextRect, 36, CGLeadingEdge());
+    CGRectDivide(workingRect, &textRect, &detailTextRect, 36, CGRectMinYEdge);
 
     self.imageView.frame = CGRectInset(imageRect, 5, 5);
     self.textLabel.frame = CGRectInset(textRect, 5, 0);
