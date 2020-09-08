@@ -66,7 +66,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"Report";
+    self.title = NSLocalizedString(@"Report", @"A header for a screen showing or editing a report.");
 
     self.reportHeader = [[ReportHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 320)];
     self.tableView.tableHeaderView = self.reportHeader;

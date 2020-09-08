@@ -148,8 +148,8 @@
 
     [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:NSLocalizedString(@"Partners", @"A section that shows information about Amal partners.") formElements:partnerElements]];
 
-    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:@"Acknowledgements" formElements:@[
-        [[ButtonFormElement alloc] initWithTitle:@"Acknowledgements" block:^{
+    [self.view addFormGroup:[[FormGroup alloc] initWithHeaderText:NSLocalizedString(@"Acknowledgements", @"") formElements:@[
+        [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Acknowledgements", @"") block:^{
         [weakSelf.delegate didSelectAcknowledgements];
     }],
     ]]];
