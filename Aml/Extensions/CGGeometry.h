@@ -11,3 +11,5 @@
 CGRect CGRectTrim(CGRect rect, CGFloat amount, CGRectEdge edge);
 CGSize CGSizeFitting(CGSize original, CGSize maximum);
 CGRect CGRectInsetToSize(CGRect rect, CGSize newSize);
+CGRectEdge CGLeadingEdge(void);
+CGRectEdge CGTrailingEdge(void);

@@ -53,12 +53,12 @@
     CGRect workingRect = self.bounds;
 
     if (self.enabled) {
-        CGRectDivide(workingRect, &chevronRect, &workingRect, 10, CGRectMaxXEdge);
+        CGRectDivide(workingRect, &chevronRect, &workingRect, 10, CGTrailingEdge());
 
-        workingRect = CGRectTrim(workingRect, 10, CGRectMaxXEdge);
+        workingRect = CGRectTrim(workingRect, 10, CGTrailingEdge());
     }
 
-    CGRectDivide(workingRect, &valueRect, &nameRect, self.valueLabel.bounds.size.width, CGRectMaxXEdge);
+    CGRectDivide(workingRect, &valueRect, &nameRect, self.valueLabel.bounds.size.width, CGTrailingEdge());
 
     self.nameLabel.frame = nameRect;
     self.valueLabel.frame = valueRect;

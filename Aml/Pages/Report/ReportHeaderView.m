@@ -204,7 +204,7 @@
     workingRect = CGRectTrim(workingRect, 15, CGRectMinYEdge);
 
     CGSize dateSize = [self.creationDateLabel sizeThatFits:workingRect.size];
-    CGRectDivide(workingRect, &creationDateRect, &reportStateRect, dateSize.width, CGRectMinXEdge);
+    CGRectDivide(workingRect, &creationDateRect, &reportStateRect, dateSize.width, CGLeadingEdge());
 
     self.mapView.frame = mapRect;
     self.containerView.frame = containerRect;

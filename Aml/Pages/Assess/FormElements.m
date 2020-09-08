@@ -137,9 +137,9 @@
 
     for (UIButton *button in self.buttons) {
         CGRect buttonRect = CGRectZero;
-        CGRectDivide(workingRect, &buttonRect, &workingRect, buttonWidth, CGRectMinXEdge);
+        CGRectDivide(workingRect, &buttonRect, &workingRect, buttonWidth, CGLeadingEdge());
         button.frame = buttonRect;
-        workingRect = CGRectTrim(workingRect, paddingWidth, CGRectMinXEdge);
+        workingRect = CGRectTrim(workingRect, paddingWidth, CGLeadingEdge());
     }
 
     self.conditionLabel.frame = labelRect;
@@ -231,8 +231,8 @@
 
     CGRect labelRect = CGRectZero, toggleRect = CGRectZero;
 
-    CGRectTrim(workingRect, 0, CGRectMaxXEdge);
-    CGRectDivide(workingRect, &toggleRect, &labelRect, self.toggle.frame.size.width, CGRectMaxXEdge);
+    CGRectTrim(workingRect, 0, CGTrailingEdge());
+    CGRectDivide(workingRect, &toggleRect, &labelRect, self.toggle.frame.size.width, CGTrailingEdge());
     
     self.label.frame = labelRect;
     self.toggle.frame = toggleRect;
@@ -536,7 +536,7 @@
         element.frame = elementRect;
         CGRect separatorRect = elementRect;
         separatorRect.size.height = 1/UIScreen.mainScreen.scale;
-        separatorRect = CGRectTrim(separatorRect, 10, CGRectMinXEdge);
+        separatorRect = CGRectTrim(separatorRect, 10, CGLeadingEdge());
         separator.frame = separatorRect;
     }
 }

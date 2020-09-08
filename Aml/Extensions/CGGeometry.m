@@ -32,3 +32,20 @@ CGRect CGRectInsetToSize(CGRect rect, CGSize newSize) {
 
     return CGRectInset(rect, horizontalInset, verticalInset);
 }
+
+CGRectEdge CGLeadingEdge() {
+    if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft) {
+        return CGRectMaxXEdge;
+    } else {
+        return CGRectMinXEdge;
+    }
+}
+
+CGRectEdge CGTrailingEdge() {
+    if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft) {
+        return CGRectMinXEdge;
+    } else {
+        return CGRectMaxXEdge;
+    }
+
+}
