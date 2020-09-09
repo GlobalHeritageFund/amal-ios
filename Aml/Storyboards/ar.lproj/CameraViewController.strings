@@ -1,0 +1,6 @@
+
+/* Class = "UILabel"; text = "Settings > Privacy > Camera"; ObjectID = "9J4-1L-z66"; Note = "A trail of breadcrumbs to help the user get to settings screen to grant camera permissions."; */
+"9J4-1L-z66.text" = "الإعدادات > الخصوصية > الكاميرا";
+
+/* Class = "UILabel"; text = "Please enable\ncamera access."; ObjectID = "oBi-gu-H3G"; Note = "A label that is shown when camera permissions have not been granted."; */
+"oBi-gu-H3G.text" = "الرجا تفعيل آلة التصوير";
