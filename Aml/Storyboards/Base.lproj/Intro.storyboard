@@ -54,6 +54,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Shown on the first intro screen when loading the app"/>
+                                </attributedString>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNq-ii-q6j">
                                 <rect key="frame" x="16" y="601" width="34" height="33"/>
@@ -61,6 +64,9 @@
                                 <state key="normal" title="Skip">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <attributedString key="userComments">
+                                    <fragment content="Skips the entire onboarding flow."/>
+                                </attributedString>
                                 <connections>
                                     <action selector="dismissSelf" destination="0BO-0c-Nf2" eventType="touchUpInside" id="4sv-JX-Yfn"/>
                                 </connections>
@@ -71,6 +77,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <attributedString key="userComments">
+                                    <fragment content="Shows the next page of the onboarding flow."/>
+                                </attributedString>
                                 <connections>
                                     <segue destination="Waq-Yc-eWd" kind="show" id="mgr-Ci-YgQ"/>
                                 </connections>
@@ -148,6 +157,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="A description of how the app works."/>
+                                </attributedString>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APY-9C-0Te">
                                 <rect key="frame" x="16" y="601" width="34" height="33"/>
@@ -155,6 +167,9 @@
                                 <state key="normal" title="Skip">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <attributedString key="userComments">
+                                    <fragment content="Skips the entire onboarding flow."/>
+                                </attributedString>
                                 <connections>
                                     <action selector="dismissSelf" destination="Waq-Yc-eWd" eventType="touchUpInside" id="Fzz-2i-LrY"/>
                                 </connections>
@@ -165,6 +180,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <attributedString key="userComments">
+                                    <fragment content="Shows the next page of the onboarding flow."/>
+                                </attributedString>
                                 <connections>
                                     <segue destination="kB0-sa-3Ii" kind="show" id="1PL-rN-xdh"/>
                                 </connections>
@@ -238,6 +256,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Shown before partner logos"/>
+                                </attributedString>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLe-lc-J87">
                                 <rect key="frame" x="16" y="601" width="34" height="33"/>
@@ -245,6 +266,9 @@
                                 <state key="normal" title="Skip">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <attributedString key="userComments">
+                                    <fragment content="Skips the entire onboarding flow."/>
+                                </attributedString>
                                 <connections>
                                     <action selector="popNavigationController" destination="kB0-sa-3Ii" eventType="touchUpInside" id="KGX-eK-0vJ"/>
                                 </connections>
@@ -255,6 +279,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <attributedString key="userComments">
+                                    <fragment content="Shows the next page of the onboarding flow."/>
+                                </attributedString>
                                 <connections>
                                     <segue destination="dQ7-dK-9r7" kind="show" id="oIJ-eH-vnX"/>
                                 </connections>
@@ -374,13 +401,16 @@
                                 <rect key="frame" x="160" y="599" width="55" height="37"/>
                             </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By using this application, you agree to these terms." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtw-SB-pBC">
-                                <rect key="frame" x="69" y="117.5" width="237" height="50.5"/>
+                                <rect key="frame" x="69" y="121.5" width="237" height="50.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="f3J-hU-AWD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="Shown as a description above two buttons for the privacy policy and terms of use"/>
+                                </attributedString>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caution" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmI-Aq-khP">
                                 <rect key="frame" x="69" y="312.5" width="237" height="42"/>
@@ -390,6 +420,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="A heading for a warning about using the app safely."/>
+                                </attributedString>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="ic-camera-off" translatesAutoresizingMaskIntoConstraints="NO" id="GXp-Bo-rrf">
                                 <rect key="frame" x="167.5" y="374.5" width="40" height="40"/>
@@ -402,6 +435,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <attributedString key="userComments">
+                                    <fragment content="A warning for users to use the app safely."/>
+                                </attributedString>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frt-8k-H3g">
                                 <rect key="frame" x="318" y="601" width="41" height="33"/>
@@ -409,26 +445,35 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <attributedString key="userComments">
+                                    <fragment content="Ends the onboarding flow."/>
+                                </attributedString>
                                 <connections>
                                     <action selector="dismissSelf" destination="dQ7-dK-9r7" eventType="touchUpInside" id="Eeo-IF-7Ze"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvk-Fk-pMv">
-                                <rect key="frame" x="129.5" y="186.5" width="116" height="30"/>
+                                <rect key="frame" x="126" y="190.5" width="123" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Terms of Service">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                 </state>
+                                <attributedString key="userComments">
+                                    <fragment content="A button that takes the user to the application's terms of service"/>
+                                </attributedString>
                                 <connections>
                                     <action selector="termsOfServicesButtonTapped:" destination="dQ7-dK-9r7" eventType="touchUpInside" id="ddN-Wm-pzu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0YZ-9s-CSD">
-                                <rect key="frame" x="140" y="232.5" width="95" height="30"/>
+                                <rect key="frame" x="136" y="232.5" width="103" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Privacy Policy">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                 </state>
+                                <attributedString key="userComments">
+                                    <fragment content="A button that takes the user to the application's privacy policy"/>
+                                </attributedString>
                                 <connections>
                                     <action selector="privacyPolicyButtonTapped:" destination="dQ7-dK-9r7" eventType="touchUpInside" id="Ngm-Ri-9kQ"/>
                                 </connections>
@@ -444,7 +489,6 @@
                             <constraint firstItem="qmI-Aq-khP" firstAttribute="top" secondItem="0YZ-9s-CSD" secondAttribute="bottom" constant="50" id="NI0-gB-jUa"/>
                             <constraint firstAttribute="trailing" secondItem="f9k-Mv-zGs" secondAttribute="trailing" id="Y4f-GL-cZj"/>
                             <constraint firstItem="0YZ-9s-CSD" firstAttribute="centerX" secondItem="f9k-Mv-zGs" secondAttribute="centerX" id="Yxr-In-Nhq"/>
-                            <constraint firstItem="0YZ-9s-CSD" firstAttribute="top" secondItem="Qvk-Fk-pMv" secondAttribute="bottom" constant="16" id="f5c-lC-kbs"/>
                             <constraint firstItem="vtw-SB-pBC" firstAttribute="centerX" secondItem="OgG-i2-dOW" secondAttribute="centerX" id="fJf-gt-AiC"/>
                             <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="f9k-Mv-zGs" secondAttribute="bottom" id="gGF-vd-2IC"/>
                             <constraint firstItem="Qvk-Fk-pMv" firstAttribute="centerX" secondItem="f9k-Mv-zGs" secondAttribute="centerX" id="kMJ-Mq-CTi"/>
@@ -456,6 +500,7 @@
                             <constraint firstItem="WWG-2W-zJ0" firstAttribute="centerY" secondItem="frt-8k-H3g" secondAttribute="centerY" id="qbp-mm-z99"/>
                             <constraint firstItem="Nid-Xd-Bgf" firstAttribute="top" secondItem="GXp-Bo-rrf" secondAttribute="bottom" constant="20" id="qca-bU-hX2"/>
                             <constraint firstItem="tWb-BR-okz" firstAttribute="top" secondItem="frt-8k-H3g" secondAttribute="bottom" constant="33" id="tTl-cy-pjh"/>
+                            <constraint firstItem="0YZ-9s-CSD" firstAttribute="top" secondItem="Qvk-Fk-pMv" secondAttribute="bottom" constant="12" id="wTh-Ms-ROs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BUf-0g-mkr"/>

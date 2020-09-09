@@ -69,6 +69,7 @@
 		1AE0AF981FF49B6C00A816F7 /* EmptyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0AF971FF49B6C00A816F7 /* EmptyState.m */; };
 		1AEBACA41F4A6E9F002DC63F /* FirebaseReportDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */; };
 		1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */; };
+		340F5B3024F86271003FFDA3 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340F5B3224F86271003FFDA3 /* Intro.storyboard */; };
 		341A66C325017ED600E134CB /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 341A66C225017ED600E134CB /* Localizable.stringsdict */; };
 		341DE4C924FBF73D00A5177D /* AcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341DE4C824FBF73D00A5177D /* AcknowledgementsViewController.m */; };
 		34315CAB250181D900AAF84B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3432771824F870C400247924 /* Localizable.strings */; };
@@ -89,7 +90,6 @@
 		5846B2051E773354008E48BC /* TabBarPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2041E773354008E48BC /* TabBarPage.m */; };
 		5846B2161E809C95008E48BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5846B2151E809C95008E48BC /* GoogleService-Info.plist */; };
 		5846B21A1E809DB7008E48BC /* PhotoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5846B2191E809DB7008E48BC /* PhotoSettings.m */; };
-		5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5892D0D31E8616FD0051C60E /* Intro.storyboard */; };
 		58A1123D1ED65E50006689DC /* LocalPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A1123C1ED65E50006689DC /* LocalPhoto.m */; };
 		58A174AE1ED7BEAE003CACA0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */; };
 		58A174B21ED7BF4F003CACA0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A174B11ED7BF4F003CACA0 /* Photos.framework */; };
@@ -233,6 +233,7 @@
 		1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseReportDataSource.m; sourceTree = "<group>"; };
 		1AEBACA51F4A7289002DC63F /* LocalDraftDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalDraftDataSource.h; sourceTree = "<group>"; };
 		1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalDraftDataSource.m; sourceTree = "<group>"; };
+		340F5B3124F86271003FFDA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
 		341A66BC25017DF100E134CB /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = Aml/ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		341A66C225017ED600E134CB /* Localizable.stringsdict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		341DE4C724FBF73D00A5177D /* AcknowledgementsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcknowledgementsViewController.h; sourceTree = "<group>"; };
@@ -244,6 +245,8 @@
 		34A648EC24E99E790089F939 /* DatabasePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabasePicker.h; sourceTree = "<group>"; };
 		34A648EE24E9A5E50089F939 /* DatabasePickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabasePickerViewController.h; sourceTree = "<group>"; };
 		34A648EF24E9A5E50089F939 /* DatabasePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabasePickerViewController.m; sourceTree = "<group>"; };
+		34C59CBD250955F400D7CF03 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Intro.strings; sourceTree = "<group>"; };
+		34C59CBF250955F600D7CF03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intro.strings; sourceTree = "<group>"; };
 		364849B5AE5394A5BF3ECBD8 /* Pods-Amal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Amal/Pods-Amal.debug.xcconfig"; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580A553E1E5CFC1000A70AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -269,7 +272,6 @@
 		5846B2151E809C95008E48BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5846B2181E809DB7008E48BC /* PhotoSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSettings.h; sourceTree = "<group>"; };
 		5846B2191E809DB7008E48BC /* PhotoSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSettings.m; sourceTree = "<group>"; };
-		5892D0D31E8616FD0051C60E /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		58A1123B1ED65E50006689DC /* LocalPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPhoto.h; sourceTree = "<group>"; };
 		58A1123C1ED65E50006689DC /* LocalPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPhoto.m; sourceTree = "<group>"; };
 		58A174AD1ED7BEAE003CACA0 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -676,7 +678,7 @@
 			isa = PBXGroup;
 			children = (
 				580A55461E5CFC1000A70AB1 /* CameraViewController.storyboard */,
-				5892D0D31E8616FD0051C60E /* Intro.storyboard */,
+				340F5B3224F86271003FFDA3 /* Intro.storyboard */,
 				580A554B1E5CFC1000A70AB1 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -831,7 +833,7 @@
 				341A66C325017ED600E134CB /* Localizable.stringsdict in Resources */,
 				5846B2161E809C95008E48BC /* GoogleService-Info.plist in Resources */,
 				1A5AAE011F4F78FE00573829 /* QBImagePicker.strings in Resources */,
-				5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */,
+				340F5B3024F86271003FFDA3 /* Intro.storyboard in Resources */,
 				1A5AADE91F4F756A00573829 /* QBImagePicker.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1056,6 +1058,16 @@
 			);
 			name = QBImagePicker.strings;
 			path = .;
+			sourceTree = "<group>";
+		};
+		340F5B3224F86271003FFDA3 /* Intro.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				340F5B3124F86271003FFDA3 /* Base */,
+				34C59CBD250955F400D7CF03 /* ar */,
+				34C59CBF250955F600D7CF03 /* en */,
+			);
+			name = Intro.storyboard;
 			sourceTree = "<group>";
 		};
 		3432771824F870C400247924 /* Localizable.strings */ = {

@@ -1,0 +1,63 @@
+
+/* Class = "UIButton"; normalTitle = "Privacy Policy"; ObjectID = "0YZ-9s-CSD"; Note = "A button that takes the user to the application's privacy policy"; */
+"0YZ-9s-CSD.normalTitle" = "سياسة الخصوصية";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "7F3-XR-bdD"; Note = "Shows the next page of the onboarding flow."; */
+"7F3-XR-bdD.normalTitle" = "التالي";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "APY-9C-0Te"; Note = "Skips the entire onboarding flow."; */
+"APY-9C-0Te.normalTitle" = "تجاهل";
+
+/* Class = "UIImageView"; accessibilityLabel = "ICCROM"; ObjectID = "AmS-I6-y13"; */
+"AmS-I6-y13.accessibilityLabel" = "ICCROM";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "DLe-lc-J87"; Note = "Skips the entire onboarding flow."; */
+"DLe-lc-J87.normalTitle" = "تجاهل";
+
+/* Class = "UILabel"; text = "A damage assessment tool for cultural heritage."; ObjectID = "H3a-bk-6HR"; Note = "Shown on the first intro screen when loading the app"; */
+"H3a-bk-6HR.text" = "أداة تقييم للتراث الثقافي";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "LsL-NH-DFg"; Note = "Shows the next page of the onboarding flow."; */
+"LsL-NH-DFg.normalTitle" = "التالي";
+
+/* Class = "UILabel"; text = "Never assess a site that has not been cleared by first responders"; ObjectID = "Nid-Xd-Bgf"; Note = "A warning for users to use the app safely."; */
+"Nid-Xd-Bgf.text" = "لا تقدم على تقييم موقع لم يتم تأمينه بواسطة المسئولين عن التدخل السريع";
+
+/* Class = "UIImageView"; accessibilityLabel = "Amal in Heritage"; ObjectID = "QUn-HK-KbU"; */
+"QUn-HK-KbU.accessibilityLabel" = "Amal in Heritage";
+
+/* Class = "UIButton"; normalTitle = "Terms of Service"; ObjectID = "Qvk-Fk-pMv"; Note = "A button that takes the user to the application's terms of service"; */
+"Qvk-Fk-pMv.normalTitle" = "شروط الخدمة";
+
+/* Class = "UIImageView"; accessibilityLabel = "Global Heritage Fund"; ObjectID = "RBe-WB-gAt"; */
+"RBe-WB-gAt.accessibilityLabel" = "Global Heritage Fund";
+
+/* Class = "UILabel"; text = "With the support of"; ObjectID = "RtJ-hu-D29"; Note = "Shown before partner logos"; */
+"RtJ-hu-D29.text" = "بدعم من";
+
+/* Class = "UILabel"; text = "Support emergency management efforts by sharing photos and notes."; ObjectID = "WUq-q9-CNe"; Note = "A description of how the app works."; */
+"WUq-q9-CNe.text" = "دعم إدارة جهود الطوارئ بمشاركة الصور والملاحظات";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "aNq-ii-q6j"; Note = "Skips the entire onboarding flow."; */
+"aNq-ii-q6j.normalTitle" = "تجاهل";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "cw5-IH-KJD"; Note = "Shows the next page of the onboarding flow."; */
+"cw5-IH-KJD.normalTitle" = "التالي";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "frt-8k-H3g"; Note = "Ends the onboarding flow."; */
+"frt-8k-H3g.normalTitle" = "تم";
+
+/* Class = "UIImageView"; accessibilityLabel = "ICOMOS"; ObjectID = "iSM-ga-8Cd"; */
+"iSM-ga-8Cd.accessibilityLabel" = "ICOMOS";
+
+/* Class = "UIImageView"; accessibilityLabel = "ARC WH"; ObjectID = "mKt-oM-ydb"; */
+"mKt-oM-ydb.accessibilityLabel" = "ARC WH";
+
+/* Class = "UILabel"; text = "Caution"; ObjectID = "qmI-Aq-khP"; Note = "A heading for a warning about using the app safely."; */
+"qmI-Aq-khP.text" = "تحذير";
+
+/* Class = "UILabel"; text = "By using this application, you agree to these terms."; ObjectID = "vtw-SB-pBC"; Note = "Shown as a description above two buttons for the privacy policy and terms of use"; */
+"vtw-SB-pBC.text" = "استخدامك لهذا التطبيق يعني موافقتك على هذه الشروط";
+
+/* Class = "UIImageView"; accessibilityLabel = "Fonds"; ObjectID = "xlg-bD-rTp"; */
+"xlg-bD-rTp.accessibilityLabel" = "Fonds";
