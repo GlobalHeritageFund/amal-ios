@@ -69,6 +69,7 @@
 		1AE0AF981FF49B6C00A816F7 /* EmptyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE0AF971FF49B6C00A816F7 /* EmptyState.m */; };
 		1AEBACA41F4A6E9F002DC63F /* FirebaseReportDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */; };
 		1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */; };
+		341A66C325017ED600E134CB /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 341A66C225017ED600E134CB /* Localizable.stringsdict */; };
 		341DE4C924FBF73D00A5177D /* AcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341DE4C824FBF73D00A5177D /* AcknowledgementsViewController.m */; };
 		34A648EA24E997180089F939 /* DatabaseTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648E924E997180089F939 /* DatabaseTarget.m */; };
 		34A648ED24E99E790089F939 /* DatabasePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648EB24E99E790089F939 /* DatabasePicker.m */; };
@@ -231,6 +232,7 @@
 		1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseReportDataSource.m; sourceTree = "<group>"; };
 		1AEBACA51F4A7289002DC63F /* LocalDraftDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalDraftDataSource.h; sourceTree = "<group>"; };
 		1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalDraftDataSource.m; sourceTree = "<group>"; };
+		341A66C225017ED600E134CB /* Localizable.stringsdict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		341DE4C724FBF73D00A5177D /* AcknowledgementsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcknowledgementsViewController.h; sourceTree = "<group>"; };
 		341DE4C824FBF73D00A5177D /* AcknowledgementsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AcknowledgementsViewController.m; sourceTree = "<group>"; };
 		34A648E824E997180089F939 /* DatabaseTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseTarget.h; sourceTree = "<group>"; };
@@ -681,6 +683,7 @@
 			isa = PBXGroup;
 			children = (
 				580A55491E5CFC1000A70AB1 /* Assets.xcassets */,
+				341A66C225017ED600E134CB /* Localizable.stringsdict */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -819,6 +822,7 @@
 				580A55481E5CFC1000A70AB1 /* CameraViewController.storyboard in Resources */,
 				1A5AAE001F4F78FE00573829 /* QBImagePicker.strings in Resources */,
 				1A5AADFF1F4F78FE00573829 /* QBImagePicker.strings in Resources */,
+				341A66C325017ED600E134CB /* Localizable.stringsdict in Resources */,
 				5846B2161E809C95008E48BC /* GoogleService-Info.plist in Resources */,
 				1A5AAE011F4F78FE00573829 /* QBImagePicker.strings in Resources */,
 				5892D0D41E8616FD0051C60E /* Intro.storyboard in Resources */,
@@ -1046,6 +1050,14 @@
 			);
 			name = QBImagePicker.strings;
 			path = .;
+			sourceTree = "<group>";
+		};
+		3432771824F870C400247924 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3432771924F870C400247924 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		580A55461E5CFC1000A70AB1 /* CameraViewController.storyboard */ = {

@@ -86,12 +86,8 @@
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController deletePhotos:(NSArray<LocalPhoto *> *)photos {
-    NSString *message;
-    if (photos.count == 1) { // localize
-        message = @"Are you sure you want to delete this photo? This can not be undone.";
-    } else {
-        message = @"Are you sure you want to delete these photos? This can not be undone.";
-    }
+    NSString *key = NSLocalizedString(@"ARE_YOU_SURE_DELETE_PHOTO", @"A warning that appears when you want to delete one or more photos.");
+    NSString *message = [NSString localizedStringWithFormat:key, photos.count];
     [FIRAnalytics logEventWithName:@"multi_select_delete" parameters:@{ @"count": @(photos.count) }];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:message preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {

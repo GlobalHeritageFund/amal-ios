@@ -64,13 +64,8 @@ static NSDateFormatter *dateFormatter = nil;
 }
 
 - (NSString *)imageCountString {
-    if (self.report.photoCount == 0) { // localize
-        return @"No items";
-    } else if (self.report.photoCount == 1) {
-        return @"1 item";
-    } else {
-        return [NSString stringWithFormat:@"%zd items", self.report.photoCount];
-    }
+    NSString *key = NSLocalizedString(@"PHOTO_COUNT", @"A description of the number of items/photos in a report.");
+    return [NSString localizedStringWithFormat:key, self.report.photoCount];
 }
 
 - (NSString *)email {
