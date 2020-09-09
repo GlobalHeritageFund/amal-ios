@@ -28,11 +28,11 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Amal needs access to your camera to take photos.</string>
+    <string>Should never be shown because of localizations.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Amal needs location access to tag photos with the location where they were taken.</string>
+	<string>Should never be shown because of localizations.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Amal needs photo library access to import photos from and export photos to your library.</string>
+	<string>Should never be shown because of localizations.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

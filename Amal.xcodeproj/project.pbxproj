@@ -76,6 +76,7 @@
 		34A648EA24E997180089F939 /* DatabaseTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648E924E997180089F939 /* DatabaseTarget.m */; };
 		34A648ED24E99E790089F939 /* DatabasePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648EB24E99E790089F939 /* DatabasePicker.m */; };
 		34A648F024E9A5E50089F939 /* DatabasePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648EF24E9A5E50089F939 /* DatabasePickerViewController.m */; };
+		34C59CC42509690000D7CF03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34C59CC62509690000D7CF03 /* InfoPlist.strings */; };
 		580A553F1E5CFC1000A70AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A553E1E5CFC1000A70AB1 /* main.m */; };
 		580A55421E5CFC1000A70AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55411E5CFC1000A70AB1 /* AppDelegate.m */; };
 		580A55451E5CFC1000A70AB1 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580A55441E5CFC1000A70AB1 /* CameraViewController.m */; };
@@ -249,6 +250,8 @@
 		34C59CBF250955F600D7CF03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intro.strings; sourceTree = "<group>"; };
 		34C59CC025095C7C00D7CF03 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/CameraViewController.strings; sourceTree = "<group>"; };
 		34C59CC125095C8E00D7CF03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CameraViewController.strings; sourceTree = "<group>"; };
+		34C59CC52509690000D7CF03 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		34C59CC72509690800D7CF03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		364849B5AE5394A5BF3ECBD8 /* Pods-Amal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Amal/Pods-Amal.debug.xcconfig"; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580A553E1E5CFC1000A70AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -590,6 +593,7 @@
 				580A554E1E5CFC1000A70AB1 /* Info.plist */,
 				1A12E7EB210275A000EA8F4C /* Secrets.plist */,
 				580A553E1E5CFC1000A70AB1 /* main.m */,
+				34C59CC62509690000D7CF03 /* InfoPlist.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -827,6 +831,7 @@
 				1A5AADFE1F4F78FE00573829 /* QBImagePicker.strings in Resources */,
 				580A554A1E5CFC1000A70AB1 /* Assets.xcassets in Resources */,
 				1A5AADFD1F4F78FE00573829 /* QBImagePicker.strings in Resources */,
+				34C59CC42509690000D7CF03 /* InfoPlist.strings in Resources */,
 				34315CAB250181D900AAF84B /* Localizable.strings in Resources */,
 				1A12E7EC210275A000EA8F4C /* Secrets.plist in Resources */,
 				580A55481E5CFC1000A70AB1 /* CameraViewController.storyboard in Resources */,
@@ -1079,6 +1084,15 @@
 				341A66BC25017DF100E134CB /* ar */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		34C59CC62509690000D7CF03 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34C59CC52509690000D7CF03 /* ar */,
+				34C59CC72509690800D7CF03 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		580A55461E5CFC1000A70AB1 /* CameraViewController.storyboard */ = {
