@@ -360,7 +360,11 @@
 - (UIButton *)innerButton {
     if (!_innerButton) {
         UIButton *innerButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [innerButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        if (@available(iOS 11.0, *)) {
+            [innerButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeading];
+        } else {
+            [innerButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        }
         innerButton.titleLabel.font = [UIFont systemFontOfSize:18.0f];
         [innerButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:innerButton];

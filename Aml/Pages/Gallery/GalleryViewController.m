@@ -194,8 +194,12 @@
 - (UIButton *)filterButton {
     if (!_filterButton) {
         UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [filterButton setTitle:@"FILTER" forState:UIControlStateNormal]; //localize
-        filterButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        [filterButton setTitle:@"FILTER" forState:UIControlStateNormal]; // localize
+        if (@available(iOS 11.0, *)) {
+            filterButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentTrailing;
+        } else {
+            filterButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        };
         [filterButton addTarget:self action:@selector(filterButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:filterButton];
         self.filterButton = filterButton;
