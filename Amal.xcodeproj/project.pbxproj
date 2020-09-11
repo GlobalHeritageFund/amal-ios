@@ -70,7 +70,7 @@
 		1AEBACA41F4A6E9F002DC63F /* FirebaseReportDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA31F4A6E9F002DC63F /* FirebaseReportDataSource.m */; };
 		1AEBACA71F4A7289002DC63F /* LocalDraftDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */; };
 		340F5B3024F86271003FFDA3 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340F5B3224F86271003FFDA3 /* Intro.storyboard */; };
-		341A66C325017ED600E134CB /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 341A66C225017ED600E134CB /* Localizable.stringsdict */; };
+		34198C57250B041F00AF1ADD /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 34198C59250B041F00AF1ADD /* Localizable.stringsdict */; };
 		341DE4C924FBF73D00A5177D /* AcknowledgementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341DE4C824FBF73D00A5177D /* AcknowledgementsViewController.m */; };
 		34315CAB250181D900AAF84B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3432771824F870C400247924 /* Localizable.strings */; };
 		34A648EA24E997180089F939 /* DatabaseTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A648E924E997180089F939 /* DatabaseTarget.m */; };
@@ -235,8 +235,9 @@
 		1AEBACA51F4A7289002DC63F /* LocalDraftDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalDraftDataSource.h; sourceTree = "<group>"; };
 		1AEBACA61F4A7289002DC63F /* LocalDraftDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalDraftDataSource.m; sourceTree = "<group>"; };
 		340F5B3124F86271003FFDA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
+		34198C58250B041F00AF1ADD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		34198C5A250B043400AF1ADD /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ar; path = ar.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		341A66BC25017DF100E134CB /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = Aml/ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		341A66C225017ED600E134CB /* Localizable.stringsdict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		341DE4C724FBF73D00A5177D /* AcknowledgementsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcknowledgementsViewController.h; sourceTree = "<group>"; };
 		341DE4C824FBF73D00A5177D /* AcknowledgementsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AcknowledgementsViewController.m; sourceTree = "<group>"; };
 		3432771924F870C400247924 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Aml/en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -695,7 +696,7 @@
 			children = (
 				3432771824F870C400247924 /* Localizable.strings */,
 				580A55491E5CFC1000A70AB1 /* Assets.xcassets */,
-				341A66C225017ED600E134CB /* Localizable.stringsdict */,
+				34198C59250B041F00AF1ADD /* Localizable.stringsdict */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -837,7 +838,7 @@
 				580A55481E5CFC1000A70AB1 /* CameraViewController.storyboard in Resources */,
 				1A5AAE001F4F78FE00573829 /* QBImagePicker.strings in Resources */,
 				1A5AADFF1F4F78FE00573829 /* QBImagePicker.strings in Resources */,
-				341A66C325017ED600E134CB /* Localizable.stringsdict in Resources */,
+				34198C57250B041F00AF1ADD /* Localizable.stringsdict in Resources */,
 				5846B2161E809C95008E48BC /* GoogleService-Info.plist in Resources */,
 				1A5AAE011F4F78FE00573829 /* QBImagePicker.strings in Resources */,
 				340F5B3024F86271003FFDA3 /* Intro.storyboard in Resources */,
@@ -1075,6 +1076,15 @@
 				34C59CBF250955F600D7CF03 /* en */,
 			);
 			name = Intro.storyboard;
+			sourceTree = "<group>";
+		};
+		34198C59250B041F00AF1ADD /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34198C58250B041F00AF1ADD /* en */,
+				34198C5A250B043400AF1ADD /* ar */,
+			);
+			name = Localizable.stringsdict;
 			sourceTree = "<group>";
 		};
 		3432771824F870C400247924 /* Localizable.strings */ = {

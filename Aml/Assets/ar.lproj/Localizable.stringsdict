@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>ARE_YOU_SURE_DELETE_PHOTO</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@value@</string>
+        <key>value</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>d</string>
+            <key>one</key>
+            <string>هل أنت متأكد أنك تريد حذف هذه الصوة؟ لن يمكن استرجاعها مرة أخرى</string>
+            <key>other</key>
+            <string>هل أنت متأكد أنك تريد حذف هذه الصور؟ لن يمكن استرجاعها مرة أخرى</string>
+        </dict>
+    </dict>
+    <key>PHOTO_COUNT</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@value@</string>
+        <key>value</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>zd</string>
+            <key>zero</key>
+            <string>لا يوجد عناصر</string>
+            <key>one</key>
+            <string>١ عناصر</string>
+            <key>other</key>
+            <string>%zd عناصر</string>
+        </dict>
+    </dict>
+</dict>
+</plist>
