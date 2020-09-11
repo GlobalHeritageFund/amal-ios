@@ -10,10 +10,10 @@
 #import "LocalPhoto.h"
 #import "AMLMetadata.h"
 
-@implementation DefaultPhotoFilter // localize
+@implementation DefaultPhotoFilter
 
 - (NSString *)name {
-    return @"All";
+    return NSLocalizedString(@"All", @"A label for a filter for all items");
 }
 
 - (BOOL)shouldIncludePhoto:(LocalPhoto *)photo {
@@ -25,7 +25,7 @@
 @implementation UnassessedPhotoFilter
 
 - (NSString *)name {
-    return @"Unassessed";
+    return NSLocalizedString(@"Unassessed", @"A label for a filter for items with a form that has not been filled out yet");
 }
 
 - (BOOL)shouldIncludePhoto:(LocalPhoto *)photo {
@@ -47,7 +47,7 @@
 @implementation AssessedPhotoFilter
 
 - (NSString *)name {
-    return @"Assessed";
+    return NSLocalizedString(@"Assessed", @"A label for a filter for items with a form that has been filled out");
 }
 
 - (instancetype)init {

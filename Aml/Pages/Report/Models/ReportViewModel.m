@@ -54,7 +54,8 @@ static NSDateFormatter *dateFormatter = nil;
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setLocalizedDateFormatFromTemplate:@"d MMMM y"];
     }
-    return [NSString stringWithFormat:@"Created %@", [dateFormatter stringFromDate:self.report.creationDate]]; // localize
+    NSString *key = NSLocalizedString(@"CREATED_AT", @"A description of when a report was created.");
+    return [NSString localizedStringWithFormat:key, [dateFormatter stringFromDate:self.report.creationDate]];
 }
 
 - (CLLocationCoordinate2D)coordinateMidpoint {

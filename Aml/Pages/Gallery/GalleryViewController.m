@@ -46,7 +46,7 @@
 - (void)setCurrentFilter:(id<LocalPhotoFilter>)currentFilter {
     _currentFilter = currentFilter;
 
-    NSString *buttonTitle = [[NSString stringWithFormat:@"Filter: %@", self.currentFilter.name] localizedUppercaseString];
+    NSString *buttonTitle = [[NSString localizedStringWithFormat:NSLocalizedString(@"Filter", @"A description for a filter that can be applied to a list of photos."), self.currentFilter.name] localizedUppercaseString];
     [self.filterButton setTitle:buttonTitle forState:UIControlStateNormal];
     [self reloadData];
 }
@@ -194,7 +194,6 @@
 - (UIButton *)filterButton {
     if (!_filterButton) {
         UIButton *filterButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [filterButton setTitle:@"FILTER" forState:UIControlStateNormal]; // localize
         if (@available(iOS 11.0, *)) {
             filterButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentTrailing;
         } else {
@@ -369,7 +368,7 @@
     NSArray<UIAlertAction *> *actions = [filters  arrayByTransformingObjectsUsingBlock:^id(id<LocalPhotoFilter> filter) {
         NSString *name;
         if ([filter.name isEqualToString:self.currentFilter.name]) {
-            name = [NSString stringWithFormat:@"%@ ✓", filter.name]; // localize
+            name = [NSString stringWithFormat:@"%@ ✓", filter.name];
         } else {
             name = filter.name;
         }
