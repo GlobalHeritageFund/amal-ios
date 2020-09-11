@@ -33,7 +33,7 @@
         [self addSubview:self.valueLabel];
 
         self.chevronImage = [[UIImageView alloc] init];
-        self.chevronImage.image = [[UIImage imageNamed:@"chevron"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]; //localize
+        self.chevronImage.image = [[UIImage imageNamed:@"chevron"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [self.chevronImage sizeToFit];
         self.chevronImage.contentMode = UIViewContentModeScaleAspectFit;
         self.chevronImage.tintColor = [UIColor colorWithHex:0x666666];
