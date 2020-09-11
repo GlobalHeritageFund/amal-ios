@@ -89,8 +89,8 @@
     NSString *key = NSLocalizedString(@"ARE_YOU_SURE_DELETE_PHOTO", @"A warning that appears when you want to delete one or more photos.");
     NSString *message = [NSString localizedStringWithFormat:key, photos.count];
     [FIRAnalytics logEventWithName:@"multi_select_delete" parameters:@{ @"count": @(photos.count) }];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Are you sure?", @"A header for a warning that appears when you want to delete one or more photos.") message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Delete", @"A button to delete one or more images.") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         for (LocalPhoto *photo in photos) {
             [photo removeLocalData];
         }
