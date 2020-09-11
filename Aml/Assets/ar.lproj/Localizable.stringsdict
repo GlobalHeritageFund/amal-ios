@@ -12,8 +12,16 @@
             <string>NSStringPluralRuleType</string>
             <key>NSStringFormatValueTypeKey</key>
             <string>d</string>
+            <key>zero</key>
+            <string>Translation not applicable, can't delete zero images</string>
             <key>one</key>
-            <string>هل أنت متأكد أنك تريد حذف هذه الصوة؟ لن يمكن استرجاعها مرة أخرى</string>
+            <string>هل أنت متأكد أنك تريد حذف هذه الصورة؟ لن يمكن استرجاعها مرة أخرى</string>
+            <key>two</key>
+            <string>هل أنت متأكد أنك تريد حذف هاتان الصورتان؟ لن يمكن استرجاعهما مرة أخرى</string>
+            <key>few</key>
+            <string>ل أنت متأكد أنك تريد حذف هذه الصور؟ لن يمكن استرجاعها مرة أخرى</string>
+            <key>many</key>
+            <string>هل أنت متأكد أنك تريد حذف هذه الصور؟ لن يمكن استرجاعها مرة أخرى</string>
             <key>other</key>
             <string>هل أنت متأكد أنك تريد حذف هذه الصور؟ لن يمكن استرجاعها مرة أخرى</string>
         </dict>
@@ -31,7 +39,9 @@
             <key>zero</key>
             <string>لا يوجد عناصر</string>
             <key>one</key>
-            <string>١ عناصر</string>
+            <string>عنصران</string>
+            <key>two</key>
+            <string>لا يوجد عناصر</string>
             <key>other</key>
             <string>%zd عناصر</string>
         </dict>
