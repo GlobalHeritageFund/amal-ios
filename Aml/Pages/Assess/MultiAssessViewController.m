@@ -32,7 +32,7 @@
 - (instancetype)initWithPhotos:(NSArray<LocalPhoto *> *)photos {
     self = [super init];
     if (!self) return nil;
-    NSAssert(photos.count != 0, @"MultiAsessViewController requires at least one photo");
+    NSAssert(photos.count != 0, @"MultiAssessViewController requires at least one photo");
     _photos = photos;
 
     self.hazardsSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Hazards", @"A label for a switch to determine if there are hazards in the area of the assessed object.")];
