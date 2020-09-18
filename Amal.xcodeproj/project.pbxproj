@@ -48,11 +48,6 @@
 		1A5AADEB1F4F756A00573829 /* QBSlomoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AADDF1F4F756A00573829 /* QBSlomoIconView.m */; };
 		1A5AADEC1F4F756A00573829 /* QBVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AADE11F4F756A00573829 /* QBVideoIconView.m */; };
 		1A5AADED1F4F756A00573829 /* QBVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5AADE31F4F756A00573829 /* QBVideoIndicatorView.m */; };
-		1A5AADFD1F4F78FE00573829 /* QBImagePicker.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A5AADEF1F4F78FE00573829 /* QBImagePicker.strings */; };
-		1A5AADFE1F4F78FE00573829 /* QBImagePicker.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A5AADF21F4F78FE00573829 /* QBImagePicker.strings */; };
-		1A5AADFF1F4F78FE00573829 /* QBImagePicker.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A5AADF51F4F78FE00573829 /* QBImagePicker.strings */; };
-		1A5AAE001F4F78FE00573829 /* QBImagePicker.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A5AADF81F4F78FE00573829 /* QBImagePicker.strings */; };
-		1A5AAE011F4F78FE00573829 /* QBImagePicker.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A5AADFB1F4F78FE00573829 /* QBImagePicker.strings */; };
 		1A7432591EF592AF00CE9D17 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */; };
 		1A74325C1EF5964F00CE9D17 /* AppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325B1EF5964F00CE9D17 /* AppCoordinator.m */; };
 		1A74325F1EF5A0F200CE9D17 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74325E1EF5A0F200CE9D17 /* ImageDetailViewController.m */; };
@@ -197,11 +192,6 @@
 		1A5AADE11F4F756A00573829 /* QBVideoIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIconView.m; sourceTree = "<group>"; };
 		1A5AADE21F4F756A00573829 /* QBVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBVideoIndicatorView.h; sourceTree = "<group>"; };
 		1A5AADE31F4F756A00573829 /* QBVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBVideoIndicatorView.m; sourceTree = "<group>"; };
-		1A5AADF01F4F78FE00573829 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/QBImagePicker.strings; sourceTree = "<group>"; };
-		1A5AADF31F4F78FE00573829 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/QBImagePicker.strings; sourceTree = "<group>"; };
-		1A5AADF61F4F78FE00573829 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/QBImagePicker.strings; sourceTree = "<group>"; };
-		1A5AADF91F4F78FE00573829 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/QBImagePicker.strings; sourceTree = "<group>"; };
-		1A5AADFC1F4F78FE00573829 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/QBImagePicker.strings; sourceTree = "<group>"; };
 		1A7432571EF592AF00CE9D17 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		1A7432581EF592AF00CE9D17 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		1A74325A1EF5964F00CE9D17 /* AppCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCoordinator.h; sourceTree = "<group>"; };
@@ -450,11 +440,6 @@
 		1A5AADCF1F4F753000573829 /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				1A5AADEE1F4F78FE00573829 /* de.lproj */,
-				1A5AADF11F4F78FE00573829 /* en.lproj */,
-				1A5AADF41F4F78FE00573829 /* es.lproj */,
-				1A5AADF71F4F78FE00573829 /* ja.lproj */,
-				1A5AADFA1F4F78FE00573829 /* pl.lproj */,
 				1A5AADD01F4F756A00573829 /* QBAlbumCell.h */,
 				1A5AADD11F4F756A00573829 /* QBAlbumCell.m */,
 				1A5AADD21F4F756A00573829 /* QBAlbumsViewController.h */,
@@ -477,46 +462,6 @@
 				1A5AADE31F4F756A00573829 /* QBVideoIndicatorView.m */,
 			);
 			path = ImagePicker;
-			sourceTree = "<group>";
-		};
-		1A5AADEE1F4F78FE00573829 /* de.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				1A5AADEF1F4F78FE00573829 /* QBImagePicker.strings */,
-			);
-			path = de.lproj;
-			sourceTree = "<group>";
-		};
-		1A5AADF11F4F78FE00573829 /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				1A5AADF21F4F78FE00573829 /* QBImagePicker.strings */,
-			);
-			path = en.lproj;
-			sourceTree = "<group>";
-		};
-		1A5AADF41F4F78FE00573829 /* es.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				1A5AADF51F4F78FE00573829 /* QBImagePicker.strings */,
-			);
-			path = es.lproj;
-			sourceTree = "<group>";
-		};
-		1A5AADF71F4F78FE00573829 /* ja.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				1A5AADF81F4F78FE00573829 /* QBImagePicker.strings */,
-			);
-			path = ja.lproj;
-			sourceTree = "<group>";
-		};
-		1A5AADFA1F4F78FE00573829 /* pl.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				1A5AADFB1F4F78FE00573829 /* QBImagePicker.strings */,
-			);
-			path = pl.lproj;
 			sourceTree = "<group>";
 		};
 		1ABD81CA1F10561B00E2C460 /* Promise */ = {
@@ -829,18 +774,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				580A554D1E5CFC1000A70AB1 /* LaunchScreen.storyboard in Resources */,
-				1A5AADFE1F4F78FE00573829 /* QBImagePicker.strings in Resources */,
 				580A554A1E5CFC1000A70AB1 /* Assets.xcassets in Resources */,
-				1A5AADFD1F4F78FE00573829 /* QBImagePicker.strings in Resources */,
 				34C59CC42509690000D7CF03 /* InfoPlist.strings in Resources */,
 				34315CAB250181D900AAF84B /* Localizable.strings in Resources */,
 				1A12E7EC210275A000EA8F4C /* Secrets.plist in Resources */,
 				580A55481E5CFC1000A70AB1 /* CameraViewController.storyboard in Resources */,
-				1A5AAE001F4F78FE00573829 /* QBImagePicker.strings in Resources */,
-				1A5AADFF1F4F78FE00573829 /* QBImagePicker.strings in Resources */,
 				34198C57250B041F00AF1ADD /* Localizable.stringsdict in Resources */,
 				5846B2161E809C95008E48BC /* GoogleService-Info.plist in Resources */,
-				1A5AAE011F4F78FE00573829 /* QBImagePicker.strings in Resources */,
 				340F5B3024F86271003FFDA3 /* Intro.storyboard in Resources */,
 				1A5AADE91F4F756A00573829 /* QBImagePicker.storyboard in Resources */,
 			);
@@ -1023,51 +963,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1A5AADEF1F4F78FE00573829 /* QBImagePicker.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A5AADF01F4F78FE00573829 /* de */,
-			);
-			name = QBImagePicker.strings;
-			path = .;
-			sourceTree = "<group>";
-		};
-		1A5AADF21F4F78FE00573829 /* QBImagePicker.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A5AADF31F4F78FE00573829 /* en */,
-			);
-			name = QBImagePicker.strings;
-			path = .;
-			sourceTree = "<group>";
-		};
-		1A5AADF51F4F78FE00573829 /* QBImagePicker.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A5AADF61F4F78FE00573829 /* es */,
-			);
-			name = QBImagePicker.strings;
-			path = .;
-			sourceTree = "<group>";
-		};
-		1A5AADF81F4F78FE00573829 /* QBImagePicker.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A5AADF91F4F78FE00573829 /* ja */,
-			);
-			name = QBImagePicker.strings;
-			path = .;
-			sourceTree = "<group>";
-		};
-		1A5AADFB1F4F78FE00573829 /* QBImagePicker.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A5AADFC1F4F78FE00573829 /* pl */,
-			);
-			name = QBImagePicker.strings;
-			path = .;
-			sourceTree = "<group>";
-		};
 		340F5B3224F86271003FFDA3 /* Intro.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
