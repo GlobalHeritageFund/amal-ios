@@ -211,15 +211,9 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     NSMutableOrderedSet *selectedAssets = self.imagePickerController.selectedAssets;
     
     if (selectedAssets.count > 0) {
-        NSBundle *bundle = self.imagePickerController.assetBundle;
-        NSString *format;
-        if (selectedAssets.count > 1) {
-            format = NSLocalizedStringFromTableInBundle(@"assets.toolbar.items-selected", @"QBImagePicker", bundle, nil);
-        } else {
-            format = NSLocalizedStringFromTableInBundle(@"assets.toolbar.item-selected", @"QBImagePicker", bundle, nil);
-        }
-        
-        NSString *title = [NSString stringWithFormat:format, selectedAssets.count];
+        NSString *key = NSLocalizedString(@"assets.toolbar.items-selected", @"A description of the number of photos that have been selected.");
+        NSString *title = [NSString localizedStringWithFormat:key, selectedAssets.count];
+
         [(UIBarButtonItem *)self.toolbarItems[1] setTitle:title];
     } else {
         [(UIBarButtonItem *)self.toolbarItems[1] setTitle:@""];
@@ -237,10 +231,6 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
         switch (self.imagePickerController.mediaType) {
             case QBImagePickerMediaTypeImage:
                 options.predicate = [NSPredicate predicateWithFormat:@"mediaType == %ld", PHAssetMediaTypeImage];
-                break;
-                
-            case QBImagePickerMediaTypeVideo:
-                options.predicate = [NSPredicate predicateWithFormat:@"mediaType == %ld", PHAssetMediaTypeVideo];
                 break;
                 
             default:
@@ -502,45 +492,15 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
         // Number of assets
         UILabel *label = (UILabel *)[footerView viewWithTag:1];
         
-        NSBundle *bundle = self.imagePickerController.assetBundle;
         NSUInteger numberOfPhotos = [self.fetchResult countOfAssetsWithMediaType:PHAssetMediaTypeImage];
-        NSUInteger numberOfVideos = [self.fetchResult countOfAssetsWithMediaType:PHAssetMediaTypeVideo];
         
         switch (self.imagePickerController.mediaType) {
-            case QBImagePickerMediaTypeAny:
-            {
-                NSString *format;
-                if (numberOfPhotos == 1) {
-                    if (numberOfVideos == 1) {
-                        format = NSLocalizedStringFromTableInBundle(@"assets.footer.photo-and-video", @"QBImagePicker", bundle, nil);
-                    } else {
-                        format = NSLocalizedStringFromTableInBundle(@"assets.footer.photo-and-videos", @"QBImagePicker", bundle, nil);
-                    }
-                } else if (numberOfVideos == 1) {
-                    format = NSLocalizedStringFromTableInBundle(@"assets.footer.photos-and-video", @"QBImagePicker", bundle, nil);
-                } else {
-                    format = NSLocalizedStringFromTableInBundle(@"assets.footer.photos-and-videos", @"QBImagePicker", bundle, nil);
-                }
-                
-                label.text = [NSString stringWithFormat:format, numberOfPhotos, numberOfVideos];
-            }
-                break;
-                
             case QBImagePickerMediaTypeImage:
             {
-                NSString *key = (numberOfPhotos == 1) ? @"assets.footer.photo" : @"assets.footer.photos";
-                NSString *format = NSLocalizedStringFromTableInBundle(key, @"QBImagePicker", bundle, nil);
-                
-                label.text = [NSString stringWithFormat:format, numberOfPhotos];
-            }
-                break;
-                
-            case QBImagePickerMediaTypeVideo:
-            {
-                NSString *key = (numberOfVideos == 1) ? @"assets.footer.video" : @"assets.footer.videos";
-                NSString *format = NSLocalizedStringFromTableInBundle(key, @"QBImagePicker", bundle, nil);
-                
-                label.text = [NSString stringWithFormat:format, numberOfVideos];
+                NSString *key = NSLocalizedString(@"assets.toolbar.items", @"A description of the number of photos in an album.");
+                NSString *text = [NSString localizedStringWithFormat:key, numberOfPhotos];
+
+                label.text = text;
             }
                 break;
         }

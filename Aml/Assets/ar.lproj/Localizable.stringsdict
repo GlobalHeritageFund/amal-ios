@@ -46,5 +46,53 @@
             <string>%zd عناصر</string>
         </dict>
     </dict>
+    <key>assets.toolbar.items</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@value@</string>
+        <key>value</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>zd</string>
+            <key>zero</key>
+            <string>%zd صورة</string>
+            <key>one</key>
+            <string>صورة واحدة</string>
+            <key>two</key>
+            <string>صورتين</string>
+            <key>few</key>
+            <string>%zd صور</string>
+            <key>many</key>
+            <string>%zd صورة</string>
+            <key>other</key>
+            <string>%zd صورة</string>
+        </dict>
+    </dict>
+    <key>assets.toolbar.items-selected</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@value@</string>
+        <key>value</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>zd</string>
+            <key>zero</key>
+            <string></string>
+            <key>one</key>
+            <string>تم تحديد صورة واحدة</string>
+            <key>two</key>
+            <string>تم تحديد صورتين</string>
+            <key>few</key>
+            <string>تم تحديد %zd صور</string>
+            <key>many</key>
+            <string>تم تحديد %zd صورة</string>
+            <key>other</key>
+            <string>تم تحديد %zd صورة</string>
+        </dict>
+    </dict>
 </dict>
 </plist>

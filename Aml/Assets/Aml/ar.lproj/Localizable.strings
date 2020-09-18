@@ -359,3 +359,6 @@
 
 /* Informs the user that they've unlocked a database */
 "You have unlocked the Lebanon database." = "لقد فتحت قاعدة بيانات Lebanon.";
+
+/* A header for a photo picker. */
+"albums.title" = "الصور";

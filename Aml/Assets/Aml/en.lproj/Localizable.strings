@@ -10,6 +10,9 @@
 /* A button to start a flow to add more images to a report draft. */
 "Add..." = "Add...";
 
+/* A header for a photo picker. */
+"albums.title" = "Photos";
+
 /* A label for a filter for all items. */
 "All" = "All";
 

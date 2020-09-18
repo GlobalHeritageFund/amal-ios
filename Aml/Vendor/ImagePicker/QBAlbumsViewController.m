@@ -59,7 +59,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     [super viewWillAppear:animated];
     
     // Configure navigation item
-    self.navigationItem.title = NSLocalizedStringFromTableInBundle(@"albums.title", @"QBImagePicker", self.imagePickerController.assetBundle, nil);
+    self.navigationItem.title = NSLocalizedString(@"albums.title", @"A header for a photo picker.");
     self.navigationItem.prompt = self.imagePickerController.prompt;
     
     // Show/hide 'Done' button
@@ -131,15 +131,9 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     NSMutableOrderedSet *selectedAssets = self.imagePickerController.selectedAssets;
     
     if (selectedAssets.count > 0) {
-        NSBundle *bundle = self.imagePickerController.assetBundle;
-        NSString *format;
-        if (selectedAssets.count > 1) {
-            format = NSLocalizedStringFromTableInBundle(@"assets.toolbar.items-selected", @"QBImagePicker", bundle, nil);
-        } else {
-            format = NSLocalizedStringFromTableInBundle(@"assets.toolbar.item-selected", @"QBImagePicker", bundle, nil);
-        }
-        
-        NSString *title = [NSString stringWithFormat:format, selectedAssets.count];
+        NSString *key = NSLocalizedString(@"assets.toolbar.items-selected", @"A description of the number of photos that have been selected.");
+        NSString *title = [NSString localizedStringWithFormat:key, selectedAssets.count];
+
         [(UIBarButtonItem *)self.toolbarItems[1] setTitle:title];
     } else {
         [(UIBarButtonItem *)self.toolbarItems[1] setTitle:@""];
@@ -286,10 +280,6 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     switch (self.imagePickerController.mediaType) {
         case QBImagePickerMediaTypeImage:
             options.predicate = [NSPredicate predicateWithFormat:@"mediaType == %ld", PHAssetMediaTypeImage];
-            break;
-            
-        case QBImagePickerMediaTypeVideo:
-            options.predicate = [NSPredicate predicateWithFormat:@"mediaType == %ld", PHAssetMediaTypeVideo];
             break;
             
         default:
