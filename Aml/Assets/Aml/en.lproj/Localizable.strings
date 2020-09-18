@@ -362,3 +362,9 @@
 
 /* Informs the user that they've unlocked a database */
 "You have unlocked the Lebanon database." = "You have unlocked the Lebanon database.";
+
+/* A description of the number of photos in an album. */
+"assets.toolbar.items" = "";
+
+/* A description of the number of photos that have been selected. */
+"assets.toolbar.items-selected" = "";

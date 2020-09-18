@@ -10,6 +10,9 @@
 /* A button to start a flow to add more images to a report draft. */
 "Add..." = "أضف...";
 
+/* A header for a photo picker. */
+"albums.title" = "الصور";
+
 /* A label for a filter for all items. */
 "All" = "الجميع";
 
@@ -360,5 +363,8 @@
 /* Informs the user that they've unlocked a database */
 "You have unlocked the Lebanon database." = "لقد فتحت قاعدة بيانات Lebanon.";
 
-/* A header for a photo picker. */
-"albums.title" = "الصور";
+/* A description of the number of photos in an album. */
+"assets.toolbar.items" = "";
+
+/* A description of the number of photos that have been selected. */
+"assets.toolbar.items-selected" = "";
