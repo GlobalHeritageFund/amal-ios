@@ -46,7 +46,7 @@
 - (void)setCurrentFilter:(id<LocalPhotoFilter>)currentFilter {
     _currentFilter = currentFilter;
 
-    NSString *buttonTitle = [[NSString localizedStringWithFormat:NSLocalizedString(@"Filter", @"A description for a filter that can be applied to a list of photos."), self.currentFilter.name] localizedUppercaseString];
+    NSString *buttonTitle = [[NSString localizedStringWithFormat:NSLocalizedString(@"label.filter.interpolation", @"A description for a filter that can be applied to a list of photos."), self.currentFilter.name] localizedUppercaseString];
     [self.filterButton setTitle:buttonTitle forState:UIControlStateNormal];
     [self reloadData];
 }
@@ -60,7 +60,7 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
 
-    self.title = NSLocalizedString(@"Assess", @"A heading for the Assess screen.");
+    self.title = NSLocalizedString(@"header.assess", @"A heading for the Assess screen.");
 
     self.view.backgroundColor = [UIColor backgroundColor];
 
@@ -74,17 +74,17 @@
 
 - (void)updateBarButtons {
     if (self.mode == GalleryModeNormal) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Import", @"A button that imports photos from the user's library.") style:UIBarButtonItemStylePlain target:self action:@selector(importImage:)];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Select", @"A button that enters a mode where users can select more on than one photo to take action on it.") style:UIBarButtonItemStylePlain target:self action:@selector(enterSelectMode:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"button.import", @"A button that imports photos from the user's library.") style:UIBarButtonItemStylePlain target:self action:@selector(importImage:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"button.multi-select", @"A button that enters a mode where users can select more on than one photo to take action on it.") style:UIBarButtonItemStylePlain target:self action:@selector(enterSelectMode:)];
     } else if (self.mode == GalleryModeMultiSelect) {
         self.navigationItem.leftBarButtonItem = nil;
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIBarButtonItemStylePlain target:self action:@selector(exitSelectMode:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"button.cancel", @"A standard cancel button.") style:UIBarButtonItemStylePlain target:self action:@selector(exitSelectMode:)];
     } else if (self.mode == GalleryModeSingleSelect) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"button.cancel", @"A standard cancel button.") style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
         self.navigationItem.rightBarButtonItem = nil;
     } else if (self.mode == GalleryModeCreateReport) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Create Report", @"A button to create a report from some selected photos.") style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"button.cancel", @"A standard cancel button.") style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"button.create-report", @"A button to create a report from some selected photos.") style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
         self.navigationItem.rightBarButtonItem.enabled = false;
     } else {
         @throw [NSException new];
@@ -184,7 +184,7 @@
     if (!_emptyState) {
         EmptyStateView *emptyState = [[EmptyStateView alloc] init];
         emptyState.imageView.image = [UIImage imageNamed:@"gallery_bg"];
-        emptyState.label.text = NSLocalizedString(@"As you take photos, your gallery will store those photos.", @"A label that explains the gallery to users who have not taken any photos yet.");
+        emptyState.label.text = NSLocalizedString(@"help-text.gallery", @"A label that explains the gallery to users who have not taken any photos yet.");
         [self.view addSubview:emptyState];
         self.emptyState = emptyState;
     }
@@ -221,19 +221,19 @@
 - (void)setupToolbar {
     NSMutableArray *items = [NSMutableArray array];
 
-    UIBarButtonItem *createReportItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Create Report", @"A button to create a report from some selected photos.") style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
+    UIBarButtonItem *createReportItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"button.create-report", @"A button to create a report from some selected photos.") style:UIBarButtonItemStylePlain target:self action:@selector(createReport:)];
     [items addObject:createReportItem];
 
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [items addObject:flexibleSpace];
 
-    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Save", @"A button to save some selected photos to their device's photo library.") style:UIBarButtonItemStylePlain target:self action:@selector(saveSelectedItems:)];
+    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"button.save", @"A button to save some selected photos to their device's photo library.") style:UIBarButtonItemStylePlain target:self action:@selector(saveSelectedItems:)];
     [items addObject:saveItem];
 
     UIBarButtonItem *flexibleSpace2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [items addObject:flexibleSpace2];
 
-    UIBarButtonItem *assessItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Assess", @"A button to assess some selected photos.") style:UIBarButtonItemStylePlain target:self action:@selector(multiAssess:)];
+    UIBarButtonItem *assessItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"header.assess", @"A button to assess some selected photos.") style:UIBarButtonItemStylePlain target:self action:@selector(multiAssess:)];
     [items addObject:assessItem];
 
     UIBarButtonItem *flexibleSpace3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -380,7 +380,7 @@
     for (UIAlertAction *action in actions) {
         [alertController addAction:action];
     }
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         //do nothing
     }]];
     [self presentViewController:alertController animated:YES completion:nil];

@@ -1,183 +1,254 @@
 /* A header for a section that describes the Amal project. */
-"About AMAL" = "About AMAL";
+"amal.about" = "About AMAL";
 
-/* A header for a section that shows the user's account information. */
-"Account" = "Account";
-
-/* A heading for the Acknowledgements screen. */
-"Acknowledgements" = "Acknowledgements";
+/* A button that shows the acknowledgements. */
+"button.acknowledgements" = "Acknowledgements";
 
 /* A button to start a flow to add more images to a report draft. */
-"Add..." = "Add...";
+"button.add" = "Add...";
 
-/* A header for a photo picker. */
-"albums.title" = "Photos";
+/* A standard cancel button. */
+"button.cancel" = "Cancel";
 
-/* A label for a filter for all items. */
-"All" = "All";
+/* A button to create a report from some selected photos. */
+"button.create-report" = "Create Report";
+
+/* A standard delete button. */
+"button.delete" = "Delete";
+
+/* A button to discard the draft. */
+"button.discard" = "Discard";
+
+/* A standard dismiss button. */
+"button.dismiss" = "Dismiss";
+
+/* A button label to adjust the location of the object.
+   A heading for the screen to edit an object's location. */
+"button.edit-location" = "Edit Location";
+
+/* A button that imports photos from the user's library. */
+"button.import" = "Import";
+
+/* A button that logs the user out.
+   A header for a button that logs the user out. */
+"button.log-out" = "Log out";
+
+/* A button that enters a mode where users can select more on than one photo to take action on it. */
+"button.multi-select" = "Select";
+
+/* A button that allows the user to enter a password/code for a partner database. */
+"button.new-partner-code" = "Enter a new partner code";
+
+/* A standard OK button. */
+"button.ok" = "OK";
+
+/* A button to open a PDF version of the report. */
+"button.pdf-report" = "PDF Report";
+
+/* A button that directs the user to the Amal privacy policy. */
+"button.privacy-policy" = "Privacy Policy";
+
+/* An option to allow the user to publish a report anonymously. */
+"button.publish-anonymously" = "Publish anonymously";
+
+/* A button to publish a report to a database. */
+"button.publish-report" = "Publish Report";
+
+/* A button to save some selected photos to their device's photo library. */
+"button.save" = "Save";
+
+/* A button to save the draft. */
+"button.save-draft" = "Save Draft";
+
+/* A button label to set a location for an unlocated object. */
+"button.set-location" = "Set Location";
+
+/* A title for an alert asking the user what kind of report they want to share. */
+"button.share" = "Share";
+
+/* A standard submit button. */
+"button.submit" = "Submit";
+
+/* A button that directs the user to the Amal terms of service. */
+"button.terms-of-service" = "Terms of Service";
+
+/* A button to update the location of an object. */
+"button.update-location" = "Update Location";
+
+/* A button that directs the user to the Amal user guide. */
+"button.user-guide" = "User Guide";
+
+/* A button that directs the user to the Amal web site. */
+"button.visit-amal-global" = "Visit amal.global";
+
+/* A button to open the web version of a report. */
+"button.web-report" = "Web Report";
+
+/* A description of when a report was created. */
+"created-at" = "Created: %@";
+
+/* A label for a control that allows the user to change the database target of a report. */
+"database-target" = "Database target";
+
+/* A label indicating that the EAMENA database has been unlocked. */
+"database-unlocked.eamena" = "EAMENA unlocked";
+
+/* A label indicating that the Lebanon database has been unlocked. */
+"database-unlocked.lebanon" = "Lebanon unlocked";
 
 /* A description of the Amal project. */
-"AMAL is an emergency management application designed for the rapid impact assessment of cultural heritage areas, buildings, and artifacts." = "AMAL is an emergency management application designed for the rapid impact assessment of cultural heritage areas, buildings, and artifacts.";
+"description.amal" = "AMAL is an emergency management application designed for the rapid impact assessment of cultural heritage areas, buildings, and artifacts.";
 
-/* A title for a warning informing the user that an error occurred when uploading a report. */
-"An error occurred" = "An error occurred";
+/* A label for a filter for all items. */
+"filter.all" = "All";
 
-/* A warning for users asking if they are sure if they want to delete some photos. */
-"Are you sure you want to delete these photos? This can not be undone." = "Are you sure you want to delete these photos? This can not be undone.";
+/* A label for a filter for items with a form that has been filled out. */
+"filter.assessed" = "Assessed";
 
-/* A warning for users asking if they are sure if they want to delete a draft. */
-"Are you sure you want to delete this draft? This can not be undone." = "Are you sure you want to delete this draft? This can not be undone.";
+/* A label for a filter for items with a form that has not been filled out yet. */
+"filter.unassessed" = "Unassessed";
 
-/* A warning for users asking if they are sure if they want to delete some photos. */
-"Are you sure you want to delete this photo? This can not be undone." = "Are you sure you want to delete this photo? This can not be undone.";
+/* A header for a section that shows the user's account information. */
+"header.account" = "Account";
 
-/* A warning for users asking if they are sure if they want to delete a report. */
-"Are you sure you want to delete this report? This can not be undone." = "Are you sure you want to delete this report? This can not be undone.";
-
-/* A warning asking if the user is sure they want to log out. */
-"Are you sure you want to log out?" = "Are you sure you want to log out?";
+/* A heading for the Acknowledgements screen. */
+"header.acknowledgements" = "Acknowledgements";
 
 /* A title for a warning asking if the user is sure they want to delete a draft report.
    A title for a warning asking if the user is sure they want to delete a report.
    A title for a warning asking if the user is sure they want to delete some photos.
    A title for a warning asking if the user is sure they want to log out. */
-"Are you sure?" = "Are you sure?";
-
-/* A warning that appears when you want to delete one or more photos. */
-"ARE_YOU_SURE_DELETE_PHOTO" = "ARE_YOU_SURE_DELETE_PHOTO";
-
-/* An assessed object of site type. */
-"area" = "area";
-
-/* A label that explains the gallery to users who have not taken any photos yet. */
-"As you take photos, your gallery will store those photos." = "As you take photos, your gallery will store those photos.";
+"header.are-you-sure" = "Are you sure?";
 
 /* A button to assess some selected photos.
    A header for a section for the hazards of the object.
    A heading for the Assess screen.
    A tab bar button label that takes you to the Assess tab. */
-"Assess" = "Assess";
-
-/* A label for a filter for items with a form that has been filled out. */
-"Assessed" = "Assessed";
+"header.assess" = "Assess";
 
 /* A heading for the screen to assess multiple objects. */
-"Batch Assess" = "Batch Assess";
+"header.batch-assess" = "Batch Assess";
 
 /* A heading for the Camera screen.
    A tab bar button label that takes you to the Camera tab. */
-"Camera" = "Camera";
-
-/* A standard cancel button. */
-"Cancel" = "Cancel";
+"header.camera" = "Camera";
 
 /* A header for a section for the category of the object. */
-"Category" = "Category";
+"header.category" = "Category";
 
-/* An assessed object with collapsed damage */
-"collapsed" = "collapsed";
-
-/* A description for an object's condition that is destroyed. (Scale 5/5) */
-"Collapsed, destroyed." = "Collapsed, destroyed.";
-
-/* A description for an object's condition that is unknown (Scale 0/5). */
-"Condition unknown." = "Condition unknown.";
+/* A header for a section for the condition of the object. */
+"header.condition" = "Overall Condition";
 
 /* A header for a section for the GPS coordinates of the object. */
-"Coordinates" = "Coordinates";
-
-/* A button to create a report from some selected photos. */
-"Create Report" = "Create Report";
-
-/* A description of when a report was created. */
-"CREATED_AT" = "Created: %@";
-
-/* A label for a control that allows the user to change the database target of a report. */
-"Database target" = "Database target";
-
-/* A standard delete button. */
-"Delete" = "Delete";
-
-/* A button to discard the draft. */
-"Discard" = "Discard";
-
-/* A standard dismiss button. */
-"Dismiss" = "Dismiss";
-
-/* A label indicating that a report is a draft, not yet published and only saved locally on the user's device. */
-"Draft" = "Draft";
+"header.coordinates" = "Coordinates";
 
 /* A header for a section that shows the user's draft reports. */
-"Drafts" = "Drafts";
+"header.drafts" = "Drafts";
 
 /* A title for a warning that some duplicate photos were found during import. */
-"Duplicate found" = "Duplicate found";
+"header.duplicate-found" = "Duplicate found";
 
-/* A label indicating that the EAMENA database has been unlocked. */
-"EAMENA unlocked" = "EAMENA unlocked";
+/* A title for a warning informing the user that an error occurred when uploading a report. */
+"header.error" = "An error occurred";
 
-/* A button label to adjust the location of the object.
-   A heading for the screen to edit an object's location. */
-"Edit Location" = "Edit Location";
+/* A header for a section about the funders of the app. */
+"header.funders" = "Funders";
 
-/* Placeholder text for the email of a report. */
-"Email" = "Email";
-
-/* A button that allows the user to enter a password/code for a partner database. */
-"Enter a new partner code" = "Enter a new partner code";
-
-/* A description for a text field for a code/password to unlock a partner database.
-   A header for a section about unlocking partner databases with a code/password. */
-"Enter a partner code" = "Enter a partner code";
-
-/* A description for a filter that can be applied to a list of photos.. */
-"Filter" = "Filter: %@";
-
-/* No comment provided by engineer. */
-"Funders" = "Funders";
-
-/* A label for a switch to determine if there are hazards in the area of the assessed object. */
-"Hazards" = "Hazards";
-
-/* A button that imports photos from the user's library. */
-"Import" = "Import";
-
-/* A label for a switch to determine if intervention is recommended for the assessed object. */
-"Intervention Recommended" = "Intervention Recommended";
-
-/* A title for a warning informing the user that their code/password was invalid. */
-"Invalid code" = "Invalid code";
-
-/* A label indicating that the Lebanon database has been unlocked. */
-"Lebanon unlocked" = "Lebanon unlocked";
-
-/* No comment provided by engineer. */
-"Localizations" = "Localizations";
+/* A header for a section about localizations. */
+"header.localizations" = "Localizations";
 
 /* A header for a button that logs the user in.
    A title for a sheet asking if the user wants to log in before publishing.
    An option to allow the user to log in to publish a report. */
-"Log in" = "Log in";
-
-/* A button that logs the user out.
-   A header for a button that logs the user out. */
-"Log out" = "Log out";
+"header.log-in" = "Log in";
 
 /* A header for a section for the location of the object.
    A title for a screen that shows the location of an object. */
-"Map" = "Map";
+"header.map" = "Map";
 
-/* An assessed object with minor damage */
-"minor" = "minor";
+/* A header for a section for any notes about the object. */
+"header.notes" = "Notes";
 
-/* A description for an object's condition that is fair. (Scale 2/5) */
-"Minor damage, fair condition." = "Minor damage, fair condition.";
+/* A description for a text field for a code/password to unlock a partner database.
+   A header for a section about unlocking partner databases with a code/password. */
+"header.partner-code" = "Enter a partner code";
 
-/* An assessed object with moderate damage */
-"moderate" = "moderate";
+/* A title for a warning informing the user that their code/password was invalid. */
+"header.partner-code-invalid" = "Invalid code";
 
-/* A description for an object's condition that is moderate. (Scale 3/5) */
-"Moderate damage, poor condition." = "Moderate damage, poor condition.";
+/* A title for a warning informing the user that they've unlocked a database. */
+"header.partner-database-unlocked" = "Partner database unlocked";
+
+/* A section that shows information about Amal partners. */
+"header.partners" = "Partners";
+
+/* A header for a photo picker. */
+"header.photos" = "Photos";
+
+/* A header for the section that shows the user's published reports.
+   A report that has been published. */
+"header.published" = "Published";
+
+/* A label indicating that a report is in the process of publishing. */
+"header.publishing-in-progress" = "Publishing";
+
+/* A header for a screen showing or editing a report. */
+"header.report" = "Report";
+
+/* A heading for the Reports list screen.
+   A tab bar button label that takes you to the Reports tab. */
+"header.reports" = "Reports";
+
+/* A heading for the screen to select a partner's database. */
+"header.select-database" = "Select a Database";
+
+/* A heading for the Settings screen. */
+"header.settings" = "Settings";
+
+/* A header for a section that shows the app's version. */
+"header.version" = "Version";
+
+/* A header for a section that shows web links for Amal. */
+"header.visit" = "Visit";
+
+/* A label that explains the gallery to users who have not taken any photos yet. */
+"help-text.gallery" = "As you take photos, your gallery will store those photos.";
+
+/* A label that explains the reports screen to users who have created any reports or drafts yet. */
+"help-text.reports" = "To create a report, first take some photos, then tap \"New\" at the top.";
+
+/* A label indicating that a report is a draft, not yet published and only saved locally on the user's device. */
+"label.draft" = "Draft";
+
+/* Informs the user that they've unlocked a database */
+"label.eamena-unlocked" = "You have unlocked the EAMENA database.";
+
+/* A description for a filter that can be applied to a list of photos. */
+"label.filter.interpolation" = "Filter: %@";
+
+/* Informs the user that they've unlocked a database */
+"label.lebanon-unlocked" = "You have unlocked the Lebanon database.";
+
+/* A description of a report with no email associated with it. */
+"label.no-email" = "No email set.";
+
+/* A label for an object with no notes. */
+"label.no-notes" = "No notes.";
+
+/* A label for an object with no name. */
+"label.object.unnamed" = "Unnamed";
+
+/* A label for a form to unlock partner databases with a code/password. */
+"label.partner-code" = "Partner code";
+
+/* A report that has been uploaded. */
+"label.report-uploaded" = "Uploaded";
+
+/* A label indicating that a repor is in the process of uploading. */
+"label.report-uploading-in-progress" = "Uploading...";
+
+/* A label for a report with no name. */
+"label.report.untitled" = "Untitled";
 
 /* A header for a section for the name of the object.
    A label for a text field for the name of the object. */
@@ -186,185 +257,84 @@
 /* A button to create a new report. */
 "New" = "New";
 
+/* An assessed object with collapsed damage */
+"object-condition.collapsed" = "collapsed";
+
+/* A description for an object's condition that is destroyed. (Scale 5/5) */
+"object-condition.description.collapsed" = "Collapsed, destroyed.";
+
+/* A description for an object's condition that is fair. (Scale 2/5) */
+"object-condition.description.minor" = "Minor damage, fair condition.";
+
+/* A description for an object's condition that is moderate. (Scale 3/5) */
+"object-condition.description.moderate" = "Moderate damage, poor condition.";
+
 /* A description for an object's condition that is good. (Scale 1/5) */
-"No damage, good condition." = "No damage, good condition.";
-
-/* A description of a report with no email associated with it. */
-"No email set." = "No email set.";
-
-/* A label for an object with no notes. */
-"No notes." = "No notes.";
-
-/* An assessed object with no damage. */
-"none" = "none";
-
-/* A header for a section for any notes about the object. */
-"Notes" = "Notes";
-
-/* An assessed object of object type. */
-"object" = "object";
-
-/* A control to set the object's category to 'object'. */
-"Object" = "Object";
-
-/* A standard OK button. */
-"OK" = "OK";
-
-/* A control to set the object's category to 'area'. */
-"Overall Area" = "Overall Area";
-
-/* A header for a section for the condition of the object. */
-"Overall Condition" = "Overall Condition";
-
-/* A label for a form to unlock partner databases with a code/password. */
-"Partner code" = "Partner code";
-
-/* A title for a warning informing the user that they've unlocked a database. */
-"Partner database unlocked" = "Partner database unlocked";
-
-/* A section that shows information about Amal partners. */
-"Partners" = "Partners";
-
-/* A button to open a PDF version of the report. */
-"PDF Report" = "PDF Report";
-
-/* A description of the number of items/photos in a report. */
-"PHOTO_COUNT" = "PHOTO_COUNT";
-
-/* No comment provided by engineer. */
-"Prince Claus Fund" = "Prince Claus Fund";
-
-/* A button that directs the user to the Amal privacy policy. */
-"Privacy Policy" = "Privacy Policy";
-
-/* An option to allow the user to publish a report anonymously. */
-"Publish anonymously" = "Publish anonymously";
-
-/* A button to publish a report to a database. */
-"Publish Report" = "Publish Report";
-
-/* A header for the section that shows the user's published reports.
-   A report that has been published. */
-"Published" = "Published";
-
-/* A label indicating that a report is in the process of publishing. */
-"Publishing" = "Publishing";
-
-/* A header for a screen showing or editing a report. */
-"Report" = "Report";
-
-/* A heading for the Reports list screen.
-   A tab bar button label that takes you to the Reports tab. */
-"Reports" = "Reports";
-
-/* A label for a switch to determine if there is a safety hazard in the area of the assessed object. */
-"Safety/Personal Hazard" = "Safety/Personal Hazard";
-
-/* A button to save some selected photos to their device's photo library. */
-"Save" = "Save";
-
-/* A button to save the draft. */
-"Save Draft" = "Save Draft";
-
-/* A button that enters a mode where users can select more on than one photo to take action on it. */
-"Select" = "Select";
-
-/* A heading for the screen to select a partner's database. */
-"Select a Database" = "Select a Database";
-
-/* A button label to set a location for an unlocated object. */
-"Set Location" = "Set Location";
-
-/* A heading for the Settings screen. */
-"Settings" = "Settings";
-
-/* An assessed object with severe damage */
-"severe" = "severe";
+"object-condition.description.none" = "No damage, good condition.";
 
 /* A description for an object's condition that is severe. (Scale 4/5) */
-"Severe damage, very bad condition." = "Severe damage, very bad condition.";
+"object-condition.description.severe" = "Severe damage, very bad condition.";
 
-/* A title for an alert asking the user what kind of report they want to share. */
-"Share" = "Share";
+/* A description for an object's condition that is unknown (Scale 0/5). */
+"object-condition.description.unknown" = "Condition unknown.";
 
-/* An assessed object of area type. */
-"site" = "site";
+/* An assessed object with minor damage */
+"object-condition.minor" = "minor";
 
-/* A control to set the object's category to 'site' or 'building'. */
-"Site / Building" = "Site / Building";
+/* An assessed object with moderate damage */
+"object-condition.moderate" = "moderate";
 
-/* No comment provided by engineer. */
-"Special thanks to Hossam Mahdy for the Arabic localization of Amal." = "Special thanks to Hossam Mahdy for the Arabic localization of Amal.";
+/* An assessed object with no damage. */
+"object-condition.none" = "none";
 
-/* A standard submit button. */
-"Submit" = "Submit";
-
-/* A button that directs the user to the Amal terms of service. */
-"Terms of Service" = "Terms of Service";
-
-/* No comment provided by engineer. */
-"The International Centre for the Study of the Preservation and Restoration of Cultural Property (ICCROM)" = "The International Centre for the Study of the Preservation and Restoration of Cultural Property (ICCROM)";
-
-/* A warning informing the users that their code/password was invalid. */
-"This code does not match any partners." = "This code does not match any partners.";
-
-/* A warning that shows up if one of the photos you are trying to important has already been imported. */
-"This photo has already been imported. This won't affect other photos you're importing." = "This photo has already been imported. This won't affect other photos you're importing.";
-
-/* Placeholder text for the title of a report. */
-"Title" = "Title";
-
-/* A label that explains the reports screen to users who have created any reports or drafts yet. */
-"To create a report, first take some photos, then tap \"New\" at the top." = "To create a report, first take some photos, then tap \"New\" at the top.";
-
-/* A label for a filter for items with a form that has not been filled out yet. */
-"Unassessed" = "Unassessed";
+/* An assessed object with severe damage */
+"object-condition.severe" = "severe";
 
 /* An assessed object of unknown type.
    An assessed object with unknown damage. */
-"unknown" = "unknown";
+"object-condition.unknown" = "unknown";
 
-/* A label for an object with no name. */
-"Unnamed" = "Unnamed";
+/* An assessed object of site type. */
+"object-type.area" = "area";
 
-/* A label for a report with no name. */
-"Untitled" = "Untitled";
+/* An assessed object of object type. */
+"object-type.object" = "object";
 
-/* A button to update the location of an object. */
-"Update Location" = "Update Location";
+/* An assessed object of site or building type. */
+"object-type.site" = "Site / Building";
 
-/* A report that has been uploaded. */
-"Uploaded" = "Uploaded";
+/* An assessed object of unknown type. */
+"object-type.unknown" = "unknown";
 
-/* A label indicating that a repor is in the process of uploading. */
-"Uploading..." = "Uploading...";
+/* Placeholder text for the email of a report. */
+"placeholder.email" = "Email";
 
-/* A button that directs the user to the Amal user guide. */
-"User Guide" = "User Guide";
+/* Placeholder text for the title of a report. */
+"placeholder.report-title" = "Title";
 
-/* A header for a section that shows the app's version. */
-"Version" = "Version";
+/* A label for a switch to determine if there are hazards in the area of the assessed object. */
+"switch-label.hazards" = "Hazards";
 
-/* A header for a section that shows web links for Amal. */
-"Visit" = "Visit";
+/* A label for a switch to determine if intervention is recommended for the assessed object. */
+"switch-label.intervention" = "Intervention Recommended";
 
-/* A button that directs the user to the Amal web site. */
-"Visit amal.global" = "Visit amal.global";
-
-/* A button to open the web version of a report. */
-"Web Report" = "Web Report";
+/* A label for a switch to determine if there is a safety hazard in the area of the assessed object. */
+"switch-label.personal-hazard" = "Safety/Personal Hazard";
 
 /* A title for a sheet asking if the user wants save the draft. */
-"Would you like to save this as a draft?" = "Would you like to save this as a draft?";
+"title.save-draft" = "Would you like to save this as a draft?";
 
-/* Informs the user that they've unlocked a database */
-"You have unlocked the EAMENA database." = "You have unlocked the EAMENA database.";
+/* A warning informing the users that their code/password was invalid. */
+"warning.database-password-invalid" = "This code does not match any partners.";
 
-/* Informs the user that they've unlocked a database */
-"You have unlocked the Lebanon database." = "You have unlocked the Lebanon database.";
+/* A warning for users asking if they are sure if they want to delete a draft. */
+"warning.delete-draft" = "Are you sure you want to delete this draft? This can not be undone.";
 
-/* A description of the number of photos in an album. */
-"assets.toolbar.items" = "";
+/* A warning for users asking if they are sure if they want to delete a report. */
+"warning.delete-report" = "Are you sure you want to delete this report? This can not be undone.";
 
-/* A description of the number of photos that have been selected. */
-"assets.toolbar.items-selected" = "";
+/* A warning that shows up if one of the photos you are trying to import has already been imported. */
+"warning.duplicate-found" = "This photo has already been imported. This won't affect other photos you're importing.";
+
+/* A warning asking if the user is sure they want to log out. */
+"warning.log-out" = "Are you sure you want to log out?";

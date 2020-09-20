@@ -134,7 +134,7 @@
         
         reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:object];
         reportDetailViewController.navigationItem.hidesBackButton = YES;
-        reportDetailViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Dismiss", @"A standard dismiss button.") style:UIBarButtonItemStyleDone target:self action:@selector(dismissReportCreation:)];
+        reportDetailViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"button.dismiss", @"A standard dismiss button.") style:UIBarButtonItemStyleDone target:self action:@selector(dismissReportCreation:)];
         reportDetailViewController.navigationItem.leftBarButtonItem = nil;
         
         [[LocalDraftDataSource new] removeReportDraft:draft];
@@ -144,8 +144,8 @@
         [FIRAnalytics logEventWithName:@"report_upload_failed" parameters:nil];
         
         reportDetailViewController.viewModel = [[ReportViewModel alloc] initWithReport:draft];
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"An error occurred", @"A title for a warning informing the user that an error occurred when uploading a report.") message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"A standard OK button.") style:UIAlertActionStyleCancel handler:nil]];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"header.error", @"A title for a warning informing the user that an error occurred when uploading a report.") message:[error localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.ok", @"A standard OK button.") style:UIAlertActionStyleCancel handler:nil]];
         [reportDetailViewController presentViewController:alertController animated:YES completion:nil];
     }];
 }
@@ -157,8 +157,8 @@
         [self uploadReportFromDetailViewController:reportDetailViewController withDraft:draft];
     } else {
         
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Log in", @"A title for a sheet asking if the user wants to log in before publishing.") message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Log in", @"An option to allow the user to log in to publish a report.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"header.log-in", @"A title for a sheet asking if the user wants to log in before publishing.") message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"header.log-in", @"An option to allow the user to log in to publish a report.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             FUIAuth *auth = [FUIAuth defaultAuthUI];
             UINavigationController *controller = [auth authViewController];
             [reportDetailViewController presentViewController:controller animated:YES completion:nil];
@@ -172,7 +172,7 @@
             }];
         }]];
         
-        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Publish anonymously", @"An option to allow the user to publish a report anonymously.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.publish-anonymously", @"An option to allow the user to publish a report anonymously.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [[[[FIRAuth auth] anonymousSignInPromise] then:^id _Nullable(id  _Nonnull object) {
                 [self uploadReportFromDetailViewController:reportDetailViewController withDraft:draft];
                 return nil;
@@ -181,7 +181,7 @@
             }];
         }]];
         
-        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:nil]];
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:nil]];
         
         [reportDetailViewController presentViewController:alertController animated:YES completion:nil];
         
@@ -189,16 +189,16 @@
 }
 
 - (void)reportDetailViewControllerDidTapCancel:(ReportDetailViewController *)reportDetailViewController {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedString(@"Would you like to save this as a draft?", @"A title for a sheet asking if the user wants save the draft.") preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Discard", @"A button to discard the draft.") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedString(@"title.save-draft", @"A title for a sheet asking if the user wants save the draft.") preferredStyle:UIAlertControllerStyleActionSheet];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.discard", @"A button to discard the draft.") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [reportDetailViewController dismissViewControllerAnimated:YES completion:nil];
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Save Draft", @"A button to save the draft.") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.save-draft", @"A button to save the draft.") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [[LocalDraftDataSource new] addReportDraft:reportDetailViewController.viewModel.draft];
         [reportDetailViewController dismissViewControllerAnimated:YES completion:nil];
     }]];
 
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
 
     }]];
     [reportDetailViewController presentViewController:alertController animated:YES completion:nil];

@@ -44,7 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = NSLocalizedString(@"Edit Location", @"A heading for the screen to edit an object's location.");
+    self.title = NSLocalizedString(@"button.edit-location", @"A heading for the screen to edit an object's location.");
 }
 
 - (MKMapView *)mapView {
@@ -61,7 +61,7 @@
 - (UIButton *)updateButton {
     if (!_updateButton) {
         UIButton *updateButton = [[UIButton alloc] init];
-        [updateButton setTitle:NSLocalizedString(@"Update Location", @"A button to update the location of an object.") forState:UIControlStateNormal];
+        [updateButton setTitle:NSLocalizedString(@"button.update-location", @"A button to update the location of an object.") forState:UIControlStateNormal];
         [updateButton setBackgroundImage:[UIImage imageWithColor:[UIColor amalTeal]] forState:UIControlStateNormal];
         [updateButton setBackgroundImage:[UIImage imageWithColor:[[UIColor amalTeal] colorWithAlphaComponent:0.5]] forState:UIControlStateDisabled];
         updateButton.enabled = NO;

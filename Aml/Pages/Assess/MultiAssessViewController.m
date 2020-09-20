@@ -35,9 +35,9 @@
     NSAssert(photos.count != 0, @"MultiAssessViewController requires at least one photo");
     _photos = photos;
 
-    self.hazardsSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Hazards", @"A label for a switch to determine if there are hazards in the area of the assessed object.")];
-    self.safetySwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Safety/Personal Hazard", @"A label for a switch to determine if there is a safety hazard in the area of the assessed object.")];
-    self.interventionSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Intervention Recommended", @"A label for a switch to determine if intervention is recommended for the assessed object.")];
+    self.hazardsSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"switch-label.hazards", @"A label for a switch to determine if there are hazards in the area of the assessed object.")];
+    self.safetySwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"switch-label.personal-hazard", @"A label for a switch to determine if there is a safety hazard in the area of the assessed object.")];
+    self.interventionSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"switch-label.intervention", @"A label for a switch to determine if intervention is recommended for the assessed object.")];
 
     for (LocalPhoto *photo in self.photos) {
         [photo refreshMetadata];
@@ -53,7 +53,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = NSLocalizedString(@"Batch Assess", @"A heading for the screen to assess multiple objects.");
+    self.title = NSLocalizedString(@"header.batch-assess", @"A heading for the screen to assess multiple objects.");
 
     [self.hazardsSwitchElement.toggle addTarget:self action:@selector(hazardsSwitchChanged:) forControlEvents:UIControlEventValueChanged];
     [self.safetySwitchElement.toggle addTarget:self action:@selector(safetySwitchChanged:) forControlEvents:UIControlEventValueChanged];
@@ -96,7 +96,7 @@
     if ([self.photos anyObjectsPassTest:^BOOL(LocalPhoto *photo) { return photo.metadata.hasLocationCoordinates; }]) {
         [self.view addFormGroup:
          [[FormGroup alloc]
-          initWithHeaderText:NSLocalizedString(@"Map", @"A header for a section for the location of the object.")
+          initWithHeaderText:NSLocalizedString(@"header.map", @"A header for a section for the location of the object.")
           formElements:@[
                          [self newMapFormElement],
                          ]]
@@ -105,7 +105,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Category", @"A header for a section for the category of the object.")
+      initWithHeaderText:NSLocalizedString(@"header.category", @"A header for a section for the category of the object.")
       formElements:@[
                     [self newCategoryFormElement],
                      ]]
@@ -113,7 +113,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Overall Condition", @"A header for a section for the condition of the object.")
+      initWithHeaderText:NSLocalizedString(@"header.condition", @"A header for a section for the condition of the object.")
       formElements:@[
                      [self newConditionElement],
                      ]
@@ -129,7 +129,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Assess", @"A header for a section for the hazards of the object.")
+      initWithHeaderText:NSLocalizedString(@"header.assess", @"A header for a section for the hazards of the object.")
       formElements:@[
                      self.hazardsSwitchElement,
                      self.safetySwitchElement,
@@ -139,7 +139,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Notes", @"A header for a section for any notes about the object.")
+      initWithHeaderText:NSLocalizedString(@"header.notes", @"A header for a section for any notes about the object.")
       formElements:@[
                      [self newNotesFormElement],
                      ]]
@@ -202,9 +202,9 @@
 
 - (SegmentedControlFormElement *)newCategoryFormElement {
     SegmentedControlFormElement *categoryFormElement = [[SegmentedControlFormElement alloc] initWithTitles:@[
-        NSLocalizedString(@"Overall Area", @"A control to set the object's category to 'area'."),
-        NSLocalizedString(@"Site / Building", @"A control to set the object's category to 'site' or 'building'."),
-        NSLocalizedString(@"Object", @"A control to set the object's category to 'object'."),
+        NSLocalizedString(@"object-type.area", @"A control to set the object's category to 'area'."),
+        NSLocalizedString(@"object-type.site", @"A control to set the object's category to 'site' or 'building'."),
+        NSLocalizedString(@"object-type.object", @"A control to set the object's category to 'object'."),
     ]];
     UISegmentedControl *segmentedControl = categoryFormElement.segmentedControl;
     [segmentedControl addTarget:self action:@selector(categoryDidChange:) forControlEvents:UIControlEventValueChanged];
@@ -320,15 +320,18 @@
 }
 
 - (void)deleteTapped:(id)sender {
+    NSString *key = NSLocalizedString(@"warning.delete-photos.interpolation", @"A warning that appears when you want to delete one or more photos. #bc-ignore!");
+    NSString *message = [NSString localizedStringWithFormat:key, self.photos.count];
+
     [FIRAnalytics logEventWithName:@"single_delete" parameters:nil];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Are you sure?", @"A title for a warning asking if the user is sure they want to delete some photos.") message:NSLocalizedString(@"Are you sure you want to delete these photos? This can not be undone.", @"A warning for users asking if they are sure if they want to delete some photos.") preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Delete", @"A standard delete button.") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"header.are-you-sure", @"A title for a warning asking if the user is sure they want to delete some photos.") message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.delete", @"A standard delete button.") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         for (LocalPhoto *photo in self.photos) {
             [photo removeLocalData];
         }
         [self.navigationController popViewControllerAnimated:true];
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:true completion:nil];
 }
 

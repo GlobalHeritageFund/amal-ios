@@ -54,7 +54,7 @@ static NSDateFormatter *dateFormatter = nil;
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setLocalizedDateFormatFromTemplate:@"d MMMM y"];
     }
-    NSString *key = NSLocalizedString(@"CREATED_AT", @"A description of when a report was created.");
+    NSString *key = NSLocalizedString(@"created-at", @"A description of when a report was created.");
     return [NSString localizedStringWithFormat:key, [dateFormatter stringFromDate:self.report.creationDate]];
 }
 
@@ -65,7 +65,7 @@ static NSDateFormatter *dateFormatter = nil;
 }
 
 - (NSString *)imageCountString {
-    NSString *key = NSLocalizedString(@"PHOTO_COUNT", @"A description of the number of items/photos in a report.");
+    NSString *key = NSLocalizedString(@"label.photos.interpolation", @"A description of the number of items/photos in a report. #bc-ignore!");
     return [NSString localizedStringWithFormat:key, self.report.photoCount];
 }
 

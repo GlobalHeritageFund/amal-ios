@@ -211,7 +211,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     NSMutableOrderedSet *selectedAssets = self.imagePickerController.selectedAssets;
     
     if (selectedAssets.count > 0) {
-        NSString *key = NSLocalizedString(@"assets.toolbar.items-selected", @"A description of the number of photos that have been selected.");
+        NSString *key = NSLocalizedString(@"assets.toolbar.items-selected", @"A description of the number of photos that have been selected. #bc-ignore!");
         NSString *title = [NSString localizedStringWithFormat:key, selectedAssets.count];
 
         [(UIBarButtonItem *)self.toolbarItems[1] setTitle:title];
@@ -497,7 +497,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
         switch (self.imagePickerController.mediaType) {
             case QBImagePickerMediaTypeImage:
             {
-                NSString *key = NSLocalizedString(@"assets.toolbar.items", @"A description of the number of photos in an album.");
+                NSString *key = NSLocalizedString(@"assets.toolbar.items", @"A description of the number of photos in an album. #bc-ignore!");
                 NSString *text = [NSString localizedStringWithFormat:key, numberOfPhotos];
 
                 label.text = text;

@@ -1,183 +1,254 @@
 /* A header for a section that describes the Amal project. */
-"About AMAL" = "عن أمل";
+"amal.about" = "عن أمل";
 
-/* A header for a section that shows the user's account information. */
-"Account" = "الحساب";
-
-/* A heading for the Acknowledgements screen. */
-"Acknowledgements" = "عرفان";
+/* A button that shows the acknowledgements. */
+"button.acknowledgements" = "عرفان";
 
 /* A button to start a flow to add more images to a report draft. */
-"Add..." = "أضف...";
+"button.add" = "أضف...";
 
-/* A header for a photo picker. */
-"albums.title" = "الصور";
+/* A standard cancel button. */
+"button.cancel" = "إلغاء";
 
-/* A label for a filter for all items. */
-"All" = "الجميع";
+/* A button to create a report from some selected photos. */
+"button.create-report" = "استحداث تقرير";
+
+/* A standard delete button. */
+"button.delete" = "احذف";
+
+/* A button to discard the draft. */
+"button.discard" = "إلغاء";
+
+/* A standard dismiss button. */
+"button.dismiss" = "تجاهل";
+
+/* A button label to adjust the location of the object.
+   A heading for the screen to edit an object's location. */
+"button.edit-location" = "تعديل الموقع";
+
+/* A button that imports photos from the user's library. */
+"button.import" = "استجلب";
+
+/* A button that logs the user out.
+   A header for a button that logs the user out. */
+"button.log-out" = "خروج";
+
+/* A button that enters a mode where users can select more on than one photo to take action on it. */
+"button.multi-select" = "اختار";
+
+/* A button that allows the user to enter a password/code for a partner database. */
+"button.new-partner-code" = "أدخل رمز شريك جديد";
+
+/* A standard OK button. */
+"button.ok" = "موافق";
+
+/* A button to open a PDF version of the report. */
+"button.pdf-report" = "تقرير بي دي إف";
+
+/* A button that directs the user to the Amal privacy policy. */
+"button.privacy-policy" = "سياسة الخصوصية";
+
+/* An option to allow the user to publish a report anonymously. */
+"button.publish-anonymously" = "نشر بدون اسم";
+
+/* A button to publish a report to a database. */
+"button.publish-report" = "نشر التقرير";
+
+/* A button to save some selected photos to their device's photo library. */
+"button.save" = "حفظ";
+
+/* A button to save the draft. */
+"button.save-draft" = "حفظ المسودة";
+
+/* A button label to set a location for an unlocated object. */
+"button.set-location" = "حدد الموقع";
+
+/* A title for an alert asking the user what kind of report they want to share. */
+"button.share" = "تشارك";
+
+/* A standard submit button. */
+"button.submit" = "ارسال";
+
+/* A button that directs the user to the Amal terms of service. */
+"button.terms-of-service" = "شروط الخدمة";
+
+/* A button to update the location of an object. */
+"button.update-location" = "تحديث الموقع";
+
+/* A button that directs the user to the Amal user guide. */
+"button.user-guide" = "دليل المستخدم";
+
+/* A button that directs the user to the Amal web site. */
+"button.visit-amal-global" = "زيارة amal.global";
+
+/* A button to open the web version of a report. */
+"button.web-report" = "تقرير الشبكة العنكبوتية";
+
+/* A description of when a report was created. */
+"created-at" = "استحدث في: %@";
+
+/* A label for a control that allows the user to change the database target of a report. */
+"database-target" = "هدف قاعدة بيانات";
+
+/* A label indicating that the EAMENA database has been unlocked. */
+"database-unlocked.eamena" = "EAMENA unlocked";
+
+/* A label indicating that the Lebanon database has been unlocked. */
+"database-unlocked.lebanon" = "Lebanon unlocked";
 
 /* A description of the Amal project. */
-"AMAL is an emergency management application designed for the rapid impact assessment of cultural heritage areas, buildings, and artifacts." = "أمل تطبيق لإدارة الطوارئ تم تصميمه للتقييم السريع للتأثير على مناطق التراث الثقافي، والمباني، واللقى";
+"description.amal" = "أمل تطبيق لإدارة الطوارئ تم تصميمه للتقييم السريع للتأثير على مناطق التراث الثقافي، والمباني، واللقى";
 
-/* A title for a warning informing the user that an error occurred when uploading a report. */
-"An error occurred" = "حدث خطأ";
+/* A label for a filter for all items. */
+"filter.all" = "الجميع";
 
-/* A warning for users asking if they are sure if they want to delete some photos. */
-"Are you sure you want to delete these photos? This can not be undone." = "هل أنت متأكد أنك تريد حذف هذه الصور؟ لن يمكن استعادتها مرة أخرى.";
+/* A label for a filter for items with a form that has been filled out. */
+"filter.assessed" = "تمت تعبئة الاستمارة";
 
-/* A warning for users asking if they are sure if they want to delete a draft. */
-"Are you sure you want to delete this draft? This can not be undone." = "هل أنت متأكد أنك تريد حذف هذه المسودة؟ لن يمكن استعادتها مرة أخرى.";
+/* A label for a filter for items with a form that has not been filled out yet. */
+"filter.unassessed" = "لم تعبأ الاستمارة";
 
-/* A warning for users asking if they are sure if they want to delete some photos. */
-"Are you sure you want to delete this photo? This can not be undone." = "Are you sure you want to delete this photo? This can not be undone.";
+/* A header for a section that shows the user's account information. */
+"header.account" = "الحساب";
 
-/* A warning for users asking if they are sure if they want to delete a report. */
-"Are you sure you want to delete this report? This can not be undone." = "هل أنت متأكد أنك تريد حذف هذا التقرير؟ لن يمكن استعادته مرة أخرى.";
-
-/* A warning asking if the user is sure they want to log out. */
-"Are you sure you want to log out?" = "هل أنت متأكد أنك تريد الخروج؟";
+/* A heading for the Acknowledgements screen. */
+"header.acknowledgements" = "عرفان";
 
 /* A title for a warning asking if the user is sure they want to delete a draft report.
    A title for a warning asking if the user is sure they want to delete a report.
    A title for a warning asking if the user is sure they want to delete some photos.
    A title for a warning asking if the user is sure they want to log out. */
-"Are you sure?" = "هل أنت متأكد؟";
-
-/* A warning that appears when you want to delete one or more photos. */
-"ARE_YOU_SURE_DELETE_PHOTO" = "ARE_YOU_SURE_DELETE_PHOTO";
-
-/* An assessed object of site type. */
-"area" = "منطقة";
-
-/* A label that explains the gallery to users who have not taken any photos yet. */
-"As you take photos, your gallery will store those photos." = "بينما تلتقط صوراً، سيتم تخزين هذه الصور في المعرض.";
+"header.are-you-sure" = "هل أنت متأكد؟";
 
 /* A button to assess some selected photos.
    A header for a section for the hazards of the object.
    A heading for the Assess screen.
    A tab bar button label that takes you to the Assess tab. */
-"Assess" = "دخول";
-
-/* A label for a filter for items with a form that has been filled out. */
-"Assessed" = "تمت تعبئة الاستمارة";
+"header.assess" = "دخول";
 
 /* A heading for the screen to assess multiple objects. */
-"Batch Assess" = "تقييم الدفعة";
+"header.batch-assess" = "تقييم الدفعة";
 
 /* A heading for the Camera screen.
    A tab bar button label that takes you to the Camera tab. */
-"Camera" = "آلة التصوير";
-
-/* A standard cancel button. */
-"Cancel" = "إلغاء";
+"header.camera" = "آلة التصوير";
 
 /* A header for a section for the category of the object. */
-"Category" = "تصنيف";
+"header.category" = "تصنيف";
 
-/* An assessed object with collapsed damage */
-"collapsed" = "انهيار";
-
-/* A description for an object's condition that is destroyed. (Scale 5/5) */
-"Collapsed, destroyed." = "انهيار، تدمير";
-
-/* A description for an object's condition that is unknown (Scale 0/5). */
-"Condition unknown." = "الحالة غير معلومة";
+/* A header for a section for the condition of the object. */
+"header.condition" = "الحالة الكلية";
 
 /* A header for a section for the GPS coordinates of the object. */
-"Coordinates" = "الإحداثيات";
-
-/* A button to create a report from some selected photos. */
-"Create Report" = "استحداث تقرير";
-
-/* A description of when a report was created. */
-"CREATED_AT" = "استحدث في: %@";
-
-/* A label for a control that allows the user to change the database target of a report. */
-"Database target" = "هدف قاعدة بيانات";
-
-/* A standard delete button. */
-"Delete" = "احذف";
-
-/* A button to discard the draft. */
-"Discard" = "إلغاء";
-
-/* A standard dismiss button. */
-"Dismiss" = "تجاهل";
-
-/* A label indicating that a report is a draft, not yet published and only saved locally on the user's device. */
-"Draft" = "مسودة";
+"header.coordinates" = "الإحداثيات";
 
 /* A header for a section that shows the user's draft reports. */
-"Drafts" = "مسودات";
+"header.drafts" = "مسودات";
 
 /* A title for a warning that some duplicate photos were found during import. */
-"Duplicate found" = "العثور على مستنسخ";
+"header.duplicate-found" = "العثور على مستنسخ";
 
-/* A label indicating that the EAMENA database has been unlocked. */
-"EAMENA unlocked" = "EAMENA unlocked";
+/* A title for a warning informing the user that an error occurred when uploading a report. */
+"header.error" = "حدث خطأ";
 
-/* A button label to adjust the location of the object.
-   A heading for the screen to edit an object's location. */
-"Edit Location" = "تعديل الموقع";
+/* A header for a section about the funders of the app. */
+"header.funders" = "ممولون";
 
-/* Placeholder text for the email of a report. */
-"Email" = "البريد الألكتروني";
-
-/* A button that allows the user to enter a password/code for a partner database. */
-"Enter a new partner code" = "أدخل رمز شريك جديد";
-
-/* A description for a text field for a code/password to unlock a partner database.
-   A header for a section about unlocking partner databases with a code/password. */
-"Enter a partner code" = "أدخل رمز شريك";
-
-/* A description for a filter that can be applied to a list of photos.. */
-"Filter" = "مرشح: %@";
-
-/* No comment provided by engineer. */
-"Funders" = "ممولون";
-
-/* A label for a switch to determine if there are hazards in the area of the assessed object. */
-"Hazards" = "مخاطر";
-
-/* A button that imports photos from the user's library. */
-"Import" = "استجلب";
-
-/* A label for a switch to determine if intervention is recommended for the assessed object. */
-"Intervention Recommended" = "التدخل الموصى به";
-
-/* A title for a warning informing the user that their code/password was invalid. */
-"Invalid code" = "رمز باطل";
-
-/* A label indicating that the Lebanon database has been unlocked. */
-"Lebanon unlocked" = "Lebanon unlocked";
-
-/* No comment provided by engineer. */
-"Localizations" = "تحديد أماكن";
+/* A header for a section about localizations. */
+"header.localizations" = "تحديد أماكن";
 
 /* A header for a button that logs the user in.
    A title for a sheet asking if the user wants to log in before publishing.
    An option to allow the user to log in to publish a report. */
-"Log in" = "دخول";
-
-/* A button that logs the user out.
-   A header for a button that logs the user out. */
-"Log out" = "خروج";
+"header.log-in" = "دخول";
 
 /* A header for a section for the location of the object.
    A title for a screen that shows the location of an object. */
-"Map" = "خريطة";
+"header.map" = "خريطة";
 
-/* An assessed object with minor damage */
-"minor" = "ضئيل";
+/* A header for a section for any notes about the object. */
+"header.notes" = "ملاحظات";
 
-/* A description for an object's condition that is fair. (Scale 2/5) */
-"Minor damage, fair condition." = "تلف ضئيل، حالة مقبولة";
+/* A description for a text field for a code/password to unlock a partner database.
+   A header for a section about unlocking partner databases with a code/password. */
+"header.partner-code" = "أدخل رمز شريك";
 
-/* An assessed object with moderate damage */
-"moderate" = "خفيف";
+/* A title for a warning informing the user that their code/password was invalid. */
+"header.partner-code-invalid" = "رمز باطل";
 
-/* A description for an object's condition that is moderate. (Scale 3/5) */
-"Moderate damage, poor condition." = "تلف خفيف، حالة سيئة";
+/* A title for a warning informing the user that they've unlocked a database. */
+"header.partner-database-unlocked" = "قاعدة بيانات شريك مفتوحة";
+
+/* A section that shows information about Amal partners. */
+"header.partners" = "شركاء";
+
+/* A header for a photo picker. */
+"header.photos" = "الصور";
+
+/* A header for the section that shows the user's published reports.
+   A report that has been published. */
+"header.published" = "منشور";
+
+/* A label indicating that a report is in the process of publishing. */
+"header.publishing-in-progress" = "نشر";
+
+/* A header for a screen showing or editing a report. */
+"header.report" = "تقرير";
+
+/* A heading for the Reports list screen.
+   A tab bar button label that takes you to the Reports tab. */
+"header.reports" = "تقارير";
+
+/* A heading for the screen to select a partner's database. */
+"header.select-database" = "اختار قاعدة بيانات";
+
+/* A heading for the Settings screen. */
+"header.settings" = "إعدادات";
+
+/* A header for a section that shows the app's version. */
+"header.version" = "إصدار";
+
+/* A header for a section that shows web links for Amal. */
+"header.visit" = "زيارة";
+
+/* A label that explains the gallery to users who have not taken any photos yet. */
+"help-text.gallery" = "بينما تلتقط صوراً، سيتم تخزين هذه الصور في المعرض.";
+
+/* A label that explains the reports screen to users who have created any reports or drafts yet. */
+"help-text.reports" = "لاستحداث تقرير، التقط أولاً بعض الصور، ثم أنقر \"جديد\" في الأعلى.";
+
+/* A label indicating that a report is a draft, not yet published and only saved locally on the user's device. */
+"label.draft" = "مسودة";
+
+/* Informs the user that they've unlocked a database */
+"label.eamena-unlocked" = "لقد فتحت قاعدة بيانات EAMENA";
+
+/* A description for a filter that can be applied to a list of photos. */
+"label.filter.interpolation" = "مرشح: %@";
+
+/* Informs the user that they've unlocked a database */
+"label.lebanon-unlocked" = "لقد فتحت قاعدة بيانات Lebanon.";
+
+/* A description of a report with no email associated with it. */
+"label.no-email" = "لم يتم تحديد بريد ألكتروني";
+
+/* A label for an object with no notes. */
+"label.no-notes" = "لا توجد ملاحظات";
+
+/* A label for an object with no name. */
+"label.object.unnamed" = "بدون اسم";
+
+/* A label for a form to unlock partner databases with a code/password. */
+"label.partner-code" = "رمز شريك";
+
+/* A report that has been uploaded. */
+"label.report-uploaded" = "تم تحميله";
+
+/* A label indicating that a repor is in the process of uploading. */
+"label.report-uploading-in-progress" = "جاري التحميل...";
+
+/* A label for a report with no name. */
+"label.report.untitled" = "بدون عنوان";
 
 /* A header for a section for the name of the object.
    A label for a text field for the name of the object. */
@@ -186,185 +257,84 @@
 /* A button to create a new report. */
 "New" = "جديد";
 
+/* An assessed object with collapsed damage */
+"object-condition.collapsed" = "انهيار";
+
+/* A description for an object's condition that is destroyed. (Scale 5/5) */
+"object-condition.description.collapsed" = "انهيار، تدمير";
+
+/* A description for an object's condition that is fair. (Scale 2/5) */
+"object-condition.description.minor" = "تلف ضئيل، حالة مقبولة";
+
+/* A description for an object's condition that is moderate. (Scale 3/5) */
+"object-condition.description.moderate" = "تلف خفيف، حالة سيئة";
+
 /* A description for an object's condition that is good. (Scale 1/5) */
-"No damage, good condition." = "لا يوجد تلف، حالة جيدة";
-
-/* A description of a report with no email associated with it. */
-"No email set." = "لم يتم تحديد بريد ألكتروني";
-
-/* A label for an object with no notes. */
-"No notes." = "لا توجد ملاحظات";
-
-/* An assessed object with no damage. */
-"none" = "مطلقاً";
-
-/* A header for a section for any notes about the object. */
-"Notes" = "ملاحظات";
-
-/* An assessed object of object type. */
-"object" = "غرض";
-
-/* A control to set the object's category to 'object'. */
-"Object" = "غرض";
-
-/* A standard OK button. */
-"OK" = "موافق";
-
-/* A control to set the object's category to 'area'. */
-"Overall Area" = "المساحة الكلية";
-
-/* A header for a section for the condition of the object. */
-"Overall Condition" = "الحالة الكلية";
-
-/* A label for a form to unlock partner databases with a code/password. */
-"Partner code" = "رمز شريك";
-
-/* A title for a warning informing the user that they've unlocked a database. */
-"Partner database unlocked" = "قاعدة بيانات شريك مفتوحة";
-
-/* A section that shows information about Amal partners. */
-"Partners" = "شركاء";
-
-/* A button to open a PDF version of the report. */
-"PDF Report" = "تقرير بي دي إف";
-
-/* A description of the number of items/photos in a report. */
-"PHOTO_COUNT" = "PHOTO_COUNT";
-
-/* No comment provided by engineer. */
-"Prince Claus Fund" = "Prince Claus Fund";
-
-/* A button that directs the user to the Amal privacy policy. */
-"Privacy Policy" = "سياسة الخصوصية";
-
-/* An option to allow the user to publish a report anonymously. */
-"Publish anonymously" = "نشر بدون اسم";
-
-/* A button to publish a report to a database. */
-"Publish Report" = "نشر التقرير";
-
-/* A header for the section that shows the user's published reports.
-   A report that has been published. */
-"Published" = "منشور";
-
-/* A label indicating that a report is in the process of publishing. */
-"Publishing" = "نشر";
-
-/* A header for a screen showing or editing a report. */
-"Report" = "تقرير";
-
-/* A heading for the Reports list screen.
-   A tab bar button label that takes you to the Reports tab. */
-"Reports" = "تقارير";
-
-/* A label for a switch to determine if there is a safety hazard in the area of the assessed object. */
-"Safety/Personal Hazard" = "السلامة/ المخاطر الشخصية";
-
-/* A button to save some selected photos to their device's photo library. */
-"Save" = "حفظ";
-
-/* A button to save the draft. */
-"Save Draft" = "حفظ المسودة";
-
-/* A button that enters a mode where users can select more on than one photo to take action on it. */
-"Select" = "اختار";
-
-/* A heading for the screen to select a partner's database. */
-"Select a Database" = "اختار قاعدة بيانات";
-
-/* A button label to set a location for an unlocated object. */
-"Set Location" = "حدد الموقع";
-
-/* A heading for the Settings screen. */
-"Settings" = "إعدادات";
-
-/* An assessed object with severe damage */
-"severe" = "شديد";
+"object-condition.description.none" = "لا يوجد تلف، حالة جيدة";
 
 /* A description for an object's condition that is severe. (Scale 4/5) */
-"Severe damage, very bad condition." = "تلف شديد، حالة سيئة جداً";
+"object-condition.description.severe" = "تلف شديد، حالة سيئة جداً";
 
-/* A title for an alert asking the user what kind of report they want to share. */
-"Share" = "تشارك";
+/* A description for an object's condition that is unknown (Scale 0/5). */
+"object-condition.description.unknown" = "الحالة غير معلومة";
 
-/* An assessed object of area type. */
-"site" = "موقع";
+/* An assessed object with minor damage */
+"object-condition.minor" = "ضئيل";
 
-/* A control to set the object's category to 'site' or 'building'. */
-"Site / Building" = "موقف/ مبنى";
+/* An assessed object with moderate damage */
+"object-condition.moderate" = "خفيف";
 
-/* No comment provided by engineer. */
-"Special thanks to Hossam Mahdy for the Arabic localization of Amal." = "Special thanks to Hossam Mahdy for the Arabic localization of Amal.";
+/* An assessed object with no damage. */
+"object-condition.none" = "مطلقاً";
 
-/* A standard submit button. */
-"Submit" = "ارسال";
-
-/* A button that directs the user to the Amal terms of service. */
-"Terms of Service" = "شروط الخدمة";
-
-/* No comment provided by engineer. */
-"The International Centre for the Study of the Preservation and Restoration of Cultural Property (ICCROM)" = "The International Centre for the Study of the Preservation and Restoration of Cultural Property (ICCROM)";
-
-/* A warning informing the users that their code/password was invalid. */
-"This code does not match any partners." = "هذا الرمز لا يطابق أي شريك";
-
-/* A warning that shows up if one of the photos you are trying to important has already been imported. */
-"This photo has already been imported. This won't affect other photos you're importing." = "هذه الصورة تم استجلابها. لن يؤثر ذلك في الصور الأخرى التي تستجلبها.";
-
-/* Placeholder text for the title of a report. */
-"Title" = "العنوان";
-
-/* A label that explains the reports screen to users who have created any reports or drafts yet. */
-"To create a report, first take some photos, then tap \"New\" at the top." = "لاستحداث تقرير، التقط أولاً بعض الصور، ثم أنقر \"جديد\" في الأعلى.";
-
-/* A label for a filter for items with a form that has not been filled out yet. */
-"Unassessed" = "لم تعبأ الاستمارة";
+/* An assessed object with severe damage */
+"object-condition.severe" = "شديد";
 
 /* An assessed object of unknown type.
    An assessed object with unknown damage. */
-"unknown" = "مجهول";
+"object-condition.unknown" = "مجهول";
 
-/* A label for an object with no name. */
-"Unnamed" = "بدون اسم";
+/* An assessed object of site type. */
+"object-type.area" = "منطقة";
 
-/* A label for a report with no name. */
-"Untitled" = "بدون عنوان";
+/* An assessed object of object type. */
+"object-type.object" = "غرض";
 
-/* A button to update the location of an object. */
-"Update Location" = "تحديث الموقع";
+/* An assessed object of area type. */
+"object-type.site" = "موقع";
 
-/* A report that has been uploaded. */
-"Uploaded" = "تم تحميله";
+/* An assessed object of unknown type. */
+"object-type.unknown" = "مجهول";
 
-/* A label indicating that a repor is in the process of uploading. */
-"Uploading..." = "جاري التحميل...";
+/* Placeholder text for the email of a report. */
+"placeholder.email" = "البريد الألكتروني";
 
-/* A button that directs the user to the Amal user guide. */
-"User Guide" = "دليل المستخدم";
+/* Placeholder text for the title of a report. */
+"placeholder.report-title" = "العنوان";
 
-/* A header for a section that shows the app's version. */
-"Version" = "إصدار";
+/* A label for a switch to determine if there are hazards in the area of the assessed object. */
+"switch-label.hazards" = "مخاطر";
 
-/* A header for a section that shows web links for Amal. */
-"Visit" = "زيارة";
+/* A label for a switch to determine if intervention is recommended for the assessed object. */
+"switch-label.intervention" = "التدخل الموصى به";
 
-/* A button that directs the user to the Amal web site. */
-"Visit amal.global" = "زيارة amal.global";
-
-/* A button to open the web version of a report. */
-"Web Report" = "تقرير الشبكة العنكبوتية";
+/* A label for a switch to determine if there is a safety hazard in the area of the assessed object. */
+"switch-label.personal-hazard" = "السلامة/ المخاطر الشخصية";
 
 /* A title for a sheet asking if the user wants save the draft. */
-"Would you like to save this as a draft?" = "هل تريد حفظ هذه المسودة؟";
+"title.save-draft" = "هل تريد حفظ هذه المسودة؟";
 
-/* Informs the user that they've unlocked a database */
-"You have unlocked the EAMENA database." = "لقد فتحت قاعدة بيانات EAMENA";
+/* A warning informing the users that their code/password was invalid. */
+"warning.database-password-invalid" = "هذا الرمز لا يطابق أي شريك";
 
-/* Informs the user that they've unlocked a database */
-"You have unlocked the Lebanon database." = "لقد فتحت قاعدة بيانات Lebanon.";
+/* A warning for users asking if they are sure if they want to delete a draft. */
+"warning.delete-draft" = "هل أنت متأكد أنك تريد حذف هذه المسودة؟ لن يمكن استعادتها مرة أخرى.";
 
-/* A description of the number of photos in an album. */
-"assets.toolbar.items" = "";
+/* A warning for users asking if they are sure if they want to delete a report. */
+"warning.delete-report" = "هل أنت متأكد أنك تريد حذف هذا التقرير؟ لن يمكن استعادته مرة أخرى.";
 
-/* A description of the number of photos that have been selected. */
-"assets.toolbar.items-selected" = "";
+/* A warning that shows up if one of the photos you are trying to import has already been imported. */
+"warning.duplicate-found" = "هذه الصورة تم استجلابها. لن يؤثر ذلك في الصور الأخرى التي تستجلبها.";
+
+/* A warning asking if the user is sure they want to log out. */
+"warning.log-out" = "هل أنت متأكد أنك تريد الخروج؟";

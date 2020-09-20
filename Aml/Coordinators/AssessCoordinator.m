@@ -44,7 +44,7 @@
     galleryViewController.shouldShowFilterButton = YES;
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
     galleryViewController.delegate = self;
-    navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Assess", @"A tab bar button label that takes you to the Assess tab.") image:[UIImage imageNamed:@"ic_assess"] selectedImage:[UIImage imageNamed:@"ic_assess"]];
+    navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"header.assess", @"A tab bar button label that takes you to the Assess tab.") image:[UIImage imageNamed:@"ic_assess"] selectedImage:[UIImage imageNamed:@"ic_assess"]];
     self.navigationController = navigationController;
 
 }
@@ -86,18 +86,18 @@
 }
 
 - (void)galleryViewController:(GalleryViewController *)galleryViewController deletePhotos:(NSArray<LocalPhoto *> *)photos {
-    NSString *key = NSLocalizedString(@"ARE_YOU_SURE_DELETE_PHOTO", @"A warning that appears when you want to delete one or more photos.");
+    NSString *key = NSLocalizedString(@"warning.delete-photos.interpolation", @"A warning that appears when you want to delete one or more photos. #bc-ignore!");
     NSString *message = [NSString localizedStringWithFormat:key, photos.count];
     [FIRAnalytics logEventWithName:@"multi_select_delete" parameters:@{ @"count": @(photos.count) }];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Are you sure?", @"A header for a warning that appears when you want to delete one or more photos.") message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Delete", @"A button to delete one or more images.") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"header.are-you-sure", @"A header for a warning that appears when you want to delete one or more photos.") message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.delete", @"A button to delete one or more images.") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         for (LocalPhoto *photo in photos) {
             [photo removeLocalData];
         }
         [galleryViewController reloadData];
         galleryViewController.mode = GalleryModeNormal;
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:nil]];
     [galleryViewController presentViewController:alertController animated:true completion:nil];
 }
 
@@ -170,8 +170,8 @@
         metadata.localIdentifier = asset.localIdentifier;
 
         if ([[[PhotoStorage new] fetchPhotos] indexOfObjectPassingTest:^BOOL(LocalPhoto * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) { return [obj.metadata.localIdentifier isEqualToString:metadata.localIdentifier]; }] != NSNotFound) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Duplicate found", @"A title for a warning that some duplicate photos were found during import.") message:NSLocalizedString(@"This photo has already been imported. This won't affect other photos you're importing.", @"A warning that shows up if one of the photos you are trying to important has already been imported.") preferredStyle:UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"A standard OK button.") style:UIAlertActionStyleDefault handler:nil]];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"header.duplicate-found", @"A title for a warning that some duplicate photos were found during import.") message:NSLocalizedString(@"warning.duplicate-found", @"A warning that shows up if one of the photos you are trying to import has already been imported.") preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.ok", @"A standard OK button.") style:UIAlertActionStyleDefault handler:nil]];
             [self.navigationController presentViewController:alertController animated:YES completion:nil];
             return;
         }

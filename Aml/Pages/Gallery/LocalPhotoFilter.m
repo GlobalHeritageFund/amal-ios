@@ -13,7 +13,7 @@
 @implementation DefaultPhotoFilter
 
 - (NSString *)name {
-    return NSLocalizedString(@"All", @"A label for a filter for all items");
+    return NSLocalizedString(@"filter.all", @"A label for a filter for all items");
 }
 
 - (BOOL)shouldIncludePhoto:(LocalPhoto *)photo {
@@ -25,7 +25,7 @@
 @implementation UnassessedPhotoFilter
 
 - (NSString *)name {
-    return NSLocalizedString(@"Unassessed", @"A label for a filter for items with a form that has not been filled out yet");
+    return NSLocalizedString(@"filter.unassessed", @"A label for a filter for items with a form that has not been filled out yet");
 }
 
 - (BOOL)shouldIncludePhoto:(LocalPhoto *)photo {
@@ -47,7 +47,7 @@
 @implementation AssessedPhotoFilter
 
 - (NSString *)name {
-    return NSLocalizedString(@"Assessed", @"A label for a filter for items with a form that has been filled out");
+    return NSLocalizedString(@"filter.assessed", @"A label for a filter for items with a form that has been filled out");
 }
 
 - (instancetype)init {

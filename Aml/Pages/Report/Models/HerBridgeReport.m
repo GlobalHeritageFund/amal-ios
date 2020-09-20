@@ -52,7 +52,7 @@
     if (self.assessorEmail.length) {
         return self.assessorEmail;
     } else {
-        return NSLocalizedString(@"No email set.", @"A description of a report with no email associated with it.");
+        return NSLocalizedString(@"label.no-email", @"A description of a report with no email associated with it.");
     }
 }
 
@@ -69,7 +69,7 @@
 }
 
 - (NSString *)reportState {
-    return NSLocalizedString(@"Published", @"A report that has been published.");
+    return NSLocalizedString(@"header.published", @"A report that has been published.");
 }
 
 - (UIColor *)reportStateColor {
@@ -77,7 +77,7 @@
 }
 
 - (NSString *)uploadState {
-    return NSLocalizedString(@"Uploaded", @"A report that has been uploaded.");
+    return NSLocalizedString(@"label.report-uploaded", @"A report that has been uploaded.");
 }
 
 - (BOOL)showProgressBars {

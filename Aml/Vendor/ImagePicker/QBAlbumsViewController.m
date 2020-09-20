@@ -59,7 +59,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     [super viewWillAppear:animated];
     
     // Configure navigation item
-    self.navigationItem.title = NSLocalizedString(@"albums.title", @"A header for a photo picker.");
+    self.navigationItem.title = NSLocalizedString(@"header.photos", @"A header for a photo picker.");
     self.navigationItem.prompt = self.imagePickerController.prompt;
     
     // Show/hide 'Done' button
@@ -131,7 +131,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     NSMutableOrderedSet *selectedAssets = self.imagePickerController.selectedAssets;
     
     if (selectedAssets.count > 0) {
-        NSString *key = NSLocalizedString(@"assets.toolbar.items-selected", @"A description of the number of photos that have been selected.");
+        NSString *key = NSLocalizedString(@"assets.toolbar.items-selected", @"A description of the number of photos that have been selected. #bc-ignore!");
         NSString *title = [NSString localizedStringWithFormat:key, selectedAssets.count];
 
         [(UIBarButtonItem *)self.toolbarItems[1] setTitle:title];

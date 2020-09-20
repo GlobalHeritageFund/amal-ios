@@ -42,7 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = NSLocalizedString(@"Reports", @"A heading for the Reports list screen.");
+    self.title = NSLocalizedString(@"header.reports", @"A heading for the Reports list screen.");
 
     self.view.backgroundColor = [UIColor backgroundColor];
 
@@ -89,7 +89,7 @@
     if (!_emptyState) {
         EmptyStateView *emptyState = [[EmptyStateView alloc] init];
         emptyState.imageView.image = [UIImage imageNamed:@"reports_bg"];
-        emptyState.label.text = NSLocalizedString(@"To create a report, first take some photos, then tap \"New\" at the top.", @"A label that explains the reports screen to users who have created any reports or drafts yet.");
+        emptyState.label.text = NSLocalizedString(@"help-text.reports", @"A label that explains the reports screen to users who have created any reports or drafts yet.");
         [self.view addSubview:emptyState];
         self.emptyState = emptyState;
     }
@@ -141,7 +141,7 @@
     if (viewModel.isEditable) {
         NSString *title = viewModel.title;
         if (title.length == 0) {
-            title = NSLocalizedString(@"Untitled", @"A label for a report with no name.");
+            title = NSLocalizedString(@"label.report.untitled", @"A label for a report with no name.");
         }
         cell.textLabel.text = title;
     } else {
@@ -163,10 +163,10 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0 && self.localDrafts.hasDrafts) {
-        return NSLocalizedString(@"Drafts", @"A header for a section that shows the user's draft reports.");
+        return NSLocalizedString(@"header.drafts", @"A header for a section that shows the user's draft reports.");
     }
     if (section == 1 && self.publishedReports.hasItems) {
-        return NSLocalizedString(@"Published", @"A header for the section that shows the user's published reports.");
+        return NSLocalizedString(@"header.published", @"A header for the section that shows the user's published reports.");
     }
     return nil;
 }

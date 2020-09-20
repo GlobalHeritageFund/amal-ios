@@ -35,9 +35,9 @@
     }
     _photo = photo;
 
-    self.hazardsSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Hazards", @"A label for a switch to determine if there are hazards in the area of the assessed object.")];
-    self.safetySwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Safety/Personal Hazard", @"A label for a switch to determine if there is a safety hazard in the area of the assessed object.")];
-    self.interventionSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"Intervention Recommended", @"A label for a switch to determine if intervention is recommended for the assessed object.")];
+    self.hazardsSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"switch-label.hazards", @"A label for a switch to determine if there are hazards in the area of the assessed object.")];
+    self.safetySwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"switch-label.personal-hazard", @"A label for a switch to determine if there is a safety hazard in the area of the assessed object.")];
+    self.interventionSwitchElement = [[SwitchFormElement alloc] initWithTitle:NSLocalizedString(@"switch-label.intervention", @"A label for a switch to determine if intervention is recommended for the assessed object.")];
 
     [self.photo refreshMetadata];
 
@@ -51,7 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = NSLocalizedString(@"Assess", @"A heading for the Assess screen.");
+    self.title = NSLocalizedString(@"header.assess", @"A heading for the Assess screen.");
 
     [self.hazardsSwitchElement.toggle addTarget:self action:@selector(hazardsSwitchChanged:) forControlEvents:UIControlEventValueChanged];
     [self.safetySwitchElement.toggle addTarget:self action:@selector(safetySwitchChanged:) forControlEvents:UIControlEventValueChanged];
@@ -101,7 +101,7 @@
     if (self.photo.metadata.hasLocationCoordinates) {
         [self.view addFormGroup:
          [[FormGroup alloc]
-          initWithHeaderText:NSLocalizedString(@"Map", @"A header for a section for the location of the object.")
+          initWithHeaderText:NSLocalizedString(@"header.map", @"A header for a section for the location of the object.")
           formElements:@[
                          [self newMapFormElement],
                          ]]
@@ -110,7 +110,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Category", @"A header for a section for the category of the object.")
+      initWithHeaderText:NSLocalizedString(@"header.category", @"A header for a section for the category of the object.")
       formElements:@[
                     [self newCategoryFormElement],
                      ]]
@@ -118,7 +118,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Overall Condition", @"A header for a section for the condition of the object.")
+      initWithHeaderText:NSLocalizedString(@"header.condition", @"A header for a section for the condition of the object.")
       formElements:@[
                      [self newConditionElement],
                      ]
@@ -134,7 +134,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Assess", @"A header for a section for the hazards of the object.")
+      initWithHeaderText:NSLocalizedString(@"header.assess", @"A header for a section for the hazards of the object.")
       formElements:@[
                      self.hazardsSwitchElement,
                      self.safetySwitchElement,
@@ -144,7 +144,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Notes", @"A header for a section for any notes about the object.")
+      initWithHeaderText:NSLocalizedString(@"header.notes", @"A header for a section for any notes about the object.")
       formElements:@[
                      [self newNotesFormElement],
                      ]]
@@ -158,13 +158,13 @@
         [formElements addObject:latLong];
 
         __weak __typeof(&*self)weakSelf = self;
-        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Edit Location", @"A button label to adjust the location of the object.") block:^{
+        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"button.edit-location", @"A button label to adjust the location of the object.") block:^{
             [weakSelf showEditableMap];
         }];
         [formElements addObject:element];
     } else {
         __weak __typeof(&*self)weakSelf = self;
-        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"Set Location", @"A button label to set a location for an unlocated object.") block:^{
+        ButtonFormElement *element = [[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"button.set-location", @"A button label to set a location for an unlocated object.") block:^{
             [weakSelf showEditableMap];
         }];
         [formElements addObject:element];
@@ -172,7 +172,7 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Coordinates", @"A header for a section for the GPS coordinates of the object.")
+      initWithHeaderText:NSLocalizedString(@"header.coordinates", @"A header for a section for the GPS coordinates of the object.")
       formElements:formElements]
      ];
 
@@ -224,9 +224,9 @@
 
 - (SegmentedControlFormElement *)newCategoryFormElement {
     SegmentedControlFormElement *categoryFormElement = [[SegmentedControlFormElement alloc] initWithTitles:@[
-        NSLocalizedString(@"Overall Area", @"A control to set the object's category to 'area'."),
-        NSLocalizedString(@"Site / Building", @"A control to set the object's category to 'site' or 'building'."),
-        NSLocalizedString(@"Object", @"A control to set the object's category to 'object'."),
+        NSLocalizedString(@"object-type.area", @"A control to set the object's category to 'area'."),
+        NSLocalizedString(@"object-type.site", @"A control to set the object's category to 'site' or 'building'."),
+        NSLocalizedString(@"object-type.object", @"A control to set the object's category to 'object'."),
     ]];
     UISegmentedControl *segmentedControl = categoryFormElement.segmentedControl;
     [segmentedControl addTarget:self action:@selector(categoryDidChange:) forControlEvents:UIControlEventValueChanged];
@@ -332,12 +332,15 @@
 
 - (void)deleteTapped:(id)sender {
     [FIRAnalytics logEventWithName:@"single_delete" parameters:nil];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Are you sure?", @"A title for a warning asking if the user is sure they want to delete some photos.") message:NSLocalizedString(@"Are you sure you want to delete this photo? This can not be undone.", @"A warning for users asking if they are sure if they want to delete some photos.") preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Delete", @"A standard delete button.") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    NSString *key = NSLocalizedString(@"warning.delete-photos.interpolation", @"A warning that appears when you want to delete one or more photos. #bc-ignore!");
+    NSString *message = [NSString localizedStringWithFormat:key, 1];
+
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"header.are-you-sure", @"A title for a warning asking if the user is sure they want to delete some photos.") message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.delete", @"A standard delete button.") style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         [self.photo removeLocalData];
         [self.navigationController popViewControllerAnimated:true];
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.cancel", @"A standard cancel button.") style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:true completion:nil];
 }
 

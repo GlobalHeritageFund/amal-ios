@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = NSLocalizedString(@"Acknowledgements", @"A heading for the Acknowledgements screen.");
+    self.title = NSLocalizedString(@"header.acknowledgements", @"A heading for the Acknowledgements screen.");
 
 }
 
@@ -40,19 +40,19 @@
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Funders", @"")
+      initWithHeaderText:NSLocalizedString(@"header.funders", @"A header for a section about the funders of the app.")
       formElements:@[
-          [[MultiLineLabelFormElement alloc] initWithText:NSLocalizedString(@"Prince Claus Fund", @"")],
-          [[MultiLineLabelFormElement alloc] initWithText:NSLocalizedString(@"The International Centre for the Study of the Preservation and Restoration of Cultural Property (ICCROM)", @"")],
+          [[MultiLineLabelFormElement alloc] initWithText:@"Prince Claus Fund"],
+          [[MultiLineLabelFormElement alloc] initWithText:@"The International Centre for the Study of the Preservation and Restoration of Cultural Property (ICCROM)"],
       ]
       ]
      ];
 
     [self.view addFormGroup:
      [[FormGroup alloc]
-      initWithHeaderText:NSLocalizedString(@"Localizations", @"")
+      initWithHeaderText:NSLocalizedString(@"header.localizations", @"A header for a section about localizations.")
       formElements:@[
-          [[MultiLineLabelFormElement alloc] initWithText:NSLocalizedString(@"Special thanks to Hossam Mahdy for the Arabic localization of Amal.", @"")],
+          [[MultiLineLabelFormElement alloc] initWithText:@"Special thanks to Hossam Mahdy for the Arabic localization of Amal."],
       ]
       ]
      ];

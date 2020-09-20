@@ -108,33 +108,33 @@
 - (NSString *)localizedCondition {
     switch (self.conditionNumber) {
         case 0:
-            return NSLocalizedString(@"unknown", @"An assessed object with unknown damage.");
+            return NSLocalizedString(@"object-condition.unknown", @"An assessed object with unknown damage.");
         case 1:
-            return NSLocalizedString(@"none", @"An assessed object with no damage.");
+            return NSLocalizedString(@"object-condition.none", @"An assessed object with no damage.");
         case 2:
-            return NSLocalizedString(@"minor", @"An assessed object with minor damage");
+            return NSLocalizedString(@"object-condition.minor", @"An assessed object with minor damage");
         case 3:
-            return NSLocalizedString(@"moderate", @"An assessed object with moderate damage");
+            return NSLocalizedString(@"object-condition.moderate", @"An assessed object with moderate damage");
         case 4:
-            return NSLocalizedString(@"severe", @"An assessed object with severe damage");
+            return NSLocalizedString(@"object-condition.severe", @"An assessed object with severe damage");
         case 5:
-            return NSLocalizedString(@"collapsed", @"An assessed object with collapsed damage");
+            return NSLocalizedString(@"object-condition.collapsed", @"An assessed object with collapsed damage");
     }
 
-    return NSLocalizedString(@"unknown", @"An assessed object with unknown damage.");
+    return NSLocalizedString(@"object-condition.unknown", @"An assessed object with unknown damage.");
 }
 
 - (NSString *)localizedCategory {
     if ([self.category isEqualToString:@"area"]) {
-        return NSLocalizedString(@"area", @"An assessed object of site type.");
+        return NSLocalizedString(@"object-type.area", @"An assessed object of area type.");
     }
     if ([self.category isEqualToString:@"site"]) {
-        return NSLocalizedString(@"site", @"An assessed object of area type.");
+        return NSLocalizedString(@"object-type.site", @"An assessed object of site or building type.");
     }
     if ([self.category isEqualToString:@"object"]) {
-        return NSLocalizedString(@"object", @"An assessed object of object type.");
+        return NSLocalizedString(@"object-type.object", @"An assessed object of object type.");
     }
-    return NSLocalizedString(@"unknown", @"An assessed object of unknown type.");
+    return NSLocalizedString(@"object-type.unknown", @"An assessed object of unknown type.");
 }
 
 
