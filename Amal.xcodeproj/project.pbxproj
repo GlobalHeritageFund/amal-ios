@@ -746,10 +746,9 @@
 			};
 			buildConfigurationList = 580A55351E5CFC1000A70AB1 /* Build configuration list for PBXProject "Amal" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				de,
