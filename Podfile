@@ -15,3 +15,11 @@ target 'Amal' do
     pod 'Fabric', '1.7.9'
     pod 'Crashlytics', '3.10.5'
 end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+        end
+    end
+end
