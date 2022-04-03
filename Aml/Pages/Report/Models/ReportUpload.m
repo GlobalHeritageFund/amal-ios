@@ -108,6 +108,18 @@
             [self.promise reject:error];
         }];
 
+    } else if (self.databaseTarget == DatabaseTargetUkraine) {
+        HerBridgeReportUploader *uploader = [[HerBridgeReportUploader alloc] initWithBaseString:@"https://ukraine.herbridge.org/" session:[NSURLSession sharedSession] progresses:self.progresses];
+        Promise *promise = [uploader uploadReport:self];
+
+        [[promise then:^id _Nullable(id  _Nonnull object) {
+            ((HerBridgeReport *)object).databaseTarget = DatabaseTargetLebanon;
+            [self.promise fulfill:object];
+            return nil;
+        }] catch:^(NSError * _Nonnull error) {
+            [self.promise reject:error];
+        }];
+
     } else if (self.databaseTarget == DatabaseTargetAmal) {
         FIRDatabaseReference *reportRef = [self.reportsDirectory childByAutoId];
         

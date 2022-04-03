@@ -16,6 +16,8 @@ NSString *DatabaseTargetMakeString(DatabaseTarget target) {
             return @"eamena";
         case DatabaseTargetLebanon:
             return @"lebanon";
+        case DatabaseTargetUkraine:
+            return @"ukraine";
     }
 }
 
@@ -28,6 +30,9 @@ DatabaseTarget DatabaseTargetFromString(NSString *string) {
     }
     if ([string isEqualToString:@"lebanon"]) {
         return DatabaseTargetLebanon;
+    }
+    if ([string isEqualToString:@"ukraine"]) {
+        return DatabaseTargetUkraine;
     }
     return DatabaseTargetAmal;
 }

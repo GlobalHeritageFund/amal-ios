@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger, DatabaseTarget) {
     DatabaseTargetAmal = 0,
     DatabaseTargetEAMENA,
     DatabaseTargetLebanon,
+    DatabaseTargetUkraine,
 };
 
 NSString * _Nonnull DatabaseTargetMakeString(DatabaseTarget target);

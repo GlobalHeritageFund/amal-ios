@@ -129,7 +129,7 @@
     self.reportHeader.reportStateLabel.textColor = self.viewModel.reportStateColor;
     self.reportHeader.totalProgressView.hidden = !self.viewModel.showProgressBars;
 
-    if ([CurrentUser shared].isEAMENAUnlocked || [CurrentUser shared].isLebanonUnlocked) {
+    if ([CurrentUser shared].unlockedDatabaseTargets.count != 0) {
         self.reportHeader.databasePicker.nameLabel.text = NSLocalizedString(@"database-target", @"A label for a control that allows the user to change the database target of a report.");
         self.reportHeader.databasePicker.valueLabel.text = [DatabaseTargetMakeString(self.viewModel.databaseTarget) localizedCapitalizedString];
     }

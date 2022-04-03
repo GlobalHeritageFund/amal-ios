@@ -46,25 +46,26 @@
              
              if (number) {
                  PassphraseUnlockStatus status = number.integerValue;
-                 
+
+                 NSString *title = NSLocalizedString(@"header.partner-database-unlocked", @"A title for a warning informing the user that they've unlocked a database.");
+                 NSString * message;
                  if (status == PassphraseUnlockStatusEAMENA) {
                      [CurrentUser shared].isEAMENAUnlocked = YES;
-                     
-                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"header.partner-database-unlocked", @"A title for a warning informing the user that they've unlocked a database.") message:NSLocalizedString(@"label.eamena-unlocked", @"Informs the user that they've unlocked a database") preferredStyle:UIAlertControllerStyleAlert];
-                     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.ok", @"A standard OK button.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                         [weakSelf.navigationController popViewControllerAnimated:YES];
-                     }]];
-                     [weakSelf presentViewController:alertController animated:YES completion:nil];
+                     message = NSLocalizedString(@"label.eamena-unlocked", @"Informs the user that they've unlocked a database");
                  } else if (status == PassphraseUnlockStatusLebanon) {
                      [CurrentUser shared].isLebanonUnlocked = YES;
-                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"header.partner-database-unlocked", @"A title for a warning informing the user that they've unlocked a database.") message:NSLocalizedString(@"label.lebanon-unlocked", @"Informs the user that they've unlocked a database") preferredStyle:UIAlertControllerStyleAlert];
-                     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.ok", @"A standard OK button.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                         [weakSelf.navigationController popViewControllerAnimated:YES];
-                     }]];
-                     [weakSelf presentViewController:alertController animated:YES completion:nil];
-
+                     message = NSLocalizedString(@"label.lebanon-unlocked", @"Informs the user that they've unlocked a database");
+                 } else if (status == PassphraseUnlockStatusUkraine) {
+                     [CurrentUser shared].isUkraineUnlocked = YES;
+                     message = NSLocalizedString(@"label.ukraine-unlocked", @"Informs the user that they've unlocked a database");
                  }
-                 
+
+                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+                 [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"button.ok", @"A standard OK button.") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                     [weakSelf.navigationController popViewControllerAnimated:YES];
+                 }]];
+                 [weakSelf presentViewController:alertController animated:YES completion:nil];
+
              }
              
              return nil;

@@ -12,6 +12,7 @@
 typedef NS_ENUM(NSInteger, PassphraseUnlockStatus) {
     PassphraseUnlockStatusEAMENA,
     PassphraseUnlockStatusLebanon,
+    PassphraseUnlockStatusUkraine
 };
 
 @interface PassphraseValidator : NSObject

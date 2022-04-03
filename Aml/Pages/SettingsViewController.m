@@ -142,6 +142,10 @@
         [partnerElements addObject:[[TextFormElement alloc] initWithImmutableText:NSLocalizedString(@"database-unlocked.lebanon", @"A label indicating that the Lebanon database has been unlocked.")]];
     }
 
+    if ([CurrentUser shared].isUkraineUnlocked) {
+        [partnerElements addObject:[[TextFormElement alloc] initWithImmutableText:NSLocalizedString(@"database-unlocked.ukraine", @"A label indicating that the Ukraine database has been unlocked.")]];
+    }
+
     [partnerElements addObject:[[ButtonFormElement alloc] initWithTitle:NSLocalizedString(@"button.new-partner-code", @"A button that allows the user to enter a password/code for a partner database.") block:^{
         [weakSelf.delegate didSelectEnterPassphrase];
     }]];

@@ -24,6 +24,8 @@
 
 @property (nonatomic) BOOL isLebanonUnlocked;
 
+@property (nonatomic) BOOL isUkraineUnlocked;
+
 - (void)signOut;
 
 - (NSDictionary *)dictionaryRepresentation;

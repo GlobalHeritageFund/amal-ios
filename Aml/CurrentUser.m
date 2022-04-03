@@ -37,8 +37,13 @@
     return @"EAMENAEnabledKey";
 }
 
-- (NSString *)lebanonEAMENAEnabledKey {
+- (NSString *)lebanonEnabledKey {
+    // there is a typo here in the key name, probably fine
     return @"LebanonEAMENAEnabledKey";
+}
+
+- (NSString *)ukraineEnabledKey {
+    return @"UkraineEnabledKey";
 }
 
 - (NSString *)deviceToken {
@@ -68,11 +73,19 @@
 }
 
 - (BOOL)isLebanonUnlocked {
-    return [self.userDefaults boolForKey:self.lebanonEAMENAEnabledKey];
+    return [self.userDefaults boolForKey:self.lebanonEnabledKey];
 }
 
 - (void)setIsLebanonUnlocked:(BOOL)isLebanonUnlocked {
-    [self.userDefaults setBool:isLebanonUnlocked forKey:self.lebanonEAMENAEnabledKey];
+    [self.userDefaults setBool:isLebanonUnlocked forKey:self.lebanonEnabledKey];
+}
+
+- (BOOL)isUkraineUnlocked {
+    return [self.userDefaults boolForKey:self.ukraineEnabledKey];
+}
+
+- (void)setIsUkraineUnlocked:(BOOL)isUkraineUnlocked {
+    [self.userDefaults setBool:isUkraineUnlocked forKey:self.ukraineEnabledKey];
 }
 
 - (NSArray *)unlockedDatabaseTargets {
@@ -85,6 +98,10 @@
 
     if (self.isLebanonUnlocked) {
         [targets addObject:@(DatabaseTargetLebanon)];
+    }
+
+    if (self.isUkraineUnlocked) {
+        [targets addObject:@(DatabaseTargetUkraine)];
     }
 
     return targets;
