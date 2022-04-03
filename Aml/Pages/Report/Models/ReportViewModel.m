@@ -40,8 +40,8 @@ static NSDateFormatter *dateFormatter = nil;
 - (NSString *)dateInterval {
     if (dateIntervalFormatter == nil) {
         dateIntervalFormatter = [[NSDateIntervalFormatter alloc] init];
-        dateIntervalFormatter.dateStyle = NSDateFormatterMediumStyle;
-        dateIntervalFormatter.timeStyle = NSDateFormatterNoStyle;
+        dateIntervalFormatter.dateStyle = NSDateIntervalFormatterMediumStyle;
+        dateIntervalFormatter.timeStyle = NSDateIntervalFormatterNoStyle;
     }
     if (self.report.photos.count == 0) {
         return @"";
