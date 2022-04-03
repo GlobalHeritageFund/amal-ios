@@ -96,6 +96,9 @@
 /* A label indicating that the Lebanon database has been unlocked. */
 "database-unlocked.lebanon" = "Lebanon unlocked";
 
+/* A label indicating that the Lebanon database has been unlocked. */
+"database-unlocked.Ukraine" = "Ukraine unlocked";
+
 /* A description of the Amal project. */
 "description.amal" = "AMAL is an emergency management application designed for the rapid impact assessment of cultural heritage areas, buildings, and artifacts.";
 
@@ -228,6 +231,9 @@
 
 /* Informs the user that they've unlocked a database */
 "label.lebanon-unlocked" = "You have unlocked the Lebanon database.";
+
+/* Informs the user that they've unlocked a database */
+"label.ukraine-unlocked" = "You have unlocked the Ukraine database.";
 
 /* A description of a report with no email associated with it. */
 "label.no-email" = "No email set.";
