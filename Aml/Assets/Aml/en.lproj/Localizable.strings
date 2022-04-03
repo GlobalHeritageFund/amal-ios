@@ -97,7 +97,7 @@
 "database-unlocked.lebanon" = "Lebanon unlocked";
 
 /* A label indicating that the Lebanon database has been unlocked. */
-"database-unlocked.Ukraine" = "Ukraine unlocked";
+"database-unlocked.ukraine" = "Ukraine unlocked";
 
 /* A description of the Amal project. */
 "description.amal" = "AMAL is an emergency management application designed for the rapid impact assessment of cultural heritage areas, buildings, and artifacts.";
