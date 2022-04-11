@@ -756,6 +756,7 @@
 				ja,
 				pl,
 				ar,
+				ru,
 			);
 			mainGroup = 580A55311E5CFC1000A70AB1;
 			productRefGroup = 580A553B1E5CFC1000A70AB1 /* Products */;
@@ -1135,6 +1136,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = SG3NZ84FK5;
+				EXCLUDED_ARCHS = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
