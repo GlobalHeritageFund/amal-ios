@@ -243,6 +243,12 @@
 		34C59CC125095C8E00D7CF03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CameraViewController.strings; sourceTree = "<group>"; };
 		34C59CC52509690000D7CF03 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		34C59CC72509690800D7CF03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		34D6841D2804D88200D23492 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CameraViewController.strings; sourceTree = "<group>"; };
+		34D6841E2804D88200D23492 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Intro.strings; sourceTree = "<group>"; };
+		34D6841F2804D88200D23492 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		34D684202804D88200D23492 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Aml/ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		34D684212804D88200D23492 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		34D684222804D88300D23492 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		364849B5AE5394A5BF3ECBD8 /* Pods-Amal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Amal/Pods-Amal.debug.xcconfig"; sourceTree = "<group>"; };
 		580A553A1E5CFC1000A70AB1 /* Amal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580A553E1E5CFC1000A70AB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -751,10 +757,6 @@
 			knownRegions = (
 				en,
 				Base,
-				de,
-				es,
-				ja,
-				pl,
 				ar,
 				ru,
 			);
@@ -969,6 +971,7 @@
 				340F5B3124F86271003FFDA3 /* Base */,
 				34C59CBD250955F400D7CF03 /* ar */,
 				34C59CBF250955F600D7CF03 /* en */,
+				34D6841E2804D88200D23492 /* ru */,
 			);
 			name = Intro.storyboard;
 			sourceTree = "<group>";
@@ -978,6 +981,7 @@
 			children = (
 				34198C58250B041F00AF1ADD /* en */,
 				34198C5A250B043400AF1ADD /* ar */,
+				34D684222804D88300D23492 /* ru */,
 			);
 			name = Localizable.stringsdict;
 			sourceTree = "<group>";
@@ -987,6 +991,7 @@
 			children = (
 				3432771924F870C400247924 /* en */,
 				341A66BC25017DF100E134CB /* ar */,
+				34D684202804D88200D23492 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -996,6 +1001,7 @@
 			children = (
 				34C59CC52509690000D7CF03 /* ar */,
 				34C59CC72509690800D7CF03 /* en */,
+				34D684212804D88200D23492 /* ru */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1006,6 +1012,7 @@
 				580A55471E5CFC1000A70AB1 /* Base */,
 				34C59CC025095C7C00D7CF03 /* ar */,
 				34C59CC125095C8E00D7CF03 /* en */,
+				34D6841D2804D88200D23492 /* ru */,
 			);
 			name = CameraViewController.storyboard;
 			path = .;
@@ -1015,6 +1022,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				580A554C1E5CFC1000A70AB1 /* Base */,
+				34D6841F2804D88200D23492 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			path = .;

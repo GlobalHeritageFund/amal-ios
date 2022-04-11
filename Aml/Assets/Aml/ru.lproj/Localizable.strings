@@ -1,0 +1,340 @@
+/* A header for a section that describes the Amal project. */
+"amal.about" = "Об АМАЛЬ";
+
+/* A button that shows the acknowledgements. */
+"button.acknowledgements" = "Благодарности";
+
+/* A button to start a flow to add more images to a report draft. */
+"button.add" = "Добавить...";
+
+/* A standard cancel button. */
+"button.cancel" = "Отменить";
+
+/* A button to create a report from some selected photos. */
+"button.create-report" = "Создать отчет";
+
+/* A standard delete button. */
+"button.delete" = "Удалить";
+
+/* A button to discard the draft. */
+"button.discard" = "Выбрасывать";
+
+/* A standard dismiss button. */
+"button.dismiss" = "Отклонять";
+
+/* A button label to adjust the location of the object.
+   A heading for the screen to edit an object's location. */
+"button.edit-location" = "Редактировать местоположение";
+
+/* A button that imports photos from the user's library. */
+"button.import" = "Импортировать";
+
+/* A button that logs the user out.
+   A header for a button that logs the user out. */
+"button.log-out" = "Выйти";
+
+/* A button that enters a mode where users can select more on than one photo to take action on it. */
+"button.multi-select" = "Выбирать";
+
+/* A button that allows the user to enter a password/code for a partner database. */
+"button.new-partner-code" = "Введите новый партнерский код";
+
+/* A standard OK button. */
+"button.ok" = "OK";
+
+/* A button to open a PDF version of the report. */
+"button.pdf-report" = "PDF-отчет";
+
+/* A button that directs the user to the Amal privacy policy. */
+"button.privacy-policy" = "Политика конфиденциальности";
+
+/* An option to allow the user to publish a report anonymously. */
+"button.publish-anonymously" = "Публиковать анонимно";
+
+/* A button to publish a report to a database. */
+"button.publish-report" = "Опубликовать отчет";
+
+/* A button to save some selected photos to their device's photo library. */
+"button.save" = "Сохранить";
+
+/* A button to save the draft. */
+"button.save-draft" = "Сохранить черновик";
+
+/* A button label to set a location for an unlocated object. */
+"button.set-location" = "Установить местоположение";
+
+/* A title for an alert asking the user what kind of report they want to share. */
+"button.share" = "Поделиться";
+
+/* A standard submit button. */
+"button.submit" = "Отправить";
+
+/* A button that directs the user to the Amal terms of service. */
+"button.terms-of-service" = "условия обслуживания";
+
+/* A button to update the location of an object. */
+"button.update-location" = "Обновить местоположение";
+
+/* A button that directs the user to the Amal user guide. */
+"button.user-guide" = "Руководство пользователя";
+
+/* A button that directs the user to the Amal web site. */
+"button.visit-amal-global" = "Посетить amal.global";
+
+/* A button to open the web version of a report. */
+"button.web-report" = "Веб-отчет";
+
+/* A description of when a report was created. */
+"created-at" = "Создан: %@";
+
+/* A label for a control that allows the user to change the database target of a report. */
+"database-target" = "Целевая база данных";
+
+/* A label indicating that the EAMENA database has been unlocked. */
+"database-unlocked.eamena" = "EAMENA разблокирована";
+
+/* A label indicating that the Lebanon database has been unlocked. */
+"database-unlocked.lebanon" = "Ливан разблокирован";
+
+/* A description of the Amal project. */
+"description.amal" = "АМАЛЬ - это приложение для управления чрезвычайными ситуациями, предназначенное для быстрой оценки воздействия на объекты культурного наследия, здания и артефакты.";
+
+/* A label for a filter for all items. */
+"filter.all" = "Все";
+
+/* A label for a filter for items with a form that has been filled out. */
+"filter.assessed" = "Оцененные";
+
+/* A label for a filter for items with a form that has not been filled out yet. */
+"filter.unassessed" = "Неоцененные";
+
+/* A header for a section that shows the user's account information. */
+"header.account" = "Учетная запись";
+
+/* A heading for the Acknowledgements screen. */
+"header.acknowledgements" = "Благодарности";
+
+/* A title for a warning asking if the user is sure they want to delete a draft report.
+   A title for a warning asking if the user is sure they want to delete a report.
+   A title for a warning asking if the user is sure they want to delete some photos.
+   A title for a warning asking if the user is sure they want to log out. */
+"header.are-you-sure" = "Вы уверены?";
+
+/* A button to assess some selected photos.
+   A header for a section for the hazards of the object.
+   A heading for the Assess screen.
+   A tab bar button label that takes you to the Assess tab. */
+"header.assess" = "Оценить";
+
+/* A heading for the screen to assess multiple objects. */
+"header.batch-assess" = "Пакетная оценка";
+
+/* A heading for the Camera screen.
+   A tab bar button label that takes you to the Camera tab. */
+"header.camera" = "Фотокамера";
+
+/* A header for a section for the category of the object. */
+"header.category" = "Категория";
+
+/* A header for a section for the condition of the object. */
+"header.condition" = "Общее состояние";
+
+/* A header for a section for the GPS coordinates of the object. */
+"header.coordinates" = "Координаты";
+
+/* A header for a section that shows the user's draft reports. */
+"header.drafts" = "Черновики";
+
+/* A title for a warning that some duplicate photos were found during import. */
+"header.duplicate-found" = "Найден дубликат";
+
+/* A title for a warning informing the user that an error occurred when uploading a report. */
+"header.error" = "Произошла ошибка";
+
+/* A header for a section about the funders of the app. */
+"header.funders" = "Спонсоры";
+
+/* A header for a section about localizations. */
+"header.localizations" = "Локализации";
+
+/* A header for a button that logs the user in.
+   A title for a sheet asking if the user wants to log in before publishing.
+   An option to allow the user to log in to publish a report. */
+"header.log-in" = "Войти";
+
+/* A header for a section for the location of the object.
+   A title for a screen that shows the location of an object. */
+"header.map" = "Карта";
+
+/* A header for a section for any notes about the object. */
+"header.notes" = "Примечания";
+
+/* A description for a text field for a code/password to unlock a partner database.
+   A header for a section about unlocking partner databases with a code/password. */
+"header.partner-code" = "Введите партнерский код";
+
+/* A title for a warning informing the user that their code/password was invalid. */
+"header.partner-code-invalid" = "Неверный код";
+
+/* A title for a warning informing the user that they've unlocked a database. */
+"header.partner-database-unlocked" = "База данных партнера разблокирована";
+
+/* A section that shows information about Amal partners. */
+"header.partners" = "Партнеры";
+
+/* A header for a photo picker. */
+"header.photos" = "Фотографии";
+
+/* A header for the section that shows the user's published reports.
+   A report that has been published. */
+"header.published" = "Опубликовано";
+
+/* A label indicating that a report is in the process of publishing. */
+"header.publishing-in-progress" = "Публикуется";
+
+/* A header for a screen showing or editing a report. */
+"header.report" = "Отчет";
+
+/* A heading for the Reports list screen.
+   A tab bar button label that takes you to the Reports tab. */
+"header.reports" = "Отчеты";
+
+/* A heading for the screen to select a partner's database. */
+"header.select-database" = "Выберите базу данных";
+
+/* A heading for the Settings screen. */
+"header.settings" = "Настройки";
+
+/* A header for a section that shows the app's version. */
+"header.version" = "Версия";
+
+/* A header for a section that shows web links for Amal. */
+"header.visit" = "Посетите";
+
+/* A label that explains the gallery to users who have not taken any photos yet. */
+"help-text.gallery" = "Когда вы будете делать фотографии, они будут храниться в вашей галерее.";
+
+/* A label that explains the reports screen to users who have created any reports or drafts yet. */
+"help-text.reports" = "Чтобы создать отчет, сначала сделайте несколько фотографий, а затем нажмите \"Новый\" вверху.";
+
+/* A label indicating that a report is a draft, not yet published and only saved locally on the user's device. */
+"label.draft" = "Черновик";
+
+/* Informs the user that they've unlocked a database */
+"label.eamena-unlocked" = "Вы разблокировали базу данных EAMENA.";
+
+/* A description for a filter that can be applied to a list of photos. */
+"label.filter.interpolation" = "Фильтровать: %@";
+
+/* Informs the user that they've unlocked a database */
+"label.lebanon-unlocked" = "Вы разблокировали базу данных по Ливану.";
+
+/* A description of a report with no email associated with it. */
+"label.no-email" = "Адрес электронной почты не установлен.";
+
+/* A label for an object with no notes. */
+"label.no-notes" = "Никаких примечаний.";
+
+/* A label for an object with no name. */
+"label.object.unnamed" = "Безымянный";
+
+/* A label for a form to unlock partner databases with a code/password. */
+"label.partner-code" = "Код партнера";
+
+/* A report that has been uploaded. */
+"label.report-uploaded" = "Загружено";
+
+/* A label indicating that a repor is in the process of uploading. */
+"label.report-uploading-in-progress" = "Загрузка...";
+
+/* A label for a report with no name. */
+"label.report.untitled" = "Без названия";
+
+/* A header for a section for the name of the object.
+   A label for a text field for the name of the object. */
+"Name" = "Название";
+
+/* A button to create a new report. */
+"New" = "Новый";
+
+/* An assessed object with collapsed damage */
+"object-condition.collapsed" = "разрушенный";
+
+/* A description for an object's condition that is destroyed. (Scale 5/5) */
+"object-condition.description.collapsed" = "Разрушенный, уничтожен.";
+
+/* A description for an object's condition that is fair. (Scale 2/5) */
+"object-condition.description.minor" = "Незначительные повреждения, удовлетворительное состояние.";
+
+/* A description for an object's condition that is moderate. (Scale 3/5) */
+"object-condition.description.moderate" = "Умеренные повреждения, плохое состояние.";
+
+/* A description for an object's condition that is good. (Scale 1/5) */
+"object-condition.description.none" = "Без повреждений, хорошее состояние.";
+
+/* A description for an object's condition that is severe. (Scale 4/5) */
+"object-condition.description.severe" = "Сильные повреждения, очень плохое состояние.";
+
+/* A description for an object's condition that is unknown (Scale 0/5). */
+"object-condition.description.unknown" = "Состояние неизвестно.";
+
+/* An assessed object with minor damage */
+"object-condition.minor" = "незначительное";
+
+/* An assessed object with moderate damage */
+"object-condition.moderate" = "умеренное";
+
+/* An assessed object with no damage. */
+"object-condition.none" = "никакое";
+
+/* An assessed object with severe damage */
+"object-condition.severe" = "тяжелое";
+
+/* An assessed object of unknown type.
+   An assessed object with unknown damage. */
+"object-condition.unknown" = "неизвестно";
+
+/* An assessed object of site type. */
+"object-type.area" = "территория";
+
+/* An assessed object of object type. */
+"object-type.object" = "предмет";
+
+/* An assessed object of site or building type. */
+"object-type.site" = "Памятник / здание";
+
+/* An assessed object of unknown type. */
+"object-type.unknown" = "неизвестный";
+
+/* Placeholder text for the email of a report. */
+"placeholder.email" = "Электронная почта";
+
+/* Placeholder text for the title of a report. */
+"placeholder.report-title" = "Название";
+
+/* A label for a switch to determine if there are hazards in the area of the assessed object. */
+"switch-label.hazards" = "Опасности";
+
+/* A label for a switch to determine if intervention is recommended for the assessed object. */
+"switch-label.intervention" = "Рекомендуемое вмешательство";
+
+/* A label for a switch to determine if there is a safety hazard in the area of the assessed object. */
+"switch-label.personal-hazard" = "Безопасность/Личная опасность";
+
+/* A title for a sheet asking if the user wants save the draft. */
+"title.save-draft" = "Сохранить как черновик?";
+
+/* A warning informing the users that their code/password was invalid. */
+"warning.database-password-invalid" = "Этот код не соответствует ни одному партнеру.";
+
+/* A warning for users asking if they are sure if they want to delete a draft. */
+"warning.delete-draft" = "Вы уверены, что хотите удалить этот черновик? Это не может быть восстановлено.";
+
+/* A warning for users asking if they are sure if they want to delete a report. */
+"warning.delete-report" = "AВы уверены, что хотите удалить этот отчет? Это не может быть восстановлено.";
+
+/* A warning that shows up if one of the photos you are trying to import has already been imported. */
+"warning.duplicate-found" = "Это фото уже импортировано. Это не повлияет на другие фотографии, которые вы импортируете.";
+
+/* A warning asking if the user is sure they want to log out. */
+"warning.log-out" = "Вы действительно хотите выйти?";
