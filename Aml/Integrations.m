@@ -9,7 +9,7 @@
 @import FirebaseDatabase;
 @import Firebase;
 #import "Integrations.h"
-#import <Crashlytics/Crashlytics.h>
+@import FirebaseCrashlytics;
 
 @implementation CrashlyticsIntegration
 
@@ -17,8 +17,8 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Secrets" ofType:@"plist" inDirectory:nil forLocalization:nil];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSDictionary *dictionary = [NSPropertyListSerialization propertyListWithData:data options:0 format:nil error:nil];
-
-    [Crashlytics startWithAPIKey:dictionary[@"crashlyticsKey"]];
+//    [FIRCrashlytics crashlytics] 
+//    [Crashlytics startWithAPIKey:dictionary[@"crashlyticsKey"]];
 }
 
 @end

@@ -6,9 +6,8 @@
 //  Copyright © 2017 Global Heritage Fund. All rights reserved.
 //
 
+@import FirebaseCrashlytics;
 #import "AppDelegate.h"
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
 #import "Integrations.h"
 #import "Firebase.h"
 #import "AppCoordinator.h"
