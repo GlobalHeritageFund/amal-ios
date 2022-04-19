@@ -124,6 +124,22 @@
                     [weakSelf setupForm];
                     return nil;
                 }];
+
+                FIRActionCodeSettings *actionCodeSettings = [[FIRActionCodeSettings alloc] init];
+                actionCodeSettings.URL = [NSURL URLWithString:@"amalinheritage-566f5.firebaseapp.com"];
+                actionCodeSettings.handleCodeInApp = YES;
+                [actionCodeSettings setIOSBundleID:@"org.amalglobal.amalinheritage"];
+
+                id<FUIAuthProvider> provider = [[FUIEmailAuth alloc]
+                                                initAuthAuthUI:[FUIAuth defaultAuthUI]
+                                                signInMethod:FIREmailPasswordAuthSignInMethod
+                                                forceSameDevice:NO
+                                                allowNewEmailAccounts:YES
+                                                actionCodeSetting:actionCodeSettings];
+
+                auth.providers = @[
+                    provider,
+                ];
                 UINavigationController *controller = [auth authViewController];
                 [weakSelf presentViewController:controller animated:YES completion:nil];
             }];
