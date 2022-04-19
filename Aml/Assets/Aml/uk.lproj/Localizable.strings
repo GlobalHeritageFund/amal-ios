@@ -1,0 +1,340 @@
+/* A header for a section that describes the Amal project. */
+"amal.about" = "Про АМАЛЬ";
+
+/* A button that shows the acknowledgements. */
+"button.acknowledgements" = "Подяки";
+
+/* A button to start a flow to add more images to a report draft. */
+"button.add" = "Додати...";
+
+/* A standard cancel button. */
+"button.cancel" = "Відмітити";
+
+/* A button to create a report from some selected photos. */
+"button.create-report" = "Створити звіт";
+
+/* A standard delete button. */
+"button.delete" = "Видалити";
+
+/* A button to discard the draft. */
+"button.discard" = "Викинути";
+
+/* A standard dismiss button. */
+"button.dismiss" = "Відхилити";
+
+/* A button label to adjust the location of the object.
+   A heading for the screen to edit an object's location. */
+"button.edit-location" = "Редагувати розташування";
+
+/* A button that imports photos from the user's library. */
+"button.import" = "Імпортувати";
+
+/* A button that logs the user out.
+   A header for a button that logs the user out. */
+"button.log-out" = "Вийти";
+
+/* A button that enters a mode where users can select more on than one photo to take action on it. */
+"button.multi-select" = "Выбрати";
+
+/* A button that allows the user to enter a password/code for a partner database. */
+"button.new-partner-code" = "Введіть новий партнерський код";
+
+/* A standard OK button. */
+"button.ok" = "OK";
+
+/* A button to open a PDF version of the report. */
+"button.pdf-report" = "PDF-звіт";
+
+/* A button that directs the user to the Amal privacy policy. */
+"button.privacy-policy" = "Політика конфіденційності";
+
+/* An option to allow the user to publish a report anonymously. */
+"button.publish-anonymously" = "Опублікувати анонімно";
+
+/* A button to publish a report to a database. */
+"button.publish-report" = "Опублікувати звіт";
+
+/* A button to save some selected photos to their device's photo library. */
+"button.save" = "Зберегти";
+
+/* A button to save the draft. */
+"button.save-draft" = "Зберегти чернетку";
+
+/* A button label to set a location for an unlocated object. */
+"button.set-location" = "Встановити розташування";
+
+/* A title for an alert asking the user what kind of report they want to share. */
+"button.share" = "Поділитися";
+
+/* A standard submit button. */
+"button.submit" = "Відправити";
+
+/* A button that directs the user to the Amal terms of service. */
+"button.terms-of-service" = "Умови обслуговування";
+
+/* A button to update the location of an object. */
+"button.update-location" = "Оновити розташування";
+
+/* A button that directs the user to the Amal user guide. */
+"button.user-guide" = "Посібник користувача";
+
+/* A button that directs the user to the Amal web site. */
+"button.visit-amal-global" = "Відвідати amal.global";
+
+/* A button to open the web version of a report. */
+"button.web-report" = "Веб-звіт";
+
+/* A description of when a report was created. */
+"created-at" = "Створений: %@";
+
+/* A label for a control that allows the user to change the database target of a report. */
+"database-target" = "Цільова база даних";
+
+/* A label indicating that the EAMENA database has been unlocked. */
+"database-unlocked.eamena" = "EAMENA розблокована";
+
+/* A label indicating that the Lebanon database has been unlocked. */
+"database-unlocked.lebanon" = "Ліван розблокований";
+
+/* A description of the Amal project. */
+"description.amal" = "АМАЛЬ - ця програма для управління надзвичайними ситуаціями, призначена для швидкої оцінки впливу на об'єкти культурної спадщини, будівлі та артефакти.";
+
+/* A label for a filter for all items. */
+"filter.all" = "Все";
+
+/* A label for a filter for items with a form that has been filled out. */
+"filter.assessed" = "Оцінені";
+
+/* A label for a filter for items with a form that has not been filled out yet. */
+"filter.unassessed" = "Неоцінені";
+
+/* A header for a section that shows the user's account information. */
+"header.account" = "Обліковий запис";
+
+/* A heading for the Acknowledgements screen. */
+"header.acknowledgements" = "Подяки";
+
+/* A title for a warning asking if the user is sure they want to delete a draft report.
+   A title for a warning asking if the user is sure they want to delete a report.
+   A title for a warning asking if the user is sure they want to delete some photos.
+   A title for a warning asking if the user is sure they want to log out. */
+"header.are-you-sure" = "Ви впевнені?";
+
+/* A button to assess some selected photos.
+   A header for a section for the hazards of the object.
+   A heading for the Assess screen.
+   A tab bar button label that takes you to the Assess tab. */
+"header.assess" = "Оцінити";
+
+/* A heading for the screen to assess multiple objects. */
+"header.batch-assess" = "Пакетна оцінка";
+
+/* A heading for the Camera screen.
+   A tab bar button label that takes you to the Camera tab. */
+"header.camera" = "Фотокамера";
+
+/* A header for a section for the category of the object. */
+"header.category" = "Категорія";
+
+/* A header for a section for the condition of the object. */
+"header.condition" = "Загальний стан";
+
+/* A header for a section for the GPS coordinates of the object. */
+"header.coordinates" = "Координати";
+
+/* A header for a section that shows the user's draft reports. */
+"header.drafts" = "Чернетки";
+
+/* A title for a warning that some duplicate photos were found during import. */
+"header.duplicate-found" = "Знайдено дублікат";
+
+/* A title for a warning informing the user that an error occurred when uploading a report. */
+"header.error" = "Сталася помилка";
+
+/* A header for a section about the funders of the app. */
+"header.funders" = "Спонсори";
+
+/* A header for a section about localizations. */
+"header.localizations" = "Локалізації";
+
+/* A header for a button that logs the user in.
+   A title for a sheet asking if the user wants to log in before publishing.
+   An option to allow the user to log in to publish a report. */
+"header.log-in" = "Увійти";
+
+/* A header for a section for the location of the object.
+   A title for a screen that shows the location of an object. */
+"header.map" = "Карта";
+
+/* A header for a section for any notes about the object. */
+"header.notes" = "Примітки";
+
+/* A description for a text field for a code/password to unlock a partner database.
+   A header for a section about unlocking partner databases with a code/password. */
+"header.partner-code" = "Введіть партнерський код";
+
+/* A title for a warning informing the user that their code/password was invalid. */
+"header.partner-code-invalid" = "Невірний код";
+
+/* A title for a warning informing the user that they've unlocked a database. */
+"header.partner-database-unlocked" = "База даних партнера розблокована";
+
+/* A section that shows information about Amal partners. */
+"header.partners" = "Партнери";
+
+/* A header for a photo picker. */
+"header.photos" = "Фотографії";
+
+/* A header for the section that shows the user's published reports.
+   A report that has been published. */
+"header.published" = "Опубліковано";
+
+/* A label indicating that a report is in the process of publishing. */
+"header.publishing-in-progress" = "Публикується";
+
+/* A header for a screen showing or editing a report. */
+"header.report" = "Звіт";
+
+/* A heading for the Reports list screen.
+   A tab bar button label that takes you to the Reports tab. */
+"header.reports" = "Звіти";
+
+/* A heading for the screen to select a partner's database. */
+"header.select-database" = "Виберіть базу даних";
+
+/* A heading for the Settings screen. */
+"header.settings" = "Налаштування";
+
+/* A header for a section that shows the app's version. */
+"header.version" = "Версія";
+
+/* A header for a section that shows web links for Amal. */
+"header.visit" = "Завітайте";
+
+/* A label that explains the gallery to users who have not taken any photos yet. */
+"help-text.gallery" = "Коли ви робитимете фотографії, вони будуть зберігатися у вашій галереї.";
+
+/* A label that explains the reports screen to users who have created any reports or drafts yet. */
+"help-text.reports" = "Щоб створити звіт, спочатку зробіть кілька фотографій, а потім натисніть \"Новий\" угорі.";
+
+/* A label indicating that a report is a draft, not yet published and only saved locally on the user's device. */
+"label.draft" = "Чернетка";
+
+/* Informs the user that they've unlocked a database */
+"label.eamena-unlocked" = "Ви розблокували базу даних EAMENA.";
+
+/* A description for a filter that can be applied to a list of photos. */
+"label.filter.interpolation" = "Фільтрувати: %@";
+
+/* Informs the user that they've unlocked a database */
+"label.lebanon-unlocked" = "Ви розблокували базу даних по Лівану.";
+
+/* A description of a report with no email associated with it. */
+"label.no-email" = "Адреса електронної пошти не встановлена.";
+
+/* A label for an object with no notes. */
+"label.no-notes" = "Жодних приміток.";
+
+/* A label for an object with no name. */
+"label.object.unnamed" = "Безіменний";
+
+/* A label for a form to unlock partner databases with a code/password. */
+"label.partner-code" = "Код партнера";
+
+/* A report that has been uploaded. */
+"label.report-uploaded" = "Завантажено";
+
+/* A label indicating that a repor is in the process of uploading. */
+"label.report-uploading-in-progress" = "Завантаження...";
+
+/* A label for a report with no name. */
+"label.report.untitled" = "Без назви";
+
+/* A header for a section for the name of the object.
+   A label for a text field for the name of the object. */
+"Name" = "Назва";
+
+/* A button to create a new report. */
+"New" = "Новий";
+
+/* An assessed object with collapsed damage */
+"object-condition.collapsed" = "Зруйнований";
+
+/* A description for an object's condition that is destroyed. (Scale 5/5) */
+"object-condition.description.collapsed" = "Зруйнований, знищений.";
+
+/* A description for an object's condition that is fair. (Scale 2/5) */
+"object-condition.description.minor" = "Незначні ушкодження, задовільний стан.";
+
+/* A description for an object's condition that is moderate. (Scale 3/5) */
+"object-condition.description.moderate" = "Помірні ушкодження, поганий стан.";
+
+/* A description for an object's condition that is good. (Scale 1/5) */
+"object-condition.description.none" = "Без пошкоджень, гарний стан.";
+
+/* A description for an object's condition that is severe. (Scale 4/5) */
+"object-condition.description.severe" = "Сильні ушкодження, дуже поганий стан.";
+
+/* A description for an object's condition that is unknown (Scale 0/5). */
+"object-condition.description.unknown" = "Стан невідомий.";
+
+/* An assessed object with minor damage */
+"object-condition.minor" = "незначне";
+
+/* An assessed object with moderate damage */
+"object-condition.moderate" = "помірне";
+
+/* An assessed object with no damage. */
+"object-condition.none" = "ніяке";
+
+/* An assessed object with severe damage */
+"object-condition.severe" = "важке";
+
+/* An assessed object of unknown type.
+   An assessed object with unknown damage. */
+"object-condition.unknown" = "невідомо";
+
+/* An assessed object of site type. */
+"object-type.area" = "територія";
+
+/* An assessed object of object type. */
+"object-type.object" = "предмет";
+
+/* An assessed object of site or building type. */
+"object-type.site" = "Пам'ятник / будівля";
+
+/* An assessed object of unknown type. */
+"object-type.unknown" = "невідомий";
+
+/* Placeholder text for the email of a report. */
+"placeholder.email" = "Електронна пошта";
+
+/* Placeholder text for the title of a report. */
+"placeholder.report-title" = "Назва";
+
+/* A label for a switch to determine if there are hazards in the area of the assessed object. */
+"switch-label.hazards" = "Небезпеки";
+
+/* A label for a switch to determine if intervention is recommended for the assessed object. */
+"switch-label.intervention" = "Рекомендоване втручання";
+
+/* A label for a switch to determine if there is a safety hazard in the area of the assessed object. */
+"switch-label.personal-hazard" = "Безпека/Особиста небезпека";
+
+/* A title for a sheet asking if the user wants save the draft. */
+"title.save-draft" = "Зберегти як чернетку?";
+
+/* A warning informing the users that their code/password was invalid. */
+"warning.database-password-invalid" = "Цей код відповідає жодному партнеру.";
+
+/* A warning for users asking if they are sure if they want to delete a draft. */
+"warning.delete-draft" = "Ви впевнені, що хочете видалити цю чернетку? Це не може бути відновлено потім.";
+
+/* A warning for users asking if they are sure if they want to delete a report. */
+"warning.delete-report" = "A чи впевнені Ви, що хочете видалити цей звіт? Це не може бути відновлено потім.";
+
+/* A warning that shows up if one of the photos you are trying to import has already been imported. */
+"warning.duplicate-found" = "Це фото вже імпортовано. Це не вплине на інші фотографії, які Ви імпортуєте.";
+
+/* A warning asking if the user is sure they want to log out. */
+"warning.log-out" = "Ви справді хочете вийти?";

@@ -1,0 +1,8 @@
+/* Information about why Amal needs camera permissions. */
+"NSCameraUsageDescription" = "Амаль вимагає доступу до камери, щоб зробити фото.";
+
+/* Information about why Amal needs GPS permissions. */
+"NSLocationWhenInUseUsageDescription" = "Амаль вимагає доступу до розташування, щоб додати розташування до фотографій.";
+
+/* Information about why Amal needs photo library permissions. */
+"NSPhotoLibraryUsageDescription" = "Амаль вимагає доступу до бібліотеки фотографій, щоб імпортувати фотографії з вашої бібліотеки та експортувати їх до неї.";

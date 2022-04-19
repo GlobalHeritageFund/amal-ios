@@ -231,6 +231,12 @@
 		341DE4C724FBF73D00A5177D /* AcknowledgementsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcknowledgementsViewController.h; sourceTree = "<group>"; };
 		341DE4C824FBF73D00A5177D /* AcknowledgementsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AcknowledgementsViewController.m; sourceTree = "<group>"; };
 		3432771924F870C400247924 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Aml/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3460D3F8280E39E000817E0C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/CameraViewController.strings; sourceTree = "<group>"; };
+		3460D3F9280E39E000817E0C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Intro.strings; sourceTree = "<group>"; };
+		3460D3FA280E39E000817E0C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3460D3FB280E39E000817E0C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = Aml/uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3460D3FC280E39E000817E0C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = uk; path = uk.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		3460D3FD280E39E000817E0C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		34A648E824E997180089F939 /* DatabaseTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseTarget.h; sourceTree = "<group>"; };
 		34A648E924E997180089F939 /* DatabaseTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseTarget.m; sourceTree = "<group>"; };
 		34A648EB24E99E790089F939 /* DatabasePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabasePicker.m; sourceTree = "<group>"; };
@@ -759,6 +765,7 @@
 				Base,
 				ar,
 				ru,
+				uk,
 			);
 			mainGroup = 580A55311E5CFC1000A70AB1;
 			productRefGroup = 580A553B1E5CFC1000A70AB1 /* Products */;
@@ -972,6 +979,7 @@
 				34C59CBD250955F400D7CF03 /* ar */,
 				34C59CBF250955F600D7CF03 /* en */,
 				34D6841E2804D88200D23492 /* ru */,
+				3460D3F9280E39E000817E0C /* uk */,
 			);
 			name = Intro.storyboard;
 			sourceTree = "<group>";
@@ -982,6 +990,7 @@
 				34198C58250B041F00AF1ADD /* en */,
 				34198C5A250B043400AF1ADD /* ar */,
 				34D684222804D88300D23492 /* ru */,
+				3460D3FC280E39E000817E0C /* uk */,
 			);
 			name = Localizable.stringsdict;
 			sourceTree = "<group>";
@@ -992,6 +1001,7 @@
 				3432771924F870C400247924 /* en */,
 				341A66BC25017DF100E134CB /* ar */,
 				34D684202804D88200D23492 /* ru */,
+				3460D3FB280E39E000817E0C /* uk */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1002,6 +1012,7 @@
 				34C59CC52509690000D7CF03 /* ar */,
 				34C59CC72509690800D7CF03 /* en */,
 				34D684212804D88200D23492 /* ru */,
+				3460D3FD280E39E000817E0C /* uk */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1013,6 +1024,7 @@
 				34C59CC025095C7C00D7CF03 /* ar */,
 				34C59CC125095C8E00D7CF03 /* en */,
 				34D6841D2804D88200D23492 /* ru */,
+				3460D3F8280E39E000817E0C /* uk */,
 			);
 			name = CameraViewController.storyboard;
 			path = .;
@@ -1023,6 +1035,7 @@
 			children = (
 				580A554C1E5CFC1000A70AB1 /* Base */,
 				34D6841F2804D88200D23492 /* ru */,
+				3460D3FA280E39E000817E0C /* uk */,
 			);
 			name = LaunchScreen.storyboard;
 			path = .;
