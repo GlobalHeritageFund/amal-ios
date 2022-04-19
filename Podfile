@@ -11,6 +11,7 @@ target 'Amal' do
     pod 'Firebase/Database', '6.27.0'
     pod 'Firebase/Auth', '6.27.0'
     pod 'FirebaseUI/Auth', '8.4.2'
+    pod 'FirebaseUI/Email'
 
     pod 'Fabric', '1.7.9'
     pod 'Crashlytics', '3.10.5'

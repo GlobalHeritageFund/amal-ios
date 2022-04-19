@@ -53,6 +53,8 @@ PODS:
   - FirebaseUI/Auth (8.4.2):
     - Firebase/Auth (~> 6.0)
     - GoogleUtilities/UserDefaults
+  - FirebaseUI/Email (8.4.2):
+    - FirebaseUI/Auth
   - GoogleAppMeasurement (6.6.1):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -97,6 +99,7 @@ DEPENDENCIES:
   - Firebase/Database (= 6.27.0)
   - Firebase/Storage (= 6.27.0)
   - FirebaseUI/Auth (= 8.4.2)
+  - FirebaseUI/Email
 
 SPEC REPOS:
   trunk:
@@ -139,6 +142,6 @@ SPEC CHECKSUMS:
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: 75c6b0228635ab71705e22ef537551ecfcd196e2
+PODFILE CHECKSUM: f60a77e9c510d06b0defd04952816db66b3dfdd3
 
 COCOAPODS: 1.9.3
