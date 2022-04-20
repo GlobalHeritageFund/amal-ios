@@ -13,7 +13,7 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>d</string>
 			<key>one</key>
-			<string>Вы уверены, что хотите удалить это фото? Это не может быть отменено.</string>
+			<string>Вы уверены, что хотите удалить эту фотографию? Это не может быть отменено.</string>
 			<key>other</key>
 			<string>Вы уверены, что хотите удалить эти фотографии? Это не может быть отменено.</string>
 		</dict>
@@ -28,16 +28,12 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>zd</string>
-			<key>zero</key>
-			<string>Нет элементов</string>
             <key>one</key>
-            <string>Один элемент</string>
-            <key>two</key>
-            <string>Два элемента</string>
+            <string>%zd элемент</string>
             <key>few</key>
-            <string>Несколько элементов</string>
+            <string>%zd элемента</string>
             <key>many</key>
-            <string>Много элементов</string>
+            <string>%zd элементов</string>
 			<key>other</key>
 			<string>%zd элементов</string>
 		</dict>
@@ -52,16 +48,12 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>zd</string>
-            <key>zero</key>
-            <string>0 фотографии</string>
             <key>one</key>
-            <string>1 фотография</string>
-            <key>two</key>
-            <string>Две фотографии</string>
+            <string>%zd фотография</string>
             <key>few</key>
-            <string>Несколько фотографий</string>
+            <string>%zd фотографии</string>
             <key>many</key>
-            <string>Много фотографий</string>
+            <string>%zd фотографий</string>
             <key>other</key>
             <string>%zd фотографии</string>
 		</dict>
@@ -76,18 +68,14 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>zd</string>
-            <key>zero</key>
-            <string>Фотография не выбрана</string>
             <key>one</key>
-            <string>Выбрана 1 фотография</string>
-            <key>two</key>
-            <string>Выбраны 2 фотографии</string>
+            <string>Выбрана %zd фотография</string>
             <key>few</key>
-            <string>Выбрана несколько фотографий</string>
+            <string>Выбрано %zd фотографий</string>
             <key>many</key>
-            <string>Выбрана много фотографий</string>
+            <string>Выбрано %zd фотографий</string>
             <key>other</key>
-            <string>%Выбрана %zd фотографий</string>
+            <string>%Выбрано %zd фотографий</string>
 		</dict>
 	</dict>
 </dict>
